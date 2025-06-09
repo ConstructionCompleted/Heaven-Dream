@@ -1,17 +1,16 @@
 ﻿create_country_leader = {
-	name = "吴佩孚"
+	name = 吴佩孚
 	desc = ""
-	picture ="GFX_wupeifu"
+	picture = GFX_wupeifu
 	expire = "1965.1.1"
 	ideology = warlord
 	traits = {
-	
 	}
 }
 create_field_marshal = {
-	name = "吴佩孚"
-	picture ="GFX_wupeifu"
-	traits = { war_hero trait_reckless offensive_doctrine}
+	name = 吴佩孚
+	picture = GFX_wupeifu
+	traits = { war_hero trait_reckless offensive_doctrine  }
 	skill = 4
 	attack_skill = 5
 	defense_skill = 4
@@ -19,9 +18,9 @@ create_field_marshal = {
 	logistics_skill = 4
 }
 create_field_marshal = {
-	name = "曹锟"
+	name = 曹锟
 	picture = ".jpg"
-	traits = { inflexible_strategist career_officer defensive_doctrine}
+	traits = { inflexible_strategist career_officer defensive_doctrine  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 3
@@ -29,9 +28,9 @@ create_field_marshal = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "陈光远" 
+	name = 陈光远
 	picture = ".jpg"
-	traits = { infantry_leader trickster}
+	traits = { infantry_leader trickster  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 2
@@ -39,9 +38,9 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "蔡成勋" 
+	name = 蔡成勋
 	picture = ".jpg"
-	traits = { infantry_leader war_hero}
+	traits = { infantry_leader war_hero  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 4
@@ -49,9 +48,9 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "王占元" 
+	name = 王占元
 	picture = ".jpg"
-	traits = { infantry_leader }
+	traits = { infantry_leader  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 3
@@ -59,35 +58,29 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
-	socialism = 0
-	communism = 0
-	neutrality = 20
-	dictatorship = 40
-	democratic = 5
+	totalism = 0
+	socialism = 10
+	progressivism = 10
+	liberalism = 5
 	conservatism = 10
-	progressism = 10
-	reconcilism = 10
-	fascism = 5
-	destruction_system = 0
+	authoritarianism = 20
+	paternalism = 40
+	suprematism = 5
+	mysticism = 0
 }
-
 capital = 1117
-
-set_oob = "ZHI_1936"
-set_naval_oob = "ZHI_naval_1936"
-set_air_oob = "ZHI_1936_air_legacy"
-
+set_oob = ZHI_1936
+set_naval_oob = ZHI_naval_1936
+set_air_oob = ZHI_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -108,10 +101,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -123,11 +113,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -174,9 +168,4 @@ if = {
 }
 create_faction = zhixi_lianmeng
 add_to_faction = ZHI
-add_ideas = {
-ZHI_canbingbaijiang
-ZHI_nongye_fazhan
-ZHI_gongye_shuairuo
-ZHI_whois_sai
-}
+add_ideas = { ZHI_canbingbaijiang ZHI_nongye_fazhan ZHI_gongye_shuairuo ZHI_whois_sai }

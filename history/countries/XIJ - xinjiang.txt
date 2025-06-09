@@ -1,28 +1,26 @@
 ﻿capital = 1123
 create_country_leader = {
-	name = "金树仁"
+	name = 金树仁
 	desc = ""
-	picture = "GFX160"
+	picture = GFX160
 	expire = "1965.1.1"
 	ideology = warlord
 	traits = {
-	
 	}
 }
 create_country_leader = {
-	name = "盛世才"
+	name = 盛世才
 	desc = ""
-	picture = "GFX161"
+	picture = GFX161
 	expire = "1965.1.1"
 	ideology = baoshou_minzhu_zhuyi
 	traits = {
-	
 	}
 }
 create_field_marshal = {
-	name = "金树仁"
-	picture = "GFX160"
-	traits = { brilliant_strategist trait_cautious trait_cautious }
+	name = 金树仁
+	picture = GFX160
+	traits = { brilliant_strategist trait_cautious trait_cautious  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 3
@@ -30,9 +28,9 @@ create_field_marshal = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "盛世才" 
-	picture = "GFX161"
-	traits = { infantry_officer war_hero}
+	name = 盛世才
+	picture = GFX161
+	traits = { infantry_officer war_hero  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 3
@@ -40,9 +38,9 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "马绍武" 
+	name = 马绍武
 	picture = ".jpg"
-	traits = { cavalry_officer }
+	traits = { cavalry_officer  }
 	skill = 2
 	attack_skill = 2
 	defense_skill = 3
@@ -50,28 +48,31 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "马福明" 
+	name = 马福明
 	picture = ".jpg"
-	traits = { ranger }
+	traits = { ranger  }
 	skill = 2
 	attack_skill = 2
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 2
 }
-set_oob = "XIJ_1936"
-set_naval_oob = "XIJ_naval_1936"
-set_air_oob = "XIJ_1936_air_legacy"
-
+set_oob = XIJ_1936
+set_naval_oob = XIJ_naval_1936
+set_air_oob = XIJ_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
-
 XIJ = {
-	country_event = { id = holy_fujia.2 days = 3 }
-	country_event = { id = holy_fujia.3 days = 5 }
+	country_event = {
+		id = "holy_fujia.2"
+		days = 3
+	}
+	country_event = {
+		id = "holy_fujia.3"
+		days = 5
+	}
 }
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -92,10 +93,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -107,11 +105,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -157,39 +159,32 @@ if = {
 	}
 }
 declare_war_on = {
-		target = ETK
-		type = annex_everything
-	}
-declare_war_on = {
-		target = XQJ
-		type = annex_everything
-	}
-declare_war_on = {
-		target = HAM
-		type = annex_everything
-	}
-add_ideas = {
-XIJ_zhengzhi_douzheng
-XIJ_hasake_fankang
-XIJ_gongye_mingmai
-XIJ_jundui_liliang
+	target = ETK
+	type = annex_everything
 }
+declare_war_on = {
+	target = XQJ
+	type = annex_everything
+}
+declare_war_on = {
+	target = HAM
+	type = annex_everything
+}
+add_ideas = { XIJ_zhengzhi_douzheng XIJ_hasake_fankang XIJ_gongye_mingmai XIJ_jundui_liliang  }
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 10
-	communism = 0
-	neutrality = 10
-	dictatorship = 30
-	democratic = 3
+	progressivism = 2
+	liberalism = 3
 	conservatism = 25
-	progressism = 2
-	reconcilism = 15
-	fascism = 5
-	destruction_system = 0
+	authoritarianism = 10
+	paternalism = 30
+	suprematism = 5
+	mysticism = 15
 }

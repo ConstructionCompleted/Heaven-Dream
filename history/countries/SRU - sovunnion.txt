@@ -1,18 +1,11 @@
 ﻿capital = 573
-
-set_oob = "SRU_1936"
-set_naval_oob = "SRU_naval_1936"
-set_air_oob = "SRU_1936_air_legacy"
-
+set_oob = SRU_1936
+set_naval_oob = SRU_naval_1936
+set_air_oob = SRU_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.4
 set_war_support = 0.3
-
-add_ideas = {
-SRU_qiyi_budui
-SRU_minzu_suweiai
-SRU_gongye_quefa
-}
+add_ideas = { SRU_qiyi_budui SRU_minzu_suweiai SRU_gongye_quefa  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -33,10 +26,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -48,11 +38,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -98,37 +92,34 @@ if = {
 	}
 }
 declare_war_on = {
-		target = RUD
-		type = annex_everything
-	}
+	target = RUD
+	type = annex_everything
+}
 declare_war_on = {
-		target = SBG
-		type = annex_everything
-	}
+	target = SBG
+	type = annex_everything
+}
 declare_war_on = {
-		target = BMO
-		type = annex_everything
-	}
+	target = BMO
+	type = annex_everything
+}
 set_politics = {
-	ruling_party = reconcilism 
+	ruling_party = reconcilism
 	last_election = "1934.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 20
 	socialism = 0
-	communism = 20
-	neutrality = 0
-	dictatorship = 0
-	democratic = 0
-	conservatism = 0
-	progressism = 0
-	reconcilism = 70
-	fascism = 10
-	destruction_system = 0
+	progressivism = 0
+	liberalism = 0
+	conservatism = 70
+	authoritarianism = 0
+	paternalism = 0
+	suprematism = 10
+	mysticism = 0
 }
-
 create_country_leader = {
 	name = "尼古拉·瓦西里耶维奇·乌斯特里亚洛夫"
 	desc = ""
@@ -141,7 +132,7 @@ create_country_leader = {
 create_corps_commander = {
 	name = "伊万·亚历山德罗维奇·谢罗夫"
 	picture = ""
-	traits = { trait_reckless }
+	traits = { trait_reckless  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 2

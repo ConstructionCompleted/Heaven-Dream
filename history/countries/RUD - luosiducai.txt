@@ -1,31 +1,29 @@
 ﻿capital = 653
 create_country_leader = {
-	name = "高尔察克"
+	name = 高尔察克
 	desc = ""
-	picture = "GFX228"
+	picture = GFX228
 	expire = "1965.1.1"
 	ideology = junzheng_ducai_system
 	traits = {
 	}
 }
 create_field_marshal = {
-	name = "高尔察克"
-	picture = "GFX228"
-	traits = { war_hero offensive_doctrine }
+	name = 高尔察克
+	picture = GFX228
+	traits = { war_hero offensive_doctrine  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 4
 	planning_skill = 3
 	logistics_skill = 5
 }
-set_oob = "RUD_1936"
-set_naval_oob = "RUD_naval_1936"
-set_air_oob = "RUD_1936_air_legacy"
-
+set_oob = RUD_1936
+set_naval_oob = RUD_naval_1936
+set_air_oob = RUD_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.4
 set_war_support = 0.3
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -46,10 +44,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -61,11 +56,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -111,39 +110,34 @@ if = {
 	}
 }
 declare_war_on = {
-		target = BMO
-		type = annex_everything
-	}
+	target = BMO
+	type = annex_everything
+}
 declare_war_on = {
-		target = SBG
-		type = annex_everything
-	}
+	target = SBG
+	type = annex_everything
+}
 declare_war_on = {
-		target = SRU
-		type = annex_everything
-	}
+	target = SRU
+	type = annex_everything
+}
 create_faction = eluosi_linshizhengfu
 add_to_faction = RUD
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-add_ideas = {
-RUD_xuruo_zhengfu
-RUD_zuzhi_tixi_posui
-RUD_junshi_baquan
-}
+add_ideas = { RUD_xuruo_zhengfu RUD_zuzhi_tixi_posui RUD_junshi_baquan  }
 set_popularities = {
-	socialism = 0
-	communism = 15
-	neutrality = 20
-	dictatorship = 40
-	democratic = 0
+	totalism = 15
+	socialism = 10
+	progressivism = 0
+	liberalism = 0
 	conservatism = 0
-	progressism = 0
-	reconcilism = 10
-	fascism = 15
-	destruction_system = 0
+	authoritarianism = 20
+	paternalism = 40
+	suprematism = 15
+	mysticism = 0
 }

@@ -1,16 +1,13 @@
 ﻿capital = 294
-
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.8
-
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -29,9 +26,12 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 }
-
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -47,7 +47,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -76,24 +78,22 @@ if = {
 	}
 }
 set_convoys = 20
-
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
+	totalism = 5
 	socialism = 0
-	communism = 5
-	neutrality = 20
-	dictatorship = 60
-	democratic = 5
+	progressivism = 5
+	liberalism = 5
 	conservatism = 5
-	progressism = 5
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 20
+	paternalism = 60
+	suprematism = 0
+	mysticism = 0
 }
 create_country_leader = {
 	name = ""

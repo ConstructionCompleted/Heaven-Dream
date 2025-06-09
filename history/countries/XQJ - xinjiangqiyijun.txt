@@ -1,19 +1,17 @@
 ﻿capital = 1300
-
 create_country_leader = {
-	name = "张培元"
+	name = 张培元
 	desc = ""
-	picture = "GFX162"
+	picture = GFX162
 	expire = "1965.1.1"
 	ideology = jijin_gonghe_zhuyi
 	traits = {
-	
 	}
 }
 create_corps_commander = {
-	name = "张培元" 
-	picture = "GFX162"
-	traits = { trait_reckless infantry_officer war_hero infantry_leader}
+	name = 张培元
+	picture = GFX162
+	traits = { trait_reckless infantry_officer war_hero infantry_leader  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 4
@@ -21,19 +19,18 @@ create_corps_commander = {
 	logistics_skill = 3
 }
 create_corps_commander = {
-	name = "马仲英" 
+	name = 马仲英
 	picture = ".jpg"
-	traits = { cavalry_officer cavalry_leader}
+	traits = { cavalry_officer cavalry_leader  }
 	skill = 3
 	attack_skill = 5
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 2
 }
-set_oob = "XQJ_1936"
-set_naval_oob = "XQJ_naval_1936"
-set_air_oob = "XQJ_1936_air_legacy"
-
+set_oob = XQJ_1936
+set_naval_oob = XQJ_naval_1936
+set_air_oob = XQJ_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
@@ -57,10 +54,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -72,11 +66,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -121,39 +119,33 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-add_ideas = {
-XQJ_hanzu_jundui
-XQJ_majia_lianjun
-XQJ_shuangtou_long
+add_ideas = { XQJ_hanzu_jundui XQJ_majia_lianjun XQJ_shuangtou_long  }
+declare_war_on = {
+	target = ETK
+	type = annex_everything
 }
 declare_war_on = {
-		target = ETK
-		type = annex_everything
-	}
+	target = HAM
+	type = annex_everything
+}
 declare_war_on = {
-		target = HAM
-		type = annex_everything
-	}
-declare_war_on = {
-		target = XIJ
-		type = annex_everything
-	}
+	target = XIJ
+	type = annex_everything
+}
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 30
-	dictatorship = 20
-	democratic = 10
+	progressivism = 30
+	liberalism = 10
 	conservatism = 10
-	progressism = 30
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 30
+	paternalism = 20
+	suprematism = 0
+	mysticism = 0
 }

@@ -1,32 +1,29 @@
 ﻿capital = 213
 create_country_leader = {
-	name = "萨莫伊洛"
+	name = 萨莫伊洛
 	desc = ""
-	picture = "GFX81"
+	picture = GFX81
 	expire = "1953.3.1"
 	ideology = junzheng_gongchanzhuyi_ism
 	traits = {
-		
 	}
 }
 create_corps_commander = {
-	name = "萨莫伊洛" 
-	picture = "GFX81"
-	traits = { inflexible_strategist organizer }
+	name = 萨莫伊洛
+	picture = GFX81
+	traits = { inflexible_strategist organizer  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 5
 	planning_skill = 3
 	logistics_skill = 5
 }
-set_oob = "KRL_1936"
-set_naval_oob = "KRL_naval_1936"
-set_air_oob = "KRL_1936_air_legacy"
-
+set_oob = KRL_1936
+set_naval_oob = KRL_naval_1936
+set_air_oob = KRL_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.4
 set_war_support = 1
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -47,10 +44,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -62,11 +56,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -112,30 +110,24 @@ if = {
 	}
 }
 declare_war_on = {
-		target = RNN
-		type = annex_everything
-	}
-add_ideas = {
-KRL_youji_budui
-KRL_jianjue_dikang
-KRL_jibei_zhidi
+	target = RNN
+	type = annex_everything
 }
+add_ideas = { KRL_youji_budui KRL_jianjue_dikang KRL_jibei_zhidi  }
 set_politics = {
-	ruling_party = communism 
+	ruling_party = totalism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 100
 	socialism = 0
-	communism = 100
-	neutrality = 0
-	dictatorship = 0
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 0
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 0
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
 }

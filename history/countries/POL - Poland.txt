@@ -1,26 +1,29 @@
 ﻿capital = 10
-
-oob = "POL_1936"
+oob = POL_1936
 if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "POL_1936_naval_mtg"
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_naval_oob = POL_1936_naval_mtg
 	else = {
-		set_naval_oob = "POL_1936_naval_legacy"
+		set_naval_oob = POL_1936_naval_legacy
 	}
 }
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "POL_1936_air_bba"
-		set_technology = {
-			aa_lmg = 1
-			aa_cannon_1 = 1
-			iw_small_airframe = 1
-			basic_small_airframe = 1
-			engines_1 = 1
-			early_bombs = 1
-		}
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_air_oob = POL_1936_air_bba
+	set_technology = {
+		aa_lmg = 1
+		aa_cannon_1 = 1
+		iw_small_airframe = 1
+		basic_small_airframe = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
 	else = {
-		set_air_oob = "POL_1936_air_legacy"
+		set_air_oob = POL_1936_air_legacy
 		set_technology = {
 			early_fighter = 1
 			early_bomber = 1
@@ -28,15 +31,13 @@ if = {
 		}
 	}
 }
-
 set_research_slots = 3
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_mountaineers = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
 	gw_artillery = 1
@@ -46,10 +47,11 @@ set_technology = {
 	synth_oil_experiments = 1
 	basic_train = 1
 }
-
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
+		NOT = {
+			has_dlc = "No Step Back"
+		}
 	}
 	set_technology = {
 		gwtank = 1
@@ -64,14 +66,20 @@ if = {
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_destroyer = 1
-		early_submarine = 1	
+		early_submarine = 1
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -84,7 +92,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "No Step Back" }
+	limit = {
+		has_dlc = "No Step Back"
+	}
 	set_variable = {
 		var = pol_peasant_democracy
 		value = 30
@@ -94,32 +104,22 @@ if = {
 		value = 30
 	}
 }
-
 if = {
 	limit = {
 		has_dlc = "Poland: United and Ready"
 	}
-	add_ideas = {
-		uncontrolled_exports
-		POL_april_constitution_1
-		POL_looming_peasants_strike
-		POL_sanation_left_opposition_1
-		POL_sanation_right_opposition_1
+	add_ideas = { uncontrolled_exports POL_april_constitution_1 POL_looming_peasants_strike POL_sanation_left_opposition_1 POL_sanation_right_opposition_1 }
+}
+85 = {
+	add_dynamic_modifier = {
+		modifier = international_city
 	}
 }
-
-
-85 = {
-	add_dynamic_modifier = { modifier = international_city }
-}
-
 1939.1.1 = {
-	
 	if = {
 		limit = {
 			has_dlc = "Poland: United and Ready"
 		}
-
 		complete_national_focus = POL_central_region_strategy
 		complete_national_focus = POL_expansion_of_new_towns
 		complete_national_focus = POL_start_central_industrial_region
@@ -136,23 +136,17 @@ if = {
 		unlock_national_focus = POL_prepare_for_the_next_war
 		unlock_national_focus = POL_standardisation_of_equipment
 		unlock_national_focus = POL_modernising_the_cavalry
-
 		complete_national_focus = POL_hel_fortified_area
 		complete_national_focus = POL_silesia_fortified_area
-
-		complete_national_focus = POL_air_base_expansion 
-		complete_national_focus = POL_develop_polish_ship_building 
-
+		complete_national_focus = POL_air_base_expansion
+		complete_national_focus = POL_develop_polish_ship_building
 		complete_national_focus = POL_complete_april_constitution
 		complete_national_focus = POL_polish_militarism
 		complete_national_focus = POL_consolidate_sanation_government
-
 		remove_ideas = POL_looming_peasants_strike
 	}
-
 	add_political_power = 1198
 	add_command_power = 100
-	
 	#generic focuses
 	complete_national_focus = army_effort
 	complete_national_focus = equipment_effort
@@ -163,54 +157,50 @@ if = {
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-
-
-	add_ideas = {
+	add_ideas = { 
 		#laws
-		limited_conscription
-		partial_economic_mobilisation
+		limited_conscription partial_economic_mobilisation  }
+	if = {
+		limit = {
+			NOT = {
+				has_dlc = "Poland: United and Ready"
+			}
+		}
+		add_ideas = { 
+			#laws
+			limited_exports }
 	}
 	if = {
 		limit = {
-			NOT = { has_dlc = "Poland: United and Ready" }
+			has_dlc = "Man the Guns"
 		}
-		add_ideas = {
-			#laws
-			limited_exports
-		}
-	}
-
-
-	
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-			set_naval_oob = "POL_1939_naval_mtg"
+		set_naval_oob = POL_1939_naval_mtg
 		else = {
-			set_naval_oob = "POL_1939_naval_legacy"
+			set_naval_oob = POL_1939_naval_legacy
 		}
 	}
 	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "POL_1939_air_bba"
-			set_technology = {
-				iw_medium_airframe = 1
-				basic_medium_airframe = 1
-				engines_2 = 1
-				improved_small_airframe = 1
-			}
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_air_oob = POL_1939_air_bba
+		set_technology = {
+			iw_medium_airframe = 1
+			basic_medium_airframe = 1
+			engines_2 = 1
+			improved_small_airframe = 1
+		}
 		else = {
-			set_air_oob = "POL_1939_air_legacy"
+			set_air_oob = POL_1939_air_legacy
 			set_technology = {
 				tactical_bomber1 = 1
 			}
 		}
 	}
-
 	set_technology = {
 		motorised_infantry = 1
 		support_weapons = 1
 		interwar_artillery = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
@@ -218,14 +208,12 @@ if = {
 		fleet_in_being = 1
 		battlefleet_concentration = 1
 		convoy_sailing = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -252,28 +240,32 @@ if = {
 		set_technology = {
 			basic_light_tank = 1
 		}
-		set_oob = "POL_1939"
+		set_oob = POL_1939
 	}
 	if = {
 		limit = {
-			
 			has_dlc = "No Step Back"
-			
 		}
 		set_technology = {
 			basic_light_tank_chassis = 1
 		}
-		set_oob = "POL_1939_nsb"
+		set_oob = POL_1939_nsb
 	}
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		set_technology = {
 			basic_submarine = 1
 			basic_destroyer = 1
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		set_technology = {
 			basic_ship_hull_light = 1
 			basic_light_battery = 1
@@ -281,16 +273,18 @@ if = {
 	}
 	if = {
 		limit = {
-			NOT = { has_dlc = "By Blood Alone" }
+			NOT = {
+				has_dlc = "By Blood Alone"
+			}
 		}
 		create_equipment_variant = {
 			name = "PZL P.43"
 			type = CAS_equipment_1
 			upgrades = {
-					plane_cas_upgrade = 0
-					plane_range_upgrade = 1
-					plane_engine_upgrade = 2
-					plane_reliability_upgrade = 1
+				plane_cas_upgrade = 0
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 1
 			}
 		}
 	}
@@ -331,23 +325,19 @@ if = {
 		}
 	}
 }
-
-
 set_convoys = 10
-
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1935.9.8"
 	election_frequency = 36
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 32
-	fascism = 11
-	communism = 19
-	neutrality = 38
+	totalism = 19
+	liberalism = 32
+	authoritarianism = 38
+	suprematism = 11
 }
-
 1939.1.1 = {
 	set_popularities = {
 		democratic = 13
@@ -356,63 +346,6 @@ set_popularities = {
 		neutrality = 78
 	}
 }
-
-recruit_character = POL_ignacy_moscicki
-recruit_character = POL_wladyslaw_sikorski
-recruit_character = POL_boleslaw_wieniawa_glugoszowski
-recruit_character = POL_wladyslaw_gomulka
-recruit_character = POL_maria_koszutska
-recruit_character = POL_stanislaw_mikolajczyk
-recruit_character = POL_wincenty_witos
-recruit_character = POL_wladyslaw_raczkiewicz
-recruit_character = POL_boleslaw_piasecki
-recruit_character = POL_edward_rydzsmigly
-recruit_character = POL_wladyslaw_bortnowski
-recruit_character = POL_stanislaw_kopanski
-recruit_character = POL_marian_kukiel
-recruit_character = POL_jozef_haller
-recruit_character = POL_stanislaw_sosabowski
-recruit_character = POL_lucjan_zeligowski
-recruit_character = POL_kazimierz_sosnkowski
-recruit_character = POL_tadeusz_kutrzeba
-recruit_character = POL_wladyslaw_anders
-recruit_character = POL_roman_abraham
-recruit_character = POL_wincenty_kowalski
-recruit_character = POL_stefan_frankowski
-recruit_character = POL_karol_korytowski
-recruit_character = POL_jozef_unrug
-recruit_character = POL_xawery_czernicki
-recruit_character = POL_jozef_zajac
-recruit_character = POL_ludomil_rayski
-recruit_character = POL_stanislaw_pawluc
-recruit_character = POL_stanislav_maczek
-recruit_character = POL_wladyslaw_kalkus
-recruit_character = POL_kazimierz_switalski
-recruit_character = POL_wanda_wasilewska
-recruit_character = POL_tomislaw_lupaszko
-recruit_character = POL_zygmunt_buhusz_szysko
-recruit_character = POL_roman_dmowski
-recruit_character = POL_witold_pilecki
-recruit_character = POL_irena_anders
-recruit_character = POL_mieczyslaw_michalowicz
-recruit_character = POL_boleslaw_bierut
-recruit_character = POL_edward_osobka_morawski
-recruit_character = POL_jozef_beck
-recruit_character = POL_zdzislaw_lubomirski
-recruit_character = POL_aleksander_kakowski
-recruit_character = POL_stanislaw_radkiewicz
-recruit_character = POL_jan_kowalewski
-recruit_character = POL_eugeniusz_kwiatkowiski
-recruit_character = POL_marian_rejewski
-recruit_character = POL_jerzy_rutkowski
-recruit_character = POL_karl_albrecht
-recruit_character = POL_pavel_bermondt_avalov
-recruit_character = POL_anna_andersson
-recruit_character = POL_friedrich_christian
-recruit_character = POL_rudinger_von_der_goltz
-recruit_character = POL_vladislav_korchits
-recruit_character = POL_wojtek
-
 if = {
 	limit = {
 		OR = {
@@ -420,21 +353,12 @@ if = {
 			has_dlc = "Poland: United and Ready"
 		}
 	}
-	recruit_character = POL_walery_slawek
-	recruit_character = POL_jan_mosdorf
-	recruit_character = POL_tadeusz_bielecki
-	recruit_character = POL_joachim_stefan_bartoszewicz
-	recruit_character = POL_stanislaw_wojciechowski
 }
-
 if = {
 	limit = {
 		has_dlc = "No Step Back"
 	}
-	recruit_character = POL_henryk_floyar_rajchman
-	recruit_character = POL_sejmik_regency
 }
-
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -442,16 +366,16 @@ if = {
 	create_operative_leader = {
 		name = "Roman Czerniawski"
 		GFX = GFX_portrait_roman_czerniawski
-		traits = { }
+		traits = {
+		}
 		bypass_recruitment = no
 		available_to_spy_master = yes
 		nationalities = { POL }
 	}
-
 	create_operative_leader = {
 		name = "Krystyna Skarbek"
 		GFX = GFX_portrait_krystyna_skarbek
-		traits = { operative_commando operative_seducer }
+		traits = { operative_commando operative_seducer  }
 		bypass_recruitment = no
 		available_to_spy_master = yes
 		female = yes
@@ -469,7 +393,7 @@ if = {
 		type = fighter_equipment_0
 		upgrades = {
 			plane_gun_upgrade = 3
-			plane_range_upgrade = 0  
+			plane_range_upgrade = 0
 			plane_engine_upgrade = 1
 			plane_reliability_upgrade = 3
 		}
@@ -509,7 +433,6 @@ if = {
 		}
 	}
 }
-
 ### VARIANTS ###
 # 1936 Start #
 if = {
@@ -517,7 +440,7 @@ if = {
 		has_dlc = "No Step Back"
 	}
 	create_equipment_variant = {
-		name = "TKS"
+		name = TKS
 		type = light_tank_chassis_0
 		parent_version = 0
 		modules = {
@@ -532,7 +455,7 @@ if = {
 			tank_nsb_engine_upgrade = 1
 		}
 		obsolete = yes #used for oob
-		icon = "GFX_POL_basic_light_tank_medium"
+		icon = GFX_POL_basic_light_tank_medium
 	}
 	create_equipment_variant = {
 		name = "7TP dw"
@@ -550,7 +473,7 @@ if = {
 			tank_nsb_armor_upgrade = 2
 			tank_nsb_engine_upgrade = 2
 		}
-		icon = "GFX_POL_improved_light_tank_medium"
+		icon = GFX_POL_improved_light_tank_medium
 	}
 	create_equipment_variant = {
 		name = "7TP jw"
@@ -568,23 +491,29 @@ if = {
 			tank_nsb_armor_upgrade = 2
 			tank_nsb_engine_upgrade = 2
 		}
-		icon = "GFX_POL_improved_light_tank_medium"
+		icon = GFX_POL_improved_light_tank_medium
 	}
-#	add_equipment_to_stockpile = {
-#		type = light_tank_chassis_0
-#		amount = 550
-#		variant_name = "TKS"
-#	}
+	#	add_equipment_to_stockpile = {
+	#		type = light_tank_chassis_0
+	#		amount = 550
+	#		variant_name = "TKS"
+	#	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	### Ship Variants ###
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	# Submarines #
 	create_equipment_variant = {
-		name = "Wilk Class"				
+		name = "Wilk Class"
 		type = ship_hull_submarine_2
 		name_group = POL_SS_HISTORICAL
 		parent_version = 0
@@ -596,7 +525,7 @@ if = {
 	}
 	# Destroyers #
 	create_equipment_variant = {
-		name = "Wicher Class"				
+		name = "Wicher Class"
 		type = ship_hull_light_1
 		name_group = POL_DD_HISTORICAL
 		parent_version = 0
@@ -612,19 +541,23 @@ if = {
 		}
 	}
 }
-
-
 # 1939 Start #
 1939.1.1 = {
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		# Ship variants #
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		# Submarines #
 		create_equipment_variant = {
-			name = "Orzel Class"				
+			name = "Orzel Class"
 			type = ship_hull_submarine_2
 			name_group = POL_SS_HISTORICAL
 			parent_version = 0
@@ -636,7 +569,7 @@ if = {
 		}
 		# Destroyers #
 		create_equipment_variant = {
-			name = "Grom Class"					
+			name = "Grom Class"
 			type = ship_hull_light_2
 			name_group = POL_DD_HISTORICAL
 			parent_version = 0
@@ -652,7 +585,7 @@ if = {
 			}
 		}
 		create_equipment_variant = {
-			name = "Gryf Class"						# minelaying craft
+			name = "Gryf Class" # minelaying craft
 			type = ship_hull_light_2
 			parent_version = 0
 			modules = {

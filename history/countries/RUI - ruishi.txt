@@ -2,21 +2,17 @@
 create_country_leader = {
 	name = "施威茨.德莫"
 	desc = ""
-	picture = "GFX49"
+	picture = GFX49
 	expire = "1965.1.1"
 	ideology = shehui_minzhu_zhuyi
-	traits = {
-		chamberlain_appeaser rearmer
-	}
+	traits = { chamberlain_appeaser rearmer }
 }
-set_oob = "RUI_1936"
-set_naval_oob = "RUI_naval_1936"
-set_air_oob = "RUI_1936_air_legacy"
-
+set_oob = RUI_1936
+set_naval_oob = RUI_naval_1936
+set_air_oob = RUI_1936_air_legacy
 set_research_slots = 5
 set_stability = 0.6
 set_war_support = 0.9
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -37,10 +33,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -48,21 +41,20 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 }
-add_ideas = {
-RUI_ruishi_zhongli_zhuyi
-RUI_gongye_fuxing
-RUI_ruishi_wuzhuang
-HSA_shengrierman_lianmeng
-}
+add_ideas = { RUI_ruishi_zhongli_zhuyi RUI_gongye_fuxing RUI_ruishi_wuzhuang HSA_shengrierman_lianmeng  }
 if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -106,29 +98,27 @@ if = {
 		improved_secondary_battery = 1
 		basic_fire_control_system = 1
 	}
-
 }
 RUI = {
-news_event = {
-				id = holy_news.15 days = 60
-			}
-			}
+	news_event = {
+		id = "holy_news.15"
+		days = 60
+	}
+}
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 5
 	socialism = 5
-	communism = 5
-	neutrality = 5
-	dictatorship = 5
-	democratic = 25
+	progressivism = 25
+	liberalism = 30
 	conservatism = 25
-	progressism = 25
-	reconcilism = 5
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 5
+	paternalism = 5
+	suprematism = 0
+	mysticism = 0
 }
-

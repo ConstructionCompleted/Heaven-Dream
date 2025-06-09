@@ -1,18 +1,11 @@
 ﻿capital = 589
-
-set_oob = "ARS_1936"
-set_naval_oob = "ARS_naval_1936"
-set_air_oob = "ARS_1936_air_legacy"
-
+set_oob = ARS_1936
+set_naval_oob = ARS_naval_1936
+set_air_oob = ARS_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.4
 set_war_support = 0.3
-
-add_ideas = {
-ARS_hasake_fenli
-ARS_qine_sixiang
-ARS_caoyuan_qibing
-}
+add_ideas = { ARS_hasake_fenli ARS_qine_sixiang ARS_caoyuan_qibing  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -33,10 +26,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -48,11 +38,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -97,33 +91,29 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-
 set_politics = {
-	ruling_party = conservatism 
+	ruling_party = conservatism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 15
 	socialism = 5
-	communism = 5
-	neutrality = 0
-	dictatorship = 0
-	democratic = 20
+	progressivism = 10
+	liberalism = 20
 	conservatism = 50
-	progressism = 10
-	reconcilism = 10
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 0
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
 }
 declare_war_on = {
-		target = KAZ
-		type = annex_everything
-	}
-
+	target = KAZ
+	type = annex_everything
+}
 create_country_leader = {
-	name = "阿拉什斡耳朵"
+	name = 阿拉什斡耳朵
 	desc = ""
 	picture = ".jpg"
 	expire = "1965.1.1"

@@ -1,14 +1,14 @@
 ﻿capital = 300
-
-oob = "URG_1936"
+oob = URG_1936
 if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "URG_1936_naval_mtg"
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_naval_oob = URG_1936_naval_mtg
 	else = {
-		set_naval_oob = "URG_1936_naval_legacy"
+		set_naval_oob = URG_1936_naval_legacy
 	}
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -17,21 +17,29 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
+		NOT = {
+			has_dlc = "By Blood Alone"
+		}
 	}
 	set_technology = {
 		early_fighter = 1
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_destroyer = 1
 		early_light_cruiser = 1
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -39,35 +47,8 @@ if = {
 		basic_torpedo = 1
 	}
 }
-
-recruit_character = URG_gabriel_terra
-recruit_character = URG_venancio_flores
-recruit_character = URG_bernardo_gonzález
-recruit_character = URG_juan_manuel_aguirre
-recruit_character = URG_ernesto_sanchez_elizondo
-recruit_character = URG_rafael_marques_ayala
-recruit_character = URG_a_martin_de_la_flores
-recruit_character = URG_carlos_neves_ochoa
-recruit_character = URG_hector_lopez_camara
-recruit_character = URG_valentin_gomez
-recruit_character = URG_enrico_amancias_rodriguez
-recruit_character = URG_cantido_quintio_reyes
-recruit_character = URG_cosme_alvarez_berisso
-recruit_character = URG_jorge_eloi_mendoza
-recruit_character = URG_vittorio_amato_masso
-recruit_character = URG_carlos_jackson_urribe
-recruit_character = URG_teo_bucardi_ramos
-recruit_character = URG_eleazar_diaz_caminate
-recruit_character = URG_manuel_heinz_azpurua
-recruit_character = URG_alfredo_baldomir
-recruit_character = URG_horacio_arredondo
-recruit_character = URG_paulo_ortega_frusci
-recruit_character = URG_emilio_frugoni
-
 set_country_flag = monroe_doctrine
-
 set_convoys = 5
-
 1939.1.1 = {
 	set_politics = {
 		ruling_party = democratic
@@ -75,10 +56,8 @@ set_convoys = 5
 		election_frequency = 48
 		elections_allowed = yes
 	}
-
 	add_political_power = 1198
 	add_command_power = 100
-	
 	#generic focuses
 	complete_national_focus = army_effort
 	complete_national_focus = equipment_effort
@@ -89,20 +68,19 @@ set_convoys = 5
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
-	oob = "URG_1939"
+	oob = URG_1939
 	if = {
-		limit = { has_dlc = "Man the Guns" }
-			set_naval_oob = "URG_1939_naval_mtg"
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = URG_1939_naval_mtg
 		else = {
-			set_naval_oob = "URG_1939_naval_legacy"
+			set_naval_oob = URG_1939_naval_legacy
 		}
 	}
-
 	set_technology = {
 		infantry_weapons1 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
@@ -110,13 +88,11 @@ set_convoys = 5
 		fleet_in_being = 1
 		battlefleet_concentration = 1
 		convoy_sailing = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -130,18 +106,16 @@ set_convoys = 5
 		dispersed_industry2 = 1
 	}
 }
-
 set_politics = {
-	ruling_party = democratic
+	ruling_party = liberalism
 	last_election = "1934.4.19"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 97
-	communism = 3
+	totalism = 3
+	liberalism = 97
 }
-
 1939.1.1 = {
 	set_politics = {
 		ruling_party = democratic
@@ -149,23 +123,26 @@ set_popularities = {
 		election_frequency = 48
 		elections_allowed = yes
 	}
-
-	recruit_character = URG_alfredo_baldomir_ferrari
 	promote_character = URG_alfredo_baldomir_ferrari
 	retire_character = URG_gabriel_terra
 }
-
 ### VARIANTS ###
 # 1936 Start #
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	### Ship Variants ###
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	# Destroyers #
 	create_equipment_variant = {
-		name = "Uruguay Class"				
+		name = "Uruguay Class"
 		type = ship_hull_light_1
 		name_group = URG_DD_HISTORICAL
 		parent_version = 0

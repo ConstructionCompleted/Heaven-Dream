@@ -1,43 +1,38 @@
 ﻿capital = 757
-
 create_country_leader = {
-	name = "九世班禅"
+	name = 九世班禅
 	desc = ""
-	picture = "GFX166"
+	picture = GFX166
 	expire = "1965.1.1"
 	ideology = jiduan_shenquan_system
 	traits = {
-	
 	}
 }
 create_country_leader = {
-	name = "龙厦"
+	name = 龙厦
 	desc = ""
-	picture = "GFX167"
+	picture = GFX167
 	expire = "1965.1.1"
 	ideology = jijin_gonghe_zhuyi
 	traits = {
-	
 	}
 }
 create_corps_commander = {
-	name = "龙厦" 
-	picture = "GFX167"
-	traits = { war_hero}
+	name = 龙厦
+	picture = GFX167
+	traits = { war_hero  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 4
 	planning_skill = 4
 	logistics_skill = 4
 }
-set_oob = "ZAG_1936"
-set_naval_oob = "ZAG_naval_1936"
-set_air_oob = "ZAG_1936_air_legacy"
-
+set_oob = ZAG_1936
+set_naval_oob = ZAG_naval_1936
+set_air_oob = ZAG_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -58,10 +53,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -73,11 +65,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -122,27 +118,21 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-add_ideas = {
-ZAG_nuli_army
-ZAG_nuli_zhidu
-ZAG_fojiao_tongzhi
-}
+add_ideas = { ZAG_nuli_army ZAG_nuli_zhidu ZAG_fojiao_tongzhi  }
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 30
-	dictatorship = 40
-	democratic = 0
+	progressivism = 30
+	liberalism = 0
 	conservatism = 0
-	progressism = 30
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 30
+	paternalism = 40
+	suprematism = 0
+	mysticism = 0
 }

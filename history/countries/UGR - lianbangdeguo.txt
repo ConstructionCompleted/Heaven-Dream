@@ -1,24 +1,16 @@
 capital = 55
-
-set_oob = "UGR_1936"
-set_naval_oob = "UGR_naval_1936"
-set_air_oob = "UGR_1936_air_legacy"
-
+set_oob = UGR_1936
+set_naval_oob = UGR_naval_1936
+set_air_oob = UGR_1936_air_legacy
 set_research_slots = 6
 set_stability = 0.6
 set_war_support = 0.3
-
-add_ideas = {
-UGR_ouzhou_tuanjie_dream
-UGR_deyizhi_yitong
-UGR_gongye_dageming
-UGR_gonghe_juntuan
-}
+add_ideas = { UGR_ouzhou_tuanjie_dream UGR_deyizhi_yitong UGR_gongye_dageming UGR_gonghe_juntuan  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_mountaineers = 1
 	motorised_infantry = 1
@@ -35,7 +27,6 @@ set_technology = {
 	strategic_bomber1 = 1
 	CAS1 = 1
 	naval_bomber1 = 1
-	
 	mobile_warfare = 1
 	trade_interdiction = 1
 	formation_flying = 1
@@ -45,7 +36,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -94,22 +87,21 @@ if = {
 	}
 }
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 0
-	dictatorship = 0
-	democratic = 25
+	progressivism = 55
+	liberalism = 25
 	conservatism = 20
-	progressism = 55
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 0
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
 }
 create_country_leader = {
 	name = "威利·勃兰特"

@@ -1,52 +1,26 @@
 ﻿capital = 301
-
-oob = "PAR_1936"
+oob = PAR_1936
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "PAR_1936_air_bba"
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_air_oob = PAR_1936_air_bba
 	else = {
-		set_air_oob = "PAR_1936_air_legacy"
+		set_air_oob = PAR_1936_air_legacy
 		set_technology = {
 			early_fighter = 1
-
 		}
 	}
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	gw_artillery = 1
 }
-
-recruit_character = PAR_rafael_franco
-recruit_character = PAR_emilio_melgarejo
-recruit_character = PAR_francisco_daza
-recruit_character = PAR_manuel_de_la_cruz
-recruit_character = PAR_manuel_t_aponte
-recruit_character = PAR_hector_velasquez
-recruit_character = PAR_jesus_g_arraza
-recruit_character = PAR_juan_stefanich
-recruit_character = PAR_juan_manuel_frutos
-recruit_character = PAR_isaias_baez_allende
-recruit_character = PAR_vicente_almonacid
-recruit_character = PAR_alfred_stroessner_matiauda
-recruit_character = PAR_amancio_pampliega
-recruit_character = PAR_hernan_rojas_baltassare
-recruit_character = PAR_higenio_morinigo_martinez
-recruit_character = PAR_juan_natalicio_gonzalez
-recruit_character = PAR_remigio_bastia_martin
-recruit_character = PAR_francisco_esculies
-recruit_character = PAR_riccardo_odriosola
-
-
 set_country_flag = monroe_doctrine
-
 1939.1.1 = {
-
 	add_political_power = 1198
 	add_command_power = 100
-	
 	#generic focuses
 	complete_national_focus = army_effort
 	complete_national_focus = equipment_effort
@@ -58,16 +32,16 @@ set_country_flag = monroe_doctrine
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
-	oob = "PAR_1939"
+	oob = PAR_1939
 	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "PAR_1939_air_bba"
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_air_oob = PAR_1939_air_bba
 		else = {
-			set_air_oob = "PAR_1939_air_legacy"
+			set_air_oob = PAR_1939_air_legacy
 			set_technology = {
 				CAS1 = 1
-
 			}
 		}
 	}
@@ -77,18 +51,15 @@ set_country_flag = monroe_doctrine
 		infantry_weapons1 = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
 		trench_warfare = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -100,18 +71,16 @@ set_country_flag = monroe_doctrine
 		dispersed_industry2 = 1
 	}
 }
-
 set_politics = {
-	ruling_party = communism
+	ruling_party = totalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 25
-	communism = 75
+	totalism = 75
+	liberalism = 25
 }
-
 1939.1.1 = {
 	set_politics = {
 		ruling_party = neutrality
@@ -124,10 +93,6 @@ set_popularities = {
 		communism = 30
 		neutrality = 50
 	}
-
-	recruit_character = PAR_higinio_morinigo
 	promote_character = PAR_higinio_morinigo
 	retire_character = PAR_manuel_de_la_cruz
-
-
 }

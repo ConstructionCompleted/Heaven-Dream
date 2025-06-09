@@ -1,8 +1,8 @@
 ﻿capital = 1132
 create_corps_commander = {
-	name = "张发奎" 
+	name = 张发奎
 	picture = ".jpg"
-	traits = { inflexible_strategist war_hero}
+	traits = { inflexible_strategist war_hero  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 3
@@ -10,9 +10,9 @@ create_corps_commander = {
 	logistics_skill = 3
 }
 create_corps_commander = {
-	name = "叶挺" 
+	name = 叶挺
 	picture = ".jpg"
-	traits = { trait_reckless infantry_officer war_hero}
+	traits = { trait_reckless infantry_officer war_hero  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 4
@@ -20,9 +20,9 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "蔡廷锴" 
+	name = 蔡廷锴
 	picture = ".jpg"
-	traits = { infantry_officer war_hero}
+	traits = { infantry_officer war_hero  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 2
@@ -30,22 +30,20 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_country_leader = {
-	name = "宋庆龄"
+	name = 宋庆龄
 	desc = ""
-	picture = "GFX168"
+	picture = GFX168
 	expire = "1965.1.1"
 	ideology = jijin_gonghe_zhuyi
-	traits = { 
+	traits = {
 	}
 }
-set_oob = "KMT_1936"
-set_naval_oob = "KMT_naval_1936"
-set_air_oob = "KMT_1936_air_legacy"
-
+set_oob = KMT_1936
+set_naval_oob = KMT_naval_1936
+set_air_oob = KMT_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -66,10 +64,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -81,11 +76,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -132,31 +131,26 @@ if = {
 }
 create_faction = newyihui
 add_to_faction = CGH
-add_ideas = {
-KMT_shouyi_zhidi
-KMT_buqu_zhiguo
-KMT_chubu_junguohua
-}
+add_ideas = { KMT_shouyi_zhidi KMT_buqu_zhiguo KMT_chubu_junguohua  }
 diplomatic_relation = {
-    country = CCP
-    relation = military_access
+	country = CCP
+	relation = military_access
 	active = yes
 }
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 0
 	socialism = 10
-	communism = 0
-	neutrality = 0
-	dictatorship = 0
-	democratic = 20
+	progressivism = 40
+	liberalism = 20
 	conservatism = 20
-	progressism = 40
-	reconcilism = 10
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 0
+	paternalism = 10
+	suprematism = 0
+	mysticism = 0
 }

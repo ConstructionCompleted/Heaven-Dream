@@ -1,34 +1,27 @@
 ﻿capital = 531
 create_country_leader = {
-	name = "风雨山岚"
+	name = 风雨山岚
 	desc = ""
-	picture = "GFX226"
+	picture = GFX226
 	expire = "1965.1.1"
 	ideology = despotism
 }
-
-	
-set_oob = "TOE_1936"
-set_naval_oob = "TOE_naval_1936"
-set_air_oob = "TOE_1936_air_legacy"
-
+set_oob = TOE_1936
+set_naval_oob = TOE_naval_1936
+set_air_oob = TOE_1936_air_legacy
 set_stability = 0.2 #baseline, THE EMPEROR PROTECTS
 set_war_support = 0.8
-
 set_research_slots = 5
-set_fuel_ratio = 1.0
-add_ideas = {
-   DAJ_riben_chongtu
-}
-
+set_fuel_ratio = 1.
+add_ideas = { DAJ_riben_chongtu  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_recon = 1
 	tech_engineers = 1
 	motorised_infantry = 1
-	marines  = 1
+	marines = 1
 	gw_artillery = 1
 	gwtank = 1
 	basic_light_tank = 1
@@ -41,7 +34,6 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
 	base_strike = 1
 	fuel_silos = 1
@@ -77,10 +69,14 @@ if = {
 		basic_cruiser_armor_scheme = 1
 		cruiser_submarines = 1
 	}
-	set_naval_oob = "JAP_1936_naval"
+	set_naval_oob = JAP_1936_naval
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -96,9 +92,8 @@ if = {
 		basic_carrier = 1
 		transport = 1
 	}
-	set_naval_oob = "JAP_1936_naval_legacy"
+	set_naval_oob = JAP_1936_naval_legacy
 }
-
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -107,32 +102,18 @@ if = {
 		armored_car1 = 1
 	}
 }
-
 create_import = {
-		resource = oil
-		factories = 2
-		exporter = USA
+	resource = oil
+	factories = 2
+	exporter = USA
 }
-
 1939.1.1 = {
-
 	add_political_power = 1198
-	
-
-	#adding ministers
-	add_ideas = {
-		JAP_mitsumasa_yonai
-		minoru_genda
-		hajime_sugiyama
-		soemu_toyoda
-		fushimi_hiroyasu
-		kawasaki
-
+	add_ideas = { 
+		#adding ministers
+		JAP_mitsumasa_yonai minoru_genda hajime_sugiyama soemu_toyoda fushimi_hiroyasu kawasaki 
 		#laws
-		tot_economic_mobilisation
-		service_by_requirement
-		closed_economy
-	}
+		tot_economic_mobilisation service_by_requirement closed_economy  }
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
@@ -156,7 +137,6 @@ create_import = {
 	complete_national_focus = JAP_long_lance_torpedoes
 	complete_national_focus = JAP_bicycle_battalions
 	complete_national_focus = JAP_small_arms_modernization
-
 	declare_war_on = {
 		target = CHI
 		type = puppet_wargoal_focus
@@ -173,28 +153,23 @@ create_import = {
 	#	target = PRC
 	#	type = annex_everything
 	#}
-	oob = "JAP_1939"
+	oob = JAP_1939
 	set_technology = {
-
 		#PLACEHOLDERS for vehicles
-		
 		cv_fighter1 = 1
 		fighter1 = 1
 		tactical_bomber1 = 1
-	
 		#doctrines
 		#air
 		force_rotation = 1
 		fighter_baiting = 1
 		low_echelon_support = 1
 		dispersed_fighting = 1
-
 		grand_battle_plan = 1
 		prepared_defense = 1
 		grand_assault = 1
 		carrier_primacy = 1
 		carrier_task_forces = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
@@ -203,7 +178,6 @@ create_import = {
 		computing_machine = 1
 		basic_encryption = 1
 		basic_decryption = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -229,11 +203,13 @@ create_import = {
 			improved_ship_hull_carrier = 1
 			ship_hull_super_heavy = 1
 		}
-		set_naval_oob = "JAP_1939_naval"
+		set_naval_oob = JAP_1939_naval
 	}
 	if = {
 		limit = {
-			not = { has_dlc = "Man the Guns" }
+			not = {
+				has_dlc = "Man the Guns"
+			}
 		}
 		set_technology = {
 			improved_submarine = 1
@@ -243,18 +219,16 @@ create_import = {
 			improved_carrier = 1
 			heavy_battleship = 1
 		}
-		set_naval_oob = "JAP_1939_naval_legacy"
+		set_naval_oob = JAP_1939_naval_legacy
 	}
 }
-
 set_convoys = 400
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	neutrality = 100
+	authoritarianism = 100
 }
-

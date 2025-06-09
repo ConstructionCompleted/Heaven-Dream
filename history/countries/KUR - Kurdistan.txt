@@ -1,13 +1,6 @@
 ﻿capital = 350
-
 set_research_slots = 2
-
-add_ideas = {
-	limited_conscription
-	KUR_kuerde_lianheti
-	KUR_kuerde_qiyi
-}
-
+add_ideas = { limited_conscription KUR_kuerde_lianheti KUR_kuerde_qiyi  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -18,7 +11,11 @@ set_technology = {
 	CAS1 = 1
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		early_destroyer = 1
@@ -29,7 +26,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -46,8 +45,6 @@ if = {
 		mtg_transport = 1
 	}
 }
-
-
 1939.1.1 = {
 	#generic focuses
 	complete_national_focus = army_effort
@@ -59,7 +56,6 @@ if = {
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-
 	set_technology = {
 		fighter1 = 1
 		early_bomber = 1
@@ -67,25 +63,20 @@ if = {
 		interwar_artillery = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
-
 		mass_assault = 1
 		pocket_defence = 1
 		defence_in_depth = 1
-		
 		fleet_in_being = 1
 		convoy_sailing = 1
 		submarine_operations = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -98,36 +89,39 @@ if = {
 		dispersed_industry2 = 1
 	}
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		set_technology = {
 			basic_submarine = 1
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		set_technology = {
 		}
 	}
 }
-
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1935.2.8"
 	election_frequency = 48
 	elections_allowed = yes
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 50
-	dictatorship = 20
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 5
-	progressism = 0
-	reconcilism = 5
-	fascism = 20
-	destruction_system = 0
+	authoritarianism = 50
+	paternalism = 20
+	suprematism = 20
+	mysticism = 5
 }
 create_country_leader = {
 	name = ""
@@ -140,43 +134,37 @@ create_country_leader = {
 }
 create_country_leader = {
 	name = "Qazi Muhammad"
-	desc = "POLITICS_QAZI_MUHAMMAD_DESC"
+	desc = POLITICS_QAZI_MUHAMMAD_DESC
 	picture = "gfx/leaders/SYR/Portrait_Arabia_Generic_1.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		
 	}
 }
-
 create_country_leader = {
 	name = "Sheikh Mahmud Barzanji"
-	desc = "POLITICS_SHEIKH_BARZANJI_DESC"
+	desc = POLITICS_SHEIKH_BARZANJI_DESC
 	picture = "gfx/leaders/SYR/Portrait_Arabia_Generic_land_1.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		
 	}
 }
 create_field_marshal = {
 	name = "Îhsan Nûrî Paşa"
 	portrait_path = "gfx/leaders/KUR/portrait_kur_ihsan_nuri.dds"
-	traits = { war_hero inflexible_strategist unyielding_defender desert_fox commando }
+	traits = { war_hero inflexible_strategist unyielding_defender desert_fox commando  }
 	skill = 3
-
 	attack_skill = 2
 	defense_skill = 3
 	planning_skill = 2
 	logistics_skill = 3
 }
-
 create_corps_commander = {
 	name = "Ferzende Begê Hesenî"
 	portrait_path = "gfx/leaders/SYR/Portrait_Arabia_Generic_land_1.dds"
-	traits = { war_hero commando desert_fox }
+	traits = { war_hero commando desert_fox  }
 	skill = 2 #13
-
 	attack_skill = 3
 	defense_skill = 2
 	planning_skill = 1

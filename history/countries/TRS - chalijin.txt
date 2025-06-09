@@ -1,17 +1,11 @@
 ﻿capital = 217
-
-set_oob = "TRS_1936"
-set_naval_oob = "TRS_naval_1936"
-set_air_oob = "TRS_1936_air_legacy"
-
+set_oob = TRS_1936
+set_naval_oob = TRS_naval_1936
+set_air_oob = TRS_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.6
 set_war_support = 0.3
-
-add_ideas = {
-TRS_fuza_jundui
-TRS_wuxianzhi_hunluan
-}
+add_ideas = { TRS_fuza_jundui TRS_wuxianzhi_hunluan  }
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -32,10 +26,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -47,11 +38,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -96,27 +91,25 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1936.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 15
 	socialism = 6
-	communism = 15
-	neutrality = 14
-	dictatorship = 0
-	democratic = 15
+	progressivism = 20
+	liberalism = 15
 	conservatism = 25
-	progressism = 20
-	reconcilism = 0
-	fascism = 5
-	destruction_system = 0
+	authoritarianism = 14
+	paternalism = 0
+	suprematism = 5
+	mysticism = 0
 }
 create_country_leader = {
-	name = "波特列索夫"
+	name = 波特列索夫
 	desc = ""
 	picture = ".jpg"
 	expire = "1965.1.1"

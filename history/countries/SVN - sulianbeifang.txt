@@ -1,17 +1,17 @@
 ﻿capital = 214
 create_country_leader = {
-	name = "伏罗希洛夫"
+	name = 伏罗希洛夫
 	desc = ""
-	picture = "GFX68"
+	picture = GFX68
 	expire = "1965.1.1"
 	ideology = xianfeng_gemingzhuyi_ism
 	traits = {
 	}
 }
 create_field_marshal = {
-	name = "伏罗希洛夫"
-	picture = "GFX68"
-	traits = { logistics_wizard defensive_doctrine }
+	name = 伏罗希洛夫
+	picture = GFX68
+	traits = { logistics_wizard defensive_doctrine  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 4
@@ -19,9 +19,9 @@ create_field_marshal = {
 	logistics_skill = 6
 }
 create_corps_commander = {
-	name = "图哈切夫斯基" 
+	name = 图哈切夫斯基
 	picture = ".jpg"
-	traits = { cavalry_officer armor_officer war_hero}
+	traits = { cavalry_officer armor_officer war_hero  }
 	skill = 4
 	attack_skill = 5
 	defense_skill = 3
@@ -29,9 +29,9 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "巴托夫" 
+	name = 巴托夫
 	picture = ".jpg"
-	traits = { war_hero brilliant_strategist }
+	traits = { war_hero brilliant_strategist  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
@@ -39,30 +39,27 @@ create_corps_commander = {
 	logistics_skill = 3
 }
 create_corps_commander = {
-	name = "罗科索夫斯基" 
+	name = 罗科索夫斯基
 	picture = ".jpg"
-	traits = { war_hero brilliant_strategist}
+	traits = { war_hero brilliant_strategist  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 4
 	planning_skill = 4
 	logistics_skill = 4
 }
-set_oob = "SVN_1936"
-set_naval_oob = "SVN_naval_1936"
-set_air_oob = "SVN_1936_air_legacy"
-
-
+set_oob = SVN_1936
+set_naval_oob = SVN_naval_1936
+set_air_oob = SVN_1936_air_legacy
 set_research_slots = 3
 set_stability = 0.4
 set_war_support = 0.9
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -81,9 +78,12 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 }
-
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -99,7 +99,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -127,41 +129,36 @@ if = {
 		improved_airplane_launcher = 1
 	}
 }
-add_ideas = {
-SVN_queliang_shaoqiang
-SVN_bingtianxuedi
-SVN_laobing_budui
+add_ideas = { SVN_queliang_shaoqiang SVN_bingtianxuedi SVN_laobing_budui  }
+declare_war_on = {
+	target = PRM
+	type = annex_everything
 }
 declare_war_on = {
-		target = PRM
-		type = annex_everything
-	}
+	target = POA
+	type = annex_everything
+}
 declare_war_on = {
-		target = POA
-		type = annex_everything
-	}
-declare_war_on = {
-		target = RNE
-		type = annex_everything
-	}
+	target = RNE
+	type = annex_everything
+}
 create_faction = beifang_linshi_zhengfu
 add_to_faction = SVN
 add_to_faction = KZN
 set_politics = {
-	ruling_party = communism
+	ruling_party = totalism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 50
 	socialism = 20
-	communism = 50
-	neutrality = 20
-	dictatorship = 10
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 0
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 20
+	paternalism = 10
+	suprematism = 0
+	mysticism = 0
 }

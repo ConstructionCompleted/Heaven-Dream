@@ -1,43 +1,34 @@
 ﻿capital = 583
 create_country_leader = {
-	name = "布琼尼"
+	name = 布琼尼
 	desc = ""
-	picture = "GFX63"
+	picture = GFX63
 	expire = "1953.3.1"
 	ideology = junzheng_gongchanzhuyi_ism
 	traits = {
-		
 	}
 }
 create_corps_commander = {
-	name = "布琼尼"
-	picture = "GFX63"
-	traits = { cavalry_officer trait_cautious }
+	name = 布琼尼
+	picture = GFX63
+	traits = { cavalry_officer trait_cautious  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 2
 	planning_skill = 2
 	logistics_skill = 3
 }
-
-set_oob = "KAZ_1936"
-set_naval_oob = "KAZ_naval_1936"
-set_air_oob = "KAZ_1936_air_legacy"
-
+set_oob = KAZ_1936
+set_naval_oob = KAZ_naval_1936
+set_air_oob = KAZ_1936_air_legacy
 set_research_slots = 3
-
-add_ideas = {
-KAZ_hasake_fenli
-KAZ_junzhengfu_zhizheng
-KAZ_caoyuan_qibing
-}
-
+add_ideas = { KAZ_hasake_fenli KAZ_junzhengfu_zhizheng KAZ_caoyuan_qibing  }
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_military_police = 1
 	tech_mountaineers = 1
@@ -45,7 +36,7 @@ set_technology = {
 	paratroopers = 1
 	gw_artillery = 1
 	gwtank = 1
-	basic_light_tank = 1  # PLACEHOLDER
+	basic_light_tank = 1 # PLACEHOLDER
 	#basic_train = 1  # PLACEHOLDER
 	#basic_medium_tank = 1 # PLACEHOLDER
 	early_fighter = 1
@@ -58,7 +49,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -86,23 +79,20 @@ if = {
 		basic_torpedo = 1
 	}
 }
-
 set_popularities = {
+	totalism = 65
 	socialism = 0
-	communism = 65
-	neutrality = 10
-	dictatorship = 25
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 0
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 10
+	paternalism = 25
+	suprematism = 0
+	mysticism = 0
 }
 set_politics = {
-	ruling_party = communism
+	ruling_party = totalism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
 }
-

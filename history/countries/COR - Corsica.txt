@@ -1,7 +1,5 @@
 ﻿capital = 1
-
 #oob = ""
-
 set_research_slots = 3
 # Starting tech
 set_technology = {
@@ -21,7 +19,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
+		NOT = {
+			has_dlc = "By Blood Alone"
+		}
 	}
 	set_technology = {
 		early_fighter = 1
@@ -31,10 +31,8 @@ if = {
 		early_bomber = 1
 		tactical_bomber1 = 1
 		CAS1 = 1
-		
 	}
 }
-
 if = {
 	limit = {
 		NOT = {
@@ -49,9 +47,7 @@ if = {
 }
 if = {
 	limit = {
-		
 		has_dlc = "No Step Back"
-		
 	}
 	set_technology = {
 		gwtank_chassis = 1
@@ -60,8 +56,12 @@ if = {
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
 		early_destroyer = 1
@@ -78,7 +78,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -107,9 +109,7 @@ if = {
 		armored_car1 = 1
 	}
 }
-
 set_convoys = 20
-
 1939.1.1 = {
 	#generic focuses
 	complete_national_focus = army_effort
@@ -121,31 +121,25 @@ set_convoys = 20
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
 	set_technology = {
-		
 		interwar_artillery = 1
 		interwar_antitank = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
 		support_weapons2 = 1
-
 		#doctrines
 		#Air
 		force_rotation = 1
 		fighter_baiting = 1
 		low_echelon_support = 1
 		dispersed_fighting = 1
-		
 		grand_battle_plan = 1
-
 		trench_warfare = 1
 		prepared_defense = 1
 		battlefleet_concentration = 1
 		subsidiary_carrier_role = 1
 		convoy_sailing = 1
 		submarine_operations = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
@@ -154,7 +148,6 @@ set_convoys = 20
 		computing_machine = 1
 		basic_encryption = 1
 		basic_decryption = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -169,20 +162,21 @@ set_convoys = 20
 		dispersed_industry3 = 1
 	}
 	if = {
-	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
+		limit = {
+			NOT = {
+				has_dlc = "By Blood Alone"
+			}
+		}
+		set_technology = {
+			fighter1 = 1
+			fighter2 = 1
+			heavy_fighter1 = 1
+			tactical_bomber2 = 1
+			strategic_bomber1 = 1
+			cv_fighter1 = 1
+			cv_CAS1 = 1
+		}
 	}
-	set_technology = {
-		fighter1 = 1
-		fighter2 = 1
-		heavy_fighter1 = 1
-		tactical_bomber2 = 1
-		strategic_bomber1 = 1
-		cv_fighter1 = 1
-		cv_CAS1 = 1
-	}
-}
-
 	if = {
 		limit = {
 			NOT = {
@@ -197,9 +191,7 @@ set_convoys = 20
 	}
 	if = {
 		limit = {
-			
 			has_dlc = "No Step Back"
-			
 		}
 		set_technology = {
 			improved_light_tank_chassis = 1
@@ -208,14 +200,20 @@ set_convoys = 20
 		}
 	}
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		set_technology = {
 			basic_battleship = 1
 			basic_battlecruiser = 1
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		set_technology = {
 			improved_ship_hull_light = 1
 			improved_ship_hull_heavy = 1
@@ -228,14 +226,14 @@ set_convoys = 20
 	}
 }
 set_politics = {
-	ruling_party = democratic
+	ruling_party = liberalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 53
-	fascism = 20
-	communism = 2
-	neutrality = 25
+	totalism = 2
+	liberalism = 53
+	authoritarianism = 25
+	suprematism = 20
 }

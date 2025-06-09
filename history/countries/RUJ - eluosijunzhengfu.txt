@@ -1,38 +1,35 @@
 ﻿capital = 255
 create_country_leader = {
-	name = "萨文科夫"
+	name = 萨文科夫
 	desc = ""
-	picture = "GFX82"
+	picture = GFX82
 	expire = "1965.1.1"
 	ideology = nongmin_zhishang_zhuyi
 	traits = {
 	}
 }
 create_field_marshal = {
-	name = "弗兰格尔"
+	name = 弗兰格尔
 	picture = ".jpg"
-	traits = { old_guard infantry_expert }
+	traits = { old_guard infantry_expert  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
 	planning_skill = 2
 	logistics_skill = 3
 }
-set_oob = "RUJ_1936"
-set_naval_oob = "RUJ_naval_1936"
-set_air_oob = "RUJ_1936_air_legacy"
-
-
+set_oob = RUJ_1936
+set_naval_oob = RUJ_naval_1936
+set_air_oob = RUJ_1936_air_legacy
 set_research_slots = 3
 set_stability = 0.4
 set_war_support = 0.9
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -51,9 +48,12 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 }
-
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -69,7 +69,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -98,30 +100,24 @@ if = {
 	}
 }
 declare_war_on = {
-		target = SOV
-		type = annex_everything
-	}
-add_ideas = {
-RUJ_heisecanjun
-RUJ_mincui_lianhe
-RUJ_nongye_kaifa
+	target = SOV
+	type = annex_everything
 }
+add_ideas = { RUJ_heisecanjun RUJ_mincui_lianhe RUJ_nongye_kaifa  }
 set_politics = {
-	ruling_party = fascism
+	ruling_party = suprematism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 0
 	socialism = 5
-	communism = 0
-	neutrality = 15
-	dictatorship = 20
-	democratic = 0
+	progressivism = 0
+	liberalism = 10
 	conservatism = 0
-	progressism = 0
-	reconcilism = 10
-	fascism = 50
-	destruction_system = 0
+	authoritarianism = 15
+	paternalism = 20
+	suprematism = 50
+	mysticism = 0
 }
-

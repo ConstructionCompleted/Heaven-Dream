@@ -1,10 +1,8 @@
 ﻿capital = 102
-
 set_research_slots = 3
-
-set_oob = "SLV_1936"
-set_naval_oob = "SLV_naval_1936"
-set_air_oob = "SLV_1936_air_legacy"
+set_oob = SLV_1936
+set_naval_oob = SLV_naval_1936
+set_air_oob = SLV_1936_air_legacy
 set_technology = {
 	tech_support = 1
 	tech_engineers = 1
@@ -14,7 +12,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
+		NOT = {
+			has_dlc = "By Blood Alone"
+		}
 	}
 	set_technology = {
 		early_fighter = 1
@@ -22,7 +22,9 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "Man the Guns" }
+		NOT = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_destroyer = 1
@@ -32,12 +34,13 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
+		NOT = {
+			has_dlc = "No Step Back"
+		}
 	}
 	set_technology = {
 		gwtank = 1
 		basic_light_tank = 1
-
 	}
 }
 if = {
@@ -47,19 +50,16 @@ if = {
 	set_technology = {
 		gwtank_chassis = 1
 		basic_light_tank_chassis = 1
-
 	}
 }
-
 set_politics = {
-	ruling_party = democratic
+	ruling_party = liberalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
-
 set_popularities = {
-	democratic = 33
-	neutrality = 33
-	communism = 34
+	totalism = 34
+	liberalism = 33
+	authoritarianism = 33
 }

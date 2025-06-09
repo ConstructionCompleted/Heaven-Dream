@@ -2,27 +2,16 @@ capital = 9
 create_country_leader = {
 	name = "“天鸟”普舍美斯"
 	desc = ""
-	picture = "GFX24"
+	picture = GFX24
 	expire = "1965.1.1"
 	ideology = fengjian_junzhu_system
 	traits = {
 	}
 }
 create_corps_commander = {
-	name = "命运的神罗酱" 
-	picture = "GFX25"
-	traits = { cavalry_officer quzhu_army }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "马克思" 
-	picture = "GFX26"
-	traits = { cavalry_officer quzhu_army }
+	name = 命运的神罗酱
+	picture = GFX25
+	traits = { cavalry_officer quzhu_army  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
@@ -30,29 +19,36 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "抱枕喵"
-	picture = "GFX27"
-	traits = { cavalry_officer quzhu_army }
+	name = 马克思
+	picture = GFX26
+	traits = { cavalry_officer quzhu_army  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = 抱枕喵
+	picture = GFX27
+	traits = { cavalry_officer quzhu_army  }
 	skill = 6
 	attack_skill = 6
 	defense_skill = 1
 	planning_skill = 7
 	logistics_skill = 1
 }
-set_oob = "BXM_1936"
-set_naval_oob = "BXM_naval_1936"
-set_air_oob = "BXM_1936_air_legacy"
-
+set_oob = BXM_1936
+set_naval_oob = BXM_naval_1936
+set_air_oob = BXM_1936_air_legacy
 set_research_slots = 5
 set_stability = 0.6
 set_war_support = 0.9
-
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_mountaineers = 1
 	motorised_infantry = 1
@@ -69,7 +65,6 @@ set_technology = {
 	strategic_bomber1 = 1
 	CAS1 = 1
 	naval_bomber1 = 1
-	
 	mobile_warfare = 1
 	trade_interdiction = 1
 	formation_flying = 1
@@ -77,10 +72,11 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 }
-
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -128,30 +124,21 @@ if = {
 		basic_cruiser_armor_scheme = 1
 	}
 }
-add_ideas = {
-	guliyu_diguo
-    rierman_jieke_duili
-    yuyanchongtu
-    xiaotiao_jijiangguoqu
-	buxujiazhengying
-	}
-
+add_ideas = { guliyu_diguo rierman_jieke_duili yuyanchongtu xiaotiao_jijiangguoqu buxujiazhengying  }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1932.10.30"
-	election_frequency = 72 
+	election_frequency = 72
 	elections_allowed = no
 }
 set_popularities = {
-	socialism = 20
-	communism = 0
-	neutrality = 40
-	dictatorship = 15
-	democratic = 0
+	totalism = 0
+	socialism = 30
+	progressivism = 0
+	liberalism = 0
 	conservatism = 15
-	progressism = 0
-	reconcilism = 10
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 40
+	paternalism = 15
+	suprematism = 0
+	mysticism = 0
 }
-

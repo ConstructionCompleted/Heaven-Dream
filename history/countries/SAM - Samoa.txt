@@ -1,27 +1,22 @@
 ﻿capital = 600
 create_country_leader = {
-	name = "廉白大将军"
+	name = 廉白大将军
 	desc = ""
-	picture = "GFX204"
+	picture = GFX204
 	expire = "1965.1.1"
 	ideology = stalinism
 	traits = {
 	}
 }
-set_oob = "SAM_1936"
-set_naval_oob = "SAM_naval_1936"
-set_air_oob = "SAM_1936_air_legacy"
-
+set_oob = SAM_1936
+set_naval_oob = SAM_naval_1936
+set_air_oob = SAM_1936_air_legacy
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 }
-
 set_convoys = 20
-add_ideas = {
-	DAJ_red_army
-	DAJ_red_jingji
-}
+add_ideas = { DAJ_red_army DAJ_red_jingji  }
 1939.1.1 = {
 	#generic focuses
 	complete_national_focus = army_effort
@@ -33,19 +28,15 @@ add_ideas = {
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
 	set_technology = {
-
 		#doctrines
 		grand_battle_plan = 1
 		trench_warfare = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -61,23 +52,22 @@ add_to_faction = SAM
 add_to_faction = YUN
 if = {
 	limit = {
-		has_start_date < 1936.01.02
+		has_start_date < 1936.1.2
 	}
-
 	declare_war_on = {
 		target = CHI
 		type = annex_everything
 	}
 }
 set_politics = {
-	ruling_party = communism
+	ruling_party = totalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 4
-	fascism = 6
-	communism = 80
-	neutrality = 10
+	totalism = 80
+	liberalism = 4
+	authoritarianism = 10
+	suprematism = 6
 }

@@ -1,38 +1,35 @@
 ﻿capital = 43
-
-oob = "HUN_1936"
+oob = HUN_1936
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "HUN_1936_air_bba"
-		set_technology = {
-			iw_small_airframe = 1
-			engines_1 = 1
-			early_bombs = 1
-		}
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_air_oob = HUN_1936_air_bba
+	set_technology = {
+		iw_small_airframe = 1
+		engines_1 = 1
+		early_bombs = 1
+	}
 	else = {
-		set_air_oob = "HUN_1936_air_legacy"
+		set_air_oob = HUN_1936_air_legacy
 		set_technology = {
 			early_fighter = 1
 			CAS1 = 1
 		}
 	}
 }
-
 set_research_slots = 3
 set_stability = 0.7
 set_war_support = 0.6
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_recon = 1
 	gw_artillery = 1
-
 	fuel_silos = 1
 	basic_train = 1
 }
-
 if = {
 	limit = {
 		NOT = {
@@ -51,15 +48,11 @@ if = {
 		gwtank_chassis = 1
 	}
 }
-
 if = {
 	limit = {
 		has_dlc = "Death or Dishonor"
 	}
-	add_ideas = {
-		disarmed_nation
-		HUN_treaty_of_triannon
-	}
+	add_ideas = { disarmed_nation HUN_treaty_of_triannon }
 }
 if = {
 	limit = {
@@ -75,31 +68,27 @@ if = {
 		}
 	}
 }
-
 if = {
 	limit = {
 		#has_dlc = Battle for the Bosporus
 	}
-	add_opinion_modifier = { 
+	add_opinion_modifier = {
 		target = CZE
 		modifier = BFTB_incongruous_neighbors
 	}
-	add_opinion_modifier = { 
+	add_opinion_modifier = {
 		target = ROM
 		modifier = BFTB_incongruous_neighbors
 	}
-	add_opinion_modifier = { 
+	add_opinion_modifier = {
 		target = YUG
 		modifier = BFTB_incongruous_neighbors
 	}
 }
-
 1939.1.1 = {
 	remove_ideas = HUN_treaty_of_triannon
-
 	add_political_power = 1198
 	add_command_power = 100
-
 	if = {
 		limit = {
 			has_dlc = "Death or Dishonor"
@@ -121,17 +110,11 @@ if = {
 		complete_national_focus = HUN_demand_southern_slovakia
 		complete_national_focus = HUN_mobile_focus
 		complete_national_focus = HUN_license_foreign_designs
-		
 		#Handle this manually
 		unlock_national_focus = HUN_renounce_the_treaty_of_trianon
-		add_ideas = {
-			limited_conscription
-			HUN_treaty_of_triannon_3
-		}
-
+		add_ideas = { limited_conscription HUN_treaty_of_triannon_3  }
 		unlock_national_focus = HUN_strengthen_fascists #To avoid leader ID clash
 		add_ideas = HUN_strengthen_fascists
-
 		else = {
 			#generic focuses
 			complete_national_focus = army_effort
@@ -143,10 +126,9 @@ if = {
 			complete_national_focus = infrastructure_effort
 			complete_national_focus = industrial_effort
 			complete_national_focus = construction_effort
-			complete_national_focus = production_effort		
+			complete_national_focus = production_effort
 		}
 	}
-	
 	set_technology = {
 		interwar_artillery = 1
 		interwar_antitank = 1
@@ -156,7 +138,6 @@ if = {
 		motorised_infantry = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
@@ -164,14 +145,12 @@ if = {
 		fleet_in_being = 1
 		battlefleet_concentration = 1
 		convoy_sailing = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -183,10 +162,12 @@ if = {
 		fuel_refining = 1
 	}
 	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "HUN_1939_air_bba"
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_air_oob = HUN_1939_air_bba
 		else = {
-			set_air_oob = "HUN_1939_air_legacy"
+			set_air_oob = HUN_1939_air_legacy
 			set_technology = {
 				fighter1 = 1
 				early_bomber = 1
@@ -202,21 +183,16 @@ if = {
 		}
 		set_technology = {
 			basic_light_tank = 1
-	
 		}
-		set_oob = "HUN_1939"
+		set_oob = HUN_1939
 	}
 	if = {
 		limit = {
-			
 			has_dlc = "No Step Back"
-			
 		}
 		set_technology = {
 			basic_light_tank_chassis = 1
-	
 		}
-
 		create_equipment_variant = {
 			name = "Toldi 38M"
 			type = light_tank_chassis_1
@@ -232,59 +208,23 @@ if = {
 				tank_nsb_engine_upgrade = 3
 				tank_nsb_armor_upgrade = 2
 			}
-			icon = "GFX_generic_light_BAA_camo"
+			icon = GFX_generic_light_BAA_camo
 		}
-		set_oob = "HUN_1939_nsb"
+		set_oob = HUN_1939_nsb
 	}
 }
-
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1935.3.31"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 25
-	fascism = 31
-	neutrality = 44
+	liberalism = 25
+	authoritarianism = 44
+	suprematism = 31
 }
-
 #Start Horty as neutral if DOD
-recruit_character = HUN_miklos_horthy
-recruit_character = HUN_matyas_rakosi
-recruit_character = HUN_arpad_szakasits
-recruit_character = HUN_geza_lakatos
-recruit_character = HUN_ivan_hindy
-recruit_character = HUN_karoly_beregfy
-recruit_character = HUN_lajos_veress
-recruit_character = HUN_ferenc_feketehalmyczeydner
-recruit_character = HUN_istvan_szechenyi
-recruit_character = HUN_francois_deak
-recruit_character = HUN_gyorgy_jendrassik
-recruit_character = HUN_jeno_ratz
-recruit_character = HUN_henrik_werth
-recruit_character = HUN_hugo_sonyi
-recruit_character = HUN_ferenc_szombathelyi
-recruit_character = HUN_gusztav_jany
-recruit_character = HUN_dezso_laszlo
-recruit_character = HUN_reszo_kastner
-recruit_character = HUN_shvoy_kalman
-recruit_character = HUN_sandor_magyarossy
-recruit_character = HUN_bela_rakosi
-recruit_character = HUN_kalman_kanya
-recruit_character = HUN_jozsef_szell
-recruit_character = HUN_vilmos_roder
-recruit_character = HUN_zoltan_tildy
-recruit_character = HUN_laszlo_rajk
-recruit_character = HUN_kalman_daranyi
-recruit_character = HUN_lajos_remenyi_schneller
-recruit_character = HUN_gusztav_gratz
-recruit_character = HUN_gyula_gombos_de_jakfa
-recruit_character = HUN_otto_von_habsburg
-recruit_character = HUN_franz_friedrich
-
-
 1939.1.1 = {
 	set_politics = {
 		ruling_party = fascism

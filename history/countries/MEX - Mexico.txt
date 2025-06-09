@@ -1,16 +1,19 @@
 ﻿capital = 277
-
-oob = "MEX_1936"
+oob = MEX_1936
 if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "MEX_1936_naval_mtg"
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_naval_oob = MEX_1936_naval_mtg
 	else = {
-		set_naval_oob = "MEX_1936_naval_legacy"
+		set_naval_oob = MEX_1936_naval_legacy
 	}
 }
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-	set_air_oob = "MEX_1936_air_bba"
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_air_oob = MEX_1936_air_bba
 	set_technology = {
 		aa_lmg = 1
 		engines_1 = 1
@@ -19,22 +22,19 @@ if = {
 		iw_small_airframe = 1
 	}
 	else = {
-		set_air_oob = "MEX_1936_air_legacy"
+		set_air_oob = MEX_1936_air_legacy
 		set_technology = {
 			early_fighter = 1
 			early_bomber = 1
 			CAS1 = 1
-
 		}
 	}
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	
 	fuel_silos = 1
 	fuel_refining = 1
 }
@@ -48,14 +48,20 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
+		NOT = {
+			has_dlc = "No Step Back"
+		}
 	}
 	set_technology = {
 		gwtank = 1
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		early_destroyer = 1
@@ -64,7 +70,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -73,107 +81,56 @@ if = {
 		coastal_defense_ships = 1
 	}
 }
-
-recruit_character = MEX_lazaro_cardenas
-recruit_character = MEX_salvador_abascal
-recruit_character = MEX_adolfo_de_la_huerta
-recruit_character = MEX_dionisio_encina
-recruit_character = MEX_hernan_laborde
-recruit_character = MEX_heliodoro_charis
-recruit_character = MEX_luis_farell
-recruit_character = MEX_gildardo_magana
-recruit_character = MEX_manuel_perez_trevino
-recruit_character = MEX_abelardo_rodriguez
-recruit_character = MEX_manuel_avila_camacho
-recruit_character = MEX_othon_blanco
-recruit_character = MEX_heriberto_corona
-recruit_character = MEX_antonio_cardenas_rodriguez
-recruit_character = MEX_jesus_garza_siller
-recruit_character = MEX_gilberto_limon
-recruit_character = MEX_pablo_macias
-recruit_character = MEX_jose_gonzalo_escobar
-recruit_character = MEX_agustin_olachea
-recruit_character = MEX_leon_trotsky
-recruit_character = MEX_saturnino_cedillo
-recruit_character = MEX_hector_meixueiro
-recruit_character = MEX_matias_santos_ramos
-recruit_character = MEX_enrique_estrada
-recruit_character = MEX_jose_vasconcelos
-recruit_character = MEX_pablo_gonzalez
-recruit_character = MEX_bartolome_garcia_correa
-recruit_character = MEX_luis_montes_de_oca
-recruit_character = MEX_aaron_saenz
-recruit_character = MEX_vicente_lombardo
-recruit_character = MEX_eduardo_hay
-recruit_character = MEX_alberto_pani
-recruit_character = MEX_juan_andreu
-recruit_character = MEX_plutarco_calles
-recruit_character = MEX_francisco_mugica
-recruit_character = MEX_jesus_degollado_guizar
-recruit_character = MEX_valentin_campa
-recruit_character = MEX_luis_maria_martinez
-
 set_country_flag = monroe_doctrine
-
 set_convoys = 45
 set_stability = 0.2
 set_war_support = 0.1
-
 if = {
 	limit = {
 		has_dlc = "Man the Guns"
 	}
-	add_ideas = {
-		MEX_callistas
-		MEX_church_power_2
-		MEX_oil_concessions
-		MEX_politicised_army
-		MEX_cedillo_tension_2
-	}
+	add_ideas = { MEX_callistas MEX_church_power_2 MEX_oil_concessions MEX_politicised_army MEX_cedillo_tension_2 }
 }
-
 1939.1.1 = {
 	add_political_power = 1198
 	add_command_power = 100
-
 	set_global_flag = flag_mexico_cedillo_has_revolted
-	
-	oob = "MEX_1939"
+	oob = MEX_1939
 	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "MEX_1936_air_bba" #deliberately using 1936
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_air_oob = MEX_1936_air_bba #deliberately using 1936
 		else = {
-			set_air_oob = "MEX_1936_air_legacy"
+			set_air_oob = MEX_1936_air_legacy
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
-			set_naval_oob = "MEX_1939_naval_mtg"
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = MEX_1939_naval_mtg
 		else = {
-			set_naval_oob = "MEX_1939_naval_legacy"
+			set_naval_oob = MEX_1939_naval_legacy
 		}
 	}
-	
 	set_technology = {
 		interwar_artillery = 1
 		infantry_weapons1 = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
 		trench_warfare = 1
 		fleet_in_being = 1
 		battlefleet_concentration = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -186,16 +143,12 @@ if = {
 		dispersed_industry2 = 1
 		dispersed_industry3 = 1
 	}
-
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
 		}
-
-		remove_ideas = {
-			MEX_cedillo_tension_2 # Already rebelled by this point
-		}
-		
+		remove_ideas = { MEX_cedillo_tension_2 # Already rebelled by this point
+ }
 		complete_national_focus = MEX_focus_plan_of_agua_prieta
 		# 70
 		complete_national_focus = MEX_focus_exile_calles # Increase Church Power (3)
@@ -223,11 +176,9 @@ if = {
 		complete_national_focus = MEX_focus_rural_infrastructure
 		# 910
 		unlock_national_focus = MEX_focus_nationalize_the_oil_fields
-		# 980
-		remove_ideas = {
-			MEX_oil_concessions
-		}
-		
+		remove_ideas = { 
+			# 980
+			MEX_oil_concessions  }
 		ENG = {
 			add_opinion_modifier = {
 				target = MEX
@@ -248,7 +199,6 @@ if = {
 			target = USA
 			modifier = embargo
 		}
-		
 		else = {
 			#generic focuses
 			complete_national_focus = army_effort
@@ -263,24 +213,26 @@ if = {
 		}
 	}
 }
-
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1934.7.1"
 	election_frequency = 72
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 18
-	fascism = 20
-	communism = 9
-	neutrality = 53
+	totalism = 9
+	liberalism = 18
+	authoritarianism = 53
+	suprematism = 20
 }
-
 ### VARIANTS ###
 # 1936 Start #
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	create_equipment_variant = {
 		name = "Durango Class"
 		type = destroyer_1
@@ -301,10 +253,12 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	# Destroyers #
 	create_equipment_variant = {
-		name = "Nicolás Bravo Class"			
+		name = "Nicolás Bravo Class"
 		type = ship_hull_light_1
 		name_group = MEX_DD_HISTORICAL
 		parent_version = 0
@@ -321,7 +275,7 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Durango Class"			# represents both Guanajuato and Durango classes (gunboats)
+		name = "Durango Class" # represents both Guanajuato and Durango classes (gunboats)
 		type = ship_hull_light_1
 		name_group = MEX_DD_HISTORICAL
 		parent_version = 0
@@ -337,7 +291,7 @@ if = {
 		}
 	}
 	create_equipment_variant = {
-		name = "Anahuac Class"			
+		name = "Anahuac Class"
 		type = ship_hull_cruiser_coastal_defense_ship
 		name_group = MEX_BB_HISTORICAL
 		parent_version = 0

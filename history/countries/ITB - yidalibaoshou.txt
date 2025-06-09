@@ -1,13 +1,10 @@
 capital = 1394
-
-set_oob = "ITB_1936"
-set_naval_oob = "ITB_naval_1936"
-set_air_oob = "ITB_1936_air_legacy"
-
+set_oob = ITB_1936
+set_naval_oob = ITB_naval_1936
+set_air_oob = ITB_1936_air_legacy
 set_research_slots = 5
 set_stability = 0.6
 set_war_support = 0.9
-
 create_country_leader = {
 	name = "阿尔契德·加斯贝利"
 	desc = ""
@@ -30,7 +27,7 @@ set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_mountaineers = 1
 	motorised_infantry = 1
@@ -47,7 +44,6 @@ set_technology = {
 	strategic_bomber1 = 1
 	CAS1 = 1
 	naval_bomber1 = 1
-	
 	mobile_warfare = 1
 	trade_interdiction = 1
 	formation_flying = 1
@@ -55,18 +51,20 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 }
-add_ideas = {
-ITB_xinsheng_gonghe
+add_ideas = { ITB_xinsheng_gonghe  }
+set_variable = {
+	yidali_hefaxing = 50
 }
-set_variable = { yidali_hefaxing = 50 }
 clamp_variable = {
-    var = yidali_hefaxing
-    min = 0
-    max = 100
+	var = yidali_hefaxing
+	min = 0
+	max = 100
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -114,25 +112,22 @@ if = {
 		basic_cruiser_armor_scheme = 1
 	}
 }
-
 set_politics = {
-	ruling_party = progressism
+	ruling_party = progressivism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 10
-	communism = 0
-	neutrality = 5
-	dictatorship = 0
-	democratic = 20
+	progressivism = 50
+	liberalism = 20
 	conservatism = 15
-	progressism = 50
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 5
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
 }
 create_country_leader = {
 	name = "加莱阿佐·齐亚诺"

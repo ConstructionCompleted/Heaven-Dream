@@ -1,7 +1,5 @@
 ﻿capital = 66
-
 #oob = ""
-
 set_research_slots = 3
 # Starting tech
 set_technology = {
@@ -21,7 +19,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
+		NOT = {
+			has_dlc = "By Blood Alone"
+		}
 	}
 	set_technology = {
 		early_fighter = 1
@@ -35,7 +35,9 @@ if = {
 }
 if = {
 	limit = {
-		NOT = { has_dlc = "No Step Back" }
+		NOT = {
+			has_dlc = "No Step Back"
+		}
 	}
 	set_technology = {
 		gwtank = 1
@@ -54,8 +56,12 @@ if = {
 	}
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
 		early_destroyer = 1
@@ -72,7 +78,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -101,9 +109,7 @@ if = {
 		armored_car1 = 1
 	}
 }
-
 set_convoys = 20
-
 1939.1.1 = {
 	#generic focuses
 	complete_national_focus = army_effort
@@ -115,14 +121,12 @@ set_convoys = 20
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
 	set_technology = {
 		interwar_artillery = 1
 		interwar_antitank = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
 		support_weapons2 = 1
-
 		#doctrines
 		#Air
 		force_rotation = 1
@@ -136,7 +140,6 @@ set_convoys = 20
 		subsidiary_carrier_role = 1
 		convoy_sailing = 1
 		submarine_operations = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
@@ -145,7 +148,6 @@ set_convoys = 20
 		computing_machine = 1
 		basic_encryption = 1
 		basic_decryption = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -161,7 +163,9 @@ set_convoys = 20
 	}
 	if = {
 		limit = {
-			NOT = { has_dlc = "By Blood Alone" }
+			NOT = {
+				has_dlc = "By Blood Alone"
+			}
 		}
 		set_technology = {
 			fighter1 = 1
@@ -174,14 +178,20 @@ set_convoys = 20
 		}
 	}
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		set_technology = {
 			basic_battleship = 1
 			basic_battlecruiser = 1
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		set_technology = {
 			improved_ship_hull_light = 1
 			improved_ship_hull_heavy = 1
@@ -194,25 +204,23 @@ set_convoys = 20
 	}
 }
 set_politics = {
-	ruling_party = democratic
+	ruling_party = liberalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 50
-	fascism = 5
-	communism = 35
-	neutrality = 10
+	totalism = 35
+	liberalism = 50
+	authoritarianism = 10
+	suprematism = 5
 }
-
 create_country_leader = {
 	name = "Józef Biniszkiewicz"
 	desc = ""
-	picture = "GFX_portrait_SIL_Jozef_iniszkiewicz"
+	picture = GFX_portrait_SIL_Jozef_iniszkiewicz
 	expire = "1953.3.1"
 	ideology = socialism
 	traits = {
-		
 	}
 }

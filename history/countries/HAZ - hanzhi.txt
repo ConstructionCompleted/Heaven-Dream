@@ -1,18 +1,15 @@
 capital = 1309
-
-set_oob = "HAZ_1936"
-set_naval_oob = "HAZ_naval_1936"
-set_air_oob = "HAZ_1936_air_legacy"
-
+set_oob = HAZ_1936
+set_naval_oob = HAZ_naval_1936
+set_air_oob = HAZ_1936_air_legacy
 set_research_slots = 5
 set_stability = 0.6
 set_war_support = 0.9
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_mountaineers = 1
 	motorised_infantry = 1
@@ -29,7 +26,6 @@ set_technology = {
 	strategic_bomber1 = 1
 	CAS1 = 1
 	naval_bomber1 = 1
-	
 	mobile_warfare = 1
 	trade_interdiction = 1
 	formation_flying = 1
@@ -37,10 +33,11 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 }
-
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -88,31 +85,26 @@ if = {
 		basic_cruiser_armor_scheme = 1
 	}
 }
-add_ideas = {
-HAZ_chengshihua
-HAZ_shengdi_chongtu
-HAZ_junshi_gexin
-}
+add_ideas = { HAZ_chengshihua HAZ_shengdi_chongtu HAZ_junshi_gexin  }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1935.10.30"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 60
-	dictatorship = 20
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 20
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 60
+	paternalism = 20
+	suprematism = 0
+	mysticism = 0
 }
 create_country_leader = {
-	name = "费萨尔一世"
+	name = 费萨尔一世
 	desc = ""
 	picture = ".jpg"
 	expire = "1965.1.1"

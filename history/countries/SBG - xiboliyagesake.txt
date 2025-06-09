@@ -1,44 +1,36 @@
 ﻿capital = 566
 create_country_leader = {
-	name = "谢苗诺夫"
+	name = 谢苗诺夫
 	desc = ""
-	picture = "GFX14"
+	picture = GFX14
 	expire = "1965.1.1"
 	ideology = yulie_system
 	traits = {
 	}
 }
 create_corps_commander = {
-	name = "谢苗诺夫" 
-	picture = "GFX14"
-	traits = { cavalry_officer trait_reckless }
+	name = 谢苗诺夫
+	picture = GFX14
+	traits = { cavalry_officer trait_reckless  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 3
 	planning_skill = 4
 	logistics_skill = 2
 }
-
-set_oob = "SBG_1936"
-set_naval_oob = "SBG_naval_1936"
-set_air_oob = "SBG_1936_air_legacy"
-
-
+set_oob = SBG_1936
+set_naval_oob = SBG_naval_1936
+set_air_oob = SBG_1936_air_legacy
 set_research_slots = 3
 set_stability = 0.4
 set_war_support = 0.6
-
-add_ideas = {
-SBG_fanpan_zhijun
-SBG_huangmo_zhijun
-SBG_gesake_qibing
-}
+add_ideas = { SBG_fanpan_zhijun SBG_huangmo_zhijun SBG_gesake_qibing  }
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -57,9 +49,12 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 }
-
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -75,7 +70,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -104,32 +101,31 @@ if = {
 	}
 }
 declare_war_on = {
-		target = RUD
-		type = annex_everything
-	}
+	target = RUD
+	type = annex_everything
+}
 declare_war_on = {
-		target = BMO
-		type = annex_everything
-	}
+	target = BMO
+	type = annex_everything
+}
 declare_war_on = {
-		target = SRU
-		type = annex_everything
-	}
+	target = SRU
+	type = annex_everything
+}
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
+	totalism = 5
 	socialism = 5
-	communism = 5
-	neutrality = 60
-	dictatorship = 20
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 5
-	progressism = 0
-	reconcilism = 5
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 60
+	paternalism = 25
+	suprematism = 0
+	mysticism = 0
 }

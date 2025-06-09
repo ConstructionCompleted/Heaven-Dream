@@ -1,17 +1,16 @@
 ﻿capital = 716
 create_country_leader = {
-	name = "醉问松"
+	name = 醉问松
 	desc = ""
-	picture = "GFX182"
+	picture = GFX182
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
 	}
 }
-
-set_oob = "BRI_1936"
-set_naval_oob = "BRI_naval_1936"
-set_air_oob = "BRI_1936_air_legacy"
+set_oob = BRI_1936
+set_naval_oob = BRI_naval_1936
+set_air_oob = BRI_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.4
 set_war_support = 0.3
@@ -43,8 +42,12 @@ set_technology = {
 	fuel_refining = 1
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
 		early_destroyer = 1
@@ -61,7 +64,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -91,9 +96,7 @@ if = {
 		armored_car1 = 1
 	}
 }
-
 set_convoys = 20
-
 1939.1.1 = {
 	#generic focuses
 	complete_national_focus = army_effort
@@ -105,7 +108,6 @@ set_convoys = 20
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
 	set_technology = {
 		fighter1 = 1
 		fighter2 = 1
@@ -122,23 +124,19 @@ set_convoys = 20
 		infantry_weapons2 = 1
 		support_weapons = 1
 		support_weapons2 = 1
-
 		#doctrines
 		#Air
 		force_rotation = 1
 		fighter_baiting = 1
 		low_echelon_support = 1
 		dispersed_fighting = 1
-		
-			grand_battle_plan = 1
-
+		grand_battle_plan = 1
 		trench_warfare = 1
 		prepared_defense = 1
 		battlefleet_concentration = 1
 		subsidiary_carrier_role = 1
 		convoy_sailing = 1
 		submarine_operations = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
@@ -147,7 +145,6 @@ set_convoys = 20
 		computing_machine = 1
 		basic_encryption = 1
 		basic_decryption = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -162,14 +159,20 @@ set_convoys = 20
 		dispersed_industry3 = 1
 	}
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
 		set_technology = {
 			basic_battleship = 1
 			basic_battlecruiser = 1
 		}
 	}
 	if = {
-		limit = { has_dlc = "Man the Guns" }
+		limit = {
+			has_dlc = "Man the Guns"
+		}
 		set_technology = {
 			improved_ship_hull_light = 1
 			improved_ship_hull_heavy = 1
@@ -183,15 +186,14 @@ set_convoys = 20
 	}
 }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 20
-	fascism = 40
-	communism = 10
-	neutrality = 30
+	totalism = 10
+	liberalism = 20
+	authoritarianism = 30
+	suprematism = 40
 }
-

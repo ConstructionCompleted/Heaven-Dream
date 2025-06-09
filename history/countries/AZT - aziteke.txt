@@ -2,27 +2,24 @@
 create_country_leader = {
 	name = "奥梅堤奥托,人偶"
 	desc = ""
-	picture = "GFX70"
+	picture = GFX70
 	expire = "1965.1.1"
 	ideology = shenquan_junzhu_system
-	traits = { 
+	traits = {
 	}
 }
-set_oob = "AZT_1936"
-set_naval_oob = "AZT_naval_1936"
-set_air_oob = "AZT_1936_air_legacy"
-
+set_oob = AZT_1936
+set_naval_oob = AZT_naval_1936
+set_air_oob = AZT_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.7
 set_war_support = 0.5
-
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -41,9 +38,12 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 }
-
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		basic_submarine = 1
@@ -59,7 +59,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		submarine_mine_laying = 1
@@ -87,34 +89,29 @@ if = {
 		improved_airplane_launcher = 1
 	}
 }
-
-
 set_convoys = 500
-
-
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 75
-	dictatorship = 25
-	democratic = 0
+	progressivism = 0
+	liberalism = 0
 	conservatism = 0
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 75
+	paternalism = 25
+	suprematism = 0
+	mysticism = 0
 }
 declare_war_on = {
-		target = XTR
-		type = annex_everything
-	}
+	target = XTR
+	type = annex_everything
+}
 declare_war_on = {
-		target = MYP
-		type = annex_everything
-	}
+	target = MYP
+	type = annex_everything
+}

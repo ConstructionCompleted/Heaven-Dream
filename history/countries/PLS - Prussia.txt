@@ -1,14 +1,11 @@
 ﻿capital = 64
-
 #set_oob = "PLS_1936"
 #set_naval_oob = "PLS_naval_1936"
 #set_air_oob = "PLS_1936_air_legacy"
-
 set_research_slots = 5
 set_stability = 0.6
 set_war_support = 0.9
 set_convoys = 200
-
 set_technology = {
 	iw_small_airframe = 1
 	basic_small_airframe = 1
@@ -22,7 +19,7 @@ set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -61,16 +58,14 @@ set_technology = {
 	camelry = 1
 	basic_medium_tank_chassis = 1
 }
-
-set_variable = { PLS.junshihua = 1 }
-
-
+set_variable = {
+	PLS.junshihua = 1
+}
 recruit_character = PLS_Albert_Wilhelm_Heinrich
-
 create_field_marshal = {
-	name = "梦之魂影"
-	picture = "GFX101"
-	traits = { trait_mountaineer }
+	name = 梦之魂影
+	picture = GFX101
+	traits = { trait_mountaineer  }
 	skill = 6
 	attack_skill = 2
 	defense_skill = 2
@@ -78,9 +73,9 @@ create_field_marshal = {
 	logistics_skill = 9
 }
 create_field_marshal = {
-	name = "一只迷路的高阶领主"
-	picture = "GFX102"
-	traits = { trait_mountaineer }
+	name = 一只迷路的高阶领主
+	picture = GFX102
+	traits = { trait_mountaineer  }
 	skill = 6
 	attack_skill = 2
 	defense_skill = 2
@@ -88,9 +83,9 @@ create_field_marshal = {
 	logistics_skill = 9
 }
 create_field_marshal = {
-	name = "某路过的精德人士"
-	picture = "GFX103"
-	traits = { trait_mountaineer }
+	name = 某路过的精德人士
+	picture = GFX103
+	traits = { trait_mountaineer  }
 	skill = 6
 	attack_skill = 2
 	defense_skill = 2
@@ -98,9 +93,9 @@ create_field_marshal = {
 	logistics_skill = 9
 }
 create_corps_commander = {
-	name = "不知道" 
-	picture = "GFX104"
-	traits = { cavalry_officer quzhu_army }
+	name = 不知道
+	picture = GFX104
+	traits = { cavalry_officer quzhu_army  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
@@ -108,9 +103,9 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "看到我请叫我去复习"
-	picture = "GFX105"
-	traits = { brilliant_strategist }
+	name = 看到我请叫我去复习
+	picture = GFX105
+	traits = { brilliant_strategist  }
 	skill = 6
 	attack_skill = 6
 	defense_skill = 6
@@ -118,9 +113,9 @@ create_corps_commander = {
 	logistics_skill = 6
 }
 create_corps_commander = {
-	name = "银鹤纸月"
-	picture = "GFX106"
-	traits = { brilliant_strategist }
+	name = 银鹤纸月
+	picture = GFX106
+	traits = { brilliant_strategist  }
 	skill = 4
 	attack_skill = 4
 	defense_skill = 3
@@ -128,9 +123,9 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "杀神"
-	picture = "GFX107"
-	traits = { brilliant_strategist }
+	name = 杀神
+	picture = GFX107
+	traits = { brilliant_strategist  }
 	skill = 2
 	attack_skill = 1
 	defense_skill = 2
@@ -138,16 +133,15 @@ create_corps_commander = {
 	logistics_skill = 2
 }
 create_corps_commander = {
-	name = "南山必胜客"
-	picture = "GFX108"
-	traits = { brilliant_strategist }
+	name = 南山必胜客
+	picture = GFX108
+	traits = { brilliant_strategist  }
 	skill = 4
 	attack_skill = 3
 	defense_skill = 2
 	planning_skill = 4
 	logistics_skill = 3
 }
-
 add_ideas = {
 	PLS_general_staff
 	PLS_victor_of_world_war_4
@@ -156,8 +150,6 @@ add_ideas = {
 	PLS_metal_gear
 	PLS_empire_reform
 }
-
-
 if = {
 	limit = {
 		OR = {
@@ -186,27 +178,29 @@ if = {
 		autonomy_state = autonomy_puppet
 	}
 }
-PLS = { news_event = { id = holy_news.14 days = 400 } }
-
+PLS = {
+	news_event = {
+		id = "holy_news.14"
+		days = 400
+	}
+}
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1932.10.30"
-	election_frequency = 72 
+	election_frequency = 72
 	elections_allowed = yes
 }
 set_popularities = {
-	socialism = 0
-	communism = 10
-	neutrality = 60
-	dictatorship = 20
-	democratic = 0
-	conservatism = 10
-	progressism = 0
-	reconcilism = 0
-	fascism = 0
-	destruction_system = 0
+	totalism = 0
+	socialism = 8
+	progressivism = 8
+	liberalism = 9
+	conservatism = 12
+	authoritarianism = 43
+	paternalism = 20
+	suprematism = 0
+	mysticism = 0
 }
-
 create_faction = Holy_Roman_Empire
 add_to_faction = DAZ
 add_to_faction = LAI
@@ -217,95 +211,95 @@ add_to_faction = HNW
 add_to_faction = LUO
 add_to_faction = AUS
 create_equipment_variant = {
-		name = "qianting_1"
-		type = ship_hull_submarine_1
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
+	name = qianting_1
+	type = ship_hull_submarine_1
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+		fixed_ship_engine_slot = sub_ship_engine_1
+		rear_1_custom_slot = empty
 	}
+}
 create_equipment_variant = {
-		name = "quzhu_1"
-		type = ship_hull_light_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = dp_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = ship_sonar_1
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
+	name = quzhu_1
+	type = ship_hull_light_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = dp_light_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = ship_sonar_1
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = ship_depth_charge_1
 	}
+}
 create_equipment_variant = {
-		name = "qingxun_1"
-		type = ship_hull_cruiser_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			fixed_ship_secondaries_slot = dp_ship_secondaries_1
-			front_1_custom_slot = ship_light_medium_battery_1
-			mid_1_custom_slot = ship_airplane_launcher_1
-			mid_2_custom_slot = ship_anti_air_1
-			rear_1_custom_slot = ship_light_medium_battery_1
-		}
+	name = qingxun_1
+	type = ship_hull_cruiser_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		fixed_ship_secondaries_slot = dp_ship_secondaries_1
+		front_1_custom_slot = ship_light_medium_battery_1
+		mid_1_custom_slot = ship_airplane_launcher_1
+		mid_2_custom_slot = ship_anti_air_1
+		rear_1_custom_slot = ship_light_medium_battery_1
 	}
+}
 create_equipment_variant = {
-		name = "zhongxun_1"
-		type = ship_hull_cruiser_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			mid_1_custom_slot = ship_airplane_launcher_1
-			mid_2_custom_slot = ship_anti_air_1
-			rear_1_custom_slot = ship_medium_battery_1
-		}
+	name = zhongxun_1
+	type = ship_hull_cruiser_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		mid_1_custom_slot = ship_airplane_launcher_1
+		mid_2_custom_slot = ship_anti_air_1
+		rear_1_custom_slot = ship_medium_battery_1
 	}
+}
 create_equipment_variant = {
-		name = "zhanlie_1"
-		type = ship_hull_heavy_1
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = dp_ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_1
-			front_1_custom_slot = ship_heavy_battery_1
-			mid_1_custom_slot = dp_ship_secondaries_1
-			mid_2_custom_slot = ship_airplane_launcher_1
-			rear_1_custom_slot = ship_heavy_battery_1
-		}
+	name = zhanlie_1
+	type = ship_hull_heavy_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_1
+		fixed_ship_secondaries_slot = dp_ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = ship_heavy_battery_1
+		mid_1_custom_slot = dp_ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_1
 	}
+}
 create_equipment_variant = {
-		name = "hangmu_1"
-		type = ship_hull_carrier_1
-		parent_version = 0
-		modules = {
-			fixed_ship_deck_slot_1 = ship_deck_space
-			fixed_ship_deck_slot_2 = ship_deck_space
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_radar_slot = ship_radar_1
-			fixed_ship_engine_slot = carrier_ship_engine_1
-			fixed_ship_secondaries_slot = dp_ship_secondaries_1
-			front_1_custom_slot = ship_deck_space
-			mid_1_custom_slot = ship_deck_space
-		}
+	name = hangmu_1
+	type = ship_hull_carrier_1
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = ship_radar_1
+		fixed_ship_engine_slot = carrier_ship_engine_1
+		fixed_ship_secondaries_slot = dp_ship_secondaries_1
+		front_1_custom_slot = ship_deck_space
+		mid_1_custom_slot = ship_deck_space
 	}
+}

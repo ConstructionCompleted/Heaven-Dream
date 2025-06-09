@@ -1,18 +1,21 @@
 ﻿capital = 279
-
-oob = "CHL_1936"
+oob = CHL_1936
 if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "CHL_1936_naval_mtg"
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_naval_oob = CHL_1936_naval_mtg
 	else = {
-		set_naval_oob = "CHL_1936_naval_legacy"
+		set_naval_oob = CHL_1936_naval_legacy
 	}
 }
 if = {
-	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "CHL_1936_air_bba"
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	set_air_oob = CHL_1936_air_bba
 	else = {
-		set_air_oob = "CHL_1936_air_legacy"
+		set_air_oob = CHL_1936_air_legacy
 		set_technology = {
 			early_fighter = 1
 			cv_early_fighter = 1
@@ -20,7 +23,6 @@ if = {
 		}
 	}
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -28,7 +30,11 @@ set_technology = {
 	interwar_antiair = 1
 }
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	set_technology = {
 		early_submarine = 1
 		early_destroyer = 1
@@ -39,7 +45,9 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
@@ -54,41 +62,11 @@ if = {
 		mtg_transport = 1
 	}
 }
-
-recruit_character = CHL_arturo_alessandri
-recruit_character = CHL_jorge_gonzález_von_marées
-recruit_character = CHL_carlos_contreras_labarca
-recruit_character = CHL_escudero_oscar_otárola
-recruit_character = CHL_domingo_blanco
-recruit_character = CHL_julio_allard_pinto
-recruit_character = CHL_gustavo_silva
-recruit_character = CHL_jose_luis_sanchez_besa
-recruit_character = CHL_marmaduke_grove
-recruit_character = CHL_e_novoa_fuentes
-recruit_character = CHL_dario_mujica_gamboa
-recruit_character = CHL_c_j_de_la_motte
-recruit_character = CHL_carlos_fuentes_rabe
-recruit_character = CHL_arturo_espinoza_mujica
-recruit_character = CHL_carlos_puga_monsalve
-recruit_character = CHL_francisco_o_ryan_orrego
-recruit_character = CHL_ernesto_m_orlando
-recruit_character = CHL_dario_cellejas_rojas
-recruit_character = CHL_ariosto_herrera
-recruit_character = CHL_luis_alamos_barros
-recruit_character = CHL_miguel_cruchaga_tacomal
-recruit_character = CHL_gustavo_ross_santa_maria
-
-
-
 set_country_flag = monroe_doctrine
-
 set_convoys = 20
-
 1939.1.1 = {
-
 	add_political_power = 1198
 	add_command_power = 100
-	
 	#generic focuses
 	complete_national_focus = army_effort
 	complete_national_focus = equipment_effort
@@ -99,33 +77,34 @@ set_convoys = 20
 	complete_national_focus = industrial_effort
 	complete_national_focus = construction_effort
 	complete_national_focus = production_effort
-	
-	oob = "CHL_1939"
+	oob = CHL_1939
 	if = {
-		limit = { has_dlc = "Man the Guns" }
-			set_naval_oob = "CHL_1939_naval_mtg"
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = CHL_1939_naval_mtg
 		else = {
-			set_naval_oob = "CHL_1939_naval_legacy"
+			set_naval_oob = CHL_1939_naval_legacy
 		}
 	}
 	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "CHL_1939_air_bba"
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		set_air_oob = CHL_1939_air_bba
 		else = {
-			set_air_oob = "CHL_1939_air_legacy"
+			set_air_oob = CHL_1939_air_legacy
 			set_technology = {
 				tactical_bomber1 = 1
 				CAS1 = 1
 			}
 		}
 	}
-
 	set_technology = {
 		interwar_artillery = 1
 		infantry_weapons1 = 1
 		infantry_weapons2 = 1
 		support_weapons = 1
-
 		#doctrines
 		air_superiority = 1
 		grand_battle_plan = 1
@@ -133,15 +112,12 @@ set_convoys = 20
 		fleet_in_being = 1
 		battlefleet_concentration = 1
 		convoy_sailing = 1
-
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -156,19 +132,17 @@ set_convoys = 20
 		dispersed_industry2 = 1
 	}
 }
-
 set_convoys = 5
 set_politics = {
-	ruling_party = democratic
+	ruling_party = liberalism
 	last_election = "1932.10.30"
-	election_frequency = 72  #but 4 years after this one in 1938.
+	election_frequency = 72 #but 4 years after this one in 1938.
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 98
-	communism = 2
+	totalism = 2
+	liberalism = 98
 }
-
 1939.1.1 = {
 	set_politics = {
 		ruling_party = democratic
@@ -176,21 +150,20 @@ set_popularities = {
 		election_frequency = 48
 		elections_allowed = yes
 	}
-
 	set_popularities = {
 		democratic = 100
 	}
-
-	recruit_character = CHL_pedro_aguirre_cerda
 	promote_character = CHL_pedro_aguirre_cerda
 	retire_character = CHL_arturo_alessandri
 }
-
-
 ### VARIANTS ###
 # 1936 Start #
 if = {
-	limit = { not = { has_dlc = "Man the Guns" } }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
 	### Ship Variants ###
 	create_equipment_variant = {
 		name = "Capitán O'Brien Class"
@@ -214,10 +187,12 @@ if = {
 	}
 }
 if = {
-	limit = { has_dlc = "Man the Guns" }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	# Submarines #
 	create_equipment_variant = {
-		name = "H1 Class"				
+		name = "H1 Class"
 		type = ship_hull_submarine_1
 		name_group = CHL_SS_HISTORICAL
 		parent_version = 0
@@ -229,7 +204,7 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Capitán O'Brien Class"				
+		name = "Capitán O'Brien Class"
 		type = ship_hull_submarine_1
 		name_group = CHL_SS_HISTORICAL
 		parent_version = 0
@@ -241,7 +216,7 @@ if = {
 	}
 	# Destroyers #
 	create_equipment_variant = {
-		name = "Almirante Lynch Class"				
+		name = "Almirante Lynch Class"
 		type = ship_hull_light_1
 		name_group = CHL_DD_HISTORICAL
 		parent_version = 0
@@ -258,7 +233,7 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Serrano Class"	
+		name = "Serrano Class"
 		type = ship_hull_light_1
 		name_group = CHL_DD_HISTORICAL
 		parent_version = 0
@@ -275,7 +250,7 @@ if = {
 	}
 	# Cruisers #
 	create_equipment_variant = {
-		name = "O'Higgins Class"				
+		name = "O'Higgins Class"
 		type = ship_hull_cruiser_coastal_defense_ship
 		name_group = CHL_CA_HISTORICAL
 		parent_version = 0
@@ -293,7 +268,7 @@ if = {
 		}
 	}
 	create_equipment_variant = {
-		name = "Chacabuco Class"				
+		name = "Chacabuco Class"
 		type = ship_hull_cruiser_coastal_defense_ship
 		name_group = CHL_CL_HISTORICAL
 		parent_version = 0
@@ -312,7 +287,7 @@ if = {
 	}
 	# Battleships #
 	create_equipment_variant = {
-		name = "Almirante Latorre Class"	
+		name = "Almirante Latorre Class"
 		type = ship_hull_heavy_1
 		name_group = CHL_BB_HISTORICAL
 		parent_version = 0

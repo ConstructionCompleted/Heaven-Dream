@@ -1,13 +1,10 @@
 ﻿capital = 919
-
-set_oob = "BLT_1936"
-set_naval_oob = "BLT_naval_1936"
-set_air_oob = "BLT_1936_air_legacy"
-
+set_oob = BLT_1936
+set_naval_oob = BLT_naval_1936
+set_air_oob = BLT_1936_air_legacy
 set_research_slots = 5
 set_stability = 0.5
 set_war_support = 0.5
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -28,10 +25,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -43,11 +37,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -93,31 +91,28 @@ if = {
 	}
 }
 set_politics = {
-	ruling_party = neutrality 
+	ruling_party = authoritarianism
 	last_election = "1930.11.9"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
-	socialism = 0
-	communism = 0
-	neutrality = 35
-	dictatorship = 15
-	democratic = 10
+	totalism = 0
+	socialism = 5
+	progressivism = 10
+	liberalism = 10
 	conservatism = 10
-	progressism = 10
-	reconcilism = 5
-	fascism = 15
-	destruction_system = 0
+	authoritarianism = 35
+	paternalism = 15
+	suprematism = 15
+	mysticism = 0
 }
 create_country_leader = {
-    name = ""
-    desc = ""
-    picture = ".jpg"
-    expire = "1965.1.1"
-    ideology = fengjian_junzhu_system
-    traits = {
-        
-    }
+	name = ""
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = fengjian_junzhu_system
+	traits = {
+	}
 }

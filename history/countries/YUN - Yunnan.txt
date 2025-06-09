@@ -1,11 +1,11 @@
 ﻿capital = 325
-set_oob = "YUN_1936"
-set_naval_oob = "YUN_naval_1936"
-set_air_oob = "YUN_1936_air_legacy"
+set_oob = YUN_1936
+set_naval_oob = YUN_naval_1936
+set_air_oob = YUN_1936_air_legacy
 create_country_leader = {
-	name = "魂宝"
+	name = 魂宝
 	desc = ""
-	picture = "GFX203"
+	picture = GFX203
 	expire = "1965.1.1"
 	ideology = stalinism
 	traits = {
@@ -15,27 +15,21 @@ create_country_leader = {
 set_technology = {
 	infantry_weapons = 1
 }
-add_ideas = {
-	DAJ_red_army
-	DAJ_red_jingji
-}
-
+add_ideas = { DAJ_red_army DAJ_red_jingji  }
 1939.1.1 = {
-
 	add_political_power = 1198
-
 	if = {
 		limit = {
 			has_dlc = "Waking the Tiger"
 		}
-
-		CHI = { add_to_faction = PREV }
+		CHI = {
+			add_to_faction = PREV
+		}
 		add_to_war = {
 			targeted_alliance = CHI
 			enemy = JAP
 			hostility_reason = asked_to_join
 		}
-
 		complete_national_focus = CHI_secure_internal_politics
 		complete_national_focus = CHI_cooperation_with_the_nationalists
 		complete_national_focus = CHI_industrial_investment
@@ -47,7 +41,7 @@ add_ideas = {
 		complete_national_focus = CHI_root_out_corruption
 		complete_national_focus = CHI_land_reform
 		complete_national_focus = CHI_reform_the_administration
-		else = {		
+		else = {
 			#generic focuses
 			complete_national_focus = army_effort
 			complete_national_focus = equipment_effort
@@ -61,18 +55,15 @@ add_ideas = {
 			complete_national_focus = production_effort
 		}
 	}
-
 	set_technology = {
 		#doctrines
 		grand_battle_plan = 1
 		trench_warfare = 1
-
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
 		radio_detection = 1
 		mechanical_computing = 1
-
 		#industry
 		basic_machine_tools = 1
 		improved_machine_tools = 1
@@ -86,31 +77,28 @@ add_ideas = {
 }
 if = {
 	limit = {
-		has_start_date < 1936.01.02
+		has_start_date < 1936.1.2
 	}
-
 	declare_war_on = {
 		target = CHI
 		type = annex_everything
 	}
 }
 set_politics = {
-	ruling_party = communism 
+	ruling_party = totalism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	fascism = 20
-	communism  = 80
+	totalism = 80
+	suprematism = 20
 }
-
-
-
 create_corps_commander = {
 	name = "Lu Han"
 	portrait_path = "gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
-	traits = { }
+	traits = {
+	}
 	skill = 3
 	attack_skill = 4
 	defense_skill = 2

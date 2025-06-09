@@ -1,40 +1,36 @@
 ﻿capital = 789
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 35
-	dictatorship = 15
-	democratic = 0
+	progressivism = 20
+	liberalism = 0
 	conservatism = 5
-	progressism = 0
-	reconcilism = 20
-	fascism = 25
-	destruction_system = 0
+	authoritarianism = 35
+	paternalism = 15
+	suprematism = 25
+	mysticism = 0
 }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = authoritarianism
 	last_election = "1932.11.8"
 	election_frequency = 48
 	elections_allowed = no
 }
-
-set_oob = "GLD_1936"
-set_naval_oob = "GLD_naval_1936"
-set_air_oob = "GLD_1936_air_legacy"
-
+set_oob = GLD_1936
+set_naval_oob = GLD_naval_1936
+set_air_oob = GLD_1936_air_legacy
 set_research_slots = 4
 set_convoys = 20
 declare_war_on = {
-		target = XTZ
-		type = annex_everything
-	}
-
+	target = XTZ
+	type = annex_everything
+}
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_recon = 1
-	tech_support = 1		
+	tech_support = 1
 	tech_engineers = 1
 	tech_military_police = 1
 	tech_mountaineers = 1
@@ -42,7 +38,7 @@ set_technology = {
 	paratroopers = 1
 	gw_artillery = 1
 	gwtank = 1
-	basic_light_tank = 1  # PLACEHOLDER
+	basic_light_tank = 1 # PLACEHOLDER
 	#basic_train = 1  # PLACEHOLDER
 	#basic_medium_tank = 1 # PLACEHOLDER
 	early_fighter = 1
@@ -55,7 +51,9 @@ set_technology = {
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -83,13 +81,7 @@ if = {
 		basic_torpedo = 1
 	}
 }
-add_ideas = {
-GLD_zaizaizhengfu_yundong
-GLD_alabo_jiaohui
-GLD_shanqu_jingji
-GLD_moluoge_tixi
-GLD_wuzhuang_sudan_junshi
-}
+add_ideas = { GLD_zaizaizhengfu_yundong GLD_alabo_jiaohui GLD_shanqu_jingji GLD_moluoge_tixi GLD_wuzhuang_sudan_junshi  }
 create_country_leader = {
 	name = "拉比特.穆瓦希德"
 	desc = ""
@@ -97,7 +89,6 @@ create_country_leader = {
 	expire = "1953.3.1"
 	ideology = pingmin_zhuyi
 	traits = {
-		
 	}
 }
 create_country_leader = {
@@ -107,6 +98,5 @@ create_country_leader = {
 	expire = "1953.3.1"
 	ideology = shenquan_junzhu_system
 	traits = {
-		
 	}
 }

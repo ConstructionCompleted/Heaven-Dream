@@ -1,18 +1,17 @@
 ﻿capital = 1531
 create_country_leader = {
-	name = "阎锡山"
+	name = 阎锡山
 	desc = ""
-	picture = "GFX171"
+	picture = GFX171
 	expire = "1965.1.1"
 	ideology = warlord
 	traits = {
-	
 	}
 }
 create_field_marshal = {
-	name = "阎锡山"
-	picture = "GFX171"
-	traits = { defensive_doctrine old_guard}
+	name = 阎锡山
+	picture = GFX171
+	traits = { defensive_doctrine old_guard  }
 	skill = 3
 	attack_skill = 2
 	defense_skill = 5
@@ -20,9 +19,9 @@ create_field_marshal = {
 	logistics_skill = 5
 }
 create_corps_commander = {
-	name = "徐永昌" 
+	name = 徐永昌
 	picture = ".jpg"
-	traits = { inflexible_strategist war_hero}
+	traits = { inflexible_strategist war_hero  }
 	skill = 3
 	attack_skill = 3
 	defense_skill = 3
@@ -30,9 +29,9 @@ create_corps_commander = {
 	logistics_skill = 4
 }
 create_corps_commander = {
-	name = "楚溪春" 
+	name = 楚溪春
 	picture = ".jpg"
-	traits = { trait_reckless infantry_officer }
+	traits = { trait_reckless infantry_officer  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 3
@@ -40,23 +39,21 @@ create_corps_commander = {
 	logistics_skill = 3
 }
 create_corps_commander = {
-	name = "孙楚" 
+	name = 孙楚
 	picture = ".jpg"
-	traits = { trait_reckless cavalry_officer}
+	traits = { trait_reckless cavalry_officer  }
 	skill = 3
 	attack_skill = 4
 	defense_skill = 4
 	planning_skill = 2
 	logistics_skill = 3
 }
-set_oob = "JIN_1936"
-set_naval_oob = "JIN_naval_1936"
-set_air_oob = "JIN_1936_air_legacy"
-
+set_oob = JIN_1936
+set_naval_oob = JIN_naval_1936
+set_air_oob = JIN_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -77,10 +74,7 @@ set_technology = {
 	naval_bomber1 = 1
 	early_bomber = 1
 	CAS1 = 1
-	
 	trench_warfare = 1
-
-	
 	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
@@ -92,11 +86,15 @@ if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
-	set_technology = { camelry = 1 }
+	set_technology = {
+		camelry = 1
+	}
 }
 if = {
 	limit = {
-		not = { has_dlc = "Man the Guns" }
+		not = {
+			has_dlc = "Man the Guns"
+		}
 	}
 	set_technology = {
 		early_submarine = 1
@@ -141,26 +139,21 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-add_ideas = {
-JIN_shanxi_jundui
-JIN_chenjiu_shengfen
-}
+add_ideas = { JIN_shanxi_jundui JIN_chenjiu_shengfen  }
 set_politics = {
-	ruling_party = dictatorship
+	ruling_party = paternalism
 	last_election = "1935.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
+	totalism = 0
 	socialism = 0
-	communism = 0
-	neutrality = 20
-	dictatorship = 45
-	democratic = 10
+	progressivism = 10
+	liberalism = 10
 	conservatism = 10
-	progressism = 10
-	reconcilism = 5
-	fascism = 0
-	destruction_system = 0
+	authoritarianism = 20
+	paternalism = 50
+	suprematism = 0
+	mysticism = 0
 }
