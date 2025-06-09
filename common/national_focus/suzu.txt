@@ -1,0 +1,783 @@
+focus_tree = {
+	id = SUZ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SUZ
+		}
+	}
+	
+	default = no
+ 
+	#军团长议会
+	focus = {
+		id = SUZ_juntuanzhang_yihui
+		icon = GFX_focus_generic_treaty
+		x = 25
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_abaisihuote.2 }
+		}
+	}
+	#加强工业生产
+	focus = {
+		id = SUZ_jiaqiang_gongye_shengchan
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = SUZ_juntuanzhang_yihui }
+		relative_position_id = SUZ_juntuanzhang_yihui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SUZ_junshihua_gongye_2
+			remove_idea = SUZ_junshihua_gongye
+			}
+		}
+	}
+	#扩大奴隶工人
+	focus = {
+		id = SUZ_kuoda_nuli_gongren
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SUZ_jiaqiang_gongye_shengchan }
+		relative_position_id = SUZ_jiaqiang_gongye_shengchan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SUZ_nuli_gongren
+		}
+	}
+	#死亡工作时
+	focus = {
+		id = SUZ_siwang_gongzuoshi
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = SUZ_jiaqiang_gongye_shengchan }
+		relative_position_id = SUZ_jiaqiang_gongye_shengchan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SUZ_junshihua_gongye_3
+			remove_idea = SUZ_junshihua_gongye_2
+			}
+		}
+	}
+	#建立军区行政
+	focus = {
+		id = SUZ_jianli_junqu_xingzheng
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SUZ_juntuanzhang_yihui }
+		relative_position_id = SUZ_juntuanzhang_yihui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SUZ_junqu_xingzheng
+		}
+	}
+	#搜集民间武器
+	focus = {
+		id = SUZ_souji_minjian_wuqi
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SUZ_jianli_junqu_xingzheng }
+		relative_position_id = SUZ_jianli_junqu_xingzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = SUZ
+}
+		}
+	}
+	#征集各地民兵
+	focus = {
+		id = SUZ_zhengji_gedi_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SUZ_jianli_junqu_xingzheng }
+		relative_position_id = SUZ_jianli_junqu_xingzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 200000
+		}
+	}
+	#贺门杰内战争
+	focus = {
+		id = SUZ_hemenjienei_war
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SUZ_zhengji_gedi_minbing }
+		prerequisite = { focus = SUZ_souji_minjian_wuqi }
+		prerequisite = { focus = SUZ_siwang_gongzuoshi }
+		prerequisite = { focus = SUZ_kuoda_nuli_gongren }
+		relative_position_id = SUZ_siwang_gongzuoshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = QNK
+    type = annex_everything
+}
+declare_war_on = {
+    target = NWH
+    type = annex_everything
+}
+declare_war_on = {
+    target = BON
+    type = annex_everything
+}
+declare_war_on = {
+    target = OJB
+    type = annex_everything
+}
+declare_war_on = {
+    target = KRO
+    type = annex_everything
+}
+		}
+	}
+	#加速征服
+	focus = {
+		id = SUZ_jiasu_zhengfu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_jiasuzhengfu
+		}
+	}
+	#渗透式控制
+	focus = {
+		id = SUZ_shentoushi_kongzhi
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SUZ_jiasu_zhengfu }
+		relative_position_id = SUZ_jiasu_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_jiasuzhengfu_2
+		remove_idea = SUZ_jiasuzhengfu
+		}
+		}
+	}
+	#强迫性加速
+	focus = {
+		id = SUZ_qiangpoxing_jiasu
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_junshihua_gongye_4
+		remove_idea = SUZ_junshihua_gongye_3
+		}
+		}
+	}
+	#千千万万的生命
+	focus = {
+		id = SUZ_qianqianwanwan_shengming
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SUZ_qiangpoxing_jiasu }
+		relative_position_id = SUZ_qiangpoxing_jiasu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_nuli_gongren_2
+		remove_idea = SUZ_nuli_gongren
+		}
+		}
+	}
+	#扁平化政治
+	focus = {
+		id = SUZ_bianpinghua_zhengzhi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_juntuanzhang_yihui_2
+		remove_idea = SUZ_juntuanzhang_yihui
+		}
+		}
+	}
+	#战争同盟
+	focus = {
+		id = SUZ_zhanzheng_tongmeng
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = SUZ_bianpinghua_zhengzhi }
+		relative_position_id = SUZ_bianpinghua_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_juntuanzhang_yihui_3
+		remove_idea = SUZ_juntuanzhang_yihui_2
+		}
+		}
+	}
+	#强化军团战力
+	focus = {
+		id = SUZ_qianghua_juntuan_zhanli
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_qianghua_juntuan
+		}
+	}
+	#任务式指挥
+	focus = {
+		id = SUZ_renwushi_zhihui
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SUZ_qianghua_juntuan_zhanli }
+		relative_position_id = SUZ_qianghua_juntuan_zhanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_qianghua_juntuan_2
+		remove_idea = SUZ_qianghua_juntuan
+		}
+		}
+	}
+	#战争之志
+	focus = {
+		id = SUZ_zhanzhengzhizhi
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_zhanzheng_zhizhi
+		}
+	}
+	#血染疆场
+	focus = {
+		id = SUZ_xueran_jiangchang
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SUZ_zhanzhengzhizhi }
+		relative_position_id = SUZ_zhanzhengzhizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_zhanzheng_zhizhi_2
+		remove_idea = SUZ_zhanzheng_zhizhi
+		}
+		}
+	}
+	#扩建骑兵军团
+	focus = {
+		id = SUZ_kuojian_qibing_juntuan
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = SUZ_hemenjienei_war }
+		relative_position_id = SUZ_hemenjienei_war
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SUZ_qibing_juntuan
+		}
+	}
+	#现代化骑兵战术
+	focus = {
+		id = SUZ_xiandaihua_qibing_zhanshu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = SUZ_kuojian_qibing_juntuan }
+		relative_position_id = SUZ_kuojian_qibing_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_xiandaihua_qibing
+		}
+	}
+	#堆积而成的胜利
+	focus = {
+		id = SUZ_duijiercheng_vic
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = SUZ_shentoushi_kongzhi }
+		prerequisite = { focus = SUZ_qianqianwanwan_shengming }
+		prerequisite = { focus = SUZ_zhanzheng_tongmeng }
+		relative_position_id = SUZ_qianqianwanwan_shengming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_nuli_gongren_3
+		remove_idea = SUZ_nuli_gongren_2
+		}
+		}
+	}
+	#地方军区体制
+	focus = {
+		id = SUZ_difang_junqu_tizhi
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = SUZ_duijiercheng_vic }
+		relative_position_id = SUZ_duijiercheng_vic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_junqu_xingzheng_2
+		remove_idea = SUZ_junqu_xingzheng
+		}
+		}
+	}
+	#扩大地区军工
+	focus = {
+		id = SUZ_kuoda_diqu_jungong
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SUZ_difang_junqu_tizhi }
+		relative_position_id = SUZ_difang_junqu_tizhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_junqu_xingzheng_3
+		remove_idea = SUZ_junqu_xingzheng_2
+		}
+		}
+	}
+	#开拓荒原
+	focus = {
+		id = SUZ_kaituo_huangyuan
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = SUZ_difang_junqu_tizhi }
+		relative_position_id = SUZ_difang_junqu_tizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_nongye_gaige
+		}
+	}
+	#地区征兵改革
+	focus = {
+		id = SUZ_diqu_zhengbing_gaige
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SUZ_difang_junqu_tizhi }
+		relative_position_id = SUZ_difang_junqu_tizhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_diqu_zhengbing
+		}
+	}
+	#强制减少消费品
+	focus = {
+		id = SUZ_qiangzhi_jianshao_xiaofeiping
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SUZ_kuoda_diqu_jungong }
+		prerequisite = { focus = SUZ_kaituo_huangyuan }
+		relative_position_id = SUZ_kaituo_huangyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_junqu_xingzheng_4
+		remove_idea = SUZ_junqu_xingzheng_3
+		}
+		}
+	}
+	#大规模农业调控
+	focus = {
+		id = SUZ_damo_nongye_taokong
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SUZ_diqu_zhengbing_gaige }
+		prerequisite = { focus = SUZ_kaituo_huangyuan }
+		relative_position_id = SUZ_kaituo_huangyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_nongye_gaige_2
+		remove_idea = SUZ_nongye_gaige
+		}
+		}
+	}
+	#资源开拓所
+	focus = {
+		id = SUZ_ziyuan_kaituo
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = SUZ_qiangzhi_jianshao_xiaofeiping }
+		relative_position_id = SUZ_qiangzhi_jianshao_xiaofeiping
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_junqu_xingzheng_5
+		remove_idea = SUZ_junqu_xingzheng_4
+		}
+		}
+	}
+	#消减不必要人口
+	focus = {
+		id = SUZ_xiaojian_bubiyao_renkou
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = SUZ_qiangzhi_jianshao_xiaofeiping }
+		prerequisite = { focus = SUZ_damo_nongye_taokong }
+		relative_position_id = SUZ_damo_nongye_taokong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_nongye_gaige_3
+		remove_idea = SUZ_nongye_gaige_2
+		}
+		}
+	}
+	#战争优先级
+	focus = {
+		id = SUZ_zhanzheng_youxianji
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = SUZ_damo_nongye_taokong }
+		relative_position_id = SUZ_damo_nongye_taokong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_diqu_zhengbing_2
+		remove_idea = SUZ_diqu_zhengbing
+		}
+		}
+	}
+	#革新军事体系
+	focus = {
+		id = SUZ_gexin_junshi_tixi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SUZ_renwushi_zhihui }
+		prerequisite = { focus = SUZ_xueran_jiangchang }
+		prerequisite = { focus = SUZ_xiandaihua_qibing_zhanshu }
+		relative_position_id = SUZ_xueran_jiangchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_qianghua_juntuan_3
+		remove_idea = SUZ_qianghua_juntuan_2
+		}
+		}
+	}
+	#扩大军事武装
+	focus = {
+		id = SUZ_kuoda_junshi_wuzhuang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = SUZ_gexin_junshi_tixi }
+		relative_position_id = SUZ_gexin_junshi_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_zhanzheng_zhizhi_3
+		remove_idea = SUZ_zhanzheng_zhizhi_2
+		}
+		}
+	}
+	#精锐化部队
+	focus = {
+		id = SUZ_jingrui_budui
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SUZ_kuoda_junshi_wuzhuang }
+		relative_position_id = SUZ_kuoda_junshi_wuzhuang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_qianghua_juntuan_4
+		remove_idea = SUZ_qianghua_juntuan_3
+		}
+		}
+	}
+	#奴隶军前锋
+	focus = {
+		id = SUZ_nulijun_qianfeng
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SUZ_jingrui_budui }
+		relative_position_id = SUZ_jingrui_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_zhanzheng_zhizhi_4
+		remove_idea = SUZ_zhanzheng_zhizhi_3
+		}
+		}
+	}
+	#钢铁之军
+	focus = {
+		id = SUZ_gangtie_army
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = SUZ_nulijun_qianfeng }
+		relative_position_id = SUZ_nulijun_qianfeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_zhanzheng_zhizhi_5
+		remove_idea = SUZ_zhanzheng_zhizhi_4
+		}
+		}
+	}
+	#加强火力支援
+	focus = {
+		id = SUZ_jiaqiang_huoli_zhiyuan
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = SUZ_kuoda_junshi_wuzhuang }
+		relative_position_id = SUZ_kuoda_junshi_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_jiaqiang_xiandaihua
+		remove_idea = SUZ_xiandaihua_qibing
+		}
+		}
+	}
+	#机械化军团
+	focus = {
+		id = SUZ_jixiehua_juntuan
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = SUZ_jiaqiang_huoli_zhiyuan }
+		relative_position_id = SUZ_jiaqiang_huoli_zhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_jiaqiang_xiandaihua_2
+		remove_idea = SUZ_jiaqiang_xiandaihua
+		}
+		}
+	}
+	#装甲冲锋
+	focus = {
+		id = SUZ_zhuangjia_chongfeng
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SUZ_jixiehua_juntuan }
+		relative_position_id = SUZ_jixiehua_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_jiaqiang_xiandaihua_3
+		remove_idea = SUZ_jiaqiang_xiandaihua_2
+		}
+		}
+	}
+	#现代化补给线
+	focus = {
+		id = SUZ_xiandaihua_bujixian
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = SUZ_kuoda_junshi_wuzhuang }
+		relative_position_id = SUZ_kuoda_junshi_wuzhuang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SUZ_xiandaihua_bujixian
+		}
+	}
+	#基层辅助兵团
+	focus = {
+		id = SUZ_jiceng_fuzhu_bingtuan
+		icon = GFX_focus_RAJ_indian_gentlemen_offcers
+		prerequisite = { focus = SUZ_xiandaihua_bujixian }
+		relative_position_id = SUZ_xiandaihua_bujixian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_xiandaihua_bujixian_2
+		remove_idea = SUZ_xiandaihua_bujixian
+		}
+		}
+	}
+	#弹性之轴
+	focus = {
+		id = SUZ_tanxing_zhizhou
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SUZ_jiceng_fuzhu_bingtuan }
+		relative_position_id = SUZ_jiceng_fuzhu_bingtuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SUZ_xiandaihua_bujixian_3
+		remove_idea = SUZ_xiandaihua_bujixian_2
+		}
+		}
+	}
+}

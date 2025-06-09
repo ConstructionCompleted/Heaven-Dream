@@ -1,0 +1,209 @@
+focus_tree = {
+	id = SMS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SMS
+		}
+	}
+	
+	default = no
+ 
+    #东部前沿
+	focus = {
+		id = SMS_dongbu_qianyan
+		icon = GFX_focus_ETH_peacekeeping_forces
+		x = 15
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 50000
+		}
+	}
+	#拉拢地方骑手
+	focus = {
+		id = SMS_lalong_difang_qishou
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = SMS_dongbu_qianyan}
+		relative_position_id = SMS_dongbu_qianyan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMS_jiaotuan_qibing
+		}
+	}
+	#宗教狂热
+	focus = {
+		id = SMS_zongjaio_kuangre
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = SMS_dongbu_qianyan}
+		relative_position_id = SMS_dongbu_qianyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMS_zongjiao_kuangre
+		}
+	}
+	#适应沙漠
+	focus = {
+		id = SMS_shiying_shamo
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = SMS_dongbu_qianyan}
+		relative_position_id = SMS_dongbu_qianyan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMS_shiying_shamo
+		}
+	}
+	#沙漠骑兵
+	focus = {
+		id = SMS_shamo_qibing
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = SMS_zongjaio_kuangre}
+		prerequisite = { focus = SMS_lalong_difang_qishou}
+		relative_position_id = SMS_zongjaio_kuangre
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMS_jiaotuan_qibing_2
+			remove_idea = SMS_jiaotuan_qibing
+			}
+		}
+	}
+	#备战吉哈德
+	focus = {
+		id = SMS_beizhan_jihade
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = SMS_shamo_qibing}
+		relative_position_id = SMS_shamo_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMS_zongjiao_kuangre_2
+			remove_idea = SMS_zongjiao_kuangre
+			}
+		}
+	}
+	#改善征兵体系
+	focus = {
+		id = SMS_gaishan_zhengbing_tixi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SMS_beizhan_jihade}
+		relative_position_id = SMS_beizhan_jihade
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMS_jiaotuan_qibing_3
+			remove_idea = SMS_jiaotuan_qibing_2
+			}
+		}
+	}
+	#主的力量
+	focus = {
+		id = SMS_zhude_liliang
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SMS_zongjaio_kuangre}
+		prerequisite = { focus = SMS_shiying_shamo}
+		relative_position_id = SMS_zongjaio_kuangre
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SMS_shengzhan_liliang
+		}
+	}
+	#委托武装
+	focus = {
+		id = SMS_weituo_wuzhuang
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SMS_zhude_liliang}
+		relative_position_id = SMS_zhude_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#进口枪支
+	focus = {
+		id = SMS_jinkou_qiangzhi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SMS_weituo_wuzhuang}
+		relative_position_id = SMS_weituo_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1500
+    producer = UKM
+}
+		}
+	}
+	#昔兰尼加之魂
+	focus = {
+		id = SMS_xilannijia_zhihun
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = SMS_jinkou_qiangzhi}
+		prerequisite = { focus = SMS_gaishan_zhengbing_tixi}
+		relative_position_id = SMS_jinkou_qiangzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_focus_tree = tongyong_focus
+			swap_ideas = {
+			add_idea = SMS_xilannijia_zhihun
+			remove_idea = SMS_jiaotuan_qibing_3
+			}
+		}
+	}
+}

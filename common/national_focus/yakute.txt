@@ -1,0 +1,255 @@
+focus_tree = {
+	id = YAK_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YAK
+		}
+	}
+	
+	default = no
+ 
+    #雅库特游击队
+	focus = {
+		id = YAK_yakute_youjidui
+		icon = GFX_focus_secret_rearmament
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#进口南方粮食
+	focus = {
+		id = YAK_jinkou_nanfang_liangshi
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YAK_yakute_youjidui}
+		relative_position_id = YAK_yakute_youjidui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YAK_elie_huanjing_2
+		remove_idea = YAK_elie_huanjing
+		}
+		}
+	}
+	#革命国度
+	focus = {
+		id = YAK_geming_guodu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = YAK_yakute_youjidui}
+		relative_position_id = YAK_yakute_youjidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YAK_renmin_zhichi_2
+		remove_idea = YAK_renmin_zhichi
+		}
+		}
+	}
+	#政治文化宣传
+	focus = {
+		id = YAK_zhengzhi_wenhua_xuanchuan
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = YAK_yakute_youjidui}
+		relative_position_id = YAK_yakute_youjidui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YAK_geming_zuzhizhe_2
+		remove_idea = YAK_geming_zuzhizhe
+		}
+		}
+	}
+	#走私南方武装
+	focus = {
+		id = YAK_zousi_nanfang_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = YAK_jinkou_nanfang_liangshi}
+		prerequisite = { focus = YAK_geming_guodu}
+		relative_position_id = YAK_geming_guodu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = CHI
+}
+		}
+	}
+	#获取南方工业
+	focus = {
+		id = YAK_huoqu_gongye
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = YAK_zousi_nanfang_wuzhuang}
+		relative_position_id = YAK_zousi_nanfang_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#人民的名义
+	focus = {
+		id = YAK_renmin_mingyi
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = YAK_jinkou_nanfang_liangshi}
+		prerequisite = { focus = YAK_zhengzhi_wenhua_xuanchuan}
+		relative_position_id = YAK_zhengzhi_wenhua_xuanchuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YAK_renmin_zhichi_3
+		remove_idea = YAK_renmin_zhichi_2
+		}
+		}
+	}
+	#真正的力量
+	focus = {
+		id = YAK_zhenzheng_liliang
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = YAK_renmin_mingyi}
+		relative_position_id = YAK_renmin_mingyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YAK_geming_zuzhizhe_3
+		remove_idea = YAK_geming_zuzhizhe_2
+		}
+		}
+	}
+	#动员民兵
+	focus = {
+		id = YAK_dongyuan_minbing
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = YAK_huoqu_gongye}
+		prerequisite = { focus = YAK_zhenzheng_liliang}
+		relative_position_id = YAK_huoqu_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = YAK_minbing
+		}
+	}
+	#人民战争
+	focus = {
+		id = YAK_renmin_zhanzheng
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = YAK_dongyuan_minbing}
+		relative_position_id = YAK_dongyuan_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YAK_renmin_war
+		}
+	}
+	#汪洋大海
+	focus = {
+		id = YAK_wangyang_dahai
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = YAK_renmin_zhanzheng}
+		relative_position_id = YAK_renmin_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YAK_wangyang_dahai
+		}
+	}
+	#游击战争
+	focus = {
+		id = YAK_youji_zhanzheng
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = YAK_renmin_zhanzheng}
+		relative_position_id = YAK_renmin_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YAK_youji_war
+		}
+	}
+	#回归苏维埃
+	focus = {
+		id = YAK_huigui_suweiai
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = YAK_youji_zhanzheng}
+		prerequisite = { focus = YAK_wangyang_dahai}
+		relative_position_id = YAK_wangyang_dahai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = MGD
+		has_war_with = SBR
+		}
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = YAK
+			}
+		}
+	}
+}

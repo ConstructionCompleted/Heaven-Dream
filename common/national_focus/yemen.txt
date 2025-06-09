@@ -1,0 +1,531 @@
+﻿focus_tree = {
+	id = YEM_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YEM
+		}
+	}
+	
+	default = no
+	
+    #萨摩城区扩建
+	focus = {
+		id = YEM_samo_chengqu_kuojian
+		icon = GFX_focus_POL_warsaw_main_station
+		x = 13
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		293 = {
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大石油开采
+	focus = {
+		id = YEM_kuoda_shiyou_kaicai
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = YEM_samo_chengqu_kuojian }
+		relative_position_id = YEM_samo_chengqu_kuojian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+        type = oil
+        amount = 30
+        state = 293
+    }
+		}
+	}
+	#手工业扩建
+	focus = {
+		id = YEM_shougongye_kuojian
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = YEM_kuoda_shiyou_kaicai }
+		relative_position_id = YEM_kuoda_shiyou_kaicai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#北部工业化
+	focus = {
+		id = YEM_beibu_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = YEM_shougongye_kuojian }
+		relative_position_id = YEM_shougongye_kuojian
+		x = 0
+		y = 1
+		cost = 7
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		293 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+}
+1060 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		swap_ideas = {
+		add_idea = YEM_yemen_gongyehua_2
+		remove_idea = YEM_yemen_gongyehua
+		}
+		}
+	}
+	#红海渔业
+	focus = {
+		id = YEM_honghai_yuye
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = YEM_samo_chengqu_kuojian }
+		relative_position_id = YEM_samo_chengqu_kuojian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_yemen_jihuang_2
+		remove_idea = YEM_yemen_jihuang
+		}
+		}
+	}
+	#改善农业开采
+	focus = {
+		id = YEM_gaishan_nongye_kaicai
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = YEM_honghai_yuye }
+		relative_position_id = YEM_honghai_yuye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_yemen_jihuang_3
+		remove_idea = YEM_yemen_jihuang_2
+		}
+		}
+	}
+	#解决饥荒
+	focus = {
+		id = YEM_jiejue_jihuang
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = YEM_gaishan_nongye_kaicai }
+		relative_position_id = YEM_gaishan_nongye_kaicai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = YEM_yemen_jihuang_3
+		}
+	}
+	#南方行动
+	focus = {
+		id = YEM_nanfang_xingdong
+		icon = GFX_goal_generic_army_doctrines
+		x = 17
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#联络族长
+	focus = {
+		id = YEM_lianluo_zuzhang
+		icon = GFX_goal_poland_goal
+		prerequisite = { focus = YEM_nanfang_xingdong }
+		relative_position_id = YEM_nanfang_xingdong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_nanfang_jihua_2
+		remove_idea = YEM_nanfang_jihua
+		}
+		}
+	}
+	#号召作战
+	focus = {
+		id = YEM_haozhao_zuozhan
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = YEM_lianluo_zuzhang }
+		relative_position_id = YEM_lianluo_zuzhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_nanfang_jihua_3
+		remove_idea = YEM_nanfang_jihua_2
+		}
+		}
+	}
+	#煽动教徒
+	focus = {
+		id = YEM_shandong_jiaotu
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = YEM_nanfang_xingdong }
+		relative_position_id = YEM_nanfang_xingdong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		659 = {
+		remove_building = {
+    type = arms_factory
+    level = 1
+}
+remove_building = {
+    type = industrial_complex
+    level = 1
+}
+		}
+		293 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#征集部落骑兵
+	focus = {
+		id = YEM_zhengji_buluo_qibing
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = YEM_shandong_jiaotu }
+		relative_position_id = YEM_shandong_jiaotu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		load_oob = YEM_zhengji_buluo_qibing
+		}
+	}
+	#也门要战斗
+	focus = {
+		id = YEM_yemen_yao_zhandou
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = YEM_haozhao_zuozhan }
+		prerequisite = { focus = YEM_zhengji_buluo_qibing }
+		relative_position_id = YEM_zhengji_buluo_qibing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		UKM = { has_war_with = EGY }
+		}
+		completion_reward = {
+		load_oob = YEM_nanfang_army
+		declare_war_on = {
+				target = UKM
+				type = annex_everything
+			}
+		transfer_state = 1062
+		transfer_state = 1063
+		transfer_state = 659
+		}
+	}
+	#完成也门统一
+	focus = {
+		id = YEM_wancheng_yemen_tongyi
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = YEM_beibu_gongyehua }
+		prerequisite = { focus = YEM_jiejue_jihuang }
+		prerequisite = { focus = YEM_yemen_yao_zhandou }
+		relative_position_id = YEM_yemen_yao_zhandou
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		EGY = {
+		NOT = {
+		has_war_with = UKM
+		}
+		}
+		}
+		completion_reward = {
+		transfer_state = 1062
+		transfer_state = 1063
+		transfer_state = 659
+		white_peace = UKM
+		every_country = {
+		if = {
+		limit = {
+		is_in_faction_with = UKM
+		}
+		white_peace = YEM
+		}
+		}
+		add_ideas = YEM_nanfang_nanming
+		}
+	}
+	#重建南方
+	focus = {
+		id = YEM_chongjian_nanfang
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YEM_wancheng_yemen_tongyi }
+		relative_position_id = YEM_wancheng_yemen_tongyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 659
+		controls_state = 1062
+		controls_state = 1063
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_nanfang_nanming_2
+		remove_idea = YEM_nanfang_nanming
+		}
+		}
+	}
+	#救济难民
+	focus = {
+		id = YEM_jiuji_nanming
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = YEM_chongjian_nanfang }
+		relative_position_id = YEM_chongjian_nanfang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 659
+		controls_state = 1062
+		controls_state = 1063
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_nanfang_nanming_3
+		remove_idea = YEM_nanfang_nanming_2
+		}
+		}
+	}
+	#手工业发展
+	focus = {
+		id = YEM_shougongye_fazhan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = YEM_chongjian_nanfang }
+		relative_position_id = YEM_chongjian_nanfang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 659
+		controls_state = 1062
+		controls_state = 1063
+		}
+		completion_reward = {
+		659 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#重建亚丁贸易
+	focus = {
+		id = YEM_chongjian_yading_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = YEM_jiuji_nanming }
+		prerequisite = { focus = YEM_shougongye_fazhan }
+		relative_position_id = YEM_shougongye_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 659
+		controls_state = 1062
+		controls_state = 1063
+		}
+		completion_reward = {
+		659 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		swap_ideas = {
+		add_idea = YEM_chongjian_yading_maoyi
+		remove_idea = YEM_nanfang_nanming_3
+		}
+		}
+	}
+	#军队改革
+	focus = {
+		id = YEM_jundui_gaige
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = YEM_wancheng_yemen_tongyi }
+		relative_position_id = YEM_wancheng_yemen_tongyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YEM_junshi_gaige
+		}
+	}
+	#进口武装
+	focus = {
+		id = YEM_jinkou_wuzhaung
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = YEM_jundui_gaige }
+		relative_position_id = YEM_jundui_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1500
+    producer = FRA
+}
+		}
+	}
+	#革新科研
+	focus = {
+		id = YEM_gexin_keyan
+		icon = GFX_focus_research2
+		prerequisite = { focus = YEM_jinkou_wuzhaung }
+		relative_position_id = YEM_jinkou_wuzhaung
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#扩大部落征兵
+	focus = {
+		id = YEM_kuoda_buluo_zhengbing
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = YEM_jundui_gaige }
+		relative_position_id = YEM_jundui_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_junshi_gaige_2
+		remove_idea = YEM_junshi_gaige
+		}
+		}
+	}
+	#革新战术
+	focus = {
+		id = YEM_gexin_zhanshi
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = YEM_kuoda_buluo_zhengbing }
+		relative_position_id = YEM_kuoda_buluo_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YEM_junshi_gaige_3
+		remove_idea = YEM_junshi_gaige_2
+		}
+		}
+	}
+}

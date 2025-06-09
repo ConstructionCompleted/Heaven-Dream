@@ -1,0 +1,732 @@
+focus_tree = {
+	id = ELB_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ELB
+		}
+	}
+	
+	default = no
+ 
+	#先锋进军
+	focus = {
+		id = ELB_xianfeng_jinjun
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ELB_heishanjun
+			add_ideas = ELB_zhengzhi_kongbai
+		}
+	}
+	#帝国的荣耀
+	focus = {
+		id = ELB_diguo_rongyao
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = ELB_xianfeng_jinjun}
+		relative_position_id = ELB_xianfeng_jinjun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_war_support = 0.1
+		}
+	}
+	#整合北部军队
+	focus = {
+		id = ELB_zhenghe_beibu_jundui
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = ELB_xianfeng_jinjun}
+		relative_position_id = ELB_xianfeng_jinjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = ELB_zhenghe_beibu_jundui
+		}
+	}
+	#不列颠的骄傲
+	focus = {
+		id = ELB_buliedian_jiaoao
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = ELB_xianfeng_jinjun}
+		relative_position_id = ELB_xianfeng_jinjun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_stability = 0.1
+		}
+	}
+	#狂热主义
+	focus = {
+		id = ELB_kuangre_zhuyi
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = ELB_diguo_rongyao}
+		relative_position_id = ELB_diguo_rongyao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ELB_kuangre_zhuyi
+		}
+	}
+	#先锋陆军
+	focus = {
+		id = ELB_xianfeng_lujun
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ELB_diguo_rongyao}
+		prerequisite = { focus = ELB_zhenghe_beibu_jundui}
+		relative_position_id = ELB_diguo_rongyao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_heishanjun_2
+			remove_idea = ELB_heishanjun
+			}
+		}
+	}
+	#民族工业
+	focus = {
+		id = ELB_minzu_gongye
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = ELB_buliedian_jiaoao}
+		prerequisite = { focus = ELB_zhenghe_beibu_jundui}
+		relative_position_id = ELB_zhenghe_beibu_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#打击旧帝国
+	focus = {
+		id = ELB_daji_oldempire
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = ELB_buliedian_jiaoao}
+		prerequisite = { focus = ELB_zhenghe_beibu_jundui}
+		relative_position_id = ELB_buliedian_jiaoao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    UKM = {
+			add_stability = -0.2
+			}
+		}
+	}
+	#构建先锋政治
+	focus = {
+		id = ELB_goujian_xianfeng_zhengzhi
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = ELB_kuangre_zhuyi}
+		prerequisite = { focus = ELB_xianfeng_lujun}
+		prerequisite = { focus = ELB_minzu_gongye}
+		prerequisite = { focus = ELB_daji_oldempire}
+		relative_position_id = ELB_minzu_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_zhengzhi_kongbai_2
+			remove_idea = ELB_zhengzhi_kongbai
+			}
+		}
+	}
+	#吸收旧政治体系
+	focus = {
+		id = ELB_xishou_jiuzhengzhi
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = ELB_goujian_xianfeng_zhengzhi}
+		relative_position_id = ELB_goujian_xianfeng_zhengzhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_zhengzhi_kongbai_3
+			remove_idea = ELB_zhengzhi_kongbai_2
+			}
+		}
+	}
+	#军队民主
+	focus = {
+		id = ELB_jundui_minzhu
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = ELB_goujian_xianfeng_zhengzhi}
+		relative_position_id = ELB_goujian_xianfeng_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_heishanjun_3
+			remove_idea = ELB_heishanjun_2
+			}
+		}
+	}
+	#团结支持者
+	focus = {
+		id = ELB_tuanjie_zhichizhe
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = ELB_goujian_xianfeng_zhengzhi}
+		relative_position_id = ELB_goujian_xianfeng_zhengzhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_kuangre_zhuyi_2
+			remove_idea = ELB_kuangre_zhuyi
+			}
+		}
+	}
+	#工业体系运作
+	focus = {
+		id = ELB_gongye_tixi_yunzuo
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = ELB_xishou_jiuzhengzhi}
+		prerequisite = { focus = ELB_jundui_minzhu}
+		relative_position_id = ELB_xishou_jiuzhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#军队职业化
+	focus = {
+		id = ELB_jundui_zhiyehua
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ELB_tuanjie_zhichizhe}
+		prerequisite = { focus = ELB_jundui_minzhu}
+		relative_position_id = ELB_tuanjie_zhichizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ELB_heishanjun_4
+			remove_idea = ELB_heishanjun_3
+			}
+		}
+	}
+	#先锋党卫军
+	focus = {
+		id = ELB_xianfeng_dangweijun
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = ELB_jundui_zhiyehua}
+		prerequisite = { focus = ELB_gongye_tixi_yunzuo}
+		relative_position_id = ELB_jundui_zhiyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = ELB_xianfeng_dangweijun
+		}
+	}
+	#夺取战争胜利
+	focus = {
+		id = ELB_duoqu_war_victory
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ELB_xianfeng_dangweijun}
+		relative_position_id = ELB_xianfeng_dangweijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ELB = {
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		controls_state = 122
+		controls_state = 918
+		controls_state = 1816
+		controls_state = 1815
+		controls_state = 1814
+		controls_state = 1813
+		controls_state = 1812
+		controls_state = 1811
+		}
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		region = 3
+		}
+		add_core_of = ELB
+		}
+		add_state_core = 1816
+		add_state_core = 122
+		add_state_core = 918
+		    annex_country = {
+    target = UKM
+    transfer_troops = no
+}
+annex_country = {
+    target = ELB
+    transfer_troops = no
+}
+annex_country = {
+    target = WLS
+    transfer_troops = no
+}
+		}
+	}
+	#黑色进军
+	focus = {
+		id = ELB_heise_jinjun
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = ELB_duoqu_war_victory}
+		relative_position_id = ELB_duoqu_war_victory
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 100
+		}
+	}
+	#扩大征兵
+	focus = {
+		id = ELB_kuoda_zhengbing
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = ELB_duoqu_war_victory}
+		relative_position_id = ELB_duoqu_war_victory
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ELB_kuoda_zhengbing
+		}
+	}
+	#不列颠军工
+	focus = {
+		id = ELB_buliedian_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = ELB_duoqu_war_victory}
+		relative_position_id = ELB_duoqu_war_victory
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#大规模武装
+	focus = {
+		id = ELB_daguimo_wuzhaung
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = ELB_duoqu_war_victory}
+		relative_position_id = ELB_duoqu_war_victory
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+}
+		}
+	}
+	#挺进加拿大
+	focus = {
+		id = ELB_tingjin_jianada
+		icon = GFX_focus_attack_canada
+		prerequisite = { focus = ELB_kuoda_zhengbing}
+		prerequisite = { focus = ELB_buliedian_jungong}
+		prerequisite = { focus = ELB_daguimo_wuzhaung}
+		relative_position_id = ELB_buliedian_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = CAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = KBK
+    type = annex_everything
+}
+		}
+	}
+	#澳大利亚战争
+	focus = {
+		id = ELB_aodaliya_war
+		icon = GFX_focus_AST_squander_bug
+		prerequisite = { focus = ELB_tingjin_jianada}
+		relative_position_id = ELB_tingjin_jianada
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = AST
+    type = annex_everything
+}
+declare_war_on = {
+    target = WAA
+    type = annex_everything
+}
+		}
+	}
+	#非洲浩劫
+	focus = {
+		id = ELB_feizhou_haojie
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = ELB_tingjin_jianada}
+		relative_position_id = ELB_tingjin_jianada
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = ROD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = BOO
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = ROD
+    type = annex_everything
+}
+		}
+	}
+	#马来亚战争
+	focus = {
+		id = ELB_malaiya_war
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = ELB_tingjin_jianada}
+		relative_position_id = ELB_tingjin_jianada
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   declare_war_on = {
+    target = MAL
+    type = annex_everything
+} 
+		}
+	}
+	#圭亚那战争
+	focus = {
+		id = ELB_guiyana_war
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = ELB_tingjin_jianada}
+		relative_position_id = ELB_tingjin_jianada
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = CAY
+    type = annex_everything
+}
+		}
+	}
+	#登录法兰西
+	focus = {
+		id = ELB_denglu_falanxi
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = ELB_aodaliya_war}
+		prerequisite = { focus = ELB_feizhou_haojie}
+		prerequisite = { focus = ELB_malaiya_war}
+		prerequisite = { focus = ELB_guiyana_war}
+		relative_position_id = ELB_guiyana_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = FRA
+    type = annex_everything
+}
+		}
+	}
+	#摧毁印度反对者
+	focus = {
+		id = ELB_cuihui_yindu_fanduizhe
+		icon = GFX_focus_RAJ_british_investors
+		prerequisite = { focus = ELB_aodaliya_war}
+		prerequisite = { focus = ELB_feizhou_haojie}
+		prerequisite = { focus = ELB_malaiya_war}
+		prerequisite = { focus = ELB_guiyana_war}
+		relative_position_id = ELB_guiyana_war
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = MSR
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHU
+    type = annex_everything
+}
+declare_war_on = {
+    target = ORS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RAR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NGP
+    type = annex_everything
+}
+declare_war_on = {
+    target = HDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = GJR
+    type = annex_everything
+}
+declare_war_on = {
+    target = RJS
+    type = annex_everything
+}
+declare_war_on = {
+    target = PAK
+    type = annex_everything
+}
+declare_war_on = {
+    target = KSM
+    type = annex_everything
+}
+		}
+	}
+	#北海行动
+	focus = {
+		id = ELB_beihai_xingdong
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = ELB_aodaliya_war}
+		prerequisite = { focus = ELB_feizhou_haojie}
+		prerequisite = { focus = ELB_malaiya_war}
+		prerequisite = { focus = ELB_guiyana_war}
+		relative_position_id = ELB_guiyana_war
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+declare_war_on = {
+    target = KEM
+    type = annex_everything
+}
+		}
+	}
+	#摧毁德意志
+	focus = {
+		id = ELB_cuihui_deyizhi
+		icon = GFX_focus_cze_german_puppet
+		prerequisite = { focus = ELB_denglu_falanxi}
+		prerequisite = { focus = ELB_cuihui_yindu_fanduizhe}
+		prerequisite = { focus = ELB_beihai_xingdong}
+		relative_position_id = ELB_cuihui_yindu_fanduizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAI
+    type = annex_everything
+}
+declare_war_on = {
+    target = HNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SLI
+    type = annex_everything
+}
+declare_war_on = {
+    target = HSA
+    type = annex_everything
+}
+declare_war_on = {
+    target = DAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = WFL
+    type = annex_everything
+}
+declare_war_on = {
+    target = LUO
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = FTB
+    type = annex_everything
+}
+declare_war_on = {
+    target = BXM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SKS
+    type = annex_everything
+}
+		}
+	}
+}

@@ -1,0 +1,49 @@
+holy_yeemen_ttk = {
+	#支援南部抵抗
+    holy_zhiyuan_nanbu_dikang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = YEM
+	}	
+		available = {
+			has_completed_focus = YEM_nanfang_xingdong
+			UKM = {
+			controls_state = 1063
+			controls_state = 659
+			controls_state = 1062
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		1063 = {
+		add_state_modifier = {
+        modifier = {
+        resistance_target = 0.1
+    }
+	days = 360
+}
+}
+659 = {
+		add_state_modifier = {
+        modifier = {
+        resistance_target = 0.1
+    }
+	days = 360
+}
+}
+1062 = {
+		add_state_modifier = {
+        modifier = {
+        resistance_target = 0.1
+    }
+	days = 360
+}
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

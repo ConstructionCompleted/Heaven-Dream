@@ -1,0 +1,987 @@
+focus_tree = {
+	id = DRG_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DRG
+		}
+	}
+	
+	default = no
+	
+    #顿河的孩子
+	focus = {
+		id = DRG_dunhe_haizi
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#联合库班人
+	focus = {
+		id = DRG_lianhe_kuban
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = DRG_dunhe_haizi}
+		relative_position_id = DRG_dunhe_haizi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DRG_gesake_qibing_lianhe
+			remove_idea = DRG_gesake_qibing
+			}
+		}
+	}
+	#俄罗斯族的地位
+	focus = {
+		id = DRG_rus_diwei
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = DRG_dunhe_haizi}
+		relative_position_id = DRG_dunhe_haizi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_beieluosi.1
+	}
+		}
+	}
+	#哥萨克国度
+	focus = {
+		id = DRG_gesake_guodu
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = DRG_lianhe_kuban}
+		prerequisite = { focus = DRG_rus_diwei}
+		relative_position_id = DRG_lianhe_kuban
+		mutually_exclusive = { focus = DRG_nane_wuzhaung_chongjian }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_ideas = DRG_gesakezhiguo
+		}
+		completion_reward = {
+			set_cosmetic_tag = 顿河库班同盟
+			remove_ideas = DRG_posui_lianhe
+		}
+	}
+	#进口波兰物资
+	focus = {
+		id = DRG_jinkou_bolan_wuzi
+		icon = GFX_focus_generic_polish_deal
+		prerequisite = { focus = DRG_gesake_guodu focus = DRG_nane_wuzhaung_chongjian}
+		relative_position_id = DRG_gesake_guodu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DRG_jinkou_bolan_wuzi
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = BLA
+}
+		}
+	}
+	#劫掠之军
+	focus = {
+		id = DRG_jielue_zhijun
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = DRG_jinkou_bolan_wuzi }
+		prerequisite = { focus = DRG_zhengji_gesake }
+		relative_position_id = DRG_jinkou_bolan_wuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+}
+add_stability = -0.05
+		}
+	}
+	#提供必需品
+	focus = {
+		id = DRG_tigong_bixuping
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = DRG_jinkou_bolan_wuzi }
+		prerequisite = { focus = DRG_eluosi_minbing }
+		relative_position_id = DRG_jinkou_bolan_wuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+add_stability = 0.05
+		}
+	}
+	#建设本地工业
+	focus = {
+		id = DRG_jianshe_bentu_ic
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = DRG_tigong_bixuping }
+		prerequisite = { focus = DRG_jielue_zhijun }
+		relative_position_id = DRG_tigong_bixuping
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#开发顿河之土
+	focus = {
+		id = DRG_kaifa_dunhe_tudi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = DRG_jianshe_bentu_ic }
+		relative_position_id = DRG_jianshe_bentu_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DRG_kaifa_dunhe_tudi
+		}
+	}
+	#走私北方工业
+	focus = {
+		id = DRG_zousi_beifang_gongye
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = DRG_kaifa_dunhe_tudi }
+		relative_position_id = DRG_kaifa_dunhe_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#征集哥萨克
+	focus = {
+		id = DRG_zhengji_gesake
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = DRG_gesake_guodu}
+		relative_position_id = DRG_gesake_guodu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DRG_zhengji_gesake
+		}
+	}
+	#联络扎波罗热族人
+	focus = {
+		id = DRG_lianluo_zhaboluore_zuren
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = DRG_zhengji_gesake}
+		relative_position_id = DRG_zhengji_gesake
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DRG_zhaboluore_zuren
+		}
+	}
+	#哥萨克现代化
+	focus = {
+		id = DRG_gesake_xiandaihua
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = DRG_lianluo_zhaboluore_zuren}
+		relative_position_id = DRG_lianluo_zhaboluore_zuren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DRG_gesake_xiandaihua
+			remove_idea = DRG_gesake_qibing_lianhe
+			}
+		}
+	}
+	#山河纵马
+	focus = {
+		id = DRG_shanhe_zongma
+		icon = GFX_focus_hol_united_netherlands
+		prerequisite = { focus = DRG_gesake_xiandaihua}
+		prerequisite = { focus = DRG_jielue_zhijun}
+		relative_position_id = DRG_gesake_xiandaihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DRG_shanhe_zongma
+			remove_idea = DRG_gesakezhiguo
+			}
+		}
+	}
+	#收拢卡尔梅克
+	focus = {
+		id = DRG_shoulong_kaermeike
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = DRG_shanhe_zongma}
+		relative_position_id = DRG_shanhe_zongma
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 236
+		controls_state = 237
+		controls_state = 1416
+		}
+		completion_reward = {
+			add_state_core = 236
+			add_state_core = 237
+			add_state_core = 1416
+			add_stability = -0.05
+		}
+	}
+	#摧毁伊斯兰
+	focus = {
+		id = DRG_cuihui_yisilan
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = DRG_shoulong_kaermeike}
+		relative_position_id = DRG_shoulong_kaermeike
+		mutually_exclusive = { focus = DRG_nanfang_zizhi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 232
+		controls_state = 821
+		controls_state = 1075
+		controls_state = 828
+		controls_state = 827
+		}
+		completion_reward = {
+			232 = {
+			add_manpower = -200000
+			}
+			821 = {
+			add_manpower = -200000
+			}
+			1075 = {
+			add_manpower = -200000
+			}
+			828 = {
+			add_manpower = -200000
+			}
+			827 = {
+			add_manpower = -200000
+			}
+			add_state_core = 232
+			add_state_core = 821
+			add_state_core = 1075
+			add_state_core = 828
+			add_state_core = 827
+		}
+	}
+	#南方自治
+	focus = {
+		id = DRG_nanfang_zizhi
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = DRG_shoulong_kaermeike}
+		relative_position_id = DRG_shoulong_kaermeike
+		mutually_exclusive = { focus = DRG_cuihui_yisilan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 232
+		controls_state = 821
+		controls_state = 1075
+		controls_state = 828
+		controls_state = 827
+		CHE = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			CHE = {
+			transfer_state = 232
+			transfer_state = 821
+			transfer_state = 1075
+			transfer_state = 828
+			transfer_state = 827
+			}
+			puppet = CHE
+		}
+	}
+	#哥萨克人的帝国
+	focus = {
+		id = DRG_gesake_diguo
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = DRG_nanfang_zizhi focus = DRG_cuihui_yisilan }
+		relative_position_id = DRG_cuihui_yisilan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#草原的主人
+	focus = {
+		id = DRG_caoyuan_zhuren
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = DRG_gesake_diguo }
+		relative_position_id = DRG_gesake_diguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#南俄武装力量
+	focus = {
+		id = DRG_nane_wuzhaung_chongjian
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		prerequisite = { focus = DRG_lianhe_kuban}
+		prerequisite = { focus = DRG_rus_diwei}
+		relative_position_id = DRG_rus_diwei
+		mutually_exclusive = { focus = DRG_gesake_guodu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_ideas = DRG_qineluosi
+		}
+		completion_reward = {
+		set_cosmetic_tag = RSO
+		custom_effect_tooltip = RSO
+		remove_ideas = DRG_gesake_qibing_lianhe
+		create_country_leader = {
+	name = "布里亚科夫斯基"
+	desc = ""
+	picture = "GFX62"
+	expire = "1965.1.1"
+	ideology = junzheng_ducai_system
+	traits = {
+	}
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+		}
+	}
+	#俄罗斯民兵
+	focus = {
+		id = DRG_eluosi_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = DRG_nane_wuzhaung_chongjian}
+		relative_position_id = DRG_nane_wuzhaung_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = DRG_eluosi_minbing
+		}
+	}
+	#和邓尼金谈判
+	focus = {
+		id = DRG_hedengnijin_tanpan
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = DRG_eluosi_minbing}
+		relative_position_id = DRG_eluosi_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = DRG_lianhe_huigui
+			remove_idea = DRG_posui_lianhe
+			}
+		}
+	}
+	#弥补错误
+	focus = {
+		id = DRG_mibu_cuowu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = DRG_hedengnijin_tanpan}
+		relative_position_id = DRG_hedengnijin_tanpan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = DRG_mibucuowu
+			remove_idea = DRG_lianhe_huigui
+			}
+			CRM = {
+			add_ideas = DRG_mibucuowu
+			}
+		}
+	}
+	#踏上统一之路
+	focus = {
+		id = DRG_tashang_tongyizhilu
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = DRG_mibu_cuowu}
+		prerequisite = { focus = DRG_tigong_bixuping}
+		relative_position_id = DRG_mibu_cuowu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#反布同盟
+	focus = {
+		id = DRG_fanbu_tongmeng
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = DRG_tashang_tongyizhilu}
+		relative_position_id = DRG_tashang_tongyizhilu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CHE = {
+		country_event = {
+    id = holy_beieluosi.2
+	}
+	}
+		}
+	}
+	#建立俄罗斯化军队
+	focus = {
+		id = DRG_eluosihua_jundui
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = DRG_fanbu_tongmeng}
+		relative_position_id = DRG_fanbu_tongmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DRG_elusoihua_army
+		}
+	}
+	#穆斯林自治
+	focus = {
+		id = DRG_musilin_zizhi
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = DRG_fanbu_tongmeng}
+		relative_position_id = DRG_fanbu_tongmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = CHE
+		}
+		bypass = {
+		NOT = {
+		is_in_faction_with = CHE
+		}
+		}
+		completion_reward = {
+		CHR = {
+		transfer_state = 232
+			transfer_state = 821
+			transfer_state = 1075
+			transfer_state = 828
+			transfer_state = 827
+		}
+		puppet = CHE
+		}
+	}
+	#联合邓尼金
+	focus = {
+		id = DRG_lianhe_dengnijin
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = DRG_musilin_zizhi}
+		prerequisite = { focus = DRG_eluosihua_jundui}
+		relative_position_id = DRG_eluosihua_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		CRM = {
+		controls_state = 137
+		controls_state = 196
+		controls_state = 197
+		controls_state = 192
+		controls_state = 226
+		controls_state = 200
+		controls_state = 227
+		controls_state = 228
+		controls_state = 221
+		controls_state = 225
+		controls_state = 259
+		controls_state = 193
+		controls_state = 202
+		controls_state = 203
+		controls_state = 834
+		controls_state = 1069
+		controls_state = 1067
+		controls_state = 1068
+		controls_state = 1429
+		controls_state = 1432
+		}
+		CRM = {
+		exists = no
+		}
+		}
+		NCC = {
+		exists = no
+		}
+		KLM = {
+		exists = no
+		}
+		CHE = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		CRM = {
+		exists = yes
+		}
+		}
+		annex_country = {
+    target = CRM
+    transfer_troops = yes
+}
+DRG = { change_tag_from = CRM }
+		else = {
+		declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+		}
+		}
+		add_state_core = 137
+		add_state_core = 196
+		add_state_core = 197
+		add_state_core = 192
+		add_state_core = 226
+		add_state_core = 200
+		add_state_core = 227
+		add_state_core = 228
+		add_state_core = 221
+		add_state_core = 225
+		add_state_core = 259
+		add_state_core = 193
+		add_state_core = 202
+		add_state_core = 203
+		add_state_core = 198
+		add_state_core = 199
+		add_state_core = 201
+		add_state_core = 834
+		add_state_core = 1069
+		add_state_core = 1067
+		add_state_core = 1068
+		add_state_core = 1429
+		add_state_core = 1432
+	}
+	}
+	#南俄回归
+	focus = {
+		id = DRG_nane_huigui
+		icon = GFX_focus_POL_expand_polish_intelligence
+		prerequisite = { focus = DRG_lianhe_dengnijin}
+		relative_position_id = DRG_lianhe_dengnijin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 137
+		controls_state = 196
+		controls_state = 197
+		controls_state = 192
+		controls_state = 226
+		controls_state = 200
+		controls_state = 227
+		controls_state = 228
+		controls_state = 221
+		controls_state = 225
+		controls_state = 259
+		controls_state = 193
+		controls_state = 202
+		controls_state = 203
+		controls_state = 834
+		controls_state = 1069
+		controls_state = 1067
+		controls_state = 1068
+		controls_state = 1429
+		controls_state = 1432
+		controls_state = 1416
+		controls_state = 236
+		controls_state = 235
+		controls_state = 238
+		controls_state = 218
+		controls_state = 245
+		controls_state = 1070
+		}
+		completion_reward = {
+		create_faction = eluosi_wuzhaung
+	}
+	}
+	#统一的号角
+	focus = {
+		id = DRG_tongyi_haojiao
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = DRG_nane_huigui}
+		relative_position_id = DRG_nane_huigui
+		mutually_exclusive = { focus = DRG_gaoerchae_lianmeng }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 265
+						region = 132
+						region = 150
+						region = 133
+						region = 264
+						region = 40
+						region = 137
+						region = 135
+						region = 138
+						region = 14
+						region = 263
+						region = 151
+						region = 261
+						region = 262
+						region = 147
+						region = 149
+						region = 260
+						region = 259
+						region = 257
+						region = 258
+						region = 256
+						}
+					}
+add_core_of = DRG
+		}
+		add_state_core = 146
+		add_state_core = 1356
+		add_state_core = 213
+		add_state_core = 1854
+		add_state_core = 1398
+		add_state_core = 224
+		add_state_core = 205
+		add_state_core = 242
+		add_state_core = 243
+		remove_state_core = 1347
+		remove_state_core = 654
+		remove_state_core = 1123
+		remove_state_core = 407
+		remove_state_core = 406
+		remove_state_core = 1073
+		remove_state_core = 1074
+		remove_state_core = 1550
+		remove_state_core = 206
+		remove_state_core = 204
+		remove_state_core = 1543
+		remove_state_core = 194
+		remove_state_core = 201
+		remove_state_core = 199
+		remove_state_core = 1431
+		remove_state_core = 198
+		remove_state_core = 1430
+		remove_state_core = 1859
+		remove_state_core = 232
+		remove_state_core = 1075
+		remove_state_core = 233
+		remove_state_core = 234
+		remove_state_core = 235
+		remove_state_core = 875
+		every_state = {
+					limit = {
+					OR = {
+						region = 136
+						region = 270
+						region = 267
+						region = 268
+						region = 269
+						region = 1300
+						}
+					}
+add_claim_by = RUN
+		}
+		add_state_claim = 234
+		add_state_claim = 235
+		add_state_claim = 233
+		add_state_claim = 1075
+		add_state_claim = 232
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 407
+		add_state_claim = 406
+		add_state_claim = 1073
+		add_state_claim = 1074
+		declare_war_on = {
+    target = GSK
+    type = annex_everything
+}
+		declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBP
+    type = annex_everything
+}
+declare_war_on = {
+    target = MGD
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAK
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+every_country = {
+limit = {
+NOT = {
+tag = BLA
+tag = UNR
+tag = MCR
+}
+OR = {
+has_war_with = SOV
+tag = SOV
+}
+}
+add_timed_idea = {
+    idea = SOV_touxiang_daojishi
+    days = 360
+}
+}
+	    }
+	}
+	#高尔察克联盟
+	focus = {
+		id = DRG_gaoerchae_lianmeng
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = DRG_nane_huigui}
+		relative_position_id = DRG_nane_huigui
+		mutually_exclusive = { focus = DRG_tongyi_haojiao }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		RND = { puppet = DRG }
+	    }
+	}
+}

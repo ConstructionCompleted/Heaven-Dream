@@ -1,0 +1,188 @@
+holy_daoyu_zhengduan = {
+    #进攻奥兰岛
+    holy_jingong_aolandao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			tag = KEM
+			tag = NOR
+			tag = SWE
+			tag = FIN
+			}
+	}	
+		available = {
+			OR = {
+			has_completed_focus = NOR_canyu_daoyu_zhengduan
+			has_completed_focus = SWE_toudu_daoyu
+			has_completed_focus = FIN_canyu_daoyu_zhengduan
+			has_completed_focus = KEM_denglu_boluodihai_daoyu
+			has_completed_focus = KEM_daoyu_plan
+			}
+			NOT = {
+			controls_state = 145
+			}
+		}
+		cost = 50
+		days_remove = 5 
+		days_re_enable = 5 
+		complete_effect = {
+		transfer_state = 145
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#进攻哥特兰
+    holy_jingong_getelan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			tag = KEM
+			tag = NOR
+			tag = SWE
+			tag = FIN
+			}
+	}	
+		available = {
+			OR = {
+			has_completed_focus = NOR_canyu_daoyu_zhengduan
+			has_completed_focus = SWE_toudu_daoyu
+			has_completed_focus = FIN_canyu_daoyu_zhengduan
+			has_completed_focus = KEM_denglu_boluodihai_daoyu
+			has_completed_focus = KEM_daoyu_plan
+			}
+			NOT = {
+			controls_state = 124
+			}
+		}
+		cost = 50
+		days_remove = 5 
+		days_re_enable = 5 
+		complete_effect = {
+		transfer_state = 124
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_beioumeng_posui = {
+    #北欧梦破碎
+    holy_beiou_posui = {                          
+        visible = { 
+		tag = KEM 
+		}                
+        activation = {                          
+            date > 1936.6.1
+        }
+		available = {                   
+           FIN = {
+		   exists = no
+		   }
+		   SWE = {
+		   exists = no
+		   }
+		   NOR = {
+		   exists = no
+		   }
+        }
+        is_good = no     
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 1000             
+        timeout_effect = {   
+		KEM = {
+		release = ICE
+		release = DEN
+		}
+		every_controlled_state = {
+		limit = {
+		OR = {
+		region = 191
+		region = 11
+		}
+		}
+		transfer_state_to = NOR
+		}
+		every_controlled_state = {
+		limit = {
+		OR = {
+		region = 192
+		region = 10
+		}
+		}
+		transfer_state_to = SWE
+		}
+		FIN = {
+		annex_country = {
+    target = KEM
+    transfer_troops = yes
+}
+}
+if = {
+limit = {
+FIN = {
+has_completed_focus = FIN_light_for_beifang
+}
+}
+declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+declare_war_on = {
+    target = DEN
+    type = annex_everything
+}
+}
+if = {
+limit = {
+SWE = {
+has_completed_focus = SWE_gebenhagen_weixian
+}
+}
+declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+declare_war_on = {
+    target = DEN
+    type = annex_everything
+}
+}
+if = {
+limit = {
+NOR = {
+has_completed_focus = NOR_wuzhuang_haijunluzhandui
+}
+}
+declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+declare_war_on = {
+    target = DEN
+    type = annex_everything
+}
+}
+		news_event = {
+				id = holy_news.76 days = 1
+			}
+		}
+    }
+}

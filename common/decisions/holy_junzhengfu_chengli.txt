@@ -1,0 +1,137 @@
+holy_junzhengfu = {
+    #宣告俄罗斯统一
+    holy_xuangao_eluosi_tongyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		AND = {
+			tag = CRM
+			has_completed_focus = CRM_canyu_jinzheng
+		}
+		AND = {
+			tag = RUD
+			has_completed_focus = RUD_shangjiang_vic
+		}
+		AND = {
+			tag = DRG
+			has_completed_focus = DRG_tongyi_haojiao
+		}
+		}
+	}	
+		available = {
+		THIS = {
+		all_core_state = {
+    is_controlled_by = ROOT
+}
+		}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_focus_tree = RUD_2_focus
+		news_event = {
+				id = holy_news.21 days = 1
+			}
+		set_cosmetic_tag = RUS
+		add_state_core = 245
+		add_state_core = 218
+		add_state_core = 1070
+		add_state_core = 1416
+		add_state_core = 238
+		add_state_core = 237
+		add_state_core = 236
+		add_state_core = 1351
+		add_state_core = 582
+		add_state_core = 652
+		add_state_core = 651
+		add_state_core = 1347
+		add_state_core = 1338
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_heise_jinweijun = {
+    #黑色近卫军.北部
+    holy_blackarmy_bei = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = RUD
+			has_completed_focus = RUD_heise_jinwei
+	}	
+		available = {
+		controls_state = 195
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = RUD_b1
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#黑色近卫军.中部
+    holy_blackarmy_zhong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = RUD
+			has_completed_focus = RUD_heise_jinwei
+	}	
+		available = {
+		controls_state = 653
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = RUD_b2
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#黑色近卫军.南部
+    holy_blackarmy_nan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = RUD
+			has_completed_focus = RUD_heise_jinwei
+	}	
+		available = {
+		controls_state = 217
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = RUD_b3
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#黑色近卫军.西部
+    holy_blackarmy_xi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = RUD
+			has_completed_focus = RUD_heise_jinwei
+	}	
+		available = {
+		controls_state = 219
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = RUD_b4
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

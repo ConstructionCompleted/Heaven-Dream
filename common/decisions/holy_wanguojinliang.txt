@@ -1,0 +1,457 @@
+holy_liuqiu_yujin = {
+    #万国津梁.复兴
+    
+	holy_wanguojinliang_fuxing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		has_idea = LIU_wanguo_jinliang_yuhui
+		has_variable = liu_wanguoyujin
+		check_variable = {
+        liu_wanguoyujin > 50
+        }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		swap_ideas = {
+		add_idea = LIU_wanguo_jinliang_yuhui_2
+		remove_idea = LIU_wanguo_jinliang_yuhui
+		}
+		PWT_xinwang_shenglv_3_tt
+		add_to_variable = {
+    var = liu_wanguoyujin
+    value = -50
+	tooltip = liu_wanguoyujin_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#万国津梁.繁荣
+	holy_wanguojinliang_fanrong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		has_idea = LIU_wanguo_jinliang_yuhui_2
+		has_variable = liu_wanguoyujin
+		check_variable = {
+        liu_wanguoyujin > 50
+        }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		swap_ideas = {
+		add_idea = LIU_wanguo_jinliang_yuhui_3
+		remove_idea = LIU_wanguo_jinliang_yuhui_2
+		}
+		add_to_variable = { var = liu_wanguoyujin value = -50 }
+		add_to_variable = {
+    var = liu_wanguoyujin
+    value = -50
+	tooltip = liu_wanguoyujin_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#万国津梁.促进贸易
+    
+	holy_wanguojinliang_cujinmaoyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		has_idea = LIU_wanguo_jinliang_yuhui_2
+		has_variable = liu_wanguoyujin
+		check_variable = {
+        liu_wanguoyujin > 30
+        }
+		}
+		days_re_enable = 360
+		complete_effect = {
+		add_timed_idea = {
+		idea = LIU_cujin_maoyi
+        days = 180
+		}
+		add_to_variable = {
+    var = liu_wanguoyujin
+    value = -30
+	tooltip = liu_wanguoyujin_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	#万国津梁.利用资源
+    
+	holy_wanguojinliang_liyongziyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		has_variable = liu_wanguoyujin
+		check_variable = {
+        liu_wanguoyujin > 30
+        }
+		}
+		days_re_enable = 10
+		cost = 50
+		complete_effect = {
+		random_list = {
+    add_offsite_building = { type = industrial_complex level = 1 }
+	add_offsite_building = { type = dockyard level = 1 }
+}
+		add_to_variable = {
+    var = liu_wanguoyujin
+    value = -30
+	tooltip = liu_wanguoyujin_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#万国津梁.外籍军团
+    
+	holy_wanguojinliang_waijijuntuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		has_variable = liu_wanguoyujin
+		check_variable = {
+        liu_wanguoyujin > 20
+        }
+		}
+		days_re_enable = 10
+		cost = 20
+		complete_effect = {
+		add_manpower = 25000
+		add_to_variable = {
+    var = liu_wanguoyujin
+    value = -20
+	tooltip = liu_wanguoyujin_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触马来亚
+    
+	holy_jiechu_MAL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		MAL = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		MAL = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触印度支那
+    
+	holy_jiechu_IDC = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		IDC = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   VIN = {
+   NOT = {
+   has_country_flag = liu_wanguoyujin_yes
+   }
+   }
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		IDC = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触越南
+    
+	holy_jiechu_VIN = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		VIN = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   IDC = {
+   NOT = {
+   has_country_flag = liu_wanguoyujin_yes
+   }
+   }
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		VIN = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触暹罗
+    
+	holy_jiechu_SIA = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		SIA = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		SIA = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触菲律宾
+    
+	holy_jiechu_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		PHI = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		PHI = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触文莱
+    
+	holy_jiechu_WEN = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		WEN = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 100
+		fire_only_once = yes
+		complete_effect = {
+		WEN = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触马达兰
+    
+	holy_jiechu_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		MDL = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		MDL = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#接触美拉尼西亚
+    
+	holy_jiechu_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_completed_focus = LIU_guoyouhua_gaige
+		has_completed_focus = LIU_tuanjie_newliuqiu
+		}
+	}	
+		available = {
+		MNY = {
+		NOT = {
+   OR = {
+   has_government = destruction_system
+   has_government = fascism
+   }
+   has_civil_war = yes
+   }
+		}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		MNY = {
+		set_country_flag = liu_wanguoyujin_yes
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+}

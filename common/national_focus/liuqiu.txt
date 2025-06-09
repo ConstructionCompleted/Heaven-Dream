@@ -1,0 +1,1617 @@
+focus_tree = {
+	id = LIU_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = LIU
+		}
+	}
+	
+	default = no
+ 
+    #组建琉球政府
+	focus = {
+		id = LIU_zujian_liuqiu_zhengfu
+		icon = GFX_focus_generic_self_management
+		x = 25
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		add_ideas = LIU_hunluan_zhengfu
+		remove_ideas = LIU_rizhan_liuqiu
+		}
+	}
+	#组建琉球议会
+	focus = {
+		id = LIU_zujian_liuqiu_yihui
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = LIU_zujian_liuqiu_zhengfu}
+		relative_position_id = LIU_zujian_liuqiu_zhengfu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_hunluan_zhengfu_2
+		remove_idea = LIU_hunluan_zhengfu
+		}
+		}
+	}
+	#第一次琉球议会大选
+	focus = {
+		id = LIU_diyici_liuqiuyihui_daxuan
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = LIU_zujian_liuqiu_yihui}
+		relative_position_id = LIU_zujian_liuqiu_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#东海星火
+	focus = {
+		id = LIU_donghai_xinghuo
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = LIU_diyici_liuqiuyihui_daxuan}
+		relative_position_id = LIU_diyici_liuqiuyihui_daxuan
+		mutually_exclusive = { focus = LIU_qijianmingsheng_zhengfu }
+		mutually_exclusive = { focus = LIU_niudaoman_zhengfu }
+		x = -8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = LIU.wanguoyujin
+    value = 20
+}
+		}
+	}
+	#人民的琉球
+	focus = {
+		id = LIU_renmin_liuqiu
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = LIU_donghai_xinghuo}
+		relative_position_id = LIU_donghai_xinghuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#国有化改革
+	focus = {
+		id = LIU_guoyouhua_gaige
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = LIU_renmin_liuqiu}
+		relative_position_id = LIU_renmin_liuqiu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LIU_guoyouhua_gaige
+		}
+	}
+	#国控港口
+	focus = {
+		id = LIU_guokong_gangkou
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = LIU_guoyouhua_gaige}
+		relative_position_id = LIU_guoyouhua_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_guoyouhua_gaige_2
+		remove_idea = LIU_guoyouhua_gaige
+		}
+		}
+	}
+	#国控手工业
+	focus = {
+		id = LIU_guokong_shougongye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = LIU_guokong_gangkou}
+		relative_position_id = LIU_guokong_gangkou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_guoyouhua_gaige_3
+		remove_idea = LIU_guoyouhua_gaige_2
+		}
+		}
+	}
+	#粮食配给
+	focus = {
+		id = LIU_liangshi_peiji
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = LIU_guokong_shougongye}
+		relative_position_id = LIU_guokong_shougongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_sutie_diyu_2
+		remove_idea = LIU_sutie_diyu
+		}
+		}
+	}
+	#安抚旧贵族和日本移民
+	focus = {
+		id = LIU_anfu_jiuguizu_ribenyimin
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = LIU_renmin_liuqiu}
+		relative_position_id = LIU_renmin_liuqiu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_mimang_guishu_2
+		remove_idea = LIU_mimang_guishu
+		}
+		}
+	}
+	#日琉不同组
+	focus = {
+		id = LIU_riliu_butongzu
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = LIU_anfu_jiuguizu_ribenyimin}
+		relative_position_id = LIU_anfu_jiuguizu_ribenyimin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_mimang_guishu_3
+		remove_idea = LIU_mimang_guishu_2
+		}
+		}
+	}
+	#肃清他们
+	focus = {
+		id = LIU_suqing_tamen
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = LIU_riliu_butongzu}
+		relative_position_id = LIU_riliu_butongzu
+		mutually_exclusive = { focus = LIU_tuanjie_tamen }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_suqing_tamen
+		remove_idea = LIU_mimang_guishu_3
+		}
+		}
+	}
+	#七月事件
+	focus = {
+		id = LIU_qiyue_shijian
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = LIU_suqing_tamen}
+		relative_position_id = LIU_suqing_tamen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_qiyue_zhihou
+		remove_idea = LIU_suqing_tamen
+		}
+		country_event = {
+    id = holy_liuqiu.6
+    days = 3
+}
+		}
+	}
+	#团结他们
+	focus = {
+		id = LIU_tuanjie_tamen
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = LIU_riliu_butongzu}
+		relative_position_id = LIU_riliu_butongzu
+		mutually_exclusive = { focus = LIU_suqing_tamen }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_tuanjie_tamen
+		remove_idea = LIU_mimang_guishu_3
+		}
+		}
+	}
+	#琉球新公民
+	focus = {
+		id = LIU_liuqiu_newgongmin
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = LIU_tuanjie_tamen}
+		relative_position_id = LIU_tuanjie_tamen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_liuqiu_newgongmin
+		remove_idea = LIU_tuanjie_tamen
+		}
+		}
+	}
+	#新琉球
+	focus = {
+		id = LIU_new_liuqiu
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = LIU_liuqiu_newgongmin focus = LIU_qiyue_shijian }
+		prerequisite = { focus = LIU_liangshi_peiji}
+		relative_position_id = LIU_liangshi_peiji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+add_stability = 0.1
+		}
+	}
+	#走向自主化
+	focus = {
+		id = LIU_zouxiang_zizhuhua
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = LIU_new_liuqiu }
+		relative_position_id = LIU_new_liuqiu
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		526 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#大开垦计划
+	focus = {
+		id = LIU_dakaiken_jihua
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = LIU_zouxiang_zizhuhua }
+		relative_position_id = LIU_zouxiang_zizhuhua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_dakaiken_jihua
+		remove_idea = LIU_sutie_diyu_2
+		}
+		}
+	}
+	#进口国际粮食
+	focus = {
+		id = LIU_jinkou_guojiliangshi
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = LIU_dakaiken_jihua }
+		relative_position_id = LIU_dakaiken_jihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_dakaiken_jihua_2
+		remove_idea = LIU_dakaiken_jihua
+		}
+		}
+	}
+	#消灭饥荒
+	focus = {
+		id = LIU_xiaomie_jihuang
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = LIU_jinkou_guojiliangshi }
+		relative_position_id = LIU_jinkou_guojiliangshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_dakaiken_jihua_3
+		remove_idea = LIU_dakaiken_jihua_2
+		}
+		}
+	}
+	#引入大型工厂
+	focus = {
+		id = LIU_yinru_daxing_gongchang
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = LIU_zouxiang_zizhuhua }
+		relative_position_id = LIU_zouxiang_zizhuhua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_guoyouhua_gaige_4
+		remove_idea = LIU_guoyouhua_gaige_3
+		}
+		526 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建立工业大学
+	focus = {
+		id = LIU_jianli_ic_research
+		icon = GFX_focus_research2
+		prerequisite = { focus = LIU_yinru_daxing_gongchang }
+		relative_position_id = LIU_yinru_daxing_gongchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#琉球的第一辆卡车
+	focus = {
+		id = LIU_liuqiu_first_kache
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = LIU_jianli_ic_research }
+		relative_position_id = LIU_jianli_ic_research
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		526 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		swap_ideas = {
+		add_idea = LIU_guoyouhua_gaige_5
+		remove_idea = LIU_guoyouhua_gaige_4
+		}
+		}
+	}
+	#重建那霸港
+	focus = {
+		id = LIU_chongjian_nabagang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = LIU_zouxiang_zizhuhua }
+		relative_position_id = LIU_zouxiang_zizhuhua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = { LIU.wanguoyujin = 10 } 
+		add_ideas = LIU_chongjian_maoyi
+		526 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#国家领导贸易
+	focus = {
+		id = LIU_guojia_lingdao_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = LIU_chongjian_nabagang }
+		relative_position_id = LIU_chongjian_nabagang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = { LIU.wanguoyujin = 15 } 
+		swap_ideas = {
+		add_idea = LIU_chongjian_maoyi_2
+		remove_idea = LIU_chongjian_maoyi
+		}
+		}
+	}
+	#东海桥梁
+	focus = {
+		id = LIU_donghai_qiaoliang
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { focus = LIU_guojia_lingdao_maoyi }
+		relative_position_id = LIU_guojia_lingdao_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = { LIU.wanguoyujin = 20 } 
+		swap_ideas = {
+		add_idea = LIU_chongjian_maoyi_3
+		remove_idea = LIU_chongjian_maoyi_2
+		}
+		}
+	}
+	#组建地方公社
+	focus = {
+		id = LIU_zujian_difang_gongshe
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = LIU_xiaomie_jihuang }
+		prerequisite = { focus = LIU_liuqiu_first_kache }
+		prerequisite = { focus = LIU_donghai_qiaoliang }
+		relative_position_id = LIU_liuqiu_first_kache
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_ideas = LIU_zujian_difang_gongshe
+		}
+	}
+	#崎间敏胜政府
+	focus = {
+		id = LIU_qijianmingsheng_zhengfu
+		icon = GFX_goal_continuous_restrict_freedom
+		prerequisite = { focus = LIU_diyici_liuqiuyihui_daxuan }
+		relative_position_id = LIU_diyici_liuqiuyihui_daxuan
+		mutually_exclusive = { focus = LIU_donghai_xinghuo }
+		mutually_exclusive = { focus = LIU_niudaoman_zhengfu }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = LIU.wanguoyujin
+    value = 10
+}
+		}
+	}
+	#稳定民主政府
+	focus = {
+		id = LIU_wending_minzhu_zhengfu
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = LIU_qijianmingsheng_zhengfu}
+		relative_position_id = LIU_qijianmingsheng_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = LIU_democratic_zhengfu
+		}
+	}
+	#我们不要革命
+	focus = {
+		id = LIU_women_buyao_gm
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = LIU_wending_minzhu_zhengfu}
+		relative_position_id = LIU_wending_minzhu_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+		add_popularity = {
+    ideology = socialism
+    popularity = -0.1
+}
+		}
+	}
+	#我们不要激进
+	focus = {
+		id = LIU_women_buyao_jijin
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = LIU_wending_minzhu_zhengfu}
+		relative_position_id = LIU_wending_minzhu_zhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = -0.05
+		add_political_power = 100
+		}
+	}
+	#团结一心的新琉球
+	focus = {
+		id = LIU_tuanjie_newliuqiu
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = LIU_women_buyao_gm}
+		prerequisite = { focus = LIU_women_buyao_jijin}
+		relative_position_id = LIU_women_buyao_gm
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+add_stability = 0.1
+		}
+	}
+	#新工业化
+	focus = {
+		id = LIU_new_gongyehua
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = LIU_tuanjie_newliuqiu}
+		relative_position_id = LIU_tuanjie_newliuqiu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LIU_xingongye_hua
+		}
+	}
+	#新贸易体系
+	focus = {
+		id = LIU_new_maoyi_tixi
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = LIU_new_gongyehua}
+		relative_position_id = LIU_new_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LIU_chongjian_maoyi
+		}
+	}
+	#新管理体系
+	focus = {
+		id = LIU_new_guanli_tixi
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		prerequisite = { focus = LIU_new_gongyehua}
+		prerequisite = { focus = LIU_shouhui_riben_tixi}
+		relative_position_id = LIU_shouhui_riben_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LIU_new_guanli_tixi
+		add_to_variable = { var = LIU.wanguoyujin value = 10 }
+		}
+	}
+	#经济分配计划
+	focus = {
+		id = LIU_jingji_fenpei_jihua
+		icon = GFX_focus_ITA_workers_unions
+		prerequisite = { focus = LIU_new_maoyi_tixi }
+		prerequisite = { focus = LIU_new_guanli_tixi }
+		relative_position_id = LIU_new_guanli_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_new_guanli_tixi_2
+		remove_idea = LIU_new_guanli_tixi
+		}
+		}
+	}
+	#收回日本权利
+	focus = {
+		id = LIU_shouhui_riben_tixi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = LIU_tuanjie_newliuqiu}
+		relative_position_id = LIU_tuanjie_newliuqiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = LIU_mimang_guishu
+		}
+	}
+	#人民联合
+	focus = {
+		id = LIU_renmin_lianhe
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = LIU_tuanjie_newliuqiu}
+		relative_position_id = LIU_tuanjie_newliuqiu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_renmin_lianhe
+		remove_idea = LIU_sutie_diyu
+		}
+		}
+	}
+	#友好外交
+	focus = {
+		id = LIU_youhao_waijiao
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = LIU_renmin_lianhe}
+		prerequisite = { focus = LIU_shouhui_riben_tixi}
+		relative_position_id = LIU_renmin_lianhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = { var = LIU.wanguoyujin value = 15 }
+		add_political_power = 100
+		}
+	}
+	#农业改革
+	focus = {
+		id = LIU_nongye_gaige
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = LIU_renmin_lianhe}
+		relative_position_id = LIU_renmin_lianhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_renmin_lianhe_2
+		remove_idea = LIU_renmin_lianhe
+		}
+		}
+	}
+	#安宁之土
+	focus = {
+		id = LIU_anning_zhitu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = LIU_nongye_gaige}
+		prerequisite = { focus = LIU_youhao_waijiao}
+		relative_position_id = LIU_youhao_waijiao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = LIU_renmin_lianhe_2
+		add_stability = 0.05
+		}
+	}
+	#牛岛满政府
+	focus = {
+		id = LIU_niudaoman_zhengfu
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = LIU_diyici_liuqiuyihui_daxuan}
+		relative_position_id = LIU_diyici_liuqiuyihui_daxuan
+		mutually_exclusive = { focus = LIU_qijianmingsheng_zhengfu }
+		mutually_exclusive = { focus = LIU_donghai_xinghuo }
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		round_variable = LIU.wanguoyujin
+		}
+	}
+	#肃清琉球旧贵族
+	focus = {
+		id = LIU_suqing_liuqiu_jiuguizu
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = LIU_niudaoman_zhengfu }
+		relative_position_id = LIU_niudaoman_zhengfu
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+		add_popularity = {
+    ideology = neutrality
+    popularity = -0.2
+}
+		}
+	}
+	#建设军事部队
+	focus = {
+		id = LIU_jianshe_junshibudui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = LIU_niudaoman_zhengfu }
+		relative_position_id = LIU_niudaoman_zhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = LIU_junshi_army
+		add_ideas = LIU_jianshe_junshibudui
+		add_manpower = 15000
+		}
+	}
+	#宣布参与日本内战
+	focus = {
+		id = LIU_xuanbucanyu_ribenneizhan
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = LIU_suqing_liuqiu_jiuguizu }
+		prerequisite = { focus = LIU_jianshe_junshibudui }
+		relative_position_id = LIU_jianshe_junshibudui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CEU = {
+		puppet = LIU
+		}
+		declare_war_on = {
+    target = SAO
+    type = annex_everything
+}
+		}
+	}
+	#推行日琉同组论
+	focus = {
+		id = LIU_tuixing_riliutongzu
+		icon = GFX_focus_jap_pacific_guardian
+		prerequisite = { focus = LIU_xuanbucanyu_ribenneizhan }
+		relative_position_id = LIU_xuanbucanyu_ribenneizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_tuixing_riliutongzu
+		remove_idea = LIU_mimang_guishu
+		}
+		}
+	}
+	#琉球大屠杀
+	focus = {
+		id = LIU_liuqiu_datusha
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = LIU_tuixing_riliutongzu }
+		relative_position_id = LIU_tuixing_riliutongzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_liuqiu_datusha
+		remove_idea = LIU_tuixing_riliutongzu
+		}
+		country_event = {
+    id = holy_liuqiu.7
+    days = 3
+}
+		}
+	}
+	#拉拢日本部队
+	focus = {
+		id = LIU_lalong_riben_budui
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = LIU_xuanbucanyu_ribenneizhan }
+		relative_position_id = LIU_xuanbucanyu_ribenneizhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = LIU_riben_army
+		}
+	}
+	#肃清九州民主
+	focus = {
+		id = LIU_suqing_jiuzhou_minzhu
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = LIU_lalong_riben_budui }
+		relative_position_id = LIU_lalong_riben_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1454 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1455 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1457 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1458 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1459 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		528 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		}
+		completion_reward = {
+		add_state_core = 1456
+add_state_core = 1457
+add_state_core = 1458
+add_state_core = 1459
+add_state_core = 1454
+add_state_core = 1455
+add_state_core = 528
+		}
+	}
+	#九-琉军政府
+	focus = {
+		id = LIU_jiuliu_junzhengfu
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = LIU_liuqiu_datusha }
+		prerequisite = { focus = LIU_zujian_xinjunzhengfu }
+		relative_position_id = LIU_liuqiu_datusha
+		mutually_exclusive = { focus = LIU_zujian_xinjunzhengfu }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1454 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1455 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1457 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1458 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1459 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		528 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		CEU = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		transfer_state = 1456
+transfer_state = 1457
+transfer_state = 1458
+transfer_state = 1459
+transfer_state = 1454
+transfer_state = 1455
+transfer_state = 528
+		}
+	}
+	#胜利者的褒奖
+	focus = {
+		id = LIU_shenglizhe_baojiang
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = LIU_jiuliu_junzhengfu }
+		relative_position_id = LIU_jiuliu_junzhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1454 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		1459 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		528 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		1459 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#组建新军政府
+	focus = {
+		id = LIU_zujian_xinjunzhengfu
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = LIU_suqing_jiuzhou_minzhu }
+		prerequisite = { focus = LIU_liuqiu_datusha }
+		relative_position_id = LIU_suqing_jiuzhou_minzhu
+		mutually_exclusive = { focus = LIU_jiuliu_junzhengfu }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1456 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1454 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1455 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1457 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1458 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		1459 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		528 = {
+		OR = {
+		is_controlled_by = LIU
+		is_controlled_by = CEU
+		}
+		}
+		}
+		completion_reward = {
+		transfer_state = 1456
+transfer_state = 1457
+transfer_state = 1458
+transfer_state = 1459
+transfer_state = 1454
+transfer_state = 1455
+transfer_state = 528
+		}
+	}
+	#向冲绳移民
+	focus = {
+		id = LIU_xiangchongsheng_yimin
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = LIU_jiuliu_junzhengfu focus = LIU_zujian_xinjunzhengfu }
+		relative_position_id = LIU_jiuliu_junzhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		526 = {
+		add_manpower = 100000
+		}
+		}
+	}
+	#归复日本
+	focus = {
+		id = LIU_guifu_riben
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = LIU_shenglizhe_baojiang }
+		prerequisite = { focus = LIU_xiangchongsheng_yimin }
+		relative_position_id = LIU_xiangchongsheng_yimin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CEU = {
+		annex_country = {
+    target = LIU
+    transfer_troops = yes
+}
+		}
+		}
+	}
+	#日本军事化
+	focus = {
+		id = LIU_riben_junshihua
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = LIU_zujian_xinjunzhengfu }
+		relative_position_id = LIU_zujian_xinjunzhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = CEU
+    type = annex_everything
+}
+declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHN
+    type = annex_everything
+}
+declare_war_on = {
+    target = EDO
+    type = annex_everything
+}
+		}
+	}
+	#扫平北海道
+	focus = {
+		id = LIU_saoping_beihaidao
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = LIU_riben_junshihua }
+		relative_position_id = LIU_riben_junshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AIU
+    type = annex_everything
+}
+		}
+	}
+	#入侵南洋岛屿
+	focus = {
+		id = LIU_ruqin_nanyang_daoyu
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = LIU_saoping_beihaidao }
+		relative_position_id = LIU_saoping_beihaidao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = TWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = PHI
+    type = annex_everything
+}
+		}
+	}
+	#琉球民兵组织
+	focus = {
+		id = LIU_liuqiu_minbing_zuzhi
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 21
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_liuqiu_minbing
+		remove_idea = LIU_wujun_zhiguo
+		}
+		}
+	}
+	#人民军训
+	focus = {
+		id = LIU_renmin_junxun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = LIU_liuqiu_minbing_zuzhi }
+		relative_position_id = LIU_liuqiu_minbing_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_liuqiu_minbing_2
+		remove_idea = LIU_liuqiu_minbing
+		}
+		}
+	}
+	#扩大军事生产
+	focus = {
+		id = LIU_kuoda_junshi_shengchan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LIU_liuqiu_minbing_zuzhi }
+		relative_position_id = LIU_liuqiu_minbing_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		add_ideas = LIU_kuoda_junshi_shengchan
+		}
+	}
+	#守卫琉球土地
+	focus = {
+		id = LIU_shouwei_liuqiu_tudi
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = LIU_renmin_junxun }
+		prerequisite = { focus = LIU_kuoda_junshi_shengchan }
+		relative_position_id = LIU_renmin_junxun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		add_ideas = LIU_shouwei_liuqiu_tudi
+		}
+	}
+	#改革武装力量
+	focus = {
+		id = LIU_gaige_wuzhang_liliang
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = LIU_renmin_junxun }
+		prerequisite = { focus = LIU_kuoda_junshi_shengchan }
+		relative_position_id = LIU_renmin_junxun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_liuqiu_minbing_3
+		remove_idea = LIU_liuqiu_minbing_2
+		}
+		}
+	}
+	#适应现代战术
+	focus = {
+		id = LIU_shiying_xiandai_zhanshu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = LIU_renmin_junxun }
+		prerequisite = { focus = LIU_kuoda_junshi_shengchan }
+		relative_position_id = LIU_kuoda_junshi_shengchan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		add_ideas = LIU_shiying_xiandai_zhanshu
+		}
+	}
+	#武装半职业军队
+	focus = {
+		id = LIU_wuzhaung_banzhiye_army
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = LIU_shouwei_liuqiu_tudi }
+		prerequisite = { focus = LIU_gaige_wuzhang_liliang }
+		prerequisite = { focus = LIU_shiying_xiandai_zhanshu }
+		relative_position_id = LIU_gaige_wuzhang_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		has_government = socialism
+		}
+		}
+		completion_reward = {
+		remove_ideas = LIU_shiying_xiandai_zhanshu
+		remove_ideas = LIU_shouwei_liuqiu_tudi
+		swap_ideas = {
+		add_idea = LIU_zhiye_army
+		remove_idea = LIU_liuqiu_minbing_3
+		}
+		}
+	}
+	#全民参军
+	focus = {
+		id = LIU_quanmin_canjun
+		icon = GFX_focus_generic_tank_air_support
+		x = 33
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = fascism
+		}
+		completion_reward = {
+		remove_ideas = LIU_wujun_zhiguo
+		}
+	}
+	#强制征兵
+	focus = {
+		id = LIU_qiangzhi_zhengbing
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = LIU_quanmin_canjun }
+		relative_position_id = LIU_quanmin_canjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		add_ideas = LIU_qiangzhi_zhanzheng
+		}
+	}
+	#万岁冲锋
+	focus = {
+		id = LIU_wansui_chongfeng
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = LIU_qiangzhi_zhengbing }
+		relative_position_id = LIU_qiangzhi_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_qiangzhi_zhanzheng_2
+		remove_idea = LIU_qiangzhi_zhanzheng
+		}
+		}
+	}
+	#军事产业链
+	focus = {
+		id = LIU_junshi_chanyelian
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = LIU_quanmin_canjun }
+		relative_position_id = LIU_quanmin_canjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#扩大军事学院
+	focus = {
+		id = LIU_kuoda_junshi_xueyuan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = LIU_junshi_chanyelian }
+		relative_position_id = LIU_junshi_chanyelian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		add_ideas = LIU_shiying_xiandai_zhanshu
+		}
+	}
+	#琉球燃烧吧
+	focus = {
+		id = LIU_ranshao_liuqiu
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = LIU_wansui_chongfeng }
+		prerequisite = { focus = LIU_kuoda_junshi_xueyuan }
+		relative_position_id = LIU_kuoda_junshi_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LIU_qiangzhi_zhanzheng_3
+		remove_idea = LIU_qiangzhi_zhanzheng_2
+		}
+		}
+	}
+}

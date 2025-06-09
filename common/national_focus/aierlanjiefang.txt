@@ -1,0 +1,732 @@
+focus_tree = {
+	id = IRP_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = IRP
+		}
+	}
+	
+	default = no
+ 
+    #革命之火
+	focus = {
+		id = IRP_geming_zhihuo
+		icon = GFX_focus_generic_join_comintern
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = IRP_renmin_zhichi
+			add_ideas = IRP_geming_jundui
+		}
+	}
+	#燃烧的科克
+	focus = {
+		id = IRP_raoshao_keke
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = IRP_geming_zhihuo}
+		relative_position_id = IRP_geming_zhihuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#真正的解放
+	focus = {
+		id = IRP_zhenzheng_jiefang
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = IRP_geming_zhihuo}
+		relative_position_id = IRP_geming_zhihuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#红色武装
+	focus = {
+		id = IRP_hongse_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = IRP_zhenzheng_jiefang}
+		prerequisite = { focus = IRP_raoshao_keke}
+		relative_position_id = IRP_raoshao_keke
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = IRP_hongse_wuzhuang
+		}
+	}
+	#人民的军队
+	focus = {
+		id = IRP_renmin_army
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = IRP_hongse_wuzhuang}
+		relative_position_id = IRP_hongse_wuzhuang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_geming_jundui_2
+			remove_idea = IRP_geming_jundui
+			}
+		}
+	}
+	#开源节流
+	focus = {
+		id = IRP_kaiyuanjieliu
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = IRP_renmin_army}
+		relative_position_id = IRP_renmin_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = IRP_kaiyuanjieliu
+		}
+	}
+	#土制武器
+	focus = {
+		id = IRP_tuzhi_wuqi
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = IRP_kaiyuanjieliu}
+		relative_position_id = IRP_kaiyuanjieliu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 500
+    producer = IRP
+}
+		}
+	}
+	#政治军队
+	focus = {
+		id = IRP_zhengzhi_jundui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = IRP_renmin_army}
+		relative_position_id = IRP_renmin_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_geming_jundui_3
+			remove_idea = IRP_geming_jundui_2
+			}
+		}
+	}
+	#革命军队
+	focus = {
+		id = IRP_geming_jundui
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = IRP_zhengzhi_jundui}
+		relative_position_id = IRP_zhengzhi_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_geming_jundui_4
+			remove_idea = IRP_geming_jundui_3
+			}
+		}
+	}
+	#为了最后一刻
+	focus = {
+		id = IRP_for_last_time
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = IRP_geming_jundui}
+		prerequisite = { focus = IRP_tuzhi_wuqi}
+		relative_position_id = IRP_geming_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = IRP_for_last_time
+		}
+	}
+	#统合革命力量
+	focus = {
+		id = IRP_tonghe_gm_liliang
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = IRP_hongse_wuzhuang}
+		relative_position_id = IRP_hongse_wuzhuang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_renmin_zhichi_2
+			remove_idea = IRP_renmin_zhichi
+			}
+		}
+	}
+	#科克工业重建
+	focus = {
+		id = IRP_keke_gongye_chongjian
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = IRP_tonghe_gm_liliang}
+		relative_position_id = IRP_tonghe_gm_liliang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 911
+		}
+		completion_reward = {
+			911 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#地下兵工厂
+	focus = {
+		id = IRP_dixia_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = IRP_keke_gongye_chongjian}
+		relative_position_id = IRP_keke_gongye_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 911
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#乡村的支持
+	focus = {
+		id = IRP_xiangcun_zhichi
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = IRP_tonghe_gm_liliang}
+		relative_position_id = IRP_tonghe_gm_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_renmin_zhichi_3
+			remove_idea = IRP_renmin_zhichi_2
+			}
+		}
+	}
+	#城市的支持
+	focus = {
+		id = IRP_chengshi_zhichi
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = IRP_xiangcun_zhichi}
+		relative_position_id = IRP_xiangcun_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = IRP_renmin_zhichi_4
+			remove_idea = IRP_renmin_zhichi_3
+			}
+		}
+	}
+	#一路向北
+	focus = {
+		id = IRP_yilu_xiangbei
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = IRP_chengshi_zhichi}
+		prerequisite = { focus = IRP_dixia_binggongchang}
+		relative_position_id = IRP_chengshi_zhichi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = IRP_xiangbei
+		}
+	}
+	#人民的爱尔兰
+	focus = {
+		id = IRP_renmin_aierlan
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = IRP_yilu_xiangbei}
+		prerequisite = { focus = IRP_for_last_time}
+		relative_position_id = IRP_yilu_xiangbei
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		completion_reward = {
+			annex_country = {
+    target = IRE
+    transfer_troops = no
+}
+annex_country = {
+    target = NIR
+    transfer_troops = no
+}
+		}
+	}
+	#向前进！
+	focus = {
+		id = IRP_xiangqianjin
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = IRP_renmin_aierlan}
+		relative_position_id = IRP_renmin_aierlan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		EGL = {
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		controls_state = 1815
+		controls_state = 1814
+		controls_state = 1813
+		controls_state = 1812
+		controls_state = 1811
+		}
+		OR = {
+		EGL = {
+		controls_state = 122
+		controls_state = 918
+		controls_state = 1816
+		}
+		WLS = {
+		controls_state = 122
+		controls_state = 918
+		controls_state = 1816
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		OR = {
+		SCL = {
+		controls_state = 120
+		controls_state = 121
+		controls_state = 133
+		controls_state = 136
+		controls_state = 1357
+		controls_state = 1385
+		controls_state = 917
+		}
+		EGL = {
+		controls_state = 120
+		controls_state = 121
+		controls_state = 133
+		controls_state = 136
+		controls_state = 1357
+		controls_state = 1385
+		controls_state = 917
+		}
+		}
+		IRP = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#独立
+	focus = {
+		id = IRP_duli
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = IRP_xiangqianjin}
+		relative_position_id = IRP_xiangqianjin
+		mutually_exclusive = { focus = IRP_lianbang_zizhiqu }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		leave_faction = yes
+		}
+	}
+	#独自重建
+	focus = {
+		id = IRP_duzi_chongjian
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = IRP_duli}
+		relative_position_id = IRP_duli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRP_duzi_chongjian
+		}
+	}
+	#抹平北方思想
+	focus = {
+		id = IRP_moping_beifang_sixiang
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = IRP_duzi_chongjian}
+		relative_position_id = IRP_duzi_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		NIP = {
+		remove_state_core = 113
+		remove_state_core = 119
+		remove_state_core = 134
+		remove_state_core = 135
+		remove_state_core = 932
+		remove_state_core = 911
+		remove_state_core = 915
+		remove_state_core = 912
+		remove_state_core = 914
+		remove_state_core = 909
+		remove_state_core = 913
+		}
+		add_stability = -0.05
+		}
+	}
+	#爱尔兰科研
+	focus = {
+		id = IRP_aierlan_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = IRP_duzi_chongjian}
+		relative_position_id = IRP_duzi_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRP_keyan
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = IRP_jion_gongchan_guoji
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = IRP_aierlan_keyan}
+		relative_position_id = IRP_aierlan_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = IRP
+			}
+		}
+	}
+	#联邦自治区
+	focus = {
+		id = IRP_lianbang_zizhiqu
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = IRP_xiangqianjin}
+		relative_position_id = IRP_xiangqianjin
+		mutually_exclusive = { focus = IRP_duli }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		EGL = {
+		puppet = IRP
+		}
+		}
+	}
+	#接受联邦资助
+	focus = {
+		id = IRP_jieshou_lianbang_zizhu
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = IRP_lianbang_zizhiqu}
+		relative_position_id = IRP_lianbang_zizhiqu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRP_jieshou_lianbang_zizhu
+		}
+	}
+	#建立联合军队
+	focus = {
+		id = IRP_jianli_lianhe_army
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = IRP_jieshou_lianbang_zizhu}
+		relative_position_id = IRP_jieshou_lianbang_zizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = IRP_jianli_lianhejun
+		}
+	}
+	#革命科研
+	focus = {
+		id = IRP_gm_keyan
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = IRP_jianli_lianhe_army}
+		relative_position_id = IRP_jianli_lianhe_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		UKM = {
+		add_ideas = IRP_keyan
+		}
+		SCL = {
+		add_ideas = IRP_keyan
+		}
+		add_ideas = IRP_keyan
+		}
+	}
+	#政治协调
+	focus = {
+		id = IRP_gm_keyan
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = IRP_jianli_lianhe_army}
+		relative_position_id = IRP_jianli_lianhe_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+		}
+	}
+	#爱尔兰计划经济
+	focus = {
+		id = IRP_aierlan_planjingji
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = IRP_lianbang_zizhiqu focus = IRP_duli }
+		relative_position_id = IRP_duli
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRP_plan_jingji
+		}
+	}
+	#康诺特开发
+	focus = {
+		id = IRP_kangnuote_kaifa
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = IRP_aierlan_planjingji }
+		relative_position_id = IRP_aierlan_planjingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		134 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#科克开发
+	focus = {
+		id = IRP_keke_kaifa
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = IRP_kangnuote_kaifa }
+		relative_position_id = IRP_kangnuote_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		135 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#都柏林开发
+	focus = {
+		id = IRP_dubolin_kaifa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = IRP_kangnuote_kaifa }
+		relative_position_id = IRP_kangnuote_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		113 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#重建贝尔法斯特
+	focus = {
+		id = IRP_chongjian_beierfasite
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = IRP_keke_kaifa }
+		prerequisite = { focus = IRP_dubolin_kaifa }
+		relative_position_id = IRP_keke_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		119 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+}

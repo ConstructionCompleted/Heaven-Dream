@@ -1,0 +1,24 @@
+holy_enqin_die = {
+    #恩琴之死
+    BMO_enqin_zhisi = {                          
+        visible = { 
+		tag = BMO
+		}                
+        activation = {                          
+            date > 1936.1.1
+        }
+		available = {
+		   always = no
+        }
+        is_good = no     
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 1800
+        timeout_effect = {
+		every_state = {
+		remove_core_of = BMO
+		}
+		add_manpower = -50000000
+		}
+    }
+}

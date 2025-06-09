@@ -1,0 +1,1450 @@
+focus_tree = {
+	id = WEN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = WEN
+		}
+	}
+	
+	default = no
+ 
+    #应对局势
+	focus = {
+		id = WEN_yingdui_jushi
+		icon = GFX_focus_rom_parties_end
+		x = 35
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#商行担保
+	focus = {
+		id = WEN_shanghang_danbao
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = { focus = WEN_yingdui_jushi}
+		relative_position_id = WEN_yingdui_jushi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_jingji_bengpan_2
+			remove_idea = WEN_jingji_bengpan
+			}
+		}
+	}
+	#紧急资金
+	focus = {
+		id = WEN_jinji_zijin
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = WEN_shanghang_danbao}
+		relative_position_id = WEN_shanghang_danbao
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_jingji_bengpan_3
+			remove_idea = WEN_jingji_bengpan_2
+			}
+		}
+	}
+	#救市调控
+	focus = {
+		id = WEN_jiushi_tiaokong
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = WEN_jinji_zijin}
+		relative_position_id = WEN_jinji_zijin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_jingji_bengpan_4
+			remove_idea = WEN_jingji_bengpan_3
+			}
+		}
+	}
+	#利用民族矛盾
+	focus = {
+		id = WEN_liyong_minzu_maodun
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = WEN_shanghang_danbao}
+		relative_position_id = WEN_shanghang_danbao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_liyong_maodun
+		}
+	}
+	#警察编制扩大
+	focus = {
+		id = WEN_jincha_bianzhi_kuoda
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = WEN_liyong_minzu_maodun}
+		relative_position_id = WEN_liyong_minzu_maodun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_liyong_maodun_2
+			remove_idea = WEN_liyong_maodun
+			}
+		}
+	}
+	#接受工人请求
+	focus = {
+		id = WEN_jieshou_gongren_qingqiu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WEN_shanghang_danbao}
+		relative_position_id = WEN_shanghang_danbao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_bagong_youxing_2
+			remove_idea = WEN_bagong_youxing
+			}
+		}
+	}
+	#反罢工宣传
+	focus = {
+		id = WEN_fanbagong_xuanchuan
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = WEN_jieshou_gongren_qingqiu}
+		relative_position_id = WEN_jieshou_gongren_qingqiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_bagong_youxing_3
+			remove_idea = WEN_bagong_youxing_2
+			}
+		}
+	}
+	#经济调整
+	focus = {
+		id = WEN_jingji_tiaozheng
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = WEN_jiushi_tiaokong}
+		prerequisite = { focus = WEN_jincha_bianzhi_kuoda}
+		relative_position_id = WEN_jiushi_tiaokong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = WEN_jingji_bengpan_4
+		}
+	}
+	#平息问题
+	focus = {
+		id = WEN_pingxi_wenti
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = WEN_fanbagong_xuanchuan}
+		prerequisite = { focus = WEN_jincha_bianzhi_kuoda}
+		relative_position_id = WEN_fanbagong_xuanchuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = WEN_bagong_youxing_3
+		}
+	}
+	#禁枪令
+	focus = {
+		id = WEN_jinqiang_ling
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = WEN_pingxi_wenti}
+		prerequisite = { focus = WEN_jingji_tiaozheng}
+		relative_position_id = WEN_pingxi_wenti
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_liyong_maodun_3
+			remove_idea = WEN_liyong_maodun_2
+			}
+		}
+	}
+	#资产阶级法权
+	focus = {
+		id = WEN_zichanjieji_faquan
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = WEN_pingxi_wenti}
+		prerequisite = { focus = WEN_jingji_tiaozheng}
+		relative_position_id = WEN_pingxi_wenti
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_zichan_faquan
+		}
+	}
+	#控制工会组织
+	focus = {
+		id = WEN_kongzhi_gonghui_zuzhi
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = WEN_pingxi_wenti}
+		prerequisite = { focus = WEN_jingji_tiaozheng}
+		relative_position_id = WEN_pingxi_wenti
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_kongzhi_diqu
+		}
+	}
+	#神圣化私有制
+	focus = {
+		id = WEN_shenshenghua_siyouzhi
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = WEN_jinqiang_ling}
+		prerequisite = { focus = WEN_zichanjieji_faquan}
+		relative_position_id = WEN_zichanjieji_faquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_zichan_faquan_2
+			remove_idea = WEN_zichan_faquan
+			}
+		}
+	}
+	#掌握生命
+	focus = {
+		id = WEN_zhangkong_shengming
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = WEN_shenshenghua_siyouzhi}
+		relative_position_id = WEN_shenshenghua_siyouzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_zichan_faquan_3
+			remove_idea = WEN_zichan_faquan_2
+			}
+		}
+	}
+	#金钱至上
+	focus = {
+		id = WEN_jinqian_zhishang
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = WEN_zhangkong_shengming}
+		relative_position_id = WEN_zhangkong_shengming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_zichan_faquan_4
+			remove_idea = WEN_zichan_faquan_3
+			}
+		}
+	}
+	#隔断联系
+	focus = {
+		id = WEN_geduan_lianxi
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = WEN_kongzhi_gonghui_zuzhi}
+		prerequisite = { focus = WEN_zichanjieji_faquan}
+		relative_position_id = WEN_zichanjieji_faquan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_kongzhi_diqu_2
+			remove_idea = WEN_kongzhi_diqu
+			}
+		}
+	}
+	#教育改革
+	focus = {
+		id = WEN_jiaoyu_gaige
+		icon = GFX_focus_research2
+		prerequisite = { focus = WEN_geduan_lianxi}
+		relative_position_id = WEN_geduan_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_kongzhi_diqu_3
+			remove_idea = WEN_kongzhi_diqu_2
+			}
+		}
+	}
+	#廉价娱乐
+	focus = {
+		id = WEN_lianjie_yule
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = WEN_jiaoyu_gaige}
+		relative_position_id = WEN_jiaoyu_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_kongzhi_diqu_4
+			remove_idea = WEN_kongzhi_diqu_3
+			}
+		}
+	}
+	#完成改革
+	focus = {
+		id = WEN_wancheng_gaige
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = WEN_jinqian_zhishang}
+		prerequisite = { focus = WEN_lianjie_yule}
+		relative_position_id = WEN_lianjie_yule
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	#文莱工业扩建
+	focus = {
+		id = WEN_wenlai_gongye_kuojian
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = WEN_pingxi_wenti}
+		prerequisite = { focus = WEN_jingji_tiaozheng}
+		relative_position_id = WEN_pingxi_wenti
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#开发文莱经济
+	focus = {
+		id = WEN_kaifa_wenlai_jingji
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = WEN_wenlai_gongye_kuojian}
+		relative_position_id = WEN_wenlai_gongye_kuojian
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			333 = {
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+			1212 = {
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#联合贸易
+	focus = {
+		id = WEN_lianhe_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = WEN_kaifa_wenlai_jingji}
+        relative_position_id = WEN_kaifa_wenlai_jingji		
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = WEN_shangye_diguo
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_shangye_diguo_2
+			remove_idea = WEN_shangye_diguo
+			}
+		}
+	}
+	#产能再扩大
+	focus = {
+		id = WEN_channeng_zaikuoda
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = WEN_lianhe_maoyi}
+		relative_position_id = WEN_lianhe_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = WEN_shangye_diguo_2
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_shangye_diguo_3
+			remove_idea = WEN_shangye_diguo_2
+			}
+		}
+	}
+	#都市圈计划
+	focus = {
+		id = WEN_dushiquan_plan
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = WEN_kaifa_wenlai_jingji}
+		relative_position_id = WEN_kaifa_wenlai_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = WEN_shangye_diguo
+		}
+		completion_reward = {
+			1214 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1213 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			334 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1207 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1209 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1220 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#吸收人口
+	focus = {
+		id = WEN_xishou_renkou
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WEN_dushiquan_plan}
+		relative_position_id = WEN_dushiquan_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = WEN_shangye_diguo
+		}
+		completion_reward = {
+			334 = {
+			add_manpower = 2000000
+			}
+			333 = {
+			add_manpower = 1000000
+			}
+			1209 = {
+			add_manpower = 1000000
+			}
+			1220 = {
+			add_manpower = 1000000
+			}
+			1213 = {
+			add_manpower = 1000000
+			}
+		}
+	}
+	#培养军火企业
+	focus = {
+		id = WEN_peiyang_junhuo_qiye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = WEN_wenlai_gongye_kuojian}
+		relative_position_id = WEN_wenlai_gongye_kuojian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			333 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+			334 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+			1211 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#出口武装
+	focus = {
+		id = WEN_chukou_wuzhuang
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = WEN_peiyang_junhuo_qiye}
+		relative_position_id = WEN_peiyang_junhuo_qiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_chukou_wuzhuang
+		}
+	}
+	#利用战火
+	focus = {
+		id = WEN_liyong_zhanhuo
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = WEN_chukou_wuzhuang}
+		relative_position_id = WEN_chukou_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_chukou_wuzhuang_2
+			remove_idea = WEN_chukou_wuzhuang
+			}
+		}
+	}
+	#精尖工业
+	focus = {
+		id = WEN_jingjian_gongye
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = WEN_peiyang_junhuo_qiye}
+		relative_position_id = WEN_peiyang_junhuo_qiye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_jingjian_gongye
+		}
+	}
+	#技术革新
+	focus = {
+		id = WEN_jishu_gexin
+		icon = GFX_focus_research2
+		prerequisite = { focus = WEN_jingjian_gongye}
+		relative_position_id = WEN_jingjian_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_jingjian_gongye_2
+			remove_idea = WEN_jingjian_gongye
+			}
+		}
+	}
+	#建设私有铁路
+	focus = {
+		id = WEN_jianshe_siyou_tielu
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = WEN_wenlai_gongye_kuojian}
+		relative_position_id = WEN_wenlai_gongye_kuojian
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			333 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			334 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1213 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1220 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#联通内陆
+	focus = {
+		id = WEN_liantong_neilu
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = WEN_jianshe_siyou_tielu}
+		relative_position_id = WEN_jianshe_siyou_tielu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1209 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1207 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			1211 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+			334 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#出口内陆资源
+	focus = {
+		id = WEN_chukou_neilu_ziyuan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = WEN_liantong_neilu}
+		relative_position_id = WEN_liantong_neilu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_neilu_ziyuan
+		}
+	}
+	#联通沿海
+	focus = {
+		id = WEN_liantong_yanhai
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = WEN_jianshe_siyou_tielu}
+		relative_position_id = WEN_jianshe_siyou_tielu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1214 = {
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			1213 = {
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#加大海洋筹码
+	focus = {
+		id = WEN_jiada_haiyang_chouma
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = WEN_liantong_yanhai}
+		relative_position_id = WEN_liantong_yanhai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			333 = {
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			1212 = {
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			1208 = {
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建文莱军队
+	focus = {
+		id = WEN_kuojian_jundui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = WEN_pingxi_wenti}
+		prerequisite = { focus = WEN_jingji_tiaozheng}
+		relative_position_id = WEN_pingxi_wenti
+		x = 7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_wenlai_army_2
+			remove_idea = WEN_wenlai_army
+			}
+		}
+	}
+	#精锐化陆军
+	focus = {
+		id = WEN_jingruihua_army
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = WEN_kuojian_jundui}
+		relative_position_id = WEN_kuojian_jundui
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_wenlai_army_3
+			remove_idea = WEN_wenlai_army_2
+			}
+		}
+	}
+	#特种作战
+	focus = {
+		id = WEN_tezhong_zuozhan
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = WEN_jingruihua_army}
+		relative_position_id = WEN_jingruihua_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_wenlai_army_4
+			remove_idea = WEN_wenlai_army_3
+			}
+		}
+	}
+	#征服丛林
+	focus = {
+		id = WEN_zhengfu_conglin
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = WEN_tezhong_zuozhan}
+		relative_position_id = WEN_tezhong_zuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = WEN_wenlai_army_5
+			remove_idea = WEN_wenlai_army_4
+			}
+		}
+	}
+	#加大火力打击
+	focus = {
+		id = WEN_jiada_huoli_daji
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = WEN_jingruihua_army}
+		relative_position_id = WEN_jingruihua_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_jiada_huoli_daji
+		}
+	}
+	#装甲部队
+	focus = {
+		id = WEN_zhuangjia_budui
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = WEN_jiada_huoli_daji}
+		relative_position_id = WEN_jiada_huoli_daji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_zhuangjia_budui
+		}
+	}
+	#建立文莱空军
+	focus = {
+		id = WEN_jianli_wenlai_kongjun
+		icon = GFX_focus_generic_multi_role_aircraft
+		prerequisite = { focus = WEN_kuojian_jundui}
+		relative_position_id = WEN_kuojian_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = air_techs
+				category = air_doctrine
+			}
+		}
+	}
+	#东南亚覆盖
+	focus = {
+		id = WEN_dongnanya_fugai
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = WEN_jianli_wenlai_kongjun}
+		relative_position_id = WEN_jianli_wenlai_kongjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_wenlai_kongjun
+		}
+	}
+	#笼罩天空
+	focus = {
+		id = WEN_longzhao_tiankong
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = WEN_dongnanya_fugai}
+		relative_position_id = WEN_dongnanya_fugai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = { 
+			add_idea = WEN_wenlai_kongjun_2
+			remove_idea = WEN_wenlai_kongjun
+			}
+		}
+	}
+	#海洋荣耀
+	focus = {
+		id = WEN_haiyang_rongyao
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = WEN_kuojian_jundui}
+		relative_position_id = WEN_kuojian_jundui
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_haiyang_rongyao
+		}
+	}
+	#小型舰队开发
+	focus = {
+		id = WEN_xiaoxing_jiandui_kaifa
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = WEN_haiyang_rongyao}
+		relative_position_id = WEN_haiyang_rongyao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_xiaoxing_jiandui
+			add_offsite_building = { type = dockyard level = 2 }
+		}
+	}
+	#大型舰队开发
+	focus = {
+		id = WEN_daxing_jiandui_kaifa
+		icon = GFX_focus_GRE_a_long_and_proud_tradition
+		prerequisite = { focus = WEN_xiaoxing_jiandui_kaifa}
+		relative_position_id = WEN_xiaoxing_jiandui_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = WEN_daxing_jiandui
+			add_offsite_building = { type = dockyard level = 3 }
+		}
+	}
+	#增设海军学院
+	focus = {
+		id = WEN_zengshe_haijun_xueyuan
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = WEN_haiyang_rongyao}
+		relative_position_id = WEN_haiyang_rongyao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = { 
+			add_idea = WEN_haiyang_rongyao_2
+			remove_idea = WEN_haiyang_rongyao
+			}
+		}
+	}
+	#专业化训练
+	focus = {
+		id = WEN_zhuanyehua_xunlian
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = WEN_zengshe_haijun_xueyuan}
+		relative_position_id = WEN_zengshe_haijun_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = { 
+			add_idea = WEN_haiyang_rongyao_3
+			remove_idea = WEN_haiyang_rongyao_2
+			}
+		}
+	}
+	#联盟问题
+	focus = {
+		id = WEN_lianmeng_wenti
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 25
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = WEN_jingji_tiaozheng
+		has_completed_focus = WEN_pingxi_wenti
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#扩展联盟
+	focus = {
+		id = WEN_kuozhan_lianmeng
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = WEN_lianmeng_wenti}
+		relative_position_id = WEN_lianmeng_wenti
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		count_triggers = {
+    amount = 3
+	YAW = {
+	OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	}
+	}
+	MNY = {
+	OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	}
+	}
+	TEE = {
+	OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	}
+	}
+	MDL = {
+	OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	}
+	}
+	}
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#进入马来亚
+	focus = {
+		id = WEN_jinru_malaiya
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = WEN_kuozhan_lianmeng}
+		relative_position_id = WEN_kuozhan_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#暹罗交涉
+	focus = {
+		id = WEN_xianluo_jiaoshe
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WEN_jinru_malaiya}
+		relative_position_id = WEN_jinru_malaiya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		is_in_faction = MAL
+		MAL = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#面对缅甸问题
+	focus = {
+		id = WEN_miandui_miandian_wenti
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = WEN_xianluo_jiaoshe}
+		relative_position_id = WEN_xianluo_jiaoshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		is_in_faction = SIA
+		SIA = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#对抗印度支那
+	focus = {
+		id = WEN_duikang_yindu_zhina
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = WEN_xianluo_jiaoshe}
+		relative_position_id = WEN_xianluo_jiaoshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		is_in_faction = SIA
+		SIA = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#操纵经济
+	focus = {
+		id = WEN_caozong_jingji
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = WEN_lianmeng_wenti}
+		relative_position_id = WEN_lianmeng_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#渗透思想
+	focus = {
+		id = WEN_shentou_sixiang
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = WEN_caozong_jingji}
+		relative_position_id = WEN_caozong_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#压榨开发
+	focus = {
+		id = WEN_yazha_kaifa
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = WEN_shentou_sixiang}
+		relative_position_id = WEN_shentou_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#殖民化建设
+	focus = {
+		id = WEN_zhiminhua_jianshe
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = WEN_shentou_sixiang}
+		relative_position_id = WEN_shentou_sixiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_subjects > 1
+		has_political_power > 100
+		}
+		completion_reward = {
+			every_country = {
+			if = {
+			limit = {
+			is_puppet_of = WEN
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+			}
+			add_political_power = -100
+		}
+	}
+	#紧锁政策
+	focus = {
+		id = WEN_jinsuo_zhengce
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = WEN_yazha_kaifa}
+		prerequisite = { focus = WEN_zhiminhua_jianshe}
+		relative_position_id = WEN_yazha_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#经济封锁
+	focus = {
+		id = WEN_jingji_fengsuo
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = WEN_lianmeng_wenti}
+		relative_position_id = WEN_lianmeng_wenti
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#利用反对者
+	focus = {
+		id = WEN_liyong_fanduizhe
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = WEN_jingji_fengsuo}
+		relative_position_id = WEN_jingji_fengsuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#推翻政府
+	focus = {
+		id = WEN_tuifan_zhengfu
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = WEN_liyong_fanduizhe}
+		relative_position_id = WEN_liyong_fanduizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#沿海炮击
+	focus = {
+		id = WEN_yanhai_paoji
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = WEN_jingji_fengsuo}
+		relative_position_id = WEN_jingji_fengsuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#空军轰炸
+	focus = {
+		id = WEN_kongjun_hongzha
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = WEN_yanhai_paoji}
+		relative_position_id = WEN_yanhai_paoji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#发动战争
+	focus = {
+		id = WEN_fadong_zhanzheng
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = WEN_tuifan_zhengfu}
+		prerequisite = { focus = WEN_kongjun_hongzha}
+		relative_position_id = WEN_kongjun_hongzha
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+}

@@ -1,0 +1,807 @@
+focus_tree = {
+	id = TRS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = TRS
+		}
+	}
+	
+	default = no
+ 
+    #伏尔加的流光
+	focus = {
+		id = TRS_fuerjia_liuguang
+		icon = GFX_focus_generic_self_management
+		x = 25
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#孟什维克的延续
+	focus = {
+		id = TRS_mengshiweike_yanxu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TRS_fuerjia_liuguang}
+		relative_position_id = TRS_fuerjia_liuguang
+		x = -10
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = TRS_wuxianzhi_hunluan
+		remove_ideas = TRS_mengshiweike_shibai
+		}
+	}
+	#寻求工业发展
+	focus = {
+		id = TRS_xunqiu_gongye_fazhan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = TRS_mengshiweike_yanxu}
+		relative_position_id = TRS_mengshiweike_yanxu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_xunqiu_gongye_fazhan
+		}
+	}
+	#计划经济
+	focus = {
+		id = TRS_jihua_jingji
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = TRS_xunqiu_gongye_fazhan}
+		relative_position_id = TRS_xunqiu_gongye_fazhan
+		mutually_exclusive = { focus = TRS_xishou_zijin }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_jihua_jingji
+		remove_idea = TRS_xunqiu_gongye_fazhan
+		}
+		}
+	}
+	#加速工业化
+	focus = {
+		id = TRS_jiasu_gongyehua
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = TRS_jihua_jingji}
+		relative_position_id = TRS_jihua_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_jiasu_gongyehua
+		remove_idea = TRS_jihua_jingji
+		}
+		}
+	}
+	#吸收资金
+	focus = {
+		id = TRS_xishou_zijin
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = TRS_xunqiu_gongye_fazhan}
+		relative_position_id = TRS_xunqiu_gongye_fazhan
+		mutually_exclusive = { focus = TRS_jihua_jingji }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_xishouzijin
+		remove_idea = TRS_xunqiu_gongye_fazhan
+		}
+		}
+	}
+	#政治避难所
+	focus = {
+		id = TRS_zhengzhi_binansuo
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = TRS_xishou_zijin}
+		relative_position_id = TRS_xishou_zijin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.1
+		swap_ideas = {
+		add_idea = TRS_zhengzhi_binansuo
+		remove_idea = TRS_xishouzijin
+		}
+		}
+	}
+	#左翼军队
+	focus = {
+		id = TRS_zuoyi_army
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = TRS_mengshiweike_yanxu}
+		relative_position_id = TRS_mengshiweike_yanxu
+		mutually_exclusive = { focus = TRS_lianhe_jundui }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = TRS_weichi_lianmeng
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_zuoyi_army
+		remove_idea = TRS_fuza_jundui
+		}
+		delete_unit_template_and_units = {
+    division_template = "察里津卫队"
+    disband = yes 
+}
+delete_unit_template_and_units = {
+    division_template = "察里津改组部队"
+    disband = yes 
+}
+	}
+	}
+	#左派改革
+	focus = {
+		id = TRS_zuopai_gaige
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = TRS_zuoyi_army}
+		relative_position_id = TRS_zuoyi_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = TRS_zuoyi_army
+		}
+	}
+	#军事化工业
+	focus = {
+		id = TRS_junshihua_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TRS_zuopai_gaige}
+		relative_position_id = TRS_zuopai_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#联合军队
+	focus = {
+		id = TRS_lianhe_jundui
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = TRS_mengshiweike_yanxu focus = TRS_zhonglipai_shengli}
+		relative_position_id = TRS_mengshiweike_yanxu
+		mutually_exclusive = { focus = TRS_zuoyi_army }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_zuoyi_army
+		remove_idea = TRS_fuza_jundui
+		}
+		}
+	}
+	#参谋部规划
+	focus = {
+		id = TRS_canmoubu_guihua
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = TRS_lianhe_jundui}
+		relative_position_id = TRS_lianhe_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_canmoubu
+		}
+	}
+	#塑造精神
+	focus = {
+		id = TRS_suzao_jingshen
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = TRS_canmoubu_guihua}
+		relative_position_id = TRS_canmoubu_guihua
+		mutually_exclusive = { focus = TRS_weichi_hexie }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = TRS_fenge_budui
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_suzao_jingshen
+		remove_idea = TRS_fenge_budui
+		}
+		}
+	}
+	#分割部队
+	focus = {
+		id = TRS_fenge_budui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = TRS_lianhe_jundui}
+		relative_position_id = TRS_lianhe_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_fenge_budui
+		remove_idea = TRS_lianhe_jundui
+		}
+		}
+	}
+	#维持和谐
+	focus = {
+		id = TRS_weichi_hexie
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = TRS_fenge_budui}
+		relative_position_id = TRS_fenge_budui
+		mutually_exclusive = { focus = TRS_suzao_jingshen }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_weichi_hexie
+		remove_idea = TRS_fenge_budui
+		}
+		}
+	}
+	#接触苏联
+	focus = {
+		id = TRS_jiechu_sulian
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = TRS_mengshiweike_yanxu}
+		relative_position_id = TRS_mengshiweike_yanxu
+		x = 0
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#参与战争
+	focus = {
+		id = TRS_canyu_zhanzheng
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TRS_jiechu_sulian}
+		relative_position_id = TRS_jiechu_sulian
+		mutually_exclusive = { focus = TRS_zhongli_zhengce }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = TRS
+			}
+		}
+	}
+	#中立政策
+	focus = {
+		id = TRS_zhongli_zhengce
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = TRS_jiechu_sulian}
+		relative_position_id = TRS_jiechu_sulian
+		mutually_exclusive = { focus = TRS_canyu_zhanzheng }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_zhongli_zhengce
+		}
+	}
+	#中立派的胜利
+	focus = {
+		id = TRS_zhonglipai_shengli
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = TRS_fuerjia_liuguang}
+		relative_position_id = TRS_fuerjia_liuguang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = TRS_mengshiweike_shibai
+		}
+	}
+	#延续政治和平
+	focus = {
+		id = TRS_yanxu_zhengzhi_heping
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = TRS_zhonglipai_shengli}
+		relative_position_id = TRS_zhonglipai_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_yanxu_zhengzhi_heping
+		remove_idea = TRS_wuxianzhi_hunluan
+		}
+		}
+	}
+	#平衡政党
+	focus = {
+		id = TRS_pingheng_zhengdang
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TRS_yanxu_zhengzhi_heping}
+		relative_position_id = TRS_yanxu_zhengzhi_heping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+		}
+	}
+	#军队中立化
+	focus = {
+		id = TRS_jundui_zhonglihua
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = TRS_pingheng_zhengdang}
+		relative_position_id = TRS_pingheng_zhengdang
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = TRS_weichi_hexie
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_jundui_zhonglihua
+		}
+	}
+	#维持工业现状
+	focus = {
+		id = TRS_weichi_gongye_xianzhuang
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = TRS_zhonglipai_shengli}
+		relative_position_id = TRS_zhonglipai_shengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_weichi_gongye_xianzhuang
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = TRS_junshi_gongye_kuozhan
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = TRS_weichi_gongye_xianzhuang}
+		relative_position_id = TRS_weichi_gongye_xianzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#捍卫伏尔加和平
+	focus = {
+		id = TRS_hanwei_fuerjia_heping
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TRS_pingheng_zhengdang}
+		prerequisite = { focus = TRS_junshi_gongye_kuozhan}
+		relative_position_id = TRS_pingheng_zhengdang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_fuerjia_wp
+		remove_idea = TRS_yanxu_zhengzhi_heping
+		}
+		}
+	}
+	#农业开发
+	focus = {
+		id = TRS_nongye_kaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = TRS_junshi_gongye_kuozhan}
+		relative_position_id = TRS_junshi_gongye_kuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_nongye_kaifa
+		}
+	}
+	#武装中立
+	focus = {
+		id = TRS_wuzhaung_zhongli
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TRS_zhonglipai_shengli}
+		relative_position_id = TRS_zhonglipai_shengli
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_zhongli_zhengce
+		}
+	}
+	#长期备战
+	focus = {
+		id = TRS_changqi_beizhan
+		icon = GFX_focus_ETH_expand_the_levy
+		prerequisite = { focus = TRS_wuzhaung_zhongli}
+		relative_position_id = TRS_wuzhaung_zhongli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_changqi_beizhan
+		}
+	}
+	#奔向自由的未来
+	focus = {
+		id = TRS_benxiang_ziyou_weilai
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = TRS_fuerjia_liuguang}
+		relative_position_id = TRS_fuerjia_liuguang
+		x = 10
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = TRS_mengshiweike_shibai
+		}
+	}
+	#自由党政治
+	focus = {
+		id = TRS_ziyoudang_zhengzhi
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = TRS_benxiang_ziyou_weilai}
+		relative_position_id = TRS_benxiang_ziyou_weilai
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_ziyoudang_zhengzhi
+		remove_idea = TRS_wuxianzhi_hunluan
+		}
+		}
+	}
+	#操纵舆论
+	focus = {
+		id = TRS_caozong_yulun
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = TRS_ziyoudang_zhengzhi}
+		relative_position_id = TRS_ziyoudang_zhengzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_caozong_yulun
+		}
+	}
+	#不自由的自由
+	focus = {
+		id = TRS_freenotfree
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = TRS_caozong_yulun}
+		relative_position_id = TRS_caozong_yulun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_freenotfree
+		remove_idea = TRS_caozong_yulun
+		}
+		}
+	}
+	#对外开放
+	focus = {
+		id = TRS_duiwaikaifang
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = TRS_ziyoudang_zhengzhi}
+		relative_position_id = TRS_ziyoudang_zhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_duiwaikaifang
+		remove_idea = TRS_ziyoudang_zhengzhi
+		}
+		}
+	}
+	#人民自由化
+	focus = {
+		id = TRS_renmin_ziyouhua
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = TRS_duiwaikaifang}
+		relative_position_id = TRS_duiwaikaifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_renmin_ziyouhua
+		remove_idea = TRS_duiwaikaifang
+		}
+		}
+	}
+	#金融政策
+	focus = {
+		id = TRS_jinrong_zhengce
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = TRS_benxiang_ziyou_weilai}
+		relative_position_id = TRS_benxiang_ziyou_weilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = TRS_duiwaikaifang 
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#降低关税
+	focus = {
+		id = TRS_jiangdi_guanshui
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = TRS_jinrong_zhengce}
+		relative_position_id = TRS_jinrong_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_jiangdi_guanshui
+		}
+	}
+	#和资本家合作
+	focus = {
+		id = TRS_hezibenjia_hezuo
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = TRS_jiangdi_guanshui}
+		relative_position_id = TRS_jiangdi_guanshui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_hezibenjia_hezuo
+		remove_idea = TRS_jiangdi_guanshui
+		}
+		}
+	}
+	#国防外包化
+	focus = {
+		id = TRS_guofang_waibaohua
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = TRS_jinrong_zhengce}
+		relative_position_id = TRS_jinrong_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TRS_guofang_waibao
+		}
+	}
+	#默许军队经商
+	focus = {
+		id = TRS_moxu_junduijingshang
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = TRS_guofang_waibaohua}
+		relative_position_id = TRS_guofang_waibaohua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TRS_jundui_jingshang
+		remove_idea = TRS_guofang_waibao
+		}
+		}
+	}
+	#外交政策
+	focus = {
+		id = TRS_waijiaozhengce
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = TRS_benxiang_ziyou_weilai}
+		relative_position_id = TRS_benxiang_ziyou_weilai
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#投靠克伦斯基
+	focus = {
+		id = TRS_toukao_kelunsiji
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = TRS_waijiaozhengce}
+		relative_position_id = TRS_waijiaozhengce
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		RUS = {
+		puppet = TRS
+		}
+		}
+	}
+	#武备交流
+	focus = {
+		id = TRS_wubeiu_jiaoliu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = TRS_toukao_kelunsiji}
+		relative_position_id = TRS_toukao_kelunsiji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = RUS
+}
+		}
+	}
+	#工业援助
+	focus = {
+		id = TRS_gongye_yuanzhu
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TRS_toukao_kelunsiji}
+		relative_position_id = TRS_toukao_kelunsiji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+}

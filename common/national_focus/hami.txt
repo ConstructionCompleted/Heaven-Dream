@@ -1,0 +1,318 @@
+focus_tree = {
+	id = HAM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HAM
+		}
+	}
+	
+	default = no
+ 
+	#哈密骑行
+	focus = {
+		id = HAM_hami_qixing
+		icon = GFX_focus_generic_manpower
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#反抗暴政
+	focus = {
+		id = HAM_fankang_baozheng
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = HAM_hami_qixing}
+		relative_position_id = HAM_hami_qixing
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_menggu_tongzhi_2
+			remove_idea = HAM_menggu_tongzhi
+			}
+		}
+	}
+	#骑兵冲锋
+	focus = {
+		id = HAM_qibing_chongfeng
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = HAM_hami_qixing}
+		relative_position_id = HAM_hami_qixing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_caoyuan_qibing_2
+			remove_idea = HAM_caoyuan_qibing
+			}
+		}
+	}
+	#东方求援
+	focus = {
+		id = HAM_dongfang_qiuyuan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = HAM_hami_qixing}
+		relative_position_id = HAM_hami_qixing
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = HAM_dongfang_yuanjun
+		}
+	}
+	#蒙古旧日
+	focus = {
+		id = HAM_menggu_jiuri
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = HAM_fankang_baozheng}
+		prerequisite = { focus = HAM_qibing_chongfeng}
+		prerequisite = { focus = HAM_dongfang_qiuyuan}
+		relative_position_id = HAM_qibing_chongfeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_menggu_tongzhi_3
+			remove_idea = HAM_menggu_tongzhi_2
+			}
+		}
+	}
+	#回归草原
+	focus = {
+		id = HAM_huigui_caoyuan
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = HAM_menggu_jiuri}
+		relative_position_id = HAM_menggu_jiuri
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_menggu_tongzhi_4
+			remove_idea = HAM_menggu_tongzhi_3
+			}
+		}
+	}
+	#民事建设
+	focus = {
+		id = HAM_minshi_jianshe
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = HAM_huigui_caoyuan}
+		relative_position_id = HAM_huigui_caoyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			760 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#战马体系
+	focus = {
+		id = HAM_zhanma_tixi
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = HAM_menggu_jiuri}
+		relative_position_id = HAM_menggu_jiuri
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_caoyuan_qibing_3
+			remove_idea = HAM_caoyuan_qibing_2
+			}
+		}
+	}
+	#改善骑兵训练
+	focus = {
+		id = HAM_gaishan_qibing_xunlian
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = HAM_zhanma_tixi}
+		relative_position_id = HAM_zhanma_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_caoyuan_qibing_4
+			remove_idea = HAM_caoyuan_qibing_3
+			}
+		}
+	}
+	#现代化冲锋
+	focus = {
+		id = HAM_xiandaihua_chongfeng
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = HAM_gaishan_qibing_xunlian}
+		relative_position_id = HAM_gaishan_qibing_xunlian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_caoyuan_qibing_5
+			remove_idea = HAM_caoyuan_qibing_4
+			}
+		}
+	}
+	#延续传统
+	focus = {
+		id = HAM_yanxu_chuantong
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = HAM_menggu_jiuri}
+		relative_position_id = HAM_menggu_jiuri
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HAM_yanxu_chauntong
+		}
+	}
+	#恐吓屠戮
+	focus = {
+		id = HAM_konghe_tulu
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = HAM_yanxu_chuantong}
+		relative_position_id = HAM_yanxu_chuantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_yanxu_chauntong_2
+			remove_idea = HAM_yanxu_chauntong
+			}
+		}
+	}
+	#持续劫掠
+	focus = {
+		id = HAM_chixu_jielue
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = HAM_konghe_tulu}
+		relative_position_id = HAM_konghe_tulu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HAM_yanxu_chauntong_3
+			remove_idea = HAM_yanxu_chauntong_2
+			}
+		}
+	}
+	#准噶尔新生
+	focus = {
+		id = HAM_zhungaer_xinsheng
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = HAM_chixu_jielue}
+		prerequisite = { focus = HAM_xiandaihua_chongfeng}
+		relative_position_id = HAM_chixu_jielue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_war_with = ETK
+		has_war_with = XIJ
+		has_war_with = XQJ
+		}
+		}
+		MOG = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		MOG = { puppet = HAM } 
+		}
+	}
+	#军事体系整合
+	focus = {
+		id = HAM_junshi_tixi_zhenghe
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = HAM_menggu_jiuri}
+		relative_position_id = HAM_menggu_jiuri
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#军事化政治
+	focus = {
+		id = HAM_junshi_hua_zhengzhi
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = HAM_junshi_tixi_zhenghe}
+		relative_position_id = HAM_junshi_tixi_zhenghe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HAM_junshi_hua_zhengzhi
+		}
+	}
+}

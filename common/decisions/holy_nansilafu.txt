@@ -1,0 +1,1078 @@
+YUM_lianmeng_zhengzhi_chongtu = {
+    #五月倒计时
+    holy_wuyue_daojishi = {
+
+		icon = generic_army_support
+		
+		allowed = { 
+			tag = YUM
+	}	
+		available = {
+			always = no
+		}
+		activation = {
+            always = yes
+        }
+		is_good = no
+		days_mission_timeout = 151
+		fire_only_once = yes
+		timeout_effect = {
+		if = {
+		limit = {
+		has_country_flag = YUM_free_lianbang
+		check_variable = { YUM.lianbang_vic > 2 }
+		}
+		set_country_flag = YUM_free_vic
+		}
+		if = {
+		limit = {
+		has_country_flag = YUM_free_lianbang
+		check_variable = { YUM.lianbang_vic < 3 }
+		}
+		set_country_flag = YUM_lianhe_vic
+		}
+		if = {
+		limit = {
+		has_country_flag = YUM_minzu_lianhe
+		check_variable = { YUM.lianbang_vic > 2 }
+		}
+		set_country_flag = YUM_lianhe_vic
+		}
+		if = {
+		limit = {
+		has_country_flag = YUM_minzu_lianhe
+		check_variable = { YUM.lianbang_vic < 3 }
+		}
+		set_country_flag = YUM_lianbang_zhiyi
+		}
+		set_country_flag = YUM_zhengzhi_heping
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#竞争的胜负
+    holy_jingzheng_shengfu = {
+
+		icon = generic_army_support
+		
+		allowed = { 
+			tag = YUM
+	}	
+		available = {
+			date > 1936.6.1
+		}
+		activation = {
+            date < 1936.6.1
+        }
+		is_good = no
+		days_mission_timeout = 30
+		timeout_effect = {
+		if = {
+		limit = {
+		check_variable = { YUM.lianbang_liliang > YUM.lianbang_fanduipai }
+		}
+		add_to_variable = {
+    var = YUM.lianbang_vic
+    value = 1
+	tooltip = YUM_lianbang_vic_1_tt
+}
+		}
+		set_variable = { YUM.lianbang_liliang = 0 }
+		set_variable = { YUM.lianbang_fanduipai = 0 }
+		activate_mission = holy_jingzheng_shengfu
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#反对派之声
+    holy_fanduipai_zhisheng = {
+
+		icon = generic_army_support
+		
+		allowed = { 
+			tag = YUM
+	}	
+		available = {
+			date > 1936.6.1
+		}
+		activation = {
+            date < 1936.6.1
+        }
+		is_good = no
+		days_mission_timeout = 7
+		timeout_effect = {
+		add_to_variable = {
+    var = YUM.lianbang_fanduipai
+    value = 5
+	tooltip = YUM_lianbang_fanduipai_1_tt
+}
+activate_mission = holy_fanduipai_zhisheng
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#打击触手
+    holy_daji_chushou = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUM
+	}	
+		available = {
+			check_variable = { YUM.lianbang_fanduipai > 10 }
+			date < 1936.6.1
+		}
+		cost = 50
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.lianbang_fanduipai
+    value = -5
+	tooltip = YUM_lianbang_fanduipai_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#联合中立派
+    holy_lianhe_zhonglipai = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUM
+	}	
+		available = {
+			check_variable = { YUM.lianbang_liliang < 20 }
+			date < 1936.6.1
+		}
+		cost = 50
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#与军队交涉
+    holy_yu_jundui_jiaoshe = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUM
+	}	
+		available = {
+			has_completed_focus = YUM_liyuquan
+			date < 1936.6.1
+		}
+		cost = 25
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+		add_war_support = -0.05
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#媒体宣传
+    holy_meiti_xuanchuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUM
+	}	
+		available = {
+			has_completed_focus = YUM_tiaojie_xuanchuan_koujing
+			date < 1936.6.1
+		}
+		cost = 25
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+		add_stability = -0.05
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+YUM_lianmeng_beizhanplan = {
+    #动员军队
+    YUM_dongyuan_jundui = {
+
+		icon = generic_army_support
+		
+		visible = {
+			OR = {
+		tag = YUM
+		tag = BUL
+		tag = ALB
+		tag = SER
+		tag = DKL
+	}
+	}	
+		available = {
+			check_variable = {
+			YUM.beizhan > 4 
+			}
+		}
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.beizhan
+    value = -5
+	tooltip = YUM_beizhan_2_tt
+}
+		load_oob = YUM_tongyongminbing
+		random_state = {
+		limit = {
+		is_capital = yes
+		is_owned_by = ROOT
+		}
+		create_unit = {
+    division = "name = \"南斯拉夫民兵\" division_template = \"南斯拉夫民兵\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+    owner = ROOT
+}
+create_unit = {
+    division = "name = \"南斯拉夫民兵\" division_template = \"南斯拉夫民兵\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+    owner = ROOT
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#工厂迁移
+    YUM_gongchangqianyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = YUM
+		tag = BUL
+		tag = ALB
+		tag = SER
+		tag = DKL
+	}
+	}	
+		available = {
+			check_variable = { YUM.beizhan > 4 }
+		}
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.beizhan
+    value = -5
+	tooltip = YUM_beizhan_2_tt
+}
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#稳定国家
+    YUM_wending_guojia = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = YUM
+		tag = BUL
+		tag = ALB
+		tag = SER
+		tag = DKL
+	}
+	}	
+		available = {
+			check_variable = { YUM.beizhan > 4 }
+		}
+		complete_effect = {
+		add_to_variable = {
+    var = YUM.beizhan
+    value = -5
+	tooltip = YUM_beizhan_2_tt
+}
+		add_stability = 0.05
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+YUM_zhanzheng_tiaozheng = {
+    #收复达尔马提亚
+    YUM_shoufu_DMT = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = NWM
+		tag = DKL
+	}
+	}
+		available = {
+			NOT = { has_war_with = DMT }
+			date > 1936.8.1
+			DMT = {
+			exists = yes
+			}
+		}
+		complete_effect = {
+		declare_war_on = {
+    target = DMT
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#收复黑山
+    YUM_shoufu_MNT = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = NWM
+		tag = DKL
+		tag = SER
+	}
+	}
+		available = {
+			NOT = { has_war_with = MNT }
+			date > 1936.8.1
+			MNT = {
+			exists = yes
+			}
+		}
+		complete_effect = {
+		declare_war_on = {
+    target = MNT
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#收复马其顿
+    YUM_shoufu_MAC = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = NWM
+		tag = SER
+		tag = ALB
+		tag = BUL
+	}
+	}
+		available = {
+			NOT = { has_war_with = MAC }
+			date > 1936.8.1
+			MAC = {
+			exists = yes
+			}
+		}
+		complete_effect = {
+		declare_war_on = {
+    target = MAC
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#收复科索沃
+    YUM_shoufu_KOS = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = NWM
+		tag = SER
+		tag = ALB
+	}
+	}
+		available = {
+			NOT = { has_war_with = KOS }
+			date > 1936.8.1
+            KOS = {
+			exists = yes
+			}
+		}
+		complete_effect = {
+		declare_war_on = {
+    target = KOS
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.保加利亚1
+    YUM_wp_tanpan_BUL_1 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = BUL
+	}
+		available = {
+			controls_state = 965
+			controls_state = 803
+			controls_state = 106
+			controls_state = 1505
+			has_war_with = SER
+			has_country_flag = YUM_baergan_war
+			SER = {
+			surrender_progress > 0.3
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		if = {
+		limit = {
+		SER = {
+		owns_state = 965
+		}
+		controls_state = 965
+		}
+		transfer_state = 965
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 803
+		}
+		controls_state = 803
+		}
+		transfer_state = 803
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 106
+		}
+		controls_state = 106
+		}
+		transfer_state = 106
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 1505
+		}
+		controls_state = 1505
+		}
+		transfer_state = 1505
+		}
+		news_event = {
+				id = holy_news.109 days = 1
+			}
+		white_peace = SER
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.保加利亚2
+    YUM_wp_tanpan_BUL_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = BUL
+	}
+		available = {
+		OR = {
+			controls_state = 966
+			SER = {
+			controls_state = 966
+			NOT = {
+			has_war_with = BUL
+			}
+			}
+			}
+			has_war_with = ALB
+			has_country_flag = YUM_baergan_war
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.111 days = 1
+			}
+		if = {
+		limit = {
+		ALB = {
+		owns_state = 966
+		}
+		controls_state = 966
+		}
+		transfer_state = 966
+		}
+		white_peace = ALB
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.塞尔维亚1
+    YUM_wp_tanpan_SER_1 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = SER
+	}
+		available = {
+			controls_state = 965
+			controls_state = 803
+			controls_state = 106
+			controls_state = 1505
+			OR = {
+			controls_state = 966
+			ALB = {
+			controls_state = 966
+			NOT = {
+			has_war_with = SER
+			}
+			}
+			}
+			has_war_with = BUL
+			has_country_flag = YUM_baergan_war
+			BUL = {
+			surrender_progress > 0.3
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		if = {
+		limit = {
+		BUL = {
+		owns_state = 965
+		}
+		controls_state = 965
+		}
+		transfer_state = 965
+		}
+		if = {
+		limit = {
+		BUL = {
+		owns_state = 803
+		}
+		controls_state = 803
+		}
+		transfer_state = 803
+		}
+		if = {
+		limit = {
+		BUL = {
+		owns_state = 106
+		}
+		controls_state = 106
+		}
+		transfer_state = 106
+		}
+		if = {
+		limit = {
+		BUL = {
+		owns_state = 1505
+		}
+		controls_state = 1505
+		}
+		transfer_state = 1505
+		}
+		news_event = {
+				id = holy_news.109 days = 1
+			}
+		white_peace = BUL
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.塞尔维亚2
+    YUM_wp_tanpan_SER_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = SER
+	}
+		available = {
+			controls_state = 802
+			OR = {
+			controls_state = 966
+			BUL = {
+			controls_state = 966
+			NOT = {
+			has_war_with = SER
+			}
+			}
+			}
+			has_war_with = ALB
+			has_country_flag = YUM_baergan_war
+			ALB = {
+			surrender_progress > 0.3
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.110 days = 1
+			}
+		if = {
+		limit = {
+		ALB = {
+		owns_state = 802
+		}
+		controls_state = 802
+		}
+		transfer_state = 802
+		}
+		if = {
+		limit = {
+		ALB = {
+		owns_state = 966
+		}
+		controls_state = 966
+		}
+		transfer_state = 966
+		}
+		white_peace = ALB
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.塞尔维亚3
+    YUM_wp_tanpan_SER_3 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = SER
+	}
+		available = {
+			controls_state = 978
+			controls_state = 985
+			controls_state = 984
+			controls_state = 104
+			controls_state = 105
+			controls_state = 983
+			controls_state = 804
+			controls_state = 1047
+			has_war_with = DKL
+			has_country_flag = YUM_baergan_war
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.115 days = 1
+			}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 983
+		}
+		controls_state = 983
+		}
+		transfer_state = 983
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 804
+		}
+		controls_state = 804
+		}
+		transfer_state = 804
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 1047
+		}
+		controls_state = 1047
+		}
+		transfer_state = 1047
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 105
+		}
+		controls_state = 105
+		}
+		transfer_state = 105
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 978
+		}
+		controls_state = 978
+		}
+		transfer_state = 978
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 985
+		}
+		controls_state = 985
+		}
+		transfer_state = 985
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 984
+		}
+		controls_state = 984
+		}
+		transfer_state = 984
+		}
+		if = {
+		limit = {
+		DKL = {
+		owns_state = 104
+		}
+		controls_state = 104
+		}
+		transfer_state = 104
+		}
+		white_peace = DKL
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.塞尔维亚4
+    YUM_wp_tanpan_SER_4 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = SER
+	}
+		available = {
+		date > 1937.8.1
+		OR = {
+		NOT = {
+		controls_state = 978
+		}
+		NOT = {
+		controls_state = 985
+		}
+		NOT = {
+		controls_state = 984
+		}
+		NOT = {
+		controls_state = 104
+		}
+		NOT = {
+		controls_state = 105
+		}
+		NOT = {
+		controls_state = 983
+		}
+		NOT = {
+		controls_state = 804
+		}
+		NOT = {
+		controls_state = 1047
+		}
+			}
+		has_war_with = DKL
+			has_country_flag = YUM_baergan_war
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.108 days = 1
+			}
+		DKL = {
+		transfer_state = 983
+		transfer_state = 984
+		transfer_state = 804
+		transfer_state = 1047
+		transfer_state = 978
+		}
+		transfer_state = 105
+		transfer_state = 985
+		transfer_state = 984
+		transfer_state = 105
+		white_peace = DKL
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.克罗地亚
+    YUM_wp_tanpan_DKL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = DKL
+	}
+		available = {
+			controls_state = 978
+			controls_state = 985
+			controls_state = 984
+			controls_state = 104
+			OR = {
+			controls_state = 105
+			ALB = {
+			controls_state = 105
+			}
+			}
+			controls_state = 983
+			controls_state = 804
+			controls_state = 1047
+			has_war_with = SER
+			has_country_flag = YUM_baergan_war
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.115 days = 1
+			}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 983
+		}
+		controls_state = 983
+		}
+		transfer_state = 983
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 804
+		}
+		controls_state = 804
+		}
+		transfer_state = 804
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 1047
+		}
+		controls_state = 1047
+		}
+		transfer_state = 1047
+		}
+		if = {
+		limit = {
+		OR = {
+		SER = {
+		owns_state = 105
+		}
+		ALB = {
+		owns_state = 105
+		}
+		}
+		controls_state = 105
+		}
+		transfer_state = 105
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 804
+		}
+		controls_state = 804
+		}
+		transfer_state = 804
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 978
+		}
+		controls_state = 978
+		}
+		transfer_state = 978
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 985
+		}
+		controls_state = 985
+		}
+		transfer_state = 985
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 984
+		}
+		controls_state = 984
+		}
+		transfer_state = 984
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 104
+		}
+		controls_state = 104
+		}
+		transfer_state = 104
+		}
+		if = {
+		limit = {
+		SER = {
+		owns_state = 983
+		}
+		controls_state = 983
+		}
+		transfer_state = 983
+		}
+		white_peace = SER
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.克罗地亚2
+    YUM_wp_tanpan_DKL_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = DKL
+	}
+		available = {
+		OR = {
+		NOT = {
+		controls_state = 978
+		}
+		NOT = {
+		controls_state = 985
+		}
+		NOT = {
+		controls_state = 984
+		}
+		NOT = {
+		controls_state = 104
+		}
+		NOT = {
+		controls_state = 105
+		}
+		NOT = {
+		controls_state = 983
+		}
+		NOT = {
+		controls_state = 804
+		}
+		NOT = {
+		controls_state = 1047
+		}
+			}
+			date > 1937.8.1
+			has_war_with = SER
+			has_country_flag = YUM_baergan_war
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.108 days = 1
+			}
+		transfer_state = 983
+		transfer_state = 984
+		transfer_state = 804
+		transfer_state = 1047
+		transfer_state = 978
+		SER = {
+		transfer_state = 105
+		transfer_state = 985
+		transfer_state = 984
+		transfer_state = 105
+		}
+		white_peace = SER
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#和平谈判.阿尔巴尼亚
+    YUM_wp_tanpan_ALB = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = ALB
+	}
+		available = {
+			controls_state = 802
+			controls_state = 966
+			OR = {
+			has_war_with = SER
+			has_war_with = BUL
+			}
+			has_country_flag = YUM_baergan_war
+		}
+		fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.110 days = 1
+			}
+		if = {
+		limit = {
+		FROM = {
+		owns_state = 966
+		}
+		controls_state = 966
+		}
+		transfer_state = 966
+		}
+		if = {
+		limit = {
+		FROM = {
+		owns_state = 802
+		}
+		controls_state = 802
+		}
+		transfer_state = 802
+		}
+		white_peace = SER
+		white_peace = BUL
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

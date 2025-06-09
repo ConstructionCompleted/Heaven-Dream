@@ -1,0 +1,179 @@
+﻿capital = 1277
+create_country_leader = {
+	name = "唐继尧"
+	desc = ""
+	picture = "GFX179"
+	expire = "1965.1.1"
+	ideology = warlord
+	traits = {
+	
+	}
+}
+create_field_marshal = {
+	name = "唐继尧"
+	picture = "GFX179"
+	traits = { trait_reckless }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 4
+	planning_skill = 5
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = "龙云" 
+	picture = "GFX8"
+	traits = { brilliant_strategist war_hero}
+	skill = 4
+	attack_skill = 5
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "孙渡" 
+	picture = ".jpg"
+	traits = { war_hero }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 5
+}
+create_corps_commander = {
+	name = "卢汉" 
+	picture = ".jpg"
+	traits = { old_guard }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "王甲本" 
+	picture = ".jpg"
+	traits = { infantry_officer bearer_of_artillery }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 3
+}
+set_oob = "DIA_1936"
+set_naval_oob = "DIA_naval_1936"
+set_air_oob = "DIA_1936_air_legacy"
+
+set_research_slots = 4
+set_stability = 0.5
+set_war_support = 0.5
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	#improved_light_tank = 1  # PLACEHOLDER
+	#basic_train = 1  # PLACEHOLDER
+	#basic_medium_tank = 1 # PLACEHOLDER
+	early_fighter = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	
+	trench_warfare = 1
+
+	
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	fuel_silos = 1
+	fuel_refining = 1
+}
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		basic_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_secondary_battery = 1
+		basic_fire_control_system = 1
+	}
+}
+add_ideas = {
+DIA_yunnan_hunluan
+DIA_nongye_luohou
+DIA_gongye_tixi_luowu
+DIA_army_wenti
+DIA_chifei
+}
+set_politics = {
+	ruling_party = dictatorship
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+ set_popularities = {
+	socialism = 7
+	communism = 15
+	neutrality = 20
+	dictatorship = 30
+	democratic = 10
+	conservatism = 10
+	progressism = 8
+	reconcilism = 0
+	fascism = 0
+	destruction_system = 0
+}

@@ -1,0 +1,805 @@
+add_namespace = holy_xiongyali
+#布拉格计划
+country_event = {
+	id = holy_xiongyali.2
+	title = holy_xiongyali.2.t
+	desc = holy_xiongyali.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.2.a
+		add_ideas = BXM_bulage_plan
+	}
+}
+#特兰西瓦尼亚抗议
+country_event = {
+	id = holy_xiongyali.3
+	title = holy_xiongyali.3.t
+	desc = holy_xiongyali.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.3.a
+		ai_chance = {
+		    factor = 100
+			}
+		76 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		84 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		83 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+	}
+}
+#斯洛伐克暴乱
+country_event = {
+	id = holy_xiongyali.4
+	title = holy_xiongyali.4.t
+	desc = holy_xiongyali.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.4.a
+		ai_chance = {
+		    factor = 100
+			}
+	    73 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		71 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		70 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+	}
+}
+#联合起义
+country_event = {
+	id = holy_xiongyali.5
+	title = holy_xiongyali.5.t
+	desc = holy_xiongyali.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	SLO = {
+		transfer_state = 70
+		transfer_state = 71
+		transfer_state = 980
+		load_oob = SLO_qiyi
+		add_ideas = XYL_war
+        }
+		TRA = {
+		transfer_state = 83
+		transfer_state = 76
+		transfer_state = 972
+		transfer_state = 84
+		transfer_state = 971
+		load_oob = TRA_qiyi
+		add_ideas = XYL_war
+        }	
+		end_puppet = DKL
+		end_puppet = WAL
+		end_puppet = MOL
+		news_event = {
+				id = holy_news.28 days = 1
+			}
+	 }
+	option = {
+		name = holy_xiongyali.5.a
+		ai_chance = {
+		    factor = 0
+		}
+		TRA = {
+		transfer_state = 84
+		transfer_state = 971
+		transfer_state = 977
+		}
+		SLO = {
+		transfer_state = 73
+		transfer_state = 664
+		transfer_state = 973
+		transfer_state = 981
+		transfer_state = 980
+		transfer_state = 976
+		}
+		BAT = {
+		transfer_state = 82
+		transfer_state = 45
+		transfer_state = 764
+		transfer_state = 1048
+		add_ideas = {
+		BAT_minzu_gelie
+		BAT_guojia_zainan
+        }
+		load_oob = BAT_1936
+		}
+		AUS = {
+		puppet = XYL
+		}
+		load_focus_tree = tongyong_guoce
+	}
+	option = {
+		name = holy_xiongyali.5.b
+		ai_chance = {
+		    factor = 20
+		}
+		declare_war_on = {
+    target = TRA
+    type = annex_everything
+}
+		declare_war_on = {
+    target = SLO
+    type = annex_everything
+}
+	}
+}
+#会见小匈提拉
+country_event = {
+	id = holy_xiongyali.6
+	title = holy_xiongyali.6.t
+	desc = holy_xiongyali.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.6.a
+	}
+}
+#塞尔维亚问题
+country_event = {
+	id = holy_xiongyali.7
+	title = holy_xiongyali.7.t
+	desc = holy_xiongyali.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.7.a
+		ai_chance = {
+		    factor = 50
+		}
+		puppet = SER
+	}
+	option = {
+		name = holy_xiongyali.7.b
+		trigger = { DKL = { has_completed_focus = DKL_hungry_zhongchen } }
+		ai_chance = {
+		    factor = 20
+		}
+		DKL = { 
+		custom_effect_tooltip = YUG
+		annex_country = {
+        target = SER
+        transfer_troops = no
+        }
+		add_state_core = 105
+		add_state_core = 106
+		add_state_core = 107
+		add_state_core = 108
+		add_state_core = 44
+		add_state_core = 802
+		add_state_core = 964
+		add_state_core = 985
+	}
+	}
+	option = {
+		name = holy_xiongyali.7.c
+		ai_chance = {
+		    factor = 0
+		}
+		DKL = {
+		declare_war_on = {
+           tagarget = SER
+           type = puppet_wargoal_focus
+           }
+		}
+	}
+}
+#半岛峰会
+country_event = {
+	id = holy_xiongyali.8
+	title = holy_xiongyali.8.t
+	desc = holy_xiongyali.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.8.a
+	}
+}
+#半岛峰会的态度（保加利亚）
+country_event = {
+	id = holy_xiongyali.9
+	title = holy_xiongyali.9.t
+	desc = holy_xiongyali.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.9.a
+		ai_chance = {
+		    factor = 25
+		}
+		XYL = { add_to_faction = BUL }
+	}
+	option = {
+		name = holy_xiongyali.9.b
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}
+#半岛峰会的态度（塞尔维亚）
+country_event = {
+	id = holy_xiongyali.10
+	title = holy_xiongyali.10.t
+	desc = holy_xiongyali.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.10.a
+		ai_chance = {
+		    factor = 25
+		}
+		XYL = { add_to_faction = SER }
+	}
+	option = {
+		name = holy_xiongyali.10.b
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}
+#半岛峰会的态度（拜占庭）
+country_event = {
+	id = holy_xiongyali.12
+	title = holy_xiongyali.12.t
+	desc = holy_xiongyali.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.12.a
+		ai_chance = {
+		    factor = 25
+		}
+		XYL = { add_to_faction = BYZ }
+	}
+	option = {
+		name = holy_xiongyali.12.b
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}
+#战胜奥地利
+country_event = {
+	id = holy_xiongyali.13
+	title = holy_xiongyali.13.t
+	desc = holy_xiongyali.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.13.a
+		ai_chance = {
+		    factor = 25
+		}
+		transfer_state = 951
+		transfer_state = 1829
+	}
+}
+#巴纳特问题
+country_event = {
+	id = holy_xiongyali.14
+	title = holy_xiongyali.14.t
+	desc = holy_xiongyali.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.14.a
+		ai_chance = {
+		    factor = 25
+		}
+		DKL = {
+		transfer_state = 45
+		add_state_core = 45
+		}
+	}
+	option = {
+		name = holy_xiongyali.14.b
+		ai_chance = {
+		    factor = 25
+		}
+		DKL = { 
+		transfer_state = 1048
+		transfer_state = 45
+		transfer_state = 764
+		add_state_core = 1048
+		add_state_core = 45
+		add_state_core = 764
+		}
+	}
+	option = {
+		name = holy_xiongyali.14.c
+		ai_chance = {
+		    factor = 25
+		}
+		DKL = {
+		add_state_claim = 1048
+		add_state_claim = 764
+		add_state_claim = 45
+		}
+	}
+}
+#战争的结束
+country_event = {
+	id = holy_xiongyali.15
+	title = holy_xiongyali.15.t
+	desc = holy_xiongyali.15.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	surrender_progress > 0.5
+	tag = XYL
+	has_war_with = SLO
+	has_war_with = TRA
+	}
+	immediate = {
+	TRA = {
+		transfer_state = 84
+		transfer_state = 971
+		transfer_state = 977
+		}
+		SLO = {
+		transfer_state = 73
+		transfer_state = 664
+		transfer_state = 973
+		transfer_state = 981
+		transfer_state = 980
+		transfer_state = 976
+		}
+		BAT = {
+		transfer_state = 82
+		transfer_state = 45
+		transfer_state = 764
+		transfer_state = 1048
+		add_ideas = {
+		BAT_minzu_gelie
+		BAT_guojia_zainan
+        }
+		load_oob = BAT_1936
+		}
+		news_event = {
+				id = holy_news.131 days = 1
+			}
+	}
+	option = {
+		name = holy_xiongyali.15.a
+		ai_chance = {
+		    factor = 25
+		}
+		set_politics = {
+	ruling_party = socialism
+}
+		white_peace = SLO
+		white_peace = TRA
+		remove_ideas = XYL_gongye_luohou
+		remove_ideas = XYL_gongye_luohou_2
+		remove_ideas = XYL_gongye_luohou_3
+		remove_ideas = XYL_gongye_luohou_4
+		remove_ideas = XYL_gongye_luohou_5
+		remove_ideas = XYL_minzu_chongtu
+		remove_ideas = XYL_minzu_chongtu_2
+		remove_ideas = XYL_minzu_chongtu_3
+		remove_ideas = XYL_minzu_chongtu_4
+		remove_ideas = XYL_minzu_chongtu_5
+		remove_ideas = XYL_jiushi_jundui
+		remove_ideas = XYL_zhengzhi_kunjing
+		remove_ideas = XYL_gongye_luohou
+		remove_ideas = XYL_chauntong_nongye
+		remove_ideas = XYL_chauntong_nongye_2
+		load_focus_tree = { tree = XYL_gm_focus keep_completed = yes }
+		add_ideas = XYL_zhengzhi_bengkui
+		add_ideas = XYL_wuxu_jundui
+		add_ideas = XYL_guizu_yidu
+	}
+	option = {
+		name = holy_xiongyali.15.b
+		ai_chance = {
+		    factor = 5
+		}
+		AUS = {
+		puppet = XYL
+		}
+		load_focus_tree = tongyong_guoce
+	}
+}
+#人民的声音
+country_event = {
+	id = holy_xiongyali.16
+	title = holy_xiongyali.16.t
+	desc = holy_xiongyali.16.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = BAT
+	focus_progress = {
+    focus = BAT_kaiqi_xuanju
+    progress > 0.4
+}
+	}
+	option = {
+		name = holy_xiongyali.16.a
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.1
+}
+	}
+	option = {
+		name = holy_xiongyali.16.b
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.1
+}
+	}
+	option = {
+		name = holy_xiongyali.16.c
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+	}
+}
+#喧嚣尘上
+country_event = {
+	id = holy_xiongyali.17
+	title = holy_xiongyali.17.t
+	desc = holy_xiongyali.17.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = BAT
+	focus_progress = {
+    focus = BAT_kaiqi_xuanju
+    progress > 0.8
+}
+	}
+	option = {
+		name = holy_xiongyali.17.a
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = progressism
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = socialism
+    popularity = -0.1
+}
+	}
+	option = {
+		name = holy_xiongyali.17.b
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = reconcilism
+    popularity = -0.1
+}
+	}
+	option = {
+		name = holy_xiongyali.17.c
+		ai_chance = {
+		    factor = 15
+	    }
+		add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+	}
+}
+#最终的结果
+country_event = {
+	id = holy_xiongyali.18
+	title = holy_xiongyali.18.t
+	desc = holy_xiongyali.18.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.18.a
+		trigger = { progressism > 15 socialism > 15 }
+		ai_chance = {
+		    factor = 15
+	    }
+		set_politics = {
+	ruling_party = socialism
+}
+	}
+	option = {
+		name = holy_xiongyali.18.b
+		trigger = { reconcilism > 25 }
+		ai_chance = {
+		    factor = 15
+	    }
+		set_politics = {
+	ruling_party = reconcilism
+}
+	}
+	option = {
+		name = holy_xiongyali.18.c
+		trigger = { dictatorship > 20 }
+		ai_chance = {
+		    factor = 15
+	    }
+		set_politics = {
+	ruling_party = dictatorship
+}
+	}
+	option = {
+		name = holy_xiongyali.18.e
+		ai_chance = {
+		    factor = 0
+	    }
+		XYL = {
+		transfer_state = 45
+		transfer_state = 1048
+		add_state_core = 45
+		add_state_core = 1048
+		}
+		if = {
+		limit = {
+		SER = {
+		exists = no
+		}
+		}
+		YUM = {
+		transfer_state = 764
+		}
+		}
+		if = {
+		limit = {
+		SER = {
+		exists = yes
+		}
+		}
+		SER = {
+		transfer_state = 764
+		}
+		}
+		TRA = {
+		transfer_state = 82
+		}
+	}
+}
+#国际援助
+country_event = {
+	id = holy_xiongyali.19
+	title = holy_xiongyali.19.t
+	desc = holy_xiongyali.19.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.19.a
+		ai_chance = {
+		    factor = 15
+	    }
+		add_stability = 0.1
+			add_offsite_building = { type = industrial_complex level = 2 }
+	}
+}
+#巴纳特的消息
+country_event = {
+	id = holy_xiongyali.20
+	title = holy_xiongyali.20.t
+	desc = holy_xiongyali.20.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.20.a
+		ai_chance = {
+		    factor = 100
+	    }
+		puppet = BAT
+	}
+	option = {
+		name = holy_xiongyali.20.a
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#匈牙利苏维埃全国大会
+country_event = {
+	id = holy_xiongyali.21
+	title = holy_xiongyali.21.t
+	desc = holy_xiongyali.21.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.21.a
+		ai_chance = {
+		    factor = 100
+	    }
+		remove_ideas = XYL_zhengzhi_bengkui_3
+	}
+}
+#匈牙利外交政策
+country_event = {
+	id = holy_xiongyali.22
+	title = holy_xiongyali.22.t
+	desc = holy_xiongyali.22.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xiongyali.22.a
+		ai_chance = {
+		    factor = 0
+	    }
+		add_stability = 0.05
+		add_political_power = 100
+	}
+	option = {
+		name = holy_xiongyali.22.b
+		trigger = { 
+		FRA = { 
+		is_faction_leader = yes 
+		NOT = {
+		OR = {
+		is_in_faction_with = WAL
+		is_in_faction_with = MOL
+		is_in_faction_with = YUM
+		is_in_faction_with = BUL
+		is_in_faction_with = SER
+		is_in_faction_with = ALB
+		is_in_faction_with = DKL
+		}
+		}
+		}
+		}
+		ai_chance = {
+		    factor = 12
+	    }
+		FRA = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_xiongyali.22.c
+		trigger = { 
+		UKM = { 
+		is_faction_leader = yes 
+		NOT = {
+		OR = {
+		is_in_faction_with = WAL
+		is_in_faction_with = MOL
+		is_in_faction_with = YUM
+		is_in_faction_with = BUL
+		is_in_faction_with = SER
+		is_in_faction_with = ALB
+		is_in_faction_with = DKL
+		}
+		}
+		}
+		}
+		ai_chance = {
+		    factor = 12
+	    }
+		UKM = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_xiongyali.22.e
+		trigger = {
+		PLS = {
+		NOT = {
+		OR = {
+		is_in_faction_with = WAL
+		is_in_faction_with = MOL
+		is_in_faction_with = YUM
+		is_in_faction_with = BUL
+		is_in_faction_with = SER
+		is_in_faction_with = ALB
+		is_in_faction_with = DKL
+		}
+		}
+		}
+		AUS = { OR = { exists = no is_puppet = yes } } 
+		}
+		ai_chance = {
+		    factor = 12
+	    }
+		PLS = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_xiongyali.22.f
+		trigger = {
+		AUS = {
+		NOT = {
+		OR = {
+		is_in_faction_with = WAL
+		is_in_faction_with = MOL
+		is_in_faction_with = YUM
+		is_in_faction_with = BUL
+		is_in_faction_with = SER
+		is_in_faction_with = ALB
+		is_in_faction_with = DKL
+		}
+		}
+		}
+		PLS = { OR = { exists = no is_puppet = yes } } 
+		}
+		ai_chance = {
+		    factor = 12
+	    }
+		AUS = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_xiongyali.22.g
+		trigger = { 
+		CAN = { 
+		is_faction_leader = yes 
+		NOT = {
+		OR = {
+		is_in_faction_with = WAL
+		is_in_faction_with = MOL
+		is_in_faction_with = YUM
+		is_in_faction_with = BUL
+		is_in_faction_with = SER
+		is_in_faction_with = ALB
+		is_in_faction_with = DKL
+		}
+		}
+		}
+		}
+		ai_chance = {
+		    factor = 4
+	    }
+		CAN = { add_to_faction = XYL }
+	}
+}

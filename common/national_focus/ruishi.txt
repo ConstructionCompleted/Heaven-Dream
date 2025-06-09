@@ -1,0 +1,651 @@
+focus_tree = {
+	id = RUI_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RUI
+		}
+	}
+	
+	default = no
+	#瑞士中立主义
+	focus = {
+		id = RUI_ruishi_zhongli_zhuyi
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#利用瑞士银行
+	focus = {
+		id = RUI_liyong_ruishi_yinhang
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = RUI_ruishi_zhongli_zhuyi}
+		relative_position_id = RUI_ruishi_zhongli_zhuyi
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_gongye_fuxing_2
+			remove_idea = RUI_gongye_fuxing
+			}
+		}
+	}
+	#诚信原则
+	focus = {
+		id = RUI_chengxin_yuanze
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = RUI_liyong_ruishi_yinhang}
+		relative_position_id = RUI_liyong_ruishi_yinhang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#加强行动能力
+	focus = {
+		id = RUI_jiaqiang_xingdong_nengli
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = RUI_chengxin_yuanze}
+		relative_position_id = RUI_chengxin_yuanze
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_jiaqiang_xingdongli
+		}
+	}
+	#瑞士投资计划
+	focus = {
+		id = RUI_ruishi_touzi_plan
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = RUI_liyong_ruishi_yinhang}
+		relative_position_id = RUI_liyong_ruishi_yinhang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_gongye_fuxing_3
+			remove_idea = RUI_gongye_fuxing_2
+			}
+		}
+	}
+	#开发山区
+	focus = {
+		id = RUI_kaifa_shanqu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = RUI_ruishi_touzi_plan}
+		relative_position_id = RUI_ruishi_touzi_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			151 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			3 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			swap_ideas = {
+			add_idea = RUI_gongye_fuxing_4
+			remove_idea = RUI_gongye_fuxing_3
+			}
+		}
+	}
+	#西部工业化
+	focus = {
+		id = RUI_xibu_gongyehua
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = RUI_kaifa_shanqu}
+		prerequisite = { focus = RUI_jiaqiang_xingdong_nengli}
+		relative_position_id = RUI_jiaqiang_xingdong_nengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			3 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+			1374 = {
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+			1371 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#东部工业化
+	focus = {
+		id = RUI_dongbu_gongyehua
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = RUI_xibu_gongyehua}
+		relative_position_id = RUI_xibu_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			151 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	}
+	1373 = {
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#延续联邦自治
+	focus = {
+		id = RUI_yanxu_lianbang_zizhi
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = RUI_ruishi_zhongli_zhuyi}
+		relative_position_id = RUI_ruishi_zhongli_zhuyi
+		mutually_exclusive = { focus = RUI_jizhong_quanli }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#联邦工业建设
+	focus = {
+		id = RUI_lianbang_gongye_jianshe
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = RUI_yanxu_lianbang_zizhi}
+		relative_position_id = RUI_yanxu_lianbang_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_lianbang_gongye
+		}
+	}
+	#卫国动员
+	focus = {
+		id = RUI_weiguo_dongyuan
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = RUI_lianbang_gongye_jianshe}
+		relative_position_id = RUI_lianbang_gongye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = RUI_weiguo_dongyuan
+		}
+	}
+	#平等主义
+	focus = {
+		id = RUI_pingdeng_zhuyi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = RUI_weiguo_dongyuan}
+		relative_position_id = RUI_weiguo_dongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_pingdeng_zhuyi
+		}
+	}
+	#集中权利
+	focus = {
+		id = RUI_jizhong_quanli
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = RUI_ruishi_zhongli_zhuyi}
+		relative_position_id = RUI_ruishi_zhongli_zhuyi
+		mutually_exclusive = { focus = RUI_yanxu_lianbang_zizhi }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#统一国家建设
+	focus = {
+		id = RUI_tongyi_guojia_jianshe
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = RUI_jizhong_quanli}
+		relative_position_id = RUI_jizhong_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 4 }
+		}
+	}
+	#统一指挥民兵
+	focus = {
+		id = RUI_tongyi_zhihui_minbing
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = RUI_tongyi_guojia_jianshe}
+		relative_position_id = RUI_tongyi_guojia_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = RUI_minbing
+		}
+	}
+	#主体思想
+	focus = {
+		id = RUI_zhuti_sixiang
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = RUI_tongyi_zhihui_minbing}
+		relative_position_id = RUI_tongyi_zhihui_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_zhuti_sixiang
+		}
+	}
+	#防空体系
+	focus = {
+		id = RUI_fangkong_tixi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = RUI_zhuti_sixiang focus = RUI_pingdeng_zhuyi }
+		relative_position_id = RUI_zhuti_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			3 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+			}
+			151 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西部要塞化
+	focus = {
+		id = RUI_xibu_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = RUI_fangkong_tixi }
+		relative_position_id = RUI_fangkong_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			3 = {
+			add_building_construction = {
+				type = bunker
+				province = 9638
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6683
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9622
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6666
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3612
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9587
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 636
+				level = 3
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#东部要塞化
+	focus = {
+		id = RUI_dongbu_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = RUI_fangkong_tixi }
+		relative_position_id = RUI_fangkong_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			151 = {
+			add_building_construction = {
+				type = bunker
+				province = 3641
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9600
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 658
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3662
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3660
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 661
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 663
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11623
+				level = 3
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#组建军事武装
+	focus = {
+		id = RUI_zujian_junshi_wuzhuang
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = RUI_ruishi_zhongli_zhuyi}
+		relative_position_id = RUI_ruishi_zhongli_zhuyi
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_ruishi_wuzhuang_2
+			remove_idea = RUI_ruishi_wuzhuang
+			}
+		}
+	}
+	#精锐职业军队
+	focus = {
+		id = RUI_jingrui_zhiye_army
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = RUI_zujian_junshi_wuzhuang}
+		relative_position_id = RUI_zujian_junshi_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_ruishi_wuzhuang_3
+			remove_idea = RUI_ruishi_wuzhuang_2
+			}
+		}
+	}
+	#山地火炮
+	focus = {
+		id = RUI_shandi_paobing
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = RUI_jingrui_zhiye_army}
+		relative_position_id = RUI_jingrui_zhiye_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_shandi_paobing
+		}
+	}
+	#山地补给
+	focus = {
+		id = RUI_shandi_buji
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RUI_shandi_paobing}
+		relative_position_id = RUI_shandi_paobing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_shandi_buji
+		}
+	}
+	#瑞士卫国思想
+	focus = {
+		id = RUI_ruishi_weiguo_sixiang
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = RUI_jingrui_zhiye_army}
+		relative_position_id = RUI_jingrui_zhiye_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_ruishi_zhongli_zhuyi_2
+			remove_idea = RUI_ruishi_zhongli_zhuyi
+			}
+		}
+	}
+	#联合三族
+	focus = {
+		id = RUI_lianhe_sanzu
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = RUI_ruishi_weiguo_sixiang}
+		relative_position_id = RUI_ruishi_weiguo_sixiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_ruishi_wuzhuang_4
+			remove_idea = RUI_ruishi_wuzhuang_3
+			}
+		}
+	}
+	#精锐步兵
+	focus = {
+		id = RUI_jingruihua_bubing
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = RUI_shandi_buji}
+		prerequisite = { focus = RUI_lianhe_sanzu}
+		relative_position_id = RUI_lianhe_sanzu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RUI_ruishi_wuzhuang_5
+			remove_idea = RUI_ruishi_wuzhuang_4
+			}
+		}
+	}
+	#医疗体系
+	focus = {
+		id = RUI_yiliao_tixi
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = RUI_jingruihua_bubing}
+		relative_position_id = RUI_jingruihua_bubing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_yiliao_tixi
+		}
+	}
+	#侦察思想
+	focus = {
+		id = RUI_zhencha_sixiang
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = RUI_jingruihua_bubing}
+		relative_position_id = RUI_jingruihua_bubing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RUI_zhencha_sixiang
+		}
+	}
+}

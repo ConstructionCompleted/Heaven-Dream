@@ -1,0 +1,882 @@
+holy_aiji_alabo_tuanjie = {
+    #和英国谈判
+    holy_he_yingguo_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+	controls_state = 457
+	controls_state = 456
+	controls_state = 1561
+	controls_state = 1560
+	date > 1937.6.1
+	has_war_with = UKM
+		}
+        fire_only_once = yes
+		complete_effect = {
+		UKM = {
+		country_event = { id = holy_aosiman.20 days = 3}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#号召法兹巴克黎起义
+    holy_haozhao_LBA_qiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+			has_completed_focus = EGY_yutongbao_lianluo
+	}	
+		available = {
+		OR = {
+		has_war_with = DLB
+		date > 1938.1.1
+		}
+	    }
+        fire_only_once = yes
+		complete_effect = {
+		LBA = {
+		transfer_state = 1121
+		transfer_state = 662
+		transfer_state = 663
+		load_oob = LBA_1936
+		}
+		puppet = LBA
+		DLB = {
+		declare_war_on = {
+    target = LBA
+    type = annex_everything
+}
+		}
+		SMS = {
+		declare_war_on = {
+    target = LBA
+    type = annex_everything
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#阿布扎拉协定
+    holy_abuzhala_xieidng = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			NOT = {
+			OMA = { is_in_faction_with = EGY }
+			}
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		add_ideas = EGY_abuzhala
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#科威特行动
+    holy_keweite_xingdong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		add_ideas = EGY_keweite
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#卡塔尔行动
+    holy_kataer_xingdong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		add_ideas = EGY_kataer
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#与苏丹人的接触
+    holy_yusudan_jiechu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		add_ideas = EGY_sudan
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#叙利亚起义
+    holy_xuliya_qiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			OTF = { exists = no }
+			date > 1937.6.1
+		}
+		cost = 30
+        fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.99 days = 1
+			}
+        SYR = {
+		transfer_state = 554
+		transfer_state = 1057
+			transfer_state = 677
+			transfer_state = 553
+			transfer_state = 799
+			transfer_state = 1058
+			transfer_state = 1568
+			transfer_state = 1569
+			transfer_state = 1570
+			transfer_state = 1425
+			transfer_state = 680
+			load_oob = SYR_1936
+declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+every_controlled_state = {
+create_unit = { 
+    division = "name = \"叙利亚起义军\" division_template = \"叙利亚起义军\" start_experience_factor = 0.2 start_equipment_factor = 1"
+    owner = SYR
+}
+}
+	}
+	add_to_faction = SYR
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#伊拉克起义
+    holy_yilake_qiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			OTF = { exists = no }
+			date > 1937.6.1
+		}
+		cost = 30
+        fire_only_once = yes
+		complete_effect = {
+		news_event = {
+				id = holy_news.100 days = 1
+			}
+        IRQ = {
+			transfer_state = 1056
+			transfer_state = 1396
+			transfer_state = 1395
+			transfer_state = 1329
+			transfer_state = 1426
+			transfer_state = 676
+			transfer_state = 291
+		load_oob = IRQ_1936
+declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+every_controlled_state = {
+create_unit = { 
+    division = "name = \"伊拉克起义军\" division_template = \"伊拉克起义军\" start_experience_factor = 0.2 start_equipment_factor = 1"
+    owner = IRQ
+}
+create_unit = { 
+    division = "name = \"伊拉克起义军\" division_template = \"伊拉克起义军\" start_experience_factor = 0.2 start_equipment_factor = 1"
+    owner = IRQ
+}
+}
+	}
+		add_to_faction = IRQ
+		if = {
+		limit = {
+		PER = {
+		OR = {
+		controls_state = 675
+			controls_state = 291
+			controls_state = 1056
+			controls_state = 1396
+			controls_state = 1395
+			controls_state = 1329
+			controls_state = 1426
+			controls_state = 676
+			}
+			}
+		}
+		IRQ = {
+		declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#叙利亚解放
+    holy_xuliya_jiefang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			SYR = { exists = yes }
+		}
+		cost = 0
+        fire_only_once = yes
+		complete_effect = {
+        SYR = {
+		load_oob = SYR_aiji_army
+		}
+		add_to_faction = SYR
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#伊拉克解放
+    holy_yilake_jiefang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			IRQ = { exists = yes }
+		}
+		cost = 0
+        fire_only_once = yes
+		complete_effect = {
+        IRQ = {
+		load_oob = IRQ_aiji_army
+		}
+		add_to_faction = IRQ
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支援巴勒斯坦
+    holy_zhiyuan_balesitan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_yutongbao_lianluo
+			PAL = { 
+			exists = yes 
+			is_in_faction_with = EGY
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+        PAL = {
+		load_oob = PAL_aiji_army
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_gongtong_kaifa_xieding = {
+    #也门开发
+    holy_yemen_kaifa = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			YEM = {
+			controls_state = 659
+			controls_state = 293
+			controls_state = 1060
+			controls_state = 1061
+			controls_state = 1063
+			controls_state = 1062
+			owns_state = 659
+			owns_state = 293
+			owns_state = 1060
+			owns_state = 1061
+			owns_state = 1063
+			owns_state = 1062
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		293 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		659 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_resource = {
+    type = oil
+    amount = 20
+    state = 293
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#阿曼开发
+    holy_aman_kaifa = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			OR = {
+			OMA = {
+			controls_state = 658
+			controls_state = 294
+			owns_state = 658
+			owns_state = 294
+			}
+			UAE = {
+			controls_state = 658
+			owns_state = 658
+			}
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		658 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+add_resource = {
+    type = oil
+    amount = 20
+    state = 658
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#内志开发
+    holy_neizhi_kaifa = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			NJD = {
+			controls_state = 292
+			controls_state = 678
+			controls_state = 679
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		678 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		679 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		292 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_resource = {
+    type = oil
+    amount = 30
+    state = 292
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#开发叙利亚
+    holy_kaifa_xuliya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			SYR = {
+			controls_state = 554
+			controls_state = 677
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		554 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		677 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#开发伊拉克
+    holy_kaifa_yilake = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			IRQ = {
+			controls_state = 291
+			controls_state = 676
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		291 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		676 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#开发巴勒斯坦
+    holy_kaifa_balesitan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			OR = {
+			controls_state = 1316
+			PAL = {
+			controls_state = 1316
+			}
+			}
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		1316 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#开发法兹巴克黎
+    holy_kaifa_fazibakeli = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_gongtong_kaifa_xieding
+			LBA = {
+			controls_state = 663
+			controls_state = 662
+			controls_state = 661
+			controls_state = 451
+			controls_state = 450
+			controls_state = 449
+			controls_state = 448
+			controls_state = 273
+			controls_state = 1121
+			}
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		450 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		451 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+EGY_junshi_wuzhuang_xieding = {
+    #军事武装协定.也门
+    holy_junshiwuzhuang_xieding_YEM = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			YEM = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		YEM = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.阿曼
+    holy_junshiwuzhuang_xieding_OMA = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			OMA = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		OMA = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.伊拉克
+    holy_junshiwuzhuang_xieding_IRQ = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			IRQ = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		IRQ = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.叙利亚
+    holy_junshiwuzhuang_xieding_SYR = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			SYR = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		SYR = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.阿布扎拉
+    holy_junshiwuzhuang_xieding_UAE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			UAE = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		UAE = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.卡塔尔
+    holy_junshiwuzhuang_xieding_QAT = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			QAT = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		QAT = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.科威特
+    holy_junshiwuzhuang_xieding_KUW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			KUW = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		KUW = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.巴勒斯坦
+    holy_junshiwuzhuang_xieding_PAL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			PAL = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		PAL = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#军事武装协定.法兹巴克黎
+    holy_junshiwuzhuang_xieding_LBA = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = EGY
+	}	
+		available = {
+			has_completed_focus = EGY_junshi_wuzhuang_xieding
+			LBA = { is_in_faction_with = EGY }
+		}
+        fire_only_once = yes
+		complete_effect = {
+		LBA = {
+		add_ideas = EGY_junshiwuzhaungxieding
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

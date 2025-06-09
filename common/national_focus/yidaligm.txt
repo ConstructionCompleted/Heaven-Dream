@@ -1,0 +1,1125 @@
+focus_tree = {
+	id = ITC_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ITC
+		}
+	}
+	
+	default = no
+	
+	#延续革命
+	focus = {
+		id = ITC_yanxu_gm
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#建立城镇公社
+	focus = {
+		id = ITC_jianli_chengzhen_gongshe
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = ITC_yanxu_gm}
+		relative_position_id = ITC_yanxu_gm
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_jiceng_quefa_2
+		remove_idea = ITC_jiceng_quefa
+		}
+		}
+	}
+	#激发归乡思想
+	focus = {
+		id = ITC_jifa_guixiang_sixiang
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = ITC_yanxu_gm}
+		relative_position_id = ITC_yanxu_gm
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+        add_idea = ITC_jifa_guixiang_sixiang
+		remove_idea = ITC_yuanli_jiaxiang
+		}
+		}
+	}
+	#扩大工人纠察队
+	focus = {
+		id = ITC_kuoda_gongren_jiuchadui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ITC_yanxu_gm}
+		relative_position_id = ITC_yanxu_gm
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+        add_idea = ITC_geming_hongjun_2
+		remove_idea = ITC_geming_hongjun
+		}
+		load_oob = ITC_gongren_jiuchadui
+		}
+	}
+	#整合工业
+	focus = {
+		id = ITC_zhenghe_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ITC_jianli_chengzhen_gongshe}
+		relative_position_id = ITC_jianli_chengzhen_gongshe
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#乡会组织
+	focus = {
+		id = ITC_xianghui_zuzhi
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = ITC_jianli_chengzhen_gongshe}
+		prerequisite = { focus = ITC_jifa_guixiang_sixiang}
+		relative_position_id = ITC_jifa_guixiang_sixiang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_jiceng_quefa_2
+		remove_idea = ITC_jiceng_quefa
+		}
+		}
+	}
+	#建设地方民兵
+	focus = {
+		id = ITC_build_difang_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ITC_zhenghe_gongye}
+		prerequisite = { focus = ITC_xianghui_zuzhi}
+		relative_position_id = ITC_xianghui_zuzhi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ITC_difang_minbing
+		}
+	}
+	#游击战术
+	focus = {
+		id = ITC_youji_zhanshu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = ITC_kuoda_gongren_jiuchadui}
+		prerequisite = { focus = ITC_jifa_guixiang_sixiang}
+		relative_position_id = ITC_kuoda_gongren_jiuchadui
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_youji_zhanshu
+		}
+	}
+	#解放罗马
+	focus = {
+		id = ITC_jiefang_luoma
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ITC_youji_zhanshu}
+		prerequisite = { focus = ITC_xianghui_zuzhi}
+		relative_position_id = ITC_xianghui_zuzhi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ITC_jiefang_luoma
+		}
+	}
+	#政治委员
+	focus = {
+		id = ITC_zhengzhi_weiyuanhui
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = ITC_kuoda_gongren_jiuchadui}
+		relative_position_id = ITC_kuoda_gongren_jiuchadui
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_hongjun_3
+		remove_idea = ITC_geming_hongjun_2
+		}
+		}
+	}
+	#革新军队体系
+	focus = {
+		id = ITC_gexin_jundui_tixi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = ITC_youji_zhanshu}
+		prerequisite = { focus = ITC_zhengzhi_weiyuanhui}
+		relative_position_id = ITC_zhengzhi_weiyuanhui
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_hongjun_4
+		remove_idea = ITC_geming_hongjun_3
+		}
+		}
+	}
+	#姑娘，再见
+	focus = {
+		id = ITC_guniang_zaijian
+		icon = GFX_focus_ITA_the_italian_republic
+		prerequisite = { focus = ITC_build_difang_minbing}
+		prerequisite = { focus = ITC_gexin_jundui_tixi}
+		prerequisite = { focus = ITC_jiefang_luoma}
+		relative_position_id = ITC_jiefang_luoma
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = ITC_guniang_zaijian
+    days = 360
+}
+		}
+	}
+	#号召北方革命
+	focus = {
+		id = ITC_haozhao_beifang_geming
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = ITC_guniang_zaijian}
+		relative_position_id = ITC_guniang_zaijian
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SAD = {
+		add_timed_idea = {
+    idea = ITC_beifang_geming
+    days = 360
+}
+		}
+		MLA = {
+		add_timed_idea = {
+    idea = ITC_beifang_geming
+    days = 360
+}
+		}
+		}
+	}
+	#接收地下武装
+	focus = {
+		id = ITC_jieshou_dixia_wuzhuang
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = ITC_haozhao_beifang_geming}
+		relative_position_id = ITC_haozhao_beifang_geming
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ITC_dixia_wuzhuang
+		}
+	}
+	#热那亚起义
+	focus = {
+		id = ITC_renaya_qiyi
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = ITC_jieshou_dixia_wuzhuang}
+		relative_position_id = ITC_jieshou_dixia_wuzhuang
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ITC_renaya_qiyi
+		}
+	}
+	#萨伏伊罢工
+	focus = {
+		id = ITC_safuyi_bagong
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = ITC_jieshou_dixia_wuzhuang}
+		relative_position_id = ITC_jieshou_dixia_wuzhuang
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		OR = {
+		controls_state = 158
+		controls_state = 954
+		}
+		}
+		completion_reward = {
+		158 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		954 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		}
+	}
+	#地下兵工厂
+	focus = {
+		id = ITC_dixia_binggongchang
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = ITC_guniang_zaijian}
+		relative_position_id = ITC_guniang_zaijian
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#渗透西西里
+	focus = {
+		id = ITC_shentou_xixili
+		icon = GFX_focus_attack_italy
+		prerequisite = { focus = ITC_dixia_binggongchang}
+		relative_position_id = ITC_dixia_binggongchang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		RSC = {
+		add_timed_idea = {
+    idea = ITC_shentou
+    days = 360
+}
+		}
+		ITD = {
+		add_timed_idea = {
+    idea = ITC_shentou
+    days = 360
+}
+		}
+		}
+	}
+	#渡过海峡
+	focus = {
+		id = ITC_duguo_haixia
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = ITC_shentou_xixili}
+		relative_position_id = ITC_shentou_xixili
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_duguo_haixia
+		}
+	}
+	#进军波河
+	focus = {
+		id = ITC_jinjun_bohe
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = ITC_renaya_qiyi}
+		prerequisite = { focus = ITC_safuyi_bagong}
+		prerequisite = { focus = ITC_duguo_haixia}
+		relative_position_id = ITC_duguo_haixia
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 161
+		controls_state = 1826
+		controls_state = 954
+		controls_state = 956
+		controls_state = 1393
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		MLA = {
+		is_puppet_of = AUS
+		}
+		VNC = {
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+        country_event = { id = holy_yidali.13 days = 4 }
+		}
+		else = {
+		declare_war_on = {
+    target = MLA
+    type = annex_everything
+}
+declare_war_on = {
+    target = VNC
+    type = annex_everything
+}
+declare_war_on = {
+    target = ITB
+    type = annex_everything
+}
+		}
+		}
+		news_event = {
+				id = holy_news.75 days = 1
+			}
+		}
+	}
+	#意大利革命的胜利
+	focus = {
+		id = ITC_yidali_geming_victory
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ITC_jinjun_bohe}
+		relative_position_id = ITC_jinjun_bohe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ITB = {
+		exists = no
+		}
+		ITA = {
+		exists = no
+		}
+		ITD = {
+		exists = no
+		}
+		RSC = {
+		exists = no
+		}
+		VNC = {
+		exists = no
+		}
+		MLA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		add_stability = 0.1
+		remove_ideas = ITC_jifa_guixiang_sixiang
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = ITC
+			}
+		news_event = {
+				id = holy_news.71 days = 1
+			}
+		}
+	}
+	#意大利计划经济
+	focus = {
+		id = ITC_yidali_plan_jingji
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = ITC_yidali_geming_victory}
+		relative_position_id = ITC_yidali_geming_victory
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_plan_jingji
+		}
+	}
+	#伦巴底工业化
+	focus = {
+		id = ITC_lunbadi_gongyehua
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = ITC_yidali_plan_jingji}
+		relative_position_id = ITC_yidali_plan_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		159 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#扩建萨伏伊工业
+	focus = {
+		id = ITC_kuojian_safuyi_ic
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = ITC_lunbadi_gongyehua}
+		relative_position_id = ITC_lunbadi_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		158 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#中意大利工业化
+	focus = {
+		id = ITC_zhongyidali_ic
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = ITC_kuojian_safuyi_ic}
+		relative_position_id = ITC_kuojian_safuyi_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		2 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#南意大利工业化
+	focus = {
+		id = ITC_nanyidali_ic
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = ITC_zhongyidali_ic}
+		relative_position_id = ITC_zhongyidali_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		117 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#西西里工业化
+	focus = {
+		id = ITC_xixili_gongye
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = ITC_nanyidali_ic}
+		relative_position_id = ITC_nanyidali_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		115 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#米兰纺织业
+	focus = {
+		id = ITC_milan_fangzhiye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = ITC_yidali_plan_jingji}
+		relative_position_id = ITC_yidali_plan_jingji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_milan_fangzhiye
+		}
+	}
+	#扩建波河农业
+	focus = {
+		id = ITC_kuojian_bohe_nongye
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = ITC_milan_fangzhiye}
+		relative_position_id = ITC_milan_fangzhiye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_yidali_nongye
+		}
+	}
+	#扩建南意大利农业
+	focus = {
+		id = ITC_kuojian_nanyidali_nongye
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = ITC_kuojian_bohe_nongye}
+		relative_position_id = ITC_kuojian_bohe_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_yidali_nongye_2
+		remove_idea = ITC_yidali_nongye
+		}
+		}
+	}
+	#威尼斯海港
+	focus = {
+		id = ITC_weinisi_haigang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = ITC_yidali_plan_jingji}
+		relative_position_id = ITC_yidali_plan_jingji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		160 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#西西里海港
+	focus = {
+		id = ITC_xixili_haigang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = ITC_weinisi_haigang}
+		relative_position_id = ITC_weinisi_haigang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		959 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#萨丁海港
+	focus = {
+		id = ITC_sading_haigang
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = ITC_xixili_haigang}
+		relative_position_id = ITC_xixili_haigang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		114 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#组建革命工会
+	focus = {
+		id = ITC_zujian_geming_gonghui
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = ITC_yidali_geming_victory}
+		relative_position_id = ITC_yidali_geming_victory
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_gonghui
+		remove_idea = ITC_jiceng_quefa_3
+		}
+		}
+	}
+	#确立工人宪法
+	focus = {
+		id = ITC_queli_gongren_xianfa
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = ITC_zujian_geming_gonghui}
+		relative_position_id = ITC_zujian_geming_gonghui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_gonghui_2
+		remove_idea = ITC_geming_gonghui
+		}
+		}
+	}
+	#地区自治经济
+	focus = {
+		id = ITC_diqu_zizhi_jingji
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = ITC_queli_gongren_xianfa}
+		relative_position_id = ITC_queli_gongren_xianfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_gonghui_3
+		remove_idea = ITC_geming_gonghui_2
+		}
+		}
+	}
+	#开发意大利资源
+	focus = {
+		id = ITC_kaifa_yidali_ziyuan
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = ITC_diqu_zizhi_jingji}
+		relative_position_id = ITC_diqu_zizhi_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_gonghui_4
+		remove_idea = ITC_geming_gonghui_3
+		}
+		}
+	}
+	#正规化革命军队
+	focus = {
+		id = ITC_zhengguihua_geming_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = ITC_yidali_geming_victory}
+		relative_position_id = ITC_yidali_geming_victory
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_hongjun_5
+		remove_idea = ITC_geming_hongjun_4
+		}
+		}
+	}
+	#卫国计划
+	focus = {
+		id = ITC_weiguo_plan
+		icon = GFX_focus_ITA_northern_industry
+		prerequisite = { focus = ITC_zhengguihua_geming_army}
+		relative_position_id = ITC_zhengguihua_geming_army
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_weiguo_plan
+		}
+	}
+	#特伦托防线
+	focus = {
+		id = ITC_teluntuo_fangxian
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = ITC_weiguo_plan}
+		relative_position_id = ITC_weiguo_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		157 = {
+			add_building_construction = {
+				type = bunker
+				province = 11615
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9630
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6675
+				level = 3
+				instant_build = yes
+			}
+		}
+		160 = {
+			add_building_construction = {
+				type = bunker
+				province = 3657
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9613
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 628
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#萨伏伊防线
+	focus = {
+		id = ITC_safuyi_fangxian
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = ITC_teluntuo_fangxian}
+		relative_position_id = ITC_teluntuo_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		158 = {
+			add_building_construction = {
+				type = bunker
+				province = 611
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6780
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9738
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11721
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11891
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#意大利征兵体系
+	focus = {
+		id = ITC_yidali_zhengbing_tixi
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = ITC_weiguo_plan}
+		relative_position_id = ITC_weiguo_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_yidali_zhengbing_tixi
+		}
+	}
+	#流动防线
+	focus = {
+		id = ITC_liudong_fangxian
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = ITC_yidali_zhengbing_tixi}
+		relative_position_id = ITC_yidali_zhengbing_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_liudong_fangxian
+		}
+	}
+	#人民解放军
+	focus = {
+		id = ITC_renmin_jiefang_army
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = ITC_zhengguihua_geming_army}
+		relative_position_id = ITC_zhengguihua_geming_army
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_hongjun_6
+		remove_idea = ITC_geming_hongjun_5
+		}
+		}
+	}
+	#工兵体系
+	focus = {
+		id = ITC_gongbing_tixi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = ITC_renmin_jiefang_army}
+		relative_position_id = ITC_renmin_jiefang_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_gongbing_tixi
+		}
+	}
+	#加强火力
+	focus = {
+		id = ITC_jiaqiang_huoli
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = ITC_gongbing_tixi}
+		relative_position_id = ITC_gongbing_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_jiaqiang_huoli
+		}
+	}
+	#建设冲锋队
+	focus = {
+		id = ITC_jianshe_chongfengdui
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = ITC_renmin_jiefang_army}
+		relative_position_id = ITC_renmin_jiefang_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_chongfengdui
+		}
+	}
+	#克服严寒
+	focus = {
+		id = ITC_kefu_yanhan
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = ITC_jianshe_chongfengdui}
+		relative_position_id = ITC_jianshe_chongfengdui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ITC_kefu_yanhan
+		}
+	}
+	#现代化军队
+	focus = {
+		id = ITC_xiandaihua_army
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = ITC_safuyi_fangxian}
+		prerequisite = { focus = ITC_liudong_fangxian}
+		prerequisite = { focus = ITC_jiaqiang_huoli}
+		prerequisite = { focus = ITC_kefu_yanhan}
+		relative_position_id = ITC_jiaqiang_huoli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ITC_geming_hongjun_7
+		remove_idea = ITC_geming_hongjun_6
+		}
+		}
+	}
+}

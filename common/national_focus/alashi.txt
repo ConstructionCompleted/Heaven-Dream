@@ -1,0 +1,480 @@
+focus_tree = {
+	id = ARS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ARS
+		}
+	}
+	
+	default = no
+ 
+    #阿拉什之梦
+	focus = {
+		id = ARS_alashen_zhimeng
+		icon = GFX_focus_generic_monarchy_1
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#团结三大玉兹
+	focus = {
+		id = ARS_tuanjie_sanda_yuzi
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = ARS_alashen_zhimeng}
+		relative_position_id = ARS_alashen_zhimeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_tuanjie_sanda_yuzi
+		}
+	}
+	#团结俄罗斯族
+	focus = {
+		id = ARS_tuanjie_eluosizu
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = ARS_tuanjie_sanda_yuzi}
+		relative_position_id = ARS_tuanjie_sanda_yuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_tuanjie_eluosizu
+			remove_idea = ARS_qine_sixiang
+			}
+		}
+	}
+	#集结哈萨克力量
+	focus = {
+		id = ARS_jijie_hasake_liliang
+		icon = GFX_focus_RAJ_indian_gentlemen_offcers
+		prerequisite = { focus = ARS_tuanjie_sanda_yuzi}
+		relative_position_id = ARS_tuanjie_sanda_yuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_jijie_hasake_liliang
+			remove_idea = ARS_tuanjie_sanda_yuzi
+			}
+		}
+	}
+	#草原骑兵
+	focus = {
+		id = ARS_caoyuan_qibing
+		icon = GFX_focus_YUG_zmaj
+		prerequisite = { focus = ARS_tuanjie_eluosizu}
+		prerequisite = { focus = ARS_jijie_hasake_liliang}
+		relative_position_id = ARS_tuanjie_eluosizu
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_caoyuan_qibing_2
+			remove_idea = ARS_caoyuan_qibing
+			}
+		}
+	}
+	#卫国战争
+	focus = {
+		id = ARS_weiguo_war
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ARS_caoyuan_qibing}
+		relative_position_id = ARS_caoyuan_qibing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_weiguo_zhanzheng
+		}
+	}
+	#抗击红色侵略者
+	focus = {
+		id = ARS_kangji_hongse_qinluezhe
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = ARS_weiguo_war}
+		relative_position_id = ARS_weiguo_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_kangji_hongse_qinluezhe
+			remove_idea = ARS_weiguo_zhanzheng
+			}
+		}
+	}
+	#改革武装
+	focus = {
+		id = ARS_gaige_wuzhuang
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = ARS_kangji_hongse_qinluezhe}
+		relative_position_id = ARS_kangji_hongse_qinluezhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_gaige_wuzhuang
+			remove_idea = ARS_kangji_hongse_qinluezhe
+			}
+		}
+	}
+	#寻求工业化
+	focus = {
+		id = ARS_xunqiu_gongye_hua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = ARS_tuanjie_eluosizu}
+		prerequisite = { focus = ARS_jijie_hasake_liliang}
+		relative_position_id = ARS_tuanjie_eluosizu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_xunqiu_gongye_fazhan
+		}
+	}
+	#吸收新疆资金
+	focus = {
+		id = ARS_xishou_xinjiang_zijin
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = ARS_xunqiu_gongye_hua}
+		relative_position_id = ARS_xunqiu_gongye_hua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = ARS_xishou_xinjiang
+    days = 180
+}
+		}
+	}
+	#建设东部领土
+	focus = {
+		id = ARS_jianshe_dongbu_lingtu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ARS_xishou_xinjiang_zijin}
+		relative_position_id = ARS_xishou_xinjiang_zijin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			589 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#维持政治统一
+	focus = {
+		id = ARS_weichi_zhengzhi_tongyi
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = ARS_jianshe_dongbu_lingtu}
+		prerequisite = { focus = ARS_caoyuan_ziyuan_kaifa}
+		relative_position_id = ARS_jianshe_dongbu_lingtu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_weichi_zhengzhi_tongyi
+			remove_idea = ARS_jijie_hasake_liliang
+			}
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = ARS_junshi_gongye_fazhan
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = ARS_caoyuan_qibing}
+		prerequisite = { focus = ARS_xunqiu_gongye_hua}
+		relative_position_id = ARS_xunqiu_gongye_hua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#草原资源开发
+	focus = {
+		id = ARS_caoyuan_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = ARS_junshi_gongye_fazhan}
+		relative_position_id = ARS_junshi_gongye_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_caoyuan_ziyuan
+		}
+	}
+	#外交政策
+	focus = {
+		id = ARS_waijiao_zhengce
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = ARS_tuanjie_eluosizu}
+		prerequisite = { focus = ARS_jijie_hasake_liliang}
+		relative_position_id = ARS_tuanjie_eluosizu
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#吸收俄罗斯难民
+	focus = {
+		id = ARS_xishou_eluosi_nanmin
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = ARS_waijiao_zhengce}
+		prerequisite = { focus = ARS_xunqiu_gongye_hua}
+		relative_position_id = ARS_waijiao_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_xishou_nanming
+		}
+	}
+	#人民福祉
+	focus = {
+		id = ARS_renmin_fuzhi
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = ARS_xishou_eluosi_nanmin}
+		relative_position_id = ARS_xishou_eluosi_nanmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ARS_renmin_fuzhi
+		}
+	}
+	#团结一致
+	focus = {
+		id = ARS_tuanjie_yizhi
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = ARS_renmin_fuzhi}
+		relative_position_id = ARS_renmin_fuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ARS_renmin_fuzhi_2
+			remove_idea = ARS_renmin_fuzhi
+			}
+		}
+	}
+	#联络突厥斯坦
+	focus = {
+		id = ARS_kaolong_shahuang
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = ARS_waijiao_zhengce}
+		relative_position_id = ARS_waijiao_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			SHV = {
+			add_political_power = 50
+			}
+		}
+	}
+	#地方穆斯林武装
+	focus = {
+		id = ARS_kaolong_gaoerchake
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = ARS_waijiao_zhengce}
+		relative_position_id = ARS_waijiao_zhengce
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = ARS_musilin_wuzhuang
+		}
+	}
+	#接触东部盟友
+	focus = {
+		id = ARS_jiechu_dongbu_mengyou
+		icon = GFX_focus_TUR_ratify_the_six_arrows
+		prerequisite = { focus = ARS_kaolong_gaoerchake }
+		prerequisite = { focus = ARS_kaolong_shahuang }
+		relative_position_id = ARS_kaolong_gaoerchake
+		available = {
+		ETK = {
+		exists = yes
+		}
+		}
+		bypass = {
+		ETK = {
+		exists = no
+		}
+		}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = ETK
+}
+	    }
+    }
+	#南北合纵
+	focus = {
+		id = ARS_nanbei_hezong
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = ARS_jiechu_dongbu_mengyou }
+		relative_position_id = ARS_jiechu_dongbu_mengyou
+		available = {
+		KAZ = {
+		exists = no
+		}
+		URL = {
+		exists = no
+		}
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+	    }
+    }
+	#中亚的胜利
+	focus = {
+		id = ARS_zhongyade_shengli
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = ARS_tuanjie_yizhi}
+		prerequisite = { focus = ARS_weichi_zhengzhi_tongyi}
+		prerequisite = { focus = ARS_gaige_wuzhuang}
+		prerequisite = { focus = ARS_nanbei_hezong}
+		relative_position_id = ARS_weichi_zhengzhi_tongyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		TKS = {
+		exists = no
+		}
+		is_puppet = no
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.103 days = 1
+			}
+		MCR = {
+		annex_country = {
+    target = ARS
+    transfer_troops = yes
+}
+annex_country = {
+    target = SHV
+    transfer_troops = yes
+}
+		}
+		ARS = { change_tag_from = MCR }
+		TKS = { change_tag_from = MCR }
+		every_state = {
+		limit = {
+		OR = {
+		is_core_of = ARS
+		is_core_of = TKS
+		is_core_of = SHV
+		}
+		}
+		add_core_of = MCR
+		}
+		}
+	}
+}

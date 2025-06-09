@@ -1,0 +1,323 @@
+focus_tree = {
+	id = SVN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SVN
+		}
+	}
+	
+	default = no
+ 
+    #北极圈战争
+	focus = {
+		id = SVN_beijiquan_war
+		icon = GFX_focus_secret_rearmament
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#国际支援
+	focus = {
+		id = SVN_guoji_zhiyuan
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = SVN_beijiquan_war}
+		relative_position_id = SVN_beijiquan_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_queliang_shaoqiang_2
+			remove_idea = SVN_queliang_shaoqiang
+			}
+		}
+	}
+	#抗寒准备
+	focus = {
+		id = SVN_kanghan_zhunbei
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = SVN_guoji_zhiyuan}
+		relative_position_id = SVN_guoji_zhiyuan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_bingtianxuedi_2
+			remove_idea = SVN_bingtianxuedi
+			}
+		}
+	}
+	#走私必需品
+	focus = {
+		id = SVN_zousi_bixuping
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SVN_kanghan_zhunbei}
+		relative_position_id = SVN_kanghan_zhunbei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_bingtianxuedi_3
+			remove_idea = SVN_bingtianxuedi_2
+			}
+		}
+	}
+	#后勤动员
+	focus = {
+		id = SVN_houqin_dongyuan
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SVN_kanghan_zhunbei}
+		relative_position_id = SVN_kanghan_zhunbei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SVN_houqin_dongyuan
+		}
+	}
+	#配给制度分配
+	focus = {
+		id = SVN_peiji_zhidu
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SVN_guoji_zhiyuan}
+		relative_position_id = SVN_guoji_zhiyuan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_bingtianxuedi_3
+			remove_idea = SVN_bingtianxuedi_2
+			}
+		}
+	}
+	#从南方进口
+	focus = {
+		id = SVN_congnanfang_jinkou
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = SVN_peiji_zhidu}
+		relative_position_id = SVN_peiji_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SVN_cong_nanfang_jinkou
+		}
+	}
+	#粮食的分配
+	focus = {
+		id = SVN_liangshi_fenpei
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SVN_peiji_zhidu}
+		relative_position_id = SVN_peiji_zhidu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = SVN_cong_nanfang_jinkou
+		}
+	}
+	#扩大化军队
+	focus = {
+		id = SVN_kuodahua_jundui
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SVN_guoji_zhiyuan}
+		relative_position_id = SVN_guoji_zhiyuan
+		mutually_exclusive = { focus = SVN_laobing_youxian }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_kuodahua_jundui
+			remove_idea = SVN_laobing_budui
+			}
+		}
+	}
+	#老兵优先
+	focus = {
+		id = SVN_laobing_youxian
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SVN_guoji_zhiyuan}
+		relative_position_id = SVN_guoji_zhiyuan
+		mutually_exclusive = { focus = SVN_kuodahua_jundui }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SVN_laobing_youxian
+			remove_idea = SVN_laobing_budui
+			}
+		}
+	}
+	#融合伏龙芝部队
+	focus = {
+		id = SVN_ronghe_fulongzhi
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SVN_laobing_youxian focus = SVN_kuodahua_jundui }
+		relative_position_id = SVN_laobing_youxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SVN_ronghe_fulongzhi
+		}
+	}
+	#总体战
+	focus = {
+		id = SVN_zongtizhan
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = SVN_ronghe_fulongzhi }
+		relative_position_id = SVN_ronghe_fulongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = extensive_conscription
+		}
+	}
+	#工业总动员
+	focus = {
+		id = SVN_gongye_zongdongyuan
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SVN_zongtizhan }
+		relative_position_id = SVN_zongtizhan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+	#革命民兵
+	focus = {
+		id = SVN_geming_minbing
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SVN_zongtizhan }
+		relative_position_id = SVN_zongtizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SVN_gm_minbing
+		}
+	}
+	#思想教育工作
+	focus = {
+		id = SVN_sixiang_jiaoyu
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = SVN_zongtizhan }
+		relative_position_id = SVN_zongtizhan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#联合游击队
+	focus = {
+		id = SVN_lianhe_youjidui
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = SVN_geming_minbing }
+		relative_position_id = SVN_geming_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SVN_youjidui
+		}
+	}
+	#北方的红星
+	focus = {
+		id = SVN_beifang_hongxing
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = SVN_lianhe_youjidui }
+		relative_position_id = SVN_lianhe_youjidui
+		available = {
+		RNE = {
+		exists = no
+		}
+		POA = {
+		exists = no
+		}
+		PRM = {
+		exists = no
+		}
+		has_war = no
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		dismantle_faction = yes
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = SVN
+			}
+		}
+	}
+}

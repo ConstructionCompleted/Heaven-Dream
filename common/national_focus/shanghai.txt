@@ -1,0 +1,581 @@
+focus_tree = {
+	id = SAH_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SAH
+		}
+	}
+	
+	default = no
+
+    #冲锋之战
+	focus = {
+		id = SAH_chongfeng_zhizhan
+		icon = GFX_goal_generic_construction
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SAH_chongfeng
+		}
+	}
+	#整合军事工业
+	focus = {
+		id = SAH_zhenghe_junshi_gongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_chongfeng_zhizhan}
+		relative_position_id = SAH_chongfeng_zhizhan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+    #斩首蒋介石
+	focus = {
+		id = SAH_zhanshou_jiangjieshi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_chongfeng_zhizhan}
+		relative_position_id = SAH_chongfeng_zhizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NNJ = {
+			kill_country_leader = yes
+			add_stability = -1
+			load_focus_tree = tongyong
+			}
+		}
+	}
+	#整合上海武装
+	focus = {
+		id = SAH_zhanghe_shanghai_wuzhuang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_chongfeng_zhizhan}
+		relative_position_id = SAH_chongfeng_zhizhan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = SAH
+}
+		}
+	}
+	#会面
+	focus = {
+		id = SAH_huimian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_zhenghe_junshi_gongye}
+		prerequisite = { focus = SAH_zhanshou_jiangjieshi}
+		prerequisite = { focus = SAH_zhanghe_shanghai_wuzhuang}
+		relative_position_id = SAH_zhanshou_jiangjieshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huanan.16
+	days = 2
+}
+		}
+	}
+	#艺术革命
+	focus = {
+		id = SAH_yishu_geming
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_huimian}
+		relative_position_id = SAH_huimian
+		mutually_exclusive = { focus = SAH_lanyi_chongfeng }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			set_politics = {
+	ruling_party = communism
+}
+		}
+	}
+	#撕碎官僚体系
+	focus = {
+		id = SAH_sisui_guanliao_tixi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_yishu_geming}
+		relative_position_id = SAH_yishu_geming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SAH_newtixi
+		}
+	}
+	#上海民兵
+	focus = {
+		id = SAH_shanghai_minbing
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_yishu_geming}
+		relative_position_id = SAH_yishu_geming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SAH_minbing
+		}
+	}
+	#建立公社体制
+	focus = {
+		id = SAH_jianli_gongshe_tizhi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_sisui_guanliao_tixi}
+		relative_position_id = SAH_sisui_guanliao_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SAH_newtixi_2
+			remove_idea = SAH_newtixi
+			}
+		}
+	}
+	#上海计划经济
+	focus = {
+		id = SAH_shanghai_jihua_jingji
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_sisui_guanliao_tixi}
+		prerequisite = { focus = SAH_shanghai_minbing}
+		relative_position_id = SAH_shanghai_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SAH_plan_con
+		}
+	}
+	#人民冲锋
+	focus = {
+		id = SAH_peopal_chongfeng
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_shanghai_minbing}
+		relative_position_id = SAH_shanghai_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SAH_renmin_army
+		}
+	}
+	#文化革新
+	focus = {
+		id = SAH_wenhua_gexin
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_jianli_gongshe_tizhi}
+		prerequisite = { focus = SAH_shanghai_jihua_jingji}
+		relative_position_id = SAH_jianli_gongshe_tizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SAH_newtixi_3
+			remove_idea = SAH_newtixi_2
+			}
+		}
+	}
+	#军队戏剧
+	focus = {
+		id = SAH_jundui_xiju
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_shanghai_minbing}
+		prerequisite = { focus = SAH_shanghai_jihua_jingji}
+		relative_position_id = SAH_shanghai_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SAH_renmin_army_2
+			remove_idea = SAH_renmin_army
+			}
+		}
+	}
+	#人民的国家
+	focus = {
+		id = SAH_renmin_guojia
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_wenhua_gexin}
+		prerequisite = { focus = SAH_jundui_xiju}
+		relative_position_id = SAH_jundui_xiju
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NNJ = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		CCP = {
+		annex_country = {
+    target = SAH
+    transfer_troops = yes
+}
+		}
+		}
+	}
+	#蓝衣冲锋
+	focus = {
+		id = SAH_lanyi_chongfeng
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_huimian}
+		relative_position_id = SAH_huimian
+		mutually_exclusive = { focus = SAH_yishu_geming }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.2
+}
+		}
+	}
+	#肃清反抗者
+	focus = {
+		id = SAH_suqing_fankangzhe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_lanyi_chongfeng}
+		relative_position_id = SAH_lanyi_chongfeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = communism
+    popularity = -0.2
+}
+		}
+	}
+	#整编黑帮
+	focus = {
+		id = SAH_zhengbian_heibang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_lanyi_chongfeng}
+		relative_position_id = SAH_lanyi_chongfeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SAH_zhengbian_heibang
+		}
+	}
+	#冲锋队扩建
+	focus = {
+		id = SAH_chongfengdui_kuojian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_lanyi_chongfeng}
+		relative_position_id = SAH_lanyi_chongfeng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SAH_chongfengdui
+		}
+	}
+	#冲锋政治
+	focus = {
+		id = SAH_chongfeng_zhengzhi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_lanyi_chongfeng}
+		prerequisite = { focus = SAH_zhengbian_heibang}
+		relative_position_id = SAH_zhengbian_heibang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SAH_chongfeng_zhengzhi
+		}
+	}
+	#民族燃烧
+	focus = {
+		id = SAH_minzu_ranshao
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_chongfeng_zhengzhi}
+		relative_position_id = SAH_chongfeng_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = SAH_chongfeng_zhengzhi_2
+			remove_idea = SAH_chongfeng_zhengzhi
+			}
+		}
+	}
+	#汉族战争
+	focus = {
+		id = SAH_hanzu_zhanzheng
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_chongfengdui_kuojian}
+		prerequisite = { focus = SAH_zhengbian_heibang}
+		relative_position_id = SAH_zhengbian_heibang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = SAH_hanzu_zhanzheng
+		}
+	}
+	#党派卫队
+	focus = {
+		id = SAH_dangpai_weidui
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_hanzu_zhanzheng}
+		relative_position_id = SAH_hanzu_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = SAH_hanzu_zhanzheng_2
+			remove_idea = SAH_hanzu_zhanzheng
+			}
+		}
+	}
+	#建立帝国
+	focus = {
+		id = SAH_jianli_diguo
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SAH_minzu_ranshao}
+		prerequisite = { focus = SAH_dangpai_weidui}
+		relative_position_id = SAH_minzu_ranshao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = NWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = WAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZHI
+    type = annex_everything
+}
+declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAD
+    type = annex_everything
+}
+declare_war_on = {
+    target = FEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NNJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+declare_war_on = {
+    target = CCP
+    type = annex_everything
+}
+declare_war_on = {
+    target = CGH
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUE
+    type = annex_everything
+}
+declare_war_on = {
+    target = OGU
+    type = annex_everything
+}
+declare_war_on = {
+    target = GUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = QYZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = DIA
+    type = annex_everything
+}
+declare_war_on = {
+    target = QAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUX
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHU
+    type = annex_everything
+}
+declare_war_on = {
+    target = XKA
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZAG
+    type = annex_everything
+}
+declare_war_on = {
+    target = JIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = QIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = HAM
+    type = annex_everything
+}
+declare_war_on = {
+    target = ETK
+    type = annex_everything
+}
+declare_war_on = {
+    target = XQJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKD
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHR
+    type = annex_everything
+}
+declare_war_on = {
+    target = MOG
+    type = annex_everything
+}
+declare_war_on = {
+    target = SUY
+    type = annex_everything
+}
+declare_war_on = {
+    target = TWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+		}
+	}
+}

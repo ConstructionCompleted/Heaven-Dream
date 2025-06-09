@@ -1,0 +1,97 @@
+on_actions = {
+on_weekly_HDS = {
+   effect = {
+   HDS = {
+   add_to_variable = { HDS.fandui_liliang = -1 }
+   if = {
+   limit = {
+   check_variable = { HDS.fandui_liliang < 30 }
+   }
+   remove_ideas = HDS_fanduipai_3
+   remove_ideas = HDS_fanduipai_2
+   remove_ideas = HDS_fanduipai_1
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.fandui_liliang < 30 }
+   }
+   remove_ideas = HDS_fanduipai_2
+   remove_ideas = HDS_fanduipai_3
+   add_ideas = HDS_fanduipai_1
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.fandui_liliang > 30 }
+   check_variable = { HDS.fandui_liliang < 60 }
+   }
+   add_ideas = HDS_fanduipai_2
+   remove_ideas = HDS_fanduipai_1
+   remove_ideas = HDS_fanduipai_3
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.fandui_liliang > 60 }
+   check_variable = { HDS.fandui_liliang < 100 }
+   }
+   add_ideas = HDS_fanduipai_3
+   remove_ideas = HDS_fanduipai_2
+   remove_ideas = HDS_fanduipai_1
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.jiqaun_du > 20 }
+   check_variable = { HDS.jiqaun_du < 40 }
+   }
+   add_ideas = HDS_jiqaun_1
+   remove_ideas = HDS_jiqaun_2
+   remove_ideas = HDS_jiqaun_3
+   remove_ideas = HDS_jiqaun_4
+   remove_ideas = HDS_jiqaun_5
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.jiqaun_du > 40 }
+   check_variable = { HDS.jiqaun_du < 60 }
+   }
+   add_ideas = HDS_jiqaun_2
+   remove_ideas = HDS_jiqaun_1
+   remove_ideas = HDS_jiqaun_3
+   remove_ideas = HDS_jiqaun_4
+   remove_ideas = HDS_jiqaun_5
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.jiqaun_du > 60 }
+   check_variable = { HDS.jiqaun_du < 80 }
+   }
+   add_ideas = HDS_jiqaun_3
+   remove_ideas = HDS_jiqaun_2
+   remove_ideas = HDS_jiqaun_1
+   remove_ideas = HDS_jiqaun_4
+   remove_ideas = HDS_jiqaun_5
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.jiqaun_du > 80 }
+   check_variable = { HDS.jiqaun_du < 100 }
+   }
+   add_ideas = HDS_jiqaun_4
+   remove_ideas = HDS_jiqaun_2
+   remove_ideas = HDS_jiqaun_3
+   remove_ideas = HDS_jiqaun_1
+   remove_ideas = HDS_jiqaun_5
+   }
+   if = {
+   limit = {
+   check_variable = { HDS.jiqaun_du > 100 }
+   }
+   add_ideas = HDS_jiqaun_5
+   remove_ideas = HDS_jiqaun_2
+   remove_ideas = HDS_jiqaun_3
+   remove_ideas = HDS_jiqaun_4
+   remove_ideas = HDS_jiqaun_1
+   }
+   }
+}
+}
+}

@@ -1,0 +1,762 @@
+holy_dabuliedian_bengkui = {
+    #大不列颠，结束了
+    holy_dabuliedian_jieshu = {
+        visible = {
+        tag = UKM
+        }  
+        activation = {                          
+            has_idea = UKM_dabuliedian_bengkui                       
+        }
+		available = {                           
+            date < 1939.6.1	
+			NOT = {
+			has_war_with = EGL
+			}
+			NOT = {
+			has_war_with = ELB
+			}
+			NOT = {
+			has_war_with = SCO
+			}
+			NOT = {
+			has_war_with = SCL
+			}
+			NOT = {
+			has_war_with = WLS
+			}
+        }
+        is_good = no
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 720             
+        timeout_effect = {                     
+            release = IRE
+            release = SCO
+			release = MLT
+			release = SRL
+			release = MLD
+			release = WLS
+            end_puppet = CAN
+			end_puppet = MAL
+			end_puppet = SAF
+			end_puppet = MLT
+			end_puppet = BRM
+			dismantle_faction = yes
+			if = {
+	limit = {
+	controls_state = 687
+		    controls_state = 310
+			controls_state = 309
+			}
+			}
+			if = {
+	limit = {
+	controls_state = 658
+			}
+			UAE = {
+			transfer_state = 658
+			}
+			}
+			if = {
+	limit = {
+	controls_state = 659
+		    controls_state = 1062
+			controls_state = 1063
+			}
+			YEM = {
+			transfer_state = 659
+			transfer_state = 1062
+			transfer_state = 1063
+			}
+			}
+			if = {
+	limit = {
+		    controls_state = 299
+			controls_state = 720
+			}
+			ARG = {
+			transfer_state = 299
+			transfer_state = 720
+			}
+			}
+			if = {
+	limit = {
+	XBY = { owns_state = 43 }
+	}
+	XBY = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	GLD = { owns_state = 43 }
+	}
+	GLD = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	CSP = { owns_state = 43 }
+	}
+	CSP = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	UKH = { owns_state = 43 }
+	}
+	UKH = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	CAT = { owns_state = 43 }
+	}
+	CAT = { transfer_state = 118 }
+	}
+}
+        complete_effect = {                  
+			add_political_power = 200
+			add_stability = 0.5
+			remove_ideas = UKM_dabuliedian_bengkui
+        }
+    }
+	#苏格兰独立
+	holy_sugelan_duli = {                          
+        allowed = { tag = UKM }                
+        is_good = no               
+        activation = {                          
+            has_idea = UKM_dabuliedian_bengkui                       
+        }		
+		available = {                           
+            has_completed_focus = UKM_sugelan_chonggui_wending
+        }
+		fire_only_once = yes
+        selectable_mission = no               
+        days_mission_timeout = 105             
+        timeout_effect = {
+		news_event = {
+				id = holy_news.97 days = 1
+			}
+		SCO = {
+		transfer_state = 121
+		transfer_state = 120
+		transfer_state = 136
+		transfer_state = 1357
+		transfer_state = 1385
+		load_oob = SCO_army
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCL
+    type = annex_everything
+}
+declare_war_on = {
+    target = EGL
+    type = annex_everything
+}
+IRE = { add_to_faction = SCO }
+		}
+		SCL = {
+		transfer_state = 133
+		transfer_state = 917
+		add_state_core = 121
+		add_state_core = 120
+		add_state_core = 136
+		add_state_core = 133
+		add_state_core = 917
+		add_state_core = 1357
+		add_state_core = 1385
+		load_oob = SCL_1936
+		declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+EGL = { add_to_faction = SCL }
+        }		
+		}
+		complete_effect = {
+        add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 60
+			}		
+        }
+	}
+	#魁北克独立
+	holy_kuibeike_duli = {                          
+        allowed = { tag = UKM }                
+        is_good = no               
+        activation = {                          
+            has_idea = UKM_dabuliedian_bengkui                       
+        }		
+		fire_only_once = yes
+		available = {   
+        has_completed_focus	= UKM_diguo_jiangyu	
+        OR = {		
+            has_completed_focus = UKM_can_liangzu_renmin
+        }
+		}
+        selectable_mission = no               
+        days_mission_timeout = 180             
+        timeout_effect = {
+		KBK = {
+		transfer_state = 466
+		transfer_state = 862
+		transfer_state = 863
+		load_oob = KBK_army
+		declare_war_on = {
+    target = CAN
+    type = annex_everything
+}
+		}
+		news_event = {
+				id = holy_news.90 days = 1
+			}
+        }		
+		complete_effect = {
+        add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 48
+			}		
+        }
+	}
+	#结束战争
+	holy_over_war = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_guowang_dangyu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		    NOT = {
+			has_war_with = EGL
+			}
+			NOT = {
+			has_war_with = ELB
+			}
+			NOT = {
+			has_war_with = SCO
+			}
+			NOT = {
+			has_war_with = SCL
+			}
+			NOT = {
+			has_war_with = WLS
+			}
+			NOT = {
+			has_war_with = IRE
+			}
+			NOT = {
+			has_war_with = IRP
+			}
+			NOT = {
+			has_war_with = NIR
+			}
+			NOT = {
+			has_war_with = KBK
+			}
+		}
+		complete_effect = {
+			remove_ideas = UKM_dabuliedian_bengkui
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持陆军地位
+	holy_zhichi_lujun_diwei = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_guowang_dangyu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		UKM = {
+		has_idea = UKM_guowang_dangyu
+		has_army_experience = 30
+		}
+		}
+		days_re_enable = 10
+		complete_effect = {
+			army_experience = -30
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.025
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#伦敦驻军
+	holy_lundun_zhujun = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_guowang_dangyu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		UKM = {
+		has_idea = UKM_guowang_dangyu
+		has_manpower = 200
+		}
+		}
+		days_re_enable = 10
+		complete_effect = {
+			has_manpower = 2000
+			add_popularity = {
+    ideology = conservatism
+    popularity = -0.04
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#拉拢政治人物
+	holy_lalong_zhengzhi_renuwu = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_guowang_dangyu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		has_idea = UKM_guowang_dangyu
+		}
+		days_re_enable = 10
+		complete_effect = {
+			add_political_power = -50
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.025
+}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#贵族宴会
+	holy_guizu_yanhui = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_guowang_dangyu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		has_idea = UKM_guowang_dangyu
+		}
+		days_re_enable = 20
+		complete_effect = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.015
+}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#拉拢反对派
+	holy_lalong_fanduipai = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_zhichi_minzhu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		has_idea = UKM_zhichi_minzhu
+		}
+		days_re_enable = 10
+		complete_effect = {
+		add_political_power = -50
+			add_popularity = {
+    ideology = conservatism
+    popularity = 0.025
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#伦敦演讲
+	holy_lundun_yanjiang = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_zhichi_minzhu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		available = {
+		has_idea = UKM_zhichi_minzhu
+		}
+		days_re_enable = 10
+		complete_effect = {
+		add_stability = 0.03
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#殖民地交流
+	holy_zhimindi_jiaoliu = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_zhichi_minzhu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		has_idea = UKM_zhichi_minzhu
+		}
+		complete_effect = {
+		add_ideas = UKM_zhimindi_jiaoliu
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#皇家海军
+	holy_huangjia_haijun = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_zhichi_minzhu
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		days_re_enable = 10
+		available = {
+		has_idea = UKM_zhichi_minzhu
+		has_navy_experience = 20
+		}
+		complete_effect = {
+		navy_experience = -20
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.025
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#组建新军
+	holy_zujian_new_army = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		days_re_enable = 100
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		has_idea = UKM_kuojun
+		has_equipment = {
+    infantry_equipment > 10000
+}
+		}
+		complete_effect = {
+		add_manpower = -60000
+		load_oob = UKM_lundun_xinjun
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#武装加拿大
+	holy_wuzhaung_jianada = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		days_re_enable = 180
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		has_idea = UKM_kuojun
+		CAN = { 
+		has_equipment = {
+    infantry_equipment > 20000
+}
+		}
+		}
+		complete_effect = {
+		CAN = { 
+		add_manpower = -100000
+		load_oob = CAN_minbing
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 20000
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#武装南非
+	holy_wuzhaung_nanfei = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		days_re_enable = 180
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		has_idea = UKM_kuojun
+		SAF = { 
+		has_equipment = {
+    infantry_equipment > 20000
+}
+}
+		}
+		complete_effect = {
+		SAF = { 
+		add_manpower = -100000 
+		load_oob = SAF_minbing
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 20000
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#苏格兰重归稳定
+	holy_SCO_chonggui_wending = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		NOT = {
+		has_active_mission = holy_sugelan_duli
+		has_war_with = SCO
+		}
+		}
+		complete_effect = {
+		add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 45
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#魁北克重归稳定
+	holy_KBK_chonggui_wending = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		NOT = {
+		has_active_mission = holy_kuibeike_duli
+		has_war_with = KBK
+		}
+		}
+		complete_effect = {
+		add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 45
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#马来亚重归稳定
+	holy_MAL_chonggui_wending = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		NOT = {
+		has_active_mission = holy_malaiya_duli
+		has_war_with = MAL
+		}
+		}
+		complete_effect = {
+		add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 45
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#爱尔兰重归稳定
+	holy_IRE_chonggui_wending = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		has_idea = UKM_dabuliedian_bengkui
+		NOT = {
+		has_war_with = IRE
+		}
+		}
+		complete_effect = {
+		add_days_mission_timeout = {
+				mission = holy_dabuliedian_jieshu
+				days = 45
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#君主回归不列颠
+	holy_junzhu_huigui_buliedian = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		neutrality > 0.5
+		has_idea = UKM_guowang_dangyu
+		}
+		complete_effect = {
+		remove_ideas = UKM_guowang_dangyu
+		complete_national_focus = UKM_nvhuang_zailin_buliedian
+		set_politics = {
+	ruling_party = neutrality
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#民主的不列颠
+	holy_minzhu_de_buliedian = {
+
+		icon = generic_army_support
+		visible = {
+            has_idea = UKM_dabuliedian_bengkui
+          }
+		allowed = { 
+		    OR = {
+			    tag = UKM
+		    }
+	    }	
+		fire_only_once = yes
+		available = {
+		conservatism > 0.75
+		has_idea = UKM_zhichi_minzhu
+		}
+		complete_effect = {
+		remove_ideas = UKM_zhichi_minzhu
+		complete_national_focus = UKM_minzhu_yongcun
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

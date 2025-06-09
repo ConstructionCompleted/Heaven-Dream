@@ -1,0 +1,536 @@
+focus_tree = {
+	id = TWA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = TWA
+		}
+	}
+	
+	default = no
+ 
+	#台湾民主
+	focus = {
+		id = TWA_taiwan_minzhu
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#台湾革命同盟
+	focus = {
+		id = TWA_taiwan_geming_tongmeng
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TWA_taiwan_minzhu}
+		relative_position_id = TWA_taiwan_minzhu
+		mutually_exclusive = { focus = TWA_taiwan_minzhu_lianmeng }
+		mutually_exclusive = { focus = TWA_weihu_taiwan_zhongli }
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = progressism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = progressism
+}
+		}
+	}
+	#支援福建
+	focus = {
+		id = TWA_zhiyuan_fujian
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = TWA_taiwan_geming_tongmeng}
+		relative_position_id = TWA_taiwan_geming_tongmeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		CGH = {
+		    country_event = {
+    id = holy_fujia.14
+	days = 7
+}
+		}
+		}
+	}
+	#台湾工业化
+	focus = {
+		id = TWA_taiwan_gongeyahua
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = TWA_taiwan_geming_tongmeng}
+		relative_position_id = TWA_taiwan_geming_tongmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#征服海峡
+	focus = {
+		id = TWA_zhengfu_haixia
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = TWA_zhiyuan_fujian}
+		prerequisite = { focus = TWA_taiwan_gongeyahua}
+		relative_position_id = TWA_taiwan_gongeyahua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		CGH = {
+		controls_state = 1286
+		controls_state = 1291
+		}
+		}
+		bypass = {
+		CGH = {
+		OR = {
+			exists = no
+			has_capitulated = yes
+			}
+		}
+		}
+		completion_reward = {
+		1286 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		1291 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		navy_experience = 50
+		}
+	}
+	#推进科研
+	focus = {
+	    id = TWA_tuijin_keyan
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = TWA_zhengfu_haixia}
+		relative_position_id = TWA_zhengfu_haixia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#组建台湾义勇军
+	focus = {
+		id = TWA_zujian_taiwan_yiyongjun
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = TWA_taiwan_geming_tongmeng}
+		relative_position_id = TWA_taiwan_geming_tongmeng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_ideas = TWA_zujian_taiwan_yiyongjun
+		}
+	}
+	#扩建工业
+	focus = {
+		id = TWA_kuojian_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = TWA_zujian_taiwan_yiyongjun}
+		prerequisite = { focus = TWA_taiwan_gongeyahua}
+		relative_position_id = TWA_taiwan_gongeyahua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		524 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#组建台湾军备
+	focus = {
+		id = TWA_zujian_taiwan_junbei
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = TWA_kuojian_gongye}
+		relative_position_id = TWA_kuojian_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		524 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#参与二次革命
+	focus = {
+		id = TWA_canyu_erci_geming
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TWA_tuijin_keyan}
+		prerequisite = { focus = TWA_zujian_taiwan_junbei}
+		relative_position_id = TWA_zujian_taiwan_junbei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		KMT = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		KMT = { puppet = TWA }
+		}
+	}
+	#维护台湾中立
+	focus = {
+		id = TWA_weihu_taiwan_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = TWA_taiwan_minzhu}
+		relative_position_id = TWA_taiwan_minzhu
+		mutually_exclusive = { focus = TWA_taiwan_minzhu_lianmeng }
+		mutually_exclusive = { focus = TWA_taiwan_geming_tongmeng }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_political_power = 100
+		}
+	}
+	#保卫台湾
+	focus = {
+		id = TWA_baowei_taiwa
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = TWA_weihu_taiwan_zhongli}
+		relative_position_id = TWA_weihu_taiwan_zhongli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_ideas = TWA_baowei_taiwan
+		}
+	}
+	#扩建台湾武装
+	focus = {
+		id = TWA_kuojian_wuzhuang
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = TWA_baowei_taiwa}
+		relative_position_id = TWA_baowei_taiwa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = TWA_baowei_taiwan_2
+			remove_idea = TWA_baowei_taiwan
+			}
+		}
+	}
+	#组建自卫民兵
+	focus = {
+		id = TWA_zujian_ziwei_minbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = TWA_kuojian_wuzhuang}
+		relative_position_id = TWA_kuojian_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    load_oob = TWA_minbing
+		}
+	}
+	#台湾开发
+	focus = {
+		id = TWA_taiwan_kaifa
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = TWA_weihu_taiwan_zhongli}
+		relative_position_id = TWA_weihu_taiwan_zhongli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    524 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#征服群山
+	focus = {
+		id = TWA_zhengfu_qunshan
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = TWA_taiwan_kaifa}
+		relative_position_id = TWA_taiwan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_ideas = TWA_zhengfu_qunshan
+		}
+	}
+	#推进民族融合
+	focus = {
+		id = TWA_tuijin_minzu
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = TWA_zhengfu_qunshan}
+		relative_position_id = TWA_zhengfu_qunshan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    524 = {
+			add_manpower = 500000
+			}
+		}
+	}
+	#台湾民主联盟
+	focus = {
+		id = TWA_taiwan_minzhu_lianmeng
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = TWA_taiwan_minzhu}
+		relative_position_id = TWA_taiwan_minzhu
+		mutually_exclusive = { focus = TWA_weihu_taiwan_zhongli }
+		mutually_exclusive = { focus = TWA_taiwan_geming_tongmeng }
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#清理革命同盟
+	focus = {
+		id = TWA_qingli_geming_tongmeng
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = TWA_taiwan_minzhu_lianmeng}
+		relative_position_id = TWA_taiwan_minzhu_lianmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = progressism
+    popularity = -0.2
+}
+		}
+	}
+	#建立新军
+	focus = {
+		id = TWA_jianli_xinjun
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = TWA_qingli_geming_tongmeng}
+		relative_position_id = TWA_qingli_geming_tongmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    load_oob = TWA_newarmy
+		}
+	}
+	#台湾工业
+	focus = {
+		id = TWA_taiwan_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = TWA_taiwan_minzhu_lianmeng}
+		relative_position_id = TWA_taiwan_minzhu_lianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    524 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#银行建设
+	focus = {
+		id = TWA_yinhang_jianshe
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = TWA_taiwan_gongye}
+		prerequisite = { focus = TWA_qingli_geming_tongmeng}
+		relative_position_id = TWA_taiwan_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    524 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#自由化投资
+	focus = {
+		id = TWA_ziyouhua_touzi
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = TWA_taiwan_gongye}
+		relative_position_id = TWA_taiwan_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    add_ideas = TWA_free_touzi
+		}
+	}
+	#征服大海
+	focus = {
+		id = TWA_zhengfu_dahai
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = TWA_jianli_xinjun}
+		prerequisite = { focus = TWA_yinhang_jianshe}
+		prerequisite = { focus = TWA_ziyouhua_touzi}
+		relative_position_id = TWA_yinhang_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		    524 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#参加战争
+	focus = {
+		id = TWA_canjia_war
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = TWA_zhengfu_dahai}
+		relative_position_id = TWA_zhengfu_dahai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		NNJ = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		NNJ = { puppet = TWA }
+		}
+	}
+}

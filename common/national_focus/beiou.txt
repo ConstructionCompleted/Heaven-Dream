@@ -1,0 +1,1921 @@
+focus_tree = {
+	id = KEM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KEM
+		}
+	}
+	
+	default = no
+ 
+    #冰天雪地之间
+	focus = {
+		id = KEM_bingtian_xuedi_zhijian
+		icon = GFX_goal_support_democracy
+		x = 35
+		y = 1
+		cost = 8
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#宁静的午夜
+	focus = {
+		id = KEM_ningjing_wuye
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = KEM_bingtian_xuedi_zhijian}
+		relative_position_id = KEM_bingtian_xuedi_zhijian
+		x = 0
+		y = 1
+		cost = 0.2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_beiou.9
+	days = 1
+	}
+		}
+	}
+	#动荡
+	focus = {
+		id = KEM_dongdang
+		icon = GFX_1111111
+		prerequisite = { focus = KEM_ningjing_wuye}
+		relative_position_id = KEM_ningjing_wuye
+		x = 0
+		y = 1
+		cost = 50
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#维护哥本哈根
+	focus = {
+		id = KEM_weihu_gebenhagen
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = KEM_dongdang}
+		relative_position_id = KEM_dongdang
+		mutually_exclusive = { focus = KEM_baowei_wangquan }
+		mutually_exclusive = { focus = KEM_junshi_zhenya }
+		mutually_exclusive = { focus = KEM_hanwei_minzhu }
+		x = -12
+		y = 1
+		cost = 1
+		available = {
+		has_government = democratic
+		has_country_leader = {
+    name = "伊莱亚斯·科尼利乌森"
+    ruling_only = yes
+}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#收编残余部队
+	focus = {
+		id = KEM_shoubian_canyu_budui
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = KEM_weihu_gebenhagen}
+		relative_position_id = KEM_weihu_gebenhagen
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_shoubian_budui
+		}
+	}
+	#动员民兵
+	focus = {
+		id = KEM_dongyuan_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = KEM_weihu_gebenhagen }
+		relative_position_id = KEM_weihu_gebenhagen
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		load_oob = KEM_minbing
+		}
+	}
+	#武装海军陆战队
+	focus = {
+		id = KEM_wuzhaung_haijunluzhandui
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = KEM_weihu_gebenhagen}
+		relative_position_id = KEM_weihu_gebenhagen
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_wuzhaung_navy_luzhandui
+		}
+	}
+	#登录奥斯陆
+	focus = {
+		id = KEM_denglu_aosilu
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = KEM_wuzhaung_haijunluzhandui}
+		relative_position_id = KEM_wuzhaung_haijunluzhandui
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_beiou.27
+    days = 4
+	}
+	110 = {
+	set_demilitarized_zone = yes
+	}
+		}
+	}
+	#保证国家稳定
+	focus = {
+		id = KEM_baozheng_guojia_wending
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = KEM_shoubian_canyu_budui}
+		prerequisite = { focus = KEM_dongyuan_minbing}
+		prerequisite = { focus = KEM_wuzhaung_haijunluzhandui}
+		relative_position_id = KEM_wuzhaung_haijunluzhandui
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#凝聚民主力量
+	focus = {
+		id = KEM_ningju_minzhu_liliang
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = KEM_shoubian_canyu_budui}
+		prerequisite = { focus = KEM_dongyuan_minbing}
+		prerequisite = { focus = KEM_wuzhaung_haijunluzhandui}
+		relative_position_id = KEM_wuzhaung_haijunluzhandui
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+        add_ideas = KEM_ningju_minzhu_liliang
+		}
+	}
+	#向不列颠的承诺
+	focus = {
+		id = KEM_xiang_buliedian_chengnuo
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = KEM_shoubian_canyu_budui}
+		prerequisite = { focus = KEM_dongyuan_minbing}
+		prerequisite = { focus = KEM_wuzhaung_haijunluzhandui}
+		relative_position_id = KEM_wuzhaung_haijunluzhandui
+		x = 5
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = NOR_ziyoumaoyi
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+	producer = UKM
+}
+		}
+	}
+	#北海稳定
+	focus = {
+		id = KEM_beihai_wending
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = KEM_denglu_aosilu}
+		prerequisite = { focus = KEM_baozheng_guojia_wending}
+		relative_position_id = KEM_denglu_aosilu
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 110
+		}
+		completion_reward = {
+	100 = {
+	set_demilitarized_zone = no
+	}
+	101 = {
+	set_demilitarized_zone = no
+	}
+	337 = {
+	set_demilitarized_zone = no
+	}
+	load_oob = KEM_beihai_zhichi
+		}
+	}
+	#突袭斯堪尼亚
+	focus = {
+		id = KEM_tuxi_sikanniya
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KEM_baozheng_guojia_wending}
+		prerequisite = { focus = KEM_ningju_minzhu_liliang}
+		relative_position_id = KEM_baozheng_guojia_wending
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 37
+        num_provinces = 5
+		on_win = holy_beiou.29
+    }
+				
+    defender = {
+        state = 138
+        num_provinces = 5
+    }
+}
+		}
+	}
+	#登录波罗的海岛屿
+	focus = {
+		id = KEM_denglu_boluodihai_daoyu
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = KEM_ningju_minzhu_liliang}
+		relative_position_id = KEM_baozheng_guojia_wending
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power  = 100
+		}
+	}
+	#北上
+	focus = {
+		id = KEM_beishang
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = KEM_tuxi_sikanniya}
+		relative_position_id = KEM_tuxi_sikanniya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+		}
+	}
+	#沿海支援
+	focus = {
+		id = KEM_yanhai_zhiyuan
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = KEM_beishang}
+		relative_position_id = KEM_beishang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_yanan_huoli
+		}
+	}
+	#登录计划
+	focus = {
+		id = KEM_denglu_jihua
+		icon = GFX_focus_usa_escort_fighters
+		prerequisite = { focus = KEM_yanhai_zhiyuan}
+		relative_position_id = KEM_yanhai_zhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_denglu_plan
+		}
+	}
+	#封锁挪威
+	focus = {
+		id = KEM_fengsuo_nuowei
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = KEM_denglu_jihua}
+		relative_position_id = KEM_denglu_jihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		NOR = {
+		add_ideas = KEM_fengsuo
+		}
+		}
+	}
+	#跨过厄勒海峡
+	focus = {
+		id = KEM_kuaguo_ele_haixia
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = KEM_beishang}
+		relative_position_id = KEM_beishang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_kuaguo_haixia
+		}
+	}
+	#火力覆盖
+	focus = {
+		id = KEM_huoli_fugai
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = KEM_kuaguo_ele_haixia}
+		relative_position_id = KEM_kuaguo_ele_haixia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+	#封锁瑞典
+	focus = {
+		id = KEM_fengsuo_ruidian
+		icon = GFX_focus_GRE_a_long_and_proud_tradition
+		prerequisite = { focus = KEM_huoli_fugai}
+		relative_position_id = KEM_huoli_fugai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		NOR = {
+		add_ideas = KEM_fengsuo
+		}
+		}
+	}
+	#向芬兰前进
+	focus = {
+		id = KEM_xiang_fenlan_qianjin
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = KEM_fengsuo_ruidian}
+		prerequisite = { focus = KEM_fengsuo_nuowei}
+		relative_position_id = KEM_fengsuo_ruidian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = SWE
+		has_war_with = NOR
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#炮击赫尔辛基
+	focus = {
+		id = KEM_paojji_heerxinji
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = KEM_xiang_fenlan_qianjin}
+		relative_position_id = KEM_xiang_fenlan_qianjin
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		111 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		111 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+		111 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		}
+	}
+	#联合反对者
+	focus = {
+		id = KEM_lianhe_fanduizhe
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = KEM_xiang_fenlan_qianjin}
+		relative_position_id = KEM_xiang_fenlan_qianjin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		FIN = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#适应政策
+	focus = {
+		id = KEM_shiying_zhengce
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = KEM_xiang_fenlan_qianjin}
+		relative_position_id = KEM_xiang_fenlan_qianjin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_shiyingzhengce
+		}
+	}
+	#后勤准备
+	focus = {
+		id = KEM_houqin_zhunbei
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = KEM_xiang_fenlan_qianjin}
+		relative_position_id = KEM_xiang_fenlan_qianjin
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 666
+		}
+		completion_reward = {
+		666 = {
+		add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#北海之梦
+	focus = {
+		id = KEM_beihai_zhimeng
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = KEM_xiang_fenlan_qianjin}
+		relative_position_id = KEM_xiang_fenlan_qianjin
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 139
+		controls_state = 140
+		controls_state = 141
+		controls_state = 38
+		controls_state = 666
+		controls_state = 110
+		controls_state = 142
+		controls_state = 143
+		controls_state = 144
+		controls_state = 111
+		controls_state = 150
+		controls_state = 149
+		controls_state = 148
+		controls_state = 722
+		controls_state = 147
+		controls_state = 337
+		controls_state = 110
+		controls_state = 101
+		controls_state = 37
+		controls_state = 99
+		controls_state = 138
+		FIN = {
+		exists = no
+		}
+		SWE = {
+		exists = no
+		}
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#捍卫民主
+	focus = {
+		id = KEM_hanwei_minzhu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = KEM_dongdang}
+		relative_position_id = KEM_dongdang
+		mutually_exclusive = { focus = KEM_baowei_wangquan }
+		mutually_exclusive = { focus = KEM_junshi_zhenya }
+		mutually_exclusive = { focus = KEM_weihu_gebenhagen }
+		x = -4
+		y = 1
+		cost = 1
+		available = {
+		has_government = conservatism
+		has_country_leader = {
+    name = "舞铲"
+    ruling_only = yes
+}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#维护北欧联合
+	focus = {
+		id = KEM_weihu_beiou_lianhe
+		icon = GFX_focus_generic_scandinavian_alliance
+		prerequisite = { focus = KEM_hanwei_minzhu}
+		relative_position_id = KEM_hanwei_minzhu
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 100
+		}
+	}
+	#民主卫士
+	focus = {
+		id = KEM_minzhu_weishi
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = KEM_hanwei_minzhu}
+		relative_position_id = KEM_hanwei_minzhu
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#为和平而战
+	focus = {
+		id = KEM_for_wp_war
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = KEM_weihu_beiou_lianhe}
+		prerequisite = { focus = KEM_minzhu_weishi}
+		relative_position_id = KEM_weihu_beiou_lianhe
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_wp_war
+		}
+	}
+	#动员民兵
+	focus = {
+		id = KEM_dongyuan_minbing_2
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = KEM_for_wp_war}
+		relative_position_id = KEM_for_wp_war
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_minbing
+		}
+	}
+	#联络联邦民主派
+	focus = {
+		id = KEM_lianluo_lianbang_minzhupai
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = KEM_weihu_beiou_lianhe}
+		prerequisite = { focus = KEM_minzhu_weishi}
+		relative_position_id = KEM_weihu_beiou_lianhe
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+	producer = KEM
+}
+		}
+	}
+	#召回边疆军队
+	focus = {
+		id = KEM_zhaohui_bianjiang_jundui
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = KEM_lianluo_lianbang_minzhupai}
+		relative_position_id = KEM_lianluo_lianbang_minzhupai
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_zhaohui_army
+		}
+	}
+	#为民主而战
+	focus = {
+		id = KEM_for_demo_war
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = KEM_weihu_beiou_lianhe}
+		prerequisite = { focus = KEM_minzhu_weishi}
+		relative_position_id = KEM_weihu_beiou_lianhe
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_for_demo_war
+		}
+	}
+	#和汉萨联络
+	focus = {
+		id = KEM_hehansa_lianluo
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = KEM_for_demo_war}
+		relative_position_id = KEM_for_demo_war
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+	producer = HSA
+}
+		}
+	}
+	#迎接战争
+	focus = {
+		id = KEM_yinjie_zhanzheng
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = KEM_zhaohui_bianjiang_jundui}
+		relative_position_id = KEM_zhaohui_bianjiang_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+		}
+	}
+	#反抗暴君
+	focus = {
+		id = KEM_fankang_baojun
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = KEM_yinjie_zhanzheng}
+		relative_position_id = KEM_yinjie_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#舆论宣传
+	focus = {
+		id = KEM_yulun_xuanchuan
+		icon = GFX_focus_generic_attack_sweden
+		prerequisite = { focus = KEM_fankang_baojun}
+		relative_position_id = KEM_fankang_baojun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SWE = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#宗教攻势
+	focus = {
+		id = KEM_zongjiao_gongshi
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = KEM_fankang_baojun}
+		relative_position_id = KEM_fankang_baojun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SWE = {
+		add_ideas = KEM_zongjiao_gongshi
+		}
+		}
+	}
+	#斯堪尼亚的支持
+	focus = {
+		id = KEM_sikanniya_zhichi
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = KEM_fankang_baojun}
+		relative_position_id = KEM_fankang_baojun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 138
+		}
+	}
+	#瑞典回归
+	focus = {
+		id = KEM_ruidian_huigui
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = KEM_yulun_xuanchuan}
+		prerequisite = { focus = KEM_sikanniya_zhichi}
+		prerequisite = { focus = KEM_zongjiao_gongshi}
+		relative_position_id = KEM_sikanniya_zhichi
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SWE = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#进攻芬兰
+	focus = {
+		id = KEM_jingong_fenlan
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = KEM_ruidian_huigui}
+		relative_position_id = KEM_ruidian_huigui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#芬兰的地位
+	focus = {
+		id = KEM_fenlan_diwei
+		icon = GFX_focus_invite_finland
+		prerequisite = { focus = KEM_jingong_fenlan}
+		relative_position_id = KEM_jingong_fenlan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		}
+	}
+	#进攻挪威
+	focus = {
+		id = KEM_jingong_nuowei
+		icon = GFX_focus_generic_attack_norway
+		prerequisite = { focus = KEM_ruidian_huigui}
+		relative_position_id = KEM_ruidian_huigui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NOR
+    type = annex_everything
+} 
+		}
+	}
+	#收编海军
+	focus = {
+		id = KEM_shoubian_haijun
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = KEM_jingong_nuowei}
+		relative_position_id = KEM_jingong_nuowei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_1936_naval
+		}
+	}
+	#卡尔马宣言
+	focus = {
+		id = KEM_kaerma_xuanyan
+		icon = GFX_focus_generic_scandinavia_flags
+		prerequisite = { focus = KEM_shoubian_haijun}
+		prerequisite = { focus = KEM_fenlan_diwei}
+		relative_position_id = KEM_shoubian_haijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 139
+		controls_state = 140
+		controls_state = 141
+		controls_state = 38
+		controls_state = 666
+		controls_state = 110
+		controls_state = 142
+		controls_state = 143
+		controls_state = 144
+		controls_state = 111
+		controls_state = 150
+		controls_state = 149
+		controls_state = 148
+		controls_state = 722
+		controls_state = 147
+		controls_state = 337
+		controls_state = 110
+		controls_state = 101
+		controls_state = 37
+		controls_state = 99
+		controls_state = 138
+		FIN = {
+		exists = no
+		}
+		SWE = {
+		exists = no
+		}
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#保卫王权
+	focus = {
+		id = KEM_baowei_wangquan
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		prerequisite = { focus = KEM_dongdang}
+		relative_position_id = KEM_dongdang
+		mutually_exclusive = { focus = KEM_hanwei_minzhu }
+		mutually_exclusive = { focus = KEM_junshi_zhenya }
+		mutually_exclusive = { focus = KEM_weihu_gebenhagen }
+		x = 4
+		y = 1
+		cost = 1
+		available = {
+		has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#推翻议会制
+	focus = {
+		id = KEM_tuifan_yihuizhi
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = KEM_baowei_wangquan}
+		relative_position_id = KEM_baowei_wangquan
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = -0.15
+}
+add_stability = -0.05
+add_political_power = 100
+		}
+	}
+	#《1523宣言》
+	focus = {
+		id = KEM_1523_xuanyan
+		icon = GFX_goal_continuous_restrict_freedom
+		prerequisite = { focus = KEM_tuifan_yihuizhi}
+		relative_position_id = KEM_tuifan_yihuizhi
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_1523_xuanyan
+		}
+	}
+	#寻求军队支持
+	focus = {
+		id = KEM_xunqiu_jundui_zhichi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = KEM_tuifan_yihuizhi}
+		relative_position_id = KEM_tuifan_yihuizhi
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_xunqiu_jundui_zhichi
+		}
+	}
+	#组建新军
+	focus = {
+		id = KEM_zujian_newarmy
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = KEM_tuifan_yihuizhi}
+		relative_position_id = KEM_tuifan_yihuizhi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_newarmy
+		}
+	}
+	#王室产业
+	focus = {
+		id = KEM_wangshi_chanye
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = KEM_tuifan_yihuizhi}
+		relative_position_id = KEM_tuifan_yihuizhi
+		x = -3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#和普鲁士交好
+	focus = {
+		id = KEM_he_pls_jiaohao
+		icon = GFX_focus_ger_return_of_the_kaiser
+		prerequisite = { focus = KEM_1523_xuanyan}
+		prerequisite = { focus = KEM_xunqiu_jundui_zhichi}
+		prerequisite = { focus = KEM_zujian_newarmy}
+		prerequisite = { focus = KEM_wangshi_chanye}
+		relative_position_id = KEM_wangshi_chanye
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+	producer = PLS
+}
+		}
+	}
+	#选举首相
+	focus = {
+		id = KEM_xuanju_shouxiang
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = KEM_1523_xuanyan}
+		prerequisite = { focus = KEM_xunqiu_jundui_zhichi}
+		prerequisite = { focus = KEM_zujian_newarmy}
+		prerequisite = { focus = KEM_wangshi_chanye}
+		relative_position_id = KEM_wangshi_chanye
+		x = 3
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#帝国回归
+	focus = {
+		id = KEM_diguo_huigui
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = KEM_xuanju_shouxiang}
+		relative_position_id = KEM_xuanju_shouxiang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+		}
+	}
+	#普鲁士志愿军
+	focus = {
+		id = KEM_pulushi_zhiyuanjun
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = KEM_haozhao_ruidian_zhichizhe}
+		relative_position_id = KEM_haozhao_ruidian_zhichizhe
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_pulushi_zhiyuanjun
+		}
+	}
+	#和沙皇交好
+	focus = {
+		id = KEM_he_shahuang_jiaohao
+		icon = GFX_focus_SOV_zemsky_sobor
+		prerequisite = { focus = KEM_1523_xuanyan}
+		prerequisite = { focus = KEM_xunqiu_jundui_zhichi}
+		prerequisite = { focus = KEM_zujian_newarmy}
+		prerequisite = { focus = KEM_wangshi_chanye}
+		relative_position_id = KEM_wangshi_chanye
+		x = 5
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		RUN = {
+		exists = no
+		}
+		}
+		available = {
+		RUN = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+	producer = RUS
+}
+		}
+	}
+	#号召瑞典支持者
+	focus = {
+		id = KEM_haozhao_ruidian_zhichizhe
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = KEM_diguo_huigui}
+		relative_position_id = KEM_diguo_huigui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 138
+		}
+	}
+	#寻求军工支持
+	focus = {
+		id = KEM_xunqiu_jungong_zhichi
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = KEM_haozhao_ruidian_zhichizhe}
+		relative_position_id = KEM_haozhao_ruidian_zhichizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#军事合作
+	focus = {
+		id = KEM_junshi_hezuo
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = KEM_xunqiu_jungong_zhichi}
+		relative_position_id = KEM_xunqiu_jungong_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_junshihezuo
+		}
+	}
+	#宣扬丹麦————挪威联合
+	focus = {
+		id = KEM_xuanyang_den_nor_lianhe
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = KEM_diguo_huigui}
+		relative_position_id = KEM_diguo_huigui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		NOR = {
+		has_completed_focus = NOR_wuzhuang_haijunluzhandui
+		}
+		}
+		completion_reward = {
+		NOR = {
+		country_event = {
+    id = holy_beiou.30
+    days = 1
+	}
+		}
+		}
+	}
+	#与波罗的海联络
+	focus = {
+		id = KEM_boluodihai_lianluo
+		icon = GFX_focus_generic_forest_brothers
+		prerequisite = { focus = KEM_xuanyang_den_nor_lianhe}
+		relative_position_id = KEM_xuanyang_den_nor_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		BLD = {
+		country_event = {
+    id = holy_beiou.31
+    days = 1
+	}
+		}
+		}
+	}
+	#号召十字军
+	focus = {
+		id = KEM_haozhao_shizijun
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = KEM_boluodihai_lianluo}
+		relative_position_id = KEM_boluodihai_lianluo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KEM_haozhao_shizi_jun
+		}
+	}
+	#摧毁芬兰反贼
+	focus = {
+		id = KEM_cuihui_fenlan
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = KEM_junshi_hezuo}
+		prerequisite = { focus = KEM_haozhao_shizijun}
+		relative_position_id = KEM_haozhao_shizijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#吞并挪威
+	focus = {
+		id = KEM_jiyu_fenlan_diwei
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = KEM_cuihui_fenlan}
+		relative_position_id = KEM_cuihui_fenlan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOR = {
+		is_puppet_of = KEM
+		}
+		}
+		bypass = {
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = NOR
+    transfer_troops = yes
+}
+		}
+	}
+	#卡尔马宣言
+	focus = {
+		id = KEM_kaer_ma_xuanyan
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = KEM_jiyu_fenlan_diwei}
+		relative_position_id = KEM_jiyu_fenlan_diwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 139
+		controls_state = 140
+		controls_state = 141
+		controls_state = 38
+		controls_state = 666
+		controls_state = 110
+		controls_state = 142
+		controls_state = 143
+		controls_state = 144
+		controls_state = 111
+		controls_state = 150
+		controls_state = 149
+		controls_state = 148
+		controls_state = 722
+		controls_state = 147
+		controls_state = 337
+		controls_state = 110
+		controls_state = 101
+		controls_state = 37
+		controls_state = 99
+		controls_state = 138
+		FIN = {
+		exists = no
+		}
+		SWE = {
+		exists = no
+		}
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#军事镇压
+	focus = {
+		id = KEM_junshi_zhenya
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = KEM_dongdang}
+		relative_position_id = KEM_dongdang
+		mutually_exclusive = { focus = KEM_hanwei_minzhu }
+		mutually_exclusive = { focus = KEM_baowei_wangquan }
+		mutually_exclusive = { focus = KEM_weihu_gebenhagen }
+		x = 12
+		y = 1
+		cost = 1
+		available = {
+		has_government = dictatorship
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#镇压西兰反抗
+	focus = {
+		id = KEM_zhenya_xilan_fankang
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = KEM_junshi_zhenya}
+		relative_position_id = KEM_junshi_zhenya
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+		load_oob = KEM_zhenya_fankang
+		}
+	}
+	#安抚日德兰
+	focus = {
+		id = KEM_anfu_ridelan
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = KEM_junshi_zhenya}
+		relative_position_id = KEM_junshi_zhenya
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+		load_oob = KEM_anfu_ridelan
+		}
+	}
+	#岛屿计划
+	focus = {
+		id = KEM_daoyu_plan
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = KEM_anfu_ridelan}
+		relative_position_id = KEM_anfu_ridelan
+		x = 0
+		y = 2
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#镇压中央反抗
+	focus = {
+		id = KEM_zhenya_zhongyang_fankang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KEM_junshi_zhenya}
+		relative_position_id = KEM_junshi_zhenya
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_stability = 0.1
+		}
+	}
+	#开启军事工业
+	focus = {
+		id = KEM_kaiqi_junshi_gongye
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = KEM_zhenya_xilan_fankang}
+		prerequisite = { focus = KEM_anfu_ridelan}
+		prerequisite = { focus = KEM_zhenya_zhongyang_fankang}
+		relative_position_id = KEM_zhenya_xilan_fankang
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#重组海军
+	focus = {
+		id = KEM_chongzu_naval
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = KEM_zhenya_xilan_fankang}
+		prerequisite = { focus = KEM_anfu_ridelan}
+		prerequisite = { focus = KEM_zhenya_zhongyang_fankang}
+		relative_position_id = KEM_zhenya_xilan_fankang
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KEM_naval_chongzu
+		}
+	}
+	#整顿陆军
+	focus = {
+		id = KEM_zhengdun_lujun
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = KEM_chongzu_naval}
+		prerequisite = { focus = KEM_kaiqi_junshi_gongye}
+		relative_position_id = KEM_chongzu_naval
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        load_oob = KEM_zhengdun_lujun
+		}
+	}
+	#斯堪尼亚行动
+	focus = {
+		id = KEM_sikan_niya_xingdong
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = KEM_zhenya_xilan_fankang}
+		prerequisite = { focus = KEM_anfu_ridelan}
+		prerequisite = { focus = KEM_zhenya_zhongyang_fankang}
+		relative_position_id = KEM_zhenya_xilan_fankang
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 37
+        num_provinces = 5
+		on_win = holy_beiou.29
+    }
+				
+    defender = {
+        state = 138
+        num_provinces = 5
+    }
+}
+		}
+	}
+	#战时政策
+	focus = {
+		id = KEM_zhanshi_zhengce
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = KEM_zhenya_xilan_fankang}
+		prerequisite = { focus = KEM_anfu_ridelan}
+		prerequisite = { focus = KEM_zhenya_zhongyang_fankang}
+		relative_position_id = KEM_zhenya_xilan_fankang
+		x = 5
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = war_economy
+		add_ideas = extensive_conscription
+		}
+	}
+	#与大瑞典的斗争
+	focus = {
+		id = KEM_douzheng_daruidian
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = KEM_zhanshi_zhengce}
+		prerequisite = { focus = KEM_sikan_niya_xingdong}
+		relative_position_id = KEM_zhanshi_zhengce
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        SWE = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#维京的荣耀
+	focus = {
+		id = KEM_weijing_rongyao
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = KEM_zhengdun_lujun}
+		prerequisite = { focus = KEM_douzheng_daruidian}
+		prerequisite = { focus = KEM_daoyu_plan}
+		relative_position_id = KEM_daoyu_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_war_support = 0.1
+		}
+	}
+	#凛冬将至
+	focus = {
+		id = KEM_lindong_jiangzhi
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = KEM_weijing_rongyao}
+		relative_position_id = KEM_weijing_rongyao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = SWE
+    type = annex_everything
+} 
+declare_war_on = {
+    target = NOR
+    type = annex_everything
+} 
+declare_war_on = {
+    target = FIN
+    type = annex_everything
+} 
+		}
+	}
+	#六十日攻势
+	focus = {
+		id = KEM_liushiri_gongshi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = KEM_lindong_jiangzhi}
+		relative_position_id = KEM_lindong_jiangzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_timed_idea = {
+    idea = KEM_liushiri_gongshi
+    days = 60
+}
+		}
+	}
+	#无畏冲锋
+	focus = {
+		id = KEM_wuwei_chongfeng
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = KEM_liushiri_gongshi}
+		relative_position_id = KEM_liushiri_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = KEM_wuwei_chongfeng
+		}
+	}
+	#击败冬将军
+	focus = {
+		id = KEM_jibai_dongjiangjun
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = KEM_lindong_jiangzhi}
+		relative_position_id = KEM_lindong_jiangzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = KEM_jibai_dongjiangjun
+		}
+	}
+	#联络芬兰反对者
+	focus = {
+		id = KEM_lianluo_fenlan_fanduizhe
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = KEM_jibai_dongjiangjun}
+		relative_position_id = KEM_jibai_dongjiangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        FIN = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#摧毁防线
+	focus = {
+		id = KEM_cuihui_fangxian
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = KEM_wuwei_chongfeng}
+		prerequisite = { focus = KEM_lianluo_fenlan_fanduizhe}
+		relative_position_id = KEM_wuwei_chongfeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#丹麦军事化
+	focus = {
+		id = KEM_den_junshihua
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = KEM_cuihui_fangxian}
+		relative_position_id = KEM_cuihui_fangxian
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 37
+		}
+		completion_reward = {
+		37 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#挪威军事化
+	focus = {
+		id = KEM_nor_junshihua
+		icon = GFX_focus_generic_attack_norway
+		prerequisite = { focus = KEM_cuihui_fangxian}
+		relative_position_id = KEM_cuihui_fangxian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 110
+		}
+		completion_reward = {
+		110 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#瑞典军事化
+	focus = {
+		id = KEM_swe_junshihua
+		icon = GFX_focus_generic_attack_sweden
+		prerequisite = { focus = KEM_cuihui_fangxian}
+		relative_position_id = KEM_cuihui_fangxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 141
+		}
+		completion_reward = {
+		141 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#芬兰军事化
+	focus = {
+		id = KEM_fin_junshihua
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = KEM_cuihui_fangxian}
+		relative_position_id = KEM_cuihui_fangxian
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 111
+		}
+		completion_reward = {
+		111 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#军国之国
+	focus = {
+		id = KEM_junguo_zhiguo
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = KEM_den_junshihua}
+		prerequisite = { focus = KEM_nor_junshihua}
+		prerequisite = { focus = KEM_swe_junshihua}
+		prerequisite = { focus = KEM_fin_junshihua}
+		relative_position_id = KEM_swe_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 139
+		controls_state = 140
+		controls_state = 141
+		controls_state = 38
+		controls_state = 666
+		controls_state = 110
+		controls_state = 142
+		controls_state = 143
+		controls_state = 144
+		controls_state = 111
+		controls_state = 150
+		controls_state = 149
+		controls_state = 148
+		controls_state = 722
+		controls_state = 147
+		controls_state = 337
+		controls_state = 110
+		controls_state = 101
+		controls_state = 37
+		controls_state = 99
+		controls_state = 138
+		FIN = {
+		exists = no
+		}
+		SWE = {
+		exists = no
+		}
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#北欧再统一
+	focus = {
+		id = KEM_beiou_zaitongyi
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = KEM_kaer_ma_xuanyan focus = KEM_kaerma_xuanyan focus = KEM_beihai focus = KEM_beihai_zhimeng focus = KEM_junguo_zhiguo}
+		relative_position_id = KEM_junguo_zhiguo
+		x = -12
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_focus_tree = { tree = KEM_new keep_completed = no }
+		}
+	}
+}

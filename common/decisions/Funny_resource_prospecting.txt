@@ -1,0 +1,6596 @@
+#oil#
+
+PRC_resoure_oil_duration = {
+	
+	develop_jiling_oil_fields = { #开发吉林油田#
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 328
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 328
+			controls_state = 328
+		}
+
+		visible = {
+			owns_state = 328
+			controls_state = 328
+			328 = {
+				NOT = {
+					has_state_flag = jiling_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			328 = { set_state_flag = jiling_oil_developed }
+			328 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+
+	develop_jidong_oil_fields = { #开发冀东油田#
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 609
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 609
+			controls_state = 609
+		}
+
+		visible = {
+			owns_state = 609
+			controls_state = 609
+			609 = {
+				NOT = {
+					has_state_flag = jidong_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			609 = { set_state_flag = jidong_oil_developed }
+			609 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+
+	develop_dagang_oil_fields = { #开发大港油田#
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 608
+			controls_state = 608
+		}
+
+		visible = {
+			owns_state = 608
+			controls_state = 608
+			608 = {
+				NOT = {
+					has_state_flag = dagang_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			608 = { set_state_flag = dagang_oil_developed }
+			608 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_huabei_oil_fields = { #开发华北油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 614
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 614
+			controls_state = 614
+		}
+
+		visible = {
+			owns_state = 614
+			controls_state = 614
+			614 = {
+				NOT = {
+					has_state_flag = huabei_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			614 = { set_state_flag = huabei_oil_developed }
+			614 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_zhongyuan_oil_fields = { #开发中原油田#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 607
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 607
+			controls_state = 607
+		}
+
+		visible = {
+			owns_state = 607
+			controls_state = 607
+			607 = {
+				NOT = {
+					has_state_flag = {
+						flag = zhongyuan_oil_developed
+						value = 30
+					}
+				}
+			}
+		}
+
+		cost = 20
+		days_remove = PRC_zhongyuan_oil_duration?30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_zhongyuan_oil_duration value = 30 }
+			607 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = zhongyuan_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = zhongyuan_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = zhongyuan_oil_developed
+						value = 1
+					}
+				}
+			}
+			607 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_zhongyuan_oil_duration value = 30 compare = less_than }
+				}
+				set_variable = { var = PRC_zhongyuan_oil_duration value = 30 }
+			}
+		}
+	}
+	
+	develop_yanchang_oil_fields = { #开发延长油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 746
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 746
+			controls_state = 746
+		}
+
+		visible = {
+			owns_state = 746
+			controls_state = 746
+			746 = {
+				NOT = {
+					has_state_flag = yanchang_oil_duration
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			746 = { set_state_flag = yanchang_oil_duration }
+			746 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+		}
+	}
+	
+	develop_yumeng_oil_fields = { #开发玉门油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 756
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 756
+			controls_state = 756
+		}
+
+		visible = {
+			owns_state = 756
+			controls_state = 756
+			756 = {
+				NOT = {
+					has_state_flag = yumeng_oil_duration
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			756 = { set_state_flag = yumeng_oil_duration }
+			756 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_talimu_oil_fields = { #开发塔里木油田#
+
+
+		icon = oil
+
+		allowed = {
+		
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 287
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 287
+			controls_state = 287
+		}
+
+		visible = {
+			owns_state = 287
+			controls_state = 287
+			287 = {
+				NOT = {
+					has_state_flag = talimu_oil_duration
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			287 = { set_state_flag = talimu_oil_duration }
+			287 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_liaohe_oil_deposits = { #开发辽河油田#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 716
+			controls_state = 716
+		}
+
+		visible = {
+			owns_state = 716
+			controls_state = 716
+			716 = {
+				NOT = {
+					has_state_flag = {
+						flag = liaohe_oil_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_liaohe_oil_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_liaohe_oil_duration value = 10 }
+			716 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = liaohe_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = liaohe_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = liaohe_oil_developed
+						value = 1
+					}
+				}
+			}
+			716 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_liaohe_oil_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_liaohe_oil_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_shengli_oil_deposits = { #开发胜利油田#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 597
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 597
+			controls_state = 597
+		}
+
+		visible = {
+			owns_state = 597
+			controls_state = 597
+			597 = {
+				NOT = {
+					has_state_flag = {
+						flag = shengli_oil_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_shengli_oil_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_shengli_oil_duration value = 20 }
+			597 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = shengli_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = shengli_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = shengli_oil_developed
+						value = 1
+					}
+				}
+			}
+			597 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_shengli_oil_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_shengli_oil_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_changqing_oil_deposits = { #开发长庆油田#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 622
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 622
+			controls_state = 622
+		}
+
+		visible = {
+			owns_state = 622
+			controls_state = 622
+			622 = {
+				NOT = {
+					has_state_flag = {
+						flag = changqing_oil_developed
+						value = 7
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_changqing_oil_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_changqing_oil_duration value = 20 }
+			622 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = changqing_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = changqing_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = changqing_oil_developed
+						value = 1
+					}
+				}
+			}
+			622 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_changqing_oil_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_changqing_oil_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_kelamayi_oil_deposits = { #克拉玛依油田开发#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 617
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 617
+			controls_state = 617
+		}
+
+		visible = {
+			owns_state = 617
+			controls_state = 617
+			617 = {
+				NOT = {
+					has_state_flag = {
+						flag = kelamayi_oil_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_kelamayi_oil_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_kelamayi_oil_duration value = 10 }
+			617 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = kelamayi_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = kelamayi_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = kelamayi_oil_developed
+						value = 1
+					}
+				}
+			}
+			617 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_kelamayi_oil_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_kelamayi_oil_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_daqing_oil_deposits = { #开发大庆油田#
+		
+		icon = oil
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 714
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 714
+			controls_state = 714
+		}
+
+		visible = {
+			owns_state = 714
+			controls_state = 714
+			714 = {
+				NOT = {
+					has_state_flag = {
+						flag = daqing_oil_developed
+						value = 22
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_daqing_oil_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_daqing_oil_duration value = 50 }
+			714 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = daqing_oil_developed
+						}
+					}
+					set_state_flag = {
+						flag = daqing_oil_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = daqing_oil_developed
+						value = 1
+					}
+				}
+			}
+			714 = {
+				add_resource = {
+					type = oil
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_daqing_oil_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_daqing_oil_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_haikou_oil_fields = { #开发海口油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 591
+			controls_state = 591
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 591
+			}
+		}
+
+		visible = {
+			owns_state = 591
+			controls_state = 591
+			591 = {
+				NOT = {
+					has_state_flag = haikou_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			591 = { set_state_flag = haikou_oil_developed }
+			591 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_jianghan_oil_fields = { #开发江汉油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 620
+			controls_state = 620
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 620
+			}
+		}
+
+		visible = {
+			owns_state = 620
+			controls_state = 620
+			620 = {
+				NOT = {
+					has_state_flag = jianghan_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			620 = { set_state_flag = jianghan_oil_developed }
+			620 = {
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_jiangsu_oil_fields = { #江苏油田开发#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 598
+			controls_state = 598
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 598
+			}
+		}
+
+		visible = {
+			owns_state = 598
+			controls_state = 598
+			598 = {
+				NOT = {
+					has_state_flag = jiangsu_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			598 = { set_state_flag = jiangsu_oil_developed }
+			598 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_qinghai_oil_fields = { #开发青海油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 755
+			controls_state = 755
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 755
+			}
+		}
+
+		visible = {
+			owns_state = 755
+			controls_state = 755
+			755 = {
+				NOT = {
+					has_state_flag = qinghai_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			755 = { set_state_flag = qinghai_oil_developed }
+			755 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+		}
+	}
+	
+	develop_taiwan_oil_fields = { #开发台湾油田#
+
+
+		icon = oil
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 524
+			controls_state = 524
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 524
+			}
+		}
+
+		visible = {
+			owns_state = 524
+			controls_state = 524
+			524 = {
+				NOT = {
+					has_state_flag = taiwan_oil_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			524 = { set_state_flag = taiwan_oil_developed }
+			524 = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+			}
+		}
+	}
+}
+
+#橡胶#
+
+PRC_resoure_rubber_duration = {
+	
+	develop_guangxi_rubber_plantations = { #开辟广西橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 599
+			}
+		}
+
+		available = {
+			has_tech = construction2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 599
+			controls_state = 599
+		}
+
+		visible = {
+			owns_state = 599
+			controls_state = 599
+			599 = {
+				NOT = {
+					has_state_flag = {
+						flag = guangxi_rubber_developed
+						value = 2
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_guangxi_rubber_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_guangxi_rubber_duration value = 20 }
+			599 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = guangxi_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = guangxi_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = guangxi_rubber_developed
+						value = 1
+					}
+				}
+			}
+			599 = {
+				add_resource = {
+					type = rubber
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_guangxi_rubber_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_guangxi_rubber_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_nanning_rubber_plantations = { #开辟南宁橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 594
+			}
+		}
+
+		available = {
+			has_tech = construction2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 594
+			controls_state = 594
+		}
+
+		visible = {
+			owns_state = 594
+			controls_state = 594
+			594 = {
+				NOT = {
+					has_state_flag = {
+						flag = nanning_rubber_developed
+						value = 3
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_nanning_rubber_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_nanning_rubber_duration value = 20 }
+			594 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = nanning_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = nanning_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = nanning_rubber_developed
+						value = 1
+					}
+				}
+			}
+			594 = {
+				add_resource = {
+					type = rubber
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_nanning_rubber_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_nanning_rubber_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_guangdong_rubber_plantations = { #开辟广东橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 593
+			}
+		}
+
+		available = {
+			has_tech = construction2
+			num_of_civilian_factories_available_for_projects > 7
+			owns_state = 593
+			controls_state = 593
+		}
+
+		visible = {
+			owns_state = 593
+			controls_state = 593
+			593 = {
+				NOT = {
+					has_state_flag = {
+						flag = guangdong_rubber_developed
+						value = 3
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = PRC_guangdong_rubber_duration?40
+
+		modifier = {
+			civilian_factory_use = 8
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_guangdong_rubber_duration value = 40 }
+			593 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = guangdong_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = guangdong_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = guangdong_rubber_developed
+						value = 1
+					}
+				}
+			}
+			593 = {
+				add_resource = {
+					type = rubber
+					amount = 32
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_guangdong_rubber_duration value = 40 compare = less_than }
+				}
+				set_variable = { var = PRC_guangdong_rubber_duration value = 40 }
+			}
+		}
+	}
+	
+	develop_yunnan_rubber_plantations = { #开辟云南橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 325
+			}
+		}
+
+		available = {
+			has_tech = construction5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 325
+			controls_state = 325
+		}
+
+		visible = {
+			owns_state = 325
+			controls_state = 325
+			325 = {
+				NOT = {
+					has_state_flag = {
+						flag = yunnan_rubber_developed
+						value = 12
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_yunnan_rubber_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_yunnan_rubber_duration value = 50 }
+			325 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = yunnan_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = yunnan_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = yunnan_rubber_developed
+						value = 1
+					}
+				}
+			}
+			325 = {
+				add_resource = {
+					type = rubber
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_yunnan_rubber_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_yunnan_rubber_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_guangzhou_rubber_plantations = { #开辟广州橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 592
+			}
+		}
+
+		available = {
+			has_tech = construction2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 592
+			controls_state = 592
+		}
+
+		visible = {
+			owns_state = 592
+			controls_state = 592
+			592 = {
+				NOT = {
+					has_state_flag = {
+						flag = guangzhou_rubber_developed
+						value = 3
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_guangzhou_rubber_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_guangzhou_rubber_duration value = 20 }
+			592 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = guangzhou_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = guangzhou_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = guangzhou_rubber_developed
+						value = 1
+					}
+				}
+			}
+			592 = {
+				add_resource = {
+					type = rubber
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_guangzhou_rubber_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_guangzhou_rubber_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_hainan_rubber_plantations = { #开辟海南橡胶种植园#
+		
+		icon = rubber
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 591
+			}
+		}
+
+		available = {
+			has_tech = construction5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 591
+			controls_state = 591
+		}
+
+		visible = {
+			owns_state = 591
+			controls_state = 591
+			591 = {
+				NOT = {
+					has_state_flag = {
+						flag = hainan_rubber_developed
+						value = 12
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_hainan_rubber_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_hainan_rubber_duration value = 50 }
+			591 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = hainan_rubber_developed
+						}
+					}
+					set_state_flag = {
+						flag = hainan_rubber_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = hainan_rubber_developed
+						value = 1
+					}
+				}
+			}
+			591 = {
+				add_resource = {
+					type = rubber
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_hainan_rubber_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_hainan_rubber_duration value = 50 }
+			}
+		}
+	}
+}
+	
+#chromium#
+
+PRC_resoure_chromium_duration = {
+
+	develop_luobusha_chromium_deposits = { #开发罗布莎铬矿#
+		
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 757
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 757
+			controls_state = 757
+		}
+
+		visible = {
+			owns_state = 757
+			controls_state = 757
+			757 = {
+				NOT = {
+					has_state_flag = {
+						flag = luobusha_chromium_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 20
+		days_remove = PRC_luobusha_chromium_duration?60
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_luobusha_chromium_duration value = 30 }
+			757 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = luobusha_chromium_developed
+						}
+					}
+					set_state_flag = {
+						flag = luobusha_chromium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = luobusha_chromium_developed
+						value = 1
+					}
+				}
+			}
+			757 = {
+				add_resource = {
+					type = chromium
+					amount = 24
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_luobusha_chromium_duration value = 30 compare = less_than }
+				}
+				set_variable = { var = PRC_luobusha_chromium_duration value = 30 }
+			}
+		}
+	}
+	
+	develop_saertuohai_chromium_deposits = { #开发萨尔托海铬矿床#
+		
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 618
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 618
+			controls_state = 618
+		}
+
+		visible = {
+			owns_state = 618
+			controls_state = 618
+			618 = {
+				NOT = {
+					has_state_flag = {
+						flag = saertuohai_chromium_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_saertuohai_chromium_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_saertuohai_chromium_duration value = 10 }
+			618 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = saertuohai_chromium_developed
+						}
+					}
+					set_state_flag = {
+						flag = saertuohai_chromium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = saertuohai_chromium_developed
+						value = 1
+					}
+				}
+			}
+			618 = {
+				add_resource = {
+					type = chromium
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_saertuohai_chromium_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_saertuohai_chromium_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_suiyuan_chromium_deposits = { #开发绥远铬矿#
+		
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 621
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 621
+			controls_state = 621
+		}
+
+		visible = {
+			owns_state = 621
+			controls_state = 621
+			621 = {
+				NOT = {
+					has_state_flag = {
+						flag = suiyuan_chromium_developed
+						value = 12
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_suiyuan_chromium_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_suiyuan_chromium_duration value = 50 }
+			621 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = suiyuan_chromium_developed
+						}
+					}
+					set_state_flag = {
+						flag = suiyuan_chromium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = suiyuan_chromium_developed
+						value = 1
+					}
+				}
+			}
+			621 = {
+				add_resource = {
+					type = chromium
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_suiyuan_chromium_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_suiyuan_chromium_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_naqv_chromium_deposits = { #开发那曲铬矿#
+		
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 322
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 322
+			controls_state = 322
+		}
+
+		visible = {
+			owns_state = 322
+			controls_state = 322
+			322 = {
+				NOT = {
+					has_state_flag = {
+						flag = naqv_chromium_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_naqv_chromium_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_naqv_chromium_duration value = 20 }
+			322 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = naqv_chromium_developed
+						}
+					}
+					set_state_flag = {
+						flag = naqv_chromium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = naqv_chromium_developed
+						value = 1
+					}
+				}
+			}
+			322 = {
+				add_resource = {
+					type = chromium
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_naqv_chromium_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_naqv_chromium_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_fangmayu_chromium_deposits = { #开发放马峪铬矿#
+
+
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 608
+			controls_state = 608
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+			}
+		}
+
+		visible = {
+			owns_state = 608
+			controls_state = 608
+			608 = {
+				NOT = {
+					has_state_flag = fangmayu_chromium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			608 = { set_state_flag = fangmayu_chromium_developed }
+			608 = {
+				add_resource = {
+					type = chromium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_dadaoerji_chromium_deposits = { #开发大道尔集铬矿床#
+
+
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 755
+			controls_state = 755
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 755
+			}
+		}
+
+		visible = {
+			owns_state = 755
+			controls_state = 755
+			755 = {
+				NOT = {
+					has_state_flag = dadaoerji_chromium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			755 = { set_state_flag = dadaoerji_chromium_developed }
+			755 = {
+				add_resource = {
+					type = chromium
+					amount = 24
+				}
+			}
+		}
+	}
+	
+	develop_chahaer_chromium_deposits = { #开发察哈尔铬矿#
+
+
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 612
+			controls_state = 612
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 612
+			}
+		}
+
+		visible = {
+			owns_state = 612
+			controls_state = 612
+			612 = {
+				NOT = {
+					has_state_flag = chahaer_chromium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			612 = { set_state_flag = chahaer_chromium_developed }
+			612 = {
+				add_resource = {
+					type = chromium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_xian_chromium_deposits = { #发展西安铬矿#
+		
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 744
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 744
+			controls_state = 744
+		}
+
+		visible = {
+			owns_state = 744
+			controls_state = 744
+			744 = {
+				NOT = {
+					has_state_flag = {
+						flag = xian_chromium_developed
+						value = 8
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_xian_chromium_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xian_chromium_duration value = 50 }
+			744 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xian_chromium_developed
+						}
+					}
+					set_state_flag = {
+						flag = xian_chromium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xian_chromium_developed
+						value = 1
+					}
+				}
+			}
+			744 = {
+				add_resource = {
+					type = chromium
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xian_chromium_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_xian_chromium_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_yunnan_chromium_deposits = { #发展云南铬矿#
+
+
+		icon = chromium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 325
+			controls_state = 325
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 325
+			}
+		}
+
+		visible = {
+			owns_state = 325
+			controls_state = 325
+			325 = {
+				NOT = {
+					has_state_flag = yunnan_chromium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			325 = { set_state_flag = yunnan_chromium_developed }
+			325 = {
+				add_resource = {
+					type = chromium
+					amount = 24
+				}
+			}
+		}
+	}
+}
+
+#tungsten#
+
+PRC_resoure_tungsten_duration = {
+
+	develop_heilongjiang_tungsten_deposits = { #发展黑龙江钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 7
+			owns_state = 714
+			controls_state = 714
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 714
+			}
+		}
+
+		visible = {
+			owns_state = 714
+			controls_state = 714
+			714 = {
+				NOT = {
+					has_state_flag = heilongjiang_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 40
+
+		modifier = {
+			civilian_factory_use = 8
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			714 = { set_state_flag = heilongjiang_tungsten_developed }
+			714 = {
+				add_resource = {
+					type = tungsten
+					amount = 32
+				}
+			}
+		}
+	}
+	
+	develop_nanchahaer_tungsten_deposits = { #发展南车海钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 611
+			controls_state = 611
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 611
+			}
+		}
+
+		visible = {
+			owns_state = 611
+			controls_state = 611
+			611 = {
+				NOT = {
+					has_state_flag = nanchahaer_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			611 = { set_state_flag = nanchahaer_tungsten_developed }
+			611 = {
+				add_resource = {
+					type = tungsten
+					amount = 24
+				}
+			}
+		}
+	}
+	
+	develop_sandaozhuang_tungsten_deposits = { #开发三道庄钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 607
+			controls_state = 607
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 607
+			}
+		}
+
+		visible = {
+			owns_state = 607
+			controls_state = 607
+			607 = {
+				NOT = {
+					has_state_flag = sandaozhuang_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			607 = { set_state_flag = sandaozhuang_tungsten_developed }
+			607 = {
+				add_resource = {
+					type = tungsten
+					amount = 24
+				}
+			}
+		}
+	}
+	
+	develop_lianping_tungsten_deposits = { #开发连平钨矿#
+		
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 593
+			}
+		}
+
+		available = {
+			has_tech = excavation4
+			num_of_civilian_factories_available_for_projects > 7
+			owns_state = 593
+			controls_state = 593
+		}
+
+		visible = {
+			owns_state = 593
+			controls_state = 593
+			593 = {
+				NOT = {
+					has_state_flag = {
+						flag = lianping_tungsten_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = PRC_lianping_tungsten_duration?40
+
+		modifier = {
+			civilian_factory_use = 8
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_lianping_tungsten_duration value = 40 }
+			593 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = lianping_tungsten_developed
+						}
+					}
+					set_state_flag = {
+						flag = lianping_tungsten_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = lianping_tungsten_developed
+						value = 1
+					}
+				}
+			}
+			593 = {
+				add_resource = {
+					type = tungsten
+					amount = 32
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_lianping_tungsten_duration value = 40 compare = less_than }
+				}
+				set_variable = { var = PRC_lianping_tungsten_duration value = 40 }
+			}
+		}
+	}
+	
+	develop_dajishan_tungsten_deposits = { #开发大吉山钨矿#
+		
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 600
+			}
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 600
+			controls_state = 600
+		}
+
+		visible = {
+			owns_state = 600
+			controls_state = 600
+			600 = {
+				NOT = {
+					has_state_flag = {
+						flag = dajishan_tungsten_developed
+						value = 6
+					}
+				}
+			}
+		}
+
+		cost = 20
+		days_remove = PRC_dajishan_tungsten_duration?60
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_dajishan_tungsten_duration value = 30 }
+			600 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = dajishan_tungsten_developed
+						}
+					}
+					set_state_flag = {
+						flag = dajishan_tungsten_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = dajishan_tungsten_developed
+						value = 1
+					}
+				}
+			}
+			600 = {
+				add_resource = {
+					type = tungsten
+					amount = 24
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_dajishan_tungsten_duration value = 30 compare = less_than }
+				}
+				set_variable = { var = PRC_dajishan_tungsten_duration value = 30 }
+			}
+		}
+	}
+	
+	develop_yaogangxian_tungsten_deposits = { #开发姚岗县钨矿床#
+		
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 602
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 602
+			controls_state = 602
+		}
+
+		visible = {
+			owns_state = 602
+			controls_state = 602
+			602 = {
+				NOT = {
+					has_state_flag = {
+						flag = yaogangxian_tungsten_developed
+						value = 8
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_yaogangxian_tungsten_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_yaogangxian_tungsten_duration value = 50 }
+			602 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = yaogangxian_tungsten_developed
+						}
+					}
+					set_state_flag = {
+						flag = yaogangxian_tungsten_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = yaogangxian_tungsten_developed
+						value = 1
+					}
+				}
+			}
+			602 = {
+				add_resource = {
+					type = tungsten
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_yaogangxian_tungsten_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_yaogangxian_tungsten_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_xihuashan_tungsten_deposits = { #开发西华山钨矿#
+		
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 600
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 600
+			controls_state = 600
+		}
+
+		visible = {
+			owns_state = 600
+			controls_state = 600
+			600 = {
+				NOT = {
+					has_state_flag = {
+						flag = xihuashan_tungsten_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_xihuashan_tungsten_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xihuashan_tungsten_duration value = 20 }
+			600 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xihuashan_tungsten_developed
+						}
+					}
+					set_state_flag = {
+						flag = xihuashan_tungsten_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xihuashan_tungsten_developed
+						value = 1
+					}
+				}
+			}
+			600 = {
+				add_resource = {
+					type = tungsten
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xihuashan_tungsten_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_xihuashan_tungsten_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_xiangdong_tungsten_deposits = { #开发湘东钨矿#
+		
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 602
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 602
+			controls_state = 602
+		}
+
+		visible = {
+			owns_state = 602
+			controls_state = 602
+			602 = {
+				NOT = {
+					has_state_flag = {
+						flag = xiangdong_tungsten_developed
+						value = 10
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_xiangdong_tungsten_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xiangdong_tungsten_duration value = 50 }
+			602 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xiangdong_tungsten_developed
+						}
+					}
+					set_state_flag = {
+						flag = xiangdong_tungsten_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xiangdong_tungsten_developed
+						value = 1
+					}
+				}
+			}
+			602 = {
+				add_resource = {
+					type = tungsten
+					amount = 100
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xiangdong_tungsten_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_xiangdong_tungsten_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_jiangxi_tungsten_deposits = { #发展江西钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 600
+			controls_state = 600
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 600
+			}
+		}
+
+		visible = {
+			owns_state = 600
+			controls_state = 600
+			600 = {
+				NOT = {
+					has_state_flag = jiangxi_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 30
+		days_remove = 50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			600 = { set_state_flag = jiangxi_tungsten_developed }
+			600 = {
+				add_resource = {
+					type = tungsten
+					amount = 68
+				}
+			}
+		}
+	}
+	
+	develop_zhejiang_tungsten_deposits = { #发展浙江钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 596
+			controls_state = 596
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 596
+			}
+		}
+
+		visible = {
+			owns_state = 596
+			controls_state = 596
+			596 = {
+				NOT = {
+					has_state_flag = sandaozhuang_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			596 = { set_state_flag = sandaozhuang_tungsten_developed }
+			596 = {
+				add_resource = {
+					type = tungsten
+					amount = 24
+				}
+			}
+		}
+	}
+
+	develop_fujian_tungsten_deposits = { #发展福建钨矿#
+
+
+		icon = tungsten
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 595
+			controls_state = 595
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 595
+			}
+		}
+
+		visible = {
+			owns_state = 595
+			controls_state = 595
+			595 = {
+				NOT = {
+					has_state_flag = fujian_tungsten_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			595 = { set_state_flag = fujian_tungsten_developed }
+			595 = {
+				add_resource = {
+					type = tungsten
+					amount = 16
+				}
+			}
+		}
+	}
+}
+
+#aluminium#
+
+PRC_resoure_aluminium_duration = {
+
+		develop_wulumuqi_aluminium_deposits = { #乌鲁木齐膨胀铝#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 617
+			controls_state = 617
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 617
+			}
+		}
+
+		visible = {
+			owns_state = 617
+			controls_state = 617
+			617 = {
+				NOT = {
+					has_state_flag = liaodong_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			617 = { set_state_flag = liaodong_aluminium_developed }
+			617 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_liaodong_aluminium_deposits = { #辽东铝业发展#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 716
+			controls_state = 716
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+			}
+		}
+
+		visible = {
+			owns_state = 716
+			controls_state = 716
+			716 = {
+				NOT = {
+					has_state_flag = liaodong_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			716 = { set_state_flag = liaodong_aluminium_developed }
+			716 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_hainan_aluminium_deposits = { #发展海南铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 591
+			controls_state = 591
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 591
+			}
+		}
+
+		visible = {
+			owns_state = 591
+			controls_state = 591
+			591 = {
+				NOT = {
+					has_state_flag = hainan_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			591 = { set_state_flag = hainan_aluminium_developed }
+			591 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_zibo_aluminium_deposits = { #淄博铝业发展#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 597
+			controls_state = 597
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 597
+			}
+		}
+
+		visible = {
+			owns_state = 597
+			controls_state = 597
+			597 = {
+				NOT = {
+					has_state_flag = zibo_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			597 = { set_state_flag = zibo_aluminium_developed }
+			597 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_fujian_aluminium_deposits = { #拓展福建铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 595
+			controls_state = 595
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 595
+			}
+		}
+
+		visible = {
+			owns_state = 595
+			controls_state = 595
+			595 = {
+				NOT = {
+					has_state_flag = fujian_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			595 = { set_state_flag = fujian_aluminium_developed }
+			595 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_hebei_aluminium_deposits = { #发展河北铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 614
+			controls_state = 614
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 614
+			}
+		}
+
+		visible = {
+			owns_state = 614
+			controls_state = 614
+			614 = {
+				NOT = {
+					has_state_flag = hebei_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 30
+		days_remove = 50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			614 = { set_state_flag = hebei_aluminium_developed }
+			614 = {
+				add_resource = {
+					type = aluminium
+					amount = 100
+				}
+			}
+		}
+	}
+	
+	develop_jidong_aluminium_deposits = { #发展冀东铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 609
+			controls_state = 609
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 609
+			}
+		}
+
+		visible = {
+			owns_state = 609
+			controls_state = 609
+			609 = {
+				NOT = {
+					has_state_flag = jidong_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			609 = { set_state_flag = jidong_aluminium_developed }
+			609 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_shanbei_aluminium_deposits = { #发展陕北铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation3
+			num_of_civilian_factories_available_for_projects > 5
+			owns_state = 622
+			controls_state = 622
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 622
+			}
+		}
+
+		visible = {
+			owns_state = 622
+			controls_state = 622
+			622 = {
+				NOT = {
+					has_state_flag = shanbei_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 6
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			622 = { set_state_flag = shanbei_aluminium_developed }
+			622 = {
+				add_resource = {
+					type = aluminium
+					amount = 24
+				}
+			}
+		}
+	}
+
+		develop_xinxian_aluminium_deposits = { #新县铝土矿开发#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 615
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 615
+			controls_state = 615
+		}
+
+		visible = {
+			owns_state = 615
+			controls_state = 615
+			615 = {
+				NOT = {
+					has_state_flag = {
+						flag = xinxian_aluminium_developed
+						value = 15
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_xinxian_aluminium_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xinxian_aluminium_duration value = 50 }
+			615 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xinxian_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = xinxian_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xinxian_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			615 = {
+				add_resource = {
+					type = aluminium
+					amount = 120
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xinxian_aluminium_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_xinxian_aluminium_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_yuanpin_aluminium_deposits = { #开发元平铝土矿#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 615
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 615
+			controls_state = 615
+		}
+
+		visible = {
+			owns_state = 615
+			controls_state = 615
+			615 = {
+				NOT = {
+					has_state_flag = {
+						flag = yuanpin_aluminium_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_yuanpin_aluminium_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_yuanpin_aluminium_duration value = 20 }
+			615 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = yuanpin_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = yuanpin_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = yuanpin_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			615 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_yuanpin_aluminium_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_yuanpin_aluminium_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_xingan_aluminium_deposits = { #开发兴安铝土矿#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 607
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 607
+			controls_state = 607
+		}
+
+		visible = {
+			owns_state = 607
+			controls_state = 607
+			607 = {
+				NOT = {
+					has_state_flag = {
+						flag = xingan_aluminium_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_xingan_aluminium_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xingan_aluminium_duration value = 20 }
+			607 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xingan_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = xingan_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xingan_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			607 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xingan_aluminium_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_xingan_aluminium_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_gongyi_aluminium_deposits = { #巩义铝土矿开发#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 607
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 607
+			controls_state = 607
+		}
+
+		visible = {
+			owns_state = 607
+			controls_state = 607
+			607 = {
+				NOT = {
+					has_state_flag = {
+						flag = gongyi_aluminium_developed
+						value = 12
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_gongyi_aluminium_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_gongyi_aluminium_duration value = 10 }
+			607 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = gongyi_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = gongyi_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = gongyi_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			607 = {
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_gongyi_aluminium_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_gongyi_aluminium_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_guangxi_aluminium_deposits = { #开发广西铝土矿#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 599
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 599
+			controls_state = 599
+		}
+
+		visible = {
+			owns_state = 599
+			controls_state = 599
+			599 = {
+				NOT = {
+					has_state_flag = {
+						flag = guangxi_aluminium_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_guangxi_aluminium_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_guangxi_aluminium_duration value = 20 }
+			599 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = guangxi_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = guangxi_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = guangxi_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			599 = {
+				add_resource = {
+					type = aluminium
+					amount = 16				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_guangxi_aluminium_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_guangxi_aluminium_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_qianzhong_aluminium_deposits = { #开发啥啥啥的#
+		
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 603
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 603
+			controls_state = 603
+		}
+
+		visible = {
+			owns_state = 603
+			controls_state = 603
+			603 = {
+				NOT = {
+					has_state_flag = {
+						flag = qianzhong_aluminium_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_qianzhong_aluminium_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_qianzhong_aluminium_duration value = 20 }
+			603 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = qianzhong_aluminium_developed
+						}
+					}
+					set_state_flag = {
+						flag = qianzhong_aluminium_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = qianzhong_aluminium_developed
+						value = 1
+					}
+				}
+			}
+			603 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_qianzhong_aluminium_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_qianzhong_aluminium_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_taiwan_aluminium_deposits = { #发展台湾铝业#
+
+
+		icon = aluminium
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 524
+			controls_state = 524
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 524
+			}
+		}
+
+		visible = {
+			owns_state = 524
+			controls_state = 524
+			524 = {
+				NOT = {
+					has_state_flag = taiwan_aluminium_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			524 = { set_state_flag = taiwan_aluminium_developed }
+			524 = {
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+}
+#steel#
+PRC_resoure_steel_duration = {
+
+	develop_anshan_steel_deposits = { #扩大鞍山铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 716
+			controls_state = 716
+		}
+
+		visible = {
+			owns_state = 716
+			controls_state = 716
+			716 = {
+				NOT = {
+					has_state_flag = {
+						flag = anshan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_anshan_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_anshan_steel_duration value = 20 }
+			716 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = anshan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = anshan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = anshan_steel_developed
+						value = 1
+					}
+				}
+			}
+			716 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_anshan_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_anshan_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_panzhihua_steel_deposits = { #开发攀枝花铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 751
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 751
+			controls_state = 751
+		}
+
+		visible = {
+			owns_state = 751
+			controls_state = 751
+			751 = {
+				NOT = {
+					has_state_flag = {
+						flag = panzhihua_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_panzhihua_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_panzhihua_steel_duration value = 20 }
+			751 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = panzhihua_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = panzhihua_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = panzhihua_steel_developed
+						value = 1
+					}
+				}
+			}
+			751 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_panzhihua_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_panzhihua_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_jidong_steel_deposits = { #扩大冀东铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 609
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 609
+			controls_state = 609
+		}
+
+		visible = {
+			owns_state = 609
+			controls_state = 609
+			609 = {
+				NOT = {
+					has_state_flag = {
+						flag = jidong_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_jidong_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_jidong_steel_duration value = 20 }
+			609 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = jidong_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = jidong_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = jidong_steel_developed
+						value = 1
+					}
+				}
+			}
+			609 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_jidong_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_jidong_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_lvliang_steel_deposits = { #吕梁铁矿开发#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 615
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 615
+			controls_state = 615
+		}
+
+		visible = {
+			owns_state = 615
+			controls_state = 615
+			615 = {
+				NOT = {
+					has_state_flag = {
+						flag = lvliang_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_lvliang_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_lvliang_steel_duration value = 20 }
+			615 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = lvliang_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = lvliang_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = lvliang_steel_developed
+						value = 1
+					}
+				}
+			}
+			615 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_lvliang_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_lvliang_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_maanshan_steel_deposits = { #扩大马鞍山铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 606
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 606
+			controls_state = 606
+		}
+
+		visible = {
+			owns_state = 606
+			controls_state = 606
+			606 = {
+				NOT = {
+					has_state_flag = {
+						flag = maanshan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_maanshan_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_maanshan_steel_duration value = 20 }
+			606 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = maanshan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = maanshan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = maanshan_steel_developed
+						value = 1
+					}
+				}
+			}
+			606 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_maanshan_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_maanshan_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_baiyunebo_steel_deposits = { #开发白云鄂博铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 621
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 621
+			controls_state = 621
+		}
+
+		visible = {
+			owns_state = 621
+			controls_state = 621
+			621 = {
+				NOT = {
+					has_state_flag = {
+						flag = baiyunebo_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_baiyunebo_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_baiyunebo_steel_duration value = 20 }
+			621 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = baiyunebo_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = baiyunebo_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = baiyunebo_steel_developed
+						value = 1
+					}
+				}
+			}
+			621 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_baiyunebo_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_baiyunebo_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_handan_steel_deposits = { #扩大邯郸铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 614
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 614
+			controls_state = 614
+		}
+
+		visible = {
+			owns_state = 614
+			controls_state = 614
+			614 = {
+				NOT = {
+					has_state_flag = {
+						flag = handan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_handan_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_handan_steel_duration value = 20 }
+			614 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = handan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = handan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = handan_steel_developed
+						value = 1
+					}
+				}
+			}
+			614 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_handan_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_handan_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_tiejingshan_steel_deposits = { #铁景山铁矿扩建#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 756
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 756
+			controls_state = 756
+		}
+
+		visible = {
+			owns_state = 756
+			controls_state = 756
+			756 = {
+				NOT = {
+					has_state_flag = {
+						flag = tiejingshan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_tiejingshan_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_tiejingshan_steel_duration value = 20 }
+			756 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = tiejingshan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = tiejingshan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = tiejingshan_steel_developed
+						value = 1
+					}
+				}
+			}
+			756 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_tiejingshan_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_tiejingshan_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_dianzhong_steel_deposits = { #滇中铁矿开发#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 325
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 325
+			controls_state = 325
+		}
+
+		visible = {
+			owns_state = 325
+			controls_state = 325
+			325 = {
+				NOT = {
+					has_state_flag = {
+						flag = dianzhong_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_dianzhong_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_dianzhong_steel_duration value = 20 }
+			325 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = dianzhong_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = dianzhong_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = dianzhong_steel_developed
+						value = 1
+					}
+				}
+			}
+			325 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_dianzhong_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_dianzhong_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_luzhong_steel_deposits = { #开发鲁中铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 597
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 597
+			controls_state = 597
+		}
+
+		visible = {
+			owns_state = 597
+			controls_state = 597
+			597 = {
+				NOT = {
+					has_state_flag = {
+						flag = luzhong_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_luzhong_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_luzhong_steel_duration value = 20 }
+			597 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = luzhong_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = luzhong_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = luzhong_steel_developed
+						value = 1
+					}
+				}
+			}
+			597 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_luzhong_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_luzhong_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_xinyu_steel_deposits = { #开发新余铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 600
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 600
+			controls_state = 600
+		}
+
+		visible = {
+			owns_state = 600
+			controls_state = 600
+			600 = {
+				NOT = {
+					has_state_flag = {
+						flag = xinyu_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_xinyu_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_xinyu_steel_duration value = 20 }
+			600 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = xinyu_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = xinyu_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = xinyu_steel_developed
+						value = 1
+					}
+				}
+			}
+			600 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_xinyu_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_xinyu_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_shanghai_steel_deposits = { #扩建上海钢铁厂#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 613
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 613
+			controls_state = 613
+		}
+
+		visible = {
+			owns_state = 613
+			controls_state = 613
+			613 = {
+				NOT = {
+					has_state_flag = {
+						flag = shanghai_steel_developed
+						value = 9
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_shanghai_steel_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_shanghai_steel_duration value = 50 }
+			613 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = shanghai_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = shanghai_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = shanghai_steel_developed
+						value = 1
+					}
+				}
+			}
+			613 = {
+				add_resource = {
+					type = steel
+					amount = 90
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_shanghai_steel_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_shanghai_steel_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_beijing_steel_deposits = { #扩建北京钢铁厂#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 608
+			controls_state = 608
+		}
+
+		visible = {
+			owns_state = 608
+			controls_state = 608
+			608 = {
+				NOT = {
+					has_state_flag = {
+						flag = beijing_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_beijing_steel_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_beijing_steel_duration value = 50 }
+			608 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = beijing_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = beijing_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = beijing_steel_developed
+						value = 1
+					}
+				}
+			}
+			608 = {
+				add_resource = {
+					type = steel
+					amount = 110
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_beijing_steel_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_beijing_steel_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_chengdu_steel_deposits = { #扩建成都钢铁厂#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 605
+			}
+		}
+
+		available = {
+			has_tech = excavation5
+			num_of_civilian_factories_available_for_projects > 9
+			owns_state = 605
+			controls_state = 605
+		}
+
+		visible = {
+			owns_state = 605
+			controls_state = 605
+			605 = {
+				NOT = {
+					has_state_flag = {
+						flag = chengdu_steel_developed
+						value = 10
+					}
+				}
+			}
+		}
+
+		cost = 30
+		days_remove = PRC_chengdu_steel_duration?50
+
+		modifier = {
+			civilian_factory_use = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_chengdu_steel_duration value = 50 }
+			605 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = chengdu_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = chengdu_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = chengdu_steel_developed
+						value = 1
+					}
+				}
+			}
+			605 = {
+				add_resource = {
+					type = steel
+					amount = 110
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_chengdu_steel_duration value = 50 compare = less_than }
+				}
+				set_variable = { var = PRC_chengdu_steel_duration value = 50 }
+			}
+		}
+	}
+	
+	develop_guangzhou_steel_deposits = { #扩建广州钢铁厂#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 592
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 592
+			controls_state = 592
+		}
+
+		visible = {
+			owns_state = 592
+			controls_state = 592
+			592 = {
+				NOT = {
+					has_state_flag = {
+						flag = guangzhou_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_guangzhou_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_guangzhou_steel_duration value = 20 }
+			592 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = guangzhou_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = guangzhou_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = guangzhou_steel_developed
+						value = 1
+					}
+				}
+			}
+			592 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_guangzhou_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_guangzhou_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_yuzhong_steel_deposits = { #扩建榆中钢铁厂#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 283
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 283
+			controls_state = 283
+		}
+
+		visible = {
+			owns_state = 283
+			controls_state = 283
+			283 = {
+				NOT = {
+					has_state_flag = {
+						flag = yuzhong_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_yuzhong_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_yuzhong_steel_duration value = 20 }
+			283 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = yuzhong_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = yuzhong_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = yuzhong_steel_developed
+						value = 1
+					}
+				}
+			}
+			283 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_yuzhong_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_yuzhong_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_edong_steel_deposits = { #开发鄂东铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 620
+			}
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 620
+			controls_state = 620
+		}
+
+		visible = {
+			owns_state = 620
+			controls_state = 620
+			620 = {
+				NOT = {
+					has_state_flag = {
+						flag = edong_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 15
+		days_remove = PRC_edong_steel_duration?20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_edong_steel_duration value = 20 }
+			620 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = edong_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = edong_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = edong_steel_developed
+						value = 1
+					}
+				}
+			}
+			620 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_edong_steel_duration value = 20 compare = less_than }
+				}
+				set_variable = { var = PRC_edong_steel_duration value = 20 }
+			}
+		}
+	}
+	
+	develop_minnan_steel_deposits = { #开发闽南铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 595
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 595
+			controls_state = 595
+		}
+
+		visible = {
+			owns_state = 595
+			controls_state = 595
+			595 = {
+				NOT = {
+					has_state_flag = {
+						flag = minnan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_minnan_steel_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_minnan_steel_duration value = 10 }
+			595 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = minnan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = minnan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = minnan_steel_developed
+						value = 1
+					}
+				}
+			}
+			595 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_minnan_steel_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_minnan_steel_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_yudongzi_steel_deposits = { #开发玉洞子铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 744
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 744
+			controls_state = 744
+		}
+
+		visible = {
+			owns_state = 744
+			controls_state = 744
+			744 = {
+				NOT = {
+					has_state_flag = {
+						flag = yudongzi_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_yudongzi_steel_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_yudongzi_steel_duration value = 10 }
+			744 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = yudongzi_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = yudongzi_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = yudongzi_steel_developed
+						value = 1
+					}
+				}
+			}
+			744 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_yudongzi_steel_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_yudongzi_steel_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_hongshan_steel_deposits = { #开发红山铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 755
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 755
+			controls_state = 755
+		}
+
+		visible = {
+			owns_state = 755
+			controls_state = 755
+			755 = {
+				NOT = {
+					has_state_flag = {
+						flag = hongshan_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_hongshan_steel_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_hongshan_steel_duration value = 10 }
+			755 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = hongshan_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = hongshan_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = hongshan_steel_developed
+						value = 1
+					}
+				}
+			}
+			755 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_hongshan_steel_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_hongshan_steel_duration value = 10 }
+			}
+		}
+	}
+
+	develop_tianhu_steel_deposits = { #开发天湖铁矿#
+		
+		icon = steel
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 760
+			}
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 760
+			controls_state = 760
+		}
+
+		visible = {
+			owns_state = 760
+			controls_state = 760
+			760 = {
+				NOT = {
+					has_state_flag = {
+						flag = tianhu_steel_developed
+						value = 5
+					}
+				}
+			}
+		}
+
+		cost = 10
+		days_remove = PRC_tianhu_steel_duration?10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = repeatable_decision_tt
+			add_to_variable = { var = PRC_tianhu_steel_duration value = 10 }
+			760 = {
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = tianhu_steel_developed
+						}
+					}
+					set_state_flag = {
+						flag = tianhu_steel_developed
+						value = 1
+					}
+				}
+				else = {
+					modify_state_flag = {
+						flag = tianhu_steel_developed
+						value = 1
+					}
+				}
+			}
+			760 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { var = PRC_tianhu_steel_duration value = 10 compare = less_than }
+				}
+				set_variable = { var = PRC_tianhu_steel_duration value = 10 }
+			}
+		}
+	}
+	
+	develop_liaoning_steel_deposits = { #辽宁钢铁厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 715
+			controls_state = 715
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 715
+			}
+		}
+
+		visible = {
+			owns_state = 715
+			controls_state = 715
+			715 = {
+				NOT = {
+					has_state_flag = liaoning_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			715 = { set_state_flag = liaoning_steel_developed }
+			715 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_jiangsu_steel_deposits = { #江苏钢铁厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 598
+			controls_state = 598
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 598
+			}
+		}
+
+		visible = {
+			owns_state = 598
+			controls_state = 598
+			598 = {
+				NOT = {
+					has_state_flag = jiangsu_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			598 = { set_state_flag = jiangsu_steel_developed }
+			598 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_hangzhou_steel_deposits = { #杭州钢厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 596
+			controls_state = 596
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 596
+			}
+		}
+
+		visible = {
+			owns_state = 596
+			controls_state = 596
+			596 = {
+				NOT = {
+					has_state_flag = hangzhou_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			596 = { set_state_flag = hangzhou_steel_developed }
+			596 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_taiwan_steel_deposits = { #扩大台湾钢铁厂#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 524
+			controls_state = 524
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 524
+			}
+		}
+
+		visible = {
+			owns_state = 524
+			controls_state = 524
+			524 = {
+				NOT = {
+					has_state_flag = taiwan_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			524 = { set_state_flag = taiwan_steel_developed }
+			524 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_changde_steel_deposits = { #常德钢铁厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 750
+			controls_state = 750
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 750
+			}
+		}
+
+		visible = {
+			owns_state = 750
+			controls_state = 750
+			750 = {
+				NOT = {
+					has_state_flag = changde_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			750 = { set_state_flag = changde_steel_developed }
+			750 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_huangshan_steel_deposits = { #黄山钢厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 749
+			controls_state = 749
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 749
+			}
+		}
+
+		visible = {
+			owns_state = 749
+			controls_state = 749
+			749 = {
+				NOT = {
+					has_state_flag = huangshan_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			749 = { set_state_flag = huangshan_steel_developed }
+			749 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_tianshui_steel_deposits = { #天水钢厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 753
+			controls_state = 753
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 753
+			}
+		}
+
+		visible = {
+			owns_state = 753
+			controls_state = 753
+			753 = {
+				NOT = {
+					has_state_flag = tianshui_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			753 = { set_state_flag = tianshui_steel_developed }
+			753 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_rehe_steel_deposits = { #热河钢厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation2
+			num_of_civilian_factories_available_for_projects > 3
+			owns_state = 610
+			controls_state = 610
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 610
+			}
+		}
+
+		visible = {
+			owns_state = 610
+			controls_state = 610
+			610 = {
+				NOT = {
+					has_state_flag = rehe_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 15
+		days_remove = 20
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			610 = { set_state_flag = rehe_steel_developed }
+			610 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+	
+	develop_yinchuan_steel_deposits = { #扩大银川铁矿#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 616
+			controls_state = 616
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 616
+			}
+		}
+
+		visible = {
+			owns_state = 616
+			controls_state = 616
+			616 = {
+				NOT = {
+					has_state_flag = yinchuan_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			616 = { set_state_flag = yinchuan_steel_developed }
+			616 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_xining_steel_deposits = { #扩建西宁铁矿#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 2
+			owns_state = 754
+			controls_state = 754
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 754
+			}
+		}
+
+		visible = {
+			owns_state = 754
+			controls_state = 754
+			754 = {
+				NOT = {
+					has_state_flag = xining_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			754 = { set_state_flag = xining_steel_developed }
+			754 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_wulumuqi_steel_deposits = { #乌鲁木齐钢铁厂扩建工程#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 617
+			controls_state = 617
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 617
+			}
+		}
+
+		visible = {
+			owns_state = 617
+			controls_state = 617
+			617 = {
+				NOT = {
+					has_state_flag = wulumuqi_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			617 = { set_state_flag = wulumuqi_steel_developed }
+			617 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+	}
+	
+	develop_lasa_steel_deposits = { #在拉萨扩建钢铁厂#
+
+
+		icon = steel
+
+		allowed = {
+
+		}
+
+		available = {
+			has_tech = excavation1
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 757
+			controls_state = 757
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 757
+			}
+		}
+
+		visible = {
+			owns_state = 757
+			controls_state = 757
+			757 = {
+				NOT = {
+					has_state_flag = lasa_steel_developed
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 10
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		remove_effect = {
+			757 = { set_state_flag = lasa_steel_developed }
+			757 = {
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+		}
+	}
+}

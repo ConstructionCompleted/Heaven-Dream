@@ -1,0 +1,321 @@
+focus_tree = {
+	id = KZN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KZN
+		}
+	}
+	
+	default = no
+ 
+    #安东诺夫红军
+	focus = {
+		id = KZN_andongnuofu_redarmy
+		icon = GFX_goal_support_fourth_int
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#接管伏龙芝军队
+	focus = {
+		id = KZN_jieguan_fulongzhi_jundui
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = KZN_andongnuofu_redarmy}
+		relative_position_id = KZN_andongnuofu_redarmy
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   load_oob = KZN_fulongzhi_army
+		}
+	}
+	#红色军队
+	focus = {
+		id = KZN_hongse_jundui
+		icon = GFX_focus_SOV_organization_centralization_discipline
+		prerequisite = { focus = KZN_jieguan_fulongzhi_jundui}
+		relative_position_id = KZN_jieguan_fulongzhi_jundui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_kashan_qibing
+			add_idea = KZN_hongse_jundui
+			}
+		}
+	}
+	#组建草原骑兵
+	focus = {
+		id = KZN_caoyuan_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = KZN_hongse_jundui}
+		relative_position_id = KZN_hongse_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_hongse_jundui
+			add_idea = KZN_caoyuan_qibing
+			}
+		}
+	}
+	#喀山红军现代化
+	focus = {
+		id = KZN_kashan_hongjun_xiandaihua
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = KZN_caoyuan_qibing}
+		relative_position_id = KZN_caoyuan_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_caoyuan_qibing
+			add_idea = KZN_redarmy_xiandaihua
+			}
+		}
+	}
+	#工人的力量
+	focus = {
+		id = KZN_gongren_liliang
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = KZN_hongse_jundui}
+		relative_position_id = KZN_hongse_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = KZN_gongren_liliang
+		}
+	}
+	#供应红军
+	focus = {
+		id = KZN_gongying_hongjun
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = KZN_gongren_liliang}
+		relative_position_id = KZN_gongren_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_gongren_liliang
+			add_idea = KZN_gongying_hongjun
+			}
+		}
+	}
+	#革命的力量
+	focus = {
+		id = KZN_gm_liliang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = KZN_kashan_hongjun_xiandaihua}
+		prerequisite = { focus = KZN_gongying_hongjun}
+		relative_position_id = KZN_gongying_hongjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_shibai_qingxu
+			add_idea = KZN_shibai_qingxu_2
+			}
+		}
+	}
+	#推行超工业化
+	focus = {
+		id = KZN_chao_gongyehua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = KZN_jieguan_fulongzhi_jundui}
+		relative_position_id = KZN_jieguan_fulongzhi_jundui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			remove_idea = KZN_gongye_shuairuo
+			add_idea = KZN_gongye_shuairuo_2
+			}
+			add_stability = -0.1
+		}
+	}
+	#进口外部产业
+	focus = {
+		id = KZN_jinkou_waibu_chanye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = KZN_chao_gongyehua}
+		relative_position_id = KZN_chao_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+add_timed_idea = {
+    idea = KZN_jinkou_chanye
+    days = 180
+} 
+add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#战争引擎
+	focus = {
+		id = KZN_zhanzheng_yinqing
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = KZN_jinkou_waibu_chanye}
+		relative_position_id = KZN_jinkou_waibu_chanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KZN_war_xiaoying
+		}
+	}
+	#苦一苦农民
+	focus = {
+		id = KZN_kuyiku_nongmin
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = KZN_chao_gongyehua}
+		relative_position_id = KZN_chao_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = KZN_gongye_shuairuo_2
+			add_idea = KZN_gongye_shuairuo_3
+			}
+		}
+	}
+	#抽压制度
+	focus = {
+		id = KZN_chouya_zhidu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = KZN_kuyiku_nongmin}
+		relative_position_id = KZN_kuyiku_nongmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = KZN_gongye_shuairuo_3
+			add_idea = KZN_gongye_shuairuo_4
+			}
+		}
+	}
+	#完成工业化
+	focus = {
+		id = KZN_finnish_ic
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = KZN_zhanzheng_yinqing}
+		prerequisite = { focus = KZN_chouya_zhidu}
+		relative_position_id = KZN_chouya_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = KZN_gongye_shuairuo_4
+			add_idea = KZN_gongye_shuairuo_5
+			}
+		}
+	}
+	#革命的色彩
+	focus = {
+		id = KZN_gm_secai
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = KZN_gm_liliang}
+		prerequisite = { focus = KZN_finnish_ic}
+		relative_position_id = KZN_finnish_ic
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = KZN_shibai_qingxu_2
+		}
+	}
+	#托洛茨基的追随者
+	focus = {
+		id = KZN_tuoluociji_zhuisuizhe
+		icon = GFX_goal_support_fourth_int
+		prerequisite = { focus = KZN_gm_secai}
+		relative_position_id = KZN_gm_secai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNE = {
+		exists = no
+		}
+		POA = {
+		exists = no
+		}
+		PRM = {
+		exists = no
+		}
+		has_war = no
+		} 
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = KZN
+			}
+		}
+	}
+}

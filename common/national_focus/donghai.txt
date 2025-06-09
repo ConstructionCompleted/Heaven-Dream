@@ -1,0 +1,224 @@
+focus_tree = {
+	id = DHJ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DHJ
+		}
+	}
+	
+	default = no
+ 
+	#东海之珍
+	focus = {
+		id = DHJ_donghai_zhizhen
+		icon = GFX_goal_support_democracy
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#革新部队
+	focus = {
+		id = DHJ_gexin_budui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DHJ_donghai_zhizhen}
+		relative_position_id = DHJ_donghai_zhizhen
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_newarmy_2
+			remove_idea = DHJ_newarmy
+			}
+		}
+	}
+	#人民工业
+	focus = {
+		id = DHJ_renmin_gongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = DHJ_donghai_zhizhen}
+		relative_position_id = DHJ_donghai_zhizhen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			408 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#海港经济
+	focus = {
+		id = DHJ_haigang_jingji
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { focus = DHJ_donghai_zhizhen}
+		relative_position_id = DHJ_donghai_zhizhen
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_donghai_jingji_2
+			remove_idea = DHJ_donghai_jingji
+			}
+		}
+	}
+	#革命意志
+	focus = {
+		id = DHJ_geming_yizhi
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = DHJ_gexin_budui}
+		prerequisite = { focus = DHJ_renmin_gongye}
+		relative_position_id = DHJ_renmin_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_newarmy_3
+			remove_idea = DHJ_newarmy_2
+			}
+		}
+	}
+	#东方珍珠
+	focus = {
+		id = DHJ_dongfang_zhenzhu
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = DHJ_haigang_jingji}
+		prerequisite = { focus = DHJ_renmin_gongye}
+		relative_position_id = DHJ_renmin_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_donghai_jingji_3
+			remove_idea = DHJ_donghai_jingji_2
+			}
+		}
+	}
+	#现代化东海
+	focus = {
+	    id = DHJ_xiandaihua_donghai
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = DHJ_geming_yizhi}
+		prerequisite = { focus = DHJ_dongfang_zhenzhu}
+		relative_position_id = DHJ_geming_yizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_donghai_jingji_4
+			remove_idea = DHJ_donghai_jingji_3
+			}
+		}
+	}
+	#共和梦想
+	focus = {
+	    id = DHJ_gonghe_mengxiang
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = DHJ_xiandaihua_donghai}
+		relative_position_id = DHJ_xiandaihua_donghai
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DHJ_gonghe_dream
+		}
+	}
+	#现代化部队
+	focus = {
+	    id = DHJ_xiandaihua_budui
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = DHJ_xiandaihua_donghai}
+		relative_position_id = DHJ_xiandaihua_donghai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DHJ_newarmy_4
+			remove_idea = DHJ_newarmy_3
+			}
+		}
+	}
+	#建设军事工业
+	focus = {
+	    id = DHJ_jianshe_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = DHJ_xiandaihua_donghai}
+		relative_position_id = DHJ_xiandaihua_donghai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			717 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#现代化学校
+	focus = {
+	    id = DHJ_xiandaihua_xuexiao
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = DHJ_xiandaihua_donghai}
+		relative_position_id = DHJ_xiandaihua_donghai
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DHJ_xiandaihua_xuexiao
+		}
+	}
+}

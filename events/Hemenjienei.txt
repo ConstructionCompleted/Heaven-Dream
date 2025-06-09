@@ -1,0 +1,41 @@
+add_namespace = holy_hemenjienei
+#反苏族战争的胜利
+country_event = {
+	id = holy_hemenjienei.1
+	title = holy_hemenjienei.1.t
+	desc = holy_hemenjienei.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag = QNK
+	SUZ = {
+	exists = no
+	}
+	}
+	option = {
+		name = holy_hemenjienei.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		CEP = {
+		puppet = OJB
+		}
+	}
+}
+#军团长议会
+country_event = {
+	id = holy_hemenjienei.2
+	title = holy_hemenjienei.2.t
+	desc = holy_hemenjienei.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hemenjienei.2.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = 200
+	}
+}

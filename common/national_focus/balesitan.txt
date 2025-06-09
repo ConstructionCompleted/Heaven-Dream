@@ -1,0 +1,706 @@
+﻿focus_tree = {
+	id = PAL_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PAL
+		}
+	}
+	
+	default = no
+	
+	#临时委员会
+	focus = {
+		id = PAL_linshi_weiyuanhui
+		icon = GFX_goal_generic_neutrality_focus
+		x = 20
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+		id = holy_aosiman.66
+		days = 3
+		}
+		}
+	}
+    #泛阿拉伯主义
+	focus = {
+		id = PAL_fanalbo_zhuyi
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = PAL_linshi_weiyuanhui }
+		relative_position_id = PAL_linshi_weiyuanhui
+		mutually_exclusive = { focus = PAL_yanxu_shisu_zhuyi }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalbo_zhuyi
+		remove_idea = PAL_zhengzhi_weiji
+		}
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = progressism
+}
+		}
+	}
+	#扫除犹太人
+	focus = {
+		id = PAL_saochu_youtairen
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = PAL_fanalbo_zhuyi }
+		relative_position_id = PAL_fanalbo_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalbo_zhuyi_2
+		remove_idea = PAL_fanalbo_zhuyi
+		}
+		}
+	}
+	#团结穆斯林
+	focus = {
+		id = PAL_tuanjie_musilin
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = PAL_saochu_youtairen }
+		relative_position_id = PAL_saochu_youtairen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalbo_zhuyi_3
+		remove_idea = PAL_fanalbo_zhuyi_2
+		}
+		}
+	}
+	#建设沿海港口
+	focus = {
+		id = PAL_jianshe_yanhai_gangkou
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = PAL_tuanjie_musilin }
+		relative_position_id = PAL_tuanjie_musilin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		1317 = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大农业
+	focus = {
+		id = PAL_kuoda_nongye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = PAL_jianshe_yanhai_gangkou }
+		relative_position_id = PAL_jianshe_yanhai_gangkou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalbo_zhuyi_4
+		remove_idea = PAL_fanalbo_zhuyi_3
+		}
+		}
+	}
+	#延续世俗主义
+	focus = {
+		id = PAL_yanxu_shisu_zhuyi
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = PAL_linshi_weiyuanhui }
+		relative_position_id = PAL_linshi_weiyuanhui
+		mutually_exclusive = { focus = PAL_fanalbo_zhuyi }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisu_zhuyi
+		remove_idea = PAL_zhengzhi_weiji
+		}
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = democratic
+}
+		}
+	}
+	#宗教和平
+	focus = {
+		id = PAL_zongjiao_heping
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = PAL_yanxu_shisu_zhuyi }
+		relative_position_id = PAL_yanxu_shisu_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisu_zhuyi_2
+		remove_idea = PAL_shisu_zhuyi
+		}
+		}
+	}
+	#巴勒斯坦议会
+	focus = {
+		id = PAL_balesitan_yihui
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = PAL_zongjiao_heping }
+		relative_position_id = PAL_zongjiao_heping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisu_zhuyi_3
+		remove_idea = PAL_shisu_zhuyi_2
+		}
+		}
+	}
+	#协调定居问题
+	focus = {
+		id = PAL_xietiao_dingju_wenti
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = PAL_balesitan_yihui }
+		relative_position_id = PAL_balesitan_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisu_zhuyi_4
+		remove_idea = PAL_shisu_zhuyi_3
+		}
+		}
+	}
+	#建设公共设施
+	focus = {
+		id = PAL_jianshe_gonggong_sheshu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PAL_xietiao_dingju_wenti }
+		relative_position_id = PAL_xietiao_dingju_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisu_zhuyi_5
+		remove_idea = PAL_shisu_zhuyi_4
+		}
+		1316 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#出售西奈半岛
+	focus = {
+		id = PAL_chushou_xinai_bandao
+		icon = GFX_focus_generic_the_suez
+		prerequisite = { focus = PAL_fanalbo_zhuyi }
+		relative_position_id = PAL_fanalbo_zhuyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		EGY = {
+		transfer_state = 453
+		transfer_state = 446
+		transfer_state = 1567
+		}
+		453 = {
+		set_demilitarized_zone = no
+		}
+		446 = {
+		set_demilitarized_zone = no
+		}
+		1567 = {
+		set_demilitarized_zone = no
+		}
+		add_timed_idea = {
+    idea = PAL_chushou_xinai
+    days = 360
+}
+		}
+	}
+	#犹太谈判
+	focus = {
+		id = PAL_youtai_tanpan
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = PAL_yanxu_shisu_zhuyi }
+		relative_position_id = PAL_yanxu_shisu_zhuyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = PAL_youtaitanpan
+		}
+	}
+	#扩大耶路撒冷城区
+	focus = {
+		id = PAL_kuoda_yelusalen_chengqu
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = PAL_chushou_xinai_bandao focus = PAL_youtai_tanpan }
+		relative_position_id = PAL_youtai_tanpan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1316 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#寻求埃及资助
+	focus = {
+		id = PAL_xunqiu_aiji_zizhu
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = PAL_kuoda_yelusalen_chengqu }
+		relative_position_id = PAL_kuoda_yelusalen_chengqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		EGY = {
+		controls_state = 453
+		controls_state = 446
+		}
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#扩大资金需求
+	focus = {
+		id = PAL_kuoda_zijin_xuqiu
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = PAL_kuoda_yelusalen_chengqu }
+		relative_position_id = PAL_kuoda_yelusalen_chengqu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = PAL_youtai_tanpan
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_youtai_tanpan_2
+		remove_idea = PAL_youtaitanpan
+		}
+		}
+	}
+	#加入泛阿拉伯
+	focus = {
+		id = PAL_jiaru_fanalabo
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PAL_xunqiu_aiji_zizhu }
+		relative_position_id = PAL_xunqiu_aiji_zizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		is_in_faction_with = EGY
+		}
+		}
+		completion_reward = {
+		EGY = {
+		add_to_faction = PAL
+		}
+		}
+	}
+	#加入青年党
+	focus = {
+		id = PAL_jiaru_qingniandang
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = PAL_kuoda_zijin_xuqiu }
+		relative_position_id = PAL_kuoda_zijin_xuqiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		is_in_faction_with = OTF
+		}
+		}
+		completion_reward = {
+		OTF = {
+		add_to_faction = PAL
+		}
+		}
+	}
+	#改革巴勒斯坦军事
+	focus = {
+		id = PAL_gaige_balesitan_junshi
+		icon = GFX_focus_secret_rearmament
+		x = 20
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1936.6.15
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_junshi_muda_2
+		remove_idea = PAL_junshi_muda
+		}
+		}
+	}
+	#扩张准军事组织
+	focus = {
+		id = PAL_kuozhang_zhunjunshi_zuzhi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = PAL_gaige_balesitan_junshi }
+		relative_position_id = PAL_gaige_balesitan_junshi
+		mutually_exclusive = { focus = PAL_shisuhua_jundui }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = PAL_fanalbo_zhuyi
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalabo_army
+		remove_idea = PAL_junshi_muda_2
+		}
+		}
+	}
+	#军队伊斯兰化
+	focus = {
+		id = PAL_jundui_yisilanhua
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = PAL_kuozhang_zhunjunshi_zuzhi }
+		relative_position_id = PAL_kuozhang_zhunjunshi_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalabo_army_2
+		remove_idea = PAL_fanalabo_army
+		}
+		}
+	}
+	#反突厥主义
+	focus = {
+		id = PAL_fantujue_zhuyi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = PAL_jundui_yisilanhua }
+		relative_position_id = PAL_jundui_yisilanhua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_fanalabo_army_3
+		remove_idea = PAL_fanalabo_army_2
+		}
+		}
+	}
+	#续订步兵战术
+	focus = {
+		id = PAL_xuding_bubing_zhanshu
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = PAL_kuozhang_zhunjunshi_zuzhi }
+		relative_position_id = PAL_kuozhang_zhunjunshi_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = PAL_xiuding_bubing_zhanshu
+		}
+	}
+	#改革后勤体系
+	focus = {
+		id = PAL_gaige_houqin_tixi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = PAL_xuding_bubing_zhanshu }
+		relative_position_id = PAL_xuding_bubing_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = PAL_gaige_houqin_tixi
+		}
+	}
+	#布防城市区
+	focus = {
+		id = PAL_bufang_chengshiqu
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = PAL_fantujue_zhuyi }
+		prerequisite = { focus = PAL_gaige_houqin_tixi }
+		relative_position_id = PAL_gaige_houqin_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		454 = {
+			add_building_construction = {
+				type = bunker
+				province = 1086
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1065
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4206
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#世俗化军队
+	focus = {
+		id = PAL_shisuhua_jundui
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = PAL_gaige_balesitan_junshi }
+		relative_position_id = PAL_gaige_balesitan_junshi
+		mutually_exclusive = { focus = PAL_kuozhang_zhunjunshi_zuzhi }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = PAL_yanxu_shisu_zhuyi
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisuhua_army
+		remove_idea = PAL_junshi_muda_2
+		}
+		}
+	}
+	#军队扫盲
+	focus = {
+		id = PAL_jundui_saomang
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = PAL_shisuhua_jundui }
+		relative_position_id = PAL_shisuhua_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisuhua_army_2
+		remove_idea = PAL_shisuhua_army
+		}
+		}
+	}
+	#接纳外族战士
+	focus = {
+		id = PAL_jiena_waizu_zhanshi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = PAL_jundui_saomang }
+		relative_position_id = PAL_jundui_saomang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_shisuhua_army_3
+		remove_idea = PAL_shisuhua_army_2
+		}
+		}
+	}
+	#扩大军事学院
+	focus = {
+		id = PAL_kuoda_junshi_xueyuan
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = PAL_shisuhua_jundui }
+		relative_position_id = PAL_shisuhua_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = PAL_kuoda_junshi_xueyuan
+		}
+	}
+	#建立指挥体系
+	focus = {
+		id = PAL_jianli_zhihui_tixi
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = PAL_kuoda_junshi_xueyuan }
+		relative_position_id = PAL_kuoda_junshi_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PAL_kuoda_junshi_xueyuan_2
+		remove_idea = PAL_kuoda_junshi_xueyuan
+		}
+		}
+	}
+	#进入西奈
+	focus = {
+		id = PAL_jinru_xinai
+		icon = GFX_goal_poland_goal
+		prerequisite = { focus = PAL_jianli_zhihui_tixi }
+		prerequisite = { focus = PAL_jiena_waizu_zhanshi }
+		relative_position_id = PAL_jiena_waizu_zhanshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		453 = {
+		is_demilitarized_zone = yes
+		}
+		446 = {
+		is_demilitarized_zone = yes
+		}
+		}
+		completion_reward = {
+		453 = {
+		set_demilitarized_zone = no
+		}
+		446 = {
+		set_demilitarized_zone = no
+		}
+		}
+	}
+}

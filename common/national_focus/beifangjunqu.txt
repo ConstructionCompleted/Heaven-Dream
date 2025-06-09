@@ -1,0 +1,396 @@
+focus_tree = {
+	id = RNN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RNN
+		}
+	}
+	
+	default = no
+ 
+    #老将的叹息
+	focus = {
+		id = RNN_laojiang_tanxi
+		icon = GFX_focus_generic_home_defense
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#弗拉基米尔
+	focus = {
+		id = RNN_fulajimier
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = RNN_laojiang_tanxi}
+		relative_position_id = RNN_laojiang_tanxi
+		mutually_exclusive = { focus = RNN_cuikefu_jiangjun }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    retire_country_leader = yes
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = neutrality
+}
+			create_country_leader = {
+	name = "弗拉基米尔"
+	desc = ""
+	picture = "GFX242"
+	expire = "1965.1.1"
+	ideology = junzheng_system
+	traits = {
+		
+	}
+}
+		}
+	}
+	#联络圣彼得堡
+	focus = {
+		id = RNN_lianluo_shengbidebao
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = RNN_fulajimier}
+		relative_position_id = RNN_fulajimier
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+		}
+	}
+	#工业支援
+	focus = {
+		id = RNN_gongye_zhiyuan
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = RNN_lianluo_shengbidebao}
+		relative_position_id = RNN_lianluo_shengbidebao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#清剿北部余孽
+	focus = {
+		id = RNN_qingjiao_beibu_yunie
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = RNN_gongye_zhiyuan}
+		prerequisite = { focus = RNN_hejiangling_xiezuo}
+		relative_position_id = RNN_gongye_zhiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    KRL = {
+			add_stability = -0.1
+			}
+		}
+	}
+	#荡平游击队
+	focus = {
+		id = RNN_dangping_youjidui
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = RNN_qingjiao_beibu_yunie}
+		relative_position_id = RNN_qingjiao_beibu_yunie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = KRL_youjidui
+		}
+		bypass = {
+		NOT = {
+		has_idea = KRL_youjidui
+		}
+		KRL = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		    remove_ideas = KRL_youjidui
+		}
+	}
+	#向沙皇献上忠诚
+	focus = {
+		id = RNN_xiangshahuang_xianshang_zhongcheng
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		prerequisite = { focus = RNN_dangping_youjidui}
+		relative_position_id = RNN_dangping_youjidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = KRL
+		}
+		}
+		completion_reward = {
+		    RUN = {
+			puppet = RNN
+			}
+		}
+	}
+	#崔可夫将军
+	focus = {
+		id = RNN_cuikefu_jiangjun
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = RNN_laojiang_tanxi}
+		relative_position_id = RNN_laojiang_tanxi
+		mutually_exclusive = { focus = RNN_fulajimier }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    retire_country_leader = yes
+			create_country_leader = {
+	name = "瓦西里·伊万诺维奇·崔可夫"
+	desc = ""
+	picture = "GFX243"
+	expire = "1965.1.1"
+	ideology = junqu_zhengfu_gov
+	traits = {
+		
+	}
+}
+		}
+	}
+	#与东部合作
+	focus = {
+		id = RNN_yudongbu_hezuo
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = RNN_cuikefu_jiangjun}
+		relative_position_id = RNN_cuikefu_jiangjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   army_experience = 50
+		}
+	}
+	#寻求武器支援
+	focus = {
+		id = RNN_xunqiu_wuqi_zhiyuan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = RNN_yudongbu_hezuo}
+		relative_position_id = RNN_yudongbu_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = RNE
+}
+		}
+	}
+	#清剿北部余孽
+	focus = {
+		id = RNN_qingjiao_beibuyunie
+		icon = GFX_focus_RAJ_indian_gentlemen_offcers
+		prerequisite = { focus = RNN_dui_jundui_fanfu}
+		prerequisite = { focus = RNN_xunqiu_wuqi_zhiyuan}
+		relative_position_id = RNN_dui_jundui_fanfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    KRL = {
+			add_stability = -0.1
+			}
+		}
+	}
+	#给予和平
+	focus = {
+		id = RNN_jiyu_wp
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = RNN_qingjiao_beibuyunie}
+		relative_position_id = RNN_qingjiao_beibuyunie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = KRL_youjidui
+		}
+		bypass = {
+		NOT = {
+		has_idea = KRL_youjidui
+		}
+		KRL = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		    remove_ideas = KRL_youjidui
+		}
+	}
+	#等待东部态度
+	focus = {
+		id = RNN_dengdai_dongbu_taidu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RNN_jiyu_wp}
+		relative_position_id = RNN_jiyu_wp
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = KRL
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		RNE = {
+		exists = yes
+		is_puppet = no
+		}
+		}
+		RNE = {
+		puppet = RNN
+		}
+		}
+		if = {
+		limit = {
+		RNE = {
+		exists = yes
+		is_puppet = yes
+		}
+		}
+		RUN = {
+		puppet = RNN
+		}
+		}
+	}
+	}
+	#芬兰没什么了不起的！
+	focus = {
+		id = RNN_fenlan_meishenme_liaobuqide
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = RNN_cuikefu_jiangjun focus = RNN_fulajimier }
+		relative_position_id = RNN_cuikefu_jiangjun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FIN = {
+		has_war = yes
+		}
+		}
+		completion_reward = {
+		   remove_ideas = RNN_FINorRUS
+		}
+	}
+	#和将领的协作
+	focus = {
+		id = RNN_hejiangling_xiezuo
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RNN_fenlan_meishenme_liaobuqide focus = RNN_fulajimier }
+		relative_position_id = RNN_fenlan_meishenme_liaobuqide
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   swap_ideas = {
+		   add_idea = RNN_hezuo_jundui
+		   remove_idea = RNN_wuneng_jundui
+		   }
+		}
+	}
+	#对军队的反腐
+	focus = {
+		id = RNN_dui_jundui_fanfu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = RNN_fenlan_meishenme_liaobuqide focus = RNN_cuikefu_jiangjun }
+		relative_position_id = RNN_fenlan_meishenme_liaobuqide
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   remove_ideas = RNN_wuneng_jundui
+		   add_timed_idea = {
+    idea = RNN_army_fankang
+    days = 90
+}
+		}
+	}
+	#宣称摩尔曼斯克
+	focus = {
+		id = RNN_xuancheng_moermansike
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = RNN_dui_jundui_fanfu focus = RNN_hejiangling_xiezuo }
+		relative_position_id = RNN_hejiangling_xiezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_state_core = 213
+		   add_state_core = 1383
+		   add_state_core = 1854
+		   add_state_core = 1398
+		}
+	}
+}

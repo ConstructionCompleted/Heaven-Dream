@@ -1,0 +1,1518 @@
+focus_tree = {
+	id = WAN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = WAN
+		}
+	}
+	
+	default = no
+ 
+    #第六年
+	focus = {
+		id = WAN_six_year
+		icon = GFX_focus_generic_self_management
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+every_state = {
+			limit = {
+			OR = {
+			region = 247
+			region = 143
+			}
+			}
+			add_claim_by = WAN
+			}
+			remove_state_claim = 1105
+			add_state_claim = 1529
+		}
+	}
+	#支援陈调元
+	focus = {
+		id = WAN_zhiyuan_chentiaoyuan
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = WAN_six_year}
+		relative_position_id = WAN_six_year
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = JAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = HHA
+    type = annex_everything
+}
+		}
+	}
+	#武装支援
+	focus = {
+		id = WAN_wuzhuang_zhiyuan
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = WAN_zhiyuan_chentiaoyuan}
+		relative_position_id = WAN_zhiyuan_chentiaoyuan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		OR = {
+		has_war_with = JAN
+		has_war_with = HHA
+		}
+		}
+		}
+		bypass = {
+		NOT = {
+		NWA = {
+		OR = {
+		has_war_with = JAN
+		has_war_with = HHA
+		}
+		}
+		}
+		}
+		completion_reward = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+    target = WAN
+}
+		}
+	}
+	#协助动员
+	focus = {
+		id = WAN_xiezhu_dongyuan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = WAN_zhiyuan_chentiaoyuan}
+		relative_position_id = WAN_zhiyuan_chentiaoyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		OR = {
+		has_war_with = JAN
+		has_war_with = HHA
+		}
+		}
+		}
+		bypass = {
+		NOT = {
+		NWA = {
+		OR = {
+		has_war_with = JAN
+		has_war_with = HHA
+		}
+		}
+		}
+		}
+		completion_reward = {
+		NWA = {
+		load_oob = WAN_xiezhu_dongyuan
+		}
+		}
+	}
+	#军官派遣
+	focus = {
+		id = WAN_junguan_paiqian
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = WAN_zhiyuan_chentiaoyuan}
+		relative_position_id = WAN_zhiyuan_chentiaoyuan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		NWA = {
+		add_ideas = WAN_junguan
+		}
+		}
+	}
+	#解决卖国贼
+	focus = {
+		id = WAN_jiejue_maiguozei
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = WAN_xiezhu_dongyuan}
+		prerequisite = { focus = WAN_wuzhuang_zhiyuan}
+		prerequisite = { focus = WAN_junguan_paiqian}
+		relative_position_id = WAN_xiezhu_dongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		}
+	}
+	#核心化策略
+	focus = {
+		id = WAN_core_celue
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = WAN_jiejue_maiguozei}
+		relative_position_id = WAN_jiejue_maiguozei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#复仇吴佩孚
+	focus = {
+		id = WAN_fuchou_wupeifu
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = WAN_core_celue}
+		relative_position_id = WAN_core_celue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		bypass = {
+		OR = {
+		ZHI = {
+		exists = no
+		}
+		has_war_with = ZHI
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = ZHI
+    type = annex_everything
+}
+		}
+	}
+	#重建皖系势力圈
+	focus = {
+		id = WAN_wanxi_shiliquan_chongjian
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = WAN_core_celue}
+		relative_position_id = WAN_core_celue
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		ZHI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_state_claim = 1123
+		add_state_claim = 1122
+		add_state_claim = 1076
+		add_state_claim = 586
+		add_state_claim = 1337
+		add_state_claim = 1336
+		add_state_claim = 1335
+		add_state_claim = 537
+		add_state_claim = 654
+		add_state_claim = 1855
+		add_state_claim = 1273
+		add_state_claim = 1280
+		add_state_claim = 1486
+		add_state_claim = 1487
+		add_state_claim = 524
+		remove_state_claim = 323
+		remove_state_claim = 1396
+every_state = {
+					limit = {
+					OR = {
+						region = 255
+						region = 148
+						region = 242
+						region = 244
+						region = 186
+						region = 155
+						region = 165
+						region = 152
+						region = 266
+						region = 143
+						region = 247
+						region = 245
+						region = 164
+						region = 246
+						region = 248
+						region = 249
+						region = 250
+						region = 144
+						region = 200
+						region = 146
+						region = 287
+						region = 252
+						}
+					}
+add_claim_by = WAN
+		}
+		}
+	}
+	#解决山东问题
+	focus = {
+		id = WAN_jiejue_shandong_wenti
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = WAN_fuchou_wupeifu}
+		relative_position_id = WAN_fuchou_wupeifu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		ZHI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAD
+    type = annex_everything
+}
+		}
+	}
+	#发动南方战争
+	focus = {
+		id = WAN_fadong_nanfang_zhanzheng
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = WAN_fuchou_wupeifu}
+		prerequisite = { focus = WAN_wanxi_shiliquan_chongjian }
+		relative_position_id = WAN_fuchou_wupeifu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		ZHI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#对抗西北军
+	focus = {
+		id = WAN_duikang_xibeijun
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = WAN_wanxi_shiliquan_chongjian }
+		relative_position_id = WAN_wanxi_shiliquan_chongjian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		ZHI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#北伐之日
+	focus = {
+		id = WAN_beifa_zhiri
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = WAN_jiejue_shandong_wenti}
+		prerequisite = { focus = WAN_duikang_xibeijun }
+		prerequisite = { focus = WAN_fadong_nanfang_zhanzheng }
+		relative_position_id = WAN_fadong_nanfang_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FEN
+    type = annex_everything
+}
+		}
+	}
+	#解决分裂势力
+	focus = {
+		id = WAN_jiefang_fenlie_shili
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = WAN_beifa_zhiri}
+		relative_position_id = WAN_beifa_zhiri
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		FEN = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#北洋民国
+	focus = {
+		id = WAN_beiyang_minguo
+		icon = GFX_focus_generic_tank_air_support
+		prerequisite = { focus = WAN_jiefang_fenlie_shili}
+		relative_position_id = WAN_jiefang_fenlie_shili
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		DHJ = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		HEI = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		FEN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		HHA = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		JAN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		NWA = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		JAD = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		LUJ	= {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		QIN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		JIN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		ZHI = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		NIN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		HAM = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		XQJ = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		XIJ = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		ETK = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		XIH = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		MJJ = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		ZAG = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		XKA = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		SHU = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		YUX = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		DIA = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		is_in_faction_with = WAN
+		}
+		}
+		QAN = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		XIG = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		CCP = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		KMT = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		NNJ = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		CGH = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		GUI = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		OGU = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		YUE = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		QIO = {
+		OR = {
+		exists = no
+		is_puppet_of = WAN
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = WAN
+		OR = {
+		tag = FEN
+		tag = HEI
+		tag = DHJ
+		tag = WAN
+		tag = ZHI
+		tag = LUJ
+		tag = JAD
+		tag = NWA
+		tag = JAN
+		tag = HHA
+		tag = NNJ
+		tag = CCP
+		tag = CGH
+		tag = KMT
+		tag = XIG
+		tag = YUE
+		tag = OGU
+		tag = GUI
+		tag = QYZ
+		tag = DIA
+		tag = QAN
+		tag = YUX
+		tag = XKA
+		tag = SHU
+		tag = JIN
+		tag = QIN
+		tag = NIN
+		tag = MJJ
+		tag = XIH
+		tag = HAM
+		tag = ETK
+		tag = XIN
+		tag = JNA
+		tag = TWA
+		}
+		}
+		WAN = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+		}
+		load_focus_tree = { tree = CHI_beiyang_focus keep_completed = yes }
+		set_cosmetic_tag = CHI
+		news_event = {
+				id = holy_news.39 days = 1
+			}
+		remove_ideas = WAN_zhiliposui
+		}
+	}
+	#整顿军队
+	focus = {
+		id = WAN_zhengdun_jundui
+		icon = GFX_focus_generic_little_entente
+		x = 20
+		y = 12
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = WAN_jiejue_maiguozei
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_jingrui_old_army_2
+		remove_idea = WAN_jingrui_old_army
+		}
+		}
+	}
+	#重开保定
+	focus = {
+		id = WAN_chongkai_baoding
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = WAN_zhengdun_jundui}
+		relative_position_id = WAN_zhengdun_jundui
+		mutually_exclusive = { focus = WAN_new_junxiao }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_jingrui_old_army_3
+		remove_idea = WAN_jingrui_old_army_2
+		}
+		}
+	}
+	#信任旧式经验
+	focus = {
+		id = WAN_xinren_jiushi_jingyan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = WAN_chongkai_baoding}
+		relative_position_id = WAN_chongkai_baoding
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_jingrui_old_army_4
+		remove_idea = WAN_jingrui_old_army_3
+		}
+		}
+	}
+	#堑壕战
+	focus = {
+		id = WAN_qianhaozhan
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = WAN_xinren_jiushi_jingyan}
+		relative_position_id = WAN_xinren_jiushi_jingyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_jingrui_old_army_5
+		remove_idea = WAN_jingrui_old_army_4
+		}
+		}
+	}
+	#武器科研
+	focus = {
+		id = WAN_wuqi_keyan
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = WAN_chongkai_baoding}
+		relative_position_id = WAN_chongkai_baoding
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#火炮科研
+	focus = {
+		id = WAN_huopao_keyan
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = WAN_wuqi_keyan}
+		relative_position_id = WAN_wuqi_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#总参谋部
+	focus = {
+		id = WAN_zongcanmoubu
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = WAN_qianhaozhan}
+		prerequisite = { focus = WAN_huopao_keyan}
+		relative_position_id = WAN_huopao_keyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = WAN_zongcanmoubu
+		}
+	}
+	#新军校
+	focus = {
+		id = WAN_new_junxiao
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = WAN_zhengdun_jundui}
+		relative_position_id = WAN_zhengdun_jundui
+		mutually_exclusive = { focus = WAN_chongkai_baoding }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_new_junxiao
+		remove_idea = WAN_jingrui_old_army_2
+		}
+		}
+	}
+	#新式思想
+	focus = {
+		id = WAN_xinshi_sixiang
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = WAN_new_junxiao}
+		relative_position_id = WAN_new_junxiao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_new_junxiao_2
+		remove_idea = WAN_new_junxiao
+		}
+		}
+	}
+	#革除落后
+	focus = {
+		id = WAN_gechu_luohou
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = WAN_new_junxiao}
+		relative_position_id = WAN_new_junxiao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = WAN_gechu_luohou
+		}
+	}
+	#“共和”未来
+	focus = {
+		id = WAN_gonghe_weilai
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = WAN_gechu_luohou}
+		relative_position_id = WAN_gechu_luohou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_gonghe_weilai
+		remove_idea = WAN_gechu_luohou
+		}
+		}
+	}
+	#构建基层组织
+	focus = {
+		id = WAN_goujian_jiceng_zuzhi
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = WAN_gechu_luohou}
+		prerequisite = { focus = WAN_xinshi_sixiang}
+		relative_position_id = WAN_gechu_luohou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_new_junxiao_3
+		remove_idea = WAN_new_junxiao_2
+		}
+		}
+	}
+	#扩大军校
+	focus = {
+		id = WAN_kuoda_junxiao
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = WAN_goujian_jiceng_zuzhi}
+		relative_position_id = WAN_goujian_jiceng_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_new_junxiao_4
+		remove_idea = WAN_new_junxiao_3
+		}
+		}
+	}
+	#运输线改良
+	focus = {
+		id = WAN_yunshuxian_gailiang
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = WAN_goujian_jiceng_zuzhi}
+		relative_position_id = WAN_goujian_jiceng_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = WAN_yunshuxian_gailiang
+		}
+	}
+	#民族精神
+	focus = {
+		id = WAN_minzu_jingshen
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = WAN_chongkai_baoding focus = WAN_new_junxiao}
+		relative_position_id = WAN_chongkai_baoding
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = WAN_minzu_jingshen
+		}
+	}
+	#个人崇拜
+	focus = {
+		id = WAN_gerenchongbai
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = WAN_minzu_jingshen}
+		relative_position_id = WAN_minzu_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_gerenchongbai
+		remove_idea = WAN_minzu_jingshen
+		}
+		}
+	}
+	#团结陈调元
+	focus = {
+		id = WAN_tuanjie_chentiaoyuan
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = WAN_jiejue_maiguozei}
+		relative_position_id = WAN_jiejue_maiguozei
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		is_puppet_of = WAN
+		}
+		}
+		completion_reward = {
+            NWA = {
+			add_autonomy_ratio = {
+    value = -0.1
+}
+			}
+		}
+	}
+	#铁路联通
+	focus = {
+		id = WAN_tielu_liantong
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = WAN_tuanjie_chentiaoyuan}
+		relative_position_id = WAN_tuanjie_chentiaoyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		controls_state = 606
+		controls_state = 1145
+		controls_state = 1146
+		controls_state = 1147
+		controls_state = 1149
+		controls_state = 598
+		controls_state = 1150
+		controls_state = 1151
+		controls_state = 1152
+		controls_state = 1153
+		controls_state = 1154
+		}
+		}
+		completion_reward = {
+		606 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		598 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#经济支援
+	focus = {
+		id = WAN_jingji_zhiyuan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = WAN_tuanjie_chentiaoyuan}
+		relative_position_id = WAN_tuanjie_chentiaoyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = WAN_jingjiyuanzhu
+    days = 180
+}
+NWA = {
+add_timed_idea = {
+    idea = WAN_jingjiyuanzhu_2
+    days = 180
+}
+}
+		}
+	}
+	#提倡皖系联合
+	focus = {
+		id = WAN_tichang_wanxi_lianhe
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = WAN_tielu_liantong}
+		prerequisite = { focus = WAN_jingji_zhiyuan}
+		relative_position_id = WAN_jingji_zhiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_opinion_modifier = { target = NWA modifier = NWA_lianhe }
+		NWA = { add_opinion_modifier = { target = NWA modifier = NWA_lianhe } }
+		}
+	}
+	#完成皖系统一
+	focus = {
+		id = WAN_wancheng_wanxi_tongyi
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = WAN_tichang_wanxi_lianhe}
+		relative_position_id = WAN_tichang_wanxi_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NWA = {
+		NOT = {
+		has_ideas = WAN_jingjiyuanzhu_2
+		}
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = NWA
+    transfer_troops = yes
+}
+		}
+	}
+	#实业救国
+	focus = {
+		id = WAN_shiye_jiuguo
+		icon = GFX_goal_generic_production
+		x = 30
+		y = 12
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = WAN_jiejue_maiguozei
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_hebei_zhonggongye_2
+		remove_idea = WAN_hebei_zhonggongye
+		}
+		}
+	}
+	#河北工业体系
+	focus = {
+		id = WAN_hebei_gongye_tixi
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = WAN_shiye_jiuguo}
+		relative_position_id = WAN_shiye_jiuguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_hebei_zhonggongye_3
+		remove_idea = WAN_hebei_zhonggongye_2
+		}
+		}
+	}
+	#重工业繁衍
+	focus = {
+		id = WAN_zhonggongye_fanyan
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = WAN_hebei_gongye_tixi}
+		relative_position_id = WAN_hebei_gongye_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_hebei_zhonggongye_4
+		remove_idea = WAN_hebei_zhonggongye_3
+		}
+		}
+	}
+	#利用资源
+	focus = {
+		id = WAN_liyong_ziyuan
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = WAN_hebei_gongye_tixi}
+		relative_position_id = WAN_hebei_gongye_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#北京之外
+	focus = {
+		id = WAN_beijing_zhiwai
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = WAN_zhonggongye_fanyan}
+		relative_position_id = WAN_zhonggongye_fanyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1099 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	}
+	1162 = {
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#皇帝的冠冕
+	focus = {
+		id = WAN_huangdi_guanmian
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = WAN_beijing_zhiwai}
+		relative_position_id = WAN_beijing_zhiwai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		614 = {
+			remove_building = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	remove_building = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+			608 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#加大工业生产
+	focus = {
+		id = WAN_jiada_gongye_shengchan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = WAN_zhonggongye_fanyan}
+		prerequisite = { focus = WAN_liyong_ziyuan}
+		relative_position_id = WAN_zhonggongye_fanyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAN_hebei_zhonggongye_5
+		remove_idea = WAN_hebei_zhonggongye_4
+		}
+		}
+	}
+	#出口资源
+	focus = {
+		id = WAN_chukou_ziyuan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = WAN_liyong_ziyuan}
+		relative_position_id = WAN_liyong_ziyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = WAN_chukou_wuzi
+		}
+	}
+	#唐山钢铁
+	focus = {
+		id = WAN_tangshan_gangtie
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = WAN_jiada_gongye_shengchan}
+		prerequisite = { focus = WAN_chukou_ziyuan}
+		relative_position_id = WAN_chukou_ziyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = steel
+    amount = 200
+    state = 609
+}
+		}
+	}
+	#山海关防线
+	focus = {
+		id = WAN_shanhaiguan_fangxian
+		icon = GFX_goal_generic_construct_military
+		x = 40
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ZHI = {
+		exists = no
+		}
+		has_completed_focus = WAN_jiejue_maiguozei
+		}
+		completion_reward = {
+		609 = {
+			add_building_construction = {
+				type = bunker
+				province = 900
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1052
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12043
+				level = 2
+				instant_build = yes
+			}
+		}
+		608 = {
+			add_building_construction = {
+				type = bunker
+				province = 9843
+				level = 4
+				instant_build = yes
+			}
+		}
+		1100 = {
+			add_building_construction = {
+				type = bunker
+				province = 10068
+				level = 4
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#后勤构筑
+	focus = {
+		id = WAN_houqin_gouzhu
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = WAN_shanhaiguan_fangxian}
+		relative_position_id = WAN_shanhaiguan_fangxian
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		609 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+608 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#防空力量
+	focus = {
+		id = WAN_fangkong_liliang
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = WAN_shanhaiguan_fangxian}
+		relative_position_id = WAN_shanhaiguan_fangxian
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		609 = {
+		add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+}
+608 = {
+		add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+		}
+		}
+	}
+	#组建实验师
+	focus = {
+		id = WAN_zujian_shiyanshi
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = WAN_houqin_gouzhu}
+		prerequisite = { focus = WAN_fangkong_liliang}
+		relative_position_id = WAN_houqin_gouzhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = WAN_new_junxiao
+		}
+		completion_reward = {
+		load_oob = WAN_shiyanshi
+		}
+	}
+	#加固要塞
+	focus = {
+		id = WAN_jiagu_yaosai
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = WAN_houqin_gouzhu}
+		prerequisite = { focus = WAN_fangkong_liliang}
+		relative_position_id = WAN_houqin_gouzhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		609 = {
+			add_building_construction = {
+				type = bunker
+				province = 900
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1052
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12043
+				level = 2
+				instant_build = yes
+			}
+		}
+		608 = {
+			add_building_construction = {
+				type = bunker
+				province = 9843
+				level = 4
+				instant_build = yes
+			}
+		}
+		1100 = {
+			add_building_construction = {
+				type = bunker
+				province = 10068
+				level = 4
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#备战民兵
+	focus = {
+		id = WAN_beizhan_minbing
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = WAN_houqin_gouzhu}
+		prerequisite = { focus = WAN_fangkong_liliang }
+		relative_position_id = WAN_fangkong_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		completion_reward = {
+		load_oob = WAN_minbing
+		}
+	}
+}

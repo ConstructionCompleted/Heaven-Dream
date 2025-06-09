@@ -1,0 +1,1487 @@
+focus_tree = {
+	id = SWE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SWE
+		}
+	}
+	
+	default = no
+ 
+    #撤往斯德哥尔摩
+	focus = {
+		id = SWE_chewang_sidegeermo
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		}
+	}
+	#哥本哈根违宪
+	focus = {
+		id = SEW_gebenhagen_weixian
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SWE_chewang_sidegeermo}
+		relative_position_id = SWE_chewang_sidegeermo
+		mutually_exclusive = { focus = SWE_chongsu_daruidian }
+		x = -3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 192
+						region = 10
+						}
+					}
+add_claim_by = SWE
+		}
+		add_state_claim = 101
+		add_state_claim = 100
+		add_state_claim = 337
+		add_state_claim = 145
+		add_state_claim = 124
+		add_state_claim = 38
+		add_state_claim = 99
+		add_state_claim = 1824
+		add_state_claim = 1041
+		remove_state_claim = 213
+		remove_state_claim = 1854
+		remove_state_claim = 1398
+		remove_state_claim = 1854
+		remove_state_claim = 146
+		}
+	}
+	#清洗反对者
+	focus = {
+		id = SWE_qingxi_fanduizhe
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SEW_gebenhagen_weixian}
+		relative_position_id = SEW_gebenhagen_weixian
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_political_party = {
+    ideology = dictatorship
+    popularity = 100
+}
+add_stability = -0.1
+		}
+	}
+	#建立新地区体系
+	focus = {
+		id = SWE_build_new_diqu_tixi
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = SEW_gebenhagen_weixian}
+		relative_position_id = SEW_gebenhagen_weixian
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_jianli_new_diqu_tixi
+		}
+	}
+	#大北欧之梦
+	focus = {
+		id = SWE_big_beiou_dream
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = SWE_qingxi_fanduizhe}
+		prerequisite = { focus = SWE_build_new_diqu_tixi}
+		relative_position_id = SWE_build_new_diqu_tixi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 37
+						region = 265
+						}
+					}
+add_claim_by = SWE
+		}
+		}
+	}
+	#参与波罗的海争端
+	focus = {
+		id = SWE_canyu_boluodihai_zhengduan
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SWE_big_beiou_dream}
+		relative_position_id = SWE_big_beiou_dream
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#旧国防军为主
+	focus = {
+		id = SWE_old_guofangjun_weizhu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SWE_big_beiou_dream}
+		relative_position_id = SWE_big_beiou_dream
+		mutually_exclusive = { focus = SWE_kuojian_newarmy }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_jiu_guofangjun_weizhu
+		}
+	}
+	#扩建新军
+	focus = {
+		id = SWE_kuojian_newarmy
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SWE_big_beiou_dream}
+		relative_position_id = SWE_big_beiou_dream
+		mutually_exclusive = { focus = SWE_old_guofangjun_weizhu }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SWE_new_army
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = SWE_junshi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SWE_canyu_boluodihai_zhengduan}
+		prerequisite = { focus = SWE_old_guofangjun_weizhu focus = SWE_kuojian_newarmy}
+		relative_position_id = SWE_canyu_boluodihai_zhengduan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 4 }
+		}
+	}
+	#进攻芬兰
+	focus = {
+		id = SWE_jingong_fenlan
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = SWE_canyu_boluodihai_zhengduan}
+		prerequisite = { focus = SWE_old_guofangjun_weizhu focus = SWE_kuojian_newarmy}
+		relative_position_id = SWE_canyu_boluodihai_zhengduan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_war_with = FIN
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#联络反对者
+	focus = {
+		id = SWE_lianluo_fanduizhe
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = SWE_jingong_fenlan}
+		relative_position_id = SWE_jingong_fenlan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		FIN = {
+		add_popularity = {
+    ideology = communism
+    popularity = -0.1
+}
+		}
+		}
+	}
+	#支援武器
+	focus = {
+		id = SWE_zhiyuan_wuqi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SWE_lianluo_fanduizhe}
+		relative_position_id = SWE_lianluo_fanduizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_equipment_fraction = 0.05
+		}
+	}
+	#破坏芬兰稳定
+	focus = {
+		id = SWE_pohuai_fenlan_wending
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = SWE_zhiyuan_wuqi}
+		relative_position_id = SWE_zhiyuan_wuqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		FIN = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#进攻挪威
+	focus = {
+		id = SWE_jingong_nuowei
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SWE_canyu_boluodihai_zhengduan}
+		prerequisite = { focus = SWE_old_guofangjun_weizhu focus = SWE_kuojian_newarmy}
+		relative_position_id = SWE_canyu_boluodihai_zhengduan
+		x = 3
+		y = 1
+		cost = 5
+		bypass = {
+		has_war_with = NOR
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+		}
+	}
+	#武装火力
+	focus = {
+		id = SWE_wuzhaung_huoli
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SWE_jingong_nuowei}
+		relative_position_id = SWE_jingong_nuowei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_wuzhaung_huoli
+		}
+	}
+	#摧毁防线
+	focus = {
+		id = SWE_cuihui_fangxian
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SWE_wuzhaung_huoli}
+		relative_position_id = SWE_wuzhaung_huoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#无畏冲锋
+	focus = {
+		id = SWE_wuwei_chongfeng
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SWE_cuihui_fangxian}
+		relative_position_id = SWE_cuihui_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_wuwei_chongfeng
+		}
+	}
+	#狂热主义煽动
+	focus = {
+		id = SWE_kuangre_zhuyi_shandong
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = SWE_canyu_boluodihai_zhengduan}
+		prerequisite = { focus = SWE_old_guofangjun_weizhu focus = SWE_kuojian_newarmy}
+		relative_position_id = SWE_kuojian_newarmy
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#进攻丹麦
+	focus = {
+		id = SWE_jingong_danmai
+		icon = GFX_focus_generic_attack_denmark
+		prerequisite = { focus = SWE_pohuai_fenlan_wending }
+		prerequisite = { focus = SWE_wuwei_chongfeng }
+		relative_position_id = SWE_wuwei_chongfeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KEM
+    type = annex_everything
+}
+		}
+	}
+	#北欧再统一
+	focus = {
+		id = SWE_beiou_zaitongyi
+		icon = GFX_focus_generic_scandinavian_alliance
+		prerequisite = { focus = SWE_jingong_danmai }
+		relative_position_id = SWE_jingong_danmai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+					limit = {
+					is_core_of = KEM
+					NOT = {
+					state = 1041
+					}
+					}
+is_controlled_by = SWE
+		}
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 247
+						region = 192
+						region = 10
+						}
+					}
+add_core_by = SWE
+		}
+		add_state_core = 101
+		add_state_core = 100
+		add_state_core = 337
+		add_state_core = 145
+		add_state_core = 124
+		add_state_core = 38
+		add_state_core = 99
+		add_state_core = 1824
+		add_state_core = 1041
+		remove_state_core = 213
+		remove_state_core = 1854
+		remove_state_core = 1398
+		remove_state_core = 1854
+		remove_state_core = 146
+		load_focus_tree = { tree = KEM_new keep_completed = no }
+		}
+	}
+	#重塑瑞典王冠
+	focus = {
+		id = SWE_chongsu_daruidian
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = SWE_chewang_sidegeermo}
+		relative_position_id = SWE_chewang_sidegeermo
+		mutually_exclusive = { focus = SEW_gebenhagen_weixian }
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		add_ideas = SWE_chongsu_wanggaun
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+		}
+	}
+	#进入拉普兰
+	focus = {
+		id = SWE_jinru_lapulan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SWE_chongsu_daruidian}
+		relative_position_id = SWE_chongsu_daruidian
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 666
+		transfer_state = 1376
+		transfer_state = 1377
+		}
+	}
+	#偷渡岛屿
+	focus = {
+		id = SWE_toudu_daoyu
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SWE_chongsu_daruidian}
+		relative_position_id = SWE_chongsu_daruidian
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#大瑞典之梦
+	focus = {
+		id = SWE_daruidian_dream
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = SWE_toudu_daoyu}
+		prerequisite = { focus = SWE_jinru_lapulan}
+		relative_position_id = SWE_jinru_lapulan
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		if = {
+		limit = {
+		OR = {
+		is_controlled_by = FIN
+		is_controlled_by = NOR
+		}
+		}
+		add_core_of = SWE
+		}
+		}
+		}
+	}
+	#斯韦阿兰的国王
+	focus = {
+		id = SWE_siweialan_king
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = SWE_daruidian_dream}
+		relative_position_id = SWE_daruidian_dream
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    swap_ideas = {
+		remove_idea = SWE_chongsu_wanggaun
+		add_idea = SWE_siweialan_guowang
+		}
+		}
+	}
+	#强制收编国防军
+	focus = {
+		id = SWE_qiangzhi_shoubian_guofangjun
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = SWE_daruidian_dream}
+		relative_position_id = SWE_daruidian_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    load_oob = SWE_shoubian_guofangjun
+		}
+	}
+	#动员瑞典民兵
+	focus = {
+		id = SWE_dongyuan_ruidian_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SWE_daruidian_dream}
+		relative_position_id = SWE_daruidian_dream
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    load_oob = SWE_minbing
+		}
+	}
+	#第二次北方十字军
+	focus = {
+		id = SWE_second_beifang_shizijun
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = SWE_siweialan_king}
+		prerequisite = { focus = SWE_qiangzhi_shoubian_guofangjun}
+		prerequisite = { focus = SWE_dongyuan_ruidian_minbing}
+		relative_position_id = SWE_qiangzhi_shoubian_guofangjun
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_war_support = 0.1
+		add_ideas = extensive_conscription
+		}
+	}
+	#芬马克之战
+	focus = {
+		id = SWE_fenmake_war
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = SWE_second_beifang_shizijun}
+		relative_position_id = SWE_second_beifang_shizijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 666
+        num_provinces = 5
+		on_win = holy_beiou.25
+    }
+				
+    defender = {
+        state = 1375
+        num_provinces = 5
+    }
+}
+		}
+	}
+	#进军拉皮
+	focus = {
+		id = SWE_jinjun_lapi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SWE_second_beifang_shizijun}
+		relative_position_id = SWE_second_beifang_shizijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 666
+        num_provinces = 5
+		on_win = holy_beiou.26
+    }
+				
+    defender = {
+        state = 1851
+        num_provinces = 5
+    }
+}
+		}
+	}
+	#瑞典帝国
+	focus = {
+		id = SWE_ruidian_diguo
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = SWE_jinjun_lapi}
+		prerequisite = { focus = SWE_fenmake_war}
+		relative_position_id = SWE_fenmake_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_political_power = 100
+		set_cosmetic_tag = 瑞典帝国
+		}
+	}
+	#瑞典帝国归来
+	focus = {
+		id = SWE_ruidian_diguo_guilai
+		icon = GFX_focus_SOV_zemsky_sobor
+		x = 20
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = SWE_ruidian_diguo
+		NOT = {
+		has_war_with = NOR
+		has_war_with = KEM
+		has_war_with = FIN
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 50
+		}
+	}
+	#军事改革
+	focus = {
+		id = SWE_junshi_gaige
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = SWE_ruidian_diguo_guilai}
+		relative_position_id = SWE_ruidian_diguo_guilai
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		army_experience = 50
+		}
+	}
+	#翱翔天空
+	focus = {
+		id = SWE_aoxiang_tiankong
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = SWE_junshi_gaige}
+		relative_position_id = SWE_junshi_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = air_techs
+				category = air_doctrine
+			}
+		}
+	}
+	#征服海洋
+	focus = {
+		id = SWE_zhengfu_sea
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = SWE_aoxiang_tiankong}
+		relative_position_id = SWE_aoxiang_tiankong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+	#陆军科研
+	focus = {
+		id = SWE_amry_reasarch
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = SWE_junshi_gaige}
+		relative_position_id = SWE_junshi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#瑞典之虎
+	focus = {
+		id = SWE_ruidian_tiger
+		icon = GFX_focus_usa_tank_destroyer_doctrine
+		prerequisite = { focus = SWE_amry_reasarch}
+		relative_position_id = SWE_amry_reasarch
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_ruidian_tiger
+		}
+	}
+	#古斯塔夫战术
+	focus = {
+		id = SWE_gusitafu_zhanshu
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = SWE_ruidian_tiger}
+		prerequisite = { focus = SWE_zhengfu_sea}
+		relative_position_id = SWE_ruidian_tiger
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_gusitafu_zhanshu
+		}
+	}
+	#帝国的生存空间
+	focus = {
+		id = SWE_empre_shengcun_kongjian
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SWE_ruidian_diguo_guilai}
+		relative_position_id = SWE_ruidian_diguo_guilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#进攻挪威
+	focus = {
+		id = SWE_NOR_war
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SWE_empre_shengcun_kongjian}
+		relative_position_id = SWE_empre_shengcun_kongjian
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		NOR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+		}
+	}
+	#爱尔兰战争
+	focus = {
+		id = SWE_IRE_war
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = SWE_NOR_war}
+		relative_position_id = SWE_NOR_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		IRE = {
+		exists = no
+		}
+		date < 1938.1.1 
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = IRE
+    type = annex_everything
+}
+		}
+	}
+	#英格兰征服
+	focus = {
+		id = SWE_yinggelan_zhengfu
+		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
+		prerequisite = { focus = SWE_IRE_war}
+		relative_position_id = SWE_IRE_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+    limit = {
+        UKM = {
+		exists = yes
+		}
+    }
+    declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+}
+ declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+    else = {
+         declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+ declare_war_on = {
+    target = EGL
+    type = annex_everything
+}
+ declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+    }
+}
+	}
+	#远眺加拿大
+	focus = {
+		id = SWE_yuantiao_jianada
+		icon = GFX_focus_attack_canada
+		prerequisite = { focus = SWE_yinggelan_zhengfu}
+		prerequisite = { focus = SWE_boluodihai_zongduqu focus = SWE_huimie_boluodihai}
+		relative_position_id = SWE_yinggelan_zhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = CAN
+    type = annex_everything
+}
+	}
+	}
+	#冲击哥本哈根
+	focus = {
+		id = SWE_chongji_gebenhagen
+		icon = GFX_focus_generic_attack_denmark
+		prerequisite = { focus = SWE_empre_shengcun_kongjian}
+		relative_position_id = SWE_empre_shengcun_kongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		controls_state = 37
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = DEN
+    type = annex_everything
+}
+		}
+	}
+	#登录波罗的海
+	focus = {
+		id = SWE_denglu_boluodihai
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SWE_chongji_gebenhagen}
+		relative_position_id = SWE_chongji_gebenhagen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLD
+    type = annex_everything
+}
+		}
+	}
+	#毁灭波罗的海
+	focus = {
+		id = SWE_huimie_boluodihai
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SWE_denglu_boluodihai}
+		relative_position_id = SWE_denglu_boluodihai
+		mutually_exclusive = { focus = SWE_boluodihai_zongduqu }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+					limit = {
+					is_core_of = KEM
+					}
+is_controlled_by = NOR
+		}
+		}
+		completion_reward = {
+		191 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		13 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		190 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		12 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 808 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 809 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 810 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 811 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 812 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		 813 = {
+		 add_manpower = -50000
+		 add_core_of = SWE
+		 }
+		}
+	}
+	#波罗的海总督区
+	focus = {
+		id = SWE_boluodihai_zongduqu
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = SWE_denglu_boluodihai}
+		relative_position_id = SWE_denglu_boluodihai
+		mutually_exclusive = { focus = SWE_huimie_boluodihai }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+					limit = {
+					is_core_of = KEM
+					}
+is_controlled_by = NOR
+		}
+		}
+		completion_reward = {
+		release_autonomy = {
+    target = BLD
+    autonomy_state = autonomy_puppet
+    freedom_level = 0.5
+}
+		}
+	}
+	#征服波美拉尼亚
+	focus = {
+		id = SWE_zhengfu_bomeilaniya
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SWE_boluodihai_zongduqu focus = SWE_huimie_boluodihai}
+		relative_position_id = SWE_huimie_boluodihai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+declare_war_on = {
+    target = POM
+    type = annex_everything
+}
+declare_war_on = {
+    target = SLI
+    type = annex_everything
+}
+declare_war_on = {
+    target = HAS
+    type = annex_everything
+}
+	}
+	}
+	#收复芬兰
+	focus = {
+		id = SWE_shoufu_fenlan
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = SWE_empre_shengcun_kongjian}
+		relative_position_id = SWE_empre_shengcun_kongjian
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		FIN = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#进军卡累利阿
+	focus = {
+		id = SWE_jinjun_kaleilia
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SWE_shoufu_fenlan}
+		relative_position_id = SWE_shoufu_fenlan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 147
+		controls_state = 148
+		controls_state = 722
+		controls_state = 149
+		controls_state = 150
+		controls_state = 111
+		controls_state = 1383
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KRL
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+		}
+	}
+	#南下诺夫哥罗德
+	focus = {
+		id = SWE_nanxia_nvg
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = SWE_jinjun_kaleilia}
+		relative_position_id = SWE_jinjun_kaleilia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 215
+		controls_state = 213
+		controls_state = 146
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+		}
+	}
+	#征服波美拉尼亚
+	focus = {
+		id = SWE_zhengfu_bomeilaniya
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = SWE_boluodihai_zongduqu focus = SWE_huimie_boluodihai}
+		prerequisite = { focus = SWE_nanxia_nvg}
+		relative_position_id = SWE_nanxia_nvg
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = LIT
+    type = annex_everything
+}
+declare_war_on = {
+    target = DAZ
+    type = annex_everything
+}
+	}
+	}
+	#步入工业化
+	focus = {
+		id = SWE_buru_gongyehua
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SWE_ruidian_diguo_guilai}
+		relative_position_id = SWE_ruidian_diguo_guilai
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#瑞典军事体系
+	focus = {
+		id = SWE_ruidian_junshi_tixi
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = SWE_buru_gongyehua}
+		relative_position_id = SWE_buru_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		138 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		139 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建军工体系1
+	focus = {
+		id = SWE_kuojian_jungong_1
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SWE_ruidian_junshi_tixi}
+		relative_position_id = SWE_ruidian_junshi_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		140 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		141 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建军工体系2
+	focus = {
+		id = SWE_kuojian_jungong_2
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = SWE_kuojian_jungong_1}
+		relative_position_id = SWE_kuojian_jungong_1
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		38 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		66 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建军工体系3
+	focus = {
+		id = SWE_kuojian_jungong_3
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = SWE_kuojian_jungong_2}
+		relative_position_id = SWE_kuojian_jungong_2
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#瑞典工业体系
+	focus = {
+		id = SWE_ruidian_gongye_tixi
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SWE_buru_gongyehua}
+		relative_position_id = SWE_buru_gongyehua
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		847 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		843 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#电气化
+	focus = {
+		id = SWE_dianqihua
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SWE_ruidian_gongye_tixi}
+		relative_position_id = SWE_ruidian_gongye_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronic_mechanical_engineering
+			}
+		}
+	}
+	#通讯体系
+	focus = {
+		id = SWE_tongxun_tixi
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = SWE_dianqihua}
+		relative_position_id = SWE_dianqihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_tongxun_tixi
+		}
+	}
+	#开发密码机
+	focus = {
+		id = SWE_kaifa_mimaji
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = SWE_tongxun_tixi}
+		relative_position_id = SWE_tongxun_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_kaifa_mimaji
+		}
+	}
+	#资源开发
+	focus = {
+		id = SWE_ziyuan_kaifa
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = SWE_ruidian_gongye_tixi}
+		relative_position_id = SWE_ruidian_gongye_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = steel
+    amount = 50
+    state = 141
+}
+		}
+	}
+	#铁矿出口
+	focus = {
+		id = SWE_tiekuang_chukou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SWE_ziyuan_kaifa}
+		relative_position_id = SWE_ziyuan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SWE_tiekuang_chukou
+		}
+	}
+	#加工计划
+	focus = {
+		id = SWE_jiagong_plan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = SWE_tiekuang_chukou}
+		relative_position_id = SWE_tiekuang_chukou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SWE_jiagong_plan
+		remove_idea = SWE_tiekuang_chukou
+		}
+		}
+	}
+}

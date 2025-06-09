@@ -1,0 +1,2281 @@
+focus_tree = {
+	id = UNR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UNR
+		}
+	}
+	
+	default = no
+
+    #拉达的将军
+	focus = {
+		id = UNR_lada_jiangjun
+		icon = GFX_focus_generic_treaty
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#捍卫乌克兰独立
+	focus = {
+		id = UNR_hanwei_wukelan_duli
+		icon = GFX_focus_POL_ukrainian_army
+		prerequisite = { focus = UNR_lada_jiangjun}
+		relative_position_id = UNR_lada_jiangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = UNR_zhenzheng_wukelan_2
+			remove_idea = UNR_zhenzheng_wukelan
+			}
+			load_oob = UNR_dongyuan_minbing
+			add_ideas = extensive_conscription
+		}
+	}
+	#社会改革的梦想
+	focus = {
+		id = UNR_shehui_gaige_dream
+		icon = GFX_focus_GRE_an_orthodox_state
+		prerequisite = { focus = UNR_hanwei_wukelan_duli}
+		relative_position_id = UNR_hanwei_wukelan_duli
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = UNR_bideliula_gaige
+			 remove_idea = UNR_bideliula_huaiminsheng
+			 }
+		}
+	}
+	#镇压自由派
+	focus = {
+		id = UNR_zhenya_ziyoupai
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = UNR_shehui_gaige_dream}
+		relative_position_id = UNR_shehui_gaige_dream
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = UNR_bideliula_gaige_2
+			 remove_idea = UNR_bideliula_gaige
+			 }
+		}
+	}
+	#反共清洗
+	focus = {
+		id = UNR_fangong_qingxi
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = UNR_zhenya_ziyoupai}
+		relative_position_id = UNR_zhenya_ziyoupai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = UNR_bideliula_gaige_3
+			 remove_idea = UNR_bideliula_gaige_2
+			 }
+			 add_stability = -0.1
+		}
+	}
+	#农业改革
+	focus = {
+		id = UNR_nongye_gaige
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = UNR_shehui_gaige_dream}
+		relative_position_id = UNR_shehui_gaige_dream
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_ideas = UNR_nongye_gaige
+		}
+	}
+	#进口西方工业
+	focus = {
+		id = UNR_jinkou_xifang_gongye
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = UNR_nongye_gaige}
+		relative_position_id = UNR_nongye_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#推行现代化
+	focus = {
+		id = UNR_tuixing_xiandaihua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = UNR_jinkou_xifang_gongye}
+		prerequisite = { focus = UNR_fangong_qingxi}
+		relative_position_id = UNR_jinkou_xifang_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     remove_ideas = UNR_bideliula_gaige_3
+		}
+	}
+	#保卫土地
+	focus = {
+		id = UNR_baowei_tudi
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = UNR_hanwei_wukelan_duli}
+		relative_position_id = UNR_hanwei_wukelan_duli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = UNR_zhenzheng_wukelan_3
+			 remove_idea = UNR_zhenzheng_wukelan_2
+			 }
+		}
+	}
+	#寻求波兰支援
+	focus = {
+		id = UNR_xunqiu_bolan_zhiyuan
+		icon = GFX_focus_generic_polish_deal
+		prerequisite = { focus = UNR_baowei_tudi}
+		relative_position_id = UNR_baowei_tudi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = BLA
+}
+		}
+	}
+	#建立军事联合
+	focus = {
+		id = UNR_jianli_junshi_lianhe
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = UNR_xunqiu_bolan_zhiyuan}
+		relative_position_id = UNR_xunqiu_bolan_zhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_ideas = UNR_jianli_junshizuzhi
+		}
+	}
+	#草原的骑兵
+	focus = {
+		id = UNR_caoyuan_qibing
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = UNR_baowei_tudi}
+		relative_position_id = UNR_baowei_tudi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_ideas = UNR_caoyuan_qibing
+		}
+	}
+	#收拢哥萨克
+	focus = {
+		id = UNR_shoulong_gesake
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = UNR_caoyuan_qibing}
+		relative_position_id = UNR_caoyuan_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     load_oob = UNR_shoulong_gesake
+		}
+	}
+	#独立战争
+	focus = {
+		id = UNR_duli_zhanzheng
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = UNR_jianli_junshi_lianhe}
+		prerequisite = { focus = UNR_shoulong_gesake}
+		relative_position_id = UNR_shoulong_gesake
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = UNR_zhenzheng_wukelan_4
+			 remove_idea = UNR_zhenzheng_wukelan_3
+			 }
+		}
+	}
+	#进军克里米亚
+	focus = {
+		id = UNR_jinjun_kelimiya
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = UNR_tuixing_xiandaihua}
+		prerequisite = { focus = UNR_duli_zhanzheng}
+		relative_position_id = UNR_duli_zhanzheng
+		mutually_exclusive = { focus = UNR_wukelan_zizhi_quanli }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		UKR = {
+		exists = no
+		}
+		BUK = {
+		exists = no
+		}
+		DKS = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+		}
+	}
+	#乌克兰自治权利
+	focus = {
+		id = UNR_wukelan_zizhi_quanli
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = UNR_tuixing_xiandaihua}
+		prerequisite = { focus = UNR_duli_zhanzheng}
+		relative_position_id = UNR_duli_zhanzheng
+		mutually_exclusive = { focus = UNR_jinjun_kelimiya }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = CRM
+		}
+		UKR = {
+		exists = no
+		}
+		BUK = {
+		exists = no
+		}
+		DKS = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		    CRM = {
+country_event = {
+    id = holy_wukelan.5
+	days = 2
+	}
+}
+		}
+	}
+	#乌克兰统一
+	focus = {
+		id = UNR_wukelan_tongyi
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = UNR_wukelan_zizhi_quanli focus = UNR_jinjun_kelimiya}
+		relative_position_id = UNR_wukelan_zizhi_quanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_state_core = 137
+		remove_ideas = UNR_bolan_zhiyuan
+		remove_ideas = UNR_jianli_junshizuzhi
+		remove_ideas = UNR_caoyuan_qibing
+		add_ideas = UNR_wukelan_wuzhaung
+		add_ideas = UNR_wukelan_gongyehua
+		add_ideas = UNR_wukelan_zhengju
+		news_event = {
+				id = holy_news.104 days = 1
+			}
+		}
+	}
+	#基辅之翼
+	focus = {
+		id = UNR_jifu_zhiyi
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = UNR_wukelan_tongyi }
+		relative_position_id = UNR_wukelan_tongyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_wukelan_zhengju_2
+		remove_idea = UNR_wukelan_zhengju
+		}
+		}
+	}
+	#基辅大牧首区
+	focus = {
+		id = UNR_jifu_damushouqu
+		icon = GFX_focus_GRE_an_orthodox_state
+		prerequisite = { focus = UNR_jifu_zhiyi }
+		relative_position_id = UNR_jifu_zhiyi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_damushouqu
+		}
+	}
+	#重建洞窟修道院
+	focus = {
+		id = UNR_chongjiandongku_xiudaoyuan
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = UNR_jifu_damushouqu }
+		relative_position_id = UNR_jifu_damushouqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_damushouqu_2
+		remove_idea = UNR_damushouqu
+		}
+		}
+	}
+	#正教修会医院
+	focus = {
+		id = UNR_zhengjiao_xiuhui_yiyuan
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = UNR_chongjiandongku_xiudaoyuan }
+		relative_position_id = UNR_chongjiandongku_xiudaoyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_damushouqu_3
+		remove_idea = UNR_damushouqu_2
+		}
+		}
+	}
+	#乌克兰化
+	focus = {
+		id = UNR_wukelan_hua
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = UNR_jifu_damushouqu }
+		prerequisite = { focus = UNR_tonghe_difang }
+		relative_position_id = UNR_tonghe_difang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_wukelan_hua
+		}
+	}
+	#秩序井然
+	focus = {
+		id = UNR_zhixujinran
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = UNR_wukelan_hua }
+		relative_position_id = UNR_wukelan_hua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_wukelan_hua_2
+		remove_idea = UNR_wukelan_hua
+		}
+		}
+	}
+	#统合地方
+	focus = {
+		id = UNR_tonghe_difang
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = UNR_jifu_zhiyi }
+		relative_position_id = UNR_jifu_zhiyi
+		mutually_exclusive = { focus = UNR_difang_zizhi_duma }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_tonghe_difang
+		}
+	}
+	#地方自治杜马
+	focus = {
+		id = UNR_difang_zizhi_duma
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = UNR_jifu_zhiyi }
+		relative_position_id = UNR_jifu_zhiyi
+		mutually_exclusive = { focus = UNR_tonghe_difang }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_zizhi_duma
+		}
+	}
+	#改革中央拉达
+	focus = {
+		id = UNR_gaige_zhongyang_lada
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = UNR_tonghe_difang focus = UNR_difang_zizhi_duma }
+		relative_position_id = UNR_difang_zizhi_duma
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_wukelan_zhengju_3
+		remove_idea = UNR_wukelan_zhengju_2
+		}
+		}
+	}
+	#超越阶级与党派
+	focus = {
+		id = UNR_chaoyue_jieji_dangpai
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = UNR_gaige_zhongyang_lada }
+		relative_position_id = UNR_gaige_zhongyang_lada
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = UNR_wukelan_zhengju_3
+		}
+	}
+	#热情，荣誉，祖国
+	focus = {
+		id = UNR_reqin_rongyu_zuguo
+		icon = GFX_focus_hol_the_foundations_of_defense
+		prerequisite = { focus = UNR_chaoyue_jieji_dangpai }
+		relative_position_id = UNR_chaoyue_jieji_dangpai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_reqin_rongyu_zuguo
+		}
+	}
+	#基辅之令
+	focus = {
+		id = UNR_jifu_zhiling
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = UNR_reqin_rongyu_zuguo }
+		relative_position_id = UNR_reqin_rongyu_zuguo
+		mutually_exclusive = { focus = UNR_renmin_zhiying }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_tonghe_difang
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_jifuzhiling
+		remove_idea = UNR_tonghe_difang
+		}
+		}
+	}
+	#平等化社会
+	focus = {
+		id = UNR_pingdenghua_shehui
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = UNR_chaoyue_jieji_dangpai }
+		relative_position_id = UNR_chaoyue_jieji_dangpai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_pingdenghua_shehui
+		}
+	}
+	#人民之鹰
+	focus = {
+		id = UNR_renmin_zhiying
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = UNR_pingdenghua_shehui }
+		relative_position_id = UNR_pingdenghua_shehui
+		mutually_exclusive = { focus = UNR_jifu_zhiling }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_tonghe_difang
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_renmin_zhiying
+		remove_idea = UNR_zizhi_duma
+		}
+		}
+	}
+	#重建乌克兰稳定
+	focus = {
+		id = UNR_chongjian_wukelan_wending
+		icon = GFX_focus_POL_plan_west
+		prerequisite = { focus = UNR_jifu_zhiyi }
+		relative_position_id = UNR_jifu_zhiyi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#镇压反对派
+	focus = {
+		id = UNR_zhenya_fanduipai
+		icon = GFX_focus_POL_ukrainian_army
+		prerequisite = { focus = UNR_chongjian_wukelan_wending }
+		relative_position_id = UNR_chongjian_wukelan_wending
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.1
+}
+		}
+	}
+	#东部要塞化
+	focus = {
+		id = UNR_dongbu_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = UNR_zhenya_fanduipai }
+		relative_position_id = UNR_zhenya_fanduipai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		221 = {
+			add_building_construction = {
+				type = bunker
+				province = 418
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11397
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9556
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3531
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6530
+				level = 2
+				instant_build = yes
+			}
+		}
+		228 = {
+			add_building_construction = {
+				type = bunker
+				province = 9461
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9446
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6505
+				level = 2
+				instant_build = yes
+			}
+		}
+		227 = {
+			add_building_construction = {
+				type = bunker
+				province = 9461
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6505
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#乌克兰联合体
+	focus = {
+		id = UNR_wukelan_lianheti
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = UNR_chongjian_wukelan_wending }
+		prerequisite = { focus = UNR_difang_zizhi_duma }
+		relative_position_id = UNR_chongjian_wukelan_wending
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_wukelan_lianheti
+		}
+	}
+	#和谐社会
+	focus = {
+		id = UNR_hexie_shehui
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = UNR_wukelan_lianheti }
+		relative_position_id = UNR_wukelan_lianheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = UNR_wukelan_lianheti_2
+		remove_idea = UNR_wukelan_lianheti
+		}
+		}
+	}
+	#乌克兰开发计划
+	focus = {
+		id = UNR_wukelan_kaifa_plan
+		icon = GFX_goal_generic_construction
+		x = 23
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_wukelan_tongyi
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_wukelan_gongyehua_2
+			remove_idea = UNR_wukelan_gongyehua
+			}
+		}
+	}
+	#全乌克兰工业委员会
+	focus = {
+		id = UNR_quanwukelan_gongyeweiyuanhui
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = UNR_wukelan_kaifa_plan }
+		relative_position_id = UNR_wukelan_kaifa_plan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#维持公私合营
+	focus = {
+		id = UNR_weichi_gongsi_heying
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = UNR_quanwukelan_gongyeweiyuanhui }
+		relative_position_id = UNR_quanwukelan_gongyeweiyuanhui
+		mutually_exclusive = { focus = UNR_daguimo_siyouhua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_gongsi_heying
+			remove_idea = UNR_wukelan_gongyehua_2
+			}
+		}
+	}
+	#股份下的工业
+	focus = {
+		id = UNR_gufenxia_degongye
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = UNR_weichi_gongsi_heying }
+		relative_position_id = UNR_weichi_gongsi_heying
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_gongsi_heying_2
+			remove_idea = UNR_gongsi_heying
+			}
+		}
+	}
+	#国家投资
+	focus = {
+		id = UNR_guojia_touzi
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = UNR_gufenxia_degongye }
+		relative_position_id = UNR_gufenxia_degongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_gongsi_heying_3
+			remove_idea = UNR_gongsi_heying_2
+			}
+		}
+	}
+	#工人自治
+	focus = {
+		id = UNR_gongren_zizhi
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = UNR_guojia_touzi }
+		relative_position_id = UNR_guojia_touzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_gongsi_heying_4
+			remove_idea = UNR_gongsi_heying_3
+			}
+		}
+	}
+	#燃烧与钢铁
+	focus = {
+		id = UNR_ranshao_gangtie
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = UNR_gongren_zizhi }
+		relative_position_id = UNR_gongren_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_gongsi_heying_5
+			remove_idea = UNR_gongsi_heying_4
+			}
+		}
+	}
+	#大规模私有化
+	focus = {
+		id = UNR_daguimo_siyouhua
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = UNR_quanwukelan_gongyeweiyuanhui }
+		relative_position_id = UNR_quanwukelan_gongyeweiyuanhui
+		mutually_exclusive = { focus = UNR_weichi_gongsi_heying }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_daguimo_siyouhua
+			remove_idea = UNR_wukelan_gongyehua_2
+			}
+		}
+	}
+	#建立资本垄断
+	focus = {
+		id = UNR_jianli_ziben_longduan
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = UNR_daguimo_siyouhua }
+		relative_position_id = UNR_daguimo_siyouhua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_daguimo_siyouhua_2
+			remove_idea = UNR_daguimo_siyouhua
+			}
+		}
+	}
+	#新工业革命
+	focus = {
+		id = UNR_new_gongye_gm
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = UNR_jianli_ziben_longduan }
+		relative_position_id = UNR_jianli_ziben_longduan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_daguimo_siyouhua_3
+			remove_idea = UNR_daguimo_siyouhua_2
+			}
+		}
+	}
+	#重建铁路线
+	focus = {
+		id = UNR_chongjian_tieluxian
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = UNR_weichi_gongsi_heying focus = UNR_daguimo_siyouhua }
+		relative_position_id = UNR_weichi_gongsi_heying
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			202 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			203 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			226 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			200 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			227 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大矿产开采
+	focus = {
+		id = UNR_kuoda_kuangchan_kaicai
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = UNR_chongjian_tieluxian }
+		relative_position_id = UNR_chongjian_tieluxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		221 = {
+		add_state_modifier = {
+        modifier = {
+		local_resources_factor = 0.3
+		}
+		}
+        }
+        504 = {
+		add_state_modifier = {
+        modifier = {
+		local_resources_factor = 0.3
+		}
+		}
+        }
+		}
+	}
+	#利用森林资源
+	focus = {
+		id = UNR_liyong_senlinziyuan
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = UNR_kuoda_kuangchan_kaicai }
+		relative_position_id = UNR_kuoda_kuangchan_kaicai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_senlin_ziyuan
+		}
+	}
+	#克里米亚贸易线
+	focus = {
+		id = UNR_kelimiya_maoyixian
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = UNR_liyong_senlinziyuan }
+		relative_position_id = UNR_liyong_senlinziyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UNR_maoyixian
+		}
+	}
+	#国家教育
+	focus = {
+		id = UNR_guojia_jiaoyu
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = UNR_kuoda_kuangchan_kaicai }
+		relative_position_id = UNR_kuoda_kuangchan_kaicai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_guojia_jiaoyu
+		}
+	}
+	#乌克兰科学
+	focus = {
+		id = UNR_wukellan_kexue
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = UNR_guojia_jiaoyu }
+		relative_position_id = UNR_guojia_jiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#劳动精神
+	focus = {
+		id = UNR_laodong_jingshen
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = UNR_new_gongye_gm }
+		relative_position_id = UNR_new_gongye_gm
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_daguimo_siyouhua_4
+			remove_idea = UNR_daguimo_siyouhua_3
+			}
+		}
+	}
+	#自由与繁荣
+	focus = {
+		id = UNR_ziyou_fanrong
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = UNR_laodong_jingshen }
+		relative_position_id = UNR_laodong_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_daguimo_siyouhua_5
+			remove_idea = UNR_daguimo_siyouhua_4
+			}
+		}
+	}
+	#全国农业改革
+	focus = {
+		id = UNR_quanguo_nongye_gaige
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = UNR_wukelan_kaifa_plan }
+		relative_position_id = UNR_wukelan_kaifa_plan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+		}
+	}
+	#引进种植技术
+	focus = {
+		id = UNR_yinjin_zhongzhi_jishu
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = UNR_quanguo_nongye_gaige }
+		relative_position_id = UNR_quanguo_nongye_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_jishu_gexin
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+		}
+	}
+	#有条不紊的农业
+	focus = {
+		id = UNR_youtiaobuwen_nongye
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = UNR_yinjin_zhongzhi_jishu }
+		relative_position_id = UNR_yinjin_zhongzhi_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_jishu_gexin_2
+			remove_idea = UNR_jishu_gexin
+			}
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+		}
+	}
+	#接纳东部难民
+	focus = {
+		id = UNR_jiena_dongbu_nanming
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = UNR_quanguo_nongye_gaige }
+		relative_position_id = UNR_quanguo_nongye_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1432 = {
+			add_manpower = 500000
+			}
+			1429 = {
+			add_manpower = 500000
+			}
+			228 = {
+			add_manpower = 500000
+			}
+			221 = {
+			add_manpower = 500000
+			}
+			225 = {
+			add_manpower = 700000
+			}
+			227 = {
+			add_manpower = 1000000
+			}
+		}
+	}
+	#再开垦计划
+	focus = {
+		id = UNR_zaikaiken_jihua
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = UNR_jiena_dongbu_nanming }
+		relative_position_id = UNR_jiena_dongbu_nanming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+			1432 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+            221 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			227 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#乌克兰农业基金
+	focus = {
+		id = UNR_wukelan_nongye_jijin
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = UNR_youtiaobuwen_nongye }
+		prerequisite = { focus = UNR_zaikaiken_jihua }
+		relative_position_id = UNR_youtiaobuwen_nongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_jishu_gexin_3
+			remove_idea = UNR_jishu_gexin_2
+			}
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+		}
+	}
+	#地方土地委员会
+	focus = {
+		id = UNR_difang_tudi_weiyuanhui
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = UNR_youtiaobuwen_nongye }
+		prerequisite = { focus = UNR_zaikaiken_jihua }
+		relative_position_id = UNR_youtiaobuwen_nongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+		}
+	}
+	#集体合作社
+	focus = {
+		id = UNR_jiti_hezuoshe
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = UNR_youtiaobuwen_nongye }
+		prerequisite = { focus = UNR_zaikaiken_jihua }
+		relative_position_id = UNR_youtiaobuwen_nongye
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = UNR_nongye_gaige_2
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = UNR_tudigaige
+    value = 10
+	tooltip = UNR_tudigaige_5_tt
+}
+			swap_ideas = {
+		add_idea = UNR_nongye_gaige_3
+		remove_idea = UNR_nongye_gaige_2
+		}
+		}
+	}
+	#土地革命的胜利！
+	focus = {
+		id = UNR_tudi_geming_vic
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = UNR_wukelan_nongye_jijin }
+		prerequisite = { focus = UNR_difang_tudi_weiyuanhui }
+		prerequisite = { focus = UNR_jiti_hezuoshe }
+		relative_position_id = UNR_difang_tudi_weiyuanhui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = UNR_nongye_gaige_4
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_stability = 0.2
+		}
+	}
+	#建立军事武装
+	focus = {
+		id = UNR_jianli_junshi_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 37
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_wukelan_tongyi
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#扫除小军阀
+	focus = {
+		id = UNR_saochu_xiaojunfa
+		icon = GFX_focus_RAJ_indian_gentlemen_offcers
+		prerequisite = { focus = UNR_jianli_junshi_wuzhuang }
+		relative_position_id = UNR_jianli_junshi_wuzhuang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_wukelan_wuzhaung_2
+			remove_idea = UNR_wukelan_wuzhaung
+			}
+		}
+	}
+	#秩序化军团
+	focus = {
+		id = UNR_zhixuhua_juntuan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = UNR_saochu_xiaojunfa }
+		relative_position_id = UNR_saochu_xiaojunfa
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_wukelan_wuzhaung_3
+			remove_idea = UNR_wukelan_wuzhaung_2
+			}
+		}
+	}
+	#扎波罗热服役
+	focus = {
+		id = UNR_zhaboluore_fuyi
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UNR_zhixuhua_juntuan }
+		relative_position_id = UNR_zhixuhua_juntuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_zhaboluore_fuyi
+		}
+	}
+	#翱翔之骑
+	focus = {
+		id = UNR_aoxiang_zhiyi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = UNR_zhaboluore_fuyi }
+		relative_position_id = UNR_zhaboluore_fuyi
+		mutually_exclusive = { focus = UNR_changshixing_jixiehua }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_aoxiang_zhiyi
+			remove_idea = UNR_zhaboluore_fuyi
+			}
+		}
+	}
+	#尝试性机械化
+	focus = {
+		id = UNR_changshixing_jixiehua
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = UNR_zhaboluore_fuyi }
+		relative_position_id = UNR_zhaboluore_fuyi
+		mutually_exclusive = { focus = UNR_aoxiang_zhiyi }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_changshi_jixiehua
+			remove_idea = UNR_zhaboluore_fuyi
+			}
+		}
+	}
+	#革新补给体系
+	focus = {
+		id = UNR_gexin_buji_tixi
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = UNR_aoxiang_zhiyi focus = UNR_changshixing_jixiehua }
+		relative_position_id = UNR_aoxiang_zhiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_wukelan_wuzhaung_4
+			remove_idea = UNR_wukelan_wuzhaung_3
+			}
+		}
+	}
+	#建立全民体系
+	focus = {
+		id = UNR_jianli_quanmin_tixi
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = UNR_saochu_xiaojunfa }
+		relative_position_id = UNR_saochu_xiaojunfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_quanmin_tixi
+		}
+	}
+	#动员总体战
+	focus = {
+		id = UNR_dongyuan_zongtizhan
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = UNR_jianli_quanmin_tixi }
+		prerequisite = { focus = UNR_zhixuhua_juntuan }
+		relative_position_id = UNR_jianli_quanmin_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_quanmin_tixi_2
+			remove_idea = UNR_quanmin_tixi
+			}
+		}
+	}
+	#战火淬炼之军
+	focus = {
+		id = UNR_zhanhuo_cuilian_zhijun
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = UNR_dongyuan_zongtizhan }
+		relative_position_id = UNR_dongyuan_zongtizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_quanmin_tixi_3
+			remove_idea = UNR_quanmin_tixi_2
+			}
+		}
+	}
+	#全国统合
+	focus = {
+		id = UNR_quanguo_tonghe
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = UNR_saochu_xiaojunfa }
+		prerequisite = { focus = UNR_jieguan_dongbujungong }
+		relative_position_id = UNR_saochu_xiaojunfa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#战争总参谋部
+	focus = {
+		id = UNR_zhanzheng_zongcanmoubu
+		icon = GFX_focus_generic_armored_air_support
+		prerequisite = { focus = UNR_quanguo_tonghe }
+		prerequisite = { focus = UNR_jianli_quanmin_tixi }
+		relative_position_id = UNR_quanguo_tonghe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_xiandaihua_war
+		}
+	}
+	#扩建军事学院
+	focus = {
+		id = UNR_kuojian_junshi_xueyuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = UNR_zhanzheng_zongcanmoubu }
+		relative_position_id = UNR_zhanzheng_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xiandaihua_war_2
+			remove_idea = UNR_xiandaihua_war
+			}
+		}
+	}
+	#基层自主权
+	focus = {
+		id = UNR_jiceng_zizhuquan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = UNR_zhanhuo_cuilian_zhijun }
+		prerequisite = { focus = UNR_kuojian_junshi_xueyuan }
+		relative_position_id = UNR_zhanhuo_cuilian_zhijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xiandaihua_war_3
+			remove_idea = UNR_xiandaihua_war_2
+			}
+		}
+	}
+	#接管东部军工
+	focus = {
+		id = UNR_jieguan_dongbujungong
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = UNR_jianli_junshi_wuzhuang }
+		relative_position_id = UNR_jianli_junshi_wuzhuang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			227 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			221 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			228 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#进口先进武装
+	focus = {
+		id = UNR_jinkou_xianjin_wuzhuang
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = UNR_jieguan_dongbujungong }
+		relative_position_id = UNR_jieguan_dongbujungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_xianjin_wuzhuang
+		}
+	}
+	#新式武装
+	focus = {
+		id = UNR_xinshi_wuzhuang
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = UNR_jinkou_xianjin_wuzhuang }
+		prerequisite = { focus = UNR_quanguo_tonghe }
+		relative_position_id = UNR_jinkou_xianjin_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xianjin_wuzhuang_2
+			remove_idea = UNR_xianjin_wuzhuang
+			}
+		}
+	}
+	#炮兵突破
+	focus = {
+		id = UNR_paobing_tupo
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = UNR_xinshi_wuzhuang }
+		relative_position_id = UNR_xinshi_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xianjin_wuzhuang_3
+			remove_idea = UNR_xianjin_wuzhuang_2
+			}
+		}
+	}
+	#新生代战术
+	focus = {
+		id = UNR_xinshengdai_zhanshu
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = UNR_kuojian_junshi_xueyuan }
+		prerequisite = { focus = UNR_paobing_tupo }
+		relative_position_id = UNR_paobing_tupo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xiandaihua_war_4
+			remove_idea = UNR_xiandaihua_war_3
+			}
+		}
+	}
+	#兵工厂改革
+	focus = {
+		id = UNR_binggongchang_gaige
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = UNR_jieguan_dongbujungong }
+		relative_position_id = UNR_jieguan_dongbujungong
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_shengchan_gaige
+		}
+	}
+	#扩大生产线
+	focus = {
+		id = UNR_kuoda_shengchanxian
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = UNR_binggongchang_gaige }
+		prerequisite = { focus = UNR_jinkou_xianjin_wuzhuang }
+		relative_position_id = UNR_binggongchang_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_shengchan_gaige_2
+			remove_idea = UNR_shengchan_gaige
+			}
+		}
+	}
+	#西部军事化
+	focus = {
+		id = UNR_xibu_junshihua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = UNR_kuoda_shengchanxian }
+		relative_position_id = UNR_kuoda_shengchanxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			202 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			201 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			198 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 22
+    instant_build = yes
+}
+			}
+		}
+	}
+	#军火储备
+	focus = {
+		id = UNR_junhuo_chubei
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = UNR_binggongchang_gaige }
+		relative_position_id = UNR_binggongchang_gaige
+		mutually_exclusive = { focus = UNR_junhuo_chukou }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_junhuo_chubei
+		}
+	}
+	#军火出口
+	focus = {
+		id = UNR_junhuo_chukou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = UNR_binggongchang_gaige }
+		relative_position_id = UNR_binggongchang_gaige
+		mutually_exclusive = { focus = UNR_junhuo_chubei }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_junhuo_chukou
+		}
+	}
+	#扩大军事产业
+	focus = {
+		id = UNR_kuoda_junshi_chanye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = UNR_junhuo_chubei focus = UNR_junhuo_chukou }
+		relative_position_id = UNR_junhuo_chubei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_kuoda_junshichanye
+		}
+	}
+	#乌克兰全副武装
+	focus = {
+		id = UNR_wukelan_quanfuwuzhuang
+		icon = GFX_focus_POL_ukrainian_army
+		prerequisite = { focus = UNR_xibu_junshihua focus = UNR_kuoda_junshi_chanye }
+		relative_position_id = UNR_kuoda_junshi_chanye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		arms_factory > 40
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_kuoda_junshichanye_2
+			remove_idea = UNR_kuoda_junshichanye
+			}
+		}
+	}
+	#黑色海洋之心
+	focus = {
+		id = UNR_heise_haiyang_zhixin
+		icon = GFX_goal_generic_navy_battleship
+		x = 38
+		y = 22
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_wukelan_tongyi
+		}
+		completion_reward = {
+			navy_experience = 50
+		}
+	}
+	#尼古拉耶夫造船厂
+	focus = {
+		id = UNR_nigulayefu_zaochuanchang
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = UNR_heise_haiyang_zhixin }
+		relative_position_id = UNR_heise_haiyang_zhixin
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			197 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#小型舰船发展
+	focus = {
+		id = UNR_xiaoxing_jianchuan_fazhan
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = UNR_nigulayefu_zaochuanchang }
+		relative_position_id = UNR_nigulayefu_zaochuanchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+    bonus = 0.7
+    uses = 2
+    category = dd_tech
+	category = cl_tech
+}
+		}
+	}
+	#敖德萨港口
+	focus = {
+		id = UNR_aodesa_gangkou
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = UNR_heise_haiyang_zhixin }
+		relative_position_id = UNR_heise_haiyang_zhixin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			192 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大商业价值
+	focus = {
+		id = UNR_kuoda_shangye_jiazhi
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = UNR_aodesa_gangkou }
+		relative_position_id = UNR_aodesa_gangkou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_shangye_hangxian
+		}
+	}
+	#海军士官学院
+	focus = {
+		id = UNR_haijun_shiguan_xueyuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = UNR_heise_haiyang_zhixin }
+		relative_position_id = UNR_heise_haiyang_zhixin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_xiandaihua_haijun
+		}
+	}
+	#现代化海军
+	focus = {
+		id = UNR_xiandaihua_haijun
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = UNR_haijun_shiguan_xueyuan }
+		relative_position_id = UNR_haijun_shiguan_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xiandaihua_haijun_2
+            remove_idea = UNR_xiandaihua_haijun		
+			}
+		}
+	}
+	#天空戒备
+	focus = {
+		id = UNR_tiankong_jiebei
+		icon = GFX_focus_generic_multi_role_aircraft
+		prerequisite = { focus = UNR_heise_haiyang_zhixin }
+		relative_position_id = UNR_heise_haiyang_zhixin
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UNR_tiankong_zhandou
+		}
+	}
+	#航空工业
+	focus = {
+		id = UNR_hangkong_gongye
+		icon = GFX_focus_ITA_ferrea_mole_ferreo_cuore
+		prerequisite = { focus = UNR_tiankong_jiebei }
+		relative_position_id = UNR_tiankong_jiebei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			202 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#天空战斗者
+	focus = {
+		id = UNR_tiankong_zhandouzhe
+		icon = GFX_focus_chi_flying_tigers
+		prerequisite = { focus = UNR_tiankong_jiebei }
+		relative_position_id = UNR_tiankong_jiebei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_tiankong_zhandou_2
+			remove_idea = UNR_tiankong_zhandou
+			}
+		}
+	}
+	#克里米亚海军体系
+	focus = {
+		id = UNR_kelimiya_haijuntixi
+		icon = GFX_focus_SOV_reinforce_southern_naval_bases
+		prerequisite = { focus = UNR_xiaoxing_jianchuan_fazhan }
+		prerequisite = { focus = UNR_kuoda_shangye_jiazhi }
+		prerequisite = { focus = UNR_xiandaihua_haijun }
+		prerequisite = { focus = UNR_hangkong_gongye }
+		prerequisite = { focus = UNR_tiankong_zhandouzhe }
+		relative_position_id = UNR_xiandaihua_haijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UNR_xiandaihua_haijun_3
+			remove_idea = UNR_xiandaihua_haijun_2
+			}
+		}
+	}
+	#民族复兴尚未结束
+	focus = {
+		id = UNR_minzu_fuxing_shangweijieshu
+		icon = GFX_focus_POL_support_global_falangism
+		x = 30
+		y = 22
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = UNR_wukelan_tongyi
+		is_puppet = no
+		}
+		completion_reward = {
+			add_state_claim = 245
+			add_state_claim = 218
+			add_state_claim = 1070
+			add_state_claim = 234
+			add_state_claim = 238
+			add_state_claim = 1071
+			add_state_claim = 220
+			add_state_claim = 240
+			add_state_claim = 260
+			add_state_claim = 265
+			add_state_claim = 1065
+			every_state = {
+			limit = {
+			is_core_of = BLR
+			}
+			add_claim_by = UNR
+			}
+			add_state_claim = 224
+			add_state_claim = 243
+			add_state_claim = 78
+			add_state_claim = 1566
+			add_state_claim = 79
+			add_state_claim = 1565
+			add_state_claim = 1564
+			add_state_claim = 80
+		}
+	}
+	#新白俄罗斯计划
+	focus = {
+		id = UNR_xin_baieluosi_plan
+		icon = GFX_focus_SOV_free_Rutenia
+		prerequisite = { focus = UNR_minzu_fuxing_shangweijieshu }
+		relative_position_id = UNR_minzu_fuxing_shangweijieshu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = puppet_wargoal_focus
+    target = BLR
+}
+		}
+	}
+	#扩大东北土地
+	focus = {
+		id = UNR_kuoda_dongbei_tudi
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = UNR_minzu_fuxing_shangweijieshu }
+		relative_position_id = UNR_minzu_fuxing_shangweijieshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+    target = SOV
+}
+create_wargoal = {
+    type = annex_everything
+    target = RUJ
+}
+create_wargoal = {
+    type = annex_everything
+    target = RUS
+}
+		}
+	}
+	#红乌克兰战争
+	focus = {
+		id = UNR_hongwukelan_zhazheng
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = UNR_minzu_fuxing_shangweijieshu }
+		relative_position_id = UNR_minzu_fuxing_shangweijieshu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+create_wargoal = {
+    type = annex_everything
+    target = DRG
+}
+create_wargoal = {
+    type = annex_everything
+    target = KLM
+}
+create_wargoal = {
+    type = annex_everything
+    target = CHE
+}
+create_wargoal = {
+    type = annex_everything
+    target = NCC
+}
+		}
+	}
+	#向波兰复仇
+	focus = {
+		id = UNR_xiangbolan_fuchou
+		icon = GFX_focus_POL_prepare_for_the_inevitable
+		prerequisite = { focus = UNR_xin_baieluosi_plan }
+		prerequisite = { focus = UNR_kuoda_dongbei_tudi }
+		relative_position_id = UNR_kuoda_dongbei_tudi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+    target = BLA
+}
+create_wargoal = {
+    type = annex_everything
+    target = BLC
+}
+		}
+	}
+	#宣称南方土地
+	focus = {
+		id = UNR_xuancheng_nanfang_tudi
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = UNR_hongwukelan_zhazheng }
+		prerequisite = { focus = UNR_kuoda_dongbei_tudi }
+		relative_position_id = UNR_kuoda_dongbei_tudi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = annex_everything
+    target = MOL
+}
+create_wargoal = {
+    type = annex_everything
+    target = WAL
+}
+		}
+	}
+}

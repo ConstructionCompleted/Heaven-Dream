@@ -1,0 +1,770 @@
+focus_tree = {
+	id = AZR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AZR
+		}
+	}
+	
+	default = no
+	
+	#13号行动
+	focus = {
+		id = AZR_shisanhao_xingdong
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		x = 20
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+		id = holy_aosiman.38
+		days = 5
+		}
+		}
+	}
+	#巴库联合
+	focus = {
+		id = AZR_baku_lianhe
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = AZR_shisanhao_xingdong}
+		relative_position_id = AZR_shisanhao_xingdong
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = AZR_bosi_yingxiang_2
+		}
+	}
+	#亚阿停火
+	focus = {
+		id = AZR_yaa_tinghuo
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = AZR_baku_lianhe}
+		relative_position_id = AZR_baku_lianhe
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ARM = { has_war_with = AZR }
+		ARM = {
+		is_in_faction = no
+		}
+		OR = {
+		AZR = {
+		is_puppet = no
+		}
+		OTF = {
+		NOT = {
+		has_war_with = ARM
+		}
+		}
+		}
+		}
+		completion_reward = {
+		white_peace = ARM
+		}
+	}
+	#扩大巴库军工
+	focus = {
+		id = AZR_kuoda_baku_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = AZR_baku_lianhe}
+		relative_position_id = AZR_baku_lianhe
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		229 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#动员民兵
+	focus = {
+		id = AZR_dongyuan_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = AZR_baku_lianhe}
+		relative_position_id = AZR_baku_lianhe
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = AZR_dongyuan_minbing
+		}
+	}
+	#扩大石油出口
+	focus = {
+		id = AZR_kuoda_shiyou_chukou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = AZR_kuoda_baku_jungong }
+		prerequisite = { focus = AZR_dongyuan_minbing }
+		relative_position_id = AZR_kuoda_baku_jungong
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 15
+    state = 229
+}
+add_ideas = AZR_kuoda_shiyou_chukou
+		}
+	}
+	#南部铁壁
+	focus = {
+		id = AZR_nanbu_tiebi
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = AZR_kuoda_baku_jungong }
+		prerequisite = { focus = AZR_dongyuan_minbing }
+		relative_position_id = AZR_kuoda_baku_jungong
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		420 = {
+			add_building_construction = {
+				type = bunker
+				province = 10523
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7969
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4637
+				level = 2
+				instant_build = yes
+			}
+		}
+		419 = {
+			add_building_construction = {
+				type = bunker
+				province = 1822
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12861
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 2071
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#山地战士
+	focus = {
+		id = AZR_shandi_zhanshi
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = AZR_dongyuan_minbing }
+		relative_position_id = AZR_dongyuan_minbing
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_huoyan_zhitu_2
+		remove_idea = AZR_huoyan_zhitu
+		}
+		}
+	}
+	#火焰再续
+	focus = {
+		id = AZR_huoyan_zaixu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = AZR_nanbu_tiebi }
+		prerequisite = { focus = AZR_kuoda_shiyou_chukou }
+		prerequisite = { focus = AZR_shandi_zhanshi }
+		relative_position_id = AZR_nanbu_tiebi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_buwanquan_minzhu_2
+		remove_idea = AZR_buwanquan_minzhu
+		}
+		}
+	}
+	#世俗化之梦
+	focus = {
+		id = AZR_shisuhua_zhimeng
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = AZR_huoyan_zaixu }
+		relative_position_id = AZR_huoyan_zaixu
+		mutually_exclusive = { focus = AZR_asaibaijiang_zhongli }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shisuhua_dream
+		remove_idea = AZR_buwanquan_minzhu_2
+		}
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+		}
+	}
+	#实现民主
+	focus = {
+		id = AZR_shixian_minzhu
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = AZR_shisuhua_zhimeng }
+		relative_position_id = AZR_shisuhua_zhimeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shisuhua_dream_2
+		remove_idea = AZR_shisuhua_dream
+		}
+		}
+	}
+	#政教分离
+	focus = {
+		id = AZR_zhengjiao_fenli
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = AZR_shixian_minzhu }
+		relative_position_id = AZR_shixian_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shisuhua_dream_3
+		remove_idea = AZR_shisuhua_dream_2
+		}
+		}
+	}
+	#自由之声
+	focus = {
+		id = AZR_ziyou_zhisheng
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = AZR_zhengjiao_fenli }
+		relative_position_id = AZR_zhengjiao_fenli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shisuhua_dream_4
+		remove_idea = AZR_shisuhua_dream_3
+		}
+		}
+	}
+    #阿塞拜疆中立
+	focus = {
+		id = AZR_asaibaijiang_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = AZR_huoyan_zaixu }
+		relative_position_id = AZR_huoyan_zaixu
+		mutually_exclusive = { focus = AZR_shisuhua_zhimeng }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = { has_war_with = PER }
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_asaibaijiang_zhongli
+		remove_idea = AZR_buwanquan_minzhu_2
+		}
+		leave_faction = yes
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		tag = PER
+		tag = GEO
+		}
+		white_peace = AZR
+		}
+		}
+		}
+		}
+	}
+	#延续独裁
+	focus = {
+		id = AZR_yanxu_ducai
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = AZR_asaibaijiang_zhongli }
+		relative_position_id = AZR_asaibaijiang_zhongli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_asaibaijiang_zhongli_2
+		remove_idea = AZR_asaibaijiang_zhongli
+		}
+		}
+	}
+	#宪法修正
+	focus = {
+		id = AZR_xianfa_xiuzheng
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = AZR_yanxu_ducai }
+		relative_position_id = AZR_yanxu_ducai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_asaibaijiang_zhongli_3
+		remove_idea = AZR_asaibaijiang_zhongli_2
+		}
+		}
+	}
+	#扩大军事化
+	focus = {
+		id = AZR_kuoda_junshihua
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = AZR_xianfa_xiuzheng }
+		relative_position_id = AZR_xianfa_xiuzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_asaibaijiang_zhongli_4
+		remove_idea = AZR_asaibaijiang_zhongli_3
+		}
+		}
+	}
+	#巴库工业化
+	focus = {
+		id = AZR_baku_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = AZR_shisuhua_zhimeng focus = AZR_asaibaijiang_zhongli }
+		relative_position_id = AZR_asaibaijiang_zhongli
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		229 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#石油扩张
+	focus = {
+		id = AZR_shiyou_kuozhang
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = AZR_baku_gongyehua }
+		relative_position_id = AZR_baku_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 35
+    state = 229
+}
+		}
+	}
+	#里海战略
+	focus = {
+		id = AZR_lihai_zhanlue
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = AZR_shiyou_kuozhang }
+		relative_position_id = AZR_shiyou_kuozhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_kuoda_shiyou_chukou_2
+		remove_idea = AZR_kuoda_shiyou_chukou
+		}
+		}
+	}
+	#开发南部
+	focus = {
+		id = AZR_kaifa_nanbu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = AZR_baku_gongyehua }
+		relative_position_id = AZR_baku_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		420 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#吉兰工业化
+	focus = {
+		id = AZR_jilan_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = AZR_kaifa_nanbu }
+		relative_position_id = AZR_kaifa_nanbu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		420 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#战争的教训
+	focus = {
+		id = AZR_zhanzheng_jiaoxun
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = AZR_huoyan_zaixu }
+		relative_position_id = AZR_huoyan_zaixu
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = { has_war_with = PER }
+		date > 1937.1.1
+		}
+		completion_reward = {
+		army_experience = 100
+		add_ideas = AZR_zhanzheng_jiaoxun
+		}
+	}
+	#改革轻步兵
+	focus = {
+		id = AZR_gaige_qingbubing
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = AZR_zhanzheng_jiaoxun }
+		relative_position_id = AZR_zhanzheng_jiaoxun
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = AZR_gaige_qingbubing
+		}
+	}
+	#后勤改革
+	focus = {
+		id = AZR_houqin_gaige
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = AZR_gaige_qingbubing }
+		relative_position_id = AZR_gaige_qingbubing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_gaige_qingbubing_2
+		remove_idea = AZR_gaige_qingbubing
+		}
+		}
+	}
+	#山地自行车
+	focus = {
+		id = AZR_shandi_zixingche
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = AZR_houqin_gaige }
+		relative_position_id = AZR_houqin_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_gaige_qingbubing_3
+		remove_idea = AZR_gaige_qingbubing_2
+		}
+		}
+	}
+	#圣战之师
+	focus = {
+		id = AZR_shengzhan_zhishi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = AZR_zhanzheng_jiaoxun }
+		relative_position_id = AZR_zhanzheng_jiaoxun
+		mutually_exclusive = { focus = AZR_junshi_minzhu }
+		available = {
+		has_completed_focus = AZR_asaibaijiang_zhongli
+		}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = AZR_shengzhan_zhishi
+		}
+	}
+	#突进计划
+	focus = {
+		id = AZR_tujin_plan
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = AZR_shengzhan_zhishi }
+		relative_position_id = AZR_shengzhan_zhishi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shengzhan_zhishi_2
+		remove_idea = AZR_shengzhan_zhishi
+		}
+		}
+	}
+	#冲锋战术
+	focus = {
+		id = AZR_chongfeng_zhanshu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = AZR_tujin_plan }
+		relative_position_id = AZR_tujin_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_shengzhan_zhishi_3
+		remove_idea = AZR_shengzhan_zhishi_2
+		}
+		}
+	}
+	#军事民主
+	focus = {
+		id = AZR_junshi_minzhu
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = AZR_zhanzheng_jiaoxun }
+		relative_position_id = AZR_zhanzheng_jiaoxun
+		mutually_exclusive = { focus = AZR_shengzhan_zhishi }
+		available = {
+		has_completed_focus = AZR_shisuhua_dream
+		}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = AZR_junshi_minzhu
+		}
+	}
+	#防卫者
+	focus = {
+		id = AZR_fangwei_zhe
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = AZR_junshi_minzhu }
+		relative_position_id = AZR_junshi_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_junshi_minzhu_2
+		remove_idea = AZR_junshi_minzhu
+		}
+		}
+	}
+	#堑壕工艺
+	focus = {
+		id = AZR_qianhao_gongzhi
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = AZR_fangwei_zhe }
+		relative_position_id = AZR_fangwei_zhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_junshi_minzhu_3
+		remove_idea = AZR_junshi_minzhu_2
+		}
+		}
+	}
+	#火力至上
+	focus = {
+		id = AZR_huoli_zhishang
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = AZR_zhanzheng_jiaoxun }
+		relative_position_id = AZR_zhanzheng_jiaoxun
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = AZR_huoli_zhishang
+		}
+	}
+	#改革生产线
+	focus = {
+		id = AZR_gaige_shengchanxian
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = AZR_huoli_zhishang }
+		relative_position_id = AZR_huoli_zhishang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_huoli_zhishang_2
+		remove_idea = AZR_huoli_zhishang
+		}
+		}
+	}
+	#大炮主义
+	focus = {
+		id = AZR_dapao_zhuyi
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = AZR_gaige_shengchanxian }
+		relative_position_id = AZR_gaige_shengchanxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = AZR_huoli_zhishang_3
+		remove_idea = AZR_huoli_zhishang_2
+		}
+		}
+	}
+}

@@ -1,0 +1,1689 @@
+focus_tree = {
+	id = YUE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YUE
+		}
+	}
+	
+	default = no
+ 
+	#联合之梦
+	focus = {
+		id = YUE_lianhe_zhimeng
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		has_government = democratic
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#联合商团
+	focus = {
+		id = YUE_lianhe_shangtuan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = YUE_lianhe_zhimeng}
+		relative_position_id focus = YUE_lianhe_zhimeng
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+add_ideas = YUE_lianhe_shangtuan
+		}
+	}
+	#进攻西城区
+	focus = {
+		id = YUE_jingong_xichengqu
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = YUE_lianhe_shangtuan}
+		relative_position_id focus = YUE_lianhe_shangtuan
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_days_mission_timeout = {
+				mission = holy_guangzhou_zhengduo
+				days = 10
+			}			
+			add_stability -0.05
+			add_political_power = 50
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -500
+}
+		}
+	}
+	#协助宣传
+	focus = {
+		id = YUE_xiezhu_xuanchuan
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = YUE_lianhe_shangtuan}
+		relative_position_id focus = YUE_lianhe_shangtuan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_political_power = 50
+		}
+	}
+	#对抗红色思想
+	focus = {
+		id = YUE_duikang_hongse_sixiang
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = YUE_jingong_xichengqu}
+		prerequisite = { focus = YUE_xiezhu_xuanchuan}
+		relative_position_id focus = YUE_xiezhu_xuanchuan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_popularity = {
+    ideology = progressism
+    popularity = -0.05
+}
+		}
+	}
+	#警戒计划
+	focus = {
+		id = YUE_jingjie_jihua
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = YUE_lianhe_shangtuan}
+		prerequisite = { focus = YUE_yuegui_war}
+		relative_position_id = YUE_lianhe_shangtuan
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_war_support = 0.05
+			add_manpower = 5000
+		}
+	}
+	#破坏地下组织
+	focus = {
+		id = YUE_pohuai_dixia_zuzhi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = YUE_jingjie_jihua}
+		prerequisite = { focus = YUE_xiezhu_xuanchuan}
+		relative_position_id focus = YUE_xiezhu_xuanchuan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		add_stability = -0.05
+		    add_days_mission_timeout = {
+				mission = holy_guangzhou_zhengduo
+				days = 10
+			}			
+		}
+	}
+	#镇压革命
+	focus = {
+		id = YUE_zhenya_geming
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = YUE_pohuai_dixia_zuzhi}
+		prerequisite = { focus = YUE_duikang_hongse_sixiang}
+		relative_position_id focus = YUE_duikang_hongse_sixiang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		add_stability = -0.05
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -500
+}
+		}
+	}
+	#打开自由之门
+	focus = {
+		id = YUE_dakai_ziyou_zhimen
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = YUE_zhenya_geming}
+		relative_position_id focus = YUE_zhenya_geming
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_ideas = YUE_free
+			remove_mission = holy_guangzhou_zhengduo
+		}
+	}
+	#粤桂战争
+	focus = {
+		id = YUE_yuegui_war
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = YUE_lianhe_zhimeng}
+		relative_position_id = YUE_lianhe_zhimeng
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    army_experience = 30
+		}
+	}
+	#武装后方民兵
+	focus = {
+		id = YUE_wuzhaung_houfang_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = YUE_yuegui_war}
+		relative_position_id = YUE_yuegui_war
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    load_oob = YUE_wuzhuang_houfang_minbing
+		}
+	}
+	#跟进军事科研
+	focus = {
+		id = YUE_genjin_junshi_keyan
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = YUE_yuegui_war}
+		relative_position_id = YUE_yuegui_war
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry
+			}
+		}
+	}
+	#动员前线民兵
+	focus = {
+		id = YUE_dongyuan_qianxian_minbing
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = YUE_wuzhaung_houfang_minbing}
+		prerequisite = { focus = YUE_jingjie_jihua}
+		relative_position_id = YUE_wuzhaung_houfang_minbing
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    load_oob = YUE_dongyuan_qianxian_minbing
+		}
+	}
+	#联合武装
+	focus = {
+		id = YUE_lianhe_wuzhaung
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = YUE_wuzhaung_houfang_minbing}
+		prerequisite = { focus = YUE_genjin_junshi_keyan}
+		relative_position_id = YUE_wuzhaung_houfang_minbing
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#统合广东军事
+	focus = {
+		id = YUE_tonghe_guangdong_junshi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = YUE_dongyuan_qianxian_minbing}
+		prerequisite = { focus = YUE_lianhe_wuzhaung}
+		relative_position_id = YUE_lianhe_wuzhaung
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#支援马济
+	focus = {
+		id = YUE_zhiyuan_maji
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = YUE_tonghe_guangdong_junshi}
+		relative_position_id = YUE_tonghe_guangdong_junshi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war_with = GUI
+		has_government = democratic
+		}
+		completion_reward = {
+		    send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+	target = OGU
+}
+		}
+	}
+	#进口外国军火
+	focus = {
+		id = YUE_jinkou_waiguo_junhuo
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = YUE_tonghe_guangdong_junshi}
+		relative_position_id = YUE_tonghe_guangdong_junshi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = UKM
+}
+		}
+	}
+	#联合政府
+	focus = {
+		id = YUE_lianhe_zhengfu
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = YUE_jinkou_waiguo_junhuo}
+		prerequisite = { focus = YUE_dakai_ziyou_zhimen}
+		prerequisite = { focus = YUE_zhiyuan_maji}
+		relative_position_id = YUE_dakai_ziyou_zhimen
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = GUI
+		}
+		has_government = democratic
+		}
+		completion_reward = {
+		    annex_country = {
+    target = OGU
+    transfer_troops = yes
+}
+		}
+	}
+	#夺取广州城
+	focus = {
+		id = YUE_duoqu_guangzhou_cheng
+		icon = GFX_goal_support_communism
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		OR = {
+		has_government = communism
+		has_government = socialism
+		has_government = progressism
+		}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#修复广州
+	focus = {
+		id = YUE_xiufu_guangzhou
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = YUE_duoqu_guangzhou_cheng}
+		relative_position_id = YUE_duoqu_guangzhou_cheng
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			592 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#国际支援
+	focus = {
+		id = YUE_guoji_zhiyuan
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = YUE_xiufu_guangzhou}
+		relative_position_id = YUE_xiufu_guangzhou
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#重整东部
+	focus = {
+		id = YUE_chongzheng_dongbu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = YUE_duoqu_guangzhou_cheng}
+		relative_position_id = YUE_duoqu_guangzhou_cheng
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 1282
+			add_state_core = 1283
+			add_state_core = 1284
+			add_state_core = 326
+		}
+	}
+	#组建革命民兵
+	focus = {
+		id = YUE_zujian_gm_minbing
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = YUE_chongzheng_dongbu}
+		relative_position_id = YUE_chongzheng_dongbu
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = YUE_gm_minbing
+		}
+	}
+	#联络冯白驹
+	focus = {
+		id = YUE_lianluo_fengbaiju
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = YUE_chongzheng_dongbu}
+		prerequisite = { focus = YUE_xiufu_guangzhou}
+		relative_position_id = YUE_xiufu_guangzhou
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			QYZ = {
+			country_event = {
+    id = holy_huanan.13
+	days = 3
+}
+			}
+		}
+	}
+	#组建革命联军
+	focus = {
+		id = YUE_zujian_geming_lianjun
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = YUE_lianluo_fengbaiju}
+		prerequisite = { focus = YUE_zujian_gm_minbing}
+		prerequisite = { focus = YUE_guoji_zhiyuan}
+		relative_position_id = YUE_lianluo_fengbaiju
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			annex_country = {
+    target = QYZ
+    transfer_troops = yes
+}
+add_state_core = 591
+add_state_core = 1263
+add_state_core = 728
+declare_war_on = {
+    target = OGU
+    type = annex_everything
+}
+		}
+	}
+	#建立联合政府
+	focus = {
+		id = YUE_jianli_lianhe_zhengfu
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = YUE_zujian_geming_lianjun}
+		relative_position_id = YUE_zujian_geming_lianjun
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		GUI = {
+		exists = no
+		}
+		OGU = {
+		exists = no
+		}
+		}
+		completion_reward = {
+add_state_core = 594
+add_state_core = 599
+add_state_core = 1260
+add_state_core = 1261
+add_state_core = 1272
+add_state_core = 1257
+add_state_core = 1258
+add_state_core = 1262
+add_state_core = 1254
+add_state_core = 1255
+add_state_core = 1256
+		}
+	}
+	#加入国民党
+	focus = {
+		id = YUE_join_kmt
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = YUE_jianli_lianhe_zhengfu}
+		relative_position_id = YUE_jianli_lianhe_zhengfu
+		mutually_exclusive = { focus = YUE_join_ccp }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		KMT = { puppet = YUE }
+		}
+	}
+	#加入共产党
+	focus = {
+		id = YUE_join_ccp
+		icon = GFX_focus_prc_proclaim_the_peoples_republic
+		prerequisite = { focus = YUE_jianli_lianhe_zhengfu}
+		relative_position_id = YUE_jianli_lianhe_zhengfu
+		mutually_exclusive = { focus = YUE_join_kmt }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CCP = { puppet = YUE }
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.15
+}
+set_politics = {
+	ruling_party = socialism
+}
+		}
+	}
+	#第三次汕头大会
+	focus = {
+		id = YUE_third_shantou_dahui
+		icon = GFX_focus_generic_treaty
+		x = 18
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		GUI = {
+		exists = no
+		}
+		has_government = democratic
+		has_completed_focus = YUE_lianhe_zhengfu
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huanan.14
+	days = 1
+}
+add_state_claim = 1123
+		add_state_claim = 1122
+		add_state_claim = 1076
+		add_state_claim = 586
+		add_state_claim = 1337
+		add_state_claim = 1336
+		add_state_claim = 1335
+		add_state_claim = 537
+		add_state_claim = 654
+		add_state_claim = 1855
+		add_state_claim = 1273
+		add_state_claim = 1280
+		add_state_claim = 1486
+		add_state_claim = 1487
+		add_state_claim = 524
+		remove_state_claim = 323
+		remove_state_claim = 1396
+every_state = {
+					limit = {
+					OR = {
+						region = 255
+						region = 148
+						region = 242
+						region = 244
+						region = 186
+						region = 155
+						region = 165
+						region = 152
+						region = 266
+						region = 143
+						region = 247
+						region = 245
+						region = 164
+						region = 246
+						region = 248
+						region = 249
+						region = 250
+						region = 144
+						region = 200
+						region = 146
+						region = 287
+						region = 252
+						}
+					}
+add_claim_by = YUE
+		}
+		}
+	}
+	#临时约法
+	focus = {
+		id = YUE_linshi_yuefa
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = YUE_third_shantou_dahui}
+		relative_position_id = YUE_third_shantou_dahui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 594
+controls_state = 599
+controls_state = 1260
+controls_state = 1261
+controls_state = 1272
+controls_state = 1257
+controls_state = 1258
+controls_state = 1262
+controls_state = 1254
+controls_state = 1255
+controls_state = 1256
+		controls_state = 591
+controls_state = 1263
+controls_state = 728
+controls_state = 1282
+			controls_state = 1283
+			controls_state = 1284
+			controls_state = 326
+			controls_state = 1163
+			controls_state = 593
+			controls_state = 592
+			controls_state = 729
+			controls_state = 1259
+			controls_state = 1261
+			controls_state = 1265
+			controls_state = 1281
+		has_government = democratic
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YUE_lianhe_sixiang
+			add_idea = YUE_lianhe_sixiang_2
+			}
+		}
+	}
+	#广西和平化
+	focus = {
+		id = YUE_guangxi_hepinghua
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = YUE_third_shantou_dahui}
+		relative_position_id = YUE_third_shantou_dahui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_state_core = 594
+add_state_core = 599
+add_state_core = 1260
+add_state_core = 1261
+add_state_core = 1272
+add_state_core = 1257
+add_state_core = 1258
+add_state_core = 1262
+add_state_core = 1254
+add_state_core = 1255
+add_state_core = 1256
+		}
+	}
+	#中华重建计划
+	focus = {
+		id = YUE_zhonghua_chongjian_plan
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { focus = YUE_guangxi_hepinghua}
+		prerequisite = { focus = YUE_linshi_yuefa}
+		relative_position_id = YUE_linshi_yuefa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#联合梦想
+	focus = {
+		id = YUE_lianhe_dream
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = YUE_zhonghua_chongjian_plan}
+		relative_position_id = YUE_zhonghua_chongjian_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#扫平反对派
+	focus = {
+		id = YUE_saoping_fanduipai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = YUE_zhonghua_chongjian_plan}
+		relative_position_id = YUE_zhonghua_chongjian_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#北洋谈判
+	focus = {
+		id = YUE_beiyang_tanpan
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = YUE_lianhe_dream}
+		prerequisite = { focus = YUE_saoping_fanduipai}
+		relative_position_id = YUE_saoping_fanduipai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 1163
+		controls_state = 1155
+		controls_state = 1132
+		}
+		completion_reward = {
+			FEN = {
+			country_event = {
+    id = holy_tanpan.4
+	days = 3
+}
+			}
+			WAN = {
+			country_event = {
+    id = holy_tanpan.5
+	days = 3
+}
+			}
+			ZHI = {
+			country_event = {
+    id = holy_tanpan.6
+	days = 3
+}
+			}
+		}
+	}
+	#新中华联邦
+	focus = {
+		id = YUE_new_cn_lianbang
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = YUE_beiyang_tanpan}
+		relative_position_id = YUE_beiyang_tanpan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		DHJ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		HEI = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		WAN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		HHA = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		JAN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		NWA = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		JAD = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		LUJ	= {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		QIN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		JIN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		FEN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		NIN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		HAM = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		XQJ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		XIJ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		ETK = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		XIH = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		MJJ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		ZAG = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		XKA = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		SHU = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		YUX = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		DIA = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		QAN = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		XIG = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		CCP = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		KMT = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		NNJ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		CGH = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		GUI = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		OGU = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		ZHI = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		QYZ = {
+		OR = {
+		exists = no
+		is_puppet_of = YUE
+		}
+		}
+		}
+		completion_reward = {
+			load_focus_tree = { tree = YUE_newchina keep_completed = yes }
+			set_cosmetic_tag = CHI
+			news_event = {
+				id = holy_news.41 days = 1
+			}
+		}
+	}
+	#应对地方问题
+	focus = {
+		id = YUE_yingdui_difang_wenti
+		icon = GFX_goal_generic_neutrality_focus
+		x = 30
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 594
+controls_state = 599
+controls_state = 1260
+controls_state = 1261
+controls_state = 1272
+controls_state = 1257
+controls_state = 1258
+controls_state = 1262
+controls_state = 1254
+controls_state = 1255
+controls_state = 1256
+		controls_state = 591
+controls_state = 1263
+controls_state = 728
+controls_state = 1282
+			controls_state = 1283
+			controls_state = 1284
+			controls_state = 326
+			controls_state = 1163
+			controls_state = 593
+			controls_state = 592
+			controls_state = 729
+			controls_state = 1259
+			controls_state = 1261
+			controls_state = 1265
+			controls_state = 1281
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_guangzhou_dream_2
+			remove_idea = YUE_guangzhou_dream
+			}
+		}
+	}
+	#偏向商帮
+	focus = {
+		id = YUE_pianxiang_shangbang
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = YUE_yingdui_difang_wenti }
+		relative_position_id = YUE_yingdui_difang_wenti
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		has_government = progressism
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_lianhe_shangtuan_2
+			remove_idea = YUE_lianhe_shangtuan
+			}
+		}
+	}
+	#广东之星
+	focus = {
+		id = YUE_guangdong_star
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = YUE_pianxiang_shangbang}
+		relative_position_id = YUE_pianxiang_shangbang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_guangzhou_dream_2
+			remove_idea = YUE_guangzhou_dream
+			}
+		}
+	}
+	#政府支持
+	focus = {
+		id = YUE_zhengfu_zhichi
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = YUE_guangdong_star}
+		relative_position_id = YUE_guangdong_star
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUE_zhengfu_zhichi
+		}
+	}
+	#经济放宽
+	focus = {
+		id = YUE_jingji_fangkuan
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = YUE_guangdong_star}
+		relative_position_id = YUE_guangdong_star
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_guangzhou_dream_3
+			remove_idea = YUE_guangzhou_dream_2
+			}
+		}
+	}
+	#新工业区
+	focus = {
+		id = YUE_new_icqu
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = YUE_jingji_fangkuan}
+		prerequisite = { focus = YUE_zhengfu_zhichi}
+		relative_position_id = YUE_zhengfu_zhichi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhengfu_zhichi_2
+			remove_idea = YUE_zhengfu_zhichi
+			}
+		}
+	}
+	#城市扩建
+	focus = {
+		id = YUE_chengshi_kuojian
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = YUE_jingji_fangkuan}
+		prerequisite = { focus = YUE_zhengfu_zhichi}
+		relative_position_id = YUE_zhengfu_zhichi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		  add_ideas = YUE_chengshi_kuojian
+		}
+	}
+	#全盘自由化
+	focus = {
+		id = YUE_quanpan_free
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = YUE_new_icqu}
+		prerequisite = { focus = YUE_chengshi_kuojian}
+		relative_position_id = YUE_chengshi_kuojian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = democratic 
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_free_2
+			remove_idea = YUE_free
+			}
+		}
+	}
+	#修建铁路
+	focus = {
+		id = YUE_xiujian_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = YUE_jingji_fangkuan}
+		prerequisite = { focus = YUE_zhengfu_zhichi}
+		relative_position_id = YUE_zhengfu_zhichi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUE_xiujian_tielu
+		}
+	}
+	#香港特区
+	focus = {
+		id = YUE_xianggang_tequ
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = YUE_xiujian_tielu}
+		prerequisite = { focus = YUE_chengshi_kuojian}
+		relative_position_id = YUE_chengshi_kuojian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhengfu_zhichi_3
+			remove_idea = YUE_zhengfu_zhichi_2
+			}
+		}
+	}
+	#扩建武装体系
+	focus = {
+		id = YUE_kuojian_wuzhuang_tixi
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = YUE_pianxiang_shangbang}
+		relative_position_id = YUE_pianxiang_shangbang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#第二武器计划
+	focus = {
+		id = YUE_dier_wuqi_plan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YUE_kuojian_wuzhuang_tixi}
+		relative_position_id = YUE_kuojian_wuzhuang_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			594 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#澳门的海洋
+	focus = {
+		id = YUE_aomen_haiyang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = YUE_dier_wuqi_plan}
+		relative_position_id = YUE_dier_wuqi_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			729 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#继承桂系武装
+	focus = {
+		id = YUE_jicheng_guixi_wuzhuang
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = YUE_aomen_haiyang}
+		relative_position_id = YUE_aomen_haiyang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = YUE_guixi_wuzhuang
+		}
+	}
+	#额外军事扩建
+	focus = {
+		id = YUE_ewai_junshi_kuojian
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = YUE_aomen_haiyang}
+		relative_position_id = YUE_aomen_haiyang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			593 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#联省模范
+	focus = {
+		id = YUE_liansheng_mofan
+		icon = GFX_focus_ETH_empower_the_ras
+		prerequisite = { focus = YUE_xianggang_tequ}
+		prerequisite = { focus = YUE_quanpan_free}
+		prerequisite = { focus = YUE_jicheng_guixi_wuzhuang}
+		prerequisite = { focus = YUE_ewai_junshi_kuojian}
+		relative_position_id = YUE_quanpan_free
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_liansheng_mofan
+			remove_idea = YUE_zhengfu_zhichi_3
+			}
+		}
+	}
+	#偏向军事
+	focus = {
+		id = YUE_pianxiang_junshi
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = YUE_yingdui_difang_wenti}
+		relative_position_id = YUE_yingdui_difang_wenti
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_luowu_jundui_2
+			remove_idea = YUE_luowu_jundui
+			}
+		}
+	}
+	#动员能力
+	focus = {
+		id = YUE_dongyuan_nengli
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = YUE_pianxiang_junshi}
+		relative_position_id = YUE_pianxiang_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUE_dongyuan_nengli
+		}
+	}
+	#民兵改革
+	focus = {
+		id = YUE_minbing_gaige
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = YUE_dongyuan_nengli}
+		relative_position_id = YUE_dongyuan_nengli
+		mutually_exclusive = { focus = YUE_zhiyehua_budui }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_minbing_gaige
+			remove_idea = YUE_luowu_jundui_2
+			}
+		}
+	}
+	#武装民兵
+	focus = {
+		id = YUE_wuzhuang_minbing
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = YUE_minbing_gaige}
+		relative_position_id = YUE_minbing_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = YUE_wuzhuang_minbing
+		}
+	}
+	#堑壕战技术
+	focus = {
+		id = YUE_qianhaozhan_jishu
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = YUE_minbing_gaige}
+		relative_position_id = YUE_minbing_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_minbing_gaige_2
+			remove_idea = YUE_minbing_gaige
+			}
+		}
+	}
+	#保障后勤
+	focus = {
+		id = YUE_baozhang_houqin
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = YUE_wuzhuang_minbing}
+		prerequisite = { focus = YUE_qianhaozhan_jishu}
+		relative_position_id = YUE_qianhaozhan_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_minbing_gaige_3
+			remove_idea = YUE_minbing_gaige_2
+			}
+		}
+	}
+	#战斗的意志
+	focus = {
+		id = YUE_zhandou_yizhi
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = YUE_baozhang_houqin}
+		relative_position_id = YUE_baozhang_houqin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_minbing_gaige_4
+			remove_idea = YUE_minbing_gaige_3
+			}
+		}
+	}
+	#火力能力
+	focus = {
+		id = YUE_huoli_nengli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = YUE_pianxiang_junshi}
+		relative_position_id = YUE_pianxiang_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#职业化部队
+	focus = {
+		id = YUE_zhiyehua_budui
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = YUE_huoli_nengli}
+		relative_position_id = YUE_huoli_nengli
+		mutually_exclusive = { focus = YUE_minbing_gaige }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+	    available = {
+		has_government = democratic
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhiyehua_budui
+			remove_idea = YUE_luowu_jundui_2
+			}
+		}
+	}
+	#专业火炮
+	focus = {
+		id = YUE_zhuanye_huopao
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = YUE_zhiyehua_budui}
+		relative_position_id = YUE_zhiyehua_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhiyehua_budui_2
+			remove_idea = YUE_zhiyehua_budui
+			}
+		}
+	}
+	#职业化军官团
+	focus = {
+		id = YUE_zhiyehua_budui_juguantuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = YUE_zhuanye_huopao}
+		relative_position_id = YUE_zhuanye_huopao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhiyehua_budui_3
+			remove_idea = YUE_zhiyehua_budui_2
+			}
+		}
+	}
+	#进口飞机
+	focus = {
+		id = YUE_jinkou_feiji
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = YUE_zhuanye_huopao}
+		relative_position_id = YUE_zhuanye_huopao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = fighter1
+    amount = 50
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = early_bomber
+    amount = 20
+    producer = UKM
+}
+		}
+	}
+	#临战计划
+	focus = {
+		id = YUE_linzhan_plan
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = YUE_zhiyehua_budui_juguantuan}
+		prerequisite = { focus = YUE_jinkou_feiji}
+		relative_position_id = YUE_jinkou_feiji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUE_zhiyehua_budui_4
+			remove_idea = YUE_zhiyehua_budui_3
+			}
+		}
+	}
+}

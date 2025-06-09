@@ -1,0 +1,32 @@
+holy_baieluosi_qiyi = {
+	#动员被占领区
+    BLR_dongyuan_beizhanlingqu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = BLR
+		NOT = {
+		has_country_flag = BLR_warforBLA
+		}
+	}
+		available = {
+		always = yes
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			96 1551 1546 95 94 1544 1545
+		}
+		cost = 25
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		set_state_flag = BLR_qiyidiqu
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

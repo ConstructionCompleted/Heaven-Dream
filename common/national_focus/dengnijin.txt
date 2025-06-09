@@ -1,0 +1,692 @@
+focus_tree = {
+	id = CRM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CRM
+		}
+	}
+	
+	default = no
+ 
+    #不过残兵败将
+	focus = {
+		id = CRM_buguo_canbingbaijiang
+		icon = GFX_focus_spr_crush_the_revolution
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#赫尔松宪兵
+	focus = {
+		id = CRM_heersong_xianbing
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = CRM_buguo_canbingbaijiang}
+		relative_position_id = CRM_buguo_canbingbaijiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 196
+		}
+		completion_reward = {
+		     add_stability = -0.05
+			 add_state_core = 196
+		}
+	}
+	#克里木干涉点
+	focus = {
+		id = CRM_kelimu_ganshedian
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		prerequisite = { focus = CRM_heersong_xianbing}
+		relative_position_id = CRM_heersong_xianbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_zoutou_wulu_zhitu_2
+			 remove_idea = CRM_zoutou_wulu_zhitu
+			 }
+		}
+	}
+	#外国干涉志愿军
+	focus = {
+		id = CRM_waiguo_ganshe_zhiyuanjun
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = CRM_kelimu_ganshedian}
+		relative_position_id = CRM_kelimu_ganshedian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     load_oob = CRM_waiguo_ganshe
+		}
+	}
+	#获取装备支援
+	focus = {
+		id = CRM_huoqu_zhaungbeui_zhiyuan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CRM_waiguo_ganshe_zhiyuanjun}
+		relative_position_id = CRM_waiguo_ganshe_zhiyuanjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+	producer = BLA
+}
+		}
+	}
+	#塞瓦斯托波尔运输站
+	focus = {
+		id = CRM_saiwasi_tuoboer_yunshuzhan
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = CRM_kelimu_ganshedian}
+		relative_position_id = CRM_kelimu_ganshedian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_zoutou_wulu_zhitu_3
+			 remove_idea = CRM_zoutou_wulu_zhitu_2
+			 }
+		}
+	}
+	#海港作用
+	focus = {
+		id = CRM_haigang_zuoyong
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CRM_saiwasi_tuoboer_yunshuzhan}
+		relative_position_id = CRM_saiwasi_tuoboer_yunshuzhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#工业武装
+	focus = {
+		id = CRM_gongye_wuzhaung
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = CRM_huoqu_zhaungbeui_zhiyuan}
+		prerequisite = { focus = CRM_haigang_zuoyong}
+		relative_position_id = CRM_haigang_zuoyong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_gongye_wuzhaung
+			 remove_idea = CRM_zoutou_wulu_zhitu_3
+			 }
+		}
+	}
+	#乌克兰战争计划
+	focus = {
+		id = CRM_wukelan_warplan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = CRM_heersong_xianbing}
+		relative_position_id = CRM_heersong_xianbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_baijun_yuanshuai_2
+			 remove_idea = CRM_baijun_yuanshuai
+			 }
+			every_state = {
+			limit = {
+			region = 130
+			}
+			add_claim_by = CRM
+			}
+		}
+	}
+	#重塑战争信心
+	focus = {
+		id = CRM_chongsu_zhanzheng_xinxin
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = CRM_wukelan_warplan}
+		relative_position_id = CRM_wukelan_warplan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_baijun_yuanshuai_3
+			 remove_idea = CRM_baijun_yuanshuai_2
+			 }
+		}
+	}
+	#接触彼得留拉
+	focus = {
+		id = CRM_jiechu_bideliula
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = CRM_chongsu_zhanzheng_xinxin}
+		relative_position_id = CRM_chongsu_zhanzheng_xinxin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    UNR = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 500
+    producer = CEM
+}
+			}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 500
+    producer = UNR
+}
+		}
+	}
+	#征集追随者
+	focus = {
+		id = CRM_zhengji_zhuisuizhe
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CRM_wukelan_warplan}
+		relative_position_id = CRM_wukelan_warplan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     load_oob = CRM_zhengji_zhuisuizhe
+		}
+	}
+	#摧毁革命者
+	focus = {
+		id = CRM_cuihui_gmzhe
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = CRM_zhengji_zhuisuizhe}
+		relative_position_id = CRM_zhengji_zhuisuizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKR = {
+		exists = no
+		}
+		BUK = {
+		exists = no
+		}
+		DKS = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = CRM_baijun_yuanshuai_4
+			 remove_idea = CRM_baijun_yuanshuai_3
+			 }
+		}
+	}
+	#南俄武装力量重建
+	focus = {
+		id = CRM_nanewuzhuang_chongjian
+		icon = GFX_focus_POL_expand_polish_intelligence
+		prerequisite = { focus = CRM_cuihui_gmzhe}
+		prerequisite = { focus = CRM_gongye_wuzhaung}
+		prerequisite = { focus = CRM_jiechu_bideliula}
+		relative_position_id = CRM_cuihui_gmzhe
+		x = -2
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_cosmetic_tag = RSO
+		custom_effect_tooltip = RSO
+		if = {
+		limit = {
+		UNR = {
+	    is_puppet_of = CRM
+		}
+		}
+		else = {
+		NOT = {
+		UNR = {
+		is_puppet_of = CRM
+		}
+		}
+		}
+		declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+		}
+		}
+	}
+	#终结彼得留拉
+	focus = {
+		id = CRM_zhongjie_bideliula_wenti
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CRM_nanewuzhuang_chongjian}
+		relative_position_id = CRM_nanewuzhuang_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKR = {
+		exists = no
+		}
+		BUK = {
+		exists = no
+		}
+		DKS = {
+		exists = no
+		}
+		}
+		bypass = {
+		UNR = {
+		is_puppet_of = CRM
+		}
+		}
+		completion_reward = {
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+		}
+	}
+	#进军顿河
+	focus = {
+		id = CRM_jinjun_dunhe
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = CRM_zhongjie_bideliula_wenti}
+		relative_position_id = CRM_zhongjie_bideliula_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UNR = {
+		exists = no
+		}
+		}
+		bypass = {
+		DRG = {
+		has_completed_focus = DRG_nane_wuzhaung_chongjian
+		}
+		}
+		completion_reward = {
+		     remove_ideas = CRM_posui_lianhe
+		every_state = {
+					limit = {
+						region = 135
+					}
+add_claim_by = CRM
+		}
+		add_state_claim = 245
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 233
+			 declare_war_on = {
+    target = DRG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+		}
+	}
+	#效忠沙皇
+	focus = {
+		id = CRM_xiaozhong_shahuang
+		icon = GFX_focus_SOV_zemsky_sobor
+		prerequisite = { focus = CRM_jinjun_dunhe}
+		relative_position_id = CRM_jinjun_dunhe
+		mutually_exclusive = { focus = CRM_canyu_jinzheng }
+		mutually_exclusive = { focus = CRM_lianhe_gaoerchake }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUN = {
+		exists = yes
+		}
+		has_war = no
+		}
+		completion_reward = {
+		     RUN = {
+		     puppet = CRM
+			 }
+		}
+	}
+	#参与竞争
+	focus = {
+		id = CRM_canyu_jinzheng
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CRM_jinjun_dunhe}
+		relative_position_id = CRM_jinjun_dunhe
+		mutually_exclusive = { focus = CRM_lianhe_gaoerchake }
+		mutually_exclusive = { focus = CRM_xiaozhong_shahuang }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		create_faction = eluosi_wuzhaung
+		every_state = {
+					limit = {
+					OR = {
+						region = 265
+						region = 132
+						region = 150
+						region = 133
+						region = 264
+						region = 40
+						region = 137
+						region = 135
+						region = 138
+						region = 14
+						region = 263
+						region = 151
+						region = 261
+						region = 262
+						region = 147
+						region = 149
+						region = 260
+						region = 259
+						region = 257
+						region = 258
+						region = 256
+						}
+					}
+add_core_of = CRM
+		}
+		add_state_core = 146
+		add_state_core = 1356
+		add_state_core = 213
+		add_state_core = 1854
+		add_state_core = 1398
+		add_state_core = 224
+		add_state_core = 205
+		add_state_core = 242
+		add_state_core = 243
+		remove_state_core = 1347
+		remove_state_core = 654
+		remove_state_core = 1123
+		remove_state_core = 407
+		remove_state_core = 406
+		remove_state_core = 1073
+		remove_state_core = 1074
+		remove_state_core = 1550
+		remove_state_core = 206
+		remove_state_core = 204
+		remove_state_core = 1543
+		remove_state_core = 194
+		remove_state_core = 201
+		remove_state_core = 199
+		remove_state_core = 1431
+		remove_state_core = 198
+		remove_state_core = 1430
+		remove_state_core = 1859
+		remove_state_core = 232
+		remove_state_core = 1075
+		remove_state_core = 233
+		remove_state_core = 234
+		remove_state_core = 235
+		remove_state_core = 875
+		every_state = {
+					limit = {
+					OR = {
+						region = 136
+						region = 270
+						region = 267
+						region = 268
+						region = 269
+						}
+					}
+add_claim_by = RUN
+		}
+		add_state_claim = 234
+		add_state_claim = 235
+		add_state_claim = 233
+		add_state_claim = 1075
+		add_state_claim = 232
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 407
+		add_state_claim = 406
+		add_state_claim = 1073
+		add_state_claim = 1074
+		every_country = {
+limit = {
+NOT = {
+tag = BLA
+tag = UNR
+tag = MCR
+}
+OR = {
+has_war_with = SOV
+tag = SOV
+}
+}
+add_timed_idea = {
+    idea = SOV_touxiang_daojishi
+    days = 360
+}
+}
+		declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBP
+    type = annex_everything
+}
+declare_war_on = {
+    target = MGD
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAK
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GSK
+    type = annex_everything
+}
+		}
+	}
+	#联合高尔查克
+	focus = {
+		id = CRM_lianhe_gaoerchake
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = CRM_jinjun_dunhe}
+		relative_position_id = CRM_jinjun_dunhe
+		mutually_exclusive = { focus = CRM_xiaozhong_shahuang }
+		mutually_exclusive = { focus = CRM_canyu_jinzheng }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUD = {
+		exists = yes
+		}
+		has_war = no
+		}
+		completion_reward = {
+		     RUD = {
+		     puppet = CRM
+			 }
+		}
+	}
+}

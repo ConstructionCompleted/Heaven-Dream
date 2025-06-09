@@ -1,0 +1,436 @@
+focus_tree = {
+	id = SBC_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SBC
+		}
+	}
+	
+	default = no
+ 
+    #起来，饥寒交迫的奴隶
+	focus = {
+		id = SBC_qilai_jihanjiaopo_denuli
+		icon = GFX_focus_generic_support_the_left_right
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#起来，全世界受苦的人
+	focus = {
+		id = SBC_qilai_quanshijie_shoukuderen
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = SBC_qilai_jihanjiaopo_denuli}
+		relative_position_id = SBC_qilai_jihanjiaopo_denuli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SBC_qilai_renmin
+		}
+	}
+	#满腔的热血已经沸腾
+	focus = {
+		id = SBC_manqiang_derexue_yijingfeiteng
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = SBC_qilai_quanshijie_shoukuderen}
+		relative_position_id = SBC_qilai_quanshijie_shoukuderen
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_dongyaun_gongren
+		}
+	}
+	#要为真理而斗争
+	focus = {
+		id = SBC_yaowei_zhenlier_douzheng
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = SBC_qilai_quanshijie_shoukuderen}
+		relative_position_id = SBC_qilai_quanshijie_shoukuderen
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_liyong_gongye_plan
+		}
+	}
+	#旧世界打个落花流水
+	focus = {
+		id = SBC_jiushijie_dageluohualiushui
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = SBC_yaowei_zhenlier_douzheng}
+		prerequisite = { focus = SBC_manqiang_derexue_yijingfeiteng}
+		relative_position_id = SBC_manqiang_derexue_yijingfeiteng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_lianhe_qiyi
+		SBP = {
+		add_ideas = SBC_lianhe_qiyi
+		}
+		SBN = {
+		add_ideas = SBC_lianhe_qiyi
+		}
+		}
+	}
+	#奴隶们起来起来
+	focus = {
+		id = SBC_nulimen_qilai_qilai
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SBC_jiushijie_dageluohualiushui}
+		relative_position_id = SBC_jiushijie_dageluohualiushui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SBC_nuli_qilai
+		}
+	}
+	#不要说我们一无所有
+	focus = {
+		id = SBC_buyaoshuo_woman_yiwusuoyou
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = SBC_nulimen_qilai_qilai}
+		relative_position_id = SBC_nulimen_qilai_qilai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_buyaoshuo_yiwusuoyou
+		}
+	}
+	#我们要做天下的主人
+	focus = {
+		id = SBC_womenyaozuo_tianxiadezhuren
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		prerequisite = { focus = SBC_nulimen_qilai_qilai}
+		relative_position_id = SBC_nulimen_qilai_qilai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_women_tianxia
+		}
+	}
+	#从来也没有什么救世主
+	focus = {
+		id = SBC_conglaiyemeiyou_shenmejiushizhu
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		prerequisite = { focus = SBC_buyaoshuo_woman_yiwusuoyou}
+		prerequisite = { focus = SBC_womenyaozuo_tianxiadezhuren}
+		relative_position_id = SBC_buyaoshuo_woman_yiwusuoyou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = SBC_liyong_gongye_plan
+		add_idea = SBC_conglaiyemeiyou_shenmejiushizhu
+		}
+		}
+	}
+	#也不靠什么神仙皇帝
+	focus = {
+		id = SBC_yebukao_shenmeshenxianhuangdi
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = SBC_conglaiyemeiyou_shenmejiushizhu}
+		relative_position_id = SBC_conglaiyemeiyou_shenmejiushizhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#要创造人类的幸福
+	focus = {
+		id = SBC_yaochuangzao_renleidexingfu
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = SBC_conglaiyemeiyou_shenmejiushizhu}
+		relative_position_id = SBC_conglaiyemeiyou_shenmejiushizhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_chuangzao_xingfu
+		}
+	}
+	#全靠我们自己
+	focus = {
+		id = SBC_quankao_womenziji
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = SBC_yaochuangzao_renleidexingfu}
+		prerequisite = { focus = SBC_yebukao_shenmeshenxianhuangdi}
+		relative_position_id = SBC_yebukao_shenmeshenxianhuangdi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = SBC_conglaiyemeiyou_shenmejiushizhu
+		add_idea = SBC_quankao_womenziji
+		}
+		}
+	}
+	#这是最后的斗争
+	focus = {
+		id = SBC_zheshi_zuihoude_douzheng
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = SBC_jiushijie_dageluohualiushui}
+		relative_position_id = SBC_jiushijie_dageluohualiushui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SBC_zuihou_douzheng
+		transfer_state = 579
+		transfer_state = 581
+		}
+	}
+	#团结起来到明天
+	focus = {
+		id = SBC_tuanjeiqilai_daomingtian
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = SBC_zheshi_zuihoude_douzheng}
+		relative_position_id = SBC_zheshi_zuihoude_douzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBC_tuanjieqilai_mingtian
+		remove_idea = SBC_dongyaun_gongren
+		}
+		}
+	}
+	#英特耐雄耐尔，就一定要实现
+	focus = {
+		id = SBC_intenaixiongnaier_jiuyidingyaoshixian
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = SBC_zheshi_zuihoude_douzheng}
+		relative_position_id = SBC_zheshi_zuihoude_douzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBC_lianhe_qiyi_2
+		remove_idea = SBC_lianhe_qiyi
+		}
+		SBP = {
+		swap_ideas = {
+		add_idea = SBC_lianhe_qiyi_2
+		remove_idea = SBC_lianhe_qiyi
+		}
+		}
+		SBN = {
+		swap_ideas = {
+		add_idea = SBC_lianhe_qiyi_2
+		remove_idea = SBC_lianhe_qiyi
+		}
+		}
+		}
+	}
+	#我们要夺回劳动果实
+	focus = {
+		id = SBC_womenyao_duohuilaodongguoshi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SBC_intenaixiongnaier_jiuyidingyaoshixian}
+		prerequisite = { focus = SBC_tuanjeiqilai_daomingtian}
+		relative_position_id = SBC_tuanjeiqilai_daomingtian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#让思想冲破牢笼
+	focus = {
+		id = SBC_rangsixiang_chongpolaolong
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SBC_womenyao_duohuilaodongguoshi}
+		relative_position_id = SBC_womenyao_duohuilaodongguoshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBC_rangsixiang_chongpolaolong
+		}
+	}
+	#快把那炉火烧得通红
+	focus = {
+		id = SBC_kuaibanaluhuo_shaodetonghong
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = SBC_womenyao_duohuilaodongguoshi}
+		relative_position_id = SBC_womenyao_duohuilaodongguoshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBC_kuaibanaluhuo_shaodetonghong
+		remove_idea = SBC_tuanjieqilai_mingtian
+		}
+		}
+	}
+	#趁热打铁才能成功
+	focus = {
+		id = SBC_chenredatie_cainengchenggong
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SBC_rangsixiang_chongpolaolong}
+		prerequisite = { focus = SBC_kuaibanaluhuo_shaodetonghong}
+		relative_position_id = SBC_rangsixiang_chongpolaolong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBC_chenre_datie
+		remove_idea = SBC_kuaibanaluhuo_shaodetonghong
+		}
+		}
+	}
+	#最可恨那些毒蛇猛兽
+	focus = {
+		id = SBC_zuikehennaxie_dushemengshou
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		prerequisite = { focus = SBC_quankao_womenziji}
+		prerequisite = { focus = SBC_chenredatie_cainengchenggong}
+		relative_position_id = SBC_quankao_womenziji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		bypass = {
+		has_war = no
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+		}
+	}
+	#一旦把他们消灭干净
+	focus = {
+		id = SBC_yidanbatamen_xiaomieganjing
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = SBC_zuikehennaxie_dushemengshou}
+		relative_position_id = SBC_zuikehennaxie_dushemengshou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		bypass = {
+		has_war = no
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = SBC_xiaomie_ganjing
+    days = 100
+}
+		}
+	}
+	#鲜红的太阳照遍世界
+	focus = {
+		id = SBC_xianhongdetaiyang_zhaobianshijie
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = SBC_yidanbatamen_xiaomieganjing}
+		relative_position_id = SBC_yidanbatamen_xiaomieganjing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		dismantle_faction = yes
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = SBN
+			add_to_faction = SBP
+			add_to_faction = SBC
+			}
+		}
+	}
+}

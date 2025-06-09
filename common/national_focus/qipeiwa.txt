@@ -1,0 +1,887 @@
+focus_tree = {
+	id = CEP_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CEP
+		}
+	}
+	
+	default = no
+ 
+	#第一个五年计划的胜利
+	focus = {
+		id = CEP_first_five_plan_vic
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 25
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_abaisihuote.1 }
+		}
+	}
+	#开启二五策划
+	focus = {
+		id = CEP_kaiqi_erwu_cehua
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = CEP_first_five_plan_vic }
+		relative_position_id = CEP_first_five_plan_vic
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_fiveplan_2
+			remove_idea = CEP_fiveplan
+			}
+		}
+	}
+	#强化合作社
+	focus = {
+		id = CEP_qianghua_hezuoshe
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CEP_kaiqi_erwu_cehua }
+		relative_position_id = CEP_kaiqi_erwu_cehua
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_nongye_gaige_2
+			remove_idea = CEP_nongye_gaige
+			}
+		}
+	}
+	#工具集体化
+	focus = {
+		id = CEP_gongju_jitihua
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = CEP_qianghua_hezuoshe }
+		relative_position_id = CEP_qianghua_hezuoshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_nongye_gaige_3
+			remove_idea = CEP_nongye_gaige_2
+			}
+		}
+	}
+	#打击流氓无产者
+	focus = {
+		id = CEP_daji_liumang_wuchanzhe
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = CEP_gongju_jitihua }
+		relative_position_id = CEP_gongju_jitihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	#农业工具生产扩大
+	focus = {
+		id = CEP_nongyegongju_shengchankuoda
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = CEP_gongju_jitihua }
+		prerequisite = { focus = CEP_chongjian_dahu_gongyequ }
+		relative_position_id = CEP_gongju_jitihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_nongye_gaige_4
+			remove_idea = CEP_nongye_gaige_3
+			}
+		}
+	}
+	#人民的土地
+	focus = {
+		id = CEP_renmin_tudi
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CEP_nongyegongju_shengchankuoda }
+		prerequisite = { focus = CEP_daji_liumang_wuchanzhe }
+		relative_position_id = CEP_daji_liumang_wuchanzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_nongye_gaige_5
+			remove_idea = CEP_nongye_gaige_4
+			}
+		}
+	}
+	#钢铁扩大化
+	focus = {
+		id = CEP_gangtie_kuodahua
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CEP_kaiqi_erwu_cehua }
+		relative_position_id = CEP_kaiqi_erwu_cehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_lianmeng_gongye_2
+			remove_idea = CEP_lianmeng_gongye
+			}
+			add_resource = {
+    type = steel
+    amount = 50
+    state = 394
+}
+add_resource = {
+    type = steel
+    amount = 50
+    state = 393
+}
+		}
+	}
+	#重建大湖工业区
+	focus = {
+		id = CEP_chongjian_dahu_gongyequ
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CEP_gangtie_kuodahua }
+		relative_position_id = CEP_gangtie_kuodahua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_lianmeng_gongye_3
+			remove_idea = CEP_lianmeng_gongye_2
+			}
+		}
+	}
+	#总结经验
+	focus = {
+		id = CEP_zongjie_jingyan
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CEP_kaiqi_erwu_cehua }
+		relative_position_id = CEP_kaiqi_erwu_cehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_gongye_gexin
+		}
+	}
+	#加强工业技术
+	focus = {
+		id = CEP_jiaqiang_gongye_jishu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CEP_zongjie_jingyan }
+		relative_position_id = CEP_zongjie_jingyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_gongye_gexin_2
+			remove_idea = CEP_gongye_gexin
+			}
+		}
+	}
+	#完成工业革新
+	focus = {
+		id = CEP_wancheng_gongyegexin
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = CEP_chongjian_dahu_gongyequ }
+		prerequisite = { focus = CEP_jiaqiang_gongye_jishu }
+		relative_position_id = CEP_jiaqiang_gongye_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = CEP_lianmeng_gongye_3
+		}
+	}
+	#扩建义务教育
+	focus = {
+		id = CEP_kuojian_yiwujiaoyu
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = CEP_kaiqi_erwu_cehua }
+		prerequisite = { focus = CEP_zhongyang_gaige }
+		relative_position_id = CEP_kaiqi_erwu_cehua
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_kuojian_yiwujiaoyu
+		}
+	}
+	#人民科学院
+	focus = {
+		id = CEP_renmin_kexueyuan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = CEP_kuojian_yiwujiaoyu }
+		relative_position_id = CEP_kuojian_yiwujiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#一体化产业
+	focus = {
+		id = CEP_yitihua_chanye
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = CEP_jiaqiang_gongye_jishu }
+		prerequisite = { focus = CEP_renmin_kexueyuan }
+		relative_position_id = CEP_renmin_kexueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_gongye_gexin_3
+			remove_idea = CEP_gongye_gexin_2
+			}
+		}
+	}
+	#现代化生产链
+	focus = {
+		id = CEP_xiandaihua_shengchanlian
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = CEP_nongyegongju_shengchankuoda }
+		prerequisite = { focus = CEP_wancheng_gongyegexin }
+		prerequisite = { focus = CEP_yitihua_chanye }
+		relative_position_id = CEP_wancheng_gongyegexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_gongye_gexin_4
+			remove_idea = CEP_gongye_gexin_3
+			}
+		}
+	}
+	#中央改革
+	focus = {
+		id = CEP_zhongyang_gaige
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = CEP_first_five_plan_vic }
+		relative_position_id = CEP_first_five_plan_vic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhongyang_gaige
+			remove_idea = CEP_zhongyang_wenti
+			}
+		}
+	}
+	#加强党组织
+	focus = {
+		id = CEP_jiaqiang_dangzuzhi
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = CEP_zhongyang_gaige }
+		relative_position_id = CEP_zhongyang_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_jiaqiang_dang
+		}
+	}
+	#加强清党力度
+	focus = {
+		id = CEP_jiaqiang_qingdang_ludu
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = CEP_jiaqiang_dangzuzhi }
+		relative_position_id = CEP_jiaqiang_dangzuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_jiaqiang_dang_2
+			remove_idea = CEP_jiaqiang_dang
+			}
+		}
+	}
+	#联盟中央委员会
+	focus = {
+		id = CEP_lianmeng_zhongyang_weiyuanhui
+		icon = GFX_focus_hol_legacy_of_the_de_zeven_provincien_mutiny
+		prerequisite = { focus = CEP_zhongyang_gaige }
+		relative_position_id = CEP_zhongyang_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhongyang_gaige_2
+			remove_idea = CEP_zhongyang_gaige
+			}
+		}
+	}
+	#建立匿名选举
+	focus = {
+		id = CEP_jianli_niming_xuanju
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = CEP_lianmeng_zhongyang_weiyuanhui }
+		relative_position_id = CEP_lianmeng_zhongyang_weiyuanhui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhongyang_gaige_3
+			remove_idea = CEP_zhongyang_gaige_2
+			}
+		}
+	}
+	#无产阶级专政化
+	focus = {
+		id = CEP_wuchanjieji_zhuanzhenghua
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = CEP_jiaqiang_qingdang_ludu }
+		prerequisite = { focus = CEP_jianli_niming_xuanju }
+		relative_position_id = CEP_jianli_niming_xuanju
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhongyang_gaige_4
+			remove_idea = CEP_zhongyang_gaige_3
+			}
+			country_event = { id = holy_abaisihuote.2 days = 3 }
+		}
+	}
+	#建立社会保障
+	focus = {
+		id = CEP_jianli_shehui_baozhang
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = CEP_wuchanjieji_zhuanzhenghua }
+		relative_position_id = CEP_wuchanjieji_zhuanzhenghua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_shehui_baozhang
+		}
+	}
+	#五大湖疗养院
+	focus = {
+		id = CEP_wudahu_liaoyangyuan
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = CEP_jianli_shehui_baozhang }
+		relative_position_id = CEP_jianli_shehui_baozhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_shehui_baozhang_2
+			remove_idea = CEP_shehui_baozhang
+			}
+		}
+	}
+	#行政公社化
+	focus = {
+		id = CEP_xingzheng_gongshehua
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = CEP_wuchanjieji_zhuanzhenghua }
+		relative_position_id = CEP_wuchanjieji_zhuanzhenghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_jiaqiang_dang_3
+			remove_idea = CEP_jiaqiang_dang_2
+			}
+		}
+	}
+	#基层再革命
+	focus = {
+		id = CEP_jiceng_zaigeming
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = CEP_xingzheng_gongshehua }
+		relative_position_id = CEP_xingzheng_gongshehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_jiaqiang_dang_4
+			remove_idea = CEP_jiaqiang_dang_3
+			}
+		}
+	}
+	#扩大内务部
+	focus = {
+		id = CEP_kuoda_neiwubu
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = CEP_wuchanjieji_zhuanzhenghua }
+		relative_position_id = CEP_wuchanjieji_zhuanzhenghua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_intelligence_agency = yes
+			add_ideas = CEP_neiwubu
+		}
+	}
+	#肃清反对派
+	focus = {
+		id = CEP_suqing_fanduipai
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = CEP_kuoda_neiwubu }
+		relative_position_id = CEP_kuoda_neiwubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_neiwubu_2
+			remove_idea = CEP_neiwubu
+			}
+			add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = -0.1
+}
+		}
+	}
+	#强化人民武装
+	focus = {
+		id = CEP_qianghua_renmin_wuzhuang
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = CEP_first_five_plan_vic }
+		relative_position_id = CEP_first_five_plan_vic
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 100
+		}
+	}
+	#支援奥吉布瓦
+	focus = {
+		id = CEP_zhiyuan_OJB
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = CEP_qianghua_renmin_wuzhuang }
+		prerequisite = { focus = CEP_zhongyang_gaige }
+		relative_position_id = CEP_qianghua_renmin_wuzhuang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		OR = {
+		SUZ = { exists = no }
+		OJB = { exists = no }
+		}
+		}
+		completion_reward = {
+			send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = OJB
+}
+		}
+	}
+	#派遣志愿军
+	focus = {
+		id = CEP_paiqian_zhiyuanjun
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = CEP_zhiyuan_OJB }
+		relative_position_id = CEP_zhiyuan_OJB
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		OR = {
+		SUZ = { exists = no }
+		OJB = { exists = no }
+		}
+		}
+		available = {
+		OJB = { has_war_with = SUZ }
+		}
+		completion_reward = {
+			OJB = {
+			load_oob = CEP_zhiyuanjun
+			}
+		}
+	}
+	#强化指挥体系
+	focus = {
+		id = CEP_qianghua_zhihui_tixi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CEP_qianghua_renmin_wuzhuang }
+		relative_position_id = CEP_qianghua_renmin_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_junshi_tixi
+		}
+	}
+	#建设基层组织
+	focus = {
+		id = CEP_jianshe_jiceng_zuzhi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = CEP_qianghua_zhihui_tixi }
+		relative_position_id = CEP_qianghua_zhihui_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_junshi_tixi_2
+			remove_idea = CEP_junshi_tixi
+			}
+		}
+	}
+	#改革战争技术
+	focus = {
+		id = CEP_gaige_zhanzheng_jishu
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = CEP_qianghua_renmin_wuzhuang }
+		relative_position_id = CEP_qianghua_renmin_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_zhanzheng_jishu
+		}
+	}
+	#中央指挥体系
+	focus = {
+		id = CEP_zhongyang_zhihui_tixi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CEP_gaige_zhanzheng_jishu }
+		relative_position_id = CEP_gaige_zhanzheng_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhanzheng_jishu_2
+			remove_idea = CEP_zhanzheng_jishu
+			}
+		}
+	}
+	#扩大民兵
+	focus = {
+		id = CEP_kuoda_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CEP_jianshe_jiceng_zuzhi }
+		relative_position_id = CEP_jianshe_jiceng_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CEP_qianghua_minbing
+		}
+	}
+	#强化民兵训练
+	focus = {
+		id = CEP_qianghua_minbing_xunlian
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = CEP_kuoda_minbing }
+		relative_position_id = CEP_kuoda_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_qianghua_minbing_2
+			remove_idea = CEP_qianghua_minbing
+			}
+		}
+	}
+	#军制改革
+	focus = {
+		id = CEP_junzhi_gaige
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CEP_jianshe_jiceng_zuzhi }
+		prerequisite = { focus = CEP_zhongyang_zhihui_tixi }
+		relative_position_id = CEP_jianshe_jiceng_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_junshi_tixi_3
+			remove_idea = CEP_junshi_tixi_2
+			}
+		}
+	}
+	#合作战争
+	focus = {
+		id = CEP_hezuo_zhanzheng
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = CEP_junzhi_gaige }
+		relative_position_id = CEP_junzhi_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_junshi_tixi_4
+			remove_idea = CEP_junshi_tixi_3
+			}
+		}
+	}
+	#扩大武器科研
+	focus = {
+		id = CEP_kuoda_wuqi_keyan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CEP_zhongyang_zhihui_tixi }
+		relative_position_id = CEP_zhongyang_zhihui_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhanzheng_jishu_3
+			remove_idea = CEP_zhanzheng_jishu_2
+			}
+		}
+	}
+	#火力压制
+	focus = {
+		id = CEP_huoli_yazhi
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = CEP_kuoda_wuqi_keyan }
+		relative_position_id = CEP_kuoda_wuqi_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhanzheng_jishu_4
+			remove_idea = CEP_zhanzheng_jishu_3
+			}
+		}
+	}
+	#大军团作战
+	focus = {
+		id = CEP_dajuntuan_zuozhan
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = CEP_qianghua_minbing_xunlian }
+		prerequisite = { focus = CEP_hezuo_zhanzheng }
+		relative_position_id = CEP_hezuo_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhanzheng_jishu_5
+			remove_idea = CEP_zhanzheng_jishu_4
+			}
+		}
+	}
+	#大规模武装
+	focus = {
+		id = CEP_daguimo_wuzhuang
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = CEP_huoli_yazhi }
+		prerequisite = { focus = CEP_hezuo_zhanzheng }
+		relative_position_id = CEP_hezuo_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEP_zhanzheng_jishu_5
+			remove_idea = CEP_zhanzheng_jishu_4
+			}
+		}
+	}
+	#大湖烈焰！
+	focus = {
+		id = CEP_dahu_lieyan
+		icon = GFX_focus_generic_join_comintern
+		x = 25
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		has_country_flag = CEP_zhanzheng_daojishi
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+	#伊利诺伊革命
+	focus = {
+		id = CEP_yilinuoyi_geming
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = CEP_dahu_lieyan }
+		relative_position_id = CEP_dahu_lieyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = YLY
+    type = annex_everything
+}
+transfer_state = 395
+transfer_state = 1707
+transfer_state = 1705
+transfer_state = 392
+transfer_state = 1711
+transfer_state = 1710
+load_oob = CEP_qiyijun
+		}
+	}
+}

@@ -1,0 +1,572 @@
+﻿focus_tree = {
+	id = HAZ_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HAZ
+		}
+	}
+	
+	default = no
+	
+    #延续城市化
+	focus = {
+		id = HAZ_yanxu_chengshihua
+		icon = GFX_goal_generic_production
+		x = 16
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_chengshihua_2
+		remove_idea = HAZ_chengshihua
+		}
+		}
+	}
+	#扩张铁路
+	focus = {
+		id = HAZ_kuozhang_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = HAZ_yanxu_chengshihua }
+		relative_position_id = HAZ_yanxu_chengshihua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		679 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#圣地扩大化
+	focus = {
+		id = HAZ_shengdi_kuodahua
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = HAZ_yanxu_chengshihua }
+		relative_position_id = HAZ_yanxu_chengshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_shengdi_kuodahua
+		}
+	}
+	#扩大工业区
+	focus = {
+		id = HAZ_kuoda_gongyequ
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = HAZ_yanxu_chengshihua }
+		relative_position_id = HAZ_yanxu_chengshihua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_chengshihua_3
+		remove_idea = HAZ_chengshihua_2
+		}
+		679 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#产业链改革
+	focus = {
+		id = HAZ_chanyelian_gaige
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = HAZ_kuozhang_tielu }
+		relative_position_id = HAZ_kuozhang_tielu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_chanyelian_gaige
+		}
+	}
+	#增加入境税
+	focus = {
+		id = HAZ_zengjia_rujingshui
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = HAZ_kuoda_gongyequ }
+		prerequisite = { focus = HAZ_shengdi_kuodahua }
+		relative_position_id = HAZ_shengdi_kuodahua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_shengdi_kuodahua_2
+		remove_idea = HAZ_shengdi_kuodahua
+		}
+		}
+	}
+	#开发石油
+	focus = {
+		id = HAZ_kaifa_shiyou
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = HAZ_kuoda_gongyequ }
+		prerequisite = { focus = HAZ_shengdi_kuodahua }
+		relative_position_id = HAZ_kuoda_gongyequ
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 10
+    state = 679
+}
+		}
+	}
+	#手工业统合
+	focus = {
+		id = HAZ_shougongye_tonghe
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = HAZ_kuoda_gongyequ }
+		relative_position_id = HAZ_kuoda_gongyequ
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#文化管理
+	focus = {
+		id = HAZ_wenhua_guanli
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 24
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_shengdi_chongtu_2
+		remove_idea = HAZ_shengdi_chongtu
+		}
+		}
+	}
+	#扩大什叶派代表
+	focus = {
+		id = HAZ_kuoda_shenyepai_daibiao
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = HAZ_wenhua_guanli }
+		relative_position_id = HAZ_wenhua_guanli
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_shengdi_chongtu_3
+		remove_idea = HAZ_shengdi_chongtu_2
+		}
+		}
+	}
+	#宗教协调主义
+	focus = {
+		id = HAZ_zongjiao_xietiao
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = HAZ_kuoda_shenyepai_daibiao }
+		relative_position_id = HAZ_kuoda_shenyepai_daibiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = HAZ_shengdi_chongtu_3
+		}
+	}
+	#现代化家庭法
+	focus = {
+		id = HAZ_xiandaihua_jiatingfa
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = HAZ_wenhua_guanli }
+		relative_position_id = HAZ_wenhua_guanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_xiandaihua_jiatingfa
+		}
+	}
+	#世俗法律改革
+	focus = {
+		id = HAZ_shisu_falv_gaige
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = HAZ_xiandaihua_jiatingfa }
+		relative_position_id = HAZ_xiandaihua_jiatingfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_xiandaihua_jiatingfa_2
+		remove_idea = HAZ_xiandaihua_jiatingfa
+		}
+		}
+	}
+	#接纳移民
+	focus = {
+		id = HAZ_jiena_yimin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = HAZ_wenhua_guanli }
+		relative_position_id = HAZ_wenhua_guanli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_manpower = 25000
+		1309 = {
+		add_manpower = 50000
+		}
+		}
+	}
+	#扩大南方贸易
+	focus = {
+		id = HAZ_kuoda_nanfang_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = HAZ_jiena_yimin }
+		relative_position_id = HAZ_jiena_yimin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_kuoda_nanfang_maoyi
+		}
+	}
+	#军事改革
+	focus = {
+		id = HAZ_junshi_gaige
+		icon = GFX_focus_secret_rearmament
+		x = 16
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_junshi_gexin_2
+		remove_idea = HAZ_junshi_gexin
+		}
+		}
+	}
+	#建立军事学院
+	focus = {
+		id = HAZ_jianli_junshi_xueyuan
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = HAZ_junshi_gaige }
+		relative_position_id = HAZ_junshi_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_jianli_junshi_xueyuan
+		}
+	}
+	#军资管控
+	focus = {
+		id = HAZ_junzi_guankong
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = HAZ_jianli_junshi_xueyuan }
+		relative_position_id = HAZ_jianli_junshi_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_junshi_gexin_3
+		remove_idea = HAZ_junshi_gexin_2
+		}
+		}
+	}
+	#整合部落兵员
+	focus = {
+		id = HAZ_zhenghe_buluo_bingyuan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = HAZ_junshi_gaige }
+		relative_position_id = HAZ_junshi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HAZ_zhenghe_buluo_bingyuan
+		}
+	}
+	#军队义务教育
+	focus = {
+		id = HAZ_jundui_yiwu_jiaoyu
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = HAZ_junzi_guankong }
+		prerequisite = { focus = HAZ_gaige_qibing_zhanshu }
+		relative_position_id = HAZ_gaige_qibing_zhanshu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_zhenghe_buluo_bingyuan_3
+		remove_idea = HAZ_zhenghe_buluo_bingyuan_2
+		}
+		}
+	}
+	#改革骑兵战术
+	focus = {
+		id = HAZ_gaige_qibing_zhanshu
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = HAZ_jianli_junshi_xueyuan }
+		prerequisite = { focus = HAZ_zhenghe_buluo_bingyuan }
+		relative_position_id = HAZ_zhenghe_buluo_bingyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_zhenghe_buluo_bingyuan_2
+		remove_idea = HAZ_zhenghe_buluo_bingyuan
+		}
+		}
+	}
+	#武器生产标准化
+	focus = {
+		id = HAZ_wuqishengchan_biaozhunhua
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = HAZ_zhenghe_buluo_bingyuan }
+		relative_position_id = HAZ_zhenghe_buluo_bingyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = HAZ_chanyelian_gaige
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_chanyelian_gaige_2
+		remove_idea = HAZ_chanyelian_gaige
+		}
+		}
+	}
+	#进口零件
+	focus = {
+		id = HAZ_jinkou_lingjian
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = HAZ_wuqishengchan_biaozhunhua }
+		relative_position_id = HAZ_wuqishengchan_biaozhunhua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = HAZ_chanyelian_gaige
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HAZ_chanyelian_gaige_3
+		remove_idea = HAZ_chanyelian_gaige_2
+		}
+		}
+	}
+	#介入战火
+	focus = {
+		id = HAZ_jieru_zhanhuo
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 24
+		y = 6
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		date > 1937.1.1
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#防御主义
+	focus = {
+		id = HAZ_fangyu_zhuyi
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = HAZ_jieru_zhanhuo }
+		relative_position_id = HAZ_jieru_zhanhuo
+		mutually_exclusive =  { focus = HAZ_zhudong_chuji }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_ideas = HAZ_fangyu_zhuyi
+		}
+	}
+	#主动出击
+	focus = {
+		id = HAZ_zhudong_chuji
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = HAZ_jieru_zhanhuo }
+		relative_position_id = HAZ_jieru_zhanhuo
+		mutually_exclusive =  { focus = HAZ_fangyu_zhuyi }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		declare_war_on = {
+				target = NJD
+				type = annex_everything
+			}
+		declare_war_on = {
+				target = SML
+				type = annex_everything
+			}
+		}
+	}
+	#雇佣军团
+	focus = {
+		id = HAZ_guyong_juntuan
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = HAZ_jieru_zhanhuo focus = HAZ_zhudong_chuji }
+		relative_position_id = HAZ_zhudong_chuji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		load_oob = HAZ_guyong_juntuan
+		}
+	}
+	#整合贝都因
+	focus = {
+		id = HAZ_zhenghe_beiduyin
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = HAZ_guyong_juntuan }
+		relative_position_id = HAZ_guyong_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 1314
+		controls_state = 292
+		controls_state = 678
+		controls_state = 1313
+		controls_state = 1334
+		controls_state = 857
+		controls_state = 859
+		controls_state = 1861
+		controls_state = 858
+		controls_state = 1401
+		}
+		completion_reward = {
+		set_cosmetic_tag = ALB_TY
+		add_state_core = 1314
+		add_state_core = 292
+		add_state_core = 678
+		add_state_core = 1313
+		add_state_core = 1334
+		add_state_core = 857
+		add_state_core = 859
+		add_state_core = 1861
+		add_state_core = 858
+		add_state_core = 1401
+		}
+	}
+	#苏丹之羽翼
+	focus = {
+		id = HAZ_sudan_yuyi
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = HAZ_guyong_juntuan }
+		relative_position_id = HAZ_guyong_juntuan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		DLB = { add_to_faction = HAZ }
+		}
+	}
+}

@@ -1,0 +1,1002 @@
+focus_tree = {
+	id = EGL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = EGL
+		}
+	}
+	
+	default = no
+	#不列颠革命
+	focus = {
+		id = EGL_buliedian_geming
+		icon = GFX_focus_generic_join_comintern
+		x = 25
+		y = 0
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = EGL_geming_lianjun
+			add_ideas = EGL_gongren_guojia
+			add_ideas = EGL_renmin_zhichi
+		}
+	}
+	#团结各地工人
+	focus = {
+		id = EGL_tuanjie_gedi_gongren
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = EGL_buliedian_geming}
+		relative_position_id = EGL_buliedian_geming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = EGL_work
+		}
+	}
+	#整合南部水军
+	focus = {
+		id = EGL_zhenghe_nanbu_shuijun
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = EGL_buliedian_geming}
+		relative_position_id = EGL_buliedian_geming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = EGL_shuijun
+		}
+	}
+	#统合占领区军工
+	focus = {
+		id = EGL_tonghe_zhanlingqu
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = EGL_tuanjie_gedi_gongren}
+		prerequisite = { focus = EGL_zhenghe_nanbu_shuijun}
+		relative_position_id = EGL_zhenghe_nanbu_shuijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#反抗者之火
+	focus = {
+		id = EGL_fankangzhe_zhihuo
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = EGL_tonghe_zhanlingqu}
+		relative_position_id = EGL_tonghe_zhanlingqu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_gongren_guojia_2
+			remove_idea = EGL_gongren_guojia
+			}
+		}
+	}
+	#团结人民
+	focus = {
+		id = EGL_tuanjie_renmin
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = EGL_tonghe_zhanlingqu}
+		relative_position_id = EGL_tonghe_zhanlingqu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_renmin_zhichi_2
+			remove_idea = EGL_renmin_zhichi
+			}
+		}
+	}
+	#革命者之力
+	focus = {
+		id = EGL_geming_zhili
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = EGL_tonghe_zhanlingqu}
+		relative_position_id = EGL_tonghe_zhanlingqu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_geming_lianjun_2
+			remove_idea = EGL_geming_lianjun
+			}
+		}
+	}
+	#反帝国宣传
+	focus = {
+		id = EGL_fandiguo_xuanchuan
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = EGL_fankangzhe_zhihuo}
+		prerequisite = { focus = EGL_tuanjie_renmin}
+		relative_position_id = EGL_fankangzhe_zhihuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#联合世界
+	focus = {
+		id = EGL_lianhe_shijie
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = EGL_fankangzhe_zhihuo}
+		prerequisite = { focus = EGL_tuanjie_renmin}
+		relative_position_id = EGL_fankangzhe_zhihuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = EGL_guoji_zongdui
+		}
+	}
+	#联合三岛
+	focus = {
+		id = EGL_lianhe_sandao
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = EGL_geming_zhili}
+		prerequisite = { focus = EGL_tuanjie_renmin}
+		relative_position_id = EGL_geming_zhili
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = EGL_lianhe
+			IRP = {
+			add_ideas = EGL_lianhe
+			}
+			SCL = {
+			add_ideas = EGL_lianhe
+			}
+		}
+	}
+	#职业化战斗部队
+	focus = {
+		id = EGL_zhiyehua_zhandoubudui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = EGL_geming_zhili}
+		prerequisite = { focus = EGL_tuanjie_renmin}
+		relative_position_id = EGL_geming_zhili
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_geming_lianjun_3
+			remove_idea = EGL_geming_lianjun_2
+			}
+		}
+	}
+	#完成革命
+	focus = {
+		id = EGL_wancheng_geming
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = EGL_fandiguo_xuanchuan}
+		prerequisite = { focus = EGL_zhiyehua_zhandoubudui}
+		prerequisite = { focus = EGL_lianhe_sandao}
+		prerequisite = { focus = EGL_lianhe_shijie}
+		relative_position_id = EGL_zhiyehua_zhandoubudui
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		EGL = {
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		}
+		OR = {
+		EGL = {
+		controls_state = 122
+		controls_state = 918
+		}
+		WLS = {
+		controls_state = 122
+		controls_state = 918
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		completion_reward = {
+			annex_country = {
+    target = UKM
+    transfer_troops = no
+}
+annex_country = {
+    target = ELB
+    transfer_troops = no
+}
+		}
+	}
+	#工业化加速
+	focus = {
+		id = EGL_gongyehua_jiasu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = EGL_wancheng_geming}
+		relative_position_id = EGL_wancheng_geming
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	#产业自治
+	focus = {
+		id = EGL_chanye_zizhi
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = EGL_gongyehua_jiasu}
+		relative_position_id = EGL_gongyehua_jiasu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_gongren_guojia_3
+			remove_idea = EGL_gongren_guojia_2
+			}
+		}
+	}
+	#工会联合
+	focus = {
+		id = EGL_gonghui_lianhe
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = EGL_chanye_zizhi}
+		relative_position_id = EGL_chanye_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_gongren_guojia_4
+			remove_idea = EGL_gongren_guojia_3
+			}
+		}
+	}
+	#人民的国度
+	focus = {
+		id = EGL_renmin_guodu
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = EGL_wancheng_geming}
+		relative_position_id = EGL_wancheng_geming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_renmin_zhichi_3
+			remove_idea = EGL_renmin_zhichi_2
+			}
+		}
+	}
+	#福利政策
+	focus = {
+		id = EGL_fuli_zhengce
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = EGL_renmin_guodu}
+		prerequisite = { focus = EGL_gongyehua_jiasu}
+		relative_position_id = EGL_renmin_guodu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_renmin_zhichi_4
+			remove_idea = EGL_renmin_zhichi_3
+			}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = EGL_nongye_jixiehua
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = EGL_fuli_zhengce}
+		relative_position_id = EGL_fuli_zhengce
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = EGL_nongye_jixiehua
+		}
+	}
+	#发展军事
+	focus = {
+		id = EGL_fazhan_junshi
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = EGL_wancheng_geming}
+		relative_position_id = EGL_wancheng_geming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#人民军队
+	focus = {
+		id = EGL_renmin_jundui
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = EGL_fazhan_junshi}
+		prerequisite = { focus = EGL_renmin_guodu}
+		relative_position_id = EGL_fazhan_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_renmin_jundui
+			remove_idea = EGL_geming_lianjun_3
+			}
+		}
+	}
+	#革命军队
+	focus = {
+		id = EGL_geming_jundui
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = EGL_renmin_jundui}
+		relative_position_id = EGL_renmin_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EGL_renmin_jundui_2
+			remove_idea = EGL_renmin_jundui
+			}
+			
+		}
+	}
+	#外交政策
+	focus = {
+		id = EGL_waijiao_zhengce
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = EGL_wancheng_geming}
+		relative_position_id = EGL_wancheng_geming
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#不列颠科学院
+	focus = {
+		id = EGL_buliedian_kexueyuan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = EGL_fazhan_junshi}
+		prerequisite = { focus = EGL_waijiao_zhengce}
+		relative_position_id = EGL_waijiao_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#回馈世界
+	focus = {
+		id = EGL_huikui_shijie
+		icon = GFX_focus_spr_unify_the_london_bureau
+		prerequisite = { focus = EGL_buliedian_kexueyuan}
+		relative_position_id = EGL_buliedian_kexueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_other_country = {
+			if = {
+			limit = {
+			OR = {
+			has_government = communism 
+			has_government = socialism 
+			}
+			}
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 100
+    producer = EGL
+}
+			}
+		}
+	}
+	}
+	#靠拢共产国际
+	focus = {
+		id = EGL_kaolong_gongchan_guoji
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = EGL_waijiao_zhengce}
+		relative_position_id = EGL_waijiao_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = EGL_kaolong_gcguoji
+		}
+	}
+	#解放宣言
+	focus = {
+		id = EGL_jiefang_xuanyan
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		prerequisite = { focus = EGL_kaolong_gongchan_guoji}
+		relative_position_id = EGL_kaolong_gongchan_guoji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EGL_jiefang_xuanyan
+			remove_idea = EGL_kaolong_gcguoji
+			}
+		}
+	}
+	#世界解放
+	focus = {
+		id = EGL_shijie_jiefang
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = EGL_gonghui_lianhe}
+		prerequisite = { focus = EGL_nongye_jixiehua}
+		prerequisite = { focus = EGL_geming_jundui}
+		prerequisite = { focus = EGL_huikui_shijie}
+		prerequisite = { focus = EGL_jiefang_xuanyan}
+		relative_position_id = EGL_geming_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		IRP = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		IRP = {
+		NOT = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		}
+		}
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			dismantle_faction = yes
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = EGL
+			}
+		}
+	}
+	#英语区战争
+	focus = {
+		id = EGL_yingyuqu_war
+		icon = GFX_focus_eng_bring_the_dominions_back_into_the_fold
+		prerequisite = { focus = EGL_shijie_jiefang}
+		relative_position_id = EGL_shijie_jiefang
+		x = -3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#登录加拿大
+	focus = {
+		id = EGL_denglu_jianada
+		icon = GFX_focus_attack_canada
+		prerequisite = { focus = EGL_yingyuqu_war}
+		relative_position_id = EGL_yingyuqu_war
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = CAN
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#反攻非洲
+	focus = {
+		id = EGL_fangong_feizhou
+		icon = GFX_focus_ETH_african_wildfire
+		prerequisite = { focus = EGL_yingyuqu_war}
+		relative_position_id = EGL_yingyuqu_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = GLK
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = NAF
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = BOO
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = ROD
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#登录澳大利亚
+	focus = {
+		id = EGL_denglu_aodaliya
+		icon = GFX_focus_attack_australia
+		prerequisite = { focus = EGL_yingyuqu_war}
+		relative_position_id = EGL_yingyuqu_war
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AST
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#解放美利坚
+	focus = {
+		id = EGL_jiefang_meilijian
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = EGL_denglu_jianada}
+		prerequisite = { focus = EGL_fangong_feizhou}
+		prerequisite = { focus = EGL_denglu_aodaliya}
+		relative_position_id = EGL_fangong_feizhou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = KKK
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = USA
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = USB
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = USC
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = CSA
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#欧罗巴解放
+	focus = {
+		id = EGL_ouluoba_jiefang
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = EGL_shijie_jiefang}
+		relative_position_id = EGL_shijie_jiefang
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#北欧战争
+	focus = {
+		id = EGL_beiou_war
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = EGL_ouluoba_jiefang}
+		relative_position_id = EGL_ouluoba_jiefang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = KEM
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = NOR
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SWE
+    type = puppet_wargoal_focus
+}
+if = {
+limit = {
+FIN = { NOT = { has_government = communism } }
+}
+declare_war_on = {
+    target = FIN
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#法兰西战争
+	focus = {
+		id = EGL_falanxi_war
+		icon = GFX_focus_attack_france
+		prerequisite = { focus = EGL_ouluoba_jiefang}
+		relative_position_id = EGL_ouluoba_jiefang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = FRA
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#伊比利亚计划
+	focus = {
+		id = EGL_yibiliya_war
+		icon = GFX_focus_generic_free_iberia
+		prerequisite = { focus = EGL_ouluoba_jiefang}
+		relative_position_id = EGL_ouluoba_jiefang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+			declare_war_on = {
+    target = POR
+    type = puppet_wargoal_focus
+}
+}
+declare_war_on = {
+    target = XBY
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = XTZ
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = UKH
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAV
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUO
+    type = annex_everything
+}
+if = {
+		limit = {
+		CAT = {
+		NOT = {
+		has_government = socialism
+		}
+		}
+		}
+			declare_war_on = {
+    target = CAT
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#德意志战争
+	focus = {
+		id = EGL_deyizhi_war
+		icon = GFX_focus_POL_reassert_silesian_claims
+		prerequisite = { focus = EGL_beiou_war}
+		prerequisite = { focus = EGL_falanxi_war}
+		relative_position_id = EGL_beiou_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = DED
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = LAI
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = HNW
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = PLS
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SLI
+    type = annex_everything
+}
+declare_war_on = {
+    target = HSA
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = DAZ
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = WFL
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = LUO
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = RUI
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = FTB
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = BXM
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = BAF
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = AUS
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SKS
+    type = puppet_wargoal_focus
+}
+		}
+	}
+	#意大利战争
+	focus = {
+		id = EGL_yidali_war
+		icon = GFX_focus_ITA_greater_italy
+		prerequisite = { focus = EGL_yibiliya_war}
+		prerequisite = { focus = EGL_falanxi_war}
+		relative_position_id = EGL_yibiliya_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = ITA
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = ITB
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = ITD
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SAD
+    type = puppet_wargoal_focus
+}
+		}
+	}
+}

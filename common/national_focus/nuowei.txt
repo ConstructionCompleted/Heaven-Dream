@@ -1,0 +1,999 @@
+focus_tree = {
+	id = NOR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NOR
+		}
+	}
+	
+	default = no
+ 
+    #奥斯陆登陆战
+	focus = {
+		id = NOR_aosilu_dengluzhan
+		icon = GFX_goal_generic_major_war
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		}
+	}
+	#武装海军陆战队
+	focus = {
+		id = NOR_wuzhuang_haijunluzhandui
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = NOR_aosilu_dengluzhan}
+		relative_position_id = NOR_aosilu_dengluzhan
+		mutually_exclusive = { focus = NOR_xunqiu_buliedian_zhiyuan }
+		x = -3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		load_oob = NOR_wuzhaung_haijunluzhandui
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 192
+						region = 10
+						}
+					}
+add_claim_by = NOR
+		}
+		add_state_claim = 101
+		add_state_claim = 100
+		add_state_claim = 337
+		add_state_claim = 145
+		add_state_claim = 124
+		add_state_claim = 38
+		add_state_claim = 99
+		add_state_claim = 1824
+		add_state_claim = 1041
+		remove_state_claim = 213
+		remove_state_claim = 1854
+		remove_state_claim = 1398
+		remove_state_claim = 1854
+		remove_state_claim = 146
+		}
+	}
+	#民兵动员
+	focus = {
+		id = NOR_minbing_dongyuan
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = NOR_wuzhuang_haijunluzhandui}
+		relative_position_id = NOR_wuzhuang_haijunluzhandui
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_minbing_dongyuan
+		}
+	}
+	#向西进攻
+	focus = {
+		id = NOR_xiangxi_jingong
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = NOR_wuzhuang_haijunluzhandui}
+		relative_position_id = NOR_wuzhuang_haijunluzhandui
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 1379
+		transfer_state = 1380
+		transfer_state = 1381
+		transfer_state = 1382
+		transfer_state = 1383
+		transfer_state = 142
+		transfer_state = 1378
+		load_oob = NOR_xibu
+		}
+	}
+	#正义事业
+	focus = {
+		id = NOR_zhengyi_shiye
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = NOR_xiangxi_jingong}
+		prerequisite = { focus = NOR_minbing_dongyuan}
+		relative_position_id = NOR_minbing_dongyuan
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_zhengyishiye
+		}
+	}
+	#登录北海
+	focus = {
+		id = NOR_denglu_beihai
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = NOR_zhengyi_shiye}
+		relative_position_id = NOR_zhengyi_shiye
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 100
+		transfer_state = 101
+		transfer_state = 337
+		}
+	}
+	#参与岛屿争端
+	focus = {
+		id = NOR_canyu_daoyu_zhengduan
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = NOR_zhengyi_shiye}
+		relative_position_id = NOR_zhengyi_shiye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		KEM = {
+		NOT = {
+		has_government = democratic
+		}
+		}
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#向北扩张
+	focus = {
+		id = NOR_xiangbei_kuozhang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = NOR_zhengyi_shiye}
+		relative_position_id = NOR_zhengyi_shiye
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 143
+		transfer_state = 1369
+		transfer_state = 1363
+		transfer_state = 1362
+		transfer_state = 1361
+		transfer_state = 1375
+		transfer_state = 144
+		transfer_state = 1360
+		transfer_state = 1359
+		transfer_state = 1400
+		load_oob = NOR_beibu
+		}
+	}
+	#镇压大瑞典
+	focus = {
+		id = NOR_zhenya_daruidian
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = NOR_xiangbei_kuozhang}
+		prerequisite = { focus = NOR_canyu_daoyu_zhengduan}
+		prerequisite = { focus = NOR_denglu_beihai}
+		relative_position_id = NOR_canyu_daoyu_zhengduan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+		}
+	}
+	#沿岸火力
+	focus = {
+		id = NOR_yanan_huoli
+		icon = GFX_focus_usa_escort_fighters
+		prerequisite = { focus = NOR_zhenya_daruidian}
+		relative_position_id = NOR_zhenya_daruidian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_yanan_huoli
+		}
+	}
+	#精锐化部队
+	focus = {
+		id = NOR_jingruihua_budui
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = NOR_zhenya_daruidian}
+		relative_position_id = NOR_zhenya_daruidian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_jingruihua_army
+		}
+	}
+	#击败芬兰叛徒
+	focus = {
+		id = NOR_jibai_fenlan_pantu
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = NOR_yanan_huoli}
+		prerequisite = { focus = NOR_jingruihua_budui}
+		relative_position_id = NOR_yanan_huoli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SWE = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+		}
+	}
+	#与丹麦谈判
+	focus = {
+		id = NOR_yu_danmai_tanpan
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = NOR_yanan_huoli}
+		prerequisite = { focus = NOR_jingruihua_budui}
+		relative_position_id = NOR_jingruihua_budui
+		mutually_exclusive = { focus = NOR_jixu_qianjin}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SWE = {
+		exists = no
+		}
+		OR = {
+		KEM = {
+		has_government = conservatism
+		}
+		DEN = {
+		exists = yes
+		}
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = KEM
+    transfer_troops = yes
+}
+annex_country = {
+    target = NOR
+    transfer_troops = yes
+}
+		}
+	}
+	#继续前进
+	focus = {
+		id = NOR_jixu_qianjin
+		icon = GFX_goal_generic_more_territorial_cores
+		prerequisite = { focus = NOR_yanan_huoli}
+		prerequisite = { focus = NOR_jingruihua_budui}
+		relative_position_id = NOR_jingruihua_budui
+		mutually_exclusive = { focus = NOR_yu_danmai_tanpan}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KEM
+    type = annex_everything
+}
+		}
+	}
+	#北欧再统一
+	focus = {
+		id = NOR_beiou_zaitongyi
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = NOR_jixu_qianjin focus = NOR_yu_danmai_tanpan}
+		relative_position_id = NOR_jixu_qianjin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+					limit = {
+					is_core_of = KEM
+					NOT = {
+					state = 1041
+					}
+					}
+is_controlled_by = NOR
+		}
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 247
+						region = 192
+						region = 10
+						}
+					}
+add_core_by = NOR
+		}
+		add_state_core = 101
+		add_state_core = 100
+		add_state_core = 337
+		add_state_core = 145
+		add_state_core = 124
+		add_state_core = 38
+		add_state_core = 99
+		add_state_core = 1824
+		add_state_core = 1041
+		remove_state_core = 213
+		remove_state_core = 1854
+		remove_state_core = 1398
+		remove_state_core = 1854
+		remove_state_core = 146
+		load_focus_tree = { tree = KEM_new keep_completed = no }
+		}
+	}
+	#寻求不列颠支援
+	focus = {
+		id = NOR_xunqiu_buliedian_zhiyuan
+		icon = GFX_focus_eng_unite_the_anglosphere
+		prerequisite = { focus = NOR_aosilu_dengluzhan}
+		relative_position_id = NOR_aosilu_dengluzhan
+		mutually_exclusive = { focus = NOR_wuzhuang_haijunluzhandui }
+		available = {
+		always = no
+		}
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_buliedian_zhiyuanjun
+		}
+	}
+	#争取北方地区
+	focus = {
+		id = NOR_zhengqu_beifang_diqu
+		icon = GFX_goal_generic_more_territorial_cores
+		prerequisite = { focus = NOR_xunqiu_buliedian_zhiyuan}
+		relative_position_id = NOR_xunqiu_buliedian_zhiyuan
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 143
+		transfer_state = 1369
+		transfer_state = 1363
+		transfer_state = 1362
+		transfer_state = 1361
+		transfer_state = 1375
+		transfer_state = 144
+		transfer_state = 1360
+		transfer_state = 1359
+		transfer_state = 1400
+		transfer_state = 1379
+		transfer_state = 1378
+		load_oob = NOR_beibu
+		}
+	}
+	#自由贸易
+	focus = {
+		id = NOR_ziyoumaoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = NOR_xunqiu_buliedian_zhiyuan}
+		relative_position_id = NOR_xunqiu_buliedian_zhiyuan
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_ziyoumaoyi
+		}
+	}
+	#脱离联邦
+	focus = {
+		id = NOR_tuoli_lianbang
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = NOR_zhengqu_beifang_diqu}
+		prerequisite = { focus = NOR_ziyoumaoyi}
+		relative_position_id = NOR_zhengqu_beifang_diqu
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#向西进军
+	focus = {
+		id = NOR_xiangxi_jinjun
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = NOR_tuoli_lianbang}
+		relative_position_id = NOR_tuoli_lianbang
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 1380
+		transfer_state = 1381
+		transfer_state = 1382
+		transfer_state = 1383
+		transfer_state = 142
+		load_oob = NOR_xibu
+		}
+	}
+	#收编残余水师
+	focus = {
+		id = NOR_shoubian_canyu_shuishi
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = NOR_xiangxi_jinjun}
+		relative_position_id = NOR_xiangxi_jinjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_1936_naval
+		}
+	}
+	#组建挪威国防军
+	focus = {
+		id = NOR_zujian_nuowei_guofangjun
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = NOR_xiangxi_jinjun}
+		relative_position_id = NOR_xiangxi_jinjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_1936_guofangjun
+		}
+	}
+	#保家卫国
+	focus = {
+		id = NOR_baojia_weiguo
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = NOR_zujian_nuowei_guofangjun}
+		prerequisite = { focus = NOR_shoubian_canyu_shuishi}
+		relative_position_id = NOR_zujian_nuowei_guofangjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_baojia_weiguo
+		}
+	}
+	#维护挪威的和平
+	focus = {
+		id = NOR_weihu_nuowei_wp
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = NOR_baojia_weiguo}
+		relative_position_id = NOR_baojia_weiguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#自由的挪威
+	focus = {
+		id = NOR_free_nuowei
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 20
+		y = 10
+		cost = 5
+		available = {
+		has_completed_focus = NOR_weihu_nuowei_wp
+		NOT = {
+		has_war_with = SWE
+		has_war_with = KEM
+		has_war_with = FIN
+		}
+		is_puppet = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = NOR_ziyoumaoyi
+		add_idea = NOR_ziyoumaoyi_2
+		}
+		}
+	}
+	#进入世界
+	focus = {
+		id = NOR_jinru_shijie
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = NOR_free_nuowei}
+		relative_position_id = NOR_free_nuowei
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#维持孤立
+	focus = {
+		id = NOR_weichi_guli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = NOR_jinru_shijie}
+		relative_position_id = NOR_jinru_shijie
+		mutually_exclusive = { focus = NOR_join_tongmengguo }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_weichi_guli
+		}
+	}
+	#建立岸防水军
+	focus = {
+		id = NOR_jianli_anfang_shuijun
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = NOR_weichi_guli}
+		relative_position_id = NOR_weichi_guli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = dockyard level = 4 }
+		}
+	}
+	#争夺制空
+	focus = {
+		id = NOR_zhengduo_zhikong
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = NOR_jianli_anfang_shuijun}
+		relative_position_id = NOR_jianli_anfang_shuijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = air_techs
+				category = air_doctrine
+			}
+		}
+	}
+	#加入同盟国
+	focus = {
+		id = NOR_join_tongmengguo
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = NOR_jinru_shijie}
+		relative_position_id = NOR_jinru_shijie
+		mutually_exclusive = { focus = NOR_weichi_guli }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		OR = {
+		UKM = { is_faction_leader = yes }
+		CAN = { is_faction_leader = yes }
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { is_faction_leader = yes }
+		}
+		UKM = { add_to_faction = ABN }
+		}
+		if = {
+		limit = {
+		CAN = { is_faction_leader = yes }
+		}
+		CAN = { add_to_faction = ABN }
+		}
+		}
+	}
+	#扩建军队
+	focus = {
+		id = NOR_kuojian_jundui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = NOR_join_tongmengguo}
+		relative_position_id = NOR_join_tongmengguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NOR_kuojian_army
+		}
+	}
+	#现代改革
+	focus = {
+		id = NOR_xiandai_gaige
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = NOR_kuojian_jundui}
+		relative_position_id = NOR_kuojian_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.3
+				uses = 4
+				category = land_doctrine
+				category = artillery
+			}
+		}
+	}
+	#挪威的工业化
+	focus = {
+		id = NOR_nuowei_gongyehua
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = NOR_free_nuowei}
+		relative_position_id = NOR_free_nuowei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#海洋共和国
+	focus = {
+		id = NOR_sea_gongheguo
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = NOR_nuowei_gongyehua}
+		relative_position_id = NOR_nuowei_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		navy_experience = 50
+		}
+	}
+	#商业船队
+	focus = {
+		id = NOR_navy_gongheguo
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = NOR_sea_gongheguo}
+		relative_position_id = NOR_sea_gongheguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_shangye_chuandui
+		}
+	}
+	#出口资源
+	focus = {
+		id = NOR_chukou_ziyuan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = NOR_navy_gongheguo}
+		relative_position_id = NOR_navy_gongheguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_chukouziyuan
+		}
+	}
+	#扩建铁路
+	focus = {
+		id = NOR_kuojian_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = NOR_nuowei_gongyehua}
+		relative_position_id = NOR_nuowei_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		110 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		142 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#和资本合作
+	focus = {
+		id = NOR_he_ziben_hezuo
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = NOR_kuojian_tielu}
+		relative_position_id = NOR_kuojian_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		857 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		859 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#北方明珠计划
+	focus = {
+		id = NOR_beifang_mingzhu_plan
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = NOR_he_ziben_hezuo}
+		relative_position_id = NOR_he_ziben_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		144 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		    }
+		143 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#开放舆论
+	focus = {
+		id = NOR_kaifang_yulun
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = NOR_free_nuowei}
+		relative_position_id = NOR_free_nuowei
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NOR_kaifang_yulun
+		}
+	}
+	#控制媒体
+	focus = {
+		id = NOR_kongzhi_meiti
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = NOR_kaifang_yulun}
+		relative_position_id = NOR_kaifang_yulun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NOR_kongzhi_meiti
+		remove_idea = NOR_kaifang_yulun
+		}
+		}
+	}
+	#《旧日褪色》
+	focus = {
+		id = NOR_jiuri_tuise
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = NOR_kongzhi_meiti}
+		relative_position_id = NOR_kongzhi_meiti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_beiou.32
+    days = 7
+	}
+		}
+	}
+	#推动科技开发
+	focus = {
+		id = NOR_tuidong_keyan_fazhan
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = NOR_free_nuowei}
+		relative_position_id = NOR_free_nuowei
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#石油科研
+	focus = {
+		id = NOR_shiyou_research
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = NOR_tuidong_keyan_fazhan}
+		relative_position_id = NOR_tuidong_keyan_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = support
+			}
+		}
+	}
+	#秘密武器
+	focus = {
+		id = NOR_mimiwuqi
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = NOR_shiyou_research}
+		relative_position_id = NOR_shiyou_research
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = electronic_mechanical_engineering
+			}
+		}
+	}
+}

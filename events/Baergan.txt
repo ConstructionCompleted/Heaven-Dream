@@ -1,0 +1,541 @@
+add_namespace = holy_baergan
+#最后通牒
+country_event = {
+	id = holy_baergan.3
+	title = holy_baergan.3.t
+	desc = holy_baergan.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baergan.3.a
+		ai_chance = {
+		    factor = 0
+		}
+		FROM = {
+        transfer_state = 76
+		transfer_state = 84
+		transfer_state = 83
+		transfer_state = 82
+		transfer_state = 971
+		transfer_state = 972
+		transfer_state = 977		
+		}
+	}
+	option = {
+		name = holy_baergan.3.b
+		ai_chance = {
+		    factor = 12
+		}
+		FROM = {
+		declare_war_on = {
+    target = XYL
+    type = annex_everything
+}
+		}
+	}
+}
+#进军多布罗加
+country_event = {
+	id = holy_baergan.4
+	title = holy_baergan.4.t
+	desc = holy_baergan.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baergan.4.a
+		ai_chance = {
+		    factor = 4
+			modifier = {
+			has_war = yes
+			factor = 20
+			}
+		}
+		FROM = {
+		transfer_state = 970
+		}
+	}
+	option = {
+		name = holy_baergan.4.b
+		ai_chance = {
+		    factor = 12
+		}
+		FROM = {
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = NWM
+    type = annex_everything
+}
+		}
+	}
+}
+#联盟的挽歌
+country_event = {
+	id = holy_baergan.6
+	title = holy_baergan.6.t
+	desc = holy_baergan.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baergan.6.a
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = YUM_free_lianbang
+		add_war_support	= -0.05
+		add_political_power = 100
+	}
+	option = {
+		name = holy_baergan.6.b
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = YUM_minzu_lianhe
+		add_stability = -0.05
+		add_political_power = 100
+	}
+}
+#南方的声音
+country_event = {
+	id = holy_baergan.11
+	title = holy_baergan.11.t
+	desc = holy_baergan.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.2.1
+	tag = YUM
+	}
+	option = {
+		name = holy_baergan.11.a
+		ai_chance = {
+		    factor = 12
+		}
+		ALB = {
+		transfer_state = 44
+		transfer_state = 805
+		transfer_state = 1049
+		load_oob = ALB_1936
+		set_country_flag = YUM_baergan_war
+		}
+	}
+	option = {
+		name = holy_baergan.11.b
+		ai_chance = {
+		    factor = 0
+		}
+		ALB = {
+		transfer_state = 44
+		transfer_state = 805
+		transfer_state = 1049
+		load_oob = ALB_1936
+		set_country_flag = YUM_baergan_war
+		}
+		ALB = { change_tag_from = YUM }
+	}
+}
+#东方的号角
+country_event = {
+	id = holy_baergan.7
+	title = holy_baergan.7.t
+	desc = holy_baergan.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.2.1
+	tag = YUM
+	}
+	option = {
+		name = holy_baergan.7.a
+		ai_chance = {
+		    factor = 12
+		}
+		BUL = {
+		transfer_state = 801
+		transfer_state = 211
+		transfer_state = 77
+		load_oob = BUL_1936
+		set_country_flag = YUM_baergan_war
+		}
+	}
+	option = {
+		name = holy_baergan.7.b
+		ai_chance = {
+		    factor = 0
+		}
+		BUL = {
+		transfer_state = 801
+		transfer_state = 211
+		transfer_state = 77
+		load_oob = BUL_1936
+		set_country_flag = YUM_baergan_war
+		}
+		BUL = { change_tag_from = YUM }
+	}
+}
+#北方之风
+country_event = {
+	id = holy_baergan.8
+	title = holy_baergan.8.t
+	desc = holy_baergan.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.2.1
+	tag = YUM
+	}
+	option = {
+		name = holy_baergan.8.a
+		ai_chance = {
+		    factor = 12
+		}
+		SER = {
+		transfer_state = 978
+		transfer_state = 985
+		transfer_state = 107
+		load_oob = SER_1936
+		set_country_flag = YUM_baergan_war
+		}
+		DKL = {
+		transfer_state = 109
+		transfer_state = 1046
+		transfer_state = 804
+		transfer_state = 1047
+		load_oob = DKL_1936
+		set_country_flag = YUM_baergan_war
+		}
+	}
+	option = {
+		name = holy_baergan.8.b
+		ai_chance = {
+		    factor = 0
+		}
+		SER = {
+		transfer_state = 978
+		transfer_state = 985
+		transfer_state = 107
+		load_oob = SER_1936
+		set_country_flag = YUM_baergan_war
+		}
+		DKL = {
+		transfer_state = 109
+		transfer_state = 1046
+		transfer_state = 804
+		transfer_state = 1047
+		load_oob = DKL_1936
+		set_country_flag = YUM_baergan_war
+		}
+		SER = { change_tag_from = YUM }
+	}
+	option = {
+		name = holy_baergan.8.c
+		ai_chance = {
+		    factor = 0
+		}
+		SER = {
+		transfer_state = 978
+		transfer_state = 985
+		transfer_state = 107
+		load_oob = SER_1936
+		set_country_flag = YUM_baergan_war
+		}
+		DKL = {
+		transfer_state = 109
+		transfer_state = 1046
+		transfer_state = 804
+		transfer_state = 1047
+		load_oob = DKL_1936
+		set_country_flag = YUM_baergan_war
+		}
+		DKL = { change_tag_from = YUM }
+	}
+}
+#自治区武装
+country_event = {
+	id = holy_baergan.9
+	title = holy_baergan.9.t
+	desc = holy_baergan.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.2.1
+	tag = YUM
+	ALB = {
+		exists = yes
+		}
+		BUL = {
+		exists = yes
+		}
+		SER = {
+		exists = yes
+		}
+		DKL = {
+		exists = yes
+		}
+	}
+	option = {
+		name = holy_baergan.9.a
+		ai_chance = {
+		    factor = 12
+		}
+		KOS = {
+		transfer_state = 802
+		load_oob = KOS_1936
+		}
+		DMT = {
+		transfer_state = 963
+		transfer_state = 962
+		transfer_state = 103
+		transfer_state = 163
+		transfer_state = 1045
+		load_oob = DMT_1936
+		}
+		AUS = {
+		transfer_state = 852
+		}
+		MNT = {
+		transfer_state = 105
+		load_oob = MNT_1936
+		}
+		MAC = {
+		transfer_state = 966
+		transfer_state = 106
+		transfer_state = 1505
+		load_oob = MAC_1936
+		}
+		puppet = MAC
+		puppet = MNT
+		puppet = KOS
+		puppet = DMT
+		984 = {
+		set_demilitarized_zone = yes
+		}
+		983 = {
+		set_demilitarized_zone = yes
+		}
+		1390 = {
+		set_demilitarized_zone = yes
+		}
+		212 = {
+		set_demilitarized_zone = yes
+		}
+		970 = {
+		set_demilitarized_zone = yes
+		}
+	}
+}
+#革命危机
+country_event = {
+	id = holy_baergan.10
+	title = holy_baergan.10.t
+	desc = holy_baergan.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baergan.10.a
+		ai_chance = {
+		    factor = 12
+		}
+		NWM = {
+		transfer_state = 984
+		transfer_state = 983
+		transfer_state = 1390
+		transfer_state = 212
+		transfer_state = 970
+		load_oob = NWM_1936
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUM
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALB
+    type = annex_everything
+}
+every_state = {
+limit = {
+is_core_of = YUM
+}
+add_core_of = NWM
+}
+every_state = {
+limit = {
+is_claimed_by = YUM
+}
+add_claim_by = NWM
+}
+		}
+		load_oob = YUM_bosiniya
+	}
+	option = {
+		name = holy_baergan.10.b
+		ai_chance = {
+		    factor = 12
+		}
+		NWM = {
+		transfer_state = 984
+		transfer_state = 983
+		transfer_state = 1390
+		transfer_state = 212
+		transfer_state = 970
+		load_oob = NWM_1936
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUM
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALB
+    type = annex_everything
+}
+every_state = {
+limit = {
+is_core_of = YUM
+}
+add_core_of = NWM
+}
+every_state = {
+limit = {
+is_claimed_by = YUM
+}
+add_claim_by = NWM
+}
+		}
+		load_oob = YUM_bosiniya
+		NWM = { change_tag_from = YUM }
+	}
+}
+#王之战争
+country_event = {
+	id = holy_baergan.12
+	title = holy_baergan.12.t
+	desc = holy_baergan.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	OR = {
+	tag = DKL
+	tag = BUL
+	tag = SER
+	tag = ALB
+	}
+	YUM = {
+	OR = {
+	surrender_progress > 0.6
+	exists = no
+	}
+	}
+	NWM = {
+	OR = {
+	surrender_progress > 0.6
+	exists = no
+	}
+	}
+	}
+	option = {
+		name = holy_baergan.12.a
+		ai_chance = {
+		    factor = 12
+		}
+		DKL = {
+		declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+}
+BUL = {
+		declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALB
+    type = annex_everything
+}
+}
+SER = {
+		declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALB
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+}
+	}
+}
+#斯洛文尼亚的威胁
+country_event = {
+	id = holy_baergan.14
+	title = holy_baergan.14.t
+	desc = holy_baergan.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baergan.14.a
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			has_war = yes
+			factor = 6
+			}
+		}
+		end_puppet = SLV
+		SLV = {
+		transfer_state = 736
+		}
+		DKL = {
+		declare_war_on = {
+    target = SLV
+    type = annex_everything
+}
+		}
+	}
+	option = {
+		name = holy_baergan.14.b
+		ai_chance = {
+		    factor = 12
+		}
+		DKL = {
+		declare_war_on = {
+    target = SLV
+    type = annex_everything
+}
+		}
+	}
+}

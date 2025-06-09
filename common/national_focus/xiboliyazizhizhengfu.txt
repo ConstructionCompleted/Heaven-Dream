@@ -1,0 +1,248 @@
+focus_tree = {
+	id = SBR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SBR
+		}
+	}
+	
+	default = no
+ 
+    #民主的遗产
+	focus = {
+		id = SBR_minzhu_yichan
+		icon = GFX_goal_anschluss
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#西伯利亚的自由
+	focus = {
+		id = SBR_xiboliya_free
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = SBR_minzhu_yichan}
+		relative_position_id = SBR_minzhu_yichan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_xiboliya_minzhu_2
+		remove_idea = SBR_xiboliya_minzhu
+		}
+		}
+	}
+	#西伯利亚的民主
+	focus = {
+		id = SBR_xiboliya_minzhu
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = SBR_xiboliya_free}
+		relative_position_id = SBR_xiboliya_free
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_liuwang_zhengquan_2
+		remove_idea = SBR_liuwang_zhengquan
+		}
+		}
+	}
+	#收拾残兵败将
+	focus = {
+		id = SBR_shoushi_canbing_baijiang
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = SBR_minzhu_yichan}
+		relative_position_id = SBR_minzhu_yichan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_cancun_jundui_2
+		remove_idea = SBR_cancun_jundui
+		}
+		}
+	}
+	#进口武装
+	focus = {
+		id = SBR_jinkou_wuzhaung
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SBR_shoushi_canbing_baijiang}
+		relative_position_id = SBR_shoushi_canbing_baijiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#西伯利亚自卫
+	focus = {
+		id = SBR_xiboliya_ziwei
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SBR_jinkou_wuzhaung}
+		prerequisite = { focus = SBR_xiboliya_minzhu}
+		relative_position_id = SBR_jinkou_wuzhaung
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SBR_ziweibudui
+		}
+	}
+	#西伯利亚农业
+	focus = {
+		id = SBR_xiboliya_nongye
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SBR_xiboliya_ziwei}
+		relative_position_id = SBR_xiboliya_ziwei
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_xiboliya_minzhu_3
+		remove_idea = SBR_xiboliya_minzhu_2
+		}
+		}
+	}
+	#防寒措施
+	focus = {
+		id = SBR_fanghan_cuoshi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = SBR_xiboliya_nongye}
+		relative_position_id = SBR_xiboliya_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SBR_fanghan_cuoshi
+		}
+	}
+	#西伯利亚民兵
+	focus = {
+		id = SBR_xiboliya_minbing
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = SBR_xiboliya_ziwei}
+		relative_position_id = SBR_xiboliya_ziwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_xiboliya_minbing
+		remove_idea = SBR_cancun_jundui_2
+		}
+		}
+	}
+	#军事化改造
+	focus = {
+		id = SBR_junshihua_gaizao
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SBR_xiboliya_minbing}
+		relative_position_id = SBR_xiboliya_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_junshihua_gaizao
+		remove_idea = SBR_xiboliya_minbing
+		}
+		}
+	}
+	#西伯利亚工业
+	focus = {
+		id = SBR_xiboliya_gongye
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = SBR_xiboliya_ziwei}
+		relative_position_id = SBR_xiboliya_ziwei
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#进口外部工业
+	focus = {
+		id = SBR_jinkou_waibu_gongye
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = SBR_xiboliya_gongye}
+		relative_position_id = SBR_xiboliya_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#西伯利亚联合
+	focus = {
+		id = SBR_xiboliya_lianhe
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = SBR_fanghan_cuoshi}
+		prerequisite = { focus = SBR_junshihua_gaizao}
+		prerequisite = { focus = SBR_jinkou_waibu_gongye}
+		relative_position_id = SBR_junshihua_gaizao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SBR_liuwang_zhengquan_3
+		remove_idea = SBR_liuwang_zhengquan_2
+		}
+		}
+	}
+}

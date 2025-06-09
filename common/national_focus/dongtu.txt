@@ -1,0 +1,351 @@
+focus_tree = {
+	id = ETK_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ETK
+		}
+	}
+	
+	default = no
+ 
+	#东方突厥
+	focus = {
+		id = ETK_dongfang_tujue
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#圣战者的未来
+	focus = {
+		id = ETK_shengzhan_weilai
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = ETK_dongfang_tujue}
+		relative_position_id = ETK_dongfang_tujue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#吸收中亚战士
+	focus = {
+		id = ETK_xishou_zhongya_zhanshi
+		icon = GFX_focus_SOV_womens_fascist_movement
+		prerequisite = { focus = ETK_shengzhan_weilai}
+		relative_position_id = ETK_shengzhan_weilai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_xibu_zhiyuanjun_2
+			remove_idea = ETK_xibu_zhiyuanjun
+			}
+		}
+	}
+	#哈萨克圣战
+	focus = {
+		id = ETK_hasake_shengzhan
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = ETK_xishou_zhongya_zhanshi}
+		relative_position_id = ETK_xishou_zhongya_zhanshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = ETK_hasake_shengzhanjun
+		}
+	}
+	#狂热思想
+	focus = {
+		id = ETK_kuangre_sixiang
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = ETK_xishou_zhongya_zhanshi}
+		prerequisite = { focus = ETK_jihade_war}
+		relative_position_id = ETK_xishou_zhongya_zhanshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_shengzhan_3
+			remove_idea = ETK_shengzhan_2
+			}
+		}
+	}
+	#战争恐怖主义
+	focus = {
+		id = ETK_war_kongbu_zhuyi
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = ETK_hasake_shengzhan}
+		prerequisite = { focus = ETK_kuangre_sixiang}
+		relative_position_id = ETK_hasake_shengzhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_shengzhan_4
+			remove_idea = ETK_shengzhan_3
+			}
+		}
+	}
+	#吉哈德战争
+	focus = {
+		id = ETK_jihade_war
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ETK_shengzhan_weilai}
+		relative_position_id = ETK_shengzhan_weilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_shengzhan_2
+			remove_idea = ETK_shengzhan
+			}
+		}
+	}
+	#统合众谢赫
+	focus = {
+		id = ETK_tonghe_zhongxiehe
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = ETK_shengzhan_weilai}
+		relative_position_id = ETK_shengzhan_weilai
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_musilin_tonghe_2
+			remove_idea = ETK_musilin_tonghe
+			}
+		}
+	}
+	#圣战骑手
+	focus = {
+		id = ETK_shengzhan_qishou
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = ETK_tonghe_zhongxiehe}
+		relative_position_id = ETK_tonghe_zhongxiehe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ETK_shengzhan_qishou
+		}
+	}
+	#统合武装
+	focus = {
+		id = ETK_tonghe_wuzhuang
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = ETK_tonghe_zhongxiehe}
+		prerequisite = { focus = ETK_jihade_war}
+		relative_position_id = ETK_tonghe_zhongxiehe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ETK_musilin_tonghe_3
+			remove_idea = ETK_musilin_tonghe_2
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#维吾尔民族主义
+	focus = {
+		id = ETK_weiwuer_minzuzhuyi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ETK_tonghe_wuzhuang}
+		prerequisite = { focus = ETK_shengzhan_qishou}
+		relative_position_id = ETK_shengzhan_qishou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ETK_weiwuer_minzuzhuyi
+		}
+	}
+	#思想宣传
+	focus = {
+		id = ETK_sixiang_xuanchuan
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = ETK_tonghe_wuzhuang}
+		prerequisite = { focus = ETK_kuangre_sixiang}
+		relative_position_id = ETK_tonghe_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.1
+		}
+	}
+	#完成圣战
+	focus = {
+		id = ETK_wancheng_shengzhan
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ETK_sixiang_xuanchuan}
+		prerequisite = { focus = ETK_weiwuer_minzuzhuyi}
+		prerequisite = { focus = ETK_war_kongbu_zhuyi}
+		relative_position_id = ETK_sixiang_xuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_war_with = ETK
+		has_war_with = XIJ
+		has_war_with = XQJ
+		}
+		}
+		}
+		completion_reward = {
+			remove_ideas = ETK_shengzhan_4
+		}
+	}
+	#发动中亚圣战
+	focus = {
+		id = ETK_fadong_zhongya_shengzhan
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = ETK_wancheng_shengzhan}
+		relative_position_id = ETK_wancheng_shengzhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			remove_ideas = ETK_xibu_zhiyuanjun_2
+		}
+	}
+	#粉碎乌兹别克
+	focus = {
+		id = ETK_fensui_wuzibieke
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = ETK_fadong_zhongya_shengzhan}
+		relative_position_id = ETK_fadong_zhongya_shengzhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+add_state_claim = 585
+add_state_claim = 584
+add_state_claim = 1385
+add_state_claim = 1355
+add_state_claim = 823
+add_state_claim = 831
+add_state_claim = 832
+add_state_claim = 1771
+add_state_claim = 1772
+add_state_claim = 405
+add_state_claim = 732
+add_state_claim = 742
+add_state_claim = 830
+add_state_claim = 1354
+every_state = {
+					limit = {
+					OR = {
+						region = 270
+						region = 267
+						}
+					}
+add_claim_by = ETK
+		}
+		}
+	}
+	#粉碎哈萨克
+	focus = {
+		id = ETK_fensui_hasake
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = ETK_fadong_zhongya_shengzhan}
+		relative_position_id = ETK_fadong_zhongya_shengzhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+every_state = {
+					limit = {
+						region = 136
+					}
+add_claim_by = ETK
+		}
+add_state_claim = 582
+add_state_claim = 1351
+add_state_claim = 406
+add_state_claim = 407
+add_state_claim = 1073
+add_state_claim = 1074
+		}
+	}
+}

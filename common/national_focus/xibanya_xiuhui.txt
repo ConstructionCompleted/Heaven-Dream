@@ -1,0 +1,1056 @@
+focus_tree = {
+	id = XTZ_focus
+    
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = XTZ
+		}
+	}
+	
+	default = no
+ 
+	#天主重临人间
+	focus = {
+		id = XTZ_tianzhu_chonglin_renjian
+		icon = GFX_focus_por_concordat
+		x = 25
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	#共和主义改革
+	focus = {
+		id = XTZ_gonghezhuyi_gaige
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = XTZ_tianzhu_chonglin_renjian}
+		relative_position_id = XTZ_tianzhu_chonglin_renjian
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_gonghe_zhuyi
+			remove_idea = XTZ_baoshouzhuyi_hezuo
+			}
+		}
+	}
+	#建立骑士团武装
+	focus = {
+		id = XTZ_jianli_qishituan_wuzhuang
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = XTZ_tianzhu_chonglin_renjian}
+		relative_position_id = XTZ_tianzhu_chonglin_renjian
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_wuzhuang_weiji_2
+			remove_idea = XTZ_wuzhuang_weiji
+			}
+		}
+	}
+	#民主化修会
+	focus = {
+		id = XTZ_minzhu_xiuhui
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = XTZ_gonghezhuyi_gaige}
+		prerequisite = { focus = XTZ_jianli_qishituan_wuzhuang}
+		relative_position_id = XTZ_jianli_qishituan_wuzhuang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_gonghe_zhuyi_2
+			remove_idea = XTZ_gonghe_zhuyi
+			}
+		}
+	}
+	#接受商业合作
+	focus = {
+		id = XTZ_jieshou_shangye_hezuo
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = XTZ_minzhu_xiuhui }
+		relative_position_id = XTZ_minzhu_xiuhui
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_gonghe_zhuyi_3
+			remove_idea = XTZ_gonghe_zhuyi_2
+			}
+		}
+	}
+	#建设城市工业
+	focus = {
+		id = XTZ_jianshe_chengshi_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = XTZ_jieshou_shangye_hezuo }
+		relative_position_id = XTZ_jieshou_shangye_hezuo
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_jianshe_gongye
+		}
+	}
+	#建设教会金融
+	focus = {
+		id = XTZ_jianshe_jiaohui_jinrong
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = XTZ_jianshe_chengshi_gongye }
+		relative_position_id = XTZ_jianshe_chengshi_gongye
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_jianshe_gongye
+		}
+	}
+	#扩大征兵
+	focus = {
+		id = XTZ_kuoda_zhengbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = XTZ_zhenghe_nanbu_liliang}
+		prerequisite = { focus = XTZ_jianli_qishituan_wuzhuang}
+		relative_position_id = XTZ_jianli_qishituan_wuzhuang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_wuzhuang_weiji_3
+			remove_idea = XTZ_wuzhuang_weiji_2
+			}
+		}
+	}
+	#增加随军牧师
+	focus = {
+		id = XTZ_zengjia_suijun_mushi
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = XTZ_kuoda_zhengbing}
+		relative_position_id = XTZ_kuoda_zhengbing
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_wuzhuang_weiji_4
+			remove_idea = XTZ_wuzhuang_weiji_3
+			}
+		}
+	}
+	#改革武装
+	focus = {
+		id = XTZ_gaige_wuzhuang
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = XTZ_jieshou_shangye_hezuo }
+		prerequisite = { focus = XTZ_zengjia_suijun_mushi }
+		relative_position_id = XTZ_zengjia_suijun_mushi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_wuzhuang_weiji_5
+			remove_idea = XTZ_wuzhuang_weiji_4
+			}
+		}
+	}
+	#骑士团现代化
+	focus = {
+		id = XTZ_qishituan_xiandaihua
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = XTZ_gaige_wuzhuang }
+		relative_position_id = XTZ_gaige_wuzhuang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_qishi_xiandaihua
+			remove_idea = XTZ_wuzhuang_weiji_5
+			}
+		}
+	}
+	#天主意志
+	focus = {
+		id = XTZ_tianzhu_yizhi
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = XTZ_jiena_bandao_zhuhui }
+		prerequisite = { focus = XTZ_zengjia_suijun_mushi }
+		relative_position_id = XTZ_jiena_bandao_zhuhui
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_tianzhu_yizhi
+		}
+	}
+	#再征服终章
+	focus = {
+		id = XTZ_zaizhengfu_zhongzhang
+		icon = GFX_focus_ETH_boots_on_the_shore
+		prerequisite = { focus = XTZ_tianzhu_yizhi }
+		relative_position_id = XTZ_tianzhu_yizhi
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_tianzhu_yizhi_2
+			remove_idea = XTZ_tianzhu_yizhi
+			}
+		}
+	}
+	#整合南部力量
+	focus = {
+		id = XTZ_zhenghe_nanbu_liliang
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = XTZ_tianzhu_chonglin_renjian}
+		relative_position_id = XTZ_tianzhu_chonglin_renjian
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = XTZ_nanbu_liliang
+		}
+	}
+	#强化耶稣会
+	focus = {
+		id = XTZ_qianghua_yesuhui
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = XTZ_tianzhu_chonglin_renjian}
+		relative_position_id = XTZ_tianzhu_chonglin_renjian
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_zhuzhi_guodu_2
+			remove_idea = XTZ_zhuzhi_guodu
+			}
+		}
+	}
+	#依靠信徒力量
+	focus = {
+		id = XTZ_yikao_xintu_liliang
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = XTZ_qianghua_yesuhui}
+		prerequisite = { focus = XTZ_zhenghe_nanbu_liliang}
+		relative_position_id = XTZ_zhenghe_nanbu_liliang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_zhuzhi_guodu_3
+			remove_idea = XTZ_zhuzhi_guodu_2
+			}
+		}
+	}
+	#接纳半岛诸会
+	focus = {
+		id = XTZ_jiena_bandao_zhuhui
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = XTZ_yikao_xintu_liliang}
+		relative_position_id = XTZ_yikao_xintu_liliang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_zhuzhi_guodu_4
+			remove_idea = XTZ_zhuzhi_guodu_3
+			}
+		}
+	}
+	#强化山区农业
+	focus = {
+		id = XTZ_qianghua_shanqu_nongye
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = XTZ_jiena_bandao_zhuhui }
+		relative_position_id = XTZ_jiena_bandao_zhuhui
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_tixi_gaige
+		}
+	}
+	#修道院转型
+	focus = {
+		id = XTZ_xiudaoyuan_zhuanxing
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = XTZ_qianghua_shanqu_nongye }
+		relative_position_id = XTZ_qianghua_shanqu_nongye
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_tixi_gaige_2
+			remove_idea = XTZ_tixi_gaige
+			}
+		}
+	}
+	#福音笼罩之日
+	focus = {
+		id = XTZ_fuyin_longzhao_zhiri
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = XTZ_jianshe_jiaohui_jinrong }
+		prerequisite = { focus = XTZ_qishituan_xiandaihua }
+		prerequisite = { focus = XTZ_zaizhengfu_zhongzhang }
+		prerequisite = { focus = XTZ_xiudaoyuan_zhuanxing }
+		relative_position_id = XTZ_zaizhengfu_zhongzhang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		GLD = {
+		NOT = {
+		controls_state = 173
+		}
+		}
+		CSP = {
+		exists = no
+		}
+		CAT = {
+		exists = no
+		}
+		UKH = {
+		exists = no
+		}
+		NAV = {
+		exists = no
+		}
+		AUO = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_zhuzhi_guodu_5
+			remove_idea = XTZ_zhuzhi_guodu_4
+			}
+			every_state = {
+			limit = {
+			OR = {
+			region = 41
+			region = 209
+			region = 210
+			}
+			}
+			add_core_of = XTZ
+			}
+			remove_state_core = 179
+			remove_state_core = 1563
+			remove_state_core = 181
+			remove_state_core = 795
+			remove_state_core = 180
+			remove_state_core = 112
+			add_state_claim = 179
+			add_state_claim = 1563
+			add_state_claim = 181
+			add_state_claim = 795
+			add_state_claim = 180
+			add_state_claim = 112
+			news_event = {
+				id = holy_news.136 days = 1
+			}
+		}
+	}
+	#迈出战争之路
+	focus = {
+		id = XTZ_maichu_zhanzheng_zhilu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = XTZ_fuyin_longzhao_zhiri }
+		relative_position_id = XTZ_fuyin_longzhao_zhiri
+		x = -7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+declare_war_on = {
+    target = XBY
+    type = annex_everything
+}
+		}
+	}
+	#圣战的二重奏
+	focus = {
+		id = XTZ_shengzhan_erchongzou
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = XTZ_maichu_zhanzheng_zhilu }
+		relative_position_id = XTZ_maichu_zhanzheng_zhilu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 179
+			controls_state = 1563
+			controls_state = 181
+			controls_state = 795
+			controls_state = 180
+			controls_state = 112
+		}
+		completion_reward = {
+			add_state_core = 697
+			add_state_core = 698
+			add_state_core = 179
+			add_state_core = 1563
+			add_state_core = 181
+			add_state_core = 795
+			add_state_core = 180
+			add_state_core = 112
+		}
+	}
+	#民主化善意
+	focus = {
+		id = XTZ_minzhuhua_shanyi
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = XTZ_shengzhan_erchongzou }
+		relative_position_id = XTZ_shengzhan_erchongzou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 179
+			controls_state = 1563
+			controls_state = 181
+			controls_state = 795
+			controls_state = 180
+			controls_state = 112
+		}
+		completion_reward = {
+			country_event = holy_yibiliya.1
+		}
+	}
+	#进驻永恒之城
+	focus = {
+		id = XTZ_jinzhu_yonghengzhicheng
+		icon = GFX_focus_ITA_imperial_recognition
+		prerequisite = { focus = XTZ_minzhuhua_shanyi }
+		relative_position_id = XTZ_minzhuhua_shanyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 179
+			controls_state = 1563
+			controls_state = 181
+			controls_state = 795
+			controls_state = 180
+			controls_state = 112
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = ITD
+    type = annex_everything
+}
+declare_war_on = {
+    target = ITC
+    type = annex_everything
+}
+declare_war_on = {
+    target = RSC
+    type = annex_everything
+}
+declare_war_on = {
+    target = ITA
+    type = annex_everything
+}
+declare_war_on = {
+    target = ITB
+    type = annex_everything
+}
+declare_war_on = {
+    target = VNC
+    type = annex_everything
+}
+declare_war_on = {
+    target = MLA
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAD
+    type = annex_everything
+}
+		}
+	}
+	#与教宗合一
+	focus = {
+		id = XTZ_yujiaozong_heyi
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = XTZ_shengzhan_erchongzou }
+		relative_position_id = XTZ_shengzhan_erchongzou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 2
+		}
+		completion_reward = {
+		set_cosmetic_tag = PAP
+		add_state_core = 158
+		add_state_core = 161
+		add_state_core = 162
+		add_state_core = 157
+		add_state_core = 2
+		add_state_core = 156
+		add_state_core = 117
+		add_state_core = 114
+		add_state_core = 957
+		add_state_core = 958
+		add_state_core = 1043
+		add_state_core = 1391
+		add_state_core = 1392
+		add_state_core = 1393
+		add_state_core = 956
+		add_state_core = 1044
+		add_state_core = 961
+		add_state_core = 1394
+		add_state_core = 954
+		add_state_core = 955
+		add_state_core = 1304
+		add_state_core = 115
+		add_state_core = 959
+		add_state_core = 960
+		add_state_core = 1825
+		add_state_core = 1826
+		add_state_core = 116
+		}
+	}
+	#为天主献出的一切
+	focus = {
+		id = XTZ_weitianzhu_xianchu_yiqie
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = XTZ_fuyin_longzhao_zhiri }
+		relative_position_id = XTZ_fuyin_longzhao_zhiri
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_tixi_gaige_3
+			remove_idea = XTZ_tixi_gaige_2
+			}
+		}
+	}
+	#建立修会行政
+	focus = {
+		id = XTZ_jianli_xiuhui_xingzheng
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = XTZ_weitianzhu_xianchu_yiqie }
+		relative_position_id = XTZ_weitianzhu_xianchu_yiqie
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_zhuzhi_guodu_6
+			remove_idea = XTZ_zhuzhi_guodu_5
+			}
+		}
+	}
+	#强化议会力量
+	focus = {
+		id = XTZ_qianghua_yihui_liliang
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = XTZ_weitianzhu_xianchu_yiqie }
+		relative_position_id = XTZ_weitianzhu_xianchu_yiqie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+	#地方势力骑士化
+	focus = {
+		id = XTZ_difangshili_qishihua
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = XTZ_qianghua_yihui_liliang }
+		prerequisite = { focus = XTZ_jianli_xiuhui_xingzheng }
+		relative_position_id = XTZ_qianghua_yihui_liliang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_difangshili_qishihua
+		}
+	}
+	#提升教士地位
+	focus = {
+		id = XTZ_tisheng_jiaoshi_diwei
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = XTZ_weitianzhu_xianchu_yiqie }
+		relative_position_id = XTZ_weitianzhu_xianchu_yiqie
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_tixi_gaige_4
+			remove_idea = XTZ_tixi_gaige_3
+			}
+		}
+	}
+	#奴役异教徒
+	focus = {
+		id = XTZ_nuyi_yijiaotu
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = XTZ_qianghua_yihui_liliang }
+		prerequisite = { focus = XTZ_tisheng_jiaoshi_diwei }
+		relative_position_id = XTZ_qianghua_yihui_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_nuyi_yijiaotu
+		}
+	}
+	#新世纪福音战士
+	focus = {
+		id = XTZ_xinshiji_fuyinzhanshi
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = XTZ_difangshili_qishihua }
+		prerequisite = { focus = XTZ_nuyi_yijiaotu }
+		relative_position_id = XTZ_difangshili_qishihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_xinshiji_fuyinzhanshi
+			remove_idea = XTZ_nuyi_yijiaotu
+			}
+		}
+	}
+	#伊比利亚社会改造
+	focus = {
+		id = XTZ_yibiliya_shehui_gaizao
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = XTZ_fuyin_longzhao_zhiri }
+		relative_position_id = XTZ_fuyin_longzhao_zhiri
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_gonghe_zhuyi_4
+			remove_idea = XTZ_gonghe_zhuyi_3
+			}
+		}
+	}
+	#骑士国度
+	focus = {
+		id = XTZ_qishi_guodu
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = XTZ_yibiliya_shehui_gaizao }
+		relative_position_id = XTZ_yibiliya_shehui_gaizao
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_tianzhu_yizhi_3
+			remove_idea = XTZ_tianzhu_yizhi_2
+			}
+		}
+	}
+	#骑士精神的存续
+	focus = {
+		id = XTZ_qishi_jingshen_cunxu
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = XTZ_qishi_guodu }
+		relative_position_id = XTZ_qishi_guodu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_qishi_xiandaihua_2
+			remove_idea = XTZ_qishi_xiandaihua
+			}
+		}
+	}
+	#战争艺术复兴
+	focus = {
+		id = XTZ_zhanzhengyishu_fuxing
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = XTZ_qishi_jingshen_cunxu }
+		relative_position_id = XTZ_qishi_jingshen_cunxu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_qishi_xiandaihua_3
+			remove_idea = XTZ_qishi_xiandaihua_2
+			}
+		}
+	}
+	#完善组织体系
+	focus = {
+		id = XTZ_wanshan_zuzhi_tixi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = XTZ_zhanzhengyishu_fuxing }
+		relative_position_id = XTZ_zhanzhengyishu_fuxing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_qishi_xiandaihua_4
+			remove_idea = XTZ_qishi_xiandaihua_3
+			}
+		}
+	}
+	#工业化社会
+	focus = {
+		id = XTZ_qongyehua_shehui
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = XTZ_yibiliya_shehui_gaizao }
+		relative_position_id = XTZ_yibiliya_shehui_gaizao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_jianshe_gongye_3
+			remove_idea = XTZ_jianshe_gongye_2
+			}
+		}
+	}
+	#建设武装生产线
+	focus = {
+		id = XTZ_jianshe_wuzhaung_shengchanxian
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = XTZ_qishi_guodu }
+		prerequisite = { focus = XTZ_qongyehua_shehui }
+		relative_position_id = XTZ_qongyehua_shehui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_wuzhaung_shengchanxian
+		}
+	}
+	#新时代的骑枪
+	focus = {
+		id = XTZ_xinshidai_qiqiang
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = XTZ_jianshe_wuzhaung_shengchanxian }
+		relative_position_id = XTZ_jianshe_wuzhaung_shengchanxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_xinshidai_qiqiang
+		}
+	}
+	#再度披甲
+	focus = {
+		id = XTZ_zaidu_pijia
+		icon = GFX_focus_POL_expand_polish_intelligence
+		prerequisite = { focus = XTZ_xinshidai_qiqiang }
+		relative_position_id = XTZ_xinshidai_qiqiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_zaidu_pijia
+		}
+	}
+	#走出贫穷
+	focus = {
+		id = XTZ_zouchu_pinqiong
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = XTZ_yibiliya_shehui_gaizao }
+		relative_position_id = XTZ_yibiliya_shehui_gaizao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XTZ_nongye_gaige
+		}
+	}
+	#纺织业发展
+	focus = {
+		id = XTZ_fangzhiye_fazhan
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = XTZ_zouchu_pinqiong }
+		prerequisite = { focus = XTZ_qongyehua_shehui }
+		relative_position_id = XTZ_qongyehua_shehui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_jianshe_gongye_4
+			remove_idea = XTZ_jianshe_gongye_3
+			}
+		}
+	}
+	#强化社会贸易
+	focus = {
+		id = XTZ_qianghua_shehui_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = XTZ_fangzhiye_fazhan }
+		relative_position_id = XTZ_fangzhiye_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_jianshe_gongye_5
+			remove_idea = XTZ_jianshe_gongye_4
+			}
+		}
+	}
+	#开发海岸线
+	focus = {
+		id = XTZ_kaifa_haianxian
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = XTZ_qianghua_shehui_maoyi }
+		relative_position_id = XTZ_qianghua_shehui_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_jianshe_gongye_6
+			remove_idea = XTZ_jianshe_gongye_5
+			}
+			165 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+			167 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+			171 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#教会治下的土地
+	focus = {
+		id = XTZ_jiaohuizhixia_tudi
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = XTZ_zouchu_pinqiong }
+		relative_position_id = XTZ_zouchu_pinqiong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_nongye_gaige_2
+			remove_idea = XTZ_nongye_gaige
+			}
+		}
+	}
+	#现代化农业技术
+	focus = {
+		id = XTZ_xiandaihua_nongyejishu
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = XTZ_jiaohuizhixia_tudi }
+		relative_position_id = XTZ_jiaohuizhixia_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_nongye_gaige_3
+			remove_idea = XTZ_nongye_gaige_2
+			}
+		}
+	}
+	#水与土地
+	focus = {
+		id = XTZ_shuiyu_tudi
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = XTZ_xiandaihua_nongyejishu }
+		relative_position_id = XTZ_xiandaihua_nongyejishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XTZ_nongye_gaige_4
+			remove_idea = XTZ_nongye_gaige_3
+			}
+		}
+	}
+}

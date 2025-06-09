@@ -1,0 +1,329 @@
+focus_tree = {
+	id = SBG_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SBG
+		}
+	}
+	
+	default = no
+ 
+    #哥萨克国度
+	focus = {
+		id = SBG_gesake_guodu
+		icon = GFX_focus_ETH_keep_the_chitet
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#西伯利亚遗民
+	focus = {
+		id = SBG_xiboliya_yimin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SBG_gesake_guodu}
+		relative_position_id = SBG_gesake_guodu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = SBG_huangmo_zhijun
+			add_idea = SBG_huangmo_zhijun_2
+			}
+		}
+	}
+	#吸收南方工业
+	focus = {
+		id = SBG_xishou_nanfang_gongye
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = SBG_xiboliya_yimin}
+		relative_position_id = SBG_xiboliya_yimin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#扩建骑兵
+	focus = {
+		id = SBG_kuojian_qibing
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = SBG_xiboliya_yimin}
+		relative_position_id = SBG_xiboliya_yimin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SBG_kuojian_qibing
+		}
+	}
+	#建立秩序
+	focus = {
+		id = SBG_jianli_zhixu
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SBG_kuojian_qibing}
+		relative_position_id = SBG_kuojian_qibing
+		mutually_exclusive = { focus = SBG_yanxu_chuantong }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_jianli_zhixu
+			remove_idea = SBG_gesake_qibing
+			}
+		}
+	}
+	#加强军纪
+	focus = {
+		id = SBG_jiaqiang_juji
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SBG_jianli_zhixu}
+		relative_position_id = SBG_jianli_zhixu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_jiaqiang_juji
+			remove_idea = SBG_jianli_zhixu
+			}
+		}
+	}
+	#现代化哥萨克
+	focus = {
+		id = SBG_xiandaihua_gesake
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = SBG_jiaqiang_juji}
+		relative_position_id = SBG_jiaqiang_juji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_xiandaihua_gesake
+			remove_idea = SBG_jiaqiang_juji
+			}
+		}
+	}
+	#延续传统
+	focus = {
+		id = SBG_yanxu_chuantong
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SBG_kuojian_qibing}
+		relative_position_id = SBG_kuojian_qibing
+		mutually_exclusive = { focus = SBG_jianli_zhixu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_yanxu_chuantong
+			remove_idea = SBG_gesake_qibing
+			}
+		}
+	}
+	#劫掠之军
+	focus = {
+		id = SBG_jielue_zhijun
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SBG_yanxu_chuantong}
+		relative_position_id = SBG_yanxu_chuantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_jielue_zhijun
+			remove_idea = SBG_yanxu_chuantong
+			}
+		}
+	}
+	#真正的骑兵
+	focus = {
+		id = SBG_zhenzheng_qibing
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = SBG_jielue_zhijun}
+		relative_position_id = SBG_jielue_zhijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_zhenzheng_qibing
+			remove_idea = SBG_jielue_zhijun
+			}
+		}
+	}
+	#我们的事业
+	focus = {
+		id = SBG_our_shiye
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SBG_xiboliya_yimin}
+		relative_position_id = SBG_xiboliya_yimin
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_our_shiye
+			remove_idea = SBG_fanpan_zhijun
+			}
+		}
+	}
+	#推进工业化
+	focus = {
+		id = SBG_tuijin_gongyehua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = SBG_our_shiye}
+		prerequisite = { focus = SBG_xishou_nanfang_gongye}
+		relative_position_id = SBG_our_shiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = SBG_junshi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SBG_tuijin_gongyehua}
+		relative_position_id = SBG_tuijin_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#吸收反抗者
+	focus = {
+		id = SBG_xishou_fankangzhe
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SBG_our_shiye}
+		relative_position_id = SBG_our_shiye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SBG_our_shiye_2
+			remove_idea = SBG_our_shiye
+			}
+		}
+	}
+	#武装反抗者
+	focus = {
+		id = SBG_wuzhaung_fankangzhe
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = SBG_xishou_fankangzhe}
+		relative_position_id = SBG_xishou_fankangzhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SBG_wuzhaung_fankangzhe
+		}
+	}
+	#摧毁高尔察克
+	focus = {
+		id = SBG_cuihui_gaoerchake
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SBG_junshi_gongye_kuozhan}
+		prerequisite = { focus = SBG_wuzhaung_fankangzhe}
+		relative_position_id = SBG_wuzhaung_fankangzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUD = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#真正的哥萨克
+	focus = {
+		id = SBG_zhenzheng_gesake
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = SBG_cuihui_gaoerchake}
+		prerequisite = { focus = SBG_zhenzheng_qibing focus = SBG_xiandaihua_gesake}
+		relative_position_id = SBG_cuihui_gaoerchake
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+}

@@ -1,0 +1,384 @@
+add_namespace = holy_zelankete
+#尊贵者们
+country_event = {
+	id = holy_zelankete.1
+	title = holy_zelankete.1.t
+	desc = holy_zelankete.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = 100
+	}
+}
+#会面
+country_event = {
+	id = holy_zelankete.2
+	title = holy_zelankete.2.t
+	desc = holy_zelankete.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.2.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_timed_idea = {
+    idea = ABN_xiaofei_jiaoliu
+    days = 180
+}
+UKM = {
+add_timed_idea = {
+    idea = ABN_xiaofei_jiaoliu
+    days = 180
+}
+}
+	}
+}
+#南方会议
+country_event = {
+	id = holy_zelankete.3
+	title = holy_zelankete.3.t
+	desc = holy_zelankete.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.3.a
+		ai_chance = {
+		    factor = 25
+		}
+		dismantle_faction = yes
+		YLK = {
+		declare_war_on = {
+    target = XAO
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_zelankete.3.b
+		ai_chance = {
+		    factor = 25
+		}
+		dismantle_faction = yes
+		YLK = {
+		annex_country = {
+    target = XAO
+    transfer_troops = no
+}
+	}
+	}
+}
+#阿布纳基谈判
+country_event = {
+	id = holy_zelankete.4
+	title = holy_zelankete.4.t
+	desc = holy_zelankete.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = ABN
+	OR = {
+	has_war_with = XAO
+	has_war_with = YLK
+	}
+	has_capitulated = yes
+	is_in_faction_with = UKM
+	}
+	option = {
+		name = holy_zelankete.4.a
+		ai_chance = {
+		    factor = 25
+		}
+		dismantle_faction = yes
+		if = {
+		limit = {
+		XAO = { 
+		has_war_with = ABN
+		}
+		}
+		XAO = {
+		white_peace = UKM
+		annex_country = {
+    target = ABN
+    transfer_troops = no
+}
+		}
+		}
+		if = {
+		limit = {
+		YLK = { 
+		has_war_with = ABN
+		}
+		}
+		YLK = {
+		white_peace = UKM
+		annex_country = {
+    target = ABN
+    transfer_troops = no
+}
+		}
+		}
+	}
+}
+#新希腊的土地
+country_event = {
+	id = holy_zelankete.5
+	title = holy_zelankete.5.t
+	desc = holy_zelankete.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.5.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = 100
+	}
+}
+#会议召开
+country_event = {
+	id = holy_zelankete.6
+	title = holy_zelankete.6.t
+	desc = holy_zelankete.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.6.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = 10
+		add_to_variable = { XAO.youma_yingxiangli = 10 }
+		add_to_variable = { XAO.wuma_yingxiangli = 10 }
+		add_to_variable = { XAO.fenghe_yingxiangli = 10 }
+		add_to_variable = {
+    var = youma_yingxiangli
+    value = 10
+    tooltip = XAO_youmu_yingxiang_1_tt
+}
+add_to_variable = {
+    var = wuma_yingxiangli
+    value = 10
+    tooltip = XAO_wuma_yingxiangli_1_tt
+}
+add_to_variable = {
+    var = fenghe_yingxiangli
+    value = 10
+    tooltip = XAO_fenghe_yingxiangli_1_tt
+}
+	}
+}
+#风河的主张
+country_event = {
+	id = holy_zelankete.7
+	title = holy_zelankete.7.t
+	desc = holy_zelankete.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.7.a
+		ai_chance = {
+		    factor = 25
+		}
+		randomize_temp_variable = {
+  var = XAO.fenghe_yingxiangli
+  distribution = uniform
+  min = 5
+  max = 10
+  tooltip = XAO_fenghe_yingxiangli_2_tt
+}
+	}
+	option = {
+		name = holy_zelankete.7.b
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = -50
+	}
+}
+#风河的主张
+country_event = {
+	id = holy_zelankete.8
+	title = holy_zelankete.8.t
+	desc = holy_zelankete.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.8.a
+		ai_chance = {
+		    factor = 25
+		}
+		randomize_temp_variable = {
+  var = XAO.fenghe_yingxiangli
+  distribution = uniform
+  min = 0
+  max = -10
+  tooltip = XAO_fenghe_yingxiangli_3_tt
+}
+	}
+	option = {
+		name = holy_zelankete.8.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#无马的主张
+country_event = {
+	id = holy_zelankete.9
+	title = holy_zelankete.9.t
+	desc = holy_zelankete.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.9.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_to_variable = {
+    var = XAO.wuma_yingxiangli
+    value = 10
+    tooltip = XAO_wuma_yingxiangli_2_tt
+}
+	}
+	option = {
+		name = holy_zelankete.9.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#无马的主张
+country_event = {
+	id = holy_zelankete.10
+	title = holy_zelankete.10.t
+	desc = holy_zelankete.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.10.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_to_variable = {
+    var = XAO.wuma_yingxiangli
+    value = -10
+    tooltip = XAO_wuma_yingxiangli_3_tt
+}
+	}
+	option = {
+		name = holy_zelankete.10.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#有马的主张
+country_event = {
+	id = holy_zelankete.11
+	title = holy_zelankete.11.t
+	desc = holy_zelankete.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.11.a
+		ai_chance = {
+		    factor = 25
+		}
+		randomize_temp_variable = {
+  var = XAO.youma_yingxiangli
+  distribution = uniform
+  min = -10
+  max = -20
+  tooltip = XAO_youma_yingxiangli_2_tt
+}
+	}
+	option = {
+		name = holy_zelankete.11.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#有马的主张
+country_event = {
+	id = holy_zelankete.12
+	title = holy_zelankete.12.t
+	desc = holy_zelankete.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.12.a
+		ai_chance = {
+		    factor = 25
+		}
+		randomize_temp_variable = {
+  var = XAO.youma_yingxiangli
+  distribution = uniform
+  min = 0
+  max = 10
+  tooltip = XAO_youma_yingxiangli_3_tt
+}
+	}
+	option = {
+		name = holy_zelankete.12.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#南方会议
+country_event = {
+	id = holy_zelankete.13
+	title = holy_zelankete.13.t
+	desc = holy_zelankete.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_zelankete.13.a
+		ai_chance = {
+		    factor = 25
+		}
+		dismantle_faction = yes
+		XAO = {
+		declare_war_on = {
+    target = YLK
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_zelankete.13.b
+		ai_chance = {
+		    factor = 25
+		}
+		dismantle_faction = yes
+		XAO = {
+		annex_country = {
+    target = YLK
+    transfer_troops = no
+}
+	}
+	}
+}

@@ -1,0 +1,270 @@
+holy_qingniandang_zhengbing = {
+    #动员伊拉克
+    holy_dongyuan_yilake = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = OTF
+	}	
+		available = {
+			has_completed_focus = OTF_jihuo_difang_tixi
+			NOT = {
+			has_completed_focus = OTF_gongheguo_xinsheng
+			}
+			OR = {
+			controls_state = 675
+			controls_state = 291
+			controls_state = 1056
+			controls_state = 1396
+			controls_state = 1395
+			controls_state = 1329
+			controls_state = 1426
+			}
+			IRQ = {
+			exists = no
+			}
+		}
+		cost = 50
+		days_re_enable = 120
+		complete_effect = {
+		load_oob = OTF_yialke
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#动员叙利亚
+    holy_dongyuan_xuliya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = OTF
+	}	
+		available = {
+			has_completed_focus = OTF_jihuo_difang_tixi
+			NOT = {
+			has_completed_focus = OTF_gongheguo_xinsheng
+			}
+			OR = {
+			controls_state = 554
+			controls_state = 677
+			controls_state = 553
+			controls_state = 799
+			controls_state = 1058
+			controls_state = 1568
+			controls_state = 1569
+			controls_state = 1570
+			controls_state = 1425
+			}
+			SYR = {
+			exists = no
+			}
+		}
+		cost = 50
+		days_re_enable = 120
+		complete_effect = {
+		load_oob = OTF_xuliya
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#动员塞浦路斯
+    holy_dongyuan_balesitan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = OTF
+	}	
+		available = {
+			has_completed_focus = OTF_jihuo_difang_tixi
+			NOT = {
+			has_completed_focus = OTF_gongheguo_xinsheng
+			}
+			controls_state = 183
+			CYP = {
+			exists = no
+			}
+		}
+		cost = 10
+		days_re_enable = 120
+		complete_effect = {
+		load_oob = OTF_saipulusi
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_OTF_alaboqiyi = {
+    #阻止叙利亚民族主义
+    holy_OTF_zuzhi_xuliya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = OTF
+	}
+		available = {
+		OR = {
+		has_completed_focus = OTF_chonghua_minzu_bianjie
+		has_completed_focus = OTF_yanxu_minzu_ronghe
+		}
+		check_variable = {
+        OTF.diquliliang > 0
+        }
+		}
+		target_trigger = {
+        FROM = {
+		is_controlled_by = OTF
+          }
+        }
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			677 553 799 1058 1568 1569 1570 1425 680
+		}
+		state_target = yes
+		complete_effect = {
+		add_to_variable = {
+    var = OTF.diquliliang
+    value = -1
+	tooltip = OTF_diquliliang_1_tt
+}
+		FROM = {
+		set_state_flag = OTF_fanduiqiyi
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#阻止伊拉克民族主义
+    holy_OTF_zuzhi_yilake = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = OTF
+	}
+		available = {
+		OR = {
+		has_completed_focus = OTF_chonghua_minzu_bianjie
+		has_completed_focus = OTF_yanxu_minzu_ronghe
+		}
+		check_variable = {
+        OTF.diquliliang > 0
+        }
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			1056 1396 1395 1426 1329 676
+		}
+		target_trigger = {
+        FROM = {
+		is_controlled_by = OTF
+          }
+        }
+		state_target = yes
+		complete_effect = {
+		add_to_variable = {
+    var = OTF.diquliliang
+    value = -1
+	tooltip = OTF_diquliliang_1_tt
+}
+		FROM = {
+		set_state_flag = OTF_fanduiqiyi
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#叙利亚起义
+	OTF_xuliya_qiyi = {
+		icon = 
+        visible = {
+        tag = OTF
+        }          
+        activation = {                          
+            always = yes
+        }
+		available = {
+           always = no
+        }
+        is_good = no
+        fire_only_once = yes
+        days_mission_timeout = 540
+        timeout_effect = {
+		country_event = {
+    id = holy_aosiman.57
+    days = 5
+}
+		}
+	}
+	#伊拉克起义
+	OTF_yilake_qiyi = {
+		icon = 
+        visible = {
+        tag = OTF
+        }          
+        activation = {                          
+            always = yes
+        }
+		available = {
+           always = no
+        }
+        is_good = no
+        fire_only_once = yes
+        days_mission_timeout = 580
+        timeout_effect = {
+		country_event = {
+    id = holy_aosiman.58
+    days = 5
+}
+		}
+	}
+	#地区社群
+    holy_OTF_zuzhi_xuliya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = OTF
+		has_completed_focus = OTF_zhongdong_lianhesheng
+	}
+		available = {
+		has_completed_focus = OTF_kuoda_diqu_shequn
+		}
+		target_trigger = {
+        FROM = {
+		is_controlled_by = OTF
+          }
+        }
+		cost = 50
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			554 677 553 799 1058 1568 1569 1570 1425 675 291 1056 1396 1395 1426 1329
+		}
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        state_production_speed_buildings_factor = 0.1
+		local_manpower = 0.15
+		local_building_slots_factor = 0.2
+    }
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

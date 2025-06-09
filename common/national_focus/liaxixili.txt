@@ -1,0 +1,926 @@
+focus_tree = {
+	id = RSC_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RSC
+		}
+	}
+	
+	default = no
+	
+	#西西里的王冠
+	focus = {
+		id = RSC_xixili_wangguan
+		icon = GFX_focus_rom_abdicate
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		}
+	}
+	#集结北部部队
+	focus = {
+		id = RSC_jijie_beibu_army
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = RSC_xixili_wangguan}
+		relative_position_id = RSC_xixili_wangguan
+		x = -6
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RSC_jijie_army
+		}
+	}
+	#联合黑手党
+	focus = {
+		id = RSC_lianhe_heishoudang
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = RSC_xixili_wangguan}
+		relative_position_id = RSC_xixili_wangguan
+		x = -4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RSC_heishoudang
+		}
+	}
+	#防御计划
+	focus = {
+		id = RSC_fangyu_plan
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = RSC_jijie_beibu_army}
+		relative_position_id = RSC_jijie_beibu_army
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = RSC_fangyu_plan
+    days = 360
+}
+		}
+	}
+	#整编部队
+	focus = {
+		id = RSC_zhengbian_budui
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = RSC_fangyu_plan}
+		relative_position_id = RSC_fangyu_plan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_wangguo_army_2
+		remove_idea = RSC_wangguo_army
+		}
+		}
+	}
+	#革新战争思想
+	focus = {
+		id = RSC_gexin_zhanzheng_sixiang
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = RSC_zhengbian_budui}
+		relative_position_id = RSC_zhengbian_budui
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_wangguo_army_3
+		remove_idea = RSC_wangguo_army_2
+		}
+		}
+	}
+	#接管塔兰托
+	focus = {
+		id = RSC_jieguan_talantuo
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = RSC_jijie_beibu_army}
+		prerequisite = { focus = RSC_lianhe_heishoudang}
+		relative_position_id = RSC_lianhe_heishoudang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RSC_jieguan_talantuo
+		}
+	}
+	#那不勒斯动员体系
+	focus = {
+		id = RSC_nabulesi_dongyuantixi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = RSC_jieguan_talantuo}
+		relative_position_id = RSC_jieguan_talantuo
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RSC_nabulesi_dongyuantixi
+		}
+	}
+	#组建农民军团
+	focus = {
+		id = RSC_zujian_nongmin_juntuan
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = RSC_nabulesi_dongyuantixi}
+		relative_position_id = RSC_nabulesi_dongyuantixi
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RSC_nongmin_juntuan
+		}
+	}
+	#破坏军政府
+	focus = {
+		id = RSC_pohuai_junzhengfu
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = RSC_lianhe_heishoudang}
+		relative_position_id = RSC_lianhe_heishoudang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		115 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.3
+			}
+		}
+		115 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		960 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.3
+			}
+		}
+		960 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		959 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.3
+			}
+		}
+		959 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.3
+			}
+		}
+		}
+	}
+	#号召地区起义
+	focus = {
+		id = RSC_haozhao_difang_qiyi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = RSC_pohuai_junzhengfu}
+		relative_position_id = RSC_pohuai_junzhengfu
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RSC_diqu_qiyi
+		}
+	}
+	#渡河行动
+	focus = {
+		id = RSC_duhe_xingdong
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = RSC_haozhao_difang_qiyi}
+		relative_position_id = RSC_haozhao_difang_qiyi
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RSC_duhe_xingdong
+		}
+	}
+	#向北方前进
+	focus = {
+		id = RSC_xiangbeifang_qianjin
+		icon = GFX_focus_POL_support_global_falangism
+		prerequisite = { focus = RSC_duhe_xingdong}
+		prerequisite = { focus = RSC_gexin_zhanzheng_sixiang}
+		prerequisite = { focus = RSC_zujian_nongmin_juntuan}
+		relative_position_id = RSC_zujian_nongmin_juntuan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#反攻计划
+	focus = {
+		id = RSC_fangong_jihua
+		icon = GFX_focus_ETH_expand_the_kebur_zabagna
+		prerequisite = { focus = RSC_xiangbeifang_qianjin}
+		relative_position_id = RSC_xiangbeifang_qianjin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = RSC_fangyu_plan
+		}
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = RSC_fangong_plan
+    days = 360
+}
+		}
+	}
+	#进口西方武装
+	focus = {
+		id = RSC_jinkou_xifang_wuzhuang
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = RSC_xiangbeifang_qianjin}
+		relative_position_id = RSC_xiangbeifang_qianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = UKM
+}
+		}
+	}
+	#海洋战争
+	focus = {
+		id = RSC_sea_war
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = RSC_xiangbeifang_qianjin}
+		relative_position_id = RSC_xiangbeifang_qianjin
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = RSC_fangyu_plan
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_sea_war
+		remove_idea = RSC_duhe_xingdong
+		}
+		}
+	}
+	#那不勒斯整合
+	focus = {
+		id = RSC_nabulesi_zhenghe
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = RSC_xixili_wangguan}
+		relative_position_id = RSC_xixili_wangguan
+		x = 5
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RSC_nabulesi_zhenghe
+		}
+	}
+	#整合那不勒斯工业
+	focus = {
+		id = RSC_zhenghe_nabulesi_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = RSC_nabulesi_zhenghe}
+		relative_position_id = RSC_nabulesi_zhenghe
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#海洋经济
+	focus = {
+		id = RSC_haiyang_jingji
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = RSC_zhenghe_nabulesi_gongye}
+		relative_position_id = RSC_zhenghe_nabulesi_gongye
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RSC_haiyang_jingji
+		}
+	}
+	#进口机器
+	focus = {
+		id = RSC_jinkou_jiqi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = RSC_haiyang_jingji}
+		relative_position_id = RSC_haiyang_jingji
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#军事工业扩张
+	focus = {
+		id = RSC_junshi_gongye_kuozhang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = RSC_zhenghe_nabulesi_gongye}
+		relative_position_id = RSC_zhenghe_nabulesi_gongye
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		117 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#总体战军工
+	focus = {
+		id = RSC_zongtizhan_jungong
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = RSC_junshi_gongye_kuozhang}
+		relative_position_id = RSC_junshi_gongye_kuozhang
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		156 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#农业革新
+	focus = {
+		id = RSC_nongye_gexin
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = RSC_nabulesi_zhenghe}
+		relative_position_id = RSC_nabulesi_zhenghe
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_nongye_guojia_2
+		remove_idea = RSC_nongye_guojia
+		}
+		}
+	}
+	#小农计划
+	focus = {
+		id = RSC_xiaonong_plan
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = RSC_nongye_gexin}
+		relative_position_id = RSC_nongye_gexin
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_nongye_guojia_3
+		remove_idea = RSC_nongye_guojia_2
+		}
+		}
+	}
+	#现代化农业
+	focus = {
+		id = RSC_xiandaihua_nongye
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = RSC_xiaonong_plan}
+		relative_position_id = RSC_xiaonong_plan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_nongye_guojia_4
+		remove_idea = RSC_nongye_guojia_3
+		}
+		}
+	}
+	#西西里工业
+	focus = {
+		id = RSC_xixili_ic
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = RSC_zongtizhan_jungong}
+		relative_position_id = RSC_zongtizhan_jungong
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 115
+		}
+		completion_reward = {
+		115 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#扩建军工
+	focus = {
+		id = RSC_kuojian_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = RSC_xixili_ic}
+		relative_position_id = RSC_xixili_ic
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 959
+		}
+		completion_reward = {
+		959 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#发展海港
+	focus = {
+		id = RSC_fazhan_haigang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = RSC_xixili_ic}
+		relative_position_id = RSC_xixili_ic
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 960
+		}
+		completion_reward = {
+		960 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#西西里议院
+	focus = {
+		id = RSC_xixili_yiyuan
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = RSC_xixili_wangguan}
+		relative_position_id = RSC_xixili_wangguan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_xixili_wangguan_2
+		remove_idea = RSC_xixili_wangguan
+		}
+		}
+	}
+	#萨丁谈判
+	focus = {
+		id = RSC_sading_tanpan
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = RSC_xixili_yiyuan}
+		relative_position_id = RSC_xixili_yiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		SAD = { country_event = { id = holy_yidali.8 } }
+		}
+	}
+	#联合北方王冠势力
+	focus = {
+		id = RSC_lianhe_beifang_wangguan
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = RSC_xixili_yiyuan}
+		relative_position_id = RSC_xixili_yiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RSC_xixili_wangguan_3
+		remove_idea = RSC_xixili_wangguan_2
+		}
+		}
+	}
+	#解决中部问题
+	focus = {
+		id = RSC_jiejue_zhongbu_wenti
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = RSC_lianhe_beifang_wangguan}
+		relative_position_id = RSC_lianhe_beifang_wangguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 157
+		controls_state = 2
+		controls_state = 1043
+		}
+		completion_reward = {
+		PAP = {
+		transfer_state = 157
+		transfer_state = 2
+		transfer_state = 1043
+		add_state_core = 1043
+		add_state_core = 157
+		add_state_core = 2
+		load_oob = PAP_new
+		}
+		puppet = PAP
+		}
+	}
+	#邦联意大利
+	focus = {
+		id = RSC_banglian_yidali
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = RSC_jiejue_zhongbu_wenti}
+		relative_position_id = RSC_jiejue_zhongbu_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 161
+		controls_state = 162
+		controls_state = 1391
+		controls_state = 1392
+		controls_state = 956
+		controls_state = 1393
+		controls_state = 1825
+		OR = {
+		SAD = {
+		controls_state = 114
+		controls_state = 158
+		controls_state = 1304
+		controls_state = 955
+		controls_state = 954
+		controls_state = 1826
+		is_puppet_of = RSC
+		}
+		AND = {
+		controls_state = 114
+		controls_state = 158
+		controls_state = 1304
+		controls_state = 955
+		controls_state = 954
+		controls_state = 1826
+		}
+		}
+		}
+		completion_reward = {
+		TSK = {
+		transfer_state = 1391
+		transfer_state = 1392
+		transfer_state = 162
+		add_state_core = 162
+		add_state_core = 1391
+		add_state_core = 1392
+		load_oob = TSK_new
+		}
+		PAM = {
+		transfer_state = 161
+		transfer_state = 956
+		transfer_state = 1393
+		transfer_state = 161
+		add_state_core = 956
+		add_state_core = 1393
+		load_oob = PAM_new
+		}
+		if = {
+		limit = {
+		SAD = {
+		NOT = {
+		is_puppet_of = RSC
+		}
+		}
+		}
+		SAD = {
+		transfer_state = 114
+		transfer_state = 158
+		transfer_state = 1304
+		transfer_state = 955
+		transfer_state = 954
+		transfer_state = 1826
+		load_focus_tree = tongyong_focus
+		load_oob = SAD_new
+		}
+		puppet = SAD
+		}
+		puppet = TSK
+		puppet = PAM
+		news_event = {
+				id = holy_news.72 days = 1
+			}
+		}
+	}
+	#北方谈判
+	focus = {
+		id = RSC_beifang_tanpan
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = RSC_banglian_yidali }
+		relative_position_id = RSC_banglian_yidali
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		controls_state = 1394
+		}
+		MLA = {
+		transfer_state = 1394
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 159
+		}
+		MLA = {
+		transfer_state = 159
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 160
+		}
+		VNC = {
+		transfer_state = 160
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 961
+		}
+		VNC = {
+		transfer_state = 961
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1044
+		}
+		VNC = {
+		transfer_state = 1044
+		}
+		}
+		if = {
+		limit = {
+		MLA = { 
+		OR = {
+		is_puppet_of = AUS
+		is_puppet = no
+		}
+		}
+		VNC = {
+		OR = {
+		is_puppet_of = AUS
+		is_puppet = no
+		}
+		}
+		}
+		AUS = { country_event = { id = holy_yidali.14 } }
+		puppet = MLA
+		puppet = VNC
+		}
+		news_event = {
+				id = holy_news.75 days = 1
+			}
+		declare_war_on = {
+    target = ITB
+    type = annex_everything
+}
+		}
+	}
+	#哈布斯堡之春
+	focus = {
+		id = RSC_habusibao_zhichun
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = RSC_beifang_tanpan}
+		relative_position_id = RSC_beifang_tanpan
+		mutually_exclusive = { focus = RSC_diluoer_war }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		AUS = {
+		is_puppet = no
+		}
+		}
+		completion_reward = {
+		AUS = {
+		add_to_faction = RSC
+		}
+		}
+	}
+	#蒂罗尔战争
+	focus = {
+		id = RSC_diluoer_war
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = RSC_beifang_tanpan}
+		relative_position_id = RSC_beifang_tanpan
+		mutually_exclusive = { focus = RSC_habusibao_zhichun }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		AUS = {
+		OR = {
+		is_puppet = yes
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AUS
+    type = annex_everything
+}
+		}
+	}
+	#萨伏伊征服
+	focus = {
+		id = RSC_safuyi_zhengfu
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = RSC_diluoer_war focus = RSC_habusibao_zhichun }
+		relative_position_id = RSC_habusibao_zhichun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FRA
+    type = annex_everything
+}
+		}
+	}
+	#斯洛文尼亚战争
+	focus = {
+		id = RSC_siluowenniya_war
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = RSC_diluoer_war focus = RSC_habusibao_zhichun }
+		relative_position_id = RSC_diluoer_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SLV
+    type = annex_everything
+}
+		}
+	}
+}

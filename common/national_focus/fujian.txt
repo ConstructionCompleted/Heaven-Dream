@@ -1,0 +1,316 @@
+focus_tree = {
+	id = CGH_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CGH
+		}
+	}
+	
+	default = no
+ 
+	#福建之义
+	focus = {
+		id = CGH_fujian_zhiyi
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 1
+		cost = 0.1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#整合福建
+	focus = {
+		id = CGH_zhenghe_fujian
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = CGH_fujian_zhiyi}
+		relative_position_id = CGH_fujian_zhiyi
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			swap_ideas = {
+			add_idea = CGH_canpo_zhidi_2
+			remove_idea = CGH_canpo_zhidi
+			}
+		}
+	}
+	#二五减租
+	focus = {
+		id = CGH_erwu_jianzu
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = CGH_zhenghe_fujian}
+		relative_position_id = CGH_zhenghe_fujian
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CGH_erwu_jianzu
+			remove_idea = CGH_canpo_zhidi_2
+			}
+		}
+	}
+	#联合资本
+	focus = {
+		id = CGH_lianhe_ziben
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = CGH_erwu_jianzu}
+		relative_position_id = CGH_erwu_jianzu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CGH_erwu_jianzu_2
+			remove_idea = CGH_erwu_jianzu
+			}
+		}
+	}
+	#福建水师重建
+	focus = {
+		id = CGH_fujian_shuishi_chongjian
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = CGH_lianhe_ziben}
+		relative_position_id = CGH_lianhe_ziben
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1285 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#土制工厂
+	focus = {
+		id = CGH_tuzhi_gongchang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CGH_lianhe_ziben}
+		relative_position_id = CGH_lianhe_ziben
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1289 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			1290 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#吸引台湾资产
+	focus = {
+		id = CGH_xiyin_twa
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = CGH_fujian_shuishi_chongjian}、
+		prerequisite = { focus = CGH_tuzhi_gongchang}
+		relative_position_id = CGH_fujian_shuishi_chongjian
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		TWA = {
+		OR = {
+		has_government = democratic
+		has_government = progressism
+		}
+		}
+		}
+		bypass = {
+		TWA = {
+		NOT = {
+		OR = {
+		has_government = democratic
+		has_government = progressism
+		}
+		}
+		}
+		}
+		completion_reward = {
+			1286 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#策反敌军
+	focus = {
+		id = CGH_cefan_dijun
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = CGH_zhenghe_fujian}
+		relative_position_id = CGH_zhenghe_fujian
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			load_oob = CGH_cefan
+		}
+	}
+	#统合民兵部队
+	focus = {
+		id = CGH_tonghe_minbing_budui
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = CGH_zhenghe_fujian}
+		relative_position_id = CGH_zhenghe_fujian
+		x = 3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			load_oob = CGH_minbing_budui
+			swap_ideas = {
+			add_idea = CGH_fujian_wuzhuang
+			remove_idea = CGH_fujian_lianjun
+			}
+		}
+	}
+	#福建武装部队
+	focus = {
+		id = CGH_fujian_wuzhuang_budui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CGH_cefan_dijun}
+		prerequisite = { focus = CGH_tonghe_minbing_budui}
+		relative_position_id = CGH_tonghe_minbing_budui
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CGH_fujian_wuzhuang_2
+			remove_idea = CGH_fujian_wuzhuang
+			}
+		}
+	}
+	#推崇共和
+	focus = {
+		id = CGH_tuichong_gonghe
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = CGH_fujian_wuzhuang_budui}
+		relative_position_id = CGH_fujian_wuzhuang_budui
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CGH_gonghe_dream_2
+			remove_idea = CGH_gonghe_dream
+			}
+		}
+	}
+	#革命之义
+	focus = {
+		id = CGH_geming_zhiyi
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CGH_tuichong_gonghe}
+		relative_position_id = CGH_tuichong_gonghe
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#推到蒋介石
+	focus = {
+		id = CGH_tuidao_jiangjieshi
+		icon = GFX_focus_CZE_military_aeronautical_institute
+		prerequisite = { focus = CGH_geming_zhiyi}
+		prerequisite = { focus = CGH_xiyin_twa}
+		relative_position_id = CGH_geming_zhiyi
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CGH_tuidao_jiangjieshi
+    days = 180
+}
+		}
+	}
+	#回归中央
+	focus = {
+		id = CGH_huigui_zongyang
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = CGH_tuidao_jiangjieshi}
+		relative_position_id = CGH_tuidao_jiangjieshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NNJ = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		KMT = { puppet = CGH }
+		}
+	}
+}

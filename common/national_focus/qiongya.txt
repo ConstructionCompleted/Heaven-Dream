@@ -1,0 +1,421 @@
+focus_tree = {
+	id = QYZ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = QYZ
+		}
+	}
+	
+	default = no
+ 
+	#琼崖战争
+	focus = {
+		id = QYZ_qiongya_zhanzheng
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#整合海南岛
+	focus = {
+		id = QYZ_zhenghe_hainandao
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = QYZ_qiongya_zhanzheng}
+		relative_position_id = QYZ_qiongya_zhanzheng
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 591
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = QYZ_yiwusuoyou_2
+			remove_idea = QYZ_yiwusuoyou
+			}
+		}
+	}
+	#组建新兵
+	focus = {
+		id = QYZ_zujian_newarmy
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = QYZ_qiongya_zhanzheng}
+		relative_position_id = QYZ_qiongya_zhanzheng
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 591
+		}
+		completion_reward = {
+		    load_oob = QYZ_newarmy
+		}
+	}
+	#保卫海南岛！
+	focus = {
+		id = QYZ_baowei_hainan
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = QYZ_zhenghe_hainandao}
+		prerequisite = { focus = QYZ_zujian_newarmy}
+		relative_position_id = QYZ_zhenghe_hainandao
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 591
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = QYZ_buqubunao_2
+			remove_idea = QYZ_buqubunao
+			}
+		}
+	}
+	#组建两广罢工
+	focus = {
+		id = QYZ_zujian_liangguang_badong
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = QYZ_baowei_hainan}
+		relative_position_id = QYZ_baowei_hainan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    OGU = {
+			add_timed_idea = {
+    idea = QYZ_bagong
+    days = 180
+}
+			}
+			GUI = {
+			add_timed_idea = {
+    idea = QYZ_bagong
+    days = 180
+}
+			}
+			if = {
+			limit = {
+			YUE = {
+			NOT = {
+			OR = {
+			has_government = communism
+			has_government = socialism
+			has_government = progressism
+			}
+			}
+			}
+			}
+			YUE = {
+			add_timed_idea = {
+    idea = QYZ_bagong
+    days = 180
+}
+			}
+		}
+	}
+	}
+	#湛江战斗
+	focus = {
+		id = QYZ_zhanjiang_TTK
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = QYZ_baowei_hainan}
+		relative_position_id = QYZ_baowei_hainan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = QYZ_zhanjiang
+		}
+	}
+	#革命的胜利
+	focus = {
+		id = QYZ_geming_vic
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = QYZ_zhanjiang_TTK}
+		prerequisite = { focus = QYZ_zujian_liangguang_badong}
+		relative_position_id = QYZ_zujian_liangguang_badong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OGU = {
+		exists = no
+		}
+		GUI = {
+		exists = no
+		}
+		YUE = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_stability = 0.05
+		}
+	}
+	#踏上征途
+	focus = {
+		id = QYZ_tashang_zhnegtu
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = QYZ_geming_vic}
+		relative_position_id = QYZ_geming_vic
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CCP = { puppet = QYZ }
+		}
+	}
+	#赤色两广
+	focus = {
+		id = QYZ_chise_liangguang
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = QYZ_geming_vic}
+		relative_position_id = QYZ_geming_vic
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QYZ_yiwusuoyou_2
+		add_ideas = QYZ_guangdong_wenti
+		add_ideas = QYZ_guangxi_wenti
+		}
+	}
+	#扫平广西匪患
+	focus = {
+		id = QYZ_saoping_guangxi_feihuan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = QYZ_chise_liangguang}
+		relative_position_id = QYZ_chise_liangguang
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = QYZ_guangxi_wenti_2
+			remove_idea = QYZ_guangxi_wenti
+			}
+		}
+	}
+	#建设广西文官
+	focus = {
+		id = QYZ_jianshe_guangxi_wenguan
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = QYZ_saoping_guangxi_feihuan}
+		relative_position_id = QYZ_saoping_guangxi_feihuan
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QYZ_guangxi_wenti_2
+		}
+	}
+	#对抗广东资本
+	focus = {
+		id = QYZ_duikang_guangdong_ziben
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = QYZ_chise_liangguang}
+		relative_position_id = QYZ_chise_liangguang
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = QYZ_guangdong_wenti_2
+			remove_idea = QYZ_guangdong_wenti
+			}
+		}
+	}
+	#重启广东政府
+	focus = {
+		id = QYZ_chongqi_guangdong_zhengfu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = QYZ_duikang_guangdong_ziben}
+		relative_position_id = QYZ_duikang_guangdong_ziben
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QYZ_guangdong_wenti_2
+		}
+	}
+	#完成新联合政府
+	focus = {
+		id = QYZ_wancheng_new_lianhe
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = QYZ_chongqi_guangdong_zhengfu}
+		prerequisite = { focus = QYZ_jianshe_guangxi_wenguan}
+		relative_position_id = QYZ_chongqi_guangdong_zhengfu
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_cosmetic_tag = YUE
+		add_political_power = 50
+		add_stability = 0.05
+		every_state = {
+		limit = {
+		region = 248
+		}
+		add_core_of = QYZ
+		}
+		}
+	}
+	#武装备战
+	focus = {
+		id = QYZ_wuzhuang_beizhan
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = QYZ_geming_vic}
+		relative_position_id = QYZ_geming_vic
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QYZ_wuzhuang_beizhan
+		remove_idea = QYZ_nanhai_liuguang
+		}
+		}
+	}
+	#军事工业
+	focus = {
+		id = QYZ_army_ic
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = QYZ_wuzhuang_beizhan}
+		relative_position_id = QYZ_wuzhuang_beizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QYZ_junshi_gongye
+		}
+	}
+	#武装火力
+	focus = {
+		id = QYZ_wuzhuang_huoli
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = QYZ_army_ic}
+		relative_position_id = QYZ_army_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QYZ_junshi_gongye_2
+		remove_idea = QYZ_junshi_gongye
+		}
+		}
+	}
+	#战争意志
+	focus = {
+		id = QYZ_zhanzheng_yizhi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = QYZ_wuzhuang_beizhan}
+		relative_position_id = QYZ_wuzhuang_beizhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QYZ_wuzhuang_beizhan_2
+		remove_idea = QYZ_wuzhuang_beizhan
+		}
+		}
+	}
+	#永恒的战斗
+	focus = {
+		id = QYZ_yongheng_ttk
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = QYZ_zhanzheng_yizhi}
+		relative_position_id = QYZ_zhanzheng_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QYZ_wuzhuang_beizhan_3
+		remove_idea = QYZ_wuzhuang_beizhan_2
+		}
+		}
+	}
+	#为了中国之革命
+	focus = {
+		id = QYZ_for_china_gm
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		prerequisite = { focus = QYZ_wuzhuang_huoli}
+		prerequisite = { focus = QYZ_yongheng_ttk}
+		relative_position_id = QYZ_yongheng_ttk
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+}

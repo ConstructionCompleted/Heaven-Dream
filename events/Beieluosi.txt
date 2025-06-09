@@ -1,0 +1,326 @@
+add_namespace = holy_beieluosi
+#将军的演讲
+country_event = {
+	id = holy_beieluosi.1
+	title = holy_beieluosi.1.t
+	desc = holy_beieluosi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.1.a
+		add_political_power = 50
+		add_war_support = 0.1
+	}
+}
+#收拾余光
+country_event = {
+	id = holy_beieluosi.2
+	title = holy_beieluosi.2.t
+	desc = holy_beieluosi.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.2.a
+		add_political_power = 50
+	}
+}
+#聊以自慰
+country_event = {
+	id = holy_beieluosi.3
+	title = holy_beieluosi.3.t
+	desc = holy_beieluosi.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.3.a
+		add_stability = 0.05
+	}
+}
+#联合帝国派
+country_event = {
+	id = holy_beieluosi.4
+	title = holy_beieluosi.4.t
+	desc = holy_beieluosi.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = RUN
+	has_completed_focus = RUN_shoushi_yuguang
+	has_completed_focus = RUN_liaoyi_ziwei
+	date > 1936.3.1
+	}
+	option = {
+		name = holy_beieluosi.4.a
+		ai_chance = {
+		factor = 10
+		}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+complete_national_focus = RUN_jihui_laidao
+	}
+}
+#联络弗拉索夫
+country_event = {
+	id = holy_beieluosi.5
+	title = holy_beieluosi.5.t
+	desc = holy_beieluosi.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.5.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		annex_country = {
+    target = POA
+    transfer_troops = yes
+}
+}
+	}
+	option = {
+		name = holy_beieluosi.5.b
+		ai_chance = {
+		    factor = 20
+		}
+		RUN = {
+		declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+	}
+	}
+}
+#联络奥伦堡
+country_event = {
+	id = holy_beieluosi.6
+	title = holy_beieluosi.6.t
+	desc = holy_beieluosi.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.6.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = URL
+}
+	}
+	option = {
+		name = holy_beieluosi.6.b
+		ai_chance = {
+		    factor = 10
+		}
+	}
+}
+#联络科穆奇
+country_event = {
+	id = holy_beieluosi.7
+	title = holy_beieluosi.7.t
+	desc = holy_beieluosi.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.7.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		annex_country = {
+    target = PRM
+    transfer_troops = yes
+}
+}
+	}
+	option = {
+		name = holy_beieluosi.7.b
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+	}
+	}
+}
+#沙皇的要求
+country_event = {
+	id = holy_beieluosi.8
+	title = holy_beieluosi.8.t
+	desc = holy_beieluosi.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.8.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		puppet = URL
+        }
+	}
+	option = {
+		name = holy_beieluosi.8.b
+		ai_chance = {
+		    factor = 0
+		}
+		RUN = {
+		declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+	}
+	}
+}
+#沙皇的要求
+country_event = {
+	id = holy_beieluosi.9
+	title = holy_beieluosi.9.t
+	desc = holy_beieluosi.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.9.a
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			DRG = {
+			has_completed_focus = DRG_gaoerchae_lianmeng
+			}
+			factor = 1000
+			}
+		}
+		RUN = {
+		annex_country = {
+    target = DRG
+    transfer_troops = yes
+}
+        }
+	}
+	option = {
+		name = holy_beieluosi.9.b
+		ai_chance = {
+		    factor = 5
+		}
+		RUN = {
+		declare_war_on = {
+    target = DRG
+    type = annex_everything
+}
+	}
+	}
+}
+#沙皇的要求
+country_event = {
+	id = holy_beieluosi.10
+	title = holy_beieluosi.10.t
+	desc = holy_beieluosi.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.10.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		puppet = ARS
+        }
+		SOV = {
+		add_to_fation = KAZ
+        }
+	}
+	option = {
+		name = holy_beieluosi.10.b
+		ai_chance = {
+		    factor = 5
+		}
+	}
+}
+#沙皇的要求
+country_event = {
+	id = holy_beieluosi.11
+	title = holy_beieluosi.11.t
+	desc = holy_beieluosi.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.11.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		annex_country = {
+    target = SBG
+    transfer_troops = yes
+}
+        }
+	}
+	option = {
+		name = holy_beieluosi.11.b
+		ai_chance = {
+		    factor = 5
+		}
+		RUN = {
+		declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+	}
+	}
+}
+#沙皇的要求
+country_event = {
+	id = holy_beieluosi.12
+	title = holy_beieluosi.12.t
+	desc = holy_beieluosi.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beieluosi.12.a
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			CRM = {
+			has_completed_focus = CRM_xiaozhong_shahuang
+			}
+			factor = 1000
+			}
+		}
+		RUN = {
+		annex_country = {
+    target = CRM
+    transfer_troops = yes
+}
+        }
+	}
+	option = {
+		name = holy_beieluosi.12.b
+		ai_chance = {
+		    factor = 5
+		}
+		RUN = {
+		declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+	}
+	}
+}

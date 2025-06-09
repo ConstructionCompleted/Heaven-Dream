@@ -1,0 +1,506 @@
+focus_tree = {
+	id = MLA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MLA
+		}
+	}
+	
+	default = no
+	
+	#米兰的未来
+	focus = {
+		id = MLA_milan_weilai
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 15
+		y = 0
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_yidali.19
+    days = 1
+}
+add_political_power = 50
+		}
+	}
+	#延续民主
+	focus = {
+		id = MLA_yanxu_minzhu
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = MLA_milan_weilai}
+		relative_position_id = MLA_milan_weilai
+		mutually_exclusive = { focus = MLA_lunbadi_gaizu }
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		has_country_flag = MLA_gongheguo
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+swap_ideas = {
+add_idea = MLA_yanxu_minzhu
+remove_idea = MLA_yaoye_gongheguo
+}
+		}
+	}
+	#黄金共和国
+	focus = {
+		id = MLA_huangjin_gongheguo
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = MLA_yanxu_minzhu}
+		relative_position_id = MLA_yanxu_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+swap_ideas = {
+add_idea = MLA_yanxu_minzhu_2
+remove_idea = MLA_yanxu_minzhu
+}
+		}
+	}
+	#扩建民主卫队
+	focus = {
+		id = MLA_kuojian_minzhu_weidui
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = MLA_huangjin_gongheguo}
+		relative_position_id = MLA_huangjin_gongheguo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = MLA_minzhu_weidui
+		add_ideas = MLA_democreatic_army
+		}
+	}
+	#自由思想
+	focus = {
+		id = MLA_free_dream
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MLA_kuojian_minzhu_weidui}
+		relative_position_id = MLA_kuojian_minzhu_weidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+add_idea = MLA_yanxu_minzhu_3
+remove_idea = MLA_yanxu_minzhu_2
+}
+		}
+	}
+	#组建议院
+	focus = {
+		id = MLA_zujian_yiyuan
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = MLA_free_dream}
+		relative_position_id = MLA_free_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+add_idea = MLA_yanxu_minzhu_4
+remove_idea = MLA_yanxu_minzhu_3
+}
+		}
+	}
+	#开发米兰经济
+	focus = {
+		id = MLA_kaifa_milan_jingji
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = MLA_huangjin_gongheguo}
+		relative_position_id = MLA_huangjin_gongheguo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1394 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#波河工业扩建
+	focus = {
+		id = MLA_bohe_gongye_kuojian
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = MLA_kaifa_milan_jingji}
+		relative_position_id = MLA_kaifa_milan_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		159 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设军事工业
+	focus = {
+		id = MLA_jianshe_junshi_gongye
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = MLA_bohe_gongye_kuojian}
+		relative_position_id = MLA_bohe_gongye_kuojian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+159 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#真正的意大利
+	focus = {
+		id = MLA_zhenzheng_yidali
+		icon = GFX_focus_ETH_invite_italian_settlers
+		prerequisite = { focus = MLA_zujian_yiyuan}
+		prerequisite = { focus = MLA_jianshe_junshi_gongye}
+		relative_position_id = MLA_zujian_yiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		AUS = {
+		NOT = {
+		is_in_faction_with = PLS
+		}
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.119 days = 1
+			}
+AUS = {
+end_puppet = MLA
+end_puppet = VNC
+}
+VNC = {
+leave_faction = yes
+}
+MLA = {
+leave_faction = yes
+}
+ITB = {
+annex_country = {
+    target = MLA
+    transfer_troops = yes
+}
+change_tag_from = MLA
+}
+if = {
+limit = {
+VNC = {
+has_completed_focus = VNC_weichi_minzhu_sixiang
+}
+}
+ITB = {
+annex_country = {
+    target = VNC
+    transfer_troops = yes
+}
+change_tag_from = VNC
+}
+}
+if = {
+limit = {
+VNC = {
+has_completed_focus = VNC_dengnanzhe_yewang
+}
+}
+ITB = {
+declare_war_on = {
+    target = VNC
+    type = annex_everything
+}
+}
+}
+		}
+	}
+	#伦巴底改组
+	focus = {
+		id = MLA_lunbadi_gaizu
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = MLA_milan_weilai}
+		relative_position_id = MLA_milan_weilai
+		mutually_exclusive = { focus = MLA_yanxu_minzhu }
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_flag = MLA_lunbadi
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MLA_lunbadi_gaizu
+		remove_idea = MLA_yaoye_gongheguo
+		}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#哈布斯堡的王冠
+	focus = {
+		id = MLA_habusibao_wanggaun
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = MLA_lunbadi_gaizu}
+		relative_position_id = MLA_lunbadi_gaizu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MLA_lunbadi_gaizu_2
+		remove_idea = MLA_lunbadi_gaizu
+		}
+		}
+	}
+	#维持民主氛围
+	focus = {
+		id = MLA_weichi_minzhu_fenwei
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = MLA_habusibao_wanggaun}
+		relative_position_id = MLA_habusibao_wanggaun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MLA_lunbadi_gaizu_3
+		remove_idea = MLA_lunbadi_gaizu_2
+		}
+		}
+	}
+	#寻求奥地利帮助
+	focus = {
+		id = MLA_xunqiu_aodli_help
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = MLA_weichi_minzhu_fenwei}
+		relative_position_id = MLA_weichi_minzhu_fenwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#波河农业
+	focus = {
+		id = MLA_bohe_nongye
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = MLA_xunqiu_aodli_help }
+		relative_position_id = MLA_xunqiu_aodli_help
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MLA_bohenongye
+		}
+	}
+	#组建王国军队
+	focus = {
+		id = MLA_zujian_wangguo_army
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = MLA_habusibao_wanggaun}
+		relative_position_id = MLA_habusibao_wanggaun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MLA_wangguo_army
+		}
+	}
+	#接受意大利人
+	focus = {
+		id = MLA_jieshou_yidali
+		icon = GFX_focus_ITA_cavalry_charge
+		prerequisite = { focus = MLA_zujian_wangguo_army}
+		relative_position_id = MLA_zujian_wangguo_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MLA_wangguo_army_2
+		remove_idea = MLA_wangguo_army
+		}
+		}
+	}
+	#构建沿海防线
+	focus = {
+		id = MLA_goujian_yanhai_fangxian
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = MLA_jieshou_yidali}
+		relative_position_id = MLA_jieshou_yidali
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1394 = {
+			add_building_construction = {
+				type = bunker
+				province = 3780
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 607
+				level = 3
+				instant_build = yes
+			}
+		}
+		159 = {
+			add_building_construction = {
+				type = bunker
+				province = 773
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3776
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11568
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11567
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#奥地利的南方防线
+	focus = {
+		id = MLA_aodli_nanfang_fangxian
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = MLA_bohe_nongye}
+		prerequisite = { focus = MLA_goujian_yanhai_fangxian}
+		relative_position_id = MLA_goujian_yanhai_fangxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MLA_nanfang_fangxian
+		}
+	}
+	#干预威尼斯
+	focus = {
+		id = MLA_ganyu_weinisi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = MLA_aodli_nanfang_fangxian}
+		relative_position_id = MLA_aodli_nanfang_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		AUS = {
+		end_puppet = VNC
+		}
+		declare_war_on = {
+    target = VNC
+    type = annex_everything
+}
+		}
+	}
+}

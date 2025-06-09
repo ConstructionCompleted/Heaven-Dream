@@ -1,0 +1,822 @@
+focus_tree = {
+	id = DAZ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DAZ
+		}
+	}
+	
+	default = no
+	#自由市的未来
+	focus = {
+		id = DAZ_ziyoushi_weilai
+		icon = GFX_focus_generic_treaty
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#扩大贸易航道
+	focus = {
+		id = DAZ_kuoda_maoyi_hangdao
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = DAZ_ziyoushi_weilai}
+		relative_position_id = DAZ_ziyoushi_weilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DAZ_maoyi_hangdao
+		}
+	}
+	#但泽海港
+	focus = {
+		id = DAZ_danze_haigang
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = DAZ_kuoda_maoyi_hangdao}
+		relative_position_id = DAZ_kuoda_maoyi_hangdao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			85 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#渗透普鲁士
+	focus = {
+		id = DAZ_shentou_pulushi
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = DAZ_kuoda_maoyi_hangdao}
+		relative_position_id = DAZ_kuoda_maoyi_hangdao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 5
+			add_state_core = 763
+			add_state_core = 188
+			add_state_core = 807
+			add_state_core = 1541
+			add_state_core = 1540
+		}
+	}
+	#海外资产
+	focus = {
+		id = DAZ_haiwai_zichan
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = DAZ_danze_haigang}
+		relative_position_id = DAZ_danze_haigang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#波罗的工业
+	focus = {
+		id = DAZ_boluodi_gongye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = DAZ_haiwai_zichan}
+		relative_position_id = DAZ_haiwai_zichan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#市区扩建
+	focus = {
+		id = DAZ_shiqu_kuojian
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = DAZ_danze_haigang}
+		prerequisite = { focus = DAZ_shentou_pulushi}
+		relative_position_id = DAZ_shentou_pulushi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			85 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#地区要塞化
+	focus = {
+		id = DAZ_diqu_yaosaihua
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = DAZ_shiqu_kuojian}
+		relative_position_id = DAZ_shiqu_kuojian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			85 = {
+			add_building_construction = {
+				type = bunker
+				province = 9263
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 362
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#西部工业
+	focus = {
+		id = DAZ_xibu_gongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = DAZ_shentou_pulushi}
+		relative_position_id = DAZ_shentou_pulushi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = DAZ_kaiqi_free_lu
+		AND = {
+		controls_state = 188
+		controls_state = 763
+		controls_state = 5
+		controls_state = 85
+		controls_state = 807
+		controls_state = 1540
+		controls_state = 1541
+		}
+		}
+		}
+		completion_reward = {
+			5 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东普鲁士工业
+	focus = {
+		id = DAZ_dongpulushi_gongye
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = DAZ_xibu_gongye}
+		relative_position_id = DAZ_xibu_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = democratic
+		AND = {
+		controls_state = 188
+		controls_state = 763
+		controls_state = 5
+		controls_state = 85
+		controls_state = 807
+		controls_state = 1540
+		controls_state = 1541
+		}
+		}
+		}
+		completion_reward = {
+			763 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+}
+188 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#开启自由之路
+	focus = {
+		id = DAZ_kaiqi_free_lu
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = DAZ_ziyoushi_weilai}
+		relative_position_id = DAZ_ziyoushi_weilai
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		NOT = {
+		has_completed_focus = DAZ_tiaodun_qishituan_zhangquan
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_ziyou_zhengzhi_2
+			remove_idea = DAZ_ziyou_zhengzhi
+			}
+		}
+	}
+	#民族平等
+	focus = {
+		id = DAZ_minzu_pingdeng
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = DAZ_kaiqi_free_lu}
+		relative_position_id = DAZ_kaiqi_free_lu
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_minzu_maodun_2
+			remove_idea = DAZ_minzu_maodun
+			}
+		}
+	}
+	#接纳西斯拉夫人
+	focus = {
+		id = DAZ_jiena_xisilafu
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = DAZ_minzu_pingdeng}
+		relative_position_id = DAZ_minzu_pingdeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_minzu_maodun_3
+			remove_idea = DAZ_minzu_maodun_2
+			}
+		}
+	}
+	#自由主义武装
+	focus = {
+		id = DAZ_ziyou_zhuyi_wuzhuang
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = DAZ_kaiqi_free_lu}
+		relative_position_id = DAZ_kaiqi_free_lu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DAZ_ziyou_zhuyi_wuzhuang
+		}
+	}
+	#三色精神
+	focus = {
+		id = DAZ_sanse_jingshne
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = DAZ_ziyou_zhuyi_wuzhuang}
+		relative_position_id = DAZ_ziyou_zhuyi_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_ziyou_zhuyi_wuzhuang_2
+			remove_idea = DAZ_ziyou_zhuyi_wuzhuang
+			}
+		}
+	}
+	#汉萨武装
+	focus = {
+		id = DAZ_hansa_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = DAZ_kaiqi_free_lu}
+		relative_position_id = DAZ_kaiqi_free_lu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_hansa_wuzhuang
+			add_manpower = 12000
+		}
+	}
+	#扩建新军
+	focus = {
+		id = DAZ_kuojian_xinjun
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = DAZ_hansa_wuzhuang}
+		relative_position_id = DAZ_hansa_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_new_army
+			add_manpower = 12000
+		}
+	}
+	#串联东西普鲁士
+	focus = {
+		id = DAZ_chuanlian_dongxi_pulushi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = DAZ_sanse_jingshne}
+		prerequisite = { focus = DAZ_kuojian_xinjun}
+		relative_position_id = DAZ_sanse_jingshne
+		x = 1
+		y = 1
+		cost = 0.2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_war_with = PLS
+		PLS = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			transfer_state = 5
+			transfer_state = 763
+			transfer_state = 188
+			transfer_state = 807
+			load_oob = DAZ_pulushi
+			add_manpower = 50000
+		}
+	}
+	#波兰民兵
+	focus = {
+		id = DAZ_bolan_minbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = DAZ_chuanlian_dongxi_pulushi}
+		prerequisite = { focus = DAZ_jiena_xisilafu}
+		relative_position_id = DAZ_chuanlian_dongxi_pulushi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_bolan_minbing
+		}
+	}
+	#有序的战争
+	focus = {
+		id = DAZ_youxu_war
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = DAZ_chuanlian_dongxi_pulushi}
+		relative_position_id = DAZ_chuanlian_dongxi_pulushi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_ziyou_zhuyi_wuzhuang_3
+			remove_idea = DAZ_ziyou_zhuyi_wuzhuang_2
+			}
+		}
+	}
+	#德意志铁军
+	focus = {
+		id = DAZ_deyizhi_tiejun
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = DAZ_youxu_war}
+		relative_position_id = DAZ_youxu_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DAZ_deyizhi_tiejun
+		}
+	}
+	#盖叶的黑色部队
+	focus = {
+		id = DAZ_gaiye_black_army
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = DAZ_deyizhi_tiejun}
+		relative_position_id = DAZ_deyizhi_tiejun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_gaiye_black_army
+			remove_idea = DAZ_deyizhi_tiejun
+			}
+		}
+	}
+	#现代化战术
+	focus = {
+		id = DAZ_xiandaihua_zhanshu
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = DAZ_youxu_war}
+		relative_position_id = DAZ_youxu_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_ziyou_zhuyi_wuzhuang_4
+			remove_idea = DAZ_ziyou_zhuyi_wuzhuang_3
+			}
+		}
+	}
+	#完善支援体系
+	focus = {
+		id = DAZ_wanshan_zhiyuan_tixi
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus = DAZ_xiandaihua_zhanshu}
+		relative_position_id = DAZ_xiandaihua_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DAZ_wanshan_zhiyuantixi
+		}
+	}
+	#德意志民兵
+	focus = {
+		id = DAZ_deyizhi_minbing
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = DAZ_chuanlian_dongxi_pulushi}
+		relative_position_id = DAZ_chuanlian_dongxi_pulushi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_deyizhi_minbing
+		}
+	}
+	#条顿骑士团掌权
+	focus = {
+		id = DAZ_tiaodun_qishituan_zhangquan
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = DAZ_ziyoushi_weilai}
+		relative_position_id = DAZ_ziyoushi_weilai
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+		NOT = {
+		has_completed_focus = DAZ_kaiqi_free_lu
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_tiaodun_qishituan
+			remove_idea = DAZ_ziyou_zhengzhi
+			}
+			set_politics = {
+	ruling_party = dictatorship
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+		}
+	}
+	#利用西斯拉夫
+	focus = {
+		id = DAZ_liyong_xisilafu
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = DAZ_tiaodun_qishituan_zhangquan}
+		relative_position_id = DAZ_tiaodun_qishituan_zhangquan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_liyong_xisilafu
+			remove_idea = DAZ_minzu_maodun
+			}
+		}
+	}
+	#波兰劳工
+	focus = {
+		id = DAZ_bolan_laogong
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = DAZ_liyong_xisilafu}
+		relative_position_id = DAZ_liyong_xisilafu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_liyong_xisilafu_2
+			remove_idea = DAZ_liyong_xisilafu
+			}
+		}
+	}
+	#骑士精神
+	focus = {
+		id = DAZ_qishi_jingshen
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = DAZ_tiaodun_qishituan_zhangquan}
+		relative_position_id = DAZ_tiaodun_qishituan_zhangquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DAZ_qishi_jingshen
+		}
+	}
+	#军队牧师
+	focus = {
+		id = DAZ_jundui_mushi
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = DAZ_qishi_jingshen}
+		relative_position_id = DAZ_qishi_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_qishi_jingshen_2
+			remove_idea = DAZ_qishi_jingshen
+			}
+		}
+	}
+	#神权政治
+	focus = {
+		id = DAZ_shenquan_zhengzhi
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = DAZ_tiaodun_qishituan_zhangquan}
+		relative_position_id = DAZ_tiaodun_qishituan_zhangquan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_tiaodun_qishituan_2
+			remove_idea = DAZ_tiaodun_qishituan
+			}
+		}
+	}
+	#但泽教会
+	focus = {
+		id = DAZ_danze_jiaohui
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = DAZ_shenquan_zhengzhi}
+		relative_position_id = DAZ_shenquan_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_tiaodun_qishituan_3
+			remove_idea = DAZ_tiaodun_qishituan_2
+			}
+		}
+	}
+	#反抗勃兰登堡
+	focus = {
+		id = DAZ_fankang_bolandengbao
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = DAZ_jundui_mushi}
+		prerequisite = { focus = DAZ_danze_jiaohui}
+		relative_position_id = DAZ_danze_jiaohui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+		}
+	}
+	#宗教志愿军
+	focus = {
+		id = DAZ_zongjiao_zhiyuanjun
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = DAZ_fankang_bolandengbao}
+		relative_position_id = DAZ_fankang_bolandengbao
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_zongjiao_zhiyuanjun
+		}
+	}
+	#主教区政治
+	focus = {
+		id = DAZ_zhujiaoqu_zhengzhi
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = DAZ_fankang_bolandengbao}
+		relative_position_id = DAZ_fankang_bolandengbao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DAZ_tiaodun_qishituan_4
+			remove_idea = DAZ_tiaodun_qishituan_3
+			}
+		}
+	}
+	#圣战民兵
+	focus = {
+		id = DAZ_shengzhan_minbing
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = DAZ_fankang_bolandengbao}
+		relative_position_id = DAZ_fankang_bolandengbao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DAZ_shengzhan_minbing
+		}
+	}
+	#德意志圣战
+	focus = {
+		id = DAZ_deyizhi_shengzhan
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = DAZ_zongjiao_zhiyuanjun}
+		prerequisite = { focus = DAZ_shengzhan_minbing}
+		prerequisite = { focus = DAZ_zhujiaoqu_zhengzhi}
+		relative_position_id = DAZ_zhujiaoqu_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BXM
+    type = annex_everything
+}
+declare_war_on = {
+    target = SKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = HNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = HSA
+    type = annex_everything
+}
+declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+declare_war_on = {
+    target = LUO
+    type = annex_everything
+}
+declare_war_on = {
+    target = WFL
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = FTB
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAI
+    type = annex_everything
+}
+		}
+	}
+}

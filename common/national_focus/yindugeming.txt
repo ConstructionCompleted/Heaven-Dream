@@ -1,0 +1,1274 @@
+﻿focus_tree = {
+	id = yindugeming_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RAR
+		}
+	}
+	
+	default = no
+	
+	#撕裂国大党面具
+	focus = {
+		id = RAR_silie_guoda_mianju
+		icon = GFX_focus_RAJ_clamp_down_on_corruption
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAR_silie_guoda_mianju
+		add_popularity = {
+    ideology = democratic 
+    popularity = -0.5
+}
+		}
+	}
+	#王公不值一提
+	focus = {
+		id = RAR_wanggong_buzhiyiti
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = RAR_silie_guoda_mianju}
+		relative_position_id = RAR_silie_guoda_mianju
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#冲破种姓牢笼
+	focus = {
+		id = RAR_chongpo_zhongxing_laolong
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = RAR_silie_guoda_mianju}
+		relative_position_id = RAR_silie_guoda_mianju
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAR_chongpo_zhongxing_laolong
+		remove_idea = RAR_silie_guoda_mianju
+		}
+		}
+	}
+	#殖民只是压迫
+	focus = {
+		id = RAR_zhimin_zhishi_yapo
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = RAR_silie_guoda_mianju}
+		relative_position_id = RAR_silie_guoda_mianju
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#阿萨姆的自由
+	focus = {
+		id = RAR_asamu_free
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = RAR_wanggong_buzhiyiti}
+		prerequisite = { focus = RAR_chongpo_zhongxing_laolong}
+		prerequisite = { focus = RAR_zhimin_zhishi_yapo}
+		relative_position_id = RAR_chongpo_zhongxing_laolong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 230
+						region = 231
+						region = 31
+						region = 141
+						region = 153
+						region = 253
+						region = 254
+						region = 251
+						region = 190
+						}
+					}
+add_core_of = RAR
+		}
+		}
+	}
+	#村庄自卫
+	focus = {
+		id = RAR_cunzhuang_ziwei
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = RAR_asamu_free}
+		relative_position_id = RAR_asamu_free
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAR_cunzhuang_ziwei
+		}
+	}
+	#农村包围城市
+	focus = {
+		id = RAR_nongcun_baowei_chengshi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = RAR_cunzhuang_ziwei}
+		relative_position_id = RAR_cunzhuang_ziwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAR_nongcun_baowei_chengshi
+		remove_idea = RAR_cunzhuang_ziwei
+		}
+		}
+	}
+	#穆斯林自由
+	focus = {
+		id = RAR_musilin_free
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = RAR_cunzhuang_ziwei}
+		relative_position_id = RAR_cunzhuang_ziwei
+		mutually_exclusive = { focus = RAR_zongjiao_qiangying }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAR_musilin_free
+		}
+	}
+	#宗教强硬
+	focus = {
+		id = RAR_zongjiao_qiangying
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = RAR_cunzhuang_ziwei}
+		relative_position_id = RAR_cunzhuang_ziwei
+		mutually_exclusive = { focus = RAR_musilin_free }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAR_zongjiao_qiangying
+		}
+	}
+	#人民的国度
+	focus = {
+		id = RAR_renmin_guodu
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = RAR_musilin_free focus = RAR_zongjiao_qiangying}
+		relative_position_id = RAR_zongjiao_qiangying
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		load_oob = RAR_renmin
+		}
+	}
+	#组建人民武装
+	focus = {
+		id = RAR_zuzhuang_renmin_wuzhuang
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = RAR_asamu_free}
+		relative_position_id = RAR_asamu_free
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAR_zujian_renmin_wuzhuang
+		}
+	}
+	#政治委员
+	focus = {
+		id = RAR_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = RAR_zuzhuang_renmin_wuzhuang}
+		relative_position_id = RAR_zuzhuang_renmin_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = RAR_zujian_renmin_wuzhuang_2
+		add_idea = RAR_zujian_renmin_wuzhuang
+		}
+		}
+	}
+	#部队教育
+	focus = {
+		id = RAR_budui_jiaoyu
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = RAR_zhengzhi_weiyuan}
+		relative_position_id = RAR_zhengzhi_weiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAR_budui_jiaoyu
+		}
+	}
+	#走私东方武装
+	focus = {
+		id = RAR_zousi_dongfang_wuzhaung
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = RAR_zhengzhi_weiyuan}
+		relative_position_id = RAR_zhengzhi_weiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = CCP
+}
+		}
+	}
+	#革命部队
+	focus = {
+		id = RAR_geming_budui
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = RAR_budui_jiaoyu}
+		prerequisite = { focus = RAR_zousi_dongfang_wuzhaung}
+		relative_position_id = RAR_zousi_dongfang_wuzhaung
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = RAR_zujian_renmin_wuzhuang_3
+		add_idea = RAR_zujian_renmin_wuzhuang_2
+		}
+		}
+	}
+	#西部的反抗
+	focus = {
+		id = RAR_xibu_fankang
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = RAR_asamu_free}
+		relative_position_id = RAR_asamu_free
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_yindu.10
+    days = 10
+}
+		}
+	}
+	#反政府宣传
+	focus = {
+		id = RAR_fanzhengfu_xuanchuan
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = RAR_xibu_fankang}
+		relative_position_id = RAR_xibu_fankang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		BAN = {
+		add_stability = -0.2
+		}
+		}
+	}
+	#摧毁孟加拉
+	focus = {
+		id = RAR_cuihui_mengjiala
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = RAR_fanzhengfu_xuanchuan}
+		relative_position_id = RAR_fanzhengfu_xuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		BAN = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#打到德里去
+	focus = {
+		id = RAR_dadao_deliqu
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = RAR_cuihui_mengjiala}
+		relative_position_id = RAR_cuihui_mengjiala
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = HDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = NGP
+    type = annex_everything
+}
+		}
+	}
+	#河谷的自由
+	focus = {
+		id = RAR_hegu_free
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = RAR_dadao_deliqu}
+		relative_position_id = RAR_dadao_deliqu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		HDS = {
+		exists = no
+		}
+		NGP = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KSM
+    type = annex_everything
+}
+		}
+	}
+	#西部长征
+	focus = {
+		id = RAR_xibu_changzheng
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = RAR_hegu_free}
+		relative_position_id = RAR_hegu_free
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = RJS
+    type = annex_everything
+}
+declare_war_on = {
+    target = GJR
+    type = annex_everything
+}
+		}
+	}
+	#巴基斯坦谈判
+	focus = {
+		id = RAR_bajisitan_tanpan
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = RAR_xibu_changzheng}
+		relative_position_id = RAR_xibu_changzheng
+		mutually_exclusive = { focus = RAR_jujue_fenlie }
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = RAR_musilin_free
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		PAK = {
+		country_event = {
+    id = holy_yindu.11
+    days = 10
+}
+		}
+		}
+	}
+	#拒绝分裂
+	focus = {
+		id = RAR_jujue_fenlie
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = RAR_xibu_changzheng}
+		relative_position_id = RAR_xibu_changzheng
+		mutually_exclusive = { focus = RAR_bajisitan_tanpan }
+		available = {
+		has_completed_focus = RAR_zongjiao_qiangying
+		}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = PAK
+    type = annex_everything
+}
+		}
+	}
+	#南方战争
+	focus = {
+		id = RAR_nanfang_zhanzheng
+		icon = GFX_focus_attack_india
+		prerequisite = { focus = RAR_hegu_free}
+		relative_position_id = RAR_hegu_free
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = MSR
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHO
+    type = annex_everything
+}
+declare_war_on = {
+    target = ORS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+		}
+	}
+	#解放南方
+	focus = {
+		id = RAR_jiefang_nanfang
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RAR_nanfang_zhanzheng}
+		relative_position_id = RAR_nanfang_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		MSR = {
+		exists = no
+		}
+		CHO = {
+		exists = no
+		}
+		ORS = {
+		exists = no
+		}
+		RAJ = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#印度和平
+	focus = {
+		id = RAR_yindu_wp
+		icon = GFX_focus_RAJ_indianisation_of_army
+		prerequisite = { focus = RAR_jiefang_nanfang}
+		prerequisite = { focus = RAR_jujue_fenlie focus = RAR_bajisitan_tanpan}
+		relative_position_id = RAR_jiefang_nanfang
+		mutually_exclusive = { focus = RAR_shijie_geming_dream }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_stability = 0.2
+		}
+	}
+	#世界革命之梦
+	focus = {
+		id = RAR_shijie_geming_dream
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		prerequisite = { focus = RAR_jiefang_nanfang}
+		prerequisite = { focus = RAR_jujue_fenlie focus = RAR_bajisitan_tanpan}
+		relative_position_id = RAR_jiefang_nanfang
+		mutually_exclusive = { focus = RAR_yindu_wp }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#支援计划
+	focus = {
+		id = RAR_zhiyuan_jihua
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = RAR_shijie_geming_dream}
+		relative_position_id = RAR_shijie_geming_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#向西前进
+	focus = {
+		id = RAR_xiangxi_qianjin
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = RAR_zhiyuan_jihua}
+		relative_position_id = RAR_zhiyuan_jihua
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#阿拉伯社会主义？
+	focus = {
+		id = RAR_alabo_shehuizhuyi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RAR_xiangxi_qianjin}
+		relative_position_id = RAR_xiangxi_qianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#团结伊朗力量
+	focus = {
+		id = RAR_tuanjie_yilang_liliang
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RAR_alabo_shehuizhuyi}
+		relative_position_id = RAR_alabo_shehuizhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		PER = {
+		communism > 40
+		NOT = { has_government = communism }
+		}
+		}
+		bypass = {
+		PER = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		PER = {
+		start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.6
+}
+		}
+	}
+	}
+	#终结阿富汗问题
+	focus = {
+		id = RAR_zhongjie_afuhan_wenti
+		icon = GFX_focus_generic_befriend_afghanistan
+		prerequisite = { focus = RAR_alabo_shehuizhuyi}
+		relative_position_id = RAR_alabo_shehuizhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		AFG = {
+		communism > 40
+		}
+		}
+		bypass = {
+		AFG = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		AFG = {
+		start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.6
+}
+		}
+		}
+	}
+	#支援中东红军
+	focus = {
+		id = RAR_zhiyuan_zhongdong_hongjun
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RAR_zhongjie_afuhan_wenti}
+		prerequisite = { focus = RAR_tuanjie_yilang_liliang}
+		relative_position_id = RAR_tuanjie_yilang_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		AFG = {
+		has_government = communism
+		}
+		PER = {
+		has_government = communism
+		}
+		GEO = {
+		has_government = communism
+		exists = yes
+		}
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#印度武装支援
+	focus = {
+		id = RAR_yindu_wuzhaung_zhiyuan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = RAR_zhiyuan_jihua}
+		relative_position_id = RAR_zhiyuan_jihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#印度志愿军
+	focus = {
+		id = RAR_yinduzhiyuanjun
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = RAR_zhiyuan_jihua}
+		relative_position_id = RAR_zhiyuan_jihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#南亚科研联合
+	focus = {
+		id = RAR_nanya_keyan_lianhe
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = RAR_yindu_wuzhaung_zhiyuan}
+		prerequisite = { focus = RAR_yinduzhiyuanjun}
+		relative_position_id = RAR_yinduzhiyuanjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_to_tech_sharing_group = 南亚科研联合
+		}
+	}
+	#武装干预？
+	focus = {
+		id = RAR_wuzhuang_ganyu
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = RAR_nanya_keyan_lianhe}
+		relative_position_id = RAR_nanya_keyan_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#共产国际
+	focus = {
+		id = RAR_gongchan_guoji
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = RAR_wuzhuang_ganyu}
+		relative_position_id = RAR_wuzhuang_ganyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		PER = {
+		has_government = communism
+		}
+		AFG = {
+		has_government = communism
+		}
+		BRM = {
+		has_government = communism
+		}
+		SIA = {
+		has_government = communism
+		}
+		VIN = {
+		has_government = communism
+		}
+		MAL = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = RAJ
+		add_to_faction = PER
+		add_to_faction = AFG
+		add_to_faction = BRM
+		add_to_faction = SIA
+		add_to_faction = VIN
+		add_to_faction = MAL
+			}
+		}
+	}
+	#向东前进
+	focus = {
+		id = RAR_xiangdong_qianjin
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = RAR_zhiyuan_jihua}
+		relative_position_id = RAR_zhiyuan_jihua
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#缅甸革命
+	focus = {
+		id = RAR_BRM_gm
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = RAR_xiangdong_qianjin}
+		relative_position_id = RAR_xiangdong_qianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		BRM = {
+		communism > 40
+		}
+		}
+		bypass = {
+		BRM = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		BRM = {
+		start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.6
+}
+		}
+		}
+	}
+	#暹罗革命
+	focus = {
+		id = RAR_SIA_gm
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = RAR_BRM_gm}
+		relative_position_id = RAR_BRM_gm
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		SIA = {
+		communism > 40
+		}
+		}
+		bypass = {
+		SIA = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		SIA = {
+		start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.6
+}
+		}
+		}
+	}
+	#支援印度支那
+	focus = {
+		id = RAR_zhiyuan_yinduzhina
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = RAR_SIA_gm}
+		relative_position_id = RAR_SIA_gm
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		IDC = {
+		communism > 40
+		}
+		}
+		bypass = {
+		VIN = {
+		has_government = communism
+		}
+		IDC = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		VIN = {
+		transfer_state = 741
+		transfer_state = 286
+		transfer_state = 1197
+		transfer_state = 1187
+		transfer_state = 1192
+		declare_war_on = {
+    target = IDC
+    type = annex_everything
+}
+		}
+		}
+	}
+	#支援马来亚
+	focus = {
+		id = RAR_zhiyuan_malaiya
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = RAR_SIA_gm}
+		relative_position_id = RAR_SIA_gm
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		MAL = {
+		communism > 40
+		}
+		}
+		bypass = {
+		MAL = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		MAL = {
+		start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.6
+}
+		}
+		}
+	}
+	#锡兰炮响！
+	focus = {
+		id = RAR_xilan_paoxiang
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = RAR_shijie_geming_dream}
+		relative_position_id = RAR_shijie_geming_dream
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		}
+	}
+	#革命建设
+	focus = {
+		id = RAR_geming_jianshe
+		icon = GFX_goal_generic_construction
+		x = 30
+		y = 5
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#人民的福祉
+	focus = {
+		id = RAR_renmin_fuzhi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_geming_jianshe}
+		relative_position_id = RAR_geming_jianshe
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#轻工业自主
+	focus = {
+		id = RAR_qinggongye_zizhu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#科研进步
+	focus = {
+		id = RAR_keyan_jinbu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = -3
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#国际科研
+	focus = {
+		id = RAR_guoji_keyan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_keyan_jinbu}
+		relative_position_id = RAR_keyan_jinbu
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#旧产业工业化
+	focus = {
+		id = RAR_old_chanye_gongyehua
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#德里工业
+	focus = {
+		id = RAR_deli_gongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#德里扩建
+	focus = {
+		id = RAR_deli_kuojian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_deli_gongye}
+		relative_position_id = RAR_deli_gongye
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#全印度的力量
+	focus = {
+		id = RAR_quanyindu_liliang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#人民之力
+	focus = {
+		id = RAR_renmin_zhili
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_quanyindu_liliang}
+		relative_position_id = RAR_quanyindu_liliang
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#基建系统
+	focus = {
+		id = RAR_jijian_xitong
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_renmin_fuzhi}
+		relative_position_id = RAR_renmin_fuzhi
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#西部基建
+	focus = {
+		id = RAR_xibu_jijian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_jijian_xitong}
+		relative_position_id = RAR_jijian_xitong
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#东部基建
+	focus = {
+		id = RAR_dongbu_jijian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_jijian_xitong}
+		relative_position_id = RAR_jijian_xitong
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#南部基建
+	focus = {
+		id = RAR_nanbu_jijian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_dongbu_jijian}
+		prerequisite = { focus = RAR_xibu_jijian}
+		relative_position_id = RAR_dongbu_jijian
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#自主军工体系
+	focus = {
+		id = RAR_zizhu_jungong_xitong
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_geming_jianshe}
+		relative_position_id = RAR_geming_jianshe
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#继承煤钢厂
+	focus = {
+		id = RAR_jicheng_meigangchang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_zizhu_jungong_xitong}
+		relative_position_id = RAR_zizhu_jungong_xitong
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#革命兵工厂
+	focus = {
+		id = RAR_geming_binggongchang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_zizhu_jungong_xitong}
+		relative_position_id = RAR_zizhu_jungong_xitong
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#扩建德里军工
+	focus = {
+		id = RAR_kuojian_deli_jungong
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_jicheng_meigangchang}
+		prerequisite = { focus = RAR_geming_binggongchang}
+		relative_position_id = RAR_jicheng_meigangchang
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#建立孟买海洋体系
+	focus = {
+		id = RAR_jianli_mengmai_haiyang_tixi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RAR_kuojian_deli_jungong}
+		relative_position_id = RAR_kuojian_deli_jungong
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+}

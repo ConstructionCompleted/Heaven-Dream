@@ -1,0 +1,1547 @@
+focus_tree = {
+	id = YAW_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YAW
+		}
+	}
+	
+	default = no
+ 
+    #国王们的土地
+	focus = {
+		id = YAW_guowang_tudi
+		icon = GFX_focus_generic_home_defense
+		mutually_exclusive = { focus = YAW_yaqi_ziyou_zuzhi }
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#清剿自由组织
+	focus = {
+		id = YAW_qingjiao_free_zuzhi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YAW_guowang_tudi}
+		relative_position_id = YAW_guowang_tudi
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_duikang_ziyou_zuzhi
+			add_idea = YAW_duikang_ziyou_zuzhi_2
+			}
+			add_stability = -0.05
+		}
+	}
+	#建立国王权威
+	focus = {
+		id = YAW_jianli_guowang_quanwei
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = YAW_qingjiao_free_zuzhi}
+		relative_position_id = YAW_qingjiao_free_zuzhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_junzhu_quanwei
+		}
+	}
+	#君与神
+	focus = {
+		id = YAW_junyushen
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = YAW_jianli_guowang_quanwei}
+		relative_position_id = YAW_jianli_guowang_quanwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_junzhu_quanwei
+			add_idea = YAW_junzhu_quanwei_2
+			}
+		}
+	}
+	#利用伊斯兰
+	focus = {
+		id = YAW_liyong_ysiilan
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = YAW_qingjiao_free_zuzhi}
+		relative_position_id = YAW_qingjiao_free_zuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_liyong_ysiilan
+		}
+	}
+	#民族主义认同
+	focus = {
+		id = YAW_minzuzhuyi_rentong
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = YAW_liyong_ysiilan}
+		relative_position_id = YAW_liyong_ysiilan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_minzuzhuyi_rentong
+		}
+	}
+	#亚齐——万达合并
+	focus = {
+		id = YAW_yada_wandan_hebing
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = YAW_minzuzhuyi_rentong}
+		prerequisite = { focus = YAW_junyushen}
+		relative_position_id = YAW_minzuzhuyi_rentong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = YAW_yada_wandan_eryuan
+		}
+	}
+	#整顿官僚体系
+	focus = {
+		id = YAW_zhengdun_guanliao_tixi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = YAW_qingjiao_free_zuzhi}
+		relative_position_id = YAW_qingjiao_free_zuzhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_duikang_ziyou_zuzhi_2
+			add_idea = YAW_zhengdun_guanliao_tixi
+			}
+		}
+	}
+	#收缴地方权利
+	focus = {
+		id = YAW_shoujiao_difang_quanli
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = YAW_zhengdun_guanliao_tixi}
+		relative_position_id = YAW_zhengdun_guanliao_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_zhengdun_guanliao_tixi
+			add_idea = YAW_zhengdun_guanliao_tixi_2
+			}
+		}
+	}
+	#中央体系
+	focus = {
+		id = YAW_zhongyang_tixi
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = YAW_shoujiao_difang_quanli}
+		relative_position_id = YAW_shoujiao_difang_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_zhengdun_guanliao_tixi_2
+			add_idea = YAW_zhengdun_guanliao_tixi_3
+			}
+		}
+	}
+	#现代化官僚体系
+	focus = {
+		id = YAW_xiandaihui_guanliaotixi
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = YAW_zhongyang_tixi}
+		prerequisite = { focus = YAW_yada_wandan_hebing}
+		relative_position_id = YAW_zhongyang_tixi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_zhengdun_guanliao_tixi_3
+			add_idea = YAW_zhengdun_guanliao_tixi_4
+			}
+		}
+	}
+	#苏丹国的军队
+	focus = {
+		id = YAW_sudanguo_army
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = YAW_guowang_tudi}
+		relative_position_id = YAW_guowang_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#战争热情
+	focus = {
+		id = YAW_zhanzheng_reqing
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YAW_sudanguo_army}
+		relative_position_id = YAW_sudanguo_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_fengjian_army
+			add_idea = YAW_fengjian_army_2
+			}
+		}
+	}
+	#忠诚军团
+	focus = {
+		id = YAW_zhongcheng_juntuan
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = YAW_zhanzheng_reqing}
+		relative_position_id = YAW_zhanzheng_reqing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_fengjian_army_2
+			add_idea = YAW_fengjian_army_3
+			}
+		}
+	}
+	#革新军队
+	focus = {
+		id = YAW_gexin_jundui
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = YAW_sudanguo_army}
+		relative_position_id = YAW_sudanguo_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_gexin_army
+		}
+	}
+	#征兵体系
+	focus = {
+		id = YAW_zhengbing_tixi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = YAW_gexin_jundui}
+		relative_position_id = YAW_gexin_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_gexin_army
+			add_idea = YAW_gexin_army_2
+			}
+		}
+	}
+	#卫国思想
+	focus = {
+		id = YAW_weiguo_sixiang
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = YAW_zhengbing_tixi}
+		prerequisite = { focus = YAW_zhongcheng_juntuan}
+		relative_position_id = YAW_zhengbing_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_gexin_army_2
+			add_idea = YAW_gexin_army_3
+			}
+		}
+	}
+	#步兵武装革新
+	focus = {
+		id = YAW_bubingwuzhuang_gexin
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = YAW_weiguo_sixiang}
+		relative_position_id = YAW_weiguo_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = infantry
+			}
+		}
+	}
+	#成立军事学院
+	focus = {
+		id = YAW_chengli_junshi_xueyuan
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = YAW_weiguo_sixiang}
+		relative_position_id = YAW_weiguo_sixiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_gexin_army_3
+			add_idea = YAW_gexin_army_4
+			}
+		}
+	}
+	#应对财政问题
+	focus = {
+		id = YAW_yingduicaizheng_wenti
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = YAW_guowang_tudi}
+		relative_position_id = YAW_guowang_tudi
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_caizheng_weiji
+			add_idea = YAW_caizheng_weiji_2
+			}
+		}
+	}
+	#天课征税
+	focus = {
+		id = YAW_tianke_zhengshui
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = YAW_yingduicaizheng_wenti}
+		relative_position_id = YAW_yingduicaizheng_wenti
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_tianke
+		}
+	}
+	#国家工业
+	focus = {
+		id = YAW_guojia_gongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = YAW_yingduicaizheng_wenti}
+		relative_position_id = YAW_yingduicaizheng_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_caizheng_weiji_2
+			add_idea = YAW_caizheng_weiji_3
+			}
+			1202 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#王室工业
+	focus = {
+		id = YAW_wangshi_gongye
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = YAW_tianke_zhengshui}
+		prerequisite = { focus = YAW_guojia_gongye}
+		relative_position_id = YAW_guojia_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_caizheng_weiji_3
+			add_idea = YAW_caizheng_weiji_4
+			}
+			1202 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#王室奢侈品
+	focus = {
+		id = YAW_wangshi_shechiping
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = YAW_wangshi_gongye}
+		relative_position_id = YAW_wangshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = YAW_caizheng_weiji_4
+			672 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#军事兵工厂
+	focus = {
+		id = YAW_junnshi_binggongchang
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = YAW_wangshi_shechiping}
+		relative_position_id = YAW_wangshi_shechiping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1203 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#应对文莱问题
+	focus = {
+		id = YAW_yindui_wenlai_wenti
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = YAW_yingduicaizheng_wenti}
+		relative_position_id = YAW_yingduicaizheng_wenti
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#亚齐民族资本
+	focus = {
+		id = YAW_yaqi_minzu_ziben
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = YAW_yindui_wenlai_wenti}
+		relative_position_id = YAW_yindui_wenlai_wenti
+		mutually_exclusive = { focus = YAW_xiangwaizi_tuoxie }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_3
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi_3
+			add_idea = WEN_maoyi_kongzhi_2
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_2
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi_2
+			add_idea = WEN_maoyi_kongzhi
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi
+			add_idea = DNY_zizhu_gongye
+			}
+		}
+		}
+	}
+	#关税保护主义
+	focus = {
+		id = YAW_guanshui_baohu_zhuyi
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = YAW_yaqi_minzu_ziben}
+		relative_position_id = YAW_yaqi_minzu_ziben
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YAW_minzu_gongye
+		}
+	}
+	#民族工业发展
+	focus = {
+		id = YAW_minzu_gongye_fazhan
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = YAW_guanshui_baohu_zhuyi}
+		relative_position_id = YAW_guanshui_baohu_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = YAW_minzu_gongye
+			add_idea = YAW_minzu_gongye_2
+			}
+		}
+	}
+	#吞并文莱企业
+	focus = {
+		id = YAW_tunbing_wenlai_qiye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = YAW_minzu_gongye_fazhan}
+		relative_position_id = YAW_minzu_gongye_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_3
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi_3
+			add_idea = WEN_maoyi_kongzhi_2
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_2
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi_2
+			add_idea = WEN_maoyi_kongzhi
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi
+			add_idea = DNY_zizhu_gongye
+			}
+		}
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#向外资妥协
+	focus = {
+		id = YAW_xiangwaizi_tuoxie
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = YAW_yindui_wenlai_wenti}
+		relative_position_id = YAW_yindui_wenlai_wenti
+		mutually_exclusive = { focus = YAW_yaqi_minzu_ziben }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		has_idea = DNY_zizhu_gongye
+		}
+		swap_ideas = {
+			remove_idea = DNY_zizhu_gongye
+			add_idea = WEN_maoyi_kongzhi
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_2
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi_2
+			add_idea = WEN_maoyi_kongzhi_3
+			}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi
+		}
+		swap_ideas = {
+			remove_idea = WEN_maoyi_kongzhi
+			add_idea = WEN_maoyi_kongzhi_2
+			}
+		}
+		add_ideas = YAW_waizi_jingji
+		}
+	}
+	#自由化经济
+	focus = {
+		id = YAW_ziyouhua_jingji
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = YAW_xiangwaizi_tuoxie}
+		relative_position_id = YAW_xiangwaizi_tuoxie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = YAW_waizi_jingji
+			add_idea = YAW_waizi_jingji_2
+			}
+		}
+	}
+	#资源开发
+	focus = {
+		id = YAW_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = YAW_xiangwaizi_tuoxie}
+		relative_position_id = YAW_xiangwaizi_tuoxie
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YAW_ziyuan_kaifa
+		}
+	}
+	#铁路外包
+	focus = {
+		id = YAW_tielu_waibao
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = YAW_ziyuan_kaifa}
+		prerequisite = { focus = YAW_ziyouhua_jingji}
+		relative_position_id = YAW_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = YAW_waizi_jingji_2
+			add_idea = YAW_waizi_jingji_3
+			}
+		}
+	}
+	#面向大海
+	focus = {
+		id = YAW_mianxiang_dahai
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = YAW_tielu_waibao}
+		relative_position_id = YAW_tielu_waibao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1201 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#保证出口
+	focus = {
+	    id = YAW_baozheng_chukou
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = YAW_tielu_waibao}
+		relative_position_id = YAW_tielu_waibao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = YAW_ziyuan_kaifa
+			add_idea = YAW_ziyuan_kaifa_2
+			}
+		}
+	}
+	#亚齐自由组织
+	focus = {
+		id = YAW_yaqi_ziyou_zuzhi
+		icon = GFX_goal_generic_intelligence_exchange
+		mutually_exclusive = { focus = YAW_guowang_tudi }
+		x = 42
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = YAW_duikang_ziyou_zuzhi
+			add_idea = YAW_duikang_wangdang
+			}
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = progressism
+}
+leave_faction = yes
+		}
+	}
+	#清剿王室残党
+	focus = {
+		id = YAW_qingjiao_wangdang
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = YAW_yaqi_ziyou_zuzhi}
+		relative_position_id = YAW_yaqi_ziyou_zuzhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = YAW_duikang_wangdang
+		}
+	}
+	#对抗穆斯林势力
+	focus = {
+		id = YAW_duikang_musilin
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YAW_yaqi_ziyou_zuzhi}
+		relative_position_id = YAW_yaqi_ziyou_zuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#清剿文莱干涉势力
+	focus = {
+		id = YAW_qingjiao_wenlai_ganshe_shili
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = YAW_yaqi_ziyou_zuzhi}
+		relative_position_id = YAW_yaqi_ziyou_zuzhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = WEN_maoyi_kongzhi
+			remove_ideas = WEN_maoyi_kongzhi_2
+			remove_ideas = WEN_maoyi_kongzhi_3
+		}
+	}
+	#国家稳定
+	focus = {
+		id = YAW_guojia_wending
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = YAW_qingjiao_wangdang}
+		prerequisite = { focus = YAW_duikang_musilin}
+		prerequisite = { focus = YAW_qingjiao_wenlai_ganshe_shili}
+		relative_position_id = YAW_duikang_musilin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_guojia_wending
+		}
+	}
+	#建立地方政治
+	focus = {
+		id = YAW_jianli_difang_zhengzhi
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = YAW_guojia_wending}
+		relative_position_id = YAW_guojia_wending
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_guojia_wending_2
+			remove_idea = YAW_guojia_wending
+			}
+		}
+	}
+	#革新文化
+	focus = {
+		id = YAW_gexin_wenhua
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = YAW_jianli_difang_zhengzhi}
+		relative_position_id = YAW_jianli_difang_zhengzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_gexin_wenhua
+		}
+	}
+	#反宗教教育
+	focus = {
+		id = YAW_fanzongjiao_jiaoyu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = YAW_gexin_wenhua}
+		relative_position_id = YAW_gexin_wenhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_gexin_wenhua_2
+			remove_idea = YAW_gexin_wenhua
+			}
+		}
+	}
+	#地区民主
+	focus = {
+		id = YAW_diqu_minzhu
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = YAW_jianli_difang_zhengzhi}
+		relative_position_id = YAW_jianli_difang_zhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_guojia_wending_3
+			remove_idea = YAW_guojia_wending_2
+			}
+		}
+	}
+	#接纳巴塔克人
+	focus = {
+		id = YAW_jiena_batake
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = YAW_diqu_minzhu}
+		relative_position_id = YAW_diqu_minzhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_jiena_batake
+		}
+	}
+	#政治和谐
+	focus = {
+		id = YAW_zhengzhi_hexie
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = YAW_gexin_wenhua}
+		prerequisite = { focus = YAW_diqu_minzhu}
+		relative_position_id = YAW_diqu_minzhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#世俗化国家
+	focus = {
+		id = YAW_shisuhua_guojia
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = YAW_fanzongjiao_jiaoyu}
+		prerequisite = { focus = YAW_zhengzhi_hexie}
+		prerequisite = { focus = YAW_jiena_batake}
+		relative_position_id = YAW_zhengzhi_hexie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism 
+    popularity = 0.2
+}
+		}
+	}
+	#国家主导经济
+	focus = {
+		id = YAW_guojia_zhudao_jingji
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = YAW_shisuhua_guojia}
+		relative_position_id = YAW_shisuhua_guojia
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_caizheng_weiji_5
+			remove_idea = YAW_caizheng_weiji
+			}
+		}
+	}
+	#轻工业开发
+	focus = {
+		id = YAW_qinggongye_kaifa
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YAW_guojia_zhudao_jingji}
+		relative_position_id = YAW_guojia_zhudao_jingji
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_qinggongye_kaifa
+			remove_idea = YAW_caizheng_weiji_5
+			}
+		}
+	}
+	#建设民用
+	focus = {
+		id = YAW_jianshe_minyong
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = YAW_qinggongye_kaifa}
+		relative_position_id = YAW_qinggongye_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1202 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#消费品加工
+	focus = {
+		id = YAW_xiaofeiping_jiagong
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = YAW_jianshe_minyong}
+		relative_position_id = YAW_jianshe_minyong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_qinggongye_kaifa_2
+			remove_idea = YAW_qinggongye_kaifa
+			}
+		}
+	}
+	#资源加工
+	focus = {
+		id = YAW_ziyuan_jiagong
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = YAW_qinggongye_kaifa}
+		relative_position_id = YAW_qinggongye_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_ziyuan_jiagong
+		}
+	}
+	#油田开发
+	focus = {
+		id = YAW_youtian_kaifa
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = YAW_ziyuan_jiagong}
+		relative_position_id = YAW_ziyuan_jiagong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+    type = oil
+    amount = 20
+    state = 672
+}
+add_resource = {
+    type = oil
+    amount = 15
+    state = 1201
+}
+add_resource = {
+    type = oil
+    amount = 15
+    state = 1202
+}
+		}
+	}
+	#建设繁荣
+	focus = {
+		id = YAW_jianshe_fanrong
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = YAW_xiaofeiping_jiagong}
+		prerequisite = { focus = YAW_youtian_kaifa}
+		relative_position_id = YAW_youtian_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = YAW_qinggongye_kaifa_2
+		}
+	}
+	#军事化工业
+	focus = {
+		id = YAW_junshihua_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YAW_guojia_zhudao_jingji}
+		relative_position_id = YAW_guojia_zhudao_jingji
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#亚齐军工
+	focus = {
+		id = YAW_yaqi_jungong
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = YAW_junshihua_gongye}
+		relative_position_id = YAW_junshihua_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			672 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#万丹海港
+	focus = {
+		id = YAW_wandan_haigang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = YAW_yaqi_jungong}
+		relative_position_id = YAW_yaqi_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1202 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#重工业生产
+	focus = {
+		id = YAW_zhonggongye_shengchan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = YAW_junshihua_gongye}
+		relative_position_id = YAW_junshihua_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_zhonggongye_shengchan
+		}
+	}
+	#地下兵工体系
+	focus = {
+		id = YAW_dixia_binggng_tixi
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YAW_zhonggongye_shengchan}
+		relative_position_id = YAW_zhonggongye_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_dixia_binggng_tixi
+		}
+	}
+	#流水线生产
+	focus = {
+		id = YAW_liushuixian_shengchan
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YAW_dixia_binggng_tixi}
+		prerequisite = { focus = YAW_wandan_haigang}
+		relative_position_id = YAW_dixia_binggng_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_liushuixian_shengchan
+			remove_idea = YAW_zhonggongye_shengchan
+			}
+		}
+	}
+	#环绕铁路
+	focus = {
+		id = YAW_huanrao_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = YAW_junshihua_gongye}
+		prerequisite = { focus = YAW_qinggongye_kaifa}
+		relative_position_id = YAW_junshihua_gongye
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			672 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1206 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1204 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1202 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1201 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1203 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1205 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#资源开采
+	focus = {
+		id = YAW_ziyuan_kaicai
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = YAW_huanrao_tielu}
+		relative_position_id = YAW_huanrao_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_ziyuan_kaifa
+		}
+	}
+	#进入山区
+	focus = {
+		id = YAW_jinru_shanqu
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = YAW_ziyuan_kaicai}
+		relative_position_id = YAW_ziyuan_kaicai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_jinru_shanqu
+		}
+	}
+	#自由军队
+	focus = {
+		id = YAW_ziyou_jundui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = YAW_shisuhua_guojia}
+		relative_position_id = YAW_shisuhua_guojia
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_ziyou_jundui
+			remove_idea = YAW_fengjian_army
+			}
+		}
+	}
+	#卫国备战
+	focus = {
+		id = YAW_weiguo_beizhan
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = YAW_ziyou_jundui}
+		relative_position_id = YAW_ziyou_jundui
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_weiguo_beizhan
+		}
+	}
+	#民兵体系
+	focus = {
+		id = YAW_minbing_tixi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = YAW_weiguo_beizhan}
+		relative_position_id = YAW_weiguo_beizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = YAW_minbing
+		}
+	}
+	#学习外国经验
+	focus = {
+		id = YAW_xuexi_waiguo_jingyan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = YAW_ziyou_jundui}
+		relative_position_id = YAW_ziyou_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_ziyou_jundui_2
+			remove_idea = YAW_ziyou_jundui
+			}
+		}
+	}
+	#后勤革新
+	focus = {
+		id = YAW_houqin_gexin
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = YAW_xuexi_waiguo_jingyan}
+		relative_position_id = YAW_xuexi_waiguo_jingyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_houqin_gexin
+		}
+	}
+	#工兵队伍
+	focus = {
+		id = YAW_gongbing_duiwu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = YAW_houqin_gexin}
+		relative_position_id = YAW_houqin_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_gongbing_duiwu
+		}
+	}
+	#进口列强武装
+	focus = {
+		id = YAW_jinkou_wuzhuang
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = YAW_xuexi_waiguo_jingyan}
+		relative_position_id = YAW_xuexi_waiguo_jingyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FRA
+}
+		}
+	}
+	#无线电技术
+	focus = {
+		id = YAW_wuxiandian_jishu
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = YAW_jinkou_wuzhuang}
+		relative_position_id = YAW_jinkou_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_wuxiandian_jishu
+		}
+	}
+	#自由意志军队
+	focus = {
+		id = YAW_ziyou_yizhi_army
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = YAW_ziyou_jundui}
+		relative_position_id = YAW_ziyou_jundui
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YAW_ziyou_yizhi_army
+		}
+	}
+	#自由军官团
+	focus = {
+		id = YAW_ziyou_junguantuan
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = YAW_ziyou_yizhi_army}
+		relative_position_id = YAW_ziyou_yizhi_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_ziyou_yizhi_army_2
+			remove_idea = YAW_ziyou_yizhi_army
+			}
+		}
+	}
+	#军校建设
+	focus = {
+		id = YAW_junxiao_jianshe
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = YAW_ziyou_junguantuan}
+		relative_position_id = YAW_ziyou_junguantuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YAW_ziyou_yizhi_army_3
+			remove_idea = YAW_ziyou_yizhi_army_2
+			}
+		}
+	}
+}

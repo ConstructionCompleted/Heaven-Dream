@@ -1,0 +1,599 @@
+focus_tree = {
+	id = ABN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ABN
+		}
+	}
+	
+	default = no
+
+	#尊贵者们
+	focus = {
+		id = ABN_zunguizhemen
+		icon = GFX_focus_POL_complete_april_constitution
+		x = 20
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+		id = holy_zelankete.1
+		days = 3
+		}
+		}
+	}
+	#扩建国家工业
+	focus = {
+		id = ABN_kuojian_guojia_gongye
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = ABN_zunguizhemen}
+		relative_position_id = ABN_zunguizhemen
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			465 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大资源开采
+	focus = {
+		id = ABN_kuoda_ziyuan_kaicai
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = ABN_kuojian_guojia_gongye}
+		relative_position_id = ABN_kuojian_guojia_gongye
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+    type = steel
+    amount = 50
+    state = 357
+}
+		}
+	}
+	#清理森林
+	focus = {
+		id = ABN_qingli_senlin
+		icon = GFX_focus_LAT_the_old_ways
+		prerequisite = { focus = ABN_kuojian_guojia_gongye}
+		relative_position_id = ABN_kuojian_guojia_gongye
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ABN_qingli_senlin
+		}
+	}
+	#扩大船舶产业
+	focus = {
+		id = ABN_kuoda_chaunbo_chanye
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = ABN_kuoda_ziyuan_kaicai}
+		prerequisite = { focus = ABN_qingli_senlin}
+		relative_position_id = ABN_qingli_senlin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			464 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设对岸工业
+	focus = {
+		id = ABN_jianshe_duian_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ABN_kuoda_ziyuan_kaicai}
+		prerequisite = { focus = ABN_qingli_senlin}
+		relative_position_id = ABN_qingli_senlin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			468 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建南方铁路
+	focus = {
+		id = ABN_kuojian_nanfang_tielu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ABN_kuojian_guojia_gongye}
+		relative_position_id = ABN_kuojian_guojia_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			357 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大南部工业
+	focus = {
+		id = ABN_kuoda_nanbu_gongye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = ABN_kuojian_nanfang_tielu}
+		relative_position_id = ABN_kuojian_nanfang_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			357 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#重建军事生产
+	focus = {
+		id = ABN_chongjian_junshi_shengchan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = ABN_kuoda_nanbu_gongye}
+		prerequisite = { focus = ABN_kuoda_chaunbo_chanye}
+		relative_position_id = ABN_kuoda_nanbu_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			465 = {
+			add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			464 = {
+			add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#接见英国人
+	focus = {
+		id = ABN_jiejian_yingguoren
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = ABN_zunguizhemen}
+		relative_position_id = ABN_zunguizhemen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+		id = holy_zelankete.2
+		days = 5
+		}
+		}
+	}
+	#恢复贸易线
+	focus = {
+		id = ABN_huifu_maoyixian
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = ABN_jiejian_yingguoren }
+		prerequisite = { focus = ABN_kuojian_guojia_gongye }
+		relative_position_id = ABN_jiejian_yingguoren
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		NOT = { has_idea = ABN_xiaofei_jiaoliu }
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ABN_huifu_maoyixian
+		}
+	}
+	#开发加拿大资源
+	focus = {
+		id = ABN_kaifa_jianada
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = ABN_huifu_maoyixian }
+		relative_position_id = ABN_huifu_maoyixian
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		CAN = { exists = yes }
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			CAN = {
+			add_ideas = ABN_abunaji_kaifa
+			}
+			add_ideas = ABN_kaifa_ziyuan
+		}
+	}
+	#联邦成员国
+	focus = {
+		id = ABN_lianbang_chengyuanguo
+		icon = GFX_focus_eng_unite_the_anglosphere
+		prerequisite = { focus = ABN_kaifa_jianada }
+		relative_position_id = ABN_kaifa_jianada
+		mutually_exclusive = { focus = ABN_chongqi_nanfang_kuozhang }
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		OR = {
+		UKM = { is_faction_leader = yes }
+		CAN = { is_faction_leader = yes }
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { is_faction_leader = yes }
+		}
+		UKM = { add_to_faction = ABN }
+		}
+		if = {
+		limit = {
+		CAN = { is_faction_leader = yes }
+		}
+		CAN = { add_to_faction = ABN }
+		}
+		}
+	}
+	#孤立土地
+	focus = {
+		id = ABN_guli_tudi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = ABN_lianbang_chengyuanguo }
+		relative_position_id = ABN_lianbang_chengyuanguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ABN_guli_tudi
+		}
+	}
+	#延续土地改革
+	focus = {
+		id = ABN_yanxu_tudigaige
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = ABN_zunguizhemen}
+		relative_position_id = ABN_zunguizhemen
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ABN_tudi_gaige_plan_2
+		remove_idea = ABN_tudi_gaige_plan
+		}
+		}
+	}
+	#进口不列颠武装
+	focus = {
+		id = ABN_jinkou_buliedian_wuzhuang
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = ABN_jiejian_yingguoren }
+		prerequisite = { focus = ABN_yanxu_tudigaige }
+		relative_position_id = ABN_jiejian_yingguoren
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		NOT = { has_idea = ABN_xiaofei_jiaoliu }
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = UKM
+}
+		}
+	}
+	#组装武器厂
+	focus = {
+		id = ABN_zujian_wuqichang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = ABN_jinkou_buliedian_wuzhuang }
+		relative_position_id = ABN_jinkou_buliedian_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#重启南方扩张
+	focus = {
+		id = ABN_chongqi_nanfang_kuozhang
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = ABN_zujian_wuqichang }
+		relative_position_id = ABN_zujian_wuqichang
+		mutually_exclusive = { focus = ABN_lianbang_chengyuanguo }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 362
+add_state_claim = 369
+add_state_claim = 368
+add_state_claim = 358
+add_state_claim = 359
+add_state_claim = 261
+add_state_claim = 360
+			declare_war_on = {
+    target = MHG
+    type = annex_everything
+}
+declare_war_on = {
+    target = LNP
+    type = annex_everything
+}
+declare_war_on = {
+    target = YLK
+    type = annex_everything
+}
+declare_war_on = {
+    target = XAO
+    type = annex_everything
+}
+		}
+	}
+	#清理反对派
+	focus = {
+		id = ABN_qingli_fanduipai
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = ABN_yanxu_tudigaige}
+		relative_position_id = ABN_yanxu_tudigaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ABN_tudi_gaige_plan_3
+		remove_idea = ABN_tudi_gaige_plan_2
+		}
+		}
+	}
+	#军队再武装
+	focus = {
+		id = ABN_jundui_zaiwuzhaung
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ABN_zunguizhemen}
+		relative_position_id = ABN_zunguizhemen
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ABN_jundui_zaiwuzhaung
+			remove_idea = ABN_shenmeshi_army
+			}
+		}
+	}
+	#阿布纳基民兵
+	focus = {
+		id = ABN_abunaji_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ABN_jundui_zaiwuzhaung}
+		relative_position_id = ABN_jundui_zaiwuzhaung
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = ABN_abunaji_minbing
+		}
+	}
+	#重建地区体制
+	focus = {
+		id = ABN_chongjian_diqu_tizhi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = ABN_abunaji_minbing}
+		prerequisite = { focus = ABN_qingli_fanduipai}
+		relative_position_id = ABN_abunaji_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ABN_tudi_gaige_plan_4
+		remove_idea = ABN_tudi_gaige_plan_3
+		}
+		}
+	}
+	#扩大基层指挥
+	focus = {
+		id = ABN_kuoda_jiceng_zhihui
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = ABN_jundui_zaiwuzhaung }
+		relative_position_id = ABN_jundui_zaiwuzhaung
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ABN_jundui_zaiwuzhaung_2
+			remove_idea = ABN_jundui_zaiwuzhaung
+			}
+		}
+	}
+	#贵族军事
+	focus = {
+		id = ABN_guizu_junshi
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = ABN_chongjian_diqu_tizhi }
+		prerequisite = { focus = ABN_kuoda_jiceng_zhihui }
+		relative_position_id = ABN_kuoda_jiceng_zhihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ABN_jundui_zaiwuzhaung_3
+			remove_idea = ABN_jundui_zaiwuzhaung_2
+			}
+		}
+	}
+	#削弱地区自治
+	focus = {
+		id = ABN_xueruo_diqu_zizhi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = ABN_chongjian_diqu_tizhi }
+		relative_position_id = ABN_chongjian_diqu_tizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ABN_tudi_gaige_plan_5
+			remove_idea = ABN_tudi_gaige_plan_4
+			}
+		}
+	}
+	#扩张征兵体系
+	focus = {
+		id = ABN_kuozhang_zhengbing_tixi
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = ABN_kuoda_jiceng_zhihui }
+		relative_position_id = ABN_kuoda_jiceng_zhihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ABN_kuozhang_zhengbing_tixi
+		}
+	}
+	#建设新军队
+	focus = {
+		id = ABN_jianshe_xinjundui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = ABN_guizu_junshi }
+		prerequisite = { focus = ABN_kuozhang_zhengbing_tixi }
+		relative_position_id = ABN_guizu_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ABN_jundui_zaiwuzhaung_4
+			remove_idea = ABN_jundui_zaiwuzhaung_3
+			}
+		}
+	}
+}

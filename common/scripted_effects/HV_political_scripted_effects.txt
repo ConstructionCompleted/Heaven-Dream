@@ -1,0 +1,72 @@
+HV_init_party_entry = {
+	clear_array = coalitions_array
+	for_loop_effect = {
+		start = 0
+		end = 9
+		compare = less_than_or_equals
+		value = v
+		
+		add_to_array = { coalitions_array = 1 }
+	}
+}
+
+hv_debug = {
+	set_power_balance = {
+		id = _test_balance
+		left_side = default_left_side
+		right_side = default_right_side
+	}
+}
+
+HV_lighten_ruling_party = {
+	for_each_loop = {
+		array = coalitions_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { v = 3 } }
+			set_variable = { coalitions_array^i = 1 }
+		}
+	}
+	if = {
+		limit = { HV_is_communism_government = yes }
+		set_variable = { coalitions_array^0 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_socialism_government = yes }
+		set_variable = { coalitions_array^1 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_progressism_government = yes }
+		set_variable = { coalitions_array^2 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_democratic_government = yes }
+		set_variable = { coalitions_array^3 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_conservatism_government = yes }
+		set_variable = { coalitions_array^4 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_neutrality_government = yes }
+		set_variable = { coalitions_array^5 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_dictatorship_government = yes }
+		set_variable = { coalitions_array^6 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_reconcilism_government = yes }
+		set_variable = { coalitions_array^7 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_fascism_government = yes }
+		set_variable = { coalitions_array^8 = 3 }
+	}
+	else_if = {
+		limit = { HV_is_destruction_system_government = yes }
+		set_variable = { coalitions_array^9 = 3 }
+	}
+}

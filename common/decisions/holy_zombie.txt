@@ -1,0 +1,494 @@
+holy_zombie = {
+    #僵尸侵袭
+    holy_ZOB_qinxi = {                          
+        visible = { 
+		tag = IDC 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+           always = no
+        }
+        is_good = yes 	
+        selectable_mission = no               
+        days_mission_timeout = 30             
+        timeout_effect = {   
+		every_controlled_state = {
+		add_core_of = ZOB
+		}
+		every_country = {
+		declare_war_on = {
+    target = ZOB
+    type = annex_everything
+}
+		}
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = ZOB
+		}
+		ZOB = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+		}
+		}
+    }
+	#激活兵马俑
+    holy_jihuo_bingmayong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.3.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 744
+		load_oob = ZOB_bingmayong
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#湘西僵尸
+    holy_xiangxi_jiangshi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.5.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 750
+		load_oob = ZOB_xiangxi
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#楼兰僵尸
+    holy_loulan_jiangshi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.6.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 759
+		load_oob = ZOB_loulan
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活埃及木乃伊
+    holy_jihuo_aiji_munaiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.10.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 446
+		load_oob = ZOB_aiji
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活约旦木乃伊
+    holy_jihuo_yuedan_munaiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.9.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 455
+		load_oob = ZOB_yuedan
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活文莱木乃伊
+    holy_jihuo_wenlai_munaiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1936.12.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 333
+		load_oob = ZOB_wenlai
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活西西里天主墓
+    holy_jihuo_xixili_tianzhumu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1937.2.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 115
+		load_oob = ZOB_xixili
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活新克罗木乃伊
+    holy_jihuo_xinkeluo_munaiyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1937.10.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 279
+		load_oob = ZOB_newkeluo
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活北欧托伦德人
+    holy_jihuo_beiou_tuolunde = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1937.7.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 138
+		load_oob = ZOB_beiou
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#激活北美尸体
+    holy_jihuo_beimei_shiti = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			date > 1937.12.1
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 392
+		load_oob = ZOB_beimei
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 1000000
+			controls_state = 574
+		controls_state = 562
+		controls_state = 637
+		controls_state = 644
+		controls_state = 575
+		controls_state = 576
+		controls_state = 567
+		controls_state = 577
+		controls_state = 578
+		controls_state = 569
+		controls_state = 568
+		controls_state = 40
+		controls_state = 570
+		controls_state = 571
+		controls_state = 403
+		controls_state = 579
+		controls_state = 580
+		controls_state = 581
+		controls_state = 573
+		controls_state = 516
+		controls_state = 653
+		controls_state = 572
+		controls_state = 654
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_1936
+		add_manpower = -1000000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_1 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 392
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_beimei
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 744
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_bingmayong
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_3 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 750
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_xiangxi
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_4 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 759
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_loulan
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_5 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 446
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_aiji
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_6 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 455
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_yuedan
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_7 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 333
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_wenlai
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_8 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 115
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_xixili
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_9 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 279
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_newkeluo
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#转化僵尸
+    holy_zhuanhua_jiangshi_10 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = ZOB
+	    }	
+		available = {
+			has_manpower > 400000
+			controls_state = 138
+		}
+        
+		complete_effect = {
+		load_oob = ZOB_beiou
+		add_manpower = -400000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

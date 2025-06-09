@@ -1,0 +1,428 @@
+focus_tree = {
+	id = SMI_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SMI
+		}
+	}
+	
+	default = no
+
+	#屋旁的青草
+	focus = {
+		id = SMI_wupang_qingcao
+		icon = GFX_focus_ETH_scavenging_tactics
+		x = 16
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+		id = holy_jiamiya.7
+		}
+		}
+	}
+	#扩大经费
+	focus = {
+		id = SMI_kuoda_jingfei
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SMI_wupang_qingcao}
+		relative_position_id = SMI_wupang_qingcao
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_kexue_zhiguo_2
+			remove_idea = SMI_kexue_zhiguo
+			}
+			add_research_slot = 1
+		}
+	}
+	#精英教育
+	focus = {
+		id = SMI_jingying_jiaoyu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = SMI_kuoda_jingfei}
+		relative_position_id = SMI_kuoda_jingfei
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_jingying_jiaoyu
+		}
+	}
+	#扩大院校
+	focus = {
+		id = SMI_kuoda_yuanxiao
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = SMI_jingying_jiaoyu}
+		relative_position_id = SMI_jingying_jiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_jingying_jiaoyu_2
+			remove_idea = SMI_jingying_jiaoyu
+			}
+		}
+	}
+	#联络世界
+	focus = {
+		id = SMI_lianluo_shijie
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SMI_kuoda_yuanxiao}
+		relative_position_id = SMI_kuoda_yuanxiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		news_event = { id = holy_jiamiya.8 days = 3 }
+		}
+	}
+	#向天空翱翔
+	focus = {
+		id = SMI_xiangtiankong_aoxiang
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = SMI_kuoda_jingfei}
+		relative_position_id = SMI_kuoda_jingfei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_keyan_mengxiang
+		}
+	}
+	#原子能科研
+	focus = {
+		id = SMI_yuanzineng_keyan
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = SMI_xiangtiankong_aoxiang}
+		relative_position_id = SMI_xiangtiankong_aoxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_keyan_mengxiang_2
+			remove_idea = SMI_keyan_mengxiang
+			}
+		}
+	}
+	#奔向宇宙
+	focus = {
+		id = SMI_benxiang_yuzhou
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = SMI_yuanzineng_keyan}
+		relative_position_id = SMI_yuanzineng_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_keyan_mengxiang_3
+			remove_idea = SMI_keyan_mengxiang_2
+			}
+		}
+	}
+	#生产线改革
+	focus = {
+		id = SMI_shengchan_gaige
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = SMI_kuoda_jingfei}
+		relative_position_id = SMI_kuoda_jingfei
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_shengchanxian_gaige
+		}
+	}
+	#单兵武装改革
+	focus = {
+		id = SMI_danbing_wuzhuang_gaige
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SMI_shengchan_gaige}
+		relative_position_id = SMI_shengchan_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_danbing_wuzhuang_gaige
+		}
+	}
+	#加强防卫火力
+	focus = {
+		id = SMI_jiaqiang_fangwei_huoli
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = SMI_danbing_wuzhuang_gaige}
+		relative_position_id = SMI_danbing_wuzhuang_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_danbing_wuzhuang_gaige_2
+			remove_idea = SMI_danbing_wuzhuang_gaige
+			}
+		}
+	}
+	#扩大北墙工程
+	focus = {
+		id = SMI_kuoda_beiqiang_gongcheng
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SMI_wupang_qingcao}
+		relative_position_id = SMI_wupang_qingcao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_beiqiang_gongcheng_2
+			remove_idea = SMI_beiqiang_gongcheng
+			}
+		}
+	}
+	#森林防御线
+	focus = {
+		id = SMI_senlin_fangyuxian
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = SMI_kuoda_beiqiang_gongcheng}
+		relative_position_id = SMI_kuoda_beiqiang_gongcheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			452 = {
+			add_building_construction = {
+				type = bunker
+				province = 12439
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1584
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1556
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1572
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#森林游击组织
+	focus = {
+		id = SMI_senlin_youjizuzhi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = SMI_senlin_fangyuxian}
+		relative_position_id = SMI_senlin_fangyuxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_senlin_youji
+		}
+	}
+	#游击者战士
+	focus = {
+		id = SMI_youjizhe_zhandou
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SMI_kuoda_beiqiang_gongcheng}
+		relative_position_id = SMI_kuoda_beiqiang_gongcheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SMI_youjizhe
+		}
+	}
+	#北墙再扩建
+	focus = {
+		id = SMI_beiqiang_zaikuojian
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SMI_youjizhe_zhandou}
+		relative_position_id = SMI_youjizhe_zhandou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			452 = {
+			add_building_construction = {
+				type = bunker
+				province = 12353
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12381
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10407
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#坚不可摧之土
+	focus = {
+		id = SMI_jianbukecui_zhitu
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = SMI_beiqiang_zaikuojian}
+		prerequisite = { focus = SMI_senlin_youjizuzhi}
+		relative_position_id = SMI_senlin_youjizuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_beiqiang_gongcheng_3
+			remove_idea = SMI_beiqiang_gongcheng_2
+			}
+		}
+	}
+	#加勒比贸易
+	focus = {
+		id = SMI_jialebi_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = SMI_wupang_qingcao}
+		relative_position_id = SMI_wupang_qingcao
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = CRB
+}
+		}
+	}
+	#国际军事思想
+	focus = {
+		id = SMI_guoji_junshi_sixiang
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SMI_jialebi_maoyi}
+		relative_position_id = SMI_jialebi_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SMI_guoji_junshi
+		}
+	}
+	#火力优势
+	focus = {
+		id = SMI_huoli_youshi
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = SMI_guoji_junshi_sixiang}
+		relative_position_id = SMI_guoji_junshi_sixiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_guoji_junshi_2
+			remove_idea = SMI_guoji_junshi
+			}
+		}
+	}
+	#绝对优越
+	focus = {
+		id = SMI_juedui_youyue
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SMI_huoli_youshi}
+		relative_position_id = SMI_huoli_youshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SMI_guoji_junshi_3
+			remove_idea = SMI_guoji_junshi_2
+			}
+		}
+	}
+}

@@ -1,0 +1,452 @@
+focus_tree = {
+	id = KAZ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KAZ
+		}
+	}
+	
+	default = no
+ 
+    #草原啊草原
+	focus = {
+		id = KAZ_caoyuan_a_caoyuan
+		icon = GFX_focus_eng_crush_the_dream
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#建立哈萨克政府
+	focus = {
+		id = KAZ_build_KAZ_zhengfu
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = KAZ_caoyuan_a_caoyuan}
+		relative_position_id = KAZ_caoyuan_a_caoyuan
+		mutually_exclusive = { focus = KAZ_junshihua_zhengce_yanxu }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_zhengfu_zhizheng
+			remove_idea = KAZ_junzhengfu_zhizheng
+			}
+		}
+	}
+	#重组政治体系
+	focus = {
+		id = KAZ_chongzu_zhengzhi_tixi
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = KAZ_build_KAZ_zhengfu}
+		relative_position_id = KAZ_build_KAZ_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_zhengfu_zhizheng_2
+			remove_idea = KAZ_zhengfu_zhizheng
+			}
+		}
+	}
+	#强化哈萨克军队
+	focus = {
+		id = KAZ_qianghua_hsake_jundui
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = KAZ_build_KAZ_zhengfu focus = KAZ_junshihua_zhengce_yanxu}
+		relative_position_id = KAZ_build_KAZ_zhengfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#恢复部队士气
+	focus = {
+		id = KAZ_huifu_budui_shiqi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = KAZ_qianghua_hsake_jundui }
+		relative_position_id = KAZ_qianghua_hsake_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_caoyuan_qibing_2
+			remove_idea = KAZ_caoyuan_qibing
+			}
+		}
+	}
+	#动员骑兵
+	focus = {
+		id = KAZ_dongyuan_qibing
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = KAZ_qianghua_hsake_jundui }
+		relative_position_id = KAZ_qianghua_hsake_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = KAZ_qibing
+		}
+	}
+	#军队现代化
+	focus = {
+		id = KAZ_jundui_xiandaihua
+		icon = GFX_focus_SOV_flying_clubs
+		prerequisite = { focus = KAZ_dongyuan_qibing }
+		relative_position_id = KAZ_dongyuan_qibing
+		mutually_exclusive = { focus = KAZ_qibing_jixiehua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_caoyuan_qibing_3
+			remove_idea = KAZ_caoyuan_qibing
+			}
+		}
+	}
+	#骑兵机械化
+	focus = {
+		id = KAZ_qibing_jixiehua
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = KAZ_dongyuan_qibing }
+		relative_position_id = KAZ_dongyuan_qibing
+		mutually_exclusive = { focus = KAZ_jundui_xiandaihua }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_caoyuan_qibing_4
+			remove_idea = KAZ_caoyuan_qibing
+			}
+		}
+	}
+	#游牧文化
+	focus = {
+		id = KAZ_youmuwenhua
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = KAZ_chongzu_zhengzhi_tixi}
+		relative_position_id = KAZ_chongzu_zhengzhi_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KAZ_youmu_wenhua
+		}
+	}
+	#三玉兹合作
+	focus = {
+		id = KAZ_sanyuzi_hezuo
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = KAZ_youmuwenhua}
+		relative_position_id = KAZ_youmuwenhua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_zhengfu_zhizheng_3
+			remove_idea = KAZ_zhengfu_zhizheng_2
+			}
+		}
+	}
+	#重组地区政府
+	focus = {
+		id = KAZ_chongzu_diqu_zhengfu
+		icon = GFX_focus_ETH_scavenging_tactics
+		prerequisite = { focus = KAZ_sanyuzi_hezuo}
+		relative_position_id = KAZ_sanyuzi_hezuo
+		mutually_exclusive = { focus = KAZ_weichi_difang_hezuo }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_zhengfu_zhizheng_4
+			remove_idea = KAZ_zhengfu_zhizheng_3
+			}
+		}
+	}
+	#维持地方合作
+	focus = {
+		id = KAZ_weichi_difang_hezuo
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = KAZ_sanyuzi_hezuo}
+		relative_position_id = KAZ_sanyuzi_hezuo
+		mutually_exclusive = { focus = KAZ_chongzu_diqu_zhengfu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_zhengfu_zhizheng_5
+			remove_idea = KAZ_zhengfu_zhizheng_3
+			}
+		}
+	}
+	#哈萨克工业化
+	focus = {
+		id = KAZ_hasake_gongyehua
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = KAZ_chongzu_zhengzhi_tixi}
+		relative_position_id = KAZ_chongzu_zhengzhi_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#资源开发
+	focus = {
+		id = KAZ_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = KAZ_hasake_gongyehua}
+		relative_position_id = KAZ_hasake_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KAZ_ziyuankaifa
+		}
+	}
+	#军事化政策延续
+	focus = {
+		id = KAZ_junshihua_zhengce_yanxu
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = KAZ_caoyuan_a_caoyuan}
+		relative_position_id = KAZ_caoyuan_a_caoyuan
+		mutually_exclusive = { focus = KAZ_build_KAZ_zhengfu }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_junzhengfu_zhizheng_2
+			remove_idea = KAZ_junzhengfu_zhizheng
+			}
+		}
+	}
+	#强制征收
+	focus = {
+		id = KAZ_qiangzhi_zhengshou
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = KAZ_junshihua_zhengce_yanxu}
+		relative_position_id = KAZ_junshihua_zhengce_yanxu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_junzhengfu_zhizheng_3
+			remove_idea = KAZ_junzhengfu_zhizheng_2
+			}
+		}
+	}
+	#击溃反抗者
+	focus = {
+		id = KAZ_jikui_fankangzhe
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = KAZ_qiangzhi_zhengshou}
+		relative_position_id = KAZ_qiangzhi_zhengshou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_junzhengfu_zhizheng_4
+			remove_idea = KAZ_junzhengfu_zhizheng_3
+			}
+			add_stability = -0.2
+		}
+	}
+	#强制集体农庄
+	focus = {
+		id = KAZ_qiangzhi_jitinongzhuang
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = KAZ_jikui_fankangzhe}
+		relative_position_id = KAZ_jikui_fankangzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KAZ_junzhengfu_zhizheng_5
+			remove_idea = KAZ_junzhengfu_zhizheng_4
+			}
+			add_stability = -0.1
+		}
+	}
+	#劫掠阿拉什
+	focus = {
+		id = KAZ_jielue_alashi
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = KAZ_junshihua_zhengce_yanxu}
+		relative_position_id = KAZ_junshihua_zhengce_yanxu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war_with = ARS
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = ARS
+}
+ARS = {
+add_stability = -0.1
+}
+add_war_support = -0.1
+		}
+	}
+	#进军南方
+	focus = {
+		id = KAZ_jinjun_nanfang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KAZ_jundui_xiandaihua focus = KAZ_qibing_jixiehua}
+		prerequisite = { focus = KAZ_qiangzhi_jitinongzhuang focus = KAZ_weichi_difang_hezuo focus = KAZ_chongzu_diqu_zhengfu}
+		relative_position_id = KAZ_jundui_xiandaihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = ARS
+		}
+		NOT = {
+		has_war_with = URL
+		}
+		}
+		bypass = {
+		TKS = {
+		OR = {
+		NOT = {
+		has_war_with = SHV
+		}
+		has_completed_focus = TKS_xiangbei_kuozhan
+		}
+		}
+		}
+		completion_reward = {
+		    create_faction = zhongya_zhenying
+			KAZ = { add_to_faction = TKS }
+			remove_ideas = KAZ_hasake_fenli
+			declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+		}
+	}
+	#中亚的胜利
+	focus = {
+		id = KAZ_zhongya_shengli
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = KAZ_jinjun_nanfang }
+		relative_position_id = KAZ_jinjun_nanfang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = ARS
+		}
+		NOT = {
+		has_war_with = URL
+		}
+		TKS = {
+		NOT = {
+		has_war_with = SHV
+		}
+		}
+		}
+		completion_reward = {
+		    dismantle_faction = yes
+		    every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = KAZ
+			}
+		}
+	}
+}

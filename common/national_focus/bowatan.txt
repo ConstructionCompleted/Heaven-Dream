@@ -1,0 +1,679 @@
+focus_tree = {
+	id = PWT_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PWT
+		}
+	}
+	
+	default = no
+
+	#薪王的登基
+	focus = {
+		id = PWT_xinwang_dengji
+		icon = GFX_focus_generic_home_defense
+		x = 16
+		y = 0
+		mutually_exclusive = { focus = PWT_zhangzhe_yanxu }
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_state_core = 364
+		}
+	}
+	#长者的延续
+	focus = {
+		id = PWT_zhangzhe_yanxu
+		icon = GFX_goal_generic_neutrality_focus
+		mutually_exclusive = { focus = PWT_xinwang_dengji }
+		x = 20
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#抚平民族创伤
+	focus = {
+		id = PWT_fuping_minzu_chuangshang
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = PWT_xinwang_dengji}
+		relative_position_id = PWT_xinwang_dengji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_minzu_ronghe
+			remove_idea = PWT_minzu_qishi
+			}
+		}
+	}
+	#联合切诺基勇士
+	focus = {
+		id = PWT_lianhe_qienuoji_yongshi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = PWT_fuping_minzu_chuangshang}
+		relative_position_id = PWT_fuping_minzu_chuangshang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+		    factor = 12
+		}
+		available = {
+		has_war_with = KLK
+		}
+		completion_reward = {
+			load_oob = PWT_lianhe_qienuoji
+			add_state_core = 365
+		}
+	}
+	#扩张军队
+	focus = {
+		id = PWT_kuozhang_jundui
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = PWT_xinwang_dengji focus = PWT_zhangzhe_yanxu }
+		relative_position_id = PWT_zhangzhe_yanxu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_kuozhang_jundui
+		}
+	}
+	#联合之力
+	focus = {
+		id = PWT_lianhe_zhili
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = PWT_kuozhang_jundui }
+		prerequisite = { focus = PWT_fuping_minzu_chuangshang }
+		relative_position_id = PWT_kuozhang_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_minzu_ronghe_2
+			remove_idea = PWT_minzu_ronghe
+			}
+		}
+	}
+	#奴隶兵团
+	focus = {
+		id = PWT_nuli_bingtuan
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = PWT_kuozhang_jundui }
+		prerequisite = { focus = PWT_kuoda_yapo }
+		relative_position_id = PWT_kuozhang_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_nuli_bingtuan
+		}
+	}
+	#扩大压迫
+	focus = {
+		id = PWT_kuoda_yapo
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = PWT_zhangzhe_yanxu}
+		relative_position_id = PWT_zhangzhe_yanxu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_minzu_qishi_2
+			remove_idea = PWT_minzu_qishi
+			}
+		}
+	}
+	#血腥之勇
+	focus = {
+		id = PWT_xuexing_zhiyong
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = PWT_kuoda_yapo}
+		relative_position_id = PWT_kuoda_yapo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_xuexing_zhiyong
+		}
+	}
+	#对抗克里克人
+	focus = {
+		id = PWT_duikang_kelike
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = PWT_lianhe_zhili focus = PWT_nuli_bingtuan }
+		relative_position_id = PWT_nuli_bingtuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_war_with = KLK
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = KLK
+    type = annex_everything
+}
+add_state_claim = 365
+add_state_claim = 367
+add_state_claim = 370
+		}
+	}
+	#进军塞米诺
+	focus = {
+		id = PWT_jinjun_saiminuo
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = PWT_duikang_kelike }
+		relative_position_id = PWT_duikang_kelike
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KLK = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SMI
+    type = annex_everything
+}
+add_state_claim = 366
+		}
+	}
+	#加米亚洲大征服
+	focus = {
+		id = PWT_jiamiya_dazhengfu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = PWT_jinjun_saiminuo }
+		relative_position_id = PWT_jinjun_saiminuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SMI = {
+		exists = no
+		}
+		KLK = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			add_state_core = 365
+add_state_core = 367
+add_state_core = 370
+add_state_core = 366
+		}
+	}
+	#整合国内组织
+	focus = {
+		id = PWT_zhenghe_guonei_zuzhi
+		icon = GFX_goal_generic_forceful_treaty
+		x = 15
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#给予地位
+	focus = {
+		id = PWT_jiyu_diwei
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = PWT_zhenghe_guonei_zuzhi }
+		relative_position_id = PWT_zhenghe_guonei_zuzhi
+		mutually_exclusive = { focus = PWT_kuozhang_nuli_bingtuan }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 365
+		controls_state = 367
+		controls_state = 370
+		has_idea = PWT_minzu_ronghe
+		}
+		completion_reward = {
+			add_state_core = 365
+			add_state_core = 367
+			add_state_core = 370
+		}
+	}
+	#给予弱小者强大
+	focus = {
+		id = PWT_jiyu_ruoxiaozhe
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = PWT_jiyu_diwei }
+		relative_position_id = PWT_jiyu_diwei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_jiyu_ruoxiaozhe_qiangdu
+		}
+	}
+	#赐予勇武者荣耀
+	focus = {
+		id = PWT_ciyu_yongwuzhe_rongyao
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = PWT_jiyu_diwei }
+		relative_position_id = PWT_jiyu_diwei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_ciyu_yongwuzhe_rongyao
+		}
+	}
+	#扩张奴隶兵团
+	focus = {
+		id = PWT_kuozhang_nuli_bingtuan
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = PWT_zhenghe_guonei_zuzhi }
+		relative_position_id = PWT_zhenghe_guonei_zuzhi
+		mutually_exclusive = { focus = PWT_jiyu_diwei }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 365
+		controls_state = 367
+		controls_state = 370
+		has_idea = PWT_nuli_bingtuan
+		}
+		completion_reward = {
+			load_oob = PWT_nulibingtuan
+			swap_ideas = {
+			add_idea = PWT_nuli_bingtuan_2
+			remove_idea = PWT_nuli_bingtuan
+			}
+		}
+	}
+	#工业奴隶制度
+	focus = {
+		id = PWT_gongye_nulizhidu
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = PWT_kuozhang_nuli_bingtuan }
+		relative_position_id = PWT_kuozhang_nuli_bingtuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 366
+		}
+		completion_reward = {
+			add_ideas = PWT_gongye_nuli
+		}
+	}
+	#先锋队进军
+	focus = {
+		id = PWT_xianfeng_jinjun
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = PWT_kuozhang_nuli_bingtuan }
+		relative_position_id = PWT_kuozhang_nuli_bingtuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 366
+		}
+		completion_reward = {
+			add_ideas = PWT_xianfengdui
+		}
+	}
+	#应对工业问题
+	focus = {
+		id = PWT_yingdui_gongye
+		icon = GFX_focus_generic_industry_1
+		x = 22
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#升格技术者
+	focus = {
+		id = PWT_shenge_jishuzhe
+		icon = GFX_focus_research
+		prerequisite = { focus = PWT_yingdui_gongye }
+		relative_position_id = PWT_yingdui_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_shenge_jishuzhe
+		}
+	}
+	#扩张奴工园区
+	focus = {
+		id = PWT_kuozhang_nugong_yuanqu
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PWT_shenge_jishuzhe }
+		relative_position_id = PWT_shenge_jishuzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 370
+		controls_state = 366
+		}
+		completion_reward = {
+			370 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			366 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#血汗之厂
+	focus = {
+		id = PWT_xuehan_zhichang
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = PWT_shenge_jishuzhe }
+		prerequisite = { focus = PWT_pingqing_waiguo_zhuanzhe }
+		relative_position_id = PWT_shenge_jishuzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 370
+		controls_state = 366
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#全部送进工厂!
+	focus = {
+		id = PWT_quanbu_songjin_gongchang
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = PWT_pingqing_waiguo_zhuanzhe }
+		relative_position_id = PWT_pingqing_waiguo_zhuanzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 370
+		controls_state = 366
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_shenge_jishuzhe_2
+			remove_idea = PWT_shenge_jishuzhe
+			}
+		}
+	}
+	#聘请外国专家
+	focus = {
+		id = PWT_pingqing_waiguo_zhuanzhe
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = PWT_yingdui_gongye }
+		relative_position_id = PWT_yingdui_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_pingqing_waiguo_zhuanzhe
+		}
+	}
+	#建立新斯巴达教育
+	focus = {
+		id = PWT_jianli_xinsibada_jiaoyu
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		x = 18
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_junshi_shehui_2
+			remove_idea = PWT_junshi_shehui
+			}
+		}
+	}
+	#改良传统
+	focus = {
+		id = PWT_gailiang_chuantong
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = PWT_jianli_xinsibada_jiaoyu }
+		relative_position_id = PWT_jianli_xinsibada_jiaoyu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_gailiang_chuantong
+		}
+	}
+	#进口加勒比武装
+	focus = {
+		id = PWT_jinkou_jialebi_wuzhaung
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = PWT_gailiang_chuantong }
+		relative_position_id = PWT_gailiang_chuantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = CRB
+}
+		}
+	}
+	#接纳勇士
+	focus = {
+		id = PWT_jiena_yongshi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = PWT_gailiang_chuantong }
+		relative_position_id = PWT_gailiang_chuantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_gailiang_chuantong_2
+			remove_idea = PWT_gailiang_chuantong
+			}
+		}
+	}
+	#开设竞技场
+	focus = {
+		id = PWT_kaishe_jingzhichang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = PWT_jianli_xinsibada_jiaoyu }
+		relative_position_id = PWT_jianli_xinsibada_jiaoyu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_junshi_shehui_2
+			remove_idea = PWT_junshi_shehui_3
+			}
+		}
+	}
+	#冷兵器训练
+	focus = {
+		id = PWT_lenbingqi_xunlian
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = PWT_kaishe_jingzhichang }
+		relative_position_id = PWT_kaishe_jingzhichang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_lenbingqi_xunlian
+		}
+	}
+	#热兵器训练
+	focus = {
+		id = PWT_rebingqi_xunlian
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = PWT_lenbingqi_xunlian }
+		relative_position_id = PWT_lenbingqi_xunlian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_rebingqi_xunlian
+		}
+	}
+	#启用军事教育
+	focus = {
+		id = PWT_qiyong_junshi_jiaoyu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = PWT_kaishe_jingzhichang }
+		relative_position_id = PWT_kaishe_jingzhichang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PWT_qiyong_junshi_jiaoyu
+		}
+	}
+	#战斗才是生命
+	focus = {
+		id = PWT_zhandou_caishi_shengming
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = PWT_qiyong_junshi_jiaoyu }
+		relative_position_id = PWT_qiyong_junshi_jiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PWT_qiyong_junshi_jiaoyu_2
+			remove_idea = PWT_qiyong_junshi_jiaoyu
+			}
+		}
+	}
+}

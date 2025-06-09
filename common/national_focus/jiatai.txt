@@ -1,0 +1,421 @@
+focus_tree = {
+	id = CAT_focus
+    
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CAT
+		}
+	}
+	
+	default = no
+ 
+	#自由！自由！自由！
+	focus = {
+		id = CAT_free_free_free
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	#夺取生产资料
+	focus = {
+		id = CAT_duoqu_shengchan_ziliao
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = CAT_free_free_free }
+		relative_position_id = CAT_free_free_free
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_dulidifang_jianshe_2
+			remove_idea = CAT_dulidifang_jianshe
+			}
+		}
+	}
+	#建设农民公社
+	focus = {
+		id = CAT_jianshe_nongmin_gongshe
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = CAT_duoqu_shengchan_ziliao }
+		relative_position_id = CAT_duoqu_shengchan_ziliao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_dulidifang_jianshe_3
+			remove_idea = CAT_dulidifang_jianshe_2
+			}
+		}
+	}
+	#军事化民众
+	focus = {
+		id = CAT_junshihua_minzhong
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CAT_jianshe_nongmin_gongshe }
+		relative_position_id = CAT_jianshe_nongmin_gongshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_dulidifang_jianshe_4
+			remove_idea = CAT_dulidifang_jianshe_3
+			}
+		}
+	}
+	#地方军事作坊
+	focus = {
+		id = CAT_difang_junshi_zuofang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CAT_junshihua_minzhong }
+		relative_position_id = CAT_junshihua_minzhong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_dulidifang_jianshe_5
+			remove_idea = CAT_dulidifang_jianshe_4
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#武装人民
+	focus = {
+		id = CAT_wuzhuang_renmin
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CAT_free_free_free }
+		relative_position_id = CAT_free_free_free
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_junshi_wuzhuang_2
+			remove_idea = CAT_junshi_wuzhuang
+			}
+			load_oob = CAT_wuzhuang_renmin
+		}
+	}
+	#自由妇女
+	focus = {
+		id = CAT_ziyou_funv
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = CAT_jianshe_nongmin_gongshe }
+		prerequisite = { focus = CAT_gongren_zizhi }
+		relative_position_id = CAT_gongren_zizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_ziyou_shehui_2
+			remove_idea = CAT_ziyou_shehui
+			}
+		}
+	}
+	#扩大地区联系
+	focus = {
+		id = CAT_kuoda_diqu
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = CAT_ziyou_funv }
+		relative_position_id = CAT_ziyou_funv
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_ziyou_shehui_3
+			remove_idea = CAT_ziyou_shehui_2
+			}
+		}
+	}
+	#大型军事联合体
+	focus = {
+		id = CAT_daxing_junshi_lianheti
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = CAT_difang_junshi_zuofang }
+		prerequisite = { focus = CAT_kuoda_diqu }
+		relative_position_id = CAT_kuoda_diqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_dulidifang_jianshe_6
+			remove_idea = CAT_dulidifang_jianshe_5
+			}
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#工人自治
+	focus = {
+		id = CAT_gongren_zizhi
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CAT_duoqu_shengchan_ziliao }
+		prerequisite = { focus = CAT_wuzhuang_renmin }
+		relative_position_id = CAT_wuzhuang_renmin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAT_gongren_zizhi
+		}
+	}
+	#共度难关
+	focus = {
+		id = CAT_gongdu_nanguan
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CAT_wuzhuang_renmin }
+		relative_position_id = CAT_wuzhuang_renmin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = CAT_junshi_wuzhuang_2
+		}
+	}
+	#意志联合体
+	focus = {
+		id = CAT_yizhi_lianheti
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = CAT_gongdu_nanguan }
+		prerequisite = { focus = CAT_gongren_zizhi }
+		relative_position_id = CAT_gongdu_nanguan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAT_junshi_wuzhuang_3
+		}
+	}
+	#自身的主人
+	focus = {
+		id = CAT_zishen_zhuren
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = CAT_yizhi_lianheti }
+		relative_position_id = CAT_yizhi_lianheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_junshi_wuzhuang_4
+			remove_idea = CAT_junshi_wuzhuang_3
+			}
+		}
+	}
+	#战争总动员
+	focus = {
+		id = CAT_zhazheng_zongdongyuan
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CAT_difang_junshi_zuofang }
+		prerequisite = { focus = CAT_zishen_zhuren }
+		relative_position_id = CAT_zishen_zhuren
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_junshi_wuzhuang_5
+			remove_idea = CAT_junshi_wuzhuang_4
+			}
+		}
+	}
+	#民族平等
+	focus = {
+		id = CAT_minzu_pingdeng
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = CAT_gongdu_nanguan }
+		relative_position_id = CAT_gongdu_nanguan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_maodun_allwar_2
+			remove_idea = CAT_maodun_allwar
+			}
+		}
+	}
+	#宗教平等
+	focus = {
+		id = CAT_zongjiao_pingdeng
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = CAT_minzu_pingdeng }
+		relative_position_id = CAT_minzu_pingdeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_maodun_allwar_3
+			remove_idea = CAT_maodun_allwar_2
+			}
+		}
+	}
+	#保卫社会天堂
+	focus = {
+		id = CAT_baowei_shehui_tiantang
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = CAT_zongjiao_pingdeng }
+		prerequisite = { focus = CAT_zishen_zhuren }
+		relative_position_id = CAT_zongjiao_pingdeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKH = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_maodun_allwar_4
+			remove_idea = CAT_maodun_allwar_3
+			}
+			declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = XBY
+    type = annex_everything
+}
+declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAV
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = XTZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUO
+    type = annex_everything
+}
+		}
+	}
+	#自由的胜利
+	focus = {
+		id = CAT_ziyou_vic
+		icon = GFX_focus_POL_support_global_falangism
+		prerequisite = { focus = CAT_daxing_junshi_lianheti }
+		prerequisite = { focus = CAT_zhazheng_zongdongyuan }
+		prerequisite = { focus = CAT_baowei_shehui_tiantang }
+		relative_position_id = CAT_zhazheng_zongdongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKH = {
+		exists = no
+		}
+		XTZ = {
+		exists = no
+		}
+		GLD = {
+		NOT = {
+		controls_state = 173
+		}
+		}
+		POR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAT_ziyou_shehui_4
+			remove_idea = CAT_ziyou_shehui_3
+			}
+			every_state = {
+			limit = {
+			OR = {
+			region = 41
+			region = 209
+			region = 210
+			}
+			}
+			add_core_of = CAT
+			}
+		}
+	}
+}

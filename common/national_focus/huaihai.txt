@@ -1,0 +1,263 @@
+focus_tree = {
+	id = HHA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HHA
+		}
+	}
+	
+	default = no
+ 
+	#齐治江淮
+	focus = {
+		id = HHA_qizhi_jianghuai
+		icon = GFX_focus_generic_monarchy_2
+		x = 30
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		is_core_of = JAN
+		}
+		add_core_of = NWA
+		}
+		}
+	}
+	#吸收外国资助
+	focus = {
+		id = HHA_xishou_waiguo_zizhu
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = HHA_qizhi_jianghuai}
+		relative_position_id = HHA_qizhi_jianghuai
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HHA_jingji_weiji
+			remove_idea = JAN_jingji_weiji_2
+			}
+			swap_ideas = {
+			add_idea = HHA_maige_haojiaqian_2
+			remove_idea = HHA_maige_haojiaqian
+			}
+		}
+	}
+	#保卫淮海
+	focus = {
+		id = HHA_baowei_huaihai
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = HHA_qizhi_jianghuai}
+		relative_position_id = HHA_qizhi_jianghuai
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = HHA_baoweijun
+		}
+	}
+	#向南京求援
+	focus = {
+		id = HHA_xiangnanjing_qiuyuan
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = HHA_xishou_waiguo_zizhu}
+		prerequisite = { focus = HHA_baowei_huaihai }
+		relative_position_id = HHA_baowei_huaihai
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		NNJ = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			NNJ = {
+			country_event = {
+    id = holy_huabei.11
+	days = 5
+}
+			}
+		}
+	}
+	#不平等条约
+	focus = {
+		id = HHA_bupingdeng_tiaoyue
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = HHA_xiangnanjing_qiuyuan}
+		relative_position_id = HHA_xiangnanjing_qiuyuan
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HHA_maige_haojiaqian_3
+			remove_idea = HHA_maige_haojiaqian_2
+			}
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FRA
+}
+		}
+	}
+	#搜刮民间武装
+	focus = {
+		id = HHA_sougua_minjian_wuzhuang
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = HHA_xiangnanjing_qiuyuan}
+		relative_position_id = HHA_xiangnanjing_qiuyuan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+}
+		}
+	}
+	#收编孙系残部
+	focus = {
+		id = HHA_shoubian_sunxi_canbu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = HHA_xiangnanjing_qiuyuan}
+		relative_position_id = HHA_xiangnanjing_qiuyuan
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = HHA_sunxi_canbu
+		}
+	}
+	#组建民兵部队
+	focus = {
+		id = HHA_zujian_minbing_budui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = HHA_shoubian_sunxi_canbu}
+		prerequisite = { focus = HHA_sougua_minjian_wuzhuang}
+		prerequisite = { focus = HHA_bupingdeng_tiaoyue}
+		relative_position_id = HHA_sougua_minjian_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -3000
+}
+load_oob = HHA_minbing
+		}
+	}
+	#扩大化征兵
+	focus = {
+		id = HHA_kuodahua_zhengbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = HHA_zujian_minbing_budui}
+		relative_position_id = HHA_zujian_minbing_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = HHA_kuodahua_zhengbing
+		}
+	}
+	#出售沿海利益
+	focus = {
+		id = HHA_chushou_yanhai_liyi
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = HHA_zujian_minbing_budui}
+		relative_position_id = HHA_zujian_minbing_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = HHA_maige_haojiaqian_4
+			remove_idea = HHA_maige_haojiaqian_3
+			}
+			remove_ideas = HHA_jingji_weiji
+		}
+	}
+	#回归南京
+	focus = {
+		id = HHA_huigui_nanjing
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = HHA_chushou_yanhai_liyi}
+		prerequisite = { focus = HHA_kuodahua_zhengbing}
+		relative_position_id = HHA_kuodahua_zhengbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 606
+		controls_state = 598
+		controls_state = 1145
+			controls_state = 1146
+			controls_state = 1147
+			controls_state = 1149
+			controls_state = 1151
+			controls_state = 1150
+			controls_state = 1153
+			controls_state = 1152
+			controls_state = 1154
+		}
+		completion_reward = {
+	    NNJ = {
+		puppet = HHA
+		}
+		add_state_core = 606
+		add_state_core = 1145
+		add_state_core = 1146
+		add_state_core = 1147
+		add_state_core = 1149
+		}
+	}
+}

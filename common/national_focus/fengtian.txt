@@ -1,0 +1,1927 @@
+focus_tree = {
+	id = FEN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FEN
+		}
+	}
+	
+	default = no
+ 
+	#易安难安
+	focus = {
+		id = FEN_yian_nanan
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#北洋之殇
+	focus = {
+		id = FEN_beiyang_zhishang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = FEN_yian_nanan}
+		relative_position_id = FEN_yian_nanan
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#北伐之痛
+	focus = {
+		id = FEN_beifa_zhitong
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = FEN_yian_nanan}
+		relative_position_id = FEN_yian_nanan
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#龙抬头
+	focus = {
+		id = FEN_longtaitou
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FEN_beiyang_zhishang}
+		prerequisite = { focus = FEN_beifa_zhitong}
+		relative_position_id = FEN_beifa_zhitong
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huabei.1
+	days = 1
+}
+		}
+	}
+	#历史转折中的张学良
+	focus = {
+		id = FEN_lishizhuanzhe_zhangxueliang
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = FEN_longtaitou}
+		relative_position_id = FEN_longtaitou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huabei.2
+	days = 1
+}
+		}
+	}
+	#承父遗愿
+	focus = {
+		id = FEN_chengfu_yiyuan
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = FEN_lishizhuanzhe_zhangxueliang}
+		relative_position_id = FEN_lishizhuanzhe_zhangxueliang
+		mutually_exclusive = { focus = FEN_minguo_dream }
+		x = -3
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+	    add_popularity = {
+    ideology = dictatorship
+    popularity = 0.15
+}
+    swap_ideas = {
+			add_idea = FEN_junfa_fengtian
+			remove_idea = FEN_yiti_liamian
+			}
+		}
+	}
+	#联合地方势力
+	focus = {
+		id = FEN_lianhe_difang_shili
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = FEN_chengfu_yiyuan}
+		relative_position_id = FEN_chengfu_yiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        swap_ideas = {
+			add_idea = FEN_lianhe_difang
+			remove_idea = FEN_difang_zhuyi
+			}
+		}
+	}
+	#收编土匪
+	focus = {
+		id = FEN_shoubian_tufei
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = FEN_lianhe_difang_shili}
+		relative_position_id = FEN_lianhe_difang_shili
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        load_oob = FEN_shoubian_tufei
+			swap_ideas = {
+			add_idea = FEN_tufei_wenti
+			remove_idea = FEN_tufei_wenti
+			}
+		}
+	}
+	#宣传战争
+	focus = {
+		id = FEN_xuanchuan_zhanzheng
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = FEN_lianhe_difang_shili}
+		relative_position_id = FEN_lianhe_difang_shili
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        add_war_support = 0.1
+		}
+	}
+	#展望关内
+	focus = {
+		id = FEN_zhanwang_guannei
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = FEN_shoubian_tufei}
+		prerequisite = { focus = FEN_xuanchuan_zhanzheng}
+		relative_position_id = FEN_shoubian_tufei
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        add_state_claim = 608
+			add_state_claim = 609
+			add_state_claim = 614
+			add_state_claim = 1100
+			add_state_claim = 1099
+			add_state_claim = 1162
+			add_state_claim = 1161
+			add_state_claim = 1529
+		}
+	}
+	#北洋之梦
+	focus = {
+		id = FEN_beiyang_dream
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = FEN_shoubian_tufei}
+		prerequisite = { focus = FEN_xuanchuan_zhanzheng}
+		relative_position_id = FEN_shoubian_tufei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        swap_ideas = {
+			add_idea = FEN_junfa_fengtian_2
+			remove_idea = FEN_junfa_fengtian
+			}
+		}
+	}
+	#毋忘在莒
+	focus = {
+		id = FEN_wuwang_zaiju
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = FEN_shoubian_tufei}
+		prerequisite = { focus = FEN_xuanchuan_zhanzheng}
+		relative_position_id = FEN_xuanchuan_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        swap_ideas = {
+			add_idea = FEN_junfa_fengtian_2
+			remove_idea = FEN_junfa_fengtian
+			}
+		}
+	}
+	#铲除郭松龄
+	focus = {
+		id = FEN_chanchu_guosonglin
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = FEN_zhanwang_guannei}
+		prerequisite = { focus = FEN_beiyang_dream}
+		prerequisite = { focus = FEN_wuwang_zaiju}
+		relative_position_id = FEN_beiyang_dream
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        end_puppet = DHJ
+		}
+	}
+	#大规模逮捕合法化
+	focus = {
+		id = FEN_daguimo_daibu_hefahua
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = FEN_chanchu_guosonglin}
+		relative_position_id = FEN_chanchu_guosonglin
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	        swap_ideas = {
+			add_idea = FEN_junfa_fengtian_3
+			remove_idea = FEN_junfa_fengtian_2
+			}
+			add_stability = -0.1
+		}
+	}
+	#武装缴械行动
+	focus = {
+		id = FEN_wuzhuang_jiaoxie_xingdong
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = FEN_chanchu_guosonglin}
+		relative_position_id = FEN_chanchu_guosonglin
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		DHJ = {
+	        send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = FEN
+}
+		}
+		}
+	}
+	#摧毁东海
+	focus = {
+		id = FEN_cuihui_donghai
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = FEN_daguimo_daibu_hefahua}
+		prerequisite = { focus = FEN_wuzhuang_jiaoxie_xingdong}
+		relative_position_id = FEN_daguimo_daibu_hefahua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		DHJ = {
+		leave_faction = yes
+		}
+		declare_war_on = {
+    target = DHJ
+    type = annex_everything
+}
+		}
+	}
+	#重建奉天势力圈
+	focus = {
+		id = FEN_chongzheng_fengtian_shiliquan
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = FEN_cuihui_donghai}
+		relative_position_id = FEN_cuihui_donghai
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#入关战争
+	focus = {
+		id = FEN_ruguan_zhanzheng
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = FEN_cuihui_donghai}
+		relative_position_id = FEN_cuihui_donghai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DHJ = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		 every_state = {
+					limit = {
+					OR = {
+						region = 143
+						region = 247
+						}
+					}
+add_claim_by = FEN
+		}
+add_state_claim = 1529
+remove_state_claim = 1105
+news_event = {
+				id = holy_news.19 days = 1
+			}
+		}
+	}
+	#继续光复战争
+	focus = {
+		id = FEN_jixu_guangfu_war
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = FEN_chongzheng_fengtian_shiliquan}
+		prerequisite = { focus = FEN_ruguan_zhanzheng}
+		relative_position_id = FEN_ruguan_zhanzheng
+		available = {
+		NOT = {
+		OR = {
+		has_war_with = WAN
+		has_war_with = ZHI
+		}
+		}
+		}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 1123
+		add_state_claim = 1122
+		add_state_claim = 1076
+		add_state_claim = 586
+		add_state_claim = 1337
+		add_state_claim = 1336
+		add_state_claim = 1335
+		add_state_claim = 537
+		add_state_claim = 654
+		add_state_claim = 1855
+		add_state_claim = 1273
+		add_state_claim = 1280
+		add_state_claim = 1486
+		add_state_claim = 1487
+		add_state_claim = 524
+		remove_state_claim = 323
+		remove_state_claim = 1396
+every_state = {
+					limit = {
+					OR = {
+						region = 255
+						region = 148
+						region = 242
+						region = 244
+						region = 186
+						region = 155
+						region = 165
+						region = 152
+						region = 266
+						region = 143
+						region = 247
+						region = 245
+						region = 164
+						region = 246
+						region = 248
+						region = 249
+						region = 250
+						region = 144
+						region = 200
+						region = 146
+						region = 287
+						region = 252
+						}
+					}
+add_claim_by = FEN
+		}
+		}
+	}
+	#整合军工企业
+	focus = {
+		id = FEN_zhenghe_jungong_qiye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FEN_jixu_guangfu_war}
+		relative_position_id = FEN_jixu_guangfu_war
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#军国统一组织
+	focus = {
+		id = FEN_junguo_tongyi_zuzhi
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = FEN_zhenghe_jungong_qiye}
+		relative_position_id = FEN_zhenghe_jungong_qiye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FEN_junguo_tongyi_zuzhi
+		}
+	}
+	#征兵制度改良
+	focus = {
+		id = FEN_zhengbing_zhidu_gailiang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = FEN_jixu_guangfu_war}
+		relative_position_id = FEN_jixu_guangfu_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FEN_zhengbing_zhidu_gailiang
+		}
+	}
+	#接管铁路线
+	focus = {
+		id = FEN_jieguan_tieluxian
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = FEN_jixu_guangfu_war}
+		relative_position_id = FEN_jixu_guangfu_war
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 608
+			controls_state = 609
+			controls_state = 614
+			controls_state = 1100
+			controls_state = 1099
+			controls_state = 1162
+			controls_state = 1161
+		}
+		completion_reward = {
+		    608 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			609 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			614 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩展运输
+	focus = {
+		id = FEN_kuozhan_yunshu
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = FEN_zhengbing_zhidu_gailiang}
+		prerequisite = { focus = FEN_jieguan_tieluxian}
+		relative_position_id = FEN_jieguan_tieluxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_kuozhan_yunshu
+		}
+	}
+	#整合运动
+	focus = {
+		id = FEN_zhenghe_yundong
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = FEN_kuozhan_yunshu}
+		prerequisite = { focus = FEN_junguo_tongyi_zuzhi}
+		relative_position_id = FEN_kuozhan_yunshu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 50
+		}
+	}
+	#北洋民国
+	focus = {
+		id = FEN_beiyang_minguo
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = FEN_zhenghe_yundong}
+		relative_position_id = FEN_zhenghe_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DHJ = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		HEI = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		WAN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		HHA = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		JAN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		NWA = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		JAD = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		LUJ	= {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		QIN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		JIN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		ZHI = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		NIN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		HAM = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		XQJ = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		XIJ = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		ETK = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		XIH = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		MJJ = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		ZAG = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		XKA = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		SHU = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		YUX = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		DIA = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		is_in_faction_with = FEN
+		}
+		}
+		QAN = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		XIG = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		CCP = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		KMT = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		NNJ = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		CGH = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		GUI = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		OGU = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		YUE = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		QIO = {
+		OR = {
+		exists = no
+		is_puppet_of = FEN
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = FEN
+		OR = {
+		tag = FEN
+		tag = HEI
+		tag = DHJ
+		tag = WAN
+		tag = ZHI
+		tag = LUJ
+		tag = JAD
+		tag = NWA
+		tag = JAN
+		tag = HHA
+		tag = NNJ
+		tag = CCP
+		tag = CGH
+		tag = KMT
+		tag = XIG
+		tag = YUE
+		tag = OGU
+		tag = GUI
+		tag = QYZ
+		tag = DIA
+		tag = QAN
+		tag = YUX
+		tag = XKA
+		tag = SHU
+		tag = JIN
+		tag = QIN
+		tag = NIN
+		tag = MJJ
+		tag = XIH
+		tag = HAM
+		tag = ETK
+		tag = XIN
+		tag = JNA
+		tag = TWA
+		}
+		}
+		FEN = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+		}
+		    load_focus_tree = { tree = CHI_beiyang_focus keep_completed = yes }
+			set_cosmetic_tag = CHI
+			news_event = {
+				id = holy_news.39 days = 1
+			}
+		}
+	}
+	#民国之梦
+	focus = {
+		id = FEN_minguo_dream
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = FEN_lishizhuanzhe_zhangxueliang}
+		relative_position_id = FEN_lishizhuanzhe_zhangxueliang
+		mutually_exclusive = { focus = FEN_chengfu_yiyuan }
+		x = 3
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 3
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+	    add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.05
+}
+set_politics = {
+	ruling_party = conservatism
+}
+    swap_ideas = {
+			add_idea = FEN_minguo_mengxiang
+			remove_idea = FEN_yiti_liamian
+			} 
+		}
+	}
+	#一场会面
+	focus = {
+		id = FEN_yichang_huimian
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = FEN_minguo_dream}
+		relative_position_id = FEN_minguo_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_huabei.3
+	days = 10
+}
+	    }
+	}
+	#清剿土匪
+	focus = {
+		id = FEN_qingjiao_tufei
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = FEN_yichang_huimian}
+		relative_position_id = FEN_yichang_huimian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = FEN_tufei_wenti
+		add_stability = -0.1
+	    }
+	}
+	#打压地方主义
+	focus = {
+		id = FEN_dayi_difang_zhuyi
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = FEN_yichang_huimian}
+		relative_position_id = FEN_yichang_huimian
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = FEN_difang_zhuyi
+		add_stability = -0.1
+	    }
+	}
+	#国民宣传
+	focus = {
+		id = FEN_guomin_xuanchuan
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = FEN_yichang_huimian}
+		relative_position_id = FEN_yichang_huimian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		add_manpower = 300000
+	    }
+	}
+	#国民革命
+	focus = {
+		id = FEN_guomin_geming
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = FEN_qingjiao_tufei}
+		prerequisite = { focus = FEN_dayi_difang_zhuyi}
+		prerequisite = { focus = FEN_guomin_xuanchuan}
+		relative_position_id = FEN_dayi_difang_zhuyi
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = FEN_minguo_mengxiang_2
+			remove_idea = FEN_minguo_mengxiang
+			}
+	    }
+	}
+	#建立基层
+	focus = {
+		id = FEN_jianli_jiceng
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = FEN_guomin_geming}
+		relative_position_id = FEN_guomin_geming
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FEN_jianli_jiceng
+	    }
+	}
+	#控制工业
+	focus = {
+		id = FEN_kongzhi_gongye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = FEN_guomin_geming}
+		relative_position_id = FEN_guomin_geming
+		x = 2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 4 }
+		714 = {
+		remove_building = {
+    type = arms_factory
+    level = 4
+}
+		}
+	    }
+	}
+	#组建新军
+	focus = {
+		id = FEN_zujian_xinjun
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FEN_guomin_geming}
+		relative_position_id = FEN_guomin_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = FEN_zujian_newjun
+	    }
+	}
+	#突袭守旧派
+	focus = {
+		id = FEN_tuxi_shoujiupai
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = FEN_kongzhi_gongye}
+		prerequisite = { focus = FEN_jianli_jiceng}
+		prerequisite = { focus = FEN_zujian_xinjun}
+		relative_position_id = FEN_zujian_xinjun
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 714
+		transfer_state = 761
+		transfer_state = 1107
+		transfer_state = 1110
+		transfer_state = 1527
+		transfer_state = 1528
+		transfer_state = 1519
+		transfer_state = 1518
+		end_puppet = HEI
+	    }
+	}
+	#北上黑龙江
+	focus = {
+		id = FEN_beishang_heilongjiang
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = FEN_tuxi_shoujiupai}
+		relative_position_id = FEN_tuxi_shoujiupai
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		HEI = {
+		leave_faction = yes
+		}
+		declare_war_on = {
+    target = HEI
+    type = annex_everything
+}
+	    }
+	}
+	#进军北方
+	focus = {
+		id = FEN_jinjun_beifang
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = FEN_beishang_heilongjiang}
+		relative_position_id = FEN_beishang_heilongjiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		    add_state_claim = 608
+			add_state_claim = 609
+			add_state_claim = 614
+			add_state_claim = 1100
+			add_state_claim = 1099
+			add_state_claim = 1162
+			add_state_claim = 1161
+	    }
+	}
+	#复仇皖系
+	focus = {
+		id = FEN_fuchou_wanxi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = FEN_jinjun_beifang}
+		relative_position_id = FEN_jinjun_beifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = WAN
+    type = annex_everything
+}
+every_state = {
+					limit = {
+					OR = {
+						region = 143
+						region = 247
+						}
+					}
+add_claim_by = FEN
+		}
+add_state_claim = 1529
+remove_state_claim = 1105
+news_event = {
+				id = holy_news.19 days = 1
+			}
+	    }
+	}
+	#进攻直系
+	focus = {
+		id = FEN_jingong_zhixi
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = FEN_fuchou_wanxi}
+		relative_position_id = FEN_fuchou_wanxi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = ZHI
+    type = annex_everything
+}
+	    }
+	}
+	#进攻山东
+	focus = {
+		id = FEN_jingong_shandong
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = FEN_fuchou_wanxi}
+		relative_position_id = FEN_fuchou_wanxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = JAD
+    type = annex_everything
+}
+declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+	    }
+	}
+	#进攻淮海
+	focus = {
+		id = FEN_jingong_huaihai
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = FEN_fuchou_wanxi}
+		relative_position_id = FEN_fuchou_wanxi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    declare_war_on = {
+    target = HHA
+    type = annex_everything
+}
+declare_war_on = {
+    target = NWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAN
+    type = annex_everything
+}
+	    }
+	}
+	#北方和平
+	focus = {
+		id = FEN_beifang_wp
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = FEN_jingong_zhixi}
+		prerequisite = { focus = FEN_jingong_huaihai}
+		prerequisite = { focus = FEN_jingong_shandong}
+		relative_position_id = FEN_jingong_shandong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		WAN = {
+		exists = no
+		}
+		ZHI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			 every_state = {
+					limit = {
+					OR = {
+						region = 143
+						region = 247
+						}
+					}
+add_core_of = FEN
+		}
+add_state_core = 1529
+remove_state_core = 1105
+	    }
+	}
+	#开发东北
+	focus = {
+		id = FEN_kaifa_dongbei
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = FEN_lishizhuanzhe_zhangxueliang}
+		relative_position_id = FEN_lishizhuanzhe_zhangxueliang
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = FEN_beishang_heilongjiang
+		has_completed_focus = FEN_cuihui_donghai
+		}
+		}
+		completion_reward = {
+		    add_political_power = 100
+		}
+	}
+	#银行中央化
+	focus = {
+		id = FEN_yinhang_zhongyanghua
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = FEN_kaifa_dongbei}
+		relative_position_id = FEN_kaifa_dongbei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_zhongyang_yinhang
+		}
+	}
+	#吸引南方投资
+	focus = {
+		id = FEN_xiyin_nanfang_touzi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = FEN_yinhang_zhongyanghua}
+		relative_position_id = FEN_yinhang_zhongyanghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_zhongyang_yinhang_2
+			remove_idea = FEN_zhongyang_yinhang
+			}
+		}
+	}
+	#奉天轻金属公司
+	focus = {
+		id = FEN_fengtian_qingjinshu_gongsi
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = FEN_xiyin_nanfang_touzi}
+		relative_position_id = FEN_xiyin_nanfang_touzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_zhongyang_yinhang_3
+			remove_idea = FEN_zhongyang_yinhang_2
+			}
+		}
+	}
+	#东北民族工业联盟
+	focus = {
+		id = FEN_dongbei_minzu_gongyelianmeng
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = FEN_xiyin_nanfang_touzi}
+		relative_position_id = FEN_xiyin_nanfang_touzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FEN_dongbei_minzu_gongyelianmeng
+		}
+	}
+	#三江水利
+	focus = {
+		id = FEN_sanjiang_shuili
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = FEN_fengtian_qingjinshu_gongsi}
+		relative_position_id = FEN_fengtian_qingjinshu_gongsi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_sanjiang_shuili
+			every_state = {
+			if = {
+			limit = {
+			is_core_of = FEN
+			}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		   }
+	      }
+	    }
+	}
+	#东北科研联盟
+	focus = {
+		id = FEN_dongbei_keyan_lianmeng
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = FEN_sanjiang_shuili}
+		relative_position_id = FEN_sanjiang_shuili
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_to_tech_sharing_group = 东北科研联盟
+		}
+	}
+	#东北铁路
+	focus = {
+		id = FEN_dongbei_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = FEN_fengtian_qingjinshu_gongsi}
+		prerequisite = { focus = FEN_dongbei_minzu_gongyelianmeng}
+		relative_position_id = FEN_fengtian_qingjinshu_gongsi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_dongbei_tielu
+		}
+	}
+	#电气化工程
+	focus = {
+		id = FEN_dianqihua_gongcheng
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = FEN_dongbei_tielu}
+		prerequisite = { focus = FEN_sanjiang_shuili}
+		relative_position_id = FEN_sanjiang_shuili
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = support
+			}
+		}
+	}
+	#扩大鞍山矿场
+	focus = {
+		id = FEN_kuoda_anshan_kuangchang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = FEN_dongbei_minzu_gongyelianmeng}
+		relative_position_id = FEN_dongbei_minzu_gongyelianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_resource = {
+    type = steel
+    amount = 50
+    state = 715
+}
+		}
+	}
+	#营口建设
+	focus = {
+		id = FEN_yinkou_jianshe
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = FEN_kuoda_anshan_kuangchang}
+		prerequisite = { focus = FEN_dongbei_tielu}
+		relative_position_id = FEN_kuoda_anshan_kuangchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    715 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = idustrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#抚顺工业
+	focus = {
+		id = FEN_fushun_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = FEN_kuoda_anshan_kuangchang}
+		relative_position_id = FEN_kuoda_anshan_kuangchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    715 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#复兴东北军工
+	focus = {
+		id = FEN_fuxing_dongbei_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FEN_lishizhuanzhe_zhangxueliang}
+		relative_position_id = FEN_lishizhuanzhe_zhangxueliang
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = FEN_beishang_heilongjiang
+		has_completed_focus = FEN_cuihui_donghai
+		}
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_shenyang_binggongchang_2
+			remove_idea = FEN_shenyang_binggongchang
+			}
+		}
+	}
+	#沈阳军事学院
+	focus = {
+		id = FEN_shenyang_junshi_xueyuan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FEN_fuxing_dongbei_jungong}
+		relative_position_id = FEN_fuxing_dongbei_jungong
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_shenyang_junshixueyuan
+		}
+	}
+	#现代化课程
+	focus = {
+		id = FEN_xiandaihua_kecheng
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = FEN_shenyang_junshi_xueyuan}
+		relative_position_id = FEN_shenyang_junshi_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_shenyang_junshixueyuan_2
+			remove_idea = FEN_shenyang_junshixueyuan
+			}
+		}
+	}
+	#道德灌输
+	focus = {
+		id = FEN_daode_guanshu
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = FEN_xiandaihua_kecheng}
+		relative_position_id = FEN_xiandaihua_kecheng
+		available = {
+		has_completed_focus = FEN_chengfu_yiyuan
+		}
+		mutually_exclusive = { focus = FEN_xinshi_jundui }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_daode_guanshu
+			remove_idea = FEN_shenyang_junshixueyuan_2
+			}
+		}
+	}
+	#扩大化部队
+	focus = {
+		id = FEN_kuodahua_budui
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = FEN_daode_guanshu}
+		relative_position_id = FEN_daode_guanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_daode_guanshu_2
+			remove_idea = FEN_daode_guanshu
+			}
+		}
+	}
+	#忠诚思想
+	focus = {
+		id = FEN_zhongcheng_sixiang
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = FEN_kuodahua_budui}
+		relative_position_id = FEN_kuodahua_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_daode_guanshu_3
+			remove_idea = FEN_daode_guanshu_2
+			}
+		}
+	}
+	#火力集中
+	focus = {
+		id = FEN_huoli_jizhong
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = FEN_zhongcheng_sixiang}
+		relative_position_id = FEN_zhongcheng_sixiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_daode_guanshu_4
+			remove_idea = FEN_daode_guanshu_3
+			}
+		}
+	}
+	#军阀整合
+	focus = {
+		id = FEN_junfa_zhenghe
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = FEN_kuodahua_budui}
+		relative_position_id = FEN_kuodahua_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = FEN_junfa_budui
+		}
+	}
+	#加强训练
+	focus = {
+		id = FEN_jiaqiang_xunlian
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FEN_junfa_zhenghe}
+		relative_position_id = FEN_junfa_zhenghe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_jiaqiang_xunlian
+		}
+	}
+	#新式军队
+	focus = {
+		id = FEN_xinshi_jundui
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = FEN_xiandaihua_kecheng}
+		relative_position_id = FEN_xiandaihua_kecheng
+		available = {
+		has_completed_focus = FEN_minguo_dream
+		}
+		mutually_exclusive = { focus = FEN_daode_guanshu }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_xinshi_jundui
+			remove_idea = FEN_shenyang_junshixueyuan_2
+			}
+		}
+	}
+	#步兵武装
+	focus = {
+		id = FEN_bubing_wuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FEN_xinshi_jundui}
+		relative_position_id = FEN_xinshi_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_bubing_wuzhuang
+		}
+	}
+	#装甲工业
+	focus = {
+		id = FEN_zhuangjia_gongye
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = FEN_bubing_wuzhuang}
+		relative_position_id = FEN_bubing_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_zhuangjia_gongye
+		}
+	}
+	#共和战争
+	focus = {
+		id = FEN_gonghe_mengxiang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FEN_xinshi_jundui}
+		relative_position_id = FEN_xinshi_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_xinshi_jundui_2
+			remove_idea = FEN_xinshi_jundui
+			}
+		}
+	}
+	#半步不退
+	focus = {
+		id = FEN_banbu_butui
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = FEN_gonghe_mengxiang}
+		relative_position_id = FEN_gonghe_mengxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_xinshi_jundui_3
+			remove_idea = FEN_xinshi_jundui_2
+			}
+		}
+	}
+	#军事革新
+	focus = {
+		id = FEN_junshi_gexin
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FEN_zhuangjia_gongye}
+		prerequisite = { focus = FEN_banbu_butui}
+		relative_position_id = FEN_banbu_butui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_xinshi_jundui_4
+			remove_idea = FEN_xinshi_jundui_3
+			}
+		}
+	}
+	#面向大海
+	focus = {
+		id = FEN_mianxiang_bigsea
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = FEN_fuxing_dongbei_jungong}
+		relative_position_id = FEN_fuxing_dongbei_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    navy_experience = 10
+		}
+	}
+	#大连海港
+	focus = {
+		id = FEN_dalian_haigang
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = FEN_mianxiang_bigsea}
+		relative_position_id = FEN_mianxiang_bigsea
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    745 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#营口海运
+	focus = {
+		id = FEN_yingkou_haiyun
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = FEN_mianxiang_bigsea}
+		relative_position_id = FEN_mianxiang_bigsea
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    715 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#河流巡游
+	focus = {
+		id = FEN_heliu_xunyou
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = FEN_dalian_haigang}
+		prerequisite = { focus = FEN_yingkou_haiyun}
+		relative_position_id = FEN_dalian_haigang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_convoys = 100
+		}
+	}
+	#扩建沈阳兵工厂
+	focus = {
+		id = FEN_kuojian_shenyang_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FEN_fuxing_dongbei_jungong}
+		relative_position_id = FEN_fuxing_dongbei_jungong
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_shenyang_binggongchang_3
+			remove_idea = FEN_shenyang_binggongchang_2
+			}
+		}
+	}
+	#扩大火炮生产
+	focus = {
+		id = FEN_kuoda_huopao_shengchan
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = FEN_kuojian_shenyang_binggongchang}
+		relative_position_id = FEN_kuojian_shenyang_binggongchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_kuoda_huopao
+		}
+	}
+	#扩大军工建设
+	focus = {
+		id = FEN_kuoda_jungonhg_jianshe
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FEN_kuoda_huopao_shengchan}
+		relative_position_id = FEN_kuoda_huopao_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_kuoda_jungong
+		}
+	}
+	#精加工能力
+	focus = {
+		id = FEN_jingjiagong_nengli
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = FEN_kuojian_shenyang_binggongchang}
+		relative_position_id = FEN_kuojian_shenyang_binggongchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = FEN_shenyang_binggongchang_4
+			remove_idea = FEN_shenyang_binggongchang_3
+			}
+		}
+	}
+	#飞机生产
+	focus = {
+		id = FEN_feiji_shengchan
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = FEN_jingjiagong_nengli}
+		relative_position_id = FEN_jingjiagong_nengli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FEN_feiji_shengchan
+		}
+	}
+}

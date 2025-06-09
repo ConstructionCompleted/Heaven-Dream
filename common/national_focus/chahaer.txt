@@ -1,0 +1,484 @@
+focus_tree = {
+	id = CHR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CHR
+		}
+	}
+	
+	default = no
+ 
+	#东部草原的安宁
+	focus = {
+		id = CHR_dongbu_caoyuan_anning
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_fujia.9
+	days = 20
+}
+		}
+	}
+	#云王之死
+	focus = {
+		id = CHR_yunwang_zhisi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CHR_dongbu_caoyuan_anning}
+		relative_position_id = CHR_dongbu_caoyuan_anning
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		    add_ideas = CHR_yunwang_yubo
+		}
+	}
+	#北方骑兵
+	focus = {
+		id = CHR_beifang_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = CHR_yunwang_zhisi}
+		relative_position_id = CHR_yunwang_zhisi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_fujia.10
+	days = 1
+}
+		}
+	}
+	#同盟军组建
+	focus = {
+		id = CHR_tongmengjun_zujian
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = CHR_yunwang_zhisi}
+		relative_position_id = CHR_yunwang_zhisi
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_fujia.11
+	days = 1
+}
+		}
+	}
+	#张家口会战
+	focus = {
+		id = CHR_zhangjiakou_zhizhan
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = CHR_beifang_qibing}
+		prerequisite = { focus = CHR_tongmengjun_zujian}
+		relative_position_id = CHR_tongmengjun_zujian
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_fujia.12
+	days = 1
+}
+		}
+	}
+	#联盟的胜利
+	focus = {
+		id = CHR_lianmeng_vic
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = CHR_zhangjiakou_zhizhan}
+		relative_position_id = CHR_zhangjiakou_zhizhan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = CHR_yunwang_yubo
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.15
+}
+		}
+	}
+	#纵马扬鞭
+	focus = {
+		id = CHR_zongma_yangbian
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = CHR_lianmeng_vic}
+		relative_position_id = CHR_lianmeng_vic
+		x = -2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CHR_zongmayangbian
+		}
+	}
+	#联合僧侣
+	focus = {
+		id = CHR_lianhe_senglv
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = CHR_lianmeng_vic}
+		relative_position_id = CHR_lianmeng_vic
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CHR_fojiao_senglv
+		}
+	}
+	#蒙古战争机器
+	focus = {
+		id = CHR_menggu_war_jiqi
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = CHR_zongma_yangbian}
+		relative_position_id = CHR_zongma_yangbian
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		612 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#收编汉族
+	focus = {
+		id = CHR_shoubian_hanzu
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = CHR_lianmeng_vic}
+		relative_position_id = CHR_lianmeng_vic
+		x = 2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHR_menghan_wenti_2
+		remove_idea = CHR_menghan_wenti
+		}
+		}
+	}
+	#汉族经济体系
+	focus = {
+		id = CHR_hanzu_jingji_tixi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = CHR_shoubian_hanzu}
+		relative_position_id = CHR_shoubian_hanzu
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1104 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#保护蒙疆联盟
+	focus = {
+		id = CHR_baowei_mengjiang_lianmeng
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = CHR_menggu_war_jiqi}
+		prerequisite = { focus = CHR_hanzu_jingji_tixi}
+		relative_position_id = CHR_hanzu_jingji_tixi
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 40
+		}
+	}
+	#忽里台大会
+	focus = {
+		id = CHR_hulitai_dahui
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = CHR_baowei_mengjiang_lianmeng}
+		relative_position_id = CHR_baowei_mengjiang_lianmeng
+		x = 0
+		y = 1
+		cost = 20
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SUY = {
+		has_government = neutrality
+		}
+		CHR = {
+		has_government = neutrality
+		}
+		BKD = {
+		has_government = neutrality
+		has_civil_war = no
+		}
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_fujia.8
+	days = 2
+}
+		}
+	}
+	#同盟的胜利
+	focus = {
+		id = CHR_tongmeng_vic
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = CHR_zhangjiakou_zhizhan}
+		relative_position_id = CHR_zhangjiakou_zhizhan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = CHR_yunwang_yubo
+		set_politics = {
+	ruling_party = progressism 
+}
+add_popularity = {
+    ideology = progressism 
+    popularity = 0.25
+}
+leave_faction = yes
+		}
+	}
+	#联络西北军
+	focus = {
+		id = CHR_lianluo_xibeijun
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = CHR_tongmeng_vic}
+		relative_position_id = CHR_tongmeng_vic
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		QIN = { puppet = CHR }
+		}
+	}
+	#组建自卫民兵
+	focus = {
+		id = CHR_zujian_ziwei_minbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = CHR_tongmeng_vic}
+		relative_position_id = CHR_tongmeng_vic
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = CHR_minbing
+		}
+	}
+	#张家口建设
+	focus = {
+		id = CHR_zhangjiakou_jianshe
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = CHR_lianluo_xibeijun}
+		prerequisite = { focus = CHR_zujian_ziwei_minbing}
+		relative_position_id = CHR_lianluo_xibeijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		611 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#接纳蒙古认同
+	focus = {
+		id = CHR_jiena_menggu_rentong
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = CHR_lianluo_xibeijun}
+		prerequisite = { focus = CHR_zujian_ziwei_minbing}
+		relative_position_id = CHR_lianluo_xibeijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHR_menghan_wenti_2
+		remove_idea = CHR_menghan_wenti
+		}
+		}
+	}
+	#东部战争准备
+	focus = {
+		id = CHR_dongbu_war_finish
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CHR_lianluo_xibeijun}
+		prerequisite = { focus = CHR_zujian_ziwei_minbing}
+		relative_position_id = CHR_zujian_ziwei_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_manpower = 75000
+		army_experience = 50
+		}
+	}
+	#协作联盟
+	focus = {
+		id = CHR_xiezuo_lianmeng
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CHR_zhangjiakou_jianshe}
+		prerequisite = { focus = CHR_jiena_menggu_rentong}
+		prerequisite = { focus = CHR_dongbu_war_finish}
+		relative_position_id = CHR_jiena_menggu_rentong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHR_menghan_wenti_4
+		remove_idea = CHR_menghan_wenti_3
+		}
+		}
+	}
+	#东部边境进军
+	focus = {
+		id = CHR_dongbu_bianjing_jinjun
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = CHR_xiezuo_lianmeng}
+		relative_position_id = CHR_xiezuo_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FEN = {
+		controls_state = 1106
+		controls_state = 1109
+		surrender_progress > 0.3
+		has_war = yes
+		}
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 611
+        num_provinces = 5
+    }
+				
+    defender = {
+        state = 1506
+        num_provinces = 5
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 611
+        num_provinces = 5
+    }
+				
+    defender = {
+        state = 1506
+        num_provinces = 5
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 1488
+        num_provinces = 5
+    }
+				
+    defender = {
+        state = 1511
+        num_provinces = 5
+    }
+}
+		}
+	}
+}

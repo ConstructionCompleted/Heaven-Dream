@@ -1,0 +1,824 @@
+focus_tree = {
+	id = ZOB_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ZOB
+		}
+	}
+	
+	default = no	
+	
+	#血液浇灌的生命
+	focus = {
+		id = ZOB_xueye_jiaoguan_shengming
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = ZOB_1936
+		}
+	}
+	#厌氧复苏
+	focus = {
+		id = ZOB_yanyang_fusu
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_yanyangfusu
+		}
+	}
+	#感官强化
+	focus = {
+		id = ZOB_ganguan_qianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yanyang_fusu}
+		relative_position_id = ZOB_yanyang_fusu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_ganguan_qianghua
+		}
+	}
+	#嗅觉强化
+	focus = {
+		id = ZOB_xiujue_qianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_ganguan_qianghua}
+		relative_position_id = ZOB_ganguan_qianghua
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_ganguan_qianghua_2
+			remove_idea = ZOB_ganguan_qianghua
+			}
+		}
+	}
+	#生物雷达
+	focus = {
+		id = ZOB_shengwu_leida
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_xiujue_qianghua}
+		relative_position_id = ZOB_xiujue_qianghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_ganguan_qianghua_3
+			remove_idea = ZOB_ganguan_qianghua_2
+			}
+		}
+	}
+	#运动吸引
+	focus = {
+		id = ZOB_yundong_xiyin
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_ganguan_qianghua}
+		relative_position_id = ZOB_ganguan_qianghua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_yundong_xiyin
+		}
+	}
+	#组织蛋白转移
+	focus = {
+		id = ZOB_zuzhi_danbai_zhuanyi
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yundong_xiyin}
+		relative_position_id = ZOB_yundong_xiyin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_yundong_xiyin_2
+			remove_idea = ZOB_yundong_xiyin
+			}
+		}
+	}
+	#嗜血性饥渴
+	focus = {
+		id = ZOB_shixuexing_jike
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zuzhi_danbai_zhuanyi}
+		relative_position_id = ZOB_zuzhi_danbai_zhuanyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_yundong_xiyin_3
+			remove_idea = ZOB_yundong_xiyin_2
+			}
+		}
+	}
+	#肾上腺素增强
+	focus = {
+		id = ZOB_shenshangxiansu_jizeng
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_ganguan_qianghua}
+		relative_position_id = ZOB_ganguan_qianghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_shenshangxiansu_jizeng
+		}
+	}
+	#运动神经强化
+	focus = {
+		id = ZOB_yundongshenjing_qianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yanyang_fusu}
+		relative_position_id = ZOB_yanyang_fusu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_yundongshenjing_qianghua
+		}
+	}
+	#咬合肌强化
+	focus = {
+		id = ZOB_yaoheji_qianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yundongshenjing_qianghua}
+		relative_position_id = ZOB_yundongshenjing_qianghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_yundongshenjing_qianghua_2
+			remove_idea = ZOB_yundongshenjing_qianghua
+			}
+		}
+	}
+	#蚓状肌肥大
+	focus = {
+		id = ZOB_yinzhuangji_feida
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yaoheji_qianghua focus = ZOB_shenshangxiansu_jizeng }
+		relative_position_id = ZOB_yaoheji_qianghua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_shenshangxiansu_jizeng_2
+			remove_idea = ZOB_shenshangxiansu_jizeng
+			}
+		}
+	}
+	#合成代谢增强
+	focus = {
+		id = ZOB_hechengdaixie_zengqiang
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yinzhuangji_feida }
+		relative_position_id = ZOB_yinzhuangji_feida
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_shenshangxiansu_jizeng_3
+			remove_idea = ZOB_shenshangxiansu_jizeng_2
+			}
+		}
+	}
+	#肽合成激增
+	focus = {
+		id = ZOB_taihecheng_jizeng
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yundongshenjing_qianghua}
+		relative_position_id = ZOB_yundongshenjing_qianghua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_taihecheng_jizeng
+		}
+	}
+	#皮肤钙化
+	focus = {
+		id = ZOB_pifu_gaihua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_taihecheng_jizeng}
+		relative_position_id = ZOB_taihecheng_jizeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_taihecheng_jizeng_2
+			remove_idea = ZOB_taihecheng_jizeng
+			}
+		}
+	}
+	#颅骨象皮症
+	focus = {
+		id = ZOB_lugu_xiangpizheng
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_pifu_gaihua}
+		relative_position_id = ZOB_pifu_gaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_taihecheng_jizeng_3
+			remove_idea = ZOB_taihecheng_jizeng_2
+			}
+		}
+	}
+	#骨骼结构异常
+	focus = {
+		id = ZOB_guge_jiegou_yichang
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_lugu_xiangpizheng}
+		relative_position_id = ZOB_lugu_xiangpizheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_taihecheng_jizeng_4
+			remove_idea = ZOB_taihecheng_jizeng_3
+			}
+		}
+	}
+	#酸液回流
+	focus = {
+		id = ZOB_suanye_huiliu
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_taihecheng_jizeng}
+		relative_position_id = ZOB_taihecheng_jizeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_suanye_huiliu
+		}
+	}
+	#眼镜蛇锁定
+	focus = {
+		id = ZOB_yanjingshe_suoding
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_suanye_huiliu}
+		relative_position_id = ZOB_suanye_huiliu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_suanye_huiliu_2
+			remove_idea = ZOB_suanye_huiliu
+			}
+		}
+	}
+	#自爆
+	focus = {
+		id = ZOB_zibao
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yanjingshe_suoding}
+		relative_position_id = ZOB_yanjingshe_suoding
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_suanye_huiliu_3
+			remove_idea = ZOB_suanye_huiliu_2
+			}
+		}
+	}
+	#自溶延时
+	focus = {
+		id = ZOB_zirong_yanshi
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_zirong_yanshi
+		}
+	}
+	#腐败抗性
+	focus = {
+		id = ZOB_fubai_kangxing
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zirong_yanshi}
+		relative_position_id = ZOB_zirong_yanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zirong_yanshi_2
+			remove_idea = ZOB_zirong_yanshi
+			}
+		}
+	}
+	#液化抑制
+	focus = {
+		id = ZOB_yehua_yizhi
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_fubai_kangxing}
+		relative_position_id = ZOB_fubai_kangxing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zirong_yanshi_3
+			remove_idea = ZOB_zirong_yanshi_2
+			}
+		}
+	}
+	#集群本能
+	focus = {
+		id = ZOB_jiqun_benneng
+		icon = GFX_goal_generic_secret_weapon
+		x = 15
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_jiqun_benneng
+		}
+	}
+	#组织性行进
+	focus = {
+		id = ZOB_zuzhixing_xingjin
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_jiqun_benneng}
+		relative_position_id = ZOB_jiqun_benneng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_zuzhixing_xingjin
+		}
+	}
+	#漂流发酵
+	focus = {
+		id = ZOB_piaoliu_fajiao
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zuzhixing_xingjin}
+		relative_position_id = ZOB_zuzhixing_xingjin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_shuishiying_2
+			remove_idea = ZOB_shuishiying
+			}
+		}
+	}
+	#运动障碍
+	focus = {
+		id = ZOB_yundong_zhangai
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zuzhixing_xingjin focus = ZOB_zhineng_buluo }
+		relative_position_id = ZOB_zuzhixing_xingjin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zuzhixing_xingjin_2
+			remove_idea = ZOB_zuzhixing_xingjin
+			}
+		}
+	}
+	#模仿倾向
+	focus = {
+		id = ZOB_mofang_qingxiang
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yundong_zhangai focus = ZOB_piaoliu_fajiao }
+		relative_position_id = ZOB_yundong_zhangai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zuzhixing_xingjin_3
+			remove_idea = ZOB_zuzhixing_xingjin_2
+			}
+		}
+	}
+	#四头肌强化
+	focus = {
+		id = ZOB_sitouji_qianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_mofang_qingxiang }
+		relative_position_id = ZOB_mofang_qingxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zuzhixing_xingjin_4
+			remove_idea = ZOB_zuzhixing_xingjin_3
+			}
+		}
+	}
+	#智能部落
+	focus = {
+		id = ZOB_zhineng_buluo
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_jiqun_benneng}
+		relative_position_id = ZOB_jiqun_benneng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_jiqun_benneng_2
+			remove_idea = ZOB_jiqun_benneng
+			}
+		}
+	}
+	#部落号召
+	focus = {
+		id = ZOB_buluo_haozhao
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zhineng_buluo}
+		relative_position_id = ZOB_zhineng_buluo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_jiqun_benneng_3
+			remove_idea = ZOB_jiqun_benneng_2
+			}
+		}
+	}
+	#部落信息素
+	focus = {
+		id = ZOB_buluo_xinxisu
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_buluo_haozhao}
+		relative_position_id = ZOB_buluo_haozhao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_jiqun_benneng_4
+			remove_idea = ZOB_jiqun_benneng_3
+			}
+		}
+	}
+	#僵尸蝙蝠
+	focus = {
+		id = ZOB_jiangshi_bianfu
+		icon = GFX_goal_generic_secret_weapon
+		x = 11
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_jiangshi_bianfu
+		}
+	}
+	#僵尸老鼠
+	focus = {
+		id = ZOB_jiangshi_laoshu
+		icon = GFX_goal_generic_secret_weapon
+		x = 11
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_jiangshi_laoshu
+		}
+	}
+	#僵尸鸟
+	focus = {
+		id = ZOB_jiangshi_niao
+		icon = GFX_goal_generic_secret_weapon
+		x = 11
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_jiangshi_niao
+		}
+	}
+	#再生能力
+	focus = {
+		id = ZOB_zaisheng_nengli
+		icon = GFX_goal_generic_secret_weapon
+		x = 25
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    add_ideas = ZOB_zaisheng_nengli
+		}
+	}
+	#再生生物合成
+	focus = {
+		id = ZOB_zaisheng_shengwu_hecheng
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zaisheng_nengli}
+		relative_position_id = ZOB_zaisheng_nengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zaisheng_nengli_2
+			remove_idea = ZOB_zaisheng_nengli
+			}
+		}
+	}
+	#表皮细胞消化
+	focus = {
+		id = ZOB_biaopi_xibao_xiaohua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zaisheng_shengwu_hecheng}
+		relative_position_id = ZOB_zaisheng_shengwu_hecheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zaisheng_nengli_3
+			remove_idea = ZOB_zaisheng_nengli_2
+			}
+		}
+	}
+	#颅转移
+	focus = {
+		id = ZOB_luzhuanyi
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_biaopi_xibao_xiaohua}
+		relative_position_id = ZOB_biaopi_xibao_xiaohua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_zaisheng_nengli_4
+			remove_idea = ZOB_zaisheng_nengli_3
+			}
+		}
+	}
+	#埋伏狩猎
+	focus = {
+		id = ZOB_maifu_shoulie
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_zaisheng_nengli}
+		relative_position_id = ZOB_zaisheng_nengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = ZOB_maifu_shulie
+		}
+	}
+	#液化性坏死
+	focus = {
+		id = ZOB_yehuaxing_huaisi
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_maifu_shoulie}
+		relative_position_id = ZOB_maifu_shoulie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_maifu_shulie_2
+			remove_idea = ZOB_maifu_shulie
+			}
+		}
+	}
+	#寒冷再强化
+	focus = {
+		id = ZOB_hanlen_zaiqianghua
+		icon = GFX_goal_generic_secret_weapon
+		x = 26
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = ZOB_hanlen_kangxing_2
+			remove_idea = ZOB_hanlen_kangxing
+			}
+		}
+	}
+	#木乃伊化
+	focus = {
+		id = ZOB_munaiyi_hua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_hanlen_zaiqianghua}
+		prerequisite = { focus = ZOB_yanre_kangxing}
+		relative_position_id = ZOB_yanre_kangxing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		completion_reward = {
+		    add_ideas = ZOB_munaiyi_hua
+		}
+	}
+	#炎热抗性
+	focus = {
+		id = ZOB_yanre_kangxing
+		icon = GFX_goal_generic_secret_weapon
+		x = 28
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 4
+		}
+		available = {
+			has_completed_focus = ZOB_xueye_jiaoguan_shengming
+		}
+		completion_reward = {
+			add_ideas = ZOB_yanre_kangxing
+		}
+	}
+	#炎热再强化
+	focus = {
+		id = ZOB_yanre_zaiqianghua
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = ZOB_yanre_kangxing}
+		relative_position_id = ZOB_yanre_kangxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 4
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZOB_yanre_kangxing_2
+			remove_idea = ZOB_yanre_kangxing
+			}
+		}
+	}
+}

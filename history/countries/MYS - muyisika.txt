@@ -1,0 +1,59 @@
+﻿capital = 306
+set_oob = "MYS_1936"
+set_naval_oob = "MYS_naval_1936"
+set_air_oob = "MYS_1936_air_legacy"
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	tech_support = 1
+	basic_train = 1
+}
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_submarine = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_torpedo = 1
+		submarine_mine_laying = 1
+		early_ship_hull_submarine = 1
+	}
+}
+
+set_research_slots = 4
+set_stability = 0.7
+set_war_support = 0.5
+
+set_convoys = 50
+
+set_politics = {
+	ruling_party = socialism
+	last_election = "1935.10.3"
+	election_frequency = 10
+	elections_allowed = no
+}
+set_popularities = {
+	socialism = 30
+	communism = 20
+	neutrality = 10
+	dictatorship = 5
+	democratic = 5
+	conservatism = 15
+	progressism = 5
+	reconcilism = 10
+	fascism = 0
+	destruction_system = 0
+}
+create_country_leader = {
+	name = ""
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = diqu_gongshe_system
+	traits = {
+	}
+}

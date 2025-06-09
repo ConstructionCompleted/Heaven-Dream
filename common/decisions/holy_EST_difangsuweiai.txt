@@ -1,0 +1,37 @@
+holy_EST_diqusuweiai = {
+    #建立地方苏维埃
+    holy_EST_build_place_sovit = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		BLD = {
+		exists = no
+		}
+	}
+		available = {
+		has_completed_focus = EST_jianli_difang_suweiai
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+		13 813 191 812 811
+		}
+		cost = 50
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+        local_building_slots_factor = 0.1
+		local_manpower = 0.1
+		local_resources_factor = 0.1
+    }
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

@@ -1,0 +1,310 @@
+add_namespace = holy_xiboliya
+#西伯利亚起义？
+country_event = {
+	id = holy_xiboliya.1
+	title = holy_xiboliya.1.t
+	desc = holy_xiboliya.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = RUD
+	date > 1936.2.1
+	}
+	immediate = {
+	add_ideas = RUD_dabagong
+	SBC = {
+		transfer_state = 571
+		transfer_state = 403
+		add_state_core = 571
+		add_state_core = 403
+		add_state_core = 572
+		add_state_core = 653
+		add_state_core = 581
+		add_state_core = 577
+		add_state_core = 579
+		add_state_core = 580
+		add_state_core = 516
+		add_state_core = 582
+		add_state_core = 573
+		add_state_core = 1349
+		add_state_core = 1350
+		add_state_core = 824
+		add_state_core = 878
+		load_oob = SBC_1936
+		create_faction = xiboliya_lianmeng
+		declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+		}
+		SBG = {
+		country_event = {
+    id = holy_xiboliya.2
+    days = 8
+	}
+	}
+	BMO = {
+	country_event = {
+    id = holy_xiboliya.3
+    days = 5
+	}
+	}
+	}
+	option = {
+	    name = holy_xiboliya.1.a
+	    ai_chance = {
+		    factor = 12
+		}
+		SBC = { change_tag_from = RUD }
+	}
+	option = {
+	    name = holy_xiboliya.1.b
+	    ai_chance = {
+		    factor = 12
+		}
+	}
+}
+#农民的反抗
+country_event = {
+	id = holy_xiboliya.2
+	title = holy_xiboliya.2.t
+	desc = holy_xiboliya.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	SBN = {
+		transfer_state = 578
+		add_state_core = 578
+		add_state_core = 570
+		add_state_core = 569
+		add_state_core = 40
+		add_state_core = 566
+		load_oob = SBN_1936
+		SBC = { add_to_faction = SBN }
+		declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.2.a
+	    ai_chance = {
+		    factor = 12
+		}
+		SBN = { change_tag_from = SBG }
+	}
+	option = {
+	    name = holy_xiboliya.2.b
+	    ai_chance = {
+		    factor = 12
+		}
+	}
+}
+#人民的联盟
+country_event = {
+	id = holy_xiboliya.3
+	title = holy_xiboliya.3.t
+	desc = holy_xiboliya.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	SBP	= {
+		transfer_state = 575
+		add_state_core = 575
+		add_state_core = 567
+		add_state_core = 568
+		add_state_core = 576
+		add_state_core = 566
+		load_oob = SBP_1936
+		SBC = { add_to_faction = SBP }
+		declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.3.a
+	    ai_chance = {
+		    factor = 12
+		}
+		SBP = { change_tag_from = BMO }
+	}
+	option = {
+	    name = holy_xiboliya.3.b
+	    ai_chance = {
+		    factor = 12
+		}
+	}
+}
+#高尔察克的要求
+country_event = {
+	id = holy_xiboliya.4
+	title = holy_xiboliya.4.t
+	desc = holy_xiboliya.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_xiboliya.4.a
+	    ai_chance = {
+		    factor = 3
+		}
+		RUD = {
+		annex_country = {
+    target = SBG
+    transfer_troops = no
+}
+}
+	}
+	option = {
+	    name = holy_xiboliya.4.b
+	    ai_chance = {
+		    factor = 12
+		}
+	}
+}
+#高尔察克的通牒
+country_event = {
+	id = holy_xiboliya.5
+	title = holy_xiboliya.5.t
+	desc = holy_xiboliya.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_xiboliya.5.a
+	    ai_chance = {
+		    factor = 6
+		}
+		RUD = {
+		puppet = BRY
+		}
+	}
+	option = {
+	    name = holy_xiboliya.5.b
+	    ai_chance = {
+		    factor = 12
+		}
+	}
+}
+#布里亚特的未来
+country_event = {
+	id = holy_xiboliya.6
+	title = holy_xiboliya.6.t
+	desc = holy_xiboliya.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_xiboliya.6.a
+		trigger = { RUD = { exists = yes } }
+	    ai_chance = {
+		    factor = 6
+		}
+		RUD = {
+		annex_country = {
+    target = BRY
+    transfer_troops = no
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.6.b
+		trigger = { SOV = { exists = yes } }
+	    ai_chance = {
+		    factor = 6
+		}
+		SOV = {
+		annex_country = {
+    target = BRY
+    transfer_troops = no
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.6.c
+		trigger = { RUN = { exists = yes } }
+	    ai_chance = {
+		    factor = 6
+		}
+		RUN = {
+		annex_country = {
+    target = BRY
+    transfer_troops = no
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.6.d
+		trigger = { RUS = { exists = yes } }
+	    ai_chance = {
+		    factor = 6
+		}
+		RUS = {
+		annex_country = {
+    target = BRY
+    transfer_troops = no
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.6.e
+		trigger = { RUJ = { exists = yes } }
+	    ai_chance = {
+		    factor = 6
+		}
+		RUJ = {
+		annex_country = {
+    target = BRY
+    transfer_troops = no
+}
+		}
+	}
+	option = {
+	    name = holy_xiboliya.6.f
+		trigger = { RUJ = { exists = yes } }
+	    ai_chance = {
+		    factor = 1
+		}
+	}
+}

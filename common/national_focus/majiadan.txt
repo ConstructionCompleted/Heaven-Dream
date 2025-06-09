@@ -1,0 +1,293 @@
+focus_tree = {
+	id = MGD_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MGD
+		}
+	}
+	
+	default = no
+ 
+    #马加丹政府
+	focus = {
+		id = MGD_majiadan_zhengfu
+		icon = GFX_focus_generic_fascist_propaganda
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#建立基层联系
+	focus = {
+		id = MGD_jianli_jiceng_lianxi
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = MGD_majiadan_zhengfu}
+		relative_position_id = MGD_majiadan_zhengfu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_quefa_zhichi
+		add_idea = MGD_quefa_zhichi_2
+		}
+		}
+	}
+	#前进者的力量
+	focus = {
+		id = MGD_qianjinzhe_liliang
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = MGD_jianli_jiceng_lianxi}
+		relative_position_id = MGD_jianli_jiceng_lianxi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_eluosi_faxisi
+		add_idea = MGD_eluosi_faxisi_2
+		}
+		}
+	}
+	#民族主义宣传
+	focus = {
+		id = MGD_minzu_zhuyi_xuanchuan
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		prerequisite = { focus = MGD_qianjinzhe_liliang}
+		relative_position_id = MGD_qianjinzhe_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_eluosi_faxisi_2
+		add_idea = MGD_eluosi_faxisi_3
+		}
+		}
+	}
+	#和地方合作
+	focus = {
+		id = MGD_difang_hezuo
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = MGD_jianli_jiceng_lianxi}
+		relative_position_id = MGD_jianli_jiceng_lianxi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_quefa_zhichi_2
+		add_idea = MGD_quefa_zhichi_3
+		}
+		}
+	}
+	#整合地区力量
+	focus = {
+		id = MGD_zhenghe_diqu_liliang
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = MGD_difang_hezuo}
+		relative_position_id = MGD_difang_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_quefa_zhichi_3
+		add_idea = MGD_quefa_zhichi_4
+		}
+		}
+	}
+	#地区和平
+	focus = {
+		id = MGD_diqu_heping
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = MGD_minzu_zhuyi_xuanchuan}
+		prerequisite = { focus = MGD_zhenghe_diqu_liliang}
+		relative_position_id = MGD_zhenghe_diqu_liliang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 100
+		}
+	}
+	#扩大化军队
+	focus = {
+		id = MGD_kuodahua_jundui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = MGD_majiadan_zhengfu}
+		relative_position_id = MGD_majiadan_zhengfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_huigui_army
+		add_idea = MGD_huigui_army_2
+		}
+		}
+	}
+	#科研为主
+	focus = {
+		id = MGD_keyan_weizhu
+		icon = GFX_focus_research
+		prerequisite = { focus = MGD_kuodahua_jundui}
+		relative_position_id = MGD_kuodahua_jundui
+		mutually_exclusive = { focus = MGD_xinnian_weizhu }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_huigui_army_2
+		add_idea = MGD_huigui_army_3
+		}
+		}
+	}
+	#火力支援
+	focus = {
+		id = MGD_huolizhiyuan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MGD_keyan_weizhu}
+		relative_position_id = MGD_keyan_weizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MGD_huoli_zhiyuan
+		}
+	}
+	#现代化部队
+	focus = {
+		id = MGD_xiandaihua_budui
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = MGD_huolizhiyuan}
+		relative_position_id = MGD_huolizhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_huigui_army_3
+		add_idea = MGD_huigui_army_4
+		}
+		}
+	}
+	#信念为主
+	focus = {
+		id = MGD_xinnian_weizhu
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = MGD_kuodahua_jundui}
+		relative_position_id = MGD_kuodahua_jundui
+		mutually_exclusive = { focus = MGD_keyan_weizhu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_huigui_army_5
+		add_idea = MGD_huigui_army_2
+		}
+		}
+	}
+	#向前进
+	focus = {
+		id = MGD_xiangqianjin
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = MGD_xinnian_weizhu}
+		relative_position_id = MGD_xinnian_weizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#真正的道路
+	focus = {
+		id = MGD_zhenzheng_daolu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = MGD_xiangqianjin}
+		relative_position_id = MGD_xiangqianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = MGD_huigui_army_5
+		add_idea = MGD_huigui_army_6
+		}
+		}
+	}
+	#解放俄罗斯
+	focus = {
+		id = MGD_jiefang_eluosi
+		icon = GFX_focus_hol_united_netherlands
+		prerequisite = { focus = MGD_zhenzheng_daolu focus = MGD_xiandaihua_budui}
+		prerequisite = { focus = MGD_diqu_heping}
+		relative_position_id = MGD_diqu_heping
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = YAK
+		has_war_with = SBR
+		}
+		}
+		completion_reward = {
+		}
+	}
+}

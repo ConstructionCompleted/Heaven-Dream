@@ -1,0 +1,1362 @@
+focus_tree = {
+	id = CHI_beiyang_focus
+    
+	country = {
+		factor = 0
+	}
+	
+	default = no
+ 
+    #终结混乱
+	focus = {
+		id = CNA_zhongjie_hunluan
+		icon = GFX_focus_generic_monarchy_1
+		x = 35
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12 
+		}
+		completion_reward = {
+		set_cosmetic_tag = CNA
+		add_ideas = CNA_zhengzhi_wenti
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = ROOT
+		OR = {
+		tag = FEN
+		tag = HEI
+		tag = DHJ
+		tag = WAN
+		tag = ZHI
+		tag = LUJ
+		tag = JAD
+		tag = NWA
+		tag = JAN
+		tag = HHA
+		tag = NNJ
+		tag = CCP
+		tag = CGH
+		tag = KMT
+		tag = XIG
+		tag = YUE
+		tag = OGU
+		tag = GUI
+		tag = QYZ
+		tag = DIA
+		tag = QAN
+		tag = YUX
+		tag = XKA
+		tag = SHU
+		tag = JIN
+		tag = QIN
+		tag = NIN
+		tag = MJJ
+		tag = XIH
+		tag = HAM
+		tag = ETK
+		tag = XIN
+		tag = JNA
+		tag = TWA
+		}
+		}
+		ROOT = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+		}
+		}
+	}
+	#新民国会议
+	focus = {
+		id = CNA_new_minguo_huiyi
+		icon = GFX_focus_chi_examination_yuan
+		prerequisite = { focus = CNA_zhongjie_hunluan}
+		relative_position_id = CNA_zhongjie_hunluan
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#中华重建计划
+	focus = {
+		id = CNA_zhonghua_chongjian_plan
+		icon = GFX_focus_chi_legislative_yuan
+		prerequisite = { focus = CNA_new_minguo_huiyi}
+		relative_position_id = CNA_new_minguo_huiyi
+		x = -10
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHA_zhonghua_chongjian_2
+		remove_idea = CHA_zhonghua_chongjian
+		}
+		}
+	}
+	#批准铁路扩建
+	focus = {
+		id = CNA_pizhun_tielu_kuojian
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CNA_zhonghua_chongjian_plan}
+		relative_position_id = CNA_zhonghua_chongjian_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_owned_state = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#资源勘探计划
+	focus = {
+		id = CNA_ziyuan_kantan_plan
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = CNA_zhonghua_chongjian_plan}
+		relative_position_id = CNA_zhonghua_chongjian_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#东部沿海开发
+	focus = {
+		id = CNA_dongbu_yanhai_kaifa
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CNA_pizhun_tielu_kuojian}
+		prerequisite = { focus = CNA_ziyuan_kantan_plan}
+		relative_position_id = CNA_ziyuan_kantan_plan
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		745 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		596 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		595 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		524 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#南部沿海开发
+	focus = {
+		id = CNA_nanbu_yanhai_kaifa
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = CNA_dongbu_yanhai_kaifa}
+		relative_position_id = CNA_dongbu_yanhai_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		593 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		592 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+            }
+		591 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		594 = {
+			add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#北部沿海开发
+	focus = {
+		id = CNA_beibu_yanhai_kaifa
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = CNA_nanbu_yanhai_kaifa}
+		relative_position_id = CNA_nanbu_yanhai_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		743 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		608 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+            }
+		716 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		408 = {
+            add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建西南军工
+	focus = {
+		id = CNA_kuojian_xinan_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CNA_pizhun_tielu_kuojian}
+		prerequisite = { focus = CNA_ziyuan_kantan_plan}
+		relative_position_id = CNA_ziyuan_kantan_plan
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		325 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		603 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		605 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+}
+		599 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建东北军工
+	focus = {
+		id = CNA_kuojian_dongbei_jungong
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = CNA_kuojian_xinan_jungong}
+		relative_position_id = CNA_kuojian_xinan_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		408 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		716 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		714 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+}
+		328 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建立北部军工
+	focus = {
+		id = CNA_jianli_beibu_jungong
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = CNA_kuojian_dongbei_jungong}
+		relative_position_id = CNA_kuojian_dongbei_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		589 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		615 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		622 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+}
+		614 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#北部重工业
+	focus = {
+		id = CNA_beibu_zhonggongye
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = CNA_pizhun_tielu_kuojian}
+		prerequisite = { focus = CNA_ziyuan_kantan_plan}
+		relative_position_id = CNA_ziyuan_kantan_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		608 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		614 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		607 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		615 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		597 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东北重工业
+	focus = {
+		id = CNA_dongbei_zhonggongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CNA_beibu_zhonggongye}
+		relative_position_id = CNA_beibu_zhonggongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		716 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		328 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		408 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		715 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		561 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西北工业开发
+	focus = {
+		id = CNA_xibei_gongye_kaifa
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = CNA_dongbei_zhonggongye}
+		relative_position_id = CNA_dongbei_zhonggongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		622 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		283 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		754 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		760 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		589 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#南方工业开发
+	focus = {
+		id = CNA_nanfang_gongye_kaifa
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = CNA_beibu_zhonggongye}
+		relative_position_id = CNA_beibu_zhonggongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		613 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		592 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		602 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		620 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		596 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西南工业化
+	focus = {
+		id = CNA_xinan_gongyehua
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = CNA_nanfang_gongye_kaifa}
+		relative_position_id = CNA_nanfang_gongye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		599 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		603 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		325 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		605 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		594 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#新民主教育改革
+	focus = {
+		id = CNA_newdemocracy_jiaoyu_gaige
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = CNA_pizhun_tielu_kuojian}
+		prerequisite = { focus = CNA_ziyuan_kantan_plan}
+		relative_position_id = CNA_ziyuan_kantan_plan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_xinminzhu_gaige
+		}
+	}
+	#吸收外侨
+	focus = {
+		id = CNA_xishou_waiqiao
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = CNA_newdemocracy_jiaoyu_gaige}
+		relative_position_id = CNA_newdemocracy_jiaoyu_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = CNA_waiqiao_guiguo
+    days = 360
+}
+		}
+	}
+	#文学改良
+	focus = {
+		id = CNA_wenxue_gailiang
+		icon = GFX_goal_generic_forceful_treatyn
+		prerequisite = { focus = CNA_newdemocracy_jiaoyu_gaige}
+		relative_position_id = CNA_newdemocracy_jiaoyu_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_xinminzhu_gaige_2
+		remove_idea = CNA_xinminzhu_gaige
+		}
+		}
+	}
+	#建设大学
+	focus = {
+		id = CNA_jianshe_daxue
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = CNA_xishou_waiqiao}
+		prerequisite = { focus = CNA_wenxue_gailiang}
+		relative_position_id = CNA_xishou_waiqiao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_of_factories > 300
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#总统专制
+	focus = {
+		id = CNA_zongtong_zhuanzhi
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = CNA_new_minguo_huiyi}
+		relative_position_id = CNA_new_minguo_huiyi
+		mutually_exclusive = { focus = CNA_wanshan_neige_quanli }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_country_leader_ideology = junzheng_system
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+swap_ideas = {
+add_idea = CNA_zongtong_zhuanzhi
+remove_idea = CNA_zhengzhihunluan
+}
+		}
+	}
+	#重建大进步党
+	focus = {
+		id = CNA_chongjian_dajinbudang
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CNA_zongtong_zhuanzhi}
+		relative_position_id = CNA_zongtong_zhuanzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_zongtong_zhuanzhi_2
+		remove_idea = CNA_zongtong_zhuanzhi
+		}
+		}
+	}
+	#肃清国民党残部
+	focus = {
+		id = CNA_suqing_kmt_canbu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CNA_chongjian_dajinbudang}
+		relative_position_id = CNA_chongjian_dajinbudang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_zongtong_zhuanzhi_3
+		remove_idea = CNA_zongtong_zhuanzhi_2
+		}
+add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = progressism
+    popularity = -0.1
+}
+		}
+	}
+	#延续军队政治
+	focus = {
+		id = CNA_yanxu_jundui_zhengzhi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CNA_zongtong_zhuanzhi}
+		relative_position_id = CNA_zongtong_zhuanzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_yanxu_jundui_zhengzhi
+		}
+	}
+	#建立军队监察
+	focus = {
+		id = CNA_jianli_jundui_jiancha
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = CNA_yanxu_jundui_zhengzhi}
+		relative_position_id = CNA_yanxu_jundui_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_yanxu_jundui_zhengzhi_2
+		remove_idea = CNA_yanxu_jundui_zhengzhi
+		}
+		}
+	}
+	#削弱内阁力量
+	focus = {
+		id = CNA_xueruo_neige_liliang
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = CNA_suqing_kmt_canbu}
+		prerequisite = { focus = CNA_jianli_jundui_jiancha}
+		relative_position_id = CNA_suqing_kmt_canbu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_zongtong_zhuanzhi_4
+		remove_idea = CNA_zongtong_zhuanzhi_3
+		}
+		add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = progressism
+    popularity = -0.1
+}
+		}
+	}
+	#完善内阁权利
+	focus = {
+		id = CNA_wanshan_neige_quanli
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = CNA_new_minguo_huiyi}
+		relative_position_id = CNA_new_minguo_huiyi
+		mutually_exclusive = { focus = CNA_zongtong_zhuanzhi }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+swap_ideas = {
+add_idea = CNA_minzhuhua_zhengzhi
+remove_idea = CNA_zhengzhihunluan
+}
+		}
+	}
+	#军政分离
+	focus = {
+		id = CNA_junzheng_fenli
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CNA_wanshan_neige_quanli}
+		relative_position_id = CNA_wanshan_neige_quanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+swap_ideas = {
+add_idea = CNA_minzhuhua_zhengzhi_2
+remove_idea = CNA_minzhuhua_zhengzhi
+}
+		}
+	}
+	#肃清腐败
+	focus = {
+		id = CNA_suqing_fubai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = CNA_junzheng_fenli}
+		relative_position_id = CNA_junzheng_fenli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+swap_ideas = {
+add_idea = CNA_minzhuhua_zhengzhi_3
+remove_idea = CNA_minzhuhua_zhengzhi_2
+}
+		}
+	}
+	#重建政党体系
+	focus = {
+		id = CNA_chongjian_zhengdang_tixi
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = CNA_wanshan_neige_quanli}
+		relative_position_id = CNA_wanshan_neige_quanli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+add_ideas = CNA_chongjian_zhengdang
+country_event = {
+    id = holy_beiyang.5
+    days = 5
+}
+country_event = {
+    id = holy_beiyang.6
+    days = 10
+}
+country_event = {
+    id = holy_beiyang.7
+    days = 15
+}
+country_event = {
+    id = holy_beiyang.8
+    days = 20
+}
+		}
+	}
+	#规章化制度
+	focus = {
+		id = CNA_guizhanghua_zhidu
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = CNA_chongjian_zhengdang_tixi}
+		relative_position_id = CNA_chongjian_zhengdang_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+swap_ideas = {
+add_idea = CNA_chongjian_zhengdang_2
+remove_idea = CNA_chongjian_zhengdang
+}
+		}
+	}
+	#重启政治选举
+	focus = {
+		id = CNA_chongqi_zhengzhi_xuanju
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = CNA_suqing_fubai}
+		prerequisite = { focus = CNA_guizhanghua_zhidu}
+		relative_position_id = CNA_guizhanghua_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+country_event = {
+    id = holy_beiyang.9
+}
+swap_ideas = {
+add_idea = CNA_minzhuhua_zhengzhi_4
+remove_idea = CNA_minzhuhua_zhengzhi_3
+}
+		}
+	}
+	#重建东方体系
+	focus = {
+		id = CNA_chongjian_dongfang_tixi
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = CNA_xueruo_neige_liliang focus = CNA_chongqi_zhengzhi_xuanju }
+		relative_position_id = CNA_chongqi_zhengzhi_xuanju
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_faction = dongya_lianmeng
+		}
+	}
+	#扩张性政策
+	focus = {
+		id = CNA_kuozhangxing_zhengce
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = CNA_chongjian_dongfang_tixi}
+		relative_position_id = CNA_chongjian_dongfang_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = CHA_kuozhang
+		has_government = neutrality
+		}
+		completion_reward = {
+		add_political_power = 100
+		if = {
+		limit = {
+		SIA = {
+		has_government = fascism
+		}
+		}
+		CNA = { add_to_faction = SIA }
+		}
+		if = {
+		limit = {
+		BRM = {
+		has_government = neutrality
+		}
+		}
+		CNA = { add_to_faction = BRM }
+		}
+		if = {
+		limit = {
+		YAW = {
+		has_government = neutrality
+		}
+		}
+		CNA = { add_to_faction = YAW }
+		}
+		if = {
+		limit = {
+		MDL = {
+		has_government = fascism
+		}
+		}
+		CNA = { add_to_faction = MDL }
+		}
+		}
+	}
+	#延续孤立
+	focus = {
+		id = CNA_yanxu_guli
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CNA_chongjian_dongfang_tixi}
+		relative_position_id = CNA_chongjian_dongfang_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = CHA_guli
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#改革保定军校
+	focus = {
+		id = CNA_gaige_baoding_junxiao
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = CNA_new_minguo_huiyi}
+		relative_position_id = CNA_new_minguo_huiyi
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_army_gaige
+		}
+	}
+	#扩大军校
+	focus = {
+		id = CNA_kuoda_junxiao
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = CNA_gaige_baoding_junxiao}
+		relative_position_id = CNA_gaige_baoding_junxiao
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_army_gaige_2
+		remove_idea = CNA_army_gaige
+		}
+		}
+	}
+	#完善后勤体系
+	focus = {
+		id = CNA_wanshan_houqin_tixi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = CNA_gaige_baoding_junxiao}
+		relative_position_id = CNA_gaige_baoding_junxiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_wanshan_houqin_tixi
+		}
+	}
+	#购买外国军械
+	focus = {
+		id = CNA_goumai_waiguo_junxie
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CNA_gaige_baoding_junxiao}
+		relative_position_id = CNA_gaige_baoding_junxiao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 10000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 10000
+    producer = FRA
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = PLS
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = HNW
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = AUS
+}
+		}
+	}
+	#职业化军队
+	focus = {
+		id = CNA_zhiyehua_army
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = CNA_kuoda_junxiao}
+		relative_position_id = CNA_kuoda_junxiao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_army_gaige_3
+		remove_idea = CNA_army_gaige_2
+		}
+		}
+	}
+	#世界的经验
+	focus = {
+		id = CNA_shijie_jingyan
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = CNA_goumai_waiguo_junxie}
+		relative_position_id = CNA_goumai_waiguo_junxie
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = army_doctrine
+			}
+		}
+	}
+	#严明纪律
+	focus = {
+		id = CNA_yanming_jilv
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = CNA_zhiyehua_army}
+		relative_position_id = CNA_zhiyehua_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_army_gaige_4
+		remove_idea = CNA_army_gaige_3
+		}
+		}
+	}
+	#现代化火力
+	focus = {
+		id = CNA_xiandaihua_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = CNA_zhiyehua_army}
+		prerequisite = { focus = CNA_shijie_jingyan}
+		relative_position_id = CNA_shijie_jingyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_xiandaihua_huoli
+		}
+	}
+	#战术改良
+	focus = {
+		id = CNA_zhanshu_gailiang
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = CNA_shijie_jingyan}
+		relative_position_id = CNA_shijie_jingyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CNA_zhanshu_gailiang
+		}
+	}
+	#新军
+	focus = {
+		id = CNA_xinjun
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CNA_xiandaihua_huoli}
+		prerequisite = { focus = CNA_yanming_jilv}
+		relative_position_id = CNA_xiandaihua_huoli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CNA_army_gaige_5
+		remove_idea = CNA_army_gaige_4
+		}
+		}
+	}
+	#建立装甲兵团
+	focus = {
+		id = CNA_jianli_zhuangjia_bingtuan
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = CNA_xiandaihua_huoli}
+		prerequisite = { focus = CNA_zhanshu_gailiang}
+		relative_position_id = CNA_xiandaihua_huoli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 2
+				uses = 2
+				category = armor
+			}
+		}
+	}
+}

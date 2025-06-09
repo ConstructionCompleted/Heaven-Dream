@@ -1,0 +1,117 @@
+add_namespace = holy_yibiliya
+#民主世界的态度
+country_event = {
+	id = holy_yibiliya.1
+	title = holy_yibiliya.1.t
+	desc = holy_yibiliya.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yibiliya.1.a
+		trigger = { UKM = { is_faction_leader = yes } ITB = { NOT = { is_in_faction_with = UKM } } }
+		ai_chance = {
+		    factor = 25
+		}
+		UKM = { add_to_faction = XTZ }
+	}
+	option = {
+		name = holy_yibiliya.1.b
+		trigger = { FRA = { is_faction_leader = yes has_government = conservatism } ITB = { NOT = { is_in_faction_with = FRA } } }
+		ai_chance = {
+		    factor = 25
+		}
+		FRA = { add_to_faction = XTZ }
+	}
+}
+#西班牙王国的北伐
+country_event = {
+	id = holy_yibiliya.2
+	title = holy_yibiliya.2.t
+	desc = holy_yibiliya.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yibiliya.2.a
+		ai_chance = {
+		    factor = 0
+			modifier = {
+				factor = 25
+				has_government = neutrality
+			}
+		}
+		declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = CSP
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAV
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = XTZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUO
+    type = annex_everything
+}
+	}
+	option = {
+		name = holy_yibiliya.2.b
+		ai_chance = {
+		    factor = 25
+		}
+		XBY = {
+		declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = CSP
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAV
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = XTZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUO
+    type = annex_everything
+}
+		}
+	}
+}

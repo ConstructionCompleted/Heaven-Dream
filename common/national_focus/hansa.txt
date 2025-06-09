@@ -1,0 +1,1177 @@
+focus_tree = {
+	id = HSA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HSA
+		}
+	}
+	
+	default = no
+	#三色梦想
+	focus = {
+		id = HSA_sanse_dream
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#经济再繁荣
+	focus = {
+		id = HSA_jingji_zaifanrong
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = HSA_sanse_dream}
+		relative_position_id = HSA_sanse_dream
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = HSA_xiaotiao_yubo
+		}
+	}
+	#掌握波罗的海
+	focus = {
+		id = HSA_zhangkong_boluodihai
+		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		prerequisite = { focus = HSA_jingji_zaifanrong}
+		relative_position_id = HSA_jingji_zaifanrong
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HSA_zhangkong_boluodihai
+		}
+	}
+	#联通荷尔施泰因
+	focus = {
+		id = HSA_liantong_heershitaiyin
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = HSA_zhangkong_boluodihai}
+		relative_position_id = HSA_zhangkong_boluodihai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			58 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			949 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1041 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#吕贝克再开发
+	focus = {
+		id = HSA_lvbeike_zaikaifa
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = HSA_liantong_heershitaiyin}
+		relative_position_id = HSA_liantong_heershitaiyin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#汉堡经济
+	focus = {
+		id = HSA_hanbao_jingji
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = HSA_liantong_heershitaiyin}
+		relative_position_id = HSA_liantong_heershitaiyin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			950 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#吸收北欧经济
+	focus = {
+		id = HSA_xishou_beiou_jingji
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = HSA_lvbeike_zaikaifa}
+		prerequisite = { focus = HSA_hanbao_jingji}
+		relative_position_id = HSA_lvbeike_zaikaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KEM = {
+		has_war = yes
+		}
+		has_war = no
+		}
+		completion_reward = {
+			add_offsite_building = { type = dockyard level = 2 }
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#联通梅克伦堡
+	focus = {
+		id = HSA_liantong_meikelunbao
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = HSA_zhangkong_boluodihai}
+		relative_position_id = HSA_zhangkong_boluodihai
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩展海港
+	focus = {
+		id = HSA_kuozhan_haigang
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = HSA_liantong_meikelunbao}
+		relative_position_id = HSA_liantong_meikelunbao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#扩展军事工业
+	focus = {
+		id = HSA_kuozhan_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = HSA_kuozhan_haigang}
+		relative_position_id = HSA_kuozhan_haigang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			949 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#梅克伦堡工业
+	focus = {
+		id = HSA_meikelunbao_ic
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = HSA_liantong_meikelunbao}
+		relative_position_id = HSA_liantong_meikelunbao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#轻工业扩张
+	focus = {
+		id = HSA_qinggongye_kuozhang
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = HSA_meikelunbao_ic}
+		relative_position_id = HSA_meikelunbao_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#圣日耳曼联盟
+	focus = {
+		id = HSA_sheng_german_lianmeng
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = HSA_sanse_dream}
+		relative_position_id = HSA_sanse_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		is_faction_leader = yes
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_shengrierman_lianmeng_2
+			remove_idea = HSA_shengrierman_lianmeng
+			}
+			every_state = {
+			limit = {
+			OR = {
+			is_core_of = PLS
+			is_core_of = SKS
+			is_core_of = WFL
+			is_core_of = FTB
+			is_core_of = AUS
+			is_core_of = BXM
+			is_core_of = LUO
+			is_core_of = HNW
+			}
+			}
+			add_core_of = HSA
+			}
+	    }
+	}
+	#终结帝国
+	focus = {
+		id = HSA_zhongjie_diguo
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = HSA_sheng_german_lianmeng}
+		relative_position_id = HSA_sheng_german_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		PLS = { 
+		OR = {
+		has_war = yes
+		exists = no
+		}
+		}
+		AUS = { 
+		OR = {
+		has_war = yes
+		exists = no
+		}
+		}
+		HNW = { 
+		OR = {
+		has_war = yes 
+		exists = no
+		}
+		}
+		date > 1938.1.1
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = BXM
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = FTB
+    type = annex_everything
+}
+declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SLI
+    type = annex_everything
+}
+if = {
+limit = {
+DED = {
+NOT = {
+has_government = democratic
+}
+}
+}
+declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+}
+declare_war_on = {
+    target = LUO
+    type = annex_everything
+}
+if = {
+limit = {
+DAZ = {
+NOT = {
+has_government = democratic
+}
+}
+}
+declare_war_on = {
+    target = DAZ
+    type = annex_everything
+}
+}
+declare_war_on = {
+    target = WFL
+    type = annex_everything
+}
+if = {
+limit = {
+RUI = {
+NOT = {
+has_government = democratic
+}
+}
+}
+declare_war_on = {
+    target = RUI
+    type = annex_everything
+}
+}
+if = {
+limit = {
+LAI = {
+NOT = {
+has_government = democratic
+}
+}
+}
+declare_war_on = {
+    target = LAI
+    type = annex_everything
+}
+}
+	    }
+	}
+	#经济协定
+	focus = {
+		id = HSA_jingji_xieding
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = HSA_sheng_german_lianmeng}
+		prerequisite = { focus = HSA_jingji_zaifanrong}
+		relative_position_id = HSA_sheng_german_lianmeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_faction_leader = yes
+		}
+		completion_reward = {
+			add_ideas = HSA_jingji_xieding
+	    }
+	}
+	#低地革新
+	focus = {
+		id = HSA_didi_gexin
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = HSA_jingji_xieding}
+		relative_position_id = HSA_jingji_xieding
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = DED
+		}
+		bypass = {
+		DED = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		DED = {
+			add_ideas = HSA_didi_gexin
+			}
+	    }
+	}
+	#支援但泽
+	focus = {
+		id = HSA_zhiyuan_DAZ
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = HSA_jingji_xieding}
+		relative_position_id = HSA_jingji_xieding
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = DAZ
+		}
+		bypass = {
+		DAZ = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		DAZ = {
+			add_ideas = HSA_zhiyuan_danze
+			}
+	    }
+	}
+	#莱茵兰经济
+	focus = {
+		id = HSA_laiyinlan_jingji
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = HSA_didi_gexin}
+		prerequisite = { focus = HSA_zhiyuan_DAZ}
+		relative_position_id = HSA_didi_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = LAI
+		}
+		bypass = {
+		LAI = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		LAI = {
+			add_ideas = HSA_laiyinlan_jingji
+			}
+	    }
+	}
+	#瑞士金融业
+	focus = {
+		id = HSA_ruishi_jinrongye
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = HSA_laiyinlan_jingji}
+		relative_position_id = HSA_laiyinlan_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = RUI
+		}
+		bypass = {
+		RUI = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		RUI = {
+			add_ideas = HSA_ruishi_jinrong
+			}
+	    }
+	}
+	#军事合作
+	focus = {
+		id = HSA_junshihua_hezuo
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = HSA_sheng_german_lianmeng}
+		prerequisite = { focus = HSA_hansa_junshi_wuzhaung}
+		relative_position_id = HSA_sheng_german_lianmeng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_faction_leader = yes
+		}
+		completion_reward = {
+			add_ideas = HSA_junshi_hezuo
+	    }
+	}
+	#低地防线
+	focus = {
+		id = HSA_didi_fangxian
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = HSA_junshihua_hezuo}
+		relative_position_id = HSA_junshihua_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = DED
+		}
+		bypass = {
+		DED = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		DED = {
+			add_ideas = HSA_didi_fangxian
+			}
+	    }
+	}
+	#莱茵兰火力
+	focus = {
+		id = HSA_laiyinlan_guoli
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = HSA_didi_fangxian}
+		relative_position_id = HSA_didi_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = LAI
+		}
+		bypass = {
+		LAI = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		LAI = {
+			add_ideas = HSA_laiyinlan_huoli
+			}
+	    }
+	}
+	#瑞士意志
+	focus = {
+		id = HSA_ruishi_yizhi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = HSA_junshihua_hezuo}
+		relative_position_id = HSA_junshihua_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = RUI
+		}
+		bypass = {
+		RUI = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		RUI = {
+			add_ideas = HSA_ruishi_yizhi
+			}
+	    }
+	}
+	#但泽自由
+	focus = {
+		id = HSA_danze_tuanjie
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = HSA_ruishi_yizhi}
+		relative_position_id = HSA_ruishi_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = DAZ
+		}
+		bypass = {
+		DAZ = {
+		NOT = {
+		is_in_faction_with = HSA
+		}
+		}
+		}
+		completion_reward = {
+		DAZ = {
+			add_ideas = DAZ_danze_ziyou
+			}
+	    }
+	}
+	#团结的纽带
+	focus = {
+		id = HSA_tuanjie_niudai
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = HSA_laiyinlan_guoli}
+		prerequisite = { focus = HSA_danze_tuanjie}
+		relative_position_id = HSA_danze_tuanjie
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = HSA_junshi_hezuo_2
+		remove_idea = HSA_junshi_hezuo
+		}
+	    }
+	}
+	#德意志联邦
+	focus = {
+		id = HSA_deyizhi_lianbang
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = HSA_ruishi_jinrongye}
+		prerequisite = { focus = HSA_tuanjie_niudai}
+		relative_position_id = HSA_tuanjie_niudai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		PLS = {
+		exists = no
+		}
+		BXM = {
+		exists = no
+		}
+		SKS = {
+		exists = no
+		}
+		AUS = {
+		exists = no
+		}
+		WFL = {
+		exists = no
+		}
+		HNW = {
+		exists = no
+		}
+		LUO = {
+		exists = no
+		}
+		FTB = {
+		exists = no
+		}
+		LAI = {
+		OR = {
+		exists = no
+		has_government = democratic
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		DED = {
+		OR = {
+		exists = no
+		has_government = democratic
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		DAZ = {
+		OR = {
+		exists = no
+		has_government = democratic
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		RUI = {
+		OR = {
+		exists = no
+		has_government = democratic
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_hansa.2
+}
+	}
+	}
+	#汉萨军事武装
+	focus = {
+		id = HSA_hansa_junshi_wuzhaung
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = HSA_sanse_dream}
+		relative_position_id = HSA_sanse_dream
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HSA_army
+	    }
+	}
+	#现代化军队
+	focus = {
+		id = HSA_xiandaihua_army
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = HSA_hansa_junshi_wuzhaung}
+		relative_position_id = HSA_hansa_junshi_wuzhaung
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_army_2
+			remove_idea = HSA_army
+			}
+	    }
+	}
+	#步兵武装
+	focus = {
+		id = HSA_bubing_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = HSA_xiandaihua_army}
+		relative_position_id = HSA_xiandaihua_army
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry
+			}
+	    }
+	}
+	#完善后勤
+	focus = {
+		id = HSA_wanshan_houqin
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = HSA_xiandaihua_army}
+		relative_position_id = HSA_xiandaihua_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HSA_wanshan_houqin
+	    }
+	}
+	#支援体系
+	focus = {
+		id = HSA_zhiyuan_tixi
+		icon = GFX_focus_generic_tank_air_support
+		prerequisite = { focus = HSA_bubing_wuzhuang}
+		prerequisite = { focus = HSA_wanshan_houqin}
+		relative_position_id = HSA_wanshan_houqin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_wanshan_houqin_2
+			remove_idea = HSA_wanshan_houqin
+			}
+	    }
+	}
+	#完善化辅助
+	focus = {
+		id = HSA_wanshanhua_fuzhu
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = HSA_zhiyuan_tixi}
+		relative_position_id = HSA_zhiyuan_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_wanshan_houqin_3
+			remove_idea = HSA_wanshan_houqin_2
+			}
+	    }
+	}
+	#装甲突击思潮
+	focus = {
+		id = HSA_zhuangjia_tuji_sichao
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = HSA_xiandaihua_army}
+		relative_position_id = HSA_xiandaihua_army
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = HSA_zhuangjia_tuji
+	    }
+	}
+	#进攻力量
+	focus = {
+		id = HSA_jingong_liliang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = HSA_zhuangjia_tuji_sichao}
+		prerequisite = { focus = HSA_wanshan_houqin}
+		relative_position_id = HSA_wanshan_houqin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_army_3
+			remove_idea = HSA_army_2
+			}
+	    }
+	}
+	#精英化部队
+	focus = {
+		id = HSA_jingyinghua_budui
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = HSA_jingong_liliang}
+		relative_position_id = HSA_jingong_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HSA_army_3
+			remove_idea = HSA_army_2
+			}
+	    }
+	}
+	#城市布防
+	focus = {
+		id = HSA_chengshi_bufang
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = HSA_xiandaihua_army}
+		relative_position_id = HSA_xiandaihua_army
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			58 = {
+			add_building_construction = {
+				type = bunker
+				province = 9347
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6389
+				level = 3
+				instant_build = yes
+			}
+		}
+		61 = {
+			add_building_construction = {
+				type = bunker
+				province = 321
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11305
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#易北河防线
+	focus = {
+		id = HSA_yibeihe_fangxian
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = HSA_chengshi_bufang}
+		relative_position_id = HSA_chengshi_bufang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			58 = {
+			add_building_construction = {
+				type = bunker
+				province = 9347
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9320
+				level = 5
+				instant_build = yes
+			}
+		}
+		61 = {
+			add_building_construction = {
+				type = bunker
+				province = 9294
+				level = 5
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#防空体系
+	focus = {
+		id = HSA_fangkong_tixi
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = HSA_yibeihe_fangxian}
+		relative_position_id = HSA_yibeihe_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			58 = {
+		add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+}
+		61 = {
+		add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+}
+		}
+	}
+	#固守梅克伦堡
+	focus = {
+		id = HSA_gushou_meikelunbao
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = HSA_chengshi_bufang}
+		relative_position_id = HSA_chengshi_bufang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+				type = bunker
+				province = 11276
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 268
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 293
+				level = 5
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#固化防线
+	focus = {
+		id = HSA_guhua_fangxian
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = HSA_gushou_meikelunbao}
+		relative_position_id = HSA_gushou_meikelunbao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			61 = {
+			add_building_construction = {
+				type = bunker
+				province = 11276
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 268
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 293
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 321
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9294
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+}

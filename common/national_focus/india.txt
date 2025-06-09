@@ -1,0 +1,1905 @@
+﻿focus_tree = {
+	id = yindu_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RAJ
+		}
+	}
+	
+	default = no
+	
+	#总督弹劾案
+	focus = {
+		id = RAJ_zongdu_tanhean
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		x = 25
+		y = 0
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    
+		}
+	}
+	#王冠领改革
+	focus = {
+		id = RAJ_wangguanling_gaige
+		icon = GFX_focus_eng_chiefs_of_staff_committee
+		prerequisite = { focus = RAJ_zongdu_tanhean}
+		relative_position_id = RAJ_zongdu_tanhean
+		mutually_exclusive = { focus = RAJ_houlia_jushang }
+		mutually_exclusive = { focus = RAJ_new_yindu_zhengce }
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingguohua_2
+		remove_idea = RAJ_yingguohua
+		}
+		}
+	}
+	#镇压反对派
+	focus = {
+		id = RAJ_zhenya_fanduipai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = RAJ_wangguanling_gaige}
+		relative_position_id = RAJ_wangguanling_gaige
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_aolisa_fengbo_2
+		remove_idea = RAJ_aolisa_fengbo
+		}
+		}
+	}
+	#渗透底层
+	focus = {
+		id = RAJ_shentou_diceng
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = RAJ_zhenya_fanduipai }
+		relative_position_id = RAJ_zhenya_fanduipai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_zhongxing_xuluan_2
+		remove_idea = RAJ_zhongxing_xuluan
+		}
+		}
+	}
+	#重构种姓
+	focus = {
+		id = RAJ_chonggou_zhongxing
+		icon = GFX_focus_RAJ_british_investors
+		prerequisite = { focus = RAJ_shentou_diceng }
+		relative_position_id = RAJ_shentou_diceng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_chonggouzhongxing
+		remove_idea = RAJ_zhongxing_xuluan_2
+		}
+		}
+	}
+	#斩断自由运动
+	focus = {
+		id = RAJ_zhanduan_ziyou_yundong
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = RAJ_zhenya_fanduipai }
+		prerequisite = { focus = RAJ_kuoda_wangguan_lingdi }
+		relative_position_id = RAJ_kuoda_wangguan_lingdi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		remove_ideas = RAJ_aolisa_fengbo_2
+		}
+	}
+	#强制土地改革
+	focus = {
+		id = RAJ_qiangzhi_tudi_gaige
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		prerequisite = { focus = RAJ_zhanduan_ziyou_yundong }
+		relative_position_id = RAJ_zhanduan_ziyou_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_tudi_gaige
+		remove_idea = RAJ_tudi_weiji
+		}
+		add_war_support = 0.05
+		}
+	}
+	#不列颠之土
+	focus = {
+		id = RAJ_buliedian_zhitu
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = RAJ_qiangzhi_tudi_gaige }
+		prerequisite = { focus = RAJ_chonggou_zhongxing }
+		relative_position_id = RAJ_chonggou_zhongxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_buliedianzhitu
+		}
+	}
+	#扩大王冠领地
+	focus = {
+		id = RAJ_kuoda_wangguan_lingdi
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = RAJ_wangguanling_gaige}
+		relative_position_id = RAJ_wangguanling_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_wangguan_lingdi
+		remove_idea = RAJ_tudi_weiji
+		}
+		}
+	}
+	#改革公务员
+	focus = {
+		id = RAJ_gaige_gongwuyuan
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = RAJ_wangguanling_gaige }
+		relative_position_id = RAJ_wangguanling_gaige
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingguohua_3
+		remove_idea = RAJ_yingguohua_2
+		}
+		}
+	}
+	#强制英国化
+	focus = {
+		id = RAJ_qaingzhi_yingguohua
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = RAJ_kuoda_wangguan_lingdi}
+		prerequisite = { focus = RAJ_gaige_gongwuyuan}
+		relative_position_id = RAJ_gaige_gongwuyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingguohua_4
+		remove_idea = RAJ_yingguohua_3
+		}
+		}
+	}
+	#扩张安立甘修会
+	focus = {
+		id = RAJ_kuozhang_anligan_xiuhui
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = RAJ_qaingzhi_yingguohua}
+		relative_position_id = RAJ_qaingzhi_yingguohua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_anligan_xiuhui
+		}
+	}
+	#寻求本土支持
+	focus = {
+		id = RAJ_xunqiu_bentu_zhichi
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = RAJ_gaige_gongwuyuan focus = RAJ_wenhe_yingguohua }
+		relative_position_id = RAJ_gaige_gongwuyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 10000
+    producer = UKM
+}
+		}
+	}
+	#扩大殖民军
+	focus = {
+		id = RAJ_kuoda_zhiminjun
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = RAJ_xunqiu_bentu_zhichi}
+		relative_position_id = RAJ_xunqiu_bentu_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_kuodazhiminjun
+		}
+	}
+	#新印度政策
+	focus = {
+		id = RAJ_new_yindu_zhengce
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = RAJ_zongdu_tanhean}
+		relative_position_id = RAJ_zongdu_tanhean
+		mutually_exclusive = { focus = RAJ_houlia_jushang }
+		mutually_exclusive = { focus = RAJ_wangguanling_gaige }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_government = neutrality
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingyin_jiehe_2
+		remove_idea = RAJ_yingyin_jiehe
+		}
+		}
+	}
+	#温和英国化
+	focus = {
+		id = RAJ_wenhe_yingguohua
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = RAJ_new_yindu_zhengce}
+		relative_position_id = RAJ_new_yindu_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingyin_jiehe_3
+		remove_idea = RAJ_yingyin_jiehe_2
+		}
+		}
+	}
+	#抚平奥里萨风波
+	focus = {
+		id = RAJ_fuping_aolisa_fengbo
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = RAJ_wenhe_yingguohua}
+		relative_position_id = RAJ_wenhe_yingguohua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_aolisa_fengbo_2
+		remove_idea = RAJ_aolisa_fengbo
+		}
+		}
+	}
+	#扶持英国势力
+	focus = {
+		id = RAJ_fuchi_yingguo_shili
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = RAJ_fuping_aolisa_fengbo}
+		relative_position_id = RAJ_fuping_aolisa_fengbo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		remove_ideas = RAJ_aolisa_fengbo_2
+		}
+	}
+	#印度繁荣
+	focus = {
+		id = RAJ_yindu_fanrong
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = RAJ_fuchi_yingguo_shili}
+		relative_position_id = RAJ_fuchi_yingguo_shili
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingyin_jiehe_4
+		remove_idea = RAJ_yingyin_jiehe_3
+		}
+		}
+	}
+	#接纳印度官僚
+	focus = {
+		id = RAJ_jiena_yindu_guanliao
+		icon = GFX_focus_smiling_buddha
+		prerequisite = { focus = RAJ_new_yindu_zhengce}
+		relative_position_id = RAJ_new_yindu_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_government_reform
+		}
+	}
+	#温和土地改革
+	focus = {
+		id = RAJ_wenhe_tudi_gaige
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = RAJ_jiena_yindu_guanliao}
+		relative_position_id = RAJ_jiena_yindu_guanliao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_stability = 0.05
+		swap_ideas = {
+		add_idea = RAJ_tudi_gaige
+		remove_idea = RAJ_tudi_weiji
+		}
+		}
+	}
+	#宗教和谈
+	focus = {
+		id = RAJ_zongjiao_hetan
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = RAJ_wenhe_tudi_gaige}
+		relative_position_id = RAJ_wenhe_tudi_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_zongjiao_wp
+		}
+	}
+	#抚平冲突
+	focus = {
+		id = RAJ_fuping_chongtu
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = RAJ_zongjiao_hetan}
+		relative_position_id = RAJ_zongjiao_hetan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_zongjiao_wp_2
+		remove_idea = RAJ_zongjiao_wp
+		}
+		}
+	}
+	#蒙巴顿和谐
+	focus = {
+		id = RAJ_mengbadun_hexie
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = RAJ_fuping_chongtu }
+		prerequisite = { focus = RAJ_yindu_fanrong }
+		relative_position_id = RAJ_fuping_chongtu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yingyin_jiehe_5
+		remove_idea = RAJ_yingyin_jiehe_4
+		}
+		}
+	}
+	#建设基层体系
+	focus = {
+		id = RAJ_jianshe_jiceng_tixi
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = RAJ_jiena_yindu_guanliao focus = RAJ_chehuan_yingguo_guanliao }
+		relative_position_id = RAJ_jiena_yindu_guanliao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_government_reform_2
+		remove_idea = RAJ_government_reform
+		}
+		}
+	}
+	#淡化种姓影响
+	focus = {
+		id = RAJ_danhua_zhongxing_yingxiang
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = RAJ_jianshe_jiceng_tixi }
+		relative_position_id = RAJ_jianshe_jiceng_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_danhua_zhongxing
+		remove_idea = RAJ_zhongxing_xuluan
+		}
+		}
+	}
+	#后来居上
+	focus = {
+		id = RAJ_houlia_jushang
+		icon = GFX_focus_RAJ_seek_help_from_germany
+		prerequisite = { focus = RAJ_zongdu_tanhean}
+		relative_position_id = RAJ_zongdu_tanhean
+		mutually_exclusive = { focus = RAJ_wangguanling_gaige }
+		mutually_exclusive = { focus = RAJ_new_yindu_zhengce }
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		has_government = neutrality
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_bentuhua_2
+		remove_idea = RAJ_bentuhua
+		}
+		}
+	}
+	#撤换英国官僚
+	focus = {
+		id = RAJ_chehuan_yingguo_guanliao
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = RAJ_houlia_jushang }
+		relative_position_id = RAJ_houlia_jushang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_government_reform
+		}
+	}
+	#吸收印度知识分子
+	focus = {
+		id = RAJ_xishou_yindu_zhishi_fenzi
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = RAJ_houlia_jushang }
+		relative_position_id = RAJ_houlia_jushang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_bentuhua_3
+		remove_idea = RAJ_bentuhua_2
+		}
+		}
+	}
+	#打击地主
+	focus = {
+		id = RAJ_daji_dizhu
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = RAJ_houlia_jushang }
+		relative_position_id = RAJ_houlia_jushang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_aolisa_fengbo_2
+		remove_idea = RAJ_aolisa_fengbo
+		}
+		}
+	}
+	#印度管理体系
+	focus = {
+		id = RAJ_yindu_guanli_tixi
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = RAJ_xishou_yindu_zhishi_fenzi }
+		prerequisite = { focus = RAJ_chehuan_yingguo_guanliao }
+		relative_position_id = RAJ_xishou_yindu_zhishi_fenzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_bentuhua_4
+		remove_idea = RAJ_bentuhua_3
+		}
+		}
+	}
+	#改革政府体制
+	focus = {
+		id = RAJ_gaige_zhengfu_tizhi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = RAJ_yindu_guanli_tixi }
+		relative_position_id = RAJ_yindu_guanli_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_bentuhua_5
+		remove_idea = RAJ_bentuhua_4
+		}
+		}
+	}
+	#接纳风波
+	focus = {
+		id = RAJ_jiena_fengbo
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = RAJ_xishou_yindu_zhishi_fenzi }
+		prerequisite = { focus = RAJ_daji_dizhu }
+		relative_position_id = RAJ_daji_dizhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		remove_ideas = RAJ_aolisa_fengbo_2
+		}
+	}
+	#开启土地改革
+	focus = {
+		id = RAJ_kaifa_tudi_gaige
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = RAJ_jiena_fengbo }
+		relative_position_id = RAJ_jiena_fengbo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_tudi_weiji
+		remove_idea = RAJ_tudi_gaige
+		}
+		}
+	}
+	#降低英国军官
+	focus = {
+		id = RAJ_jiangdi_yingguo_junguan
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = RAJ_daji_dizhu }
+		relative_position_id = RAJ_daji_dizhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_ideas = RAJ_yinduhua_army
+		}
+	}
+	#接纳人民参军
+	focus = {
+		id = RAJ_jiena_renmin_canjun
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = RAJ_jiangdi_yingguo_junguan }
+		relative_position_id = RAJ_jiangdi_yingguo_junguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yinduhua_army_2
+		remove_idea = RAJ_yinduhua_army
+		}
+		}
+	}
+	#地区军事化
+	focus = {
+		id = RAJ_diqu_junshihua
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = RAJ_kaifa_tudi_gaige }
+		prerequisite = { focus = RAJ_jiena_renmin_canjun }
+		relative_position_id = RAJ_kaifa_tudi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_yinduhua_army_3
+		remove_idea = RAJ_yinduhua_army_2
+		}
+		}
+	}
+	#联合的印度
+	focus = {
+		id = RAJ_lianhe_yindu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RAJ_kaifa_tudi_gaige }
+		prerequisite = { focus = RAJ_gaige_zhengfu_tizhi }
+		prerequisite = { focus = RAJ_danhua_zhongxing_yingxiang }
+		relative_position_id = RAJ_gaige_zhengfu_tizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_danhua_zhongxing_2
+		remove_idea = RAJ_danhua_zhongxing
+		}
+		}
+	}
+	#次大陆外交
+	focus = {
+		id = RAJ_cidalu_waijiao
+		icon = GFX_goal_generic_propaganda
+		x = 25
+		y = 7
+		cost = 2
+		available = {
+		has_completed_focus = RAJ_zongdu_tanhean
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 100
+		}
+	}
+	#比哈普尔之约
+	focus = {
+		id = RAJ_bihapuer_zhiyue
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = RAJ_cidalu_waijiao }
+		relative_position_id = RAJ_cidalu_waijiao
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		BHP = {
+		add_ideas = RAJ_help
+		}
+		}
+	}
+	#锡兰之盟
+	focus = {
+		id = RAJ_xilan_zhimeng
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = RAJ_cidalu_waijiao }
+		relative_position_id = RAJ_cidalu_waijiao
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		SRL = {
+		add_ideas = RAJ_help
+		}
+		}
+	}
+	#放宽王公枷锁
+	focus = {
+		id = RAJ_fangkuan_wanggong_jiasuo
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = RAJ_cidalu_waijiao }
+		relative_position_id = RAJ_cidalu_waijiao
+		mutually_exclusive = { focus = RAJ_kuoda_haiyang_xitong }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		custom_effect_tooltip = RAJ_lalong_wanggong_tt
+		}
+	}
+	#保护马德拉斯
+	focus = {
+		id = RAJ_baohu_madelasi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = RAJ_fangkuan_wanggong_jiasuo }
+		relative_position_id = RAJ_fangkuan_wanggong_jiasuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		MDS = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		MDS = {
+		if = {
+		limit = {
+		has_idea = MSR_lalong
+		}
+		swap_ideas = {
+		add_idea = RAJ_lalong
+		remove_idea = MSR_lalong
+		}
+		}
+		if = {
+		limit = {
+		NOT = {
+		has_idea = MSR_lalong
+		}
+		}
+		add_ideas = RAJ_lalong
+		}
+		}
+		}
+	}
+	#禁锢泰米尔
+	focus = {
+		id = RAJ_jinggu_taimier
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = RAJ_fangkuan_wanggong_jiasuo }
+		relative_position_id = RAJ_fangkuan_wanggong_jiasuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		TML = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		TML = {
+		if = {
+		limit = {
+		has_idea = MSR_lalong
+		}
+		swap_ideas = {
+		add_idea = RAJ_lalong
+		remove_idea = MSR_lalong
+		}
+		}
+		if = {
+		limit = {
+		NOT = {
+		has_idea = MSR_lalong
+		}
+		}
+		add_ideas = RAJ_lalong
+		}
+		}
+		}
+	}
+	#支援比哈普尔
+	focus = {
+		id = RAJ_zhiyuan_bihapuer
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = RAJ_baohu_madelasi }
+		prerequisite = { focus = RAJ_jinggu_taimier }
+		relative_position_id = RAJ_baohu_madelasi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		BHP = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		BHP = {
+		load_oob = RAJ_bihapuer
+		}
+		}
+	}
+	#支援锡兰
+	focus = {
+		id = RAJ_zhiyuan_xilan
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = RAJ_zhiyuan_bihapuer }
+		relative_position_id = RAJ_zhiyuan_bihapuer
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		SRL = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		SRL = {
+		load_oob = RAJ_xilan
+		}
+		}
+	}
+	#扩大海洋系统
+	focus = {
+		id = RAJ_kuoda_haiyang_xitong
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = RAJ_cidalu_waijiao }
+		relative_position_id = RAJ_cidalu_waijiao
+		mutually_exclusive = { focus = RAJ_fangkuan_wanggong_jiasuo }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		custom_effect_tooltip = RAJ_haiyangxitong_tt
+		}
+	}
+	#扩大海关税
+	focus = {
+		id = RAJ_kuoda_haiguan_shui
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = RAJ_kuoda_haiyang_xitong }
+		relative_position_id = RAJ_kuoda_haiyang_xitong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#扩张巡洋范围
+	focus = {
+		id = RAJ_kuoda_xunyang_fanwei
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = RAJ_kuoda_haiyang_xitong }
+		relative_position_id = RAJ_kuoda_haiyang_xitong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		navy_experience = 20
+		add_ideas = RAJ_kuoda_xunyangfanwei
+		}
+	}
+	#封锁西部海岸
+	focus = {
+		id = RAJ_fengsuo_xibu_haian
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = RAJ_kuoda_haiguan_shui }
+		prerequisite = { focus = RAJ_kuoda_xunyang_fanwei }
+		relative_position_id = RAJ_kuoda_xunyang_fanwei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		RJS = {
+		add_ideas = RAJ_fengsuohaian
+		}
+		}
+	}
+	#马尔代夫之眼
+	focus = {
+		id = RAJ_maerdaifu_eye
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = RAJ_fengsuo_xibu_haian }
+		relative_position_id = RAJ_fengsuo_xibu_haian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		281 = {
+			add_extra_state_shared_building_slots = 5
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#开启印度大战争
+	focus = {
+		id = RAJ_kaiqi_yindu_zhanzheng
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		x = 25
+		y = 11
+		cost = 2
+		available = {
+		always = no
+		}
+		bypass = {
+		has_global_flag = {
+        flag = HDS_greatwar
+	    }
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    
+		}
+	}
+	#进军北方
+	focus = {
+		id = RAJ_jinjun_beifang
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = RAJ_kaiqi_yindu_zhanzheng }
+		relative_position_id = RAJ_kaiqi_yindu_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		custom_effect_tooltip = RAJ_jinjunbeuifang_tt
+		add_political_power = 50
+		}
+	}
+	#毁灭反对者
+	focus = {
+		id = RAJ_huimie_fanduizhe
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = RAJ_kaiqi_yindu_zhanzheng }
+		relative_position_id = RAJ_kaiqi_yindu_zhanzheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		custom_effect_tooltip = RAJ_huimie_fanduizhe_tt
+		add_political_power = 50
+		}
+	}
+	#惩罚叛徒
+	focus = {
+		id = RAJ_chengfa_pantu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RAJ_kaiqi_yindu_zhanzheng }
+		relative_position_id = RAJ_kaiqi_yindu_zhanzheng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		custom_effect_tooltip = RAJ_chenfapantu_tt
+		add_political_power = 50
+		}
+	}
+	#印度一统
+	focus = {
+		id = RAJ_yindu_yitong
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = RAJ_huimie_fanduizhe }
+		prerequisite = { focus = RAJ_jinjun_beifang }
+		prerequisite = { focus = RAJ_chengfa_pantu }
+		relative_position_id = RAJ_jinjun_beifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 230
+						region = 231
+						region = 31
+						region = 141
+						region = 153
+						region = 253
+						region = 153
+						region = 254
+						region = 190
+						region = 251
+						}
+					}
+add_core_of = RAJ
+		}
+		remove_state_core = 434
+		remove_state_core = 1157
+		remove_state_core = 324
+		remove_state_core = 1592
+		remove_state_core = 1649
+		}
+	}
+	#回归不列颠
+	focus = {
+		id = RAJ_huigui_buliedian
+		icon = GFX_focus_RAJ_clamp_down_on_corruption
+		prerequisite = { focus = RAJ_yindu_yitong }
+		relative_position_id = RAJ_yindu_yitong
+		mutually_exclusive = { focus = RAJ_lianhe_buliedian }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		OR = {
+		UKM = {
+		exists = no
+		}
+		CAN = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { is_faction_leader = yes }
+		}
+		UKM = { puppet = RAJ }
+		}
+		if = {
+		limit = {
+		CAN = { is_faction_leader = yes }
+		}
+		CAN = {puppet = RAJ }
+		}
+		}
+	}
+	#联合不列颠
+	focus = {
+		id = RAJ_lianhe_buliedian
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = RAJ_yindu_yitong }
+		relative_position_id = RAJ_yindu_yitong
+		mutually_exclusive = { focus = RAJ_huigui_buliedian }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		bypass = {
+		UKM = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { is_faction_leader = yes }
+		}
+		UKM = { add_to_faction = ABN }
+		}
+		if = {
+		limit = {
+		CAN = { is_faction_leader = yes }
+		}
+		CAN = { add_to_faction = ABN }
+		}
+		}
+	}
+	#干涉阿富汗
+	focus = {
+		id = RAJ_ganshe_afuhan
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = RAJ_lianhe_buliedian focus = RAJ_huigui_buliedian }
+		relative_position_id = RAJ_lianhe_buliedian
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+	#跨越喜马拉雅
+	focus = {
+		id = RAJ_kuayue_ximalaya
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RAJ_lianhe_buliedian focus = RAJ_huigui_buliedian }
+		relative_position_id = RAJ_lianhe_buliedian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NEP
+    type = annex_everything
+}
+declare_war_on = {
+    target = SKM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHU
+    type = annex_everything
+}
+		}
+	}
+	#夺回缅甸
+	focus = {
+		id = RAJ_duohui_miandian
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = RAJ_lianhe_buliedian focus = RAJ_huigui_buliedian }
+		relative_position_id = RAJ_lianhe_buliedian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+		}
+	}
+	#印度工业革命
+	focus = {
+		id = RAJ_yindu_gongye_geming
+		icon = GFX_focus_generic_industry_2
+		x = 18
+		y = 8
+		cost = 5
+		available = {
+		has_completed_focus = RAJ_zongdu_tanhean
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = RAJ_yinduic_2
+			remove_idea = RAJ_yinduic
+			}
+		}
+	}
+	#建立奥里萨海港
+	focus = {
+		id = RAJ_jianli_aolisa_haigang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = RAJ_yindu_gongye_geming }
+		relative_position_id = RAJ_yindu_gongye_geming
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    426 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建纺织业
+	focus = {
+		id = RAJ_kuojian_fangzhiye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = RAJ_jianli_aolisa_haigang }
+		relative_position_id = RAJ_jianli_aolisa_haigang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = RAJ_yinduic_3
+			remove_idea = RAJ_yinduic_2
+			}
+		}
+	}
+	#接轨不列颠技术
+	focus = {
+		id = RAJ_jiegui_buliedian_jishu
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = RAJ_kuojian_fangzhiye }
+		relative_position_id = RAJ_kuojian_fangzhiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = RAJ_buliedian_kexue_2
+			remove_idea = RAJ_buliedian_kexue
+			}
+		}
+	}
+	#全面工业化
+	focus = {
+		id = RAJ_quanmian_gongyehua
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = RAJ_jiegui_buliedian_jishu }
+		relative_position_id = RAJ_jiegui_buliedian_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = RAJ_yinduic_4
+			remove_idea = RAJ_yinduic_3
+			}
+		}
+	}
+	#马尔代夫之珠
+	focus = {
+		id = RAJ_maerdaifu_zhizhu
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = RAJ_yindu_gongye_geming }
+		relative_position_id = RAJ_yindu_gongye_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    281 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#内海之角
+	focus = {
+		id = RAJ_neihai_zhijiao
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = RAJ_jianli_aolisa_haigang }
+		prerequisite = { focus = RAJ_maerdaifu_zhizhu }
+		relative_position_id = RAJ_maerdaifu_zhizhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_ideas = RAJ_haiyang_maoyi
+		}
+	}
+	#建立海洋经济
+	focus = {
+		id = RAJ_jianli_haiyang_jingji
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = RAJ_neihai_zhijiao }
+		prerequisite = { focus = RAJ_kuojian_fangzhiye }
+		relative_position_id = RAJ_neihai_zhijiao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   swap_ideas = {
+		   add_idea = RAJ_haiyang_maoyi_2
+		   remove_idea = RAJ_haiyang_maoyi
+		   }
+		}
+	}
+	#山内军事化
+	focus = {
+		id = RAJ_shannei_junshihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = RAJ_yindu_gongye_geming }
+		relative_position_id = RAJ_yindu_gongye_geming
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    1612 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			1617 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#进驻丛林
+	focus = {
+		id = RAJ_jinzhu_conglin
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RAJ_shannei_junshihua }
+		relative_position_id = RAJ_shannei_junshihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    1614 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			1607 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			1615 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大教育
+	focus = {
+		id = RAJ_kuoda_jiaoyu
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = RAJ_jinzhu_conglin }
+		prerequisite = { focus = RAJ_neihai_zhijiao }
+		relative_position_id = RAJ_jinzhu_conglin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_research_slot = 1
+		}
+	}
+	#完全产业链
+	focus = {
+		id = RAJ_wanquan_chanyelian
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = RAJ_kuoda_jiaoyu }
+		prerequisite = { focus = RAJ_jianli_haiyang_jingji }
+		relative_position_id = RAJ_jianli_haiyang_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = RAJ_haiyang_maoyi_3
+			remove_idea = RAJ_haiyang_maoyi_2
+			}
+		}
+	}
+	#开发新农田
+	focus = {
+		id = RAJ_kaifa_newnongtian
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = RAJ_jinzhu_conglin }
+		relative_position_id = RAJ_jinzhu_conglin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAJ_kaifa_nongye
+		}
+	}
+	#改革农业机械
+	focus = {
+		id = RAJ_gaige_nongye_jixie
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = RAJ_kaifa_newnongtian }
+		relative_position_id = RAJ_kaifa_newnongtian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_kaifa_nongye_2
+			remove_idea = RAJ_kaifa_nongye
+			}
+		}
+	}
+	#重建英印联军
+	focus = {
+		id = RAJ_chongjian_yingyin_lianjun
+		icon = GFX_focus_generic_little_entente
+		x = 32
+		y = 8
+		cost = 5
+		available = {
+		has_completed_focus = RAJ_zongdu_tanhean
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = RAJ_yingyin_lianjun
+		}
+	}
+	#英国军官团
+	focus = {
+		id = RAJ_yingguo_junguantuan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = RAJ_chongjian_yingyin_lianjun }
+		relative_position_id = RAJ_chongjian_yingyin_lianjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_yingyin_lianjun_2
+			remove_idea = RAJ_yingyin_lianjun
+			}
+		}
+	}
+	#绝对服从
+	focus = {
+		id = RAJ_juedui_fucong
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RAJ_yingguo_junguantuan }
+		relative_position_id = RAJ_yingguo_junguantuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_yingyin_lianjun_3
+			remove_idea = RAJ_yingyin_lianjun_2
+			}
+		}
+	}
+	#适应性革新
+	focus = {
+		id = RAJ_shiyingxing_gexin
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = RAJ_juedui_fucong }
+		relative_position_id = RAJ_juedui_fucong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_yingyin_lianjun_4
+			remove_idea = RAJ_yingyin_lianjun_3
+			}
+		}
+	}
+	#吸收战争经验
+	focus = {
+		id = RAJ_xishou_zhanzheng_jingyan
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = RAJ_shiyingxing_gexin }
+		relative_position_id = RAJ_shiyingxing_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_yingyin_lianjun_5
+			remove_idea = RAJ_yingyin_lianjun_4
+			}
+		}
+	}
+	#扩大基础武装
+	focus = {
+		id = RAJ_kuoda_jichu_wuzhuang
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = RAJ_yingguo_junguantuan }
+		relative_position_id = RAJ_yingguo_junguantuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAJ_kuoda_jiceng_army
+		}
+	}
+	#人海战术
+	focus = {
+		id = RAJ_renhai_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = RAJ_kuoda_jichu_wuzhuang }
+		relative_position_id = RAJ_kuoda_jichu_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_kuoda_jiceng_army_2
+			remove_idea = RAJ_kuoda_jiceng_army
+			}
+		}
+	}
+	#冲锋战争
+	focus = {
+		id = RAJ_chongfeng_zhanzheng
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = RAJ_renhai_zhanshu }
+		relative_position_id = RAJ_renhai_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = RAJ_kuoda_jiceng_army_3
+			remove_idea = RAJ_kuoda_jiceng_army_2
+			}
+		}
+	}
+	#建立技术优势
+	focus = {
+		id = RAJ_jianli_jishu_youshi
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = RAJ_chongjian_yingyin_lianjun }
+		relative_position_id = RAJ_chongjian_yingyin_lianjun
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = mechanised_infantry
+			}
+		}
+	}
+	#开发火力
+	focus = {
+		id = RAJ_kaifa_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = RAJ_jianli_jishu_youshi }
+		relative_position_id = RAJ_jianli_jishu_youshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAJ_kaifa_huoli
+		}
+	}
+	#印度式覆盖
+	focus = {
+		id = RAJ_yindushi_fugai
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = RAJ_kaifa_huoli }
+		relative_position_id = RAJ_kaifa_huoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_kaifa_huoli_2
+		remove_idea = RAJ_kaifa_huoli
+		}
+		}
+	}
+	#集中战略
+	focus = {
+		id = RAJ_jizhong_zhanlue
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = RAJ_yindushi_fugai }
+		relative_position_id = RAJ_yindushi_fugai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_kaifa_huoli_3
+		remove_idea = RAJ_kaifa_huoli_2
+		}
+		}
+	}
+	#实验性装甲
+	focus = {
+		id = RAJ_shiyanxing_zhuangjia
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = RAJ_jianli_jishu_youshi }
+		relative_position_id = RAJ_jianli_jishu_youshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAJ_zhuangjia_shiyan
+		}
+	}
+	#机械化部队
+	focus = {
+		id = RAJ_jixiehua_budui
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = RAJ_shiyanxing_zhuangjia }
+		relative_position_id = RAJ_shiyanxing_zhuangjia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_zhuangjia_shiyan_2
+		remove_idea = RAJ_zhuangjia_shiyan
+		}
+		}
+	}
+	#突袭如风
+	focus = {
+		id = RAJ_tuxi_rufeng
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = RAJ_jixiehua_budui }
+		relative_position_id = RAJ_jixiehua_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_zhuangjia_shiyan_3
+		remove_idea = RAJ_zhuangjia_shiyan_2
+		}
+		}
+	}
+	#吸收堑壕教训
+	focus = {
+		id = RAJ_xishou_qianhao_jiaoxun
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = RAJ_jianli_jishu_youshi }
+		relative_position_id = RAJ_jianli_jishu_youshi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RAJ_gexin_army
+		}
+	}
+	#火力侦察学
+	focus = {
+		id = RAJ_huoli_zhenchaxue
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RAJ_xishou_qianhao_jiaoxun }
+		relative_position_id = RAJ_xishou_qianhao_jiaoxun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_gexin_army_2
+		remove_idea = RAJ_gexin_army
+		}
+		}
+	}
+	#战地医疗
+	focus = {
+		id = RAJ_zhandi_yiliao
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = RAJ_huoli_zhenchaxue }
+		relative_position_id = RAJ_huoli_zhenchaxue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RAJ_gexin_army_3
+		remove_idea = RAJ_gexin_army_2
+		}
+		}
+	}
+}

@@ -1,0 +1,584 @@
+focus_tree = {
+	id = MLT_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MLT
+		}
+	}
+	
+	default = no
+ 
+	#马耳他建设
+	focus = {
+		id = MLT_maerta_jianshe
+		icon = GFX_focus_DEN_limited_regulations
+		x = 17
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#扩大捕鱼产业
+	focus = {
+		id = MLT_kuoda_buyuchanye
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = MLT_maerta_jianshe}
+		relative_position_id = MLT_maerta_jianshe
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_kuoda_buyu
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#马耳他旅游业
+	focus = {
+		id = MLT_maerta_lvyouye
+		icon = GFX_focus_NORDIC_dem_form_alliance
+		prerequisite = { focus = MLT_kuoda_buyuchanye}
+		relative_position_id = MLT_kuoda_buyuchanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_maerta_lvyouye
+		}
+	}
+	#扩大贸易
+	focus = {
+		id = MLT_kuoda_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = MLT_maerta_lvyouye}
+		relative_position_id = MLT_maerta_lvyouye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_maerta_lvyouye_2
+			remove_idea = MLT_maerta_lvyouye
+			}
+		}
+	}
+	#接触红十字
+	focus = {
+		id = MLT_jiechu_hongshizi
+		icon = GFX_focus_ARG_liberation_theology
+		prerequisite = { focus = MLT_maerta_jianshe}
+		relative_position_id = MLT_maerta_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_jiaohui_gexin
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#重修教会
+	focus = {
+		id = MLT_chongxiu_jiaohui
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = MLT_jiechu_hongshizi}
+		relative_position_id = MLT_jiechu_hongshizi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_jiaohui_gexin_2
+			remove_idea = MLT_jiaohui_gexin
+			}
+		}
+	}
+	#接受难民
+	focus = {
+		id = MLT_jieshou_nanmin
+		icon = GFX_focus_NORDIC_com_institution_1
+		prerequisite = { focus = MLT_chongxiu_jiaohui}
+		relative_position_id = MLT_chongxiu_jiaohui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			116 = {
+			add_manpower = 200000
+			}
+		}
+	}
+	#扩大手工业
+	focus = {
+		id = MLT_kuoda_shougongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MLT_maerta_jianshe}
+		relative_position_id = MLT_maerta_jianshe
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#寻求英国投资
+	focus = {
+		id = MLT_xunqiu_UK_touzi
+		icon = GFX_focus_NORDIC_mon_capstone_materiel
+		prerequisite = { focus = MLT_kuoda_shougongye}
+		relative_position_id = MLT_kuoda_shougongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_ideas = MLT_xunqiu_UK_touzi
+		}
+	}
+	#建立工业
+	focus = {
+		id = MLT_jianli_gongye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = MLT_xunqiu_UK_touzi}
+		relative_position_id = MLT_xunqiu_UK_touzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_jianli_gongye
+			remove_idea = MLT_xunqiu_UK_touzi
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#骑士团军事
+	focus = {
+		id = MLT_qishituan_junshi
+		icon = GFX_focus_ITA_bersaglieri
+		x = 23
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 5000
+		}
+	}
+	#重建骑士制度
+	focus = {
+		id = MLT_chongjian_qishi_zhidu
+		icon = GFX_focus_NORDIC_com_army
+		prerequisite = { focus = MLT_qishituan_junshi}
+		relative_position_id = MLT_qishituan_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_chongjian_qishi_zhidu
+		}
+	}
+	#神圣意志
+	focus = {
+		id = MLT_shensheng_yizhi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = MLT_chongjian_qishi_zhidu}
+		relative_position_id = MLT_chongjian_qishi_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_chongjian_qishi_zhidu_2
+			remove_idea = MLT_chongjian_qishi_zhidu
+			}
+		}
+	}
+	#向死而生
+	focus = {
+		id = MLT_xaingsiersheng
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = MLT_shensheng_yizhi}
+		relative_position_id = MLT_shensheng_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_chongjian_qishi_zhidu_3
+			remove_idea = MLT_chongjian_qishi_zhidu_2
+			}
+		}
+	}
+	#新式武装科研
+	focus = {
+		id = MLT_xinshi_wuzhuang_keyan
+		icon = GFX_focus_NORDIC_dem_research
+		prerequisite = { focus = MLT_qishituan_junshi}
+		relative_position_id = MLT_qishituan_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#新式骑兵
+	focus = {
+		id = MLT_xinshi_qibing
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = MLT_chongjian_qishi_zhidu}
+		prerequisite = { focus = MLT_xinshi_wuzhuang_keyan}
+		relative_position_id = MLT_xinshi_wuzhuang_keyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_xinshi_qibing
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#冲锋陷阵
+	focus = {
+		id = MLT_chongfeng_xianzhen
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = MLT_xinshi_qibing }
+		relative_position_id = MLT_xinshi_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_xinshi_qibing_2
+			remove_idea = MLT_xinshi_qibing
+			}
+		}
+	}
+	#改革武装
+	focus = {
+		id = MLT_gaige_wuzhuang
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = MLT_xinshi_wuzhuang_keyan}
+		relative_position_id = MLT_xinshi_wuzhuang_keyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_gaige_wuzhuang
+		}
+	}
+	#运输舰队
+	focus = {
+		id = MLT_yunshu_jiandui
+		icon = GFX_focus_ICE_the_viking_spirit
+		prerequisite = { focus = MLT_gaige_wuzhuang}
+		relative_position_id = MLT_gaige_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_gaige_wuzhuang_2
+			remove_idea = MLT_gaige_wuzhuang
+			}
+			add_equipment_to_stockpile = {
+    type = convoys
+    amount = 100
+}
+		}
+	}
+	#再获新生
+	focus = {
+		id = MLT_zaihuoxinsheng
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 20
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#马耳他共和国
+	focus = {
+		id = MLT_maerta_gongheguo
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = MLT_zaihuoxinsheng}
+		relative_position_id = MLT_zaihuoxinsheng
+		mutually_exclusive = { focus = MLT_qishituan_zhengzhi }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			set_politics = {
+	ruling_party = democratic
+}
+add_ideas = MLT_maerta_gongheguo
+		}
+	}
+	#维护地中海航道
+	focus = {
+		id = MLT_weihu_dizhonghai_hangdao
+		icon = GFX_focus_ICE_modernizing_the_coast_guard
+		prerequisite = { focus = MLT_maerta_gongheguo}
+		relative_position_id = MLT_maerta_gongheguo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = dockyard level = 2 }
+		}
+	}
+	#抚平民族冲突
+	focus = {
+		id = MLT_fuping_minzu_chongtu
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = MLT_weihu_dizhonghai_hangdao}
+		relative_position_id = MLT_weihu_dizhonghai_hangdao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_fuping_minzu_chongtu
+		}
+	}
+	#建立选区民主
+	focus = {
+		id = MLT_jianli_xuanqu_minzhu
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MLT_maerta_gongheguo}
+		relative_position_id = MLT_maerta_gongheguo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_maerta_gongheguo_2
+			remove_idea = MLT_maerta_gongheguo
+			}
+		}
+	}
+	#马耳他议会
+	focus = {
+		id = MLT_maerta_yihui
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = MLT_jianli_xuanqu_minzhu}
+		relative_position_id = MLT_jianli_xuanqu_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MLT_maerta_gongheguo_3
+			remove_idea = MLT_maerta_gongheguo_2
+			}
+		}
+	}
+	#骑士团政治
+	focus = {
+		id = MLT_qishituan_zhengzhi
+		icon = GFX_focus_SWE_as_the_barometer_falls
+		prerequisite = { focus = MLT_zaihuoxinsheng}
+		relative_position_id = MLT_zaihuoxinsheng
+		mutually_exclusive = { focus = MLT_maerta_gongheguo }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MLT_qishituan_zhengzhi
+		}
+	}
+	#踏上希腊
+	focus = {
+		id = MLT_tashang_xila
+		icon = GFX_focus_POL_ban_nazi_party
+		prerequisite = { focus = MLT_qishituan_zhengzhi}
+		relative_position_id = MLT_qishituan_zhengzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+		}
+	}
+	#进军小亚细亚
+	focus = {
+		id = MLT_jinjun_xiaoyaxiya
+		icon = GFX_focus_TUR_misak_i_milli
+		prerequisite = { focus = MLT_tashang_xila}
+		relative_position_id = MLT_tashang_xila
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+		}
+	}
+	#登录黎凡特
+	focus = {
+		id = MLT_denglu_lifante
+		icon = GFX_focus_TUR_support_the_golden_square
+		prerequisite = { focus = MLT_qishituan_zhengzhi}
+		relative_position_id = MLT_qishituan_zhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+declare_war_on = {
+    target = SYR
+    type = annex_everything
+}
+declare_war_on = {
+    target = PAL
+    type = annex_everything
+}
+		}
+	}
+	#进军中东地区
+	focus = {
+		id = MLT_jinjun_zhongdong_diqu
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = MLT_denglu_lifante}
+		relative_position_id = MLT_denglu_lifante
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = EGY
+    type = annex_everything
+}
+declare_war_on = {
+    target = DLB
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRQ
+    type = annex_everything
+}
+declare_war_on = {
+    target = SMS
+    type = annex_everything
+}
+		}
+	}
+}

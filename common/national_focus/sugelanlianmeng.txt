@@ -1,0 +1,454 @@
+focus_tree = {
+	id = SCL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SCL
+		}
+	}
+	
+	default = no
+	#为自由而战
+	focus = {
+		id = SCL_forfree_war
+		icon = GFX_focus_por_workers_of_iberia
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SCL_wpand_tongyi_dream
+			add_ideas = SCL_work_guojia
+			add_ideas = SCL_sugelan_civilwar
+		}
+	}
+	#反抗不列颠暴政
+	focus = {
+		id = SCL_fankang_buliedian_baozheng
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = SCL_forfree_war}
+		relative_position_id = SCL_forfree_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#为了革命
+	focus = {
+		id = SCL_for_gm
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = SCL_fankang_buliedian_baozheng}
+		relative_position_id = SCL_fankang_buliedian_baozheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SCL_forgm
+		}
+	}
+	#反对法西斯疯子
+	focus = {
+		id = SCL_fandui_faxisifengzi
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = SCL_forfree_war}
+		relative_position_id = SCL_forfree_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#为和平而战
+	focus = {
+		id = SCL_for_heping_erzhan
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = SCL_fandui_faxisifengzi}
+		relative_position_id = SCL_fandui_faxisifengzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = { 
+			add_idea = SCL_wpand_tongyi_dream_2
+			remove_idea = SCL_wpand_tongyi_dream
+			}
+		}
+	}
+	#动员格拉斯哥工人
+	focus = {
+		id = SCL_dongyuan_gelasige_gongren
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = SCL_for_heping_erzhan}
+		prerequisite = { focus = SCL_for_gm}
+		relative_position_id = SCL_for_gm
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SCL_gelasige_worker
+		}
+	}
+	#革命工业
+	focus = {
+		id = SCL_geming_gongye
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = SCL_dongyuan_gelasige_gongren}
+		relative_position_id = SCL_dongyuan_gelasige_gongren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#乡村自治
+	focus = {
+		id = SCL_xiangcun_zizhi
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SCL_for_heping_erzhan}
+		prerequisite = { focus = SCL_for_gm}
+		relative_position_id = SCL_for_gm
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SCL_xiangcun_zizhi
+		}
+	}
+	#工农联盟
+	focus = {
+		id = SCL_gongnong_lianmeng
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		prerequisite = { focus = SCL_xiangcun_zizhi}
+		relative_position_id = SCL_xiangcun_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SCL_xiangcun_zizhi_2
+			remove_idea = SCL_xiangcun_zizhi
+			}
+		}
+	}
+	#工会自由
+	focus = {
+		id = SCL_gonghui_ziyou
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = SCL_for_heping_erzhan}
+		prerequisite = { focus = SCL_for_gm}
+		relative_position_id = SCL_for_gm
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SCL_work_guojia_2
+			remove_idea = SCL_work_guojia
+			}
+		}
+	}
+	#产业自主
+	focus = {
+		id = SCL_chanye_zizhu
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SCL_gonghui_ziyou}
+		relative_position_id = SCL_gonghui_ziyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SCL_work_guojia_3
+			remove_idea = SCL_work_guojia_2
+			}
+		}
+	}
+	#组织高地起义
+	focus = {
+		id = SCL_zuzhi_gaodi_qiyi
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SCL_geming_gongye}
+		prerequisite = { focus = SCL_gongnong_lianmeng}
+		prerequisite = { focus = SCL_chanye_zizhu}
+		relative_position_id = SCL_gongnong_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SCL_gaodi_qiyi
+		}
+	}
+	#击溃民族党
+	focus = {
+		id = SCL_jikui_minzudang
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = SCL_zuzhi_gaodi_qiyi}
+		relative_position_id = SCL_zuzhi_gaodi_qiyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SCL = {
+		controls_state = 121
+		controls_state = 133
+		controls_state = 136
+		controls_state = 120
+		controls_state = 917
+		controls_state = 1357
+		controls_state = 1385
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = SCO
+    transfer_troops = no
+}
+		}
+	}
+	#维持分离
+	focus = {
+		id = SCL_weichi_fenli
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = SCL_jikui_minzudang}
+		relative_position_id = SCL_jikui_minzudang
+		mutually_exclusive = { focus = SCL_huigui_gongdang }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#革命武装组织化
+	focus = {
+		id = SCL_geming_wuzhuang_zuzhihua
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SCL_weichi_fenli}
+		relative_position_id = SCL_weichi_fenli
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SCL_geming_wuzhuang_zuzhihua
+		}
+	}
+	#工人武装扩大化
+	focus = {
+		id = SCL_gongren_wuzhuang_kuodahua
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SCL_geming_wuzhuang_zuzhihua}
+		relative_position_id = SCL_geming_wuzhuang_zuzhihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCL_gongren_wuzhuang_kuodahua
+		remove_idea = SCL_geming_wuzhuang_zuzhihua
+		}
+		}
+	}
+	#乡村合作
+	focus = {
+		id = SCL_xiangcun_hezuo
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = SCL_weichi_fenli}
+		relative_position_id = SCL_weichi_fenli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCL_xiangcun_zizhi_3
+		remove_idea = SCL_xiangcun_zizhi_2
+		}
+		}
+	}
+	#苏格兰科研
+	focus = {
+		id = SCL_sugelan_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = SCL_xiangcun_hezuo}
+		relative_position_id = SCL_xiangcun_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#低地工业开发
+	focus = {
+		id = SCL_didi_gongye_kaifa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SCL_weichi_fenli}
+		relative_position_id = SCL_weichi_fenli
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		917 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#高地工业开发
+	focus = {
+		id = SCL_gaodi_gongye_kaifa
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = SCL_didi_gongye_kaifa}
+		relative_position_id = SCL_didi_gongye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		121 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#加入世界革命
+	focus = {
+		id = SCL_jion_world_gm
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = SCL_sugelan_keyan}
+		prerequisite = { focus = SCL_gongren_wuzhuang_kuodahua}
+		prerequisite = { focus = SCL_gaodi_gongye_kaifa}
+		relative_position_id = SCL_gaodi_gongye_kaifa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		133 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		136 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = SCL
+			}
+		}
+	}
+	#回归工党
+	focus = {
+		id = SCL_huigui_gongdang
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = SCL_jikui_minzudang}
+		relative_position_id = SCL_jikui_minzudang
+		mutually_exclusive = { focus = SCL_weichi_fenli }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		EGL = {
+		add_state_core = 120
+		add_state_core = 121
+		add_state_core = 133
+		add_state_core = 136
+		add_state_core = 917
+		add_state_core = 1357
+		add_state_core = 1385
+		annex_country = {
+    target = SCL
+    transfer_troops = yes
+}
+		}
+		}
+	}
+}

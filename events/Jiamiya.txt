@@ -1,0 +1,197 @@
+add_namespace = holy_jiamiya
+#撕毁切诺基协定
+country_event = {
+	id = holy_jiamiya.1
+	title = holy_jiamiya.1.t
+	desc = holy_jiamiya.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		365 = {
+			set_demilitarized_zone = no
+			}
+			PWT = {
+			declare_war_on = {
+    target = KLK
+    type = annex_everything
+}
+}
+	}
+}
+#决斗之日
+country_event = {
+	id = holy_jiamiya.2
+	title = holy_jiamiya.2.t
+	desc = holy_jiamiya.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.2.a
+		ai_chance = {
+		    factor = 25
+		}
+		country_event = {
+		id = holy_jiamiya.3
+		random = 50
+		hour = 1
+		}
+		country_event = {
+		id = holy_jiamiya.4
+		random = 50
+		hour = 2
+		}
+		country_event = {
+		id = holy_jiamiya.5
+		random = 50
+		hour = 3
+		}
+		country_event = {
+		id = holy_jiamiya.6
+		}
+		randomize_temp_variable = {
+  var = PWT.zhangzhe_shenglv
+  distribution = uniform
+  min = 0
+  max = 50
+  tooltip = PWT_zhangzhe_shenglv_1_tt
+}
+randomize_temp_variable = {
+  var = PWT.xinwang_shenglv
+  distribution = uniform
+  min = 0
+  max = 50
+  tooltip = PWT_xinwang_shenglv_1_tt
+}
+	}
+}
+#长者受伤了
+country_event = {
+	id = holy_jiamiya.3
+	title = holy_jiamiya.3.t
+	desc = holy_jiamiya.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.3.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_to_variable = {
+    var = PWT.xinwang_shenglv
+    value = 10
+    tooltip = PWT_xinwang_shenglv_2_tt
+	}
+	}
+}
+#薪王的手断掉了
+country_event = {
+	id = holy_jiamiya.4
+	title = holy_jiamiya.4.t
+	desc = holy_jiamiya.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.4.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_to_variable = {
+    var = PWT.zhangzhe_shenglv
+    value = 20
+    tooltip = PWT_zhangzhe_shenglv_2_tt
+	}
+	}
+}
+#长者的身体动不了了！
+country_event = {
+	id = holy_jiamiya.5
+	title = holy_jiamiya.5.t
+	desc = holy_jiamiya.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.5.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_to_variable = {
+    var = PWT.xinwang_shenglv
+    value = 50
+    tooltip = PWT_xinwang_shenglv_3_tt
+	}
+	}
+}
+#胜利者
+country_event = {
+	id = holy_jiamiya.6
+	title = holy_jiamiya.6.t
+	desc = holy_jiamiya.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.6.a
+		trigger = { check_variable = { PWT.xinwang_shenglv > PWT.zhangzhe_shenglv } }
+		ai_chance = {
+		    factor = 25
+		}
+		complete_national_focus = PWT_xinwang_dengji
+		kill_ideology_leader = dictatorship
+		create_country_leader = {
+	name = ""
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = jiazhangzhi_ducai_system
+	traits = {
+	}
+}
+	}
+	option = {
+		name = holy_jiamiya.6.b
+		trigger = { check_variable = { PWT.xinwang_shenglv < PWT.zhangzhe_shenglv } }
+		ai_chance = {
+		    factor = 25
+		}
+		complete_national_focus = PWT_zhangzhe_yanxu
+	}
+}
+#屋旁的青草
+country_event = {
+	id = holy_jiamiya.7
+	title = holy_jiamiya.7.t
+	desc = holy_jiamiya.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.7.a
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}
+#塞米诺之声
+country_event = {
+	id = holy_jiamiya.8
+	title = holy_jiamiya.8.t
+	desc = holy_jiamiya.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_jiamiya.8.a
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}

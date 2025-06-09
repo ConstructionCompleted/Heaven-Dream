@@ -1,0 +1,399 @@
+focus_tree = {
+	id = FGE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FGE
+		}
+	}
+	
+	default = no
+	#虞美人运动
+	focus = {
+		id = FGE_yumeiren_yundong
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 12
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FGE_minzhong_zhichi_1
+			add_ideas = FGE_quefawuqi
+		}
+	}
+	#盗取火种
+	focus = {
+		id = FGE_daoqu_huozhong
+		icon = GFX_focus_POL_reach_out_to_underground_state
+		prerequisite = { focus = FGE_yumeiren_yundong}
+		relative_position_id = FGE_yumeiren_yundong
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			POL = {
+			transfer_state = 5
+			transfer_state = 188
+			transfer_state = 83
+			transfer_state = 763
+			transfer_state = 85
+			transfer_state = 86
+			transfer_state = 807
+			add_state_core = 5
+			add_state_core = 83
+			add_state_core = 188
+			add_state_core = 763
+			add_state_core = 85
+			add_state_core = 86
+			add_state_core = 807
+			load_oob = POL_gemingjun
+			}
+			puppet = POL
+		}
+	}
+	#千年夙愿
+	focus = {
+		id = FGE_qiannian_suyuan
+		icon = GFX_focus_CZE_military_aeronautical_institute
+		prerequisite = { focus = FGE_daoqu_huozhong}
+		relative_position_id = FGE_daoqu_huozhong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			CZE = {
+			transfer_state = 9
+			transfer_state = 989
+			transfer_state = 987
+			transfer_state = 75
+			add_state_core = 9
+			add_state_core = 69
+			add_state_core = 72
+			add_state_core = 74
+			add_state_core = 75
+			add_state_core = 664
+			add_state_core = 71
+			add_state_core = 70
+			add_state_core = 990
+			add_state_core = 989
+			add_state_core = 986
+			add_state_core = 987
+			add_state_core = 988
+			load_oob = CZE_gemingjun
+			}
+			puppet = CZE
+		}
+	}
+	#低地大起义
+	focus = {
+		id = FGE_didi_daqiyi
+		icon = GFX_focus_hol_united_netherlands
+		prerequisite = { focus = FGE_qiannian_suyuan}
+		relative_position_id = FGE_qiannian_suyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			HOL = {
+			transfer_state = 7
+			transfer_state = 35
+			transfer_state = 36
+			transfer_state = 934
+			add_state_core = 7
+			add_state_core = 35
+			add_state_core = 36
+			add_state_core = 34
+			add_state_core = 35
+			add_state_core = 8
+			add_state_core = 934
+			add_state_core = 933
+			add_state_core = 935
+			load_oob = HOL_gemingjun
+			}
+			puppet = HOL
+		}
+	}
+	#团结一致的人民
+	focus = {
+		id = FGE_tuanjieyizhi
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = FGE_yumeiren_yundong}
+		relative_position_id = FGE_yumeiren_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_minzhong_zhichi_2
+			remove_idea = FGE_minzhong_zhichi_1
+			}
+		}
+	}
+	#为了光明的未来
+	focus = {
+		id = FGE_weile_guangming_weilai
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = FGE_tuanjieyizhi}
+		relative_position_id = FGE_tuanjieyizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_minzhong_zhichi_3
+			remove_idea = FGE_minzhong_zhichi_2
+			}
+		}
+	}
+	#从瑞士到梅梅尔！
+	focus = {
+		id = FGE_congruishi_daomeimeier
+		icon = GFX_focus_SWI_fortify_border_with_germany
+		prerequisite = { focus = FGE_weile_guangming_weilai}
+		relative_position_id = FGE_weile_guangming_weilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_minzhong_zhichi_4
+			remove_idea = FGE_minzhong_zhichi_3
+			}
+		}
+	}
+	#地下工坊
+	focus = {
+		id = FGE_dixia_gongfang
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = FGE_yumeiren_yundong}
+		relative_position_id = FGE_yumeiren_yundong
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_mianqiang_chongzu
+			remove_idea = FGE_zhuangbei_quefa
+			}
+		}
+	}
+	#我们的新工厂
+	focus = {
+		id = FGE_womende_new_ic
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FGE_dixia_gongfang}
+		relative_position_id = FGE_dixia_gongfang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_we_new_ic
+			remove_idea = FGE_mianqiang_chongzu
+			}
+		}
+	}
+	#外国支援
+	focus = {
+		id = FGE_waiguo_zhiyuan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = FGE_womende_new_ic}
+		relative_position_id = FGE_womende_new_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FGE_chongpei_wuku
+			remove_idea = FGE_we_new_ic
+			}
+		}
+	}
+	#人民高举义旗
+	focus = {
+		id = FGE_renmin_gaoju_yiqi
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = FGE_didi_daqiyi}
+		prerequisite = { focus = FGE_congruishi_daomeimeier}
+		prerequisite = { focus = FGE_waiguo_zhiyuan}
+		relative_position_id = FGE_congruishi_daomeimeier
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = FGE_renmin_juntuan
+		}
+	}
+	#第二次射日战争！
+	focus = {
+		id = FGE_dierci_sheri_zhanzheng
+		icon = GFX_focus_attack_germany
+		prerequisite = { focus = FGE_renmin_gaoju_yiqi}
+		relative_position_id = FGE_renmin_gaoju_yiqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = LUO
+    type = annex_everything
+}
+		}
+	}
+	#自由
+	focus = {
+		id = FGE_free
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = FGE_dierci_sheri_zhanzheng}
+		relative_position_id = FGE_dierci_sheri_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.25
+		}
+	}
+	#平等
+	focus = {
+		id = FGE_pingdeng
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = FGE_free}
+		relative_position_id = FGE_free
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 200
+		}
+	}
+	#博爱
+	focus = {
+		id = FGE_boai
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = FGE_pingdeng}
+		relative_position_id = FGE_pingdeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.25
+		}
+	}
+	#燃烧光芒
+	focus = {
+		id = FGE_ranshao_guangmang
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = FGE_dierci_sheri_zhanzheng}
+		relative_position_id = FGE_dierci_sheri_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = FTB_geming
+		}
+	}
+	#慕尼黑起义
+	focus = {
+		id = FGE_munihei_qiyi
+		icon = GFX_focus_attack_germany
+		prerequisite = { focus = FGE_ranshao_guangmang}
+		relative_position_id = FGE_ranshao_guangmang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BAF_geming
+		}
+	}
+	#为了我们的未来！
+	focus = {
+		id = FGE_weile_we_weilai
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = FGE_munihei_qiyi}
+		relative_position_id = FGE_munihei_qiyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = LUO_geming
+		}
+	}
+	#我们自由了！
+	focus = {
+		id = FGE_we_free
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = FGE_weile_we_weilai}
+		prerequisite = { focus = FGE_boai}
+		relative_position_id = FGE_weile_we_weilai
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		  LUO = {
+		  exists = no
+		  }
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_luolin.9 days = 1 } 
+		}
+	}
+}

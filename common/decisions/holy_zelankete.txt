@@ -1,0 +1,127 @@
+holy_xiaoni = {
+	#无马部落的主张
+    holy_wuma_zhuzhang = {                          
+        visible = { 
+		tag = PWT 
+		}                
+        activation = {                          
+            has_completed_focus = XAO_diershici_diquhuiyi
+        }
+		available = {                   
+           always = no
+        }
+        is_good = yes     		
+        selectable_mission = no               
+        days_mission_timeout = 15             
+        timeout_effect = {
+		country_event = {
+		id = holy_zelankete.9
+		random = 50
+		}
+		}
+		timeout_effect = {
+		country_event = {
+		id = holy_zelankete.10
+		random = 50
+		}
+		}
+    }
+	#有马部落的主张
+    holy_youma_zhuzhang = {                          
+        visible = { 
+		tag = PWT 
+		}                
+        activation = {                          
+            has_completed_focus = XAO_diershici_diquhuiyi
+        }
+		available = {                   
+           always = no
+        }
+        is_good = yes     		
+        selectable_mission = no               
+        days_mission_timeout = 25             
+        timeout_effect = {
+		country_event = {
+		id = holy_zelankete.11
+		random = 50
+		}
+		}
+		timeout_effect = {
+		country_event = {
+		id = holy_zelankete.12
+		random = 50
+		}
+		}
+    }
+	#风河部落的主张
+    holy_fenghe_zhuzhang = {                          
+        visible = { 
+		tag = PWT 
+		}                
+        activation = {                          
+            has_completed_focus = XAO_diershici_diquhuiyi
+        }
+		available = {                   
+           always = no
+        }
+        is_good = yes     		
+        selectable_mission = no               
+        days_mission_timeout = 20             
+        timeout_effect = {
+		country_event = {
+		id = holy_zelankete.7
+		random = 50
+		}
+		}
+		timeout_effect = {
+		country_event = {
+		id = holy_zelankete.8
+		random = 50
+		}
+		}
+    }
+	#终结选举
+    holy_zhongjie_xuanju = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = XAO
+			has_completed_focus = XAO_diershici_diquhuiyi
+	}	
+		available = {
+			date > 1936.8.1
+		}
+		fire_only_once = yes
+		complete_effect = {
+		remove_mission = holy_wuma_zhuzhang
+		remove_mission = holy_youma_zhuzhang
+		remove_mission = holy_fenghe_zhuzhang
+		if = {
+		limit = {
+		check_variable = { XAO.fenghe_yingxiangli < XAO.wuma_yingxiangli }
+		check_variable = { XAO.youma_yingxiangli < XAO.wuma_yingxiangli }
+		}
+		add_ideas = XAO_wuma_zhudao
+        }
+		if = {
+		limit = {
+		check_variable = { XAO.wuma_yingxiangli < XAO.youma_yingxiangli }
+		check_variable = { XAO.fenghe_yingxiangli < XAO.youma_yingxiangli }
+		}
+		add_ideas = XAO_youma_zhudao
+        }
+		if = {
+		limit = {
+		check_variable = { XAO.wuma_yingxiangli < XAO.fenghe_yingxiangli }
+		check_variable = { XAO.youma_yingxiangli < XAO.fenghe_yingxiangli }
+		}
+		add_ideas = XAO_fenghe_zhudao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+
+}

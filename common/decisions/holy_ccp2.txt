@@ -1,0 +1,1580 @@
+holy_ccp_weiichigeming = {
+    #投资科学技术
+    CCP_touzi_kexue_jishu = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		NOT = { has_idea = CCP_touzi_kexue }
+		}
+		cost = 75
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_touzi_kexue
+    days = 120
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#号召人民入党
+    CCP_haozhaorenmin_rudang = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_xuanynag_maozedong_sixiang
+		NOT = { has_idea = CCP_haozhao_rudang }
+		}
+		cost = 100
+		days_re_enable = 120
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_haozhao_rudang
+    days = 120
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#打击反动宣传
+    CCP_daji_fandong_xuanchuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_cuihui_ziyoupai
+		NOT = { has_idea = CCP_haozhao_rudang }
+		}
+		days_re_enable = 240
+		cost = 150
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_daji_fandong_xuanchuan
+    days = 120
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_stability = 0.05
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#紧急军事生产
+    CCP_jinji_junshi_shengchan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_junshi_chanye_kuoda
+		NOT = { has_idea = CCP_haozhao_rudang }
+		}
+		days_re_enable = 180
+		cost = 75
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_junshi_shengchan
+    days = 180
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_ccp_jihuajingji_tixi = {
+    #完成工业计划
+    CCP_wancheng_gongye_jihua = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+	    activation = {                          
+            tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+		num_of_factories < 3001
+        }
+		available = {
+		always = no
+		}
+		is_good = no
+		days_mission_timeout = 365
+		timeout_effect = {
+		set_temp_variable = { CCP.gongyeyaoqiu2 = arms_factory }
+    add_to_variable = { CCP.gongyeyaoqiu2 = industrial_complex }
+    add_to_variable = { CCP.gongyeyaoqiu2 = dockyard }
+		if = {
+		limit = {
+		check_variable = { CCP.gongyeyaoqiu2 > CCP.gongyeyaoqiu }
+		}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 15
+    tooltip = CCP_gemingreqing_8_tt
+}
+		}
+		if = {
+		limit = {
+		check_variable = { CCP.gongyeyaoqiu2 < CCP.gongyeyaoqiu }
+		}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = -15
+    tooltip = CCP_gemingreqing_8_tt
+}
+		}
+		custom_effect_tooltip = CCP_gongye_jihua_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#促进生产积极
+    CCP_cujin_shengchan_jiji = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_junshi_chanye_kuoda
+		NOT = { has_idea = CCP_cujin_shengchan_jiji }
+		}
+		days_re_enable = 180
+		cost = 100
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_cujin_shengchan_jiji
+    days = 180
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#投资工业科技
+    CCP_touzi_gongye_keji = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_junshi_chanye_kuoda
+		}
+		days_re_enable = 180
+		cost = 50
+		complete_effect = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = industry
+			}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#加强国家建设
+    CCP_jiaqiang_guojia_jianshe = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_junshi_chanye_kuoda
+		NOT = { has_idea = CCP_jiaqiang_guojia_jianshe }
+		}
+		days_re_enable = 180
+		cost = 100
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_jiaqiang_guojia_jianshe
+    days = 180
+}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#完成农业计划
+    CCP_nongye_jihua = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+	    activation = {
+            tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+		NOT = {
+		any_state = {
+   is_core_of = CCP
+   has_state_flag = CCP_nongyegaige_3
+   }
+   }
+        }
+		available = {
+		always = no
+		}
+		is_good = no
+		days_mission_timeout = 365
+		timeout_effect = {
+		if = {
+		limit = {
+		check_variable = { CCP.nongyegaigediqu > 29 }
+		}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 15
+    tooltip = CCP_gemingreqing_8_tt
+}
+		}
+		if = {
+		limit = {
+		check_variable = { CCP.nongyegaigediqu < 30 }
+		}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = -15
+    tooltip = CCP_gemingreqing_8_tt
+}
+		}
+		custom_effect_tooltip = CCP_nongye_jihua_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#土地改革
+    CCP_tudigaige = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		check_variable = { CCP.nongyegaige > 1.99 }
+		}
+		on_map_mode = map_only
+		state_target = yes
+		days_remove = 60
+		target_trigger = {
+			FROM = {
+			is_core_of = CCP
+			is_controlled_by = CCP
+			NOT = {
+			OR = {
+			has_state_flag = CCP_tudigaige_1
+			has_state_flag = CCP_tudigaige_2
+			has_state_flag = CCP_tudigaige_3
+			}
+			}
+			}
+		}
+		complete_effect = {
+		FROM = {
+		set_state_flag = CCP_tudigaige_1
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = -2
+    tooltip = CCP_nongyegaige_2_tt
+}
+        }
+		remove_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+		local_building_slots_factor = 0.1
+		local_manpower = 0.05
+    }
+}
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = 1
+    tooltip = CCP_nongyegaige_3_tt
+}
+add_to_variable = {
+    var = CCP.nongyegaigediqu
+    value = 1
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#全国合作社
+    CCP_tudigaige_2 = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		check_variable = { CCP.nongyegaige > 2.99 }
+		}
+		on_map_mode = map_only
+		state_target = yes
+		days_remove = 60
+		target_trigger = {
+			FROM = {
+			is_core_of = CCP
+			is_controlled_by = CCP
+			NOT = {
+			OR = {
+			has_state_flag = CCP_tudigaige_2
+			has_state_flag = CCP_tudigaige_3
+			}
+			}
+			has_state_flag = CCP_tudigaige_1
+			}
+		}
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_tudigaige_1
+		set_state_flag = CCP_tudigaige_2
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = -3
+    tooltip = CCP_nongyegaige_3_tt
+}
+        }
+		remove_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+        local_resources = 0.1
+		local_building_slots_factor = 0.1
+    }
+}
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = 1
+    tooltip = CCP_nongyegaige_3_tt
+}
+add_to_variable = {
+    var = CCP.nongyegaigediqu
+    value = 1
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#农业公社化
+    CCP_tudigaige_3 = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		check_variable = { CCP.nongyegaige > 3.99 }
+		}
+		on_map_mode = map_only
+		state_target = yes
+		days_remove = 90
+		target_trigger = {
+			FROM = {
+			is_core_of = CCP
+			is_controlled_by = CCP
+			NOT = {
+			OR = {
+			has_state_flag = CCP_tudigaige_1
+			has_state_flag = CCP_tudigaige_3
+			}
+			}
+			has_state_flag = CCP_tudigaige_2
+			}
+		}
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_tudigaige_2
+		set_state_flag = CCP_tudigaige_3
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = -4
+    tooltip = CCP_nongyegaige_3_tt
+}
+        }
+		remove_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+        local_resources = 0.05
+		local_manpower = 0.1
+		local_building_slots_factor = 0.05
+    }
+}
+		}
+		add_to_variable = {
+    var = CCP.nongyegaige
+    value = 1
+    tooltip = CCP_nongyegaige_3_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+add_to_variable = {
+    var = CCP.nongyegaigediqu
+    value = 1
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#出口粮食
+    CCP_chukou_liangshi = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		NOT = { has_idea = CCP_chukou_liangshi }
+		}
+        days_re_enable = 180
+		cost = 75
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_chukou_liangshi
+    days = 180
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩大当地征兵
+    CCP_kuoda_dangdi_zhengbing = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+		NOT = { has_country_flag = CCP_cr }
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		}
+		on_map_mode = map_only
+		state_target = yes
+		days_remove = 90
+		target_trigger = {
+			FROM = {
+			is_core_of = CCP
+			is_controlled_by = CCP
+			OR = {
+			has_state_flag = CCP_tudigaige_2
+			has_state_flag = CCP_tudigaige_3
+			}
+			}
+		}
+		cost = 20
+		remove_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+		local_manpower = 0.2
+    }
+}
+		}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}
+holy_ccp_wenhuadageming = {
+    #打击地方建制派
+    CCP_daji_difang_jianzhipai = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_dianfudiqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 75
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_dianfudiqu
+		}
+		custom_effect_tooltip = CCP_saochujianzhipai_tt
+		add_to_variable = {
+    var = CCP.dianfudiqu
+    value = -1
+    tooltip = CCP_dianfudiqu_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#强化地区优势
+    CCP_qianghua_diqu_youshi = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 50
+		complete_effect = {
+		FROM = {
+		set_state_flag = CCP_duoquan_diqu_2
+		}
+		custom_effect_tooltip = CCP_diquyoushi_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求军队介入地区
+    CCP_yaoqiu_jundui_jierudiqu = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		check_variable = { CCP.junduizhichi > 9 }
+		}
+		target_trigger = {
+			FROM = {
+			NOT = {
+			OR = {
+			has_state_flag = CCP_junguandiqu
+			has_state_flag = CCP_duoquan_diqu
+			}
+			}
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.junduizhichi
+    value = -10
+    tooltip = CCP_junduizhichi_4_tt
+}
+		add_to_variable = {
+    var = CCP.junguandiqu
+    value = 1
+    tooltip = CCP_junguandiqu_1_tt
+}
+		FROM = {
+		set_state_flag = CCP_junguandiqu
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求军队撤离
+    CCP_yaoqiu_jundui_cheli = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		check_variable = { CCP.junduizhichi > 9 }
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_junguandiqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_junguandiqu
+		}
+		add_to_variable = {
+    var = CCP.junduizhichi
+    value = -10
+    tooltip = CCP_junduizhichi_4_tt
+}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+		add_to_variable = {
+    var = CCP.junguandiqu
+    value = -1
+    tooltip = CCP_junguandiqu_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#宣传城市胜利
+    CCP_xuanyang_chengshi_shengli = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_chengshidiqu
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求地区撤退
+    CCP_yaoqiu_diqu_chetui = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		FROM = {
+			clr_state_flag = CCP_duoquan_diqu
+			}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 3
+    tooltip = CCP_gemingreqing_3_tt
+}
+custom_effect_tooltip = CCP_yaoqiu_diqu_chetui_tt
+        }
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	#控制人民日报
+    CCP_kongzhi_renmin_ribao = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_meiti_dageming
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+add_stability = 0.05
+set_country_flag = CCP_renmin_ribao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#打击地方建制派
+    CCP_daji_difang_jianzhipai = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_dianfudiqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 75
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_dianfudiqu
+		}
+		custom_effect_tooltip = CCP_saochujianzhipai_tt
+		add_to_variable = {
+    var = CCP.dianfudiqu
+    value = -1
+    tooltip = CCP_dianfudiqu_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#强化地区优势
+    CCP_qianghua_diqu_youshi = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 50
+		complete_effect = {
+		FROM = {
+		set_state_flag = CCP_duoquan_diqu_2
+		}
+		custom_effect_tooltip = CCP_diquyoushi_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求军队介入地区
+    CCP_yaoqiu_jundui_jierudiqu = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		check_variable = { CCP.junduizhichi > 9 }
+		has_completed_focus = CCP_jundui_zhiyuan
+		}
+		target_trigger = {
+			FROM = {
+			is_core_of = CCP
+			is_controlled_by = CCP
+			NOT = {
+			OR = {
+			has_state_flag = CCP_junguandiqu
+			has_state_flag = CCP_duoquan_diqu
+			}
+			}
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.junduizhichi
+    value = -10
+    tooltip = CCP_junduizhichi_4_tt
+}
+		add_to_variable = {
+    var = CCP.junguandiqu
+    value = 1
+    tooltip = CCP_junguandiqu_1_tt
+}
+		FROM = {
+		set_state_flag = CCP_junguandiqu
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求军队撤离
+    CCP_yaoqiu_jundui_cheli = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		check_variable = { CCP.junduizhichi > 9 }
+		has_completed_focus = CCP_jundui_zhiyuan
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_junguandiqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		clr_state_flag = CCP_junguandiqu
+		}
+		add_to_variable = {
+    var = CCP.junduizhichi
+    value = -10
+    tooltip = CCP_junduizhichi_4_tt
+}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+		add_to_variable = {
+    var = CCP.junguandiqu
+    value = -1
+    tooltip = CCP_junguandiqu_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#宣传城市胜利
+    CCP_xuanyang_chengshi_shengli = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_chengshidiqu
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求地区撤退
+    CCP_yaoqiu_diqu_chetui = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		}
+		target_trigger = {
+			FROM = {
+			has_state_flag = CCP_duoquan_diqu
+			}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		complete_effect = {
+		FROM = {
+			clr_state_flag = CCP_duoquan_diqu
+			}
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 3
+    tooltip = CCP_gemingreqing_3_tt
+}
+custom_effect_tooltip = CCP_yaoqiu_diqu_chetui_tt
+        }
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	#控制人民日报
+    CCP_kongzhi_renmin_ribao = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_meiti_dageming
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+add_stability = 0.05
+set_country_flag = CCP_renmin_ribao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#控制青年报
+    CCP_kongzhi_qingnianbao = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_meiti_dageming
+		}
+		fire_only_once = yes
+		complete_effect = {
+		add_political_power = 50
+add_stability = 0.05
+set_country_flag = CCP_qingnianbao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#控制工农报
+    CCP_kongzhi_gongnongbao = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_meiti_dageming
+		}
+		cost = 75
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+set_country_flag = CCP_gongnongbao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#控制新华社
+    CCP_kongzhi_xinhuashe = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_meiti_dageming
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		set_country_flag = CCP_xinhuashe
+		add_to_variable = {
+    var = CCP.juexingdu
+    value = 2
+    tooltip = CCP_juexingdu_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#改造新华社
+    CCP_gaizao_xinhuashe = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_xinhuashe
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		clr_country_flag = CCP_xinhuashe
+		set_country_flag = CCP_xinhuashe_2
+		add_to_variable = {
+    var = CCP.juexingdu
+    value = 2
+    tooltip = CCP_juexingdu_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#媒体大革命
+    CCP_meitidageming = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_xinhuashe_2
+		has_country_flag = CCP_renmin_ribao
+		has_country_flag = CCP_qingnianbao
+		has_country_flag = gongnongbao
+		}
+		fire_only_once = yes
+		complete_effect = {
+		add_ideas = CCP_meiti_geming
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#启用媒体攻势
+    CCP_qiyong_meiti_gongshi = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_idea = CCP_meiti_geming
+		}
+		days_re_enable = 360
+		fire_only_once = yes
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#发动地方群众
+    CCP_fadong_difang_qunzhong = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_completed_focus = CCP_hongweibing_dazibao
+		}
+		cost = 100
+		days_remove = 180
+		days_re_enable = 360
+		complete_effect = {
+		set_country_flag = CCP_fadong_qunzhong
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_timed_idea = {
+    idea = CCP_fadong_difang_qunzhong
+    days = 180
+}
+        }
+		remove_effect = {
+		clr_country_flag = CCP_fadong_qunzhong
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#攻击走资派
+    CCP_gongji_zouzpai = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+		has_country_flag = CCP_fadong_qunzhong
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_country_flag = CCP_fadong_qunzhong
+		has_completed_focus = CCP_yazhi_youyi_fenzi
+		}
+		cost = 50
+		days_re_enable = 30
+		complete_effect = {
+		set_country_flag = CCP_fadong_qunzhong
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 3
+    tooltip = CCP_gemingreqing_2_tt
+}
+custom_effect_tooltip = CCP_gongji_zouzpai_tt
+random_owned_controlled_state = {
+limit = {
+has_state_flag = CCP_dianfudiqu
+}
+clr_state_flag = CCP_dianfudiqu
+}
+random_owned_controlled_state = {
+limit = {
+has_state_flag = CCP_dianfudiqu
+}
+clr_state_flag = CCP_dianfudiqu
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#发出中央指示
+    CCP_fachu_zhongyang_zhishi = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+		has_country_flag = CCP_fadong_qunzhong
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_country_flag = CCP_fadong_qunzhong
+		has_completed_focus = CCP_jieti_guanliao_jigou
+		}
+		cost = 200
+		fire_only_once = yes
+		complete_effect = {
+		set_country_flag = CCP_fadong_qunzhong
+		add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_duoquan_diqu
+   }
+   CCP = {
+   add_to_variable = { CCP.gemingreqing = 0.4 }
+   }
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#破除旧名
+    CCP_pochu_jiuming = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_completed_focus = CCP_posijiu_yundong
+		}
+		cost = 25
+		days_re_enable = 120
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.juexingdu
+    value = 1
+    tooltip = CCP_juexingdu_4_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#抄没资本家产
+    CCP_chaomo_ziben_jiachan = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_completed_focus = CCP_posijiu_yundong
+		}
+		fire_only_once = yes
+		complete_effect = {
+		add_timed_idea = {
+    idea = CCP_chaomo_ziben_jiachan
+    days = 180
+}
+add_stability = -0.1
+add_political_power = 200
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#建立乡村优势
+    CCP_jianli_xiangcun_youshi = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_completed_focus = CCP_tuanjie_gongnong_qunzhong
+		}
+		state_target = yes
+		map_only = yes
+		target_trigger = {
+		has_state_flag = CCP_tudigaige_3
+		NOT = { has_state_flag = CCP_chengshidiqu }
+		}
+		cost = 25
+		complete_effect = {
+		if = {
+limit = {
+has_state_flag = CCP_dianfu_diqu
+}
+clr_state_flag = CCP_dianfu_diqu
+}
+set_state_flag = CCP_duoquan_diqu
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_duoquandiqu_3_tt
+}
+custom_effect_tooltip = CCP_jianli_xiangcun_youshi_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#组织红卫兵
+    CCP_zuzhi_hongweibing = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_completed_focus = CCP_tuanjie_gongnong_qunzhong
+		check_variable = { CCP.junduizhichi > 2.9 }
+		}
+		state_target = yes
+		map_only = yes
+		target_trigger = {
+		has_state_flag = CCP_junguandiqu
+		NOT = { has_state_flag = CCP_chengshidiqu }
+		}
+		cost = 75
+		complete_effect = {
+clr_state_flag = CCP_junguandiqu
+set_state_flag = CCP_duoquan_diqu
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+add_to_variable = {
+    var = CCP.junduizhichi
+    value = -5
+    tooltip = CCP_junduizhichi_3_tt
+}
+custom_effect_tooltip = CCP_zuzhi_hongweibing_tt
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#发动革命学生
+    CCP_fadong_geming_xuesheng = {
+	
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_country_flag = CCP_cr
+	}	
+		available = {
+		has_country_flag = CCP_cr
+		has_completed_focus = CCP_hongweibing_dazibao
+		}
+		days_re_enable = 180
+		cost = 100
+		complete_effect = {
+add_stability = -0.05
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 2
+    tooltip = CCP_juexingdu_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_ccp_jiefang_dongya = {
+    #解放东亚
+    CCP_jiefang_dongya = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = CCP
+		has_completed_focus = CCP_new_china
+	}	
+		available = {
+		has_completed_focus = CCP_new_china
+		}
+		days_remove = 90
+		target_trigger = {
+			FROM = {
+			OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   OR = {
+   has_government = socialism
+   has_government = communism
+   }
+			}
+		}
+		complete_effect = {
+		add_to_variable = {
+    var = CCP.juexingdu
+    value = 3
+    tooltip = CCP_juexingdu_5_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+if = {
+limit = {
+FROM = {
+tag = SHN
+}
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 2
+    tooltip = CCP_juexingdu_3_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+}
+if = {
+limit = {
+FROM = {
+tag = RAR
+}
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 3
+    tooltip = CCP_juexingdu_5_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+}

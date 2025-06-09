@@ -1,0 +1,936 @@
+focus_tree = {
+	id = DED_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DED
+		}
+	}
+	
+	default = no
+	#联省民主
+	focus = {
+		id = DED_liansheng_minzhu
+		icon = GFX_focus_generic_improve_the_administration
+		x = 30
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#低地的经验
+	focus = {
+		id = DED_didi_jingyan
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = DED_liansheng_minzhu}
+		relative_position_id = DED_liansheng_minzhu
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_didi_jingyan
+		}
+	}
+	#自我防御
+	focus = {
+		id = DED_ziwo_fangyu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = DED_didi_jingyan}
+		relative_position_id = DED_didi_jingyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_didi_jingyan_2
+			remove_idea = DED_didi_jingyan
+			}
+		}
+	}
+	#四面受敌
+	focus = {
+		id = DED_simian_shoudi
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = DED_ziwo_fangyu}
+		relative_position_id = DED_ziwo_fangyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_didi_jingyan_3
+			remove_idea = DED_didi_jingyan_2
+			}
+		}
+	}
+	#政治革新
+	focus = {
+		id = DED_zhengzhi_gexin
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = DED_liansheng_minzhu}
+		relative_position_id = DED_liansheng_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_liansheng_minzhu_2
+			remove_idea = DED_liansheng_minzhu
+			}
+		}
+	}
+	#去除社区隔离
+	focus = {
+		id = DED_quchu_shequ_geli
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = DED_zhengzhi_gexin}
+		relative_position_id = DED_zhengzhi_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_quchu_shequ_geli
+		}
+	}
+	#平等民主
+	focus = {
+		id = DED_pingdeng_minzhu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = DED_quchu_shequ_geli}
+		relative_position_id = DED_quchu_shequ_geli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_quchu_shequ_geli_2
+			remove_idea = DED_quchu_shequ_geli
+			}
+		}
+	}
+	#优化议会结构
+	focus = {
+		id = DED_youhua_yihui_jiegou
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = DED_zhengzhi_gexin}
+		relative_position_id = DED_zhengzhi_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_liansheng_minzhu_3
+			remove_idea = DED_liansheng_minzhu_2
+			}
+		}
+	}
+	#团结低地
+	focus = {
+		id = DED_tuanjie_didi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = DED_youhua_yihui_jiegou}
+		relative_position_id = DED_youhua_yihui_jiegou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_liansheng_minzhu_4
+			remove_idea = DED_liansheng_minzhu_3
+			}
+		}
+	}
+	#最好的防御
+	focus = {
+		id = DED_zuihao_fangyu
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = DED_liansheng_minzhu }
+		relative_position_id = DED_liansheng_minzhu
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_zuihao_fangyu
+		}
+	}
+	#计划主义
+	focus = {
+		id = DED_plan_zhuyi
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		prerequisite = { focus = DED_zuihao_fangyu}
+		relative_position_id = DED_zuihao_fangyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_zuihao_fangyu_2
+			remove_idea = DED_zuihao_fangyu
+			}
+		}
+	}
+	#战时自卫民兵
+	focus = {
+		id = DED_zhanshi_ziwei_minbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DED_plan_zhuyi}
+		relative_position_id = DED_plan_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		completion_reward = {
+			load_oob = DED_minbing
+		}
+	}
+	#低地开发计划
+	focus = {
+		id = DED_didi_kaifa_jihua
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = DED_liansheng_minzhu}
+		relative_position_id = DED_liansheng_minzhu
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_jingji_shuailuo_2
+			remove_idea = DED_jingji_shuailuo
+			}
+		}
+	}
+	#放弃金本位
+	focus = {
+		id = DED_fangqi_jinbenwei
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = DED_didi_kaifa_jihua}
+		relative_position_id = DED_didi_kaifa_jihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_jingji_shuailuo_3
+			remove_idea = DED_jingji_shuailuo_2
+			}
+		}
+	}
+	#继续公共建设
+	focus = {
+		id = DED_jixu_gonggongjianshe
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = DED_fangqi_jinbenwei}
+		relative_position_id = DED_fangqi_jinbenwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_jingji_shuailuo_4
+			remove_idea = DED_jingji_shuailuo_3
+			}
+		}
+	}
+	#马斯隧道
+	focus = {
+		id = DED_masi_suidao
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = DED_jixu_gonggongjianshe}
+		relative_position_id = DED_jixu_gonggongjianshe
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			7 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩张火炮厂
+	focus = {
+		id = DED_kuozhang_huopaochang
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = DED_jixu_gonggongjianshe}
+		relative_position_id = DED_jixu_gonggongjianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			935 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#荷兰港口开发
+	focus = {
+		id = DED_helan_gangkou_kaifa
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = DED_masi_suidao}
+		prerequisite = { focus = DED_kuozhang_huopaochang}
+		relative_position_id = DED_kuozhang_huopaochang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			7 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = dockyard
+    level = 4
+    instant_build = yes
+}
+			}
+		}
+	}
+	#布拉班特开发
+	focus = {
+		id = DED_bulabante_kaifa
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = DED_helan_gangkou_kaifa}
+		relative_position_id = DED_helan_gangkou_kaifa
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			934 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#弗里斯兰开发
+	focus = {
+		id = DED_fulisilan_kaifa
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = DED_bulabante_kaifa}
+		relative_position_id = DED_bulabante_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			36 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#佛兰德斯工业
+	focus = {
+		id = DED_folandesi_gongye
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = DED_helan_gangkou_kaifa}
+		relative_position_id = DED_helan_gangkou_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			6 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#瓦隆工业化
+	focus = {
+		id = DED_walong_gongye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = DED_folandesi_gongye}
+		relative_position_id = DED_folandesi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			34 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#荷兰圩田
+	focus = {
+		id = DED_helan_weitian
+		icon = GFX_focus_hol_the_zuiderzee_works
+		prerequisite = { focus = DED_jixu_gonggongjianshe}
+		relative_position_id = DED_jixu_gonggongjianshe
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_helan_weitian
+		}
+	}
+	#菲利普工业
+	focus = {
+		id = DED_feilipu_gongye
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = DED_kuozhang_huopaochang}
+		relative_position_id = DED_kuozhang_huopaochang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#科研革新
+	focus = {
+		id = DED_keyan_gexin
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = DED_feilipu_gongye}
+		relative_position_id = DED_feilipu_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#农业开发
+	focus = {
+		id = DED_nongye_kaifa
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = DED_helan_weitian}
+		relative_position_id = DED_helan_weitian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_helan_weitian_2
+			remove_idea = DED_helan_weitian
+			}
+		}
+	}
+	#促进弗里斯兰农业
+	focus = {
+		id = DED_cujin_fulisilan_nongye
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = DED_nongye_kaifa}
+		relative_position_id = DED_nongye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_helan_weitian_3
+			remove_idea = DED_helan_weitian_2
+			}
+		}
+	}
+	#现代化农业
+	focus = {
+		id = DED_xiandaihua_nongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = DED_cujin_fulisilan_nongye}
+		relative_position_id = DED_cujin_fulisilan_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_helan_weitian_4
+			remove_idea = DED_helan_weitian_3
+			}
+		}
+	}
+	#增大军事预算
+	focus = {
+		id = DED_zengda_junshi_yusuan
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = DED_liansheng_minzhu}
+		relative_position_id = DED_liansheng_minzhu
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_zengda_junshi_yusuan
+			remove_idea = DED_zhanzheng_yinmai
+			}
+		}
+	}
+	#抹平和平主义
+	focus = {
+		id = DED_moping_heping_zhuyi
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = DED_zengda_junshi_yusuan}
+		relative_position_id = DED_zengda_junshi_yusuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_zengda_junshi_yusuan_2
+			remove_idea = DED_zengda_junshi_yusuan
+			}
+		}
+	}
+	#指挥体系更迭
+	focus = {
+		id = DED_zhihui_tixi_gengdie
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DED_moping_heping_zhuyi}
+		relative_position_id = DED_moping_heping_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_ded_army
+			remove_idea = DED_zengda_junshi_yusuan_2
+			}
+		}
+	}
+	#开启军事改革
+	focus = {
+		id = DED_kaiqi_junshi_gaige
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = DED_zhihui_tixi_gengdie}
+		relative_position_id = DED_zhihui_tixi_gengdie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DED_ded_army_2
+			remove_idea = DED_ded_army
+			}
+		}
+	}
+	#现代化步兵武装
+	focus = {
+		id = DED_xiandaihua_bubing_wuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DED_kaiqi_junshi_gaige}
+		relative_position_id = DED_kaiqi_junshi_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_xiandaihua_bubing
+		}
+	}
+	#现代化火炮
+	focus = {
+		id = DED_xiandaihua_huopao
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = DED_xiandaihua_bubing_wuzhuang}
+		relative_position_id = DED_xiandaihua_bubing_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_xiandaihua_huopao
+		}
+	}
+	#工兵壁垒
+	focus = {
+		id = DED_gongbing_baolei
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = DED_kaiqi_junshi_gaige}
+		relative_position_id = DED_kaiqi_junshi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_gongbing_baolei
+		}
+	}
+	#冲锋战术
+	focus = {
+		id = DED_chongfeng_zhanshu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = DED_gongbing_baolei}
+		relative_position_id = DED_gongbing_baolei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_chongfeng_zhanshu
+		}
+	}
+	#扩大防线
+	focus = {
+		id = DED_kuoda_fangxian
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = DED_zhihui_tixi_gengdie}
+		relative_position_id = DED_zhihui_tixi_gengdie
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DED_kuoda_fangxian
+		}
+	}
+	#沿海要塞化
+	focus = {
+		id = DED_yanhai_yaosaihua
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = DED_kuoda_fangxian}
+		relative_position_id = DED_kuoda_fangxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			7 = {
+			add_building_construction = {
+				type = bunker
+				province = 3314
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 68
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3211
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9498
+				level = 2
+				instant_build = yes
+			}
+			}
+			35 = {
+			add_building_construction = {
+				type = bunker
+				province = 9431
+				level = 2
+				instant_build = yes
+			}
+			}
+			6 = {
+			add_building_construction = {
+				type = bunker
+				province = 6560
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6446
+				level = 2
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#防空火力网
+	focus = {
+		id = DED_fangkong_huoliwang
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = DED_yanhai_yaosaihua}
+		relative_position_id = DED_yanhai_yaosaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			7 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+			}
+			6 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#要塞化荷兰
+	focus = {
+		id = DED_yansaihua_helan
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = DED_kuoda_fangxian}
+		relative_position_id = DED_kuoda_fangxian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			36 = {
+			add_building_construction = {
+				type = bunker
+				province = 11318
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9309
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9403
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9363
+				level = 3
+				instant_build = yes
+			}
+		}
+		35 = {
+			add_building_construction = {
+				type = bunker
+				province = 11562
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11456
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#要塞化比利时
+	focus = {
+		id = DED_yaosaihua_bilishi
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = DED_yansaihua_helan}
+		relative_position_id = DED_yansaihua_helan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		34 = {
+			add_building_construction = {
+				type = bunker
+				province = 6537
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9444
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 13081
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9536
+				level = 3
+				instant_build = yes
+			}
+		}
+		6 = {
+			add_building_construction = {
+				type = bunker
+				province = 6446
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3576
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+}

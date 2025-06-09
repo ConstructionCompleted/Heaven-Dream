@@ -1,0 +1,282 @@
+add_namespace = holy_german
+#普奥停战
+country_event = {
+	id = holy_german.1
+	title = holy_german.1.t
+	desc = holy_german.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	    date > 1936.1.2
+        tag = PLS
+		has_war_with = AUS
+		AUS = { surrender_progress > 0.6 }
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_german.1.a
+		white_peace = AUS
+		BXM = {
+		if = {
+				limit = {
+				is_puppet_of = AUS
+				}
+				AUS = {
+				end_puppet = BXM
+				}
+				PLS = { puppet = BXM }
+				}
+			}
+		SKS = {
+		if = {
+				limit = {
+				is_puppet_of = AUS
+				}
+				AUS = {
+				end_puppet = SKS
+				}
+				PLS = { puppet = SKS }
+				}
+			}
+		BAF = {
+		if = {
+				limit = {
+				is_puppet_of = AUS
+				}
+				AUS = {
+				end_puppet = BAF
+				}
+				PLS = { puppet = BAF }
+				}
+			}
+		FTB = {
+		if = {
+				limit = {
+				is_puppet_of = AUS
+				}
+				AUS = {
+				end_puppet = FTB
+				}
+				PLS = { puppet = FTB }
+				}
+			}
+		AUS = {
+		end_puppet = VNC
+		end_puppet = MLA
+		}
+		VNC = {
+		white_peace = PLS
+		white_peace = SKS
+		white_peace = BLD
+		white_peace = BAF
+		white_peace = BXM
+		leave_faction = yes
+		}
+		MLA = {
+		white_peace = PLS
+		white_peace = SKS
+		white_peace = BLD
+		white_peace = BAF
+		white_peace = BXM
+		leave_faction = yes
+		}
+		dismantle_faction = yes
+		create_faction = Holy_Roman_Empire
+		add_to_faction = BLD
+		puppet = AUS
+		if = {
+		limit = {
+		DKL = {
+		exists = yes
+		}
+		}
+		DKL = {
+		annex_country = {
+    target = SLV
+    transfer_troops = yes
+}
+		}
+		}
+		if = {
+		limit = {
+		YUM = {
+		exists = yes
+		}
+		}
+		YUM = {
+		annex_country = {
+    target = SLV
+    transfer_troops = yes
+}
+		}
+		}
+		if = {
+		limit = {
+		NWM = {
+		exists = yes
+		}
+		}
+		NWM = {
+		annex_country = {
+    target = SLV
+    transfer_troops = yes
+}
+		}
+		}
+		if = {
+		limit = {
+		LIT = {
+		has_completed_focus = LIT_wangguo_xinsheng
+		}
+		}
+		add_to_faction = LIT
+		}
+	}
+}
+#普奥停战
+country_event = {
+	id = holy_german.2
+	title = holy_german.2.t
+	desc = holy_german.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	    date > 1936.1.2
+        tag = AUS
+		has_war_with = PLS
+		PLS = { surrender_progress > 0.6 }
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_german.2.a
+		white_peace = PLS
+		BXM = {
+		if = {
+				limit = {
+				is_puppet_of = PLS
+				}
+				PLS = {
+				end_puppet = BXM
+				}
+				AUS = { puppet = BXM }
+				}
+			}
+		SKS = {
+		if = {
+		        limit = {
+				is_puppet_of = PLS
+				}
+				PLS = {
+				end_puppet = SKS
+				}
+				AUS = { puppet = SKS }
+				}
+			}
+		BAF = {
+		if = {
+				limit = {
+				is_puppet_of = PLS
+				}
+				PLS = {
+				end_puppet = BAF
+				}
+				AUS = { puppet = BAF }
+				}
+			}
+		FTB = {
+		if = {
+				limit = {
+				is_puppet_of = PLS
+				}
+				PLS = {
+				end_puppet = FTB
+				}
+				AUS = { puppet = FTB }
+				}
+			}
+		WFL = {
+		if = {
+				limit = {
+				is_puppet_of = PLS
+				}
+				PLS = {
+				end_puppet = WFL
+				}
+				AUS = { puppet = WFL }
+				}
+			}
+		dismantle_faction = yes
+		create_faction = Holy_Roman_Empire
+		puppet = PLS
+		if = {
+		limit = {
+		UKH = {
+		has_completed_focus = UKH_chonggui_shijie
+		}
+		}
+		add_to_faction = UKH
+		}
+		if = {
+		limit = {
+		RSC = {
+		has_completed_focus = LIT_wangguo_xinsheng
+		}
+		}
+		add_to_faction = RSC_habusibao_zhichun
+		}
+		if = {
+		limit = {
+		UKH = {
+		has_completed_focus = UKH_chonggui_shijie
+		}
+		}
+		add_to_faction = UKH
+		}
+		if = {
+		limit = {
+		MLA = {
+		has_completed_focus = MLA_lunbadi_gaizu
+		}
+		}
+		add_to_faction = MLA
+		}
+	}
+}
+#欧罗巴联盟？
+country_event = {
+	id = holy_german.3
+	title = holy_german.3.t
+	desc = holy_german.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_german.3.a
+		ai_chance = {
+		    factor = 25
+		}
+		THIS = {
+		UGR = {
+		puppet = PREV
+		}
+		}
+	}
+	option = {
+		name = holy_german.3.b
+		ai_chance = {
+		    factor = 0
+		}
+		THIS = {
+		UGR = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+		}
+		}
+	}
+}

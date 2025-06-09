@@ -1,0 +1,1248 @@
+focus_tree = {
+	id = SKS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SKS
+		}
+	}
+	
+	default = no
+	
+	#王侯之国
+	focus = {
+		id = SKS_king_country
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 12
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 120
+		}
+		
+	}
+	#贵族公国
+	focus = {
+		id = SKS_guizu_gongguo
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = SKS_king_country}
+		relative_position_id = SKS_king_country
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 60
+		}
+		
+	}
+	#加强特权
+	focus = {
+		id = SKS_jaiqiang_tequan
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = SKS_guizu_gongguo}
+		mutually_exclusive = { focus = SKS_xianzhi_tequan }
+		relative_position_id = SKS_guizu_gongguo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+				name = SKS_jaiqiang_tequan
+				swap_ideas = {
+				remove_idea = guizu_yu_gongjue
+				add_idea = guizu_yu_gongjue_2
+			}
+		}
+	}
+	#鼓励贵族经商
+	focus = {
+		id = SKS_guli_guizu_jingshang
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SKS_jaiqiang_tequan}
+		relative_position_id = SKS_jaiqiang_tequan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_guli_jingshang
+		}
+	}
+	#军事化教育
+	focus = {
+		id = SKS_junshihua_jiaoyu_guizu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SKS_guli_guizu_jingshang}
+		relative_position_id = SKS_guli_guizu_jingshang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_junshihua_jiaoyu
+		}
+	}
+	#《血统论》
+	focus = {
+		id = SKS_xuetonglun
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = SKS_junshihua_jiaoyu_guizu}
+		relative_position_id = SKS_junshihua_jiaoyu_guizu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_sakesen.6 }
+			}
+		}
+	#帝国的枪尖
+	focus = {
+		id = SKS_holy_roman_qiangjian
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SKS_xuetonglun}
+		relative_position_id = SKS_xuetonglun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    name = SKS_jaiqiang_tequan
+				swap_ideas = {
+				remove_idea = qishi_zhili
+				add_idea = qishi_zhili_2
+			}
+		}
+	}
+	#限制特权
+	focus = {
+		id = SKS_xianzhi_tequan
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = SKS_guizu_gongguo}
+		mutually_exclusive = { focus = SKS_jaiqiang_tequan }
+		relative_position_id = SKS_guizu_gongguo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+				name = SKS_xianzhi_tequan
+				swap_ideas = {
+				remove_idea = guizu_yu_gongjue
+				add_idea = guizu_yu_gongjue_3
+			}
+		}
+	}
+	#禁止贵族经商
+	focus = {
+		id = SKS_jinzhi_guizu_jinshang
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = SKS_xianzhi_tequan}
+		relative_position_id = SKS_xianzhi_tequan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 5 }
+			}
+		}
+	#土地国有化
+	focus = {
+		id = SKS_tudi_guoyou
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SKS_jinzhi_guizu_jinshang}
+		relative_position_id = SKS_jinzhi_guizu_jinshang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_tudi_guoyouhua
+		}
+	}
+	#德累斯顿之宴
+	focus = {
+		id = SKS_deleisidun_zhiyan
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SKS_tudi_guoyou}
+		relative_position_id = SKS_tudi_guoyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_sakesen.7 }
+			}
+		}
+	#公爵至高无上
+	focus = {
+		id = SKS_gongjue_zhigaowushang
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = SKS_deleisidun_zhiyan}
+		relative_position_id = SKS_deleisidun_zhiyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_gongjuezhigao
+		}
+	}
+	#工厂遍地
+	focus = {
+		id = SKS_gongchang_biandi
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = SKS_king_country}
+		relative_position_id = SKS_king_country
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			    remove_ideas = xiaotiao_jijiangguoqu
+		}
+	}
+	#城市化
+	focus = {
+		id = SKS_chengshihua_plan
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = SKS_gongchang_biandi}
+		relative_position_id = SKS_gongchang_biandi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = SKS_chengshihua
+		}
+	}
+	#旅游业计划
+	focus = {
+		id = SKS_new_plan
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = SKS_chengshihua_plan}
+		relative_position_id = SKS_chengshihua_plan
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+				remove_idea = SKS_chengshihua
+				add_idea = SKS_lvyouye
+			}
+		}
+	}
+	#君子六艺
+	focus = {
+		id = SKS_xuexi_junziliuyi
+		icon = GFX_focus_BUL_found_the_brannik
+		prerequisite = { focus = SKS_chengshihua_plan}
+		relative_position_id = SKS_chengshihua_plan
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = SKS_junziliuyi
+		}
+	}
+	#塑造个人崇拜
+	focus = {
+		id = SKS_suzao_geren_chongbai
+		icon = GFX_focus_POL_habsburg
+		prerequisite = { focus = SKS_xuexi_junziliuyi}
+		relative_position_id = SKS_xuexi_junziliuyi
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			    remove_idea = SKS_junziliuyi
+				add_idea = SKS_suzaogerenchongbai
+			}
+		}
+	}
+	#炫傲的爱好
+	focus = {
+		id = SKS_xuanao_aihao
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SKS_king_country}
+		relative_position_id = SKS_king_country
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			}
+		}
+	#"狐狐"公爵
+	focus = {
+		id = SKS_huhu_gongjue
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = SKS_xuanao_aihao}
+		relative_position_id = SKS_xuanao_aihao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = SKS_huhugongjue
+		}
+	}
+	#狐狐部队
+	focus = {
+		id = SKS_huhu_juntuan
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SKS_huhu_gongjue}
+		relative_position_id = SKS_huhu_gongjue
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   swap_ideas = {
+			    remove_idea = SKS_huhugongjue
+				add_idea = SKS_huhu_budui
+			}
+		}
+	}
+	#皇家动物园
+	focus = {
+		id = SKS_huangjia_dongwuyuan
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		prerequisite = { focus = SKS_huhu_gongjue}
+		relative_position_id = SKS_huhu_gongjue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_ideas = SKS_huangjaidongwuyuan
+		}
+	}
+	#公爵家的新成员
+	focus = {
+		id = SKS_gongjue_jiade_xinchengyuan
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = SKS_huhu_gongjue}
+		relative_position_id = SKS_huhu_gongjue
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = { id = holy_sakesen.8 }
+		}
+	}
+	#向全国推广
+	focus = {
+		id = SKS_xiangquanguo_tuiguang
+		icon = GFX_focus_generic_self_management
+		available = {
+		  has_completed_focus = SKS_huhu_juntuan
+		  has_completed_focus = SKS_gongjue_jiade_xinchengyuan
+		}
+		prerequisite = { focus = SKS_huangjia_dongwuyuan}
+		relative_position_id = SKS_huangjia_dongwuyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_political_power = 100
+		}
+	}
+	#人人有狐
+	focus = {
+		id = SKS_everywhere_has_huhu
+		icon = GFX_focus_generic_monarchy_1
+		mutually_exclusive = { focus = SKS_guizu_bibei }
+		prerequisite = { focus = SKS_xiangquanguo_tuiguang}
+		relative_position_id = SKS_xiangquanguo_tuiguang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_ideas = SKS_renrenyouhu
+		}
+	}
+	#加入教育体系
+	focus = {
+		id = SKS_jiarujiaoyutixi
+		icon = GFX_focus_ETH_scavenging_tactics
+		prerequisite = { focus = SKS_everywhere_has_huhu}
+		relative_position_id = SKS_everywhere_has_huhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   swap_ideas = {
+		        remove_idea = SKS_renrenyouhu
+				add_idea = SKS_renrenyouhu_2
+			}
+		}
+	}
+	#贵族必备
+	focus = {
+		id = SKS_guizu_bibei
+		icon = GFX_focus_generic_home_defense
+		mutually_exclusive = { focus = SKS_everywhere_has_huhu }
+		prerequisite = { focus = SKS_xiangquanguo_tuiguang}
+		relative_position_id = SKS_xiangquanguo_tuiguang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_ideas = SKS_guizu_zhihu
+		}
+	}
+	#斗狐狐大赛
+	focus = {
+		id = SKS_douhuhu_dasai
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = SKS_guizu_bibei}
+		relative_position_id = SKS_guizu_bibei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   country_event = { id = holy_sakesen.9 }
+		}
+	}
+	#奥地利的支持者
+	focus = {
+		id = SKS_aodili_zhichizhe
+		icon = GFX_focus_hun_elect_a_king
+		available = {
+		  always = no
+		}
+		x = 20
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		AUS = { puppet = SKS }
+		}
+	}
+	#排斥普鲁士贵族
+	focus = {
+		id = SKS_paichi_pulushi_guizu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = SKS_aodili_zhichizhe}
+		relative_position_id = SKS_aodili_zhichizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		PLS = { add_opinion_modifier = { target = SKS modifier = SKS_paichi } }
+		}
+	}
+	#加强维也纳派系
+	focus = {
+		id = SKS_jaiqiang_paixi
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SKS_paichi_pulushi_guizu}
+		relative_position_id = SKS_paichi_pulushi_guizu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		DED = { add_idea = { SKS_jiaqiang_weiyenapaixi } }
+		add_ideas = SKS_jiaqiang_weiyenapaixi
+		}
+	}
+	#鼓励联姻
+	focus = {
+		id = SKS_guli_lianyin
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = SKS_jaiqiang_paixi}
+		relative_position_id = SKS_jaiqiang_paixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 80
+		AUS = { add_opinion_modifier = { target = SKS modifier = SKS_qinjin } }
+		}
+	}
+	#征召贵族骑兵
+	focus = {
+		id = SKS_zhengzhao_guizuqibing
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = SKS_guli_lianyin}
+		relative_position_id = SKS_guli_lianyin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SKS_qibing
+		}
+	}
+	#保家卫国
+	focus = {
+		id = SKS_baojiaweiguo
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SKS_zhengzhao_guizuqibing}
+		relative_position_id = SKS_zhengzhao_guizuqibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+            add_timed_idea = { idea = SKS_baojia_weiguo  days = 365 }
+		}
+	}
+	#维也纳的援助
+	focus = {
+		id = SKS_weiyena_yuanzhu
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = SKS_aodili_zhichizhe}
+		relative_position_id = SKS_aodili_zhichizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+	#军工复合体
+	focus = {
+		id = SKS_jungong_fuheti
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SKS_weiyena_yuanzhu}
+		relative_position_id = SKS_weiyena_yuanzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+	#电子研究
+	focus = {
+		id = SKS_dianzi_yanjiu
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SKS_jungong_fuheti}
+		relative_position_id = SKS_jungong_fuheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = electronics
+			}
+		}
+	}
+	#工业科技借鉴
+	focus = {
+		id = SKS_gongyekejijiejian
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SKS_dianzi_yanjiu}
+		relative_position_id = SKS_dianzi_yanjiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#联合科研所
+	focus = {
+		id = SKS_lianhekeyansuo
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SKS_gongyekejijiejian}
+		relative_position_id = SKS_gongyekejijiejian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+			    name = SKS_lianhekeyansuo
+				bonus = 0.5
+				uses = 3
+				category = light_air
+			}
+		add_tech_bonus = {
+			    name = SKS_lianhekeyansuo
+				bonus = 0.5
+				uses = 3
+				category = cat_medium_armor
+			}
+		add_tech_bonus = {
+			    name = SKS_lianhekeyansuo
+				bonus = 0.5
+				uses = 3
+				category = artillery
+			}
+		}
+	}
+	#自强之路
+	focus = {
+		id = SKS_ziqiang
+		icon = GFX_goal_generic_demand_territory
+		available = {
+		  always = no
+		}
+		x = 26
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#颠覆计划
+	focus = {
+		id = SKS_dianfujihua
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = SKS_ziqiang}
+		relative_position_id = SKS_ziqiang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#勃兰登堡宣称
+	focus = {
+		id = SKS_bolandengbao_xuancheng
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = SKS_dianfujihua}
+		relative_position_id = SKS_dianfujihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_state_claim = 68
+			add_state_claim = 64
+			add_state_claim = 63
+			add_state_claim = 62
+			add_state_claim = 940
+		}
+	}
+	#联络反对派
+	focus = {
+		id = SKS_lianluo_fanduipai
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = SKS_dianfujihua}
+		relative_position_id = SKS_dianfujihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = { id = holy_sakesen.11 days = 1 }
+		}
+	}
+	#密谋
+	focus = {
+		id = SKS_mimou
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = SKS_lianluo_fanduipai}
+		relative_position_id = SKS_lianluo_fanduipai
+		available = {
+		  always = no
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = { id = holy_sakesen.12 days = 1 }
+		}
+	}
+	#造反
+	focus = {
+		id = SKS_zaofan
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = SKS_mimou}
+		relative_position_id = SKS_mimou
+		available = {
+		  PLS = { has_war = yes }
+		  has_war = no
+		is_puppet = no
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+        target = PLS
+        type = annex_everything
+            }
+		declare_war_on = {
+    target = SLI
+    type = annex_everything
+}
+		}
+	}
+	#萨克森的外交
+	focus = {
+		id = SKS_sakesen_dewaijiao
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = SKS_ziqiang}
+		relative_position_id = SKS_ziqiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#神罗之核心
+	focus = {
+		id = SKS_shenluo_zhihexin
+		icon = GFX_focus_POL_habsburg
+		prerequisite = { focus = SKS_sakesen_dewaijiao}
+		relative_position_id = SKS_sakesen_dewaijiao
+		mutually_exclusive = { focus = SKS_shijie_zhirongyao }
+		x = -1
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 40
+		}
+	}
+	#大萨克森理想
+	focus = {
+		id = SKS_dasakesen_lixiang
+		icon = GFX_focus_usa_focus_on_europe
+		prerequisite = { focus = SKS_shenluo_zhihexin}
+		relative_position_id = SKS_shenluo_zhihexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 100
+		}
+	}
+	#制造宣称
+	focus = {
+		id = SKS_zhizao_dasakesen_xuancheng
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = SKS_dasakesen_lixiang}
+		relative_position_id = SKS_dasakesen_lixiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_state_claim = 69
+			add_state_claim = 54
+			add_state_claim = 59
+		}
+	}
+	#伺机而动
+	focus = {
+		id = SKS_sijierdong
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = SKS_zhizao_dasakesen_xuancheng}
+		relative_position_id = SKS_zhizao_dasakesen_xuancheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+        type = annex_everything
+        target = BAF
+            }
+		create_wargoal = {
+        type = annex_everything
+        target = BXM
+            }
+		create_wargoal = {
+        type = annex_everything
+        target = HNW
+            }
+		}
+	}
+	#世界之荣耀
+	focus = {
+		id = SKS_shijie_zhirongyao
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SKS_sakesen_dewaijiao}
+		relative_position_id = SKS_sakesen_dewaijiao
+		mutually_exclusive = { focus = SKS_shenluo_zhihexin }
+		x = 1
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 40
+		}
+	}
+	#血液流淌着高贵
+	focus = {
+		id = SKS_xueyeliutang_gaogui
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = SKS_shijie_zhirongyao}
+		relative_position_id = SKS_shijie_zhirongyao
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_xueyegaogui
+		}
+	}
+	#不落的太阳
+	focus = {
+		id = SKS_buluo_taiyang
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = SKS_xueyeliutang_gaogui }
+		relative_position_id = SKS_xueyeliutang_gaogui
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		       remove_idea = SKS_xueyegaogui
+		       add_idea = SKS_buluo_detaiyang
+			}
+		}
+	}
+	#无可比拟
+	focus = {
+		id = SKS_wukebini
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = SKS_buluo_taiyang}
+		relative_position_id = SKS_buluo_taiyang
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		stability_factor = 0.3
+		}
+	}
+	#工业再升级
+	focus = {
+		id = SKS_gongye_zaishengji
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = SKS_ziqiang}
+		relative_position_id = SKS_ziqiang
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+			    name = SKS_gongye_zaishengji
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#无穷的军火
+	focus = {
+		id = SKS_wuqiongde_junhuo
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SKS_gongye_zaishengji}
+		relative_position_id = SKS_gongye_zaishengji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 4 }
+		}
+	}
+	#天空的新贵
+	focus = {
+		id = SKS_tiankong_xingui
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = SKS_wuqiongde_junhuo}
+		relative_position_id = SKS_wuqiongde_junhuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+			    name = SKS_gongye_zaishengji
+				bonus = 1.5
+				uses = 3
+				category = light_air
+	            category = medium_air
+	            category = heavy_air
+			}
+		}
+	}
+	#贵族现代化
+	focus = {
+		id = SKS_guizu_xiandaihua
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SKS_tiankong_xingui}
+		relative_position_id = SKS_tiankong_xingui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SKS_guizu_xiandai
+		}
+	}
+	#荣耀与理想之城
+	focus = {
+		id = SKS_rongyao_yulixiang_zhicheng
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = SKS_guizu_xiandaihua}
+		relative_position_id = SKS_guizu_xiandaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		        remove_idea = SKS_guizu_xiandai
+				add_idea = SKS_rongyao_yulixiang
+			}
+		}
+	}
+	#普鲁士的支持者
+	focus = {
+		id = SKS_pulushi_zhichizhe
+		icon = GFX_goal_generic_military_deal
+		available = {
+		  always = no
+		}
+		x = 32
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#普萨联合
+	focus = {
+		id = SKS_pusa_lianhe
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = SKS_pulushi_zhichizhe}
+		relative_position_id = SKS_pulushi_zhichizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+			    name = SKS_pusa_lianhe
+				bonus = 1.5
+				uses = 3
+				category = artillery
+				category = cat_medium_armor
+			}
+		
+		}
+	}
+	#强化贵族联系
+	focus = {
+		id = SKS_qianghau_guizu_lianxi
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = SKS_pusa_lianhe}
+		relative_position_id = SKS_pusa_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 120
+			}
+		}
+	#加强关税联系
+	focus = {
+		id = SKS_jiaqiang_guanshui_lianxi
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = SKS_qianghau_guizu_lianxi}
+		relative_position_id = SKS_qianghau_guizu_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SKS_jiaqiang_lianxi
+			PLS = { add_ideas = SKS_jiaqiang_lianxi }
+		}
+	}
+	#柏林城下
+	focus = {
+		id = SKS_bolinchengxia
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = SKS_jiaqiang_guanshui_lianxi}
+		relative_position_id = SKS_jiaqiang_guanshui_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = { id = holy_sakesen.10 }	
+		PLS = { country_event = { id = holy_pulushi.10 } }
+		}
+	}
+	#勃兰登堡与萨克森
+	focus = {
+		id = SKS_bolandengbao_yusakesen
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = SKS_bolinchengxia}
+		relative_position_id = SKS_bolinchengxia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 200
+		}
+	}
+	#征召民兵
+	focus = {
+		id = SKS_zhengzhao_mingbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SKS_pulushi_zhichizhe}
+		relative_position_id = SKS_pulushi_zhichizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SKS_mingbing
+		}
+	}
+	#军队拥有国家
+	focus = {
+		id = SKS_jundui_yongyouguojia
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SKS_zhengzhao_mingbing}
+		relative_position_id = SKS_zhengzhao_mingbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = SKS_junguozhuyi
+		}
+	}
+	#一衣带水
+	focus = {
+		id = SKS_yiyidaishui
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SKS_jundui_yongyouguojia}
+		relative_position_id = SKS_jundui_yongyouguojia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_opinion_modifier = { target = PLS modifier = SKS_yiyi_daishui }
+		PLS = { add_opinion_modifier = { target = SKS modifier = SKS_yiyi_daishui } }
+		}
+	}
+	#装甲科研
+	focus = {
+		id = SKS_zhuangjia_keyan
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = SKS_yiyidaishui}
+		relative_position_id = SKS_yiyidaishui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			    name = PLS_build
+				bonus = 1.5
+				uses = 3
+				category = armor
+				category = cat_mechanized_equipment
+				category = motorized_equipment
+			}
+		}
+	}
+	#坦克实验师
+	focus = {
+		id = SKS_tanke_shiyanshi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = SKS_zhuangjia_keyan}
+		relative_position_id = SKS_zhuangjia_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SKS_tankeshiyan
+		}
+	}
+}

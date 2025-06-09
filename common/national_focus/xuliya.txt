@@ -1,0 +1,475 @@
+﻿focus_tree = {
+	id = SYR_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SYR
+		}
+	}
+	
+	default = no
+	
+    #叙利亚联合！
+	focus = {
+		id = SYR_xuliya_lianhe
+		icon = GFX_focus_TUR_support_the_golden_square
+		x = 15
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SYR_shengzhan_zhiyin
+		add_ideas = SYR_daxuliya
+		}
+	}
+	#拉拢阿拉维
+	focus = {
+		id = SYR_lalong_alawei
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = SYR_xuliya_lianhe}
+		relative_position_id = SYR_xuliya_lianhe
+		x = -4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		load_oob = SYR_lalong_alawei
+		}
+	}
+	#拉拢德鲁兹
+	focus = {
+		id = SYR_lalong_deluzi
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = SYR_xuliya_lianhe}
+		relative_position_id = SYR_xuliya_lianhe
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		load_oob = SYR_lalong_deluzi
+		}
+	}
+	#泛阿拉伯圣战
+	focus = {
+		id = SYR_fanalabo_shengzhan
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = SYR_lalong_alawei}
+		prerequisite = { focus = SYR_lalong_deluzi}
+		relative_position_id = SYR_lalong_deluzi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SYR_shengzhan_zhiyin_2
+		remove_idea = SYR_shengzhan_zhiyin
+		}
+		}
+	}
+	#串联民族主义
+	focus = {
+		id = SYR_chuanlian_minzu_zhuyi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SYR_xuliya_lianhe}
+		relative_position_id = SYR_xuliya_lianhe
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SYR_daxuliya_2
+		remove_idea = SYR_daxuliya
+		}
+		}
+	}
+	#代尔祖尔之风
+	focus = {
+		id = SYR_daierzuer_zhifeng
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SYR_chuanlian_minzu_zhuyi}
+		relative_position_id = SYR_chuanlian_minzu_zhuyi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		transfer_state = 680
+		transfer_state = 1058
+		load_oob = SYR_daierzuer
+		}
+	}
+	#地下兵工厂
+	focus = {
+		id = SYR_dixia_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SYR_chuanlian_minzu_zhuyi}
+		relative_position_id = SYR_chuanlian_minzu_zhuyi
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#扩招民兵部队
+	focus = {
+		id = SYR_kuozhao_minbing_buluo
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = SYR_xuliya_lianhe }
+		relative_position_id = SYR_xuliya_lianhe
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SYR_minbing
+		}
+	}
+	#黎巴嫩自治
+	focus = {
+		id = SYR_libanen_zizhi
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = SYR_xuliya_lianhe }
+		relative_position_id = SYR_xuliya_lianhe
+		x = 4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = SYR_libanen
+		transfer_state = 553
+		553 = {
+	add_state_modifier = {
+    modifier = {
+        local_manpower = -0.5
+    }
+}
+		}
+		}
+	}
+	#叙利亚之梦
+	focus = {
+		id = SYR_xuliya_dream
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SYR_kuozhao_minbing_buluo }
+		prerequisite = { focus = SYR_libanen_zizhi }
+		relative_position_id = SYR_libanen_zizhi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = SYR_daxuliya_2
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SYR_daxuliya_3
+		remove_idea = SYR_daxuliya_2
+		}
+		}
+	}
+	#寻求埃及支援
+	focus = {
+		id = SYR_xunqiu_aiji_zhiyuan
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = SYR_fanalabo_shengzhan }
+		prerequisite = { focus = SYR_daierzuer_zhifeng }
+		relative_position_id = SYR_daierzuer_zhifeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		EGY = {
+		has_war_with = SYR
+		}
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = EGY
+}
+		}
+	}
+	#加冕费萨尔
+	focus = {
+		id = SYR_jiamian_feisaer
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = SYR_dixia_binggongchang }
+		prerequisite = { focus = SYR_daierzuer_zhifeng }
+		relative_position_id = SYR_daierzuer_zhifeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SYR_jiamian_feisaer
+		}
+	}
+	#叙利亚议会
+	focus = {
+		id = SYR_xuliya_yihui
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = SYR_dixia_binggongchang }
+		prerequisite = { focus = SYR_xuliya_dream }
+		relative_position_id = SYR_dixia_binggongchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SYR_xuliya_yihui
+		}
+	}
+	#大叙利亚
+	focus = {
+		id = SYR_daxuliya
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = SYR_jiamian_feisaer }
+		prerequisite = { focus = SYR_xuliya_yihui }
+		prerequisite = { focus = SYR_xunqiu_aiji_zhiyuan }
+		relative_position_id = SYR_jiamian_feisaer
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 680
+		controls_state = 554
+		controls_state = 677
+		controls_state = 553
+		controls_state = 1058
+		controls_state = 1057
+		controls_state = 799
+		controls_state = 1568
+		controls_state = 1569
+		controls_state = 1570
+		controls_state = 1425
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_state_core = 1581
+		add_state_core = 1580
+		add_state_core = 350
+		}
+	}
+	#重开阿勒颇军工厂
+	focus = {
+		id = SYR_chongkai_alepo_jungongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SYR_daxuliya }
+		relative_position_id = SYR_daxuliya
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		677 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#促进棉产业
+	focus = {
+		id = SYR_cujin_mianchanye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SYR_daxuliya }
+		relative_position_id = SYR_daxuliya
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1058 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#重开贝鲁特船厂
+	focus = {
+		id = SYR_chongkai_beilute_chuanchang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SYR_chongkai_alepo_jungongchang }
+		relative_position_id = SYR_chongkai_alepo_jungongchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		553 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#本土军火生产
+	focus = {
+		id = SYR_bentu_junhuo_shengchan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = SYR_chongkai_alepo_jungongchang }
+		prerequisite = { focus = SYR_cujin_mianchanye }
+		relative_position_id = SYR_chongkai_alepo_jungongchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1057 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扶持纺织产业
+	focus = {
+		id = SYR_fuchi_fangzhi_chanye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = SYR_cujin_mianchanye }
+		relative_position_id = SYR_cujin_mianchanye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		680 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#资助农业发展
+	focus = {
+		id = SYR_zizhu_nongye_fazhan
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = SYR_chongkai_beilute_chuanchang }
+		prerequisite = { focus = SYR_bentu_junhuo_shengchan }
+		relative_position_id = SYR_bentu_junhuo_shengchan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SYR_zizhu_nongye_fazhan
+		}
+	}
+	#联通叙利亚交通
+	focus = {
+		id = SYR_liantong_xuliya_jiaotong
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = SYR_fuchi_fangzhi_chanye }
+		prerequisite = { focus = SYR_bentu_junhuo_shengchan }
+		relative_position_id = SYR_bentu_junhuo_shengchan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		553 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		554 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		680 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		677 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+}

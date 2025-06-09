@@ -1,0 +1,143 @@
+holy_jihuang = {
+    #消除饥荒
+    holy_xiaochu_jihuang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUX
+	}	
+		available = {
+			has_idea = {
+			YUX_lianluo_3
+			YUX_nongtian_2
+			YUX_peiji_zhidu_3
+			}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		remove_ideas = sichuanjihuang
+		remove_ideas = YUX_nongtian_2
+		remove_ideas = YUX_lianluo_3
+		remove_ideas = YUX_peiji_zhidu_3
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#消除饥荒
+    holy_xiaochu_jihuang_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = XKA
+	}	
+		available = {
+			has_idea = {
+			XKA_yuanzhu_minzhong_3
+			XKA_daji_fubai_2
+			}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		remove_ideas = sichuanjihuang
+		remove_ideas = XKA_daji_fubai_2
+		remove_ideas = XKA_yuanzhu_minzhong_3
+		add_timed_idea = {
+    idea = sichuanjihuang
+    days = 360
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#消除饥荒
+    holy_xiaochu_jihuang_3 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = SHU
+	}	
+		available = {
+			has_idea = {
+			SHU_qusan_nanming_4
+			}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		remove_ideas = sichuanjihuang
+		remove_ideas = SHU_qusan_nanming_4
+		add_timed_idea = {
+    idea = sichuanjihuang
+    days = 720
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_sichuan_tanpan = {
+    #西康谈判
+    holy_xikang_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+			tag = YUX
+			tag = tag = SHU
+			}
+	}	
+		available = {
+			controls_state = 752
+			controls_state = 1086
+			controls_state = 1266
+			controls_state = 1278
+			controls_state = 1279
+			controls_state = 1267
+			controls_state = 751
+			controls_state = 1088
+			controls_state = 753
+			controls_state = 1087
+			controls_state = 1082
+			controls_state = 1268
+			controls_state = 605
+			controls_state = 1083
+			controls_state = 1270
+			controls_state = 1271
+			controls_state = 1112
+			has_war_with = XKA
+		}
+        fire_only_once = yes
+		complete_effect = {
+		transfer_state = 752
+		transfer_state = 1086
+			transfer_state = 1266
+			transfer_state = 1278
+			transfer_state = 1279
+			transfer_state = 1267
+			transfer_state = 751
+			transfer_state = 1088
+			transfer_state = 753
+			transfer_state = 1087
+			transfer_state = 1082
+			transfer_state = 1268
+			transfer_state = 605
+			transfer_state = 1083
+			transfer_state = 1270
+			transfer_state = 1271
+			transfer_state = 1112
+		XKA = {
+		white_peace = YUX
+		white_peace = SHU
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

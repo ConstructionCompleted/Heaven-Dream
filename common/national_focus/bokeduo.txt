@@ -1,0 +1,701 @@
+focus_tree = {
+	id = BKD_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BKD
+		}
+	}
+	
+	default = no
+ 
+	#蒙古的疆域
+	focus = {
+		id = BKD_menggu_jiangyu
+		icon = GFX_focus_generic_attack_mongoliafocus_generic_attack_mongolia
+		mutually_exclusive = { focus = BKD_gemingzhe_zhihuo }
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			start_civil_war = {
+    ruling_party = neutrality
+    ideology = communism
+    size = 0.5
+    states = { 
+        329 654 818 820
+    }
+}
+		}
+	}
+	#白色蒙古之梦
+	focus = {
+		id = BKD_baise_menggu_dream
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = BKD_menggu_jiangyu}
+		relative_position_id = BKD_menggu_jiangyu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_zhanzheng_2
+			remove_idea = BKD_menggu_zhanzheng
+			}
+		}
+	}
+	#喀尔喀族人
+	focus = {
+		id = BKD_kaerke_zuren
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = BKD_menggu_jiangyu}
+		relative_position_id = BKD_menggu_jiangyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_qibing_2
+			remove_idea = BKD_menggu_qibing
+			}
+		}
+	}
+	#征集蒙古骑兵
+	focus = {
+		id = BKD_zhengji_menggu_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = BKD_baise_menggu_dream}
+		prerequisite = { focus = BKD_kaerke_zuren}
+		prerequisite = { focus = BKD_buliyate_zhiyuanjun}
+		relative_position_id = BKD_kaerke_zuren
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = BKD_menggu_qibing
+		}
+	}
+	#布里亚特志愿者
+	focus = {
+		id = BKD_buliyate_zhiyuanjun
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = BKD_menggu_jiangyu}
+		relative_position_id = BKD_menggu_jiangyu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = BKD_zhiyuanjun
+		}
+	}
+	#警戒骑兵
+	focus = {
+		id = BKD_jingjie_qibing
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = BKD_buliyate_zhiyuanjun}
+		prerequisite = { focus = BKD_kaerke_zuren}
+		prerequisite = { focus = BKD_baise_menggu_dream}
+		relative_position_id = BKD_kaerke_zuren
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_zhanzheng_3
+			remove_idea = BKD_menggu_zhanzheng_2
+			}
+		}
+	}
+	#民族的胜利
+	focus = {
+		id = BKD_minzu_vic
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = BKD_zhengji_menggu_qibing}
+		prerequisite = { focus = BKD_jingjie_qibing}
+		relative_position_id = BKD_jingjie_qibing
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		civilwar_target = BKD
+		}
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_qibing_3
+			remove_idea = BKD_menggu_qibing_2
+			}
+		}
+	}
+	#建立斡耳朵
+	focus = {
+		id = BKD_jianli_kanduoer
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = BKD_minzu_vic}
+		relative_position_id = BKD_minzu_vic
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_idea = BKD_kanerduo
+		}
+	}
+	#怯薛军卫队
+	focus = {
+		id = BKD_qiexuejun_weidui
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = BKD_jianli_kanduoer}
+		relative_position_id = BKD_jianli_kanduoer
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BKD_kanerduo_2
+			remove_idea = BKD_kanerduo
+			}
+		}
+	}
+	#加强骑兵训练
+	focus = {
+		id = BKD_jiaqiang_qibing_xunlian
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = BKD_minzu_vic}
+		relative_position_id = BKD_minzu_vic
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BKD_menggu_qibing_4
+			remove_idea = BKD_menggu_qibing_3
+			}
+		}
+	}
+	#扩建乌兰巴托军工
+	focus = {
+		id = BKD_kuojian_wulanbatuo_jungong
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = BKD_jiaqiang_qibing_xunlian}
+		relative_position_id = BKD_jiaqiang_qibing_xunlian
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			330 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#干涉内蒙古事务
+	focus = {
+		id = BKD_ganshe_neimenggu_shiwu
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = BKD_qiexuejun_weidui}
+		prerequisite = { focus = BKD_kuojian_wulanbatuo_jungong}
+		relative_position_id = BKD_kuojian_wulanbatuo_jungong
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 40
+		}
+	}
+	#忽里台大会
+	focus = {
+		id = BKD_hulitai_dahui
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = BKD_ganshe_neimenggu_shiwu}
+		relative_position_id = BKD_ganshe_neimenggu_shiwu
+		x = 0
+		y = 1
+		cost = 20
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SUY = {
+		has_government = neutrality
+		}
+		CHR = {
+		has_government = neutrality
+		}
+		BKD = {
+		has_government = neutrality
+		has_civil_war = no
+		}
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_fujia.8
+	days = 2
+}
+		}
+	}
+	#革命者之火
+	focus = {
+		id = BKD_gemingzhe_zhihuo
+		icon = GFX_focus_focus_fra_revolution_utmost
+		mutually_exclusive = { focus = BKD_menggu_jiangyu }
+		x = 26
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0.4
+	capital = 329
+    states = { 
+        330 1111 817 819 1139 1140 1228
+    }
+}
+		}
+	}
+	#联合嘎达梅林
+	focus = {
+		id = BKD_lianhe_gadameilin
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = BKD_gemingzhe_zhihuo}
+		relative_position_id = BKD_gemingzhe_zhihuo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = BKD_gdameilin
+		}
+	}
+	#部分妥协
+	focus = {
+		id = BKD_bufentuoxie
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = BKD_gemingzhe_zhihuo}
+		relative_position_id = BKD_gemingzhe_zhihuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_zhanzheng_4
+			remove_idea = BKD_menggu_zhanzheng
+			}
+		}
+	}
+	#政治协调
+	focus = {
+		id = BKD_zhengzhi_xietiao
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = BKD_lianhe_gadameilin}
+		prerequisite = { focus = BKD_bufentuoxie}
+		relative_position_id = BKD_bufentuoxie
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_zhanzheng_5
+			remove_idea = BKD_menggu_zhanzheng_4
+			}
+		}
+	}
+	#联合人民
+	focus = {
+		id = BKD_lianhe_renmin
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = BKD_gemingzhe_zhihuo}
+		relative_position_id = BKD_gemingzhe_zhihuo
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = BKD_lianhe_renmin
+		}
+	}
+	#游击战术
+	focus = {
+		id = BKD_youji_zhanshu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = BKD_lianhe_renmin}
+		prerequisite = { focus = BKD_bufentuoxie}
+		relative_position_id = BKD_bufentuoxie
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_lianhe_renmin_2
+			remove_idea = BKD_lianhe_renmin
+			}
+		}
+	}
+	#蒙古人民大会
+	focus = {
+		id = BKD_menggu_renmin_dahui
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = BKD_zhengzhi_xietiao}
+		prerequisite = { focus = BKD_youji_zhanshu}
+		relative_position_id = BKD_youji_zhanshu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		civilwar_target = BKD
+		}
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_menggu_zhanzheng_6
+			remove_idea = BKD_menggu_zhanzheng_5
+			}
+		}
+	}
+	#点燃共产火焰
+	focus = {
+		id = BKD_dianran_gc_huoyan
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = BKD_menggu_renmin_dahui}
+		relative_position_id = BKD_menggu_renmin_dahui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_dianran_huoyan
+			remove_idea = BKD_menggu_qibing
+			}
+			CCP = { add_to_faction = BKD }
+		}
+	}
+	#反对入侵
+	focus = {
+		id = BKD_fandui_ruqin
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = BKD_dianran_gc_huoyan}
+		relative_position_id = BKD_dianran_gc_huoyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_lianhe_renmin_3
+			remove_idea = BKD_lianhe_renmin_2
+			}
+		}
+	}
+	#防御计划
+	focus = {
+		id = BKD_fangyu_plan
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BKD_fandui_ruqin}
+		relative_position_id = BKD_fandui_ruqin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = BKD_fangyu_plan
+		}
+	}
+	#蒙古军事化
+	focus = {
+		id = BKD_menggu_junshihua
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BKD_fandui_ruqin}
+		relative_position_id = BKD_fandui_ruqin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BKD_lianhe_renmin_4
+			remove_idea = BKD_lianhe_renmin_3
+			}
+		}
+	}
+	#蒙古人民民兵
+	focus = {
+		id = BKD_menggu_renmin_minbing
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = BKD_fangyu_plan}
+		prerequisite = { focus = BKD_menggu_junshihua}
+		relative_position_id = BKD_fangyu_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = BKD_renmin_minbing
+		}
+	}
+	#军事基础建设
+	focus = {
+		id = BKD_junshi_jichu_jianshe
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = BKD_menggu_renmin_minbing}
+		relative_position_id = BKD_menggu_renmin_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    330 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			329 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			817 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			820 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			654 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#军事武装扩建
+	focus = {
+		id = BKD_junshi_wuzhuang_kuojian
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BKD_menggu_renmin_minbing}
+		relative_position_id = BKD_menggu_renmin_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    330 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+			329 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#蒙古革命建设
+	focus = {
+		id = BKD_menggu_gm_jianshe
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = BKD_dianran_gc_huoyan}
+		relative_position_id = BKD_dianran_gc_huoyan
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = BKD_menggu_gm_jianshe
+		}
+	}
+	#工业化计划
+	focus = {
+		id = BKD_gongyehua_plan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = BKD_menggu_gm_jianshe}
+		relative_position_id = BKD_menggu_gm_jianshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+            swap_ideas = {
+			add_idea = BKD_menggu_gm_jianshe_2
+			remove_idea = BKD_menggu_gm_jianshe
+			}
+		}
+	}
+	#走私计划
+	focus = {
+		id = BKD_zousi_plan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = BKD_gongyehua_plan}
+		prerequisite = { focus = BKD_menggu_junshihua}
+		relative_position_id = BKD_menggu_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#城市建设
+	focus = {
+		id = BKD_chengshi_jianshe
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = BKD_gongyehua_plan}
+		relative_position_id = BKD_gongyehua_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+          add_ideas = BKD_chengshi_jianshe
+		}
+	}
+	#扩大畜牧业
+	focus = {
+		id = BKD_kuoda_xumuye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = BKD_menggu_gm_jianshe}
+		relative_position_id = BKD_menggu_gm_jianshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+            add_ideas = BKD_kuoda_xumuye
+		}
+	}
+	#和平繁荣
+	focus = {
+		id = BKD_heping_fanrong
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = BKD_kuoda_xumuye}
+		relative_position_id = BKD_kuoda_xumuye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+           swap_ideas = {
+			add_idea = BKD_kuoda_xumuye_2
+			remove_idea = BKD_kuoda_xumuye
+			}
+		}
+	}
+}

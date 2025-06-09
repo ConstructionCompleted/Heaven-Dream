@@ -1,0 +1,29 @@
+add_namespace = holy_danze
+#法兰西帝国的要求
+country_event = {
+	id = holy_danze.1
+	title = holy_danze.1.t
+	desc = holy_danze.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	ai_chance = {
+		    factor = 10
+		}
+		name = holy_danze.1.a
+		FRA = { puppet = DAZ }
+	}
+	option = {
+	ai_chance = {
+		    factor = 10
+		}
+		name = holy_danze.1.b
+		FRA = {
+		declare_war_on = {
+    target = DAZ
+    type = annex_everything
+}
+		}
+	}
+}

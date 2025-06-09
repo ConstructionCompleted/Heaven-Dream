@@ -1,0 +1,573 @@
+focus_tree = {
+	id = IRE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = IRE
+		}
+	}
+	
+	default = no
+ 
+	#统合俩军力量
+	focus = {
+		id = IRE_tonghe_liajun_liliang
+		icon = GFX_focus_secret_rearmament
+		x = 14
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = IRE_aierlan_liangjun_2
+		}
+	}
+	#整合爱尔兰工业
+	focus = {
+		id = IRE_zhenghe_aierlan_gongye
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 16
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			912 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			134 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#捍卫独立
+	focus = {
+		id = IRE_hanwei_duli
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = IRE_tonghe_liajun_liliang}
+		prerequisite = { focus = IRE_zhenghe_aierlan_gongye}
+		relative_position_id = IRE_tonghe_liajun_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = IRE_hanwei_duli
+		}
+	}
+	#征集爱尔兰民兵
+	focus = {
+		id = IRE_zhengji_aierlan_minbing
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = IRE_hanwei_duli}
+		relative_position_id = IRE_hanwei_duli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = IRE_minbing
+		}
+	}
+	#共和军主导
+	focus = {
+		id = IRE_gonghejun_zhudao
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = IRE_zhengji_aierlan_minbing}
+		relative_position_id = IRE_zhengji_aierlan_minbing
+		mutually_exclusive = { focus = IRE_dulijun_zhudao }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+swap_ideas = {
+			remove_idea = IRE_aierlan_liangjun_2
+			add_idea = IRE_aierlan_liangjun_3
+			}
+		}
+	}
+	#不限制战争
+	focus = {
+		id = IRE_buxianzhi_war
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = IRE_gonghejun_zhudao}
+		relative_position_id = IRE_gonghejun_zhudao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = IRE_buxianzhi_war
+		}
+	}
+	#构建共和军体系
+	focus = {
+		id = IRE_goujian_tixi
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = IRE_buxianzhi_war}
+		relative_position_id = IRE_buxianzhi_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = IRE_aierlan_liangjun_3
+			add_idea = IRE_aierlan_liangjun_4
+			}
+		}
+	}
+	#统合爱尔兰力量
+	focus = {
+		id = IRE_tonghe_aierlan_liliang
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = IRE_buxianzhi_war}
+		relative_position_id = IRE_buxianzhi_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = partial_economic_mobilisation
+			add_ideas = extensive_conscription
+		}
+	}
+	#独立军主导
+	focus = {
+		id = IRE_dulijun_zhudao
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = IRE_zhengji_aierlan_minbing}
+		relative_position_id = IRE_zhengji_aierlan_minbing
+		mutually_exclusive = { focus = IRE_gonghejun_zhudao }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+			remove_idea = IRE_aierlan_liangjun_2
+			add_idea = IRE_aierlan_liangjun_5
+			}
+			add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+		}
+	}
+	#联合南方支持者
+	focus = {
+		id = IRE_lianhe_nanfangzhichizhe
+		icon = GFX_focus_generic_infiltration
+		prerequisite = { focus = IRE_dulijun_zhudao}
+		relative_position_id = IRE_dulijun_zhudao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        load_oob = IRE_nanfang_zhichizhe
+		}
+	}
+	#联合北方民族派
+	focus = {
+		id = IRE_lianhe_beifangminzupai
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = IRE_dulijun_zhudao}
+		relative_position_id = IRE_dulijun_zhudao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        load_oob = IRE_beifang_minzupai
+		}
+	}
+	#统合民族力量
+	focus = {
+		id = IRE_tonghe_minzuliliang
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = IRE_lianhe_nanfangzhichizhe}
+		prerequisite = { focus = IRE_lianhe_beifangminzupai}
+		relative_position_id = IRE_lianhe_nanfangzhichizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = partial_economic_mobilisation
+		add_ideas = extensive_conscription
+		}
+	}
+	#完成爱尔兰统一
+	focus = {
+		id = IRE_wancheng_tongyi
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = IRE_tonghe_minzuliliang focus = IRE_goujian_tixi}
+		relative_position_id = IRE_tonghe_minzuliliang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		completion_reward = {
+		annex_country = {
+    target = IRP
+    transfer_troops = no
+}
+annex_country = {
+    target = NIR
+    transfer_troops = no
+}
+		}
+	}
+	#无头骑士
+	focus = {
+		id = IRE_wutouqishi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = IRE_wancheng_tongyi }
+		relative_position_id = IRE_wancheng_tongyi
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = IRE_aierlan_liangjun_4
+		remove_ideas = IRE_aierlan_liangjun_5
+		add_ideas = IRE_wutouqishi
+		}
+	}
+	#军事职业化
+	focus = {
+		id = IRE_junshi_zhiyehua
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = IRE_wutouqishi }
+		relative_position_id = IRE_wutouqishi
+		mutually_exclusive = { focus = IRE_ttk_reqing }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = IRE_wutouqishi
+			add_idea = IRE_wutouqishi_2
+			}
+		}
+	}
+	#战斗热情
+	focus = {
+		id = IRE_ttk_reqing
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = IRE_wutouqishi }
+		relative_position_id = IRE_wutouqishi
+		mutually_exclusive = { focus = IRE_junshi_zhiyehua }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = IRE_wutouqishi
+			add_idea = IRE_wutouqishi_3
+			}
+		}
+	}
+	#爱尔兰战争
+	focus = {
+		id = IRE_ttk_reqing
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = IRE_junshi_zhiyehua focus = IRE_ttk_reqing }
+		relative_position_id = IRE_junshi_zhiyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#女妖传说
+	focus = {
+		id = IRE_nvyao_chuanshuo
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = IRE_wancheng_tongyi }
+		relative_position_id = IRE_wancheng_tongyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_intelligence_agency = yes
+		}
+	}
+	#爱尔兰间谍网
+	focus = {
+		id = IRE_aierlan_jiandiewang
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = IRE_nvyao_chuanshuo }
+		relative_position_id = IRE_nvyao_chuanshuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRE_aierlan_jiandiewang
+		}
+	}
+	#破坏英国稳定
+	focus = {
+		id = IRE_pohuai_yingguo_wending
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = IRE_aierlan_jiandiewang }
+		relative_position_id = IRE_aierlan_jiandiewang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		ELB = {
+		add_stability = -0.1
+		}
+		EGL = {
+		add_stability = -0.1
+		}
+		UKM = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#加速发展
+	focus = {
+		id = IRE_jiasu_fazhan
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = IRE_aierlan_jiandiewang }
+		relative_position_id = IRE_aierlan_jiandiewang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			remove_idea = IRE_aierlan_jiandiewang
+			add_idea = IRE_aierlan_jiandiewang_2
+			}
+		}
+	}
+	#精灵的财富
+	focus = {
+		id = IRE_jingling_caifu
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = IRE_wancheng_tongyi }
+		relative_position_id = IRE_wancheng_tongyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	#寻求工业投资
+	focus = {
+		id = IRE_xunqiu_gongyetouzi
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = IRE_jingling_caifu }
+		relative_position_id = IRE_jingling_caifu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#开发工业
+	focus = {
+		id = IRE_kaifa_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = IRE_xunqiu_gongyetouzi }
+		relative_position_id = IRE_xunqiu_gongyetouzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#开发资源
+	focus = {
+		id = IRE_kaifa_gongye
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = IRE_xunqiu_gongyetouzi }
+		relative_position_id = IRE_xunqiu_gongyetouzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = steel
+    amount = 20
+    state = 134
+}
+		}
+	}
+	#幸运的四叶草
+	focus = {
+		id = IRE_xingyun_siyecao
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = IRE_wancheng_tongyi }
+		relative_position_id = IRE_wancheng_tongyi
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.05
+		}
+	}
+	#民选政府
+	focus = {
+		id = IRE_minxuan_zhengfu
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = IRE_xingyun_siyecao }
+		relative_position_id = IRE_xingyun_siyecao
+		mutually_exclusive = { focus = IRE_weichi_junshihua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRE_minxuan_zhengfu
+		retire_country_leader = yes
+		}
+	}
+	#维持军事化
+	focus = {
+		id = IRE_weichi_junshihua
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = IRE_xingyun_siyecao }
+		relative_position_id = IRE_xingyun_siyecao
+		mutually_exclusive = { focus = IRE_minxuan_zhengfu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRE_junshihua
+		}
+	}
+	#爱尔兰和平
+	focus = {
+		id = IRE_aierlan_heping
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = IRE_weichi_junshihua focus = IRE_minxuan_zhengfu}
+		relative_position_id = IRE_minxuan_zhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+}

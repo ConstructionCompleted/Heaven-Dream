@@ -1,0 +1,167 @@
+﻿capital = 214
+create_country_leader = {
+	name = "伏罗希洛夫"
+	desc = ""
+	picture = "GFX68"
+	expire = "1965.1.1"
+	ideology = xianfeng_gemingzhuyi_ism
+	traits = {
+	}
+}
+create_field_marshal = {
+	name = "伏罗希洛夫"
+	picture = "GFX68"
+	traits = { logistics_wizard defensive_doctrine }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 6
+}
+create_corps_commander = {
+	name = "图哈切夫斯基" 
+	picture = ".jpg"
+	traits = { cavalry_officer armor_officer war_hero}
+	skill = 4
+	attack_skill = 5
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = "巴托夫" 
+	picture = ".jpg"
+	traits = { war_hero brilliant_strategist }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 6
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = "罗科索夫斯基" 
+	picture = ".jpg"
+	traits = { war_hero brilliant_strategist}
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+set_oob = "SVN_1936"
+set_naval_oob = "SVN_naval_1936"
+set_air_oob = "SVN_1936_air_legacy"
+
+
+set_research_slots = 3
+set_stability = 0.4
+set_war_support = 0.9
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	early_fighter = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	cv_CAS1 = 1
+	naval_bomber1 = 1
+	CAS1 = 1
+	early_bomber = 1
+	superior_firepower = 1
+	base_strike = 1
+	motorised_infantry = 1
+	fuel_silos = 1
+	fuel_refining = 1
+	marines = 1
+}
+
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		basic_carrier = 1
+		transport = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		basic_depth_charges = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_airplane_launcher = 1
+	}
+}
+add_ideas = {
+SVN_queliang_shaoqiang
+SVN_bingtianxuedi
+SVN_laobing_budui
+}
+declare_war_on = {
+		target = PRM
+		type = annex_everything
+	}
+declare_war_on = {
+		target = POA
+		type = annex_everything
+	}
+declare_war_on = {
+		target = RNE
+		type = annex_everything
+	}
+create_faction = beifang_linshi_zhengfu
+add_to_faction = SVN
+add_to_faction = KZN
+set_politics = {
+	ruling_party = communism
+	last_election = "1930.11.9"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	socialism = 20
+	communism = 50
+	neutrality = 20
+	dictatorship = 10
+	democratic = 0
+	conservatism = 0
+	progressism = 0
+	reconcilism = 0
+	fascism = 0
+	destruction_system = 0
+}

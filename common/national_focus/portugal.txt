@@ -1,0 +1,1987 @@
+focus_tree = {
+	id = POR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = POR
+		}
+	}
+	
+	default = no
+	
+	#人民阵线
+	focus = {
+		id = POR_renmin_zhengxian
+		icon = GFX_focus_generic_join_comintern
+		mutually_exclusive = { focus = POR_yanxu_junshi_ducai }
+		mutually_exclusive = { focus = POR_fubi_zhunbei }
+		x = 20
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.1
+}	
+swap_ideas = {
+add_idea = POR_renmin_zhengxian
+remove_idea = POR_junshi_zhuanzheng
+}
+		}
+	}
+	#泛左翼联盟
+	focus = {
+		id = POR_fanzuoyi_lianmeng
+		icon = GFX_focus_spr_unify_the_london_bureau
+		prerequisite = { focus = POR_renmin_zhengxian }
+		relative_position_id = POR_renmin_zhengxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.1
+}	
+swap_ideas = {
+add_idea = POR_renmin_zhengxian_2
+remove_idea = POR_renmin_zhengxian
+}
+		}
+	}
+	#组建人民民兵
+	focus = {
+		id = POR_zujian_renmin_minbing
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = POR_renmin_zhengxian }
+		relative_position_id = POR_renmin_zhengxian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#推倒反动派
+	focus = {
+		id = POR_tuidao_fandongpai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = POR_fanzuoyi_lianmeng }
+		prerequisite = { focus = POR_zujian_renmin_minbing }
+		relative_position_id = POR_zujian_renmin_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		start_civil_war = {
+    ruling_party = socialism
+    ideology = reconcilism
+    size = 0.5
+    states = { 
+        181 795 1563
+    }
+}
+MDL = { transfer_state = 721 }
+ANG = { transfer_state = 540 transfer_state = 796 transfer_state = 1012 transfer_state = 891 transfer_state = 892 }
+MZB = { transfer_state = 544 transfer_state = 1030 transfer_state = 897 transfer_state = 1029 transfer_state = 896 transfer_state = 1028 }
+GNB = { transfer_state = 296 }
+		load_oob = POR_geming_army
+		remove_ideas = POR_zhimindi_kongzhi
+		}
+	}
+	#革命的胜利
+	focus = {
+		id = POR_geming_shengli
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = POR_tuidao_fandongpai }
+		relative_position_id = POR_tuidao_fandongpai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+		swap_ideas = {
+add_idea = POR_renmin_zhengxian_3
+remove_idea = POR_renmin_zhengxian_2
+}
+		}
+	}
+	#革命先锋
+	focus = {
+		id = POR_geming_xianfeng
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = POR_geming_shengli }
+		relative_position_id = POR_geming_shengli
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = POR_geming_xianfeng
+		}
+	}
+	#扩大军事产业
+	focus = {
+		id = POR_kuoda_junshi_chanye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = POR_geming_xianfeng }
+		relative_position_id = POR_geming_xianfeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		112 = {
+			add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#国有化工业
+	focus = {
+		id = POR_guoyouhua_gongye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = POR_geming_shengli }
+		relative_position_id = POR_geming_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = POR_guoyouhua_gongye
+		112 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#葡萄牙计划经济
+	focus = {
+		id = POR_putaoya_planjingji
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = POR_guoyouhua_gongye }
+		relative_position_id = POR_guoyouhua_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_putaoya_planjingji
+		remove_idea = POR_guoyouhua_gongye
+		}
+		181 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+			795 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#介入西班牙内战
+	focus = {
+		id = POR_jieru_xibanya_neizhan
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = POR_geming_shengli }
+		relative_position_id = POR_geming_shengli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		CSP = {
+		create_faction = geming_lianhe
+		add_to_faction = POR
+		}
+		news_event = {
+				id = holy_news.138 days = 1
+			}
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = POR_jiaru_gcgj
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = POR_jieru_xibanya_neizhan }
+		relative_position_id = POR_jieru_xibanya_neizhan
+		mutually_exclusive = { focus = POR_yibiliya_lianmeng }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		XTZ = {
+		exists = no
+		}
+		UKH = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		CSP = { dismantle_faction = yes }
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = POR
+			}
+		}
+	}
+	#伊比利亚联盟
+	focus = {
+		id = POR_yibiliya_lianmeng
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = POR_jieru_xibanya_neizhan }
+		relative_position_id = POR_jieru_xibanya_neizhan
+		mutually_exclusive = { focus = POR_jiaru_gcgj }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		XTZ = {
+		exists = no
+		}
+		UKH = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		CSP = { dismantle_faction = yes }
+		CSP = { 
+		annex_country = {
+    target = POR
+    transfer_troops = yes
+}
+            set_cosmetic_tag = IBR
+		change_tag_from = POR
+}
+news_event = {
+				id = holy_news.137 days = 1
+			}
+		}
+	}
+	#延续军事独裁
+	focus = {
+		id = POR_yanxu_junshi_ducai
+		icon = GFX_focus_generic_military_dictatorship
+		mutually_exclusive = { focus = POR_renmin_zhengxian }
+		mutually_exclusive = { focus = POR_fubi_zhunbei }
+		x = 26
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#葡萄牙军团
+	focus = {
+		id = POR_putaoya_juntuan
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = POR_yanxu_junshi_ducai }
+		relative_position_id = POR_yanxu_junshi_ducai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = POR_putaoya_juntuan
+		}
+	}
+	#处理反对者
+	focus = {
+		id = POR_chuli_fanduizhe
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = POR_putaoya_juntuan }
+		relative_position_id = POR_putaoya_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = -50
+		add_stability = 0.1
+		}
+	}
+	#和教会合作
+	focus = {
+		id = POR_hejiaohui_hezuo
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = POR_yanxu_junshi_ducai }
+		relative_position_id = POR_yanxu_junshi_ducai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_junshi_zhuanzheng_2
+		remove_idea = POR_junshi_zhuanzheng
+		}
+		}
+	}
+	#允许虚位君主
+	focus = {
+		id = POR_yunxu_xuwei_junzhu
+		icon = GFX_focus_por_the_fifth_empire
+		prerequisite = { focus = POR_hejiaohui_hezuo }
+		relative_position_id = POR_hejiaohui_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_junshi_zhuanzheng_3
+		remove_idea = POR_junshi_zhuanzheng_2
+		}
+		}
+	}
+	#扩大间谍组织
+	focus = {
+		id = POR_kuoda_jiandie_zuzhi
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = POR_chuli_fanduizhe }
+		relative_position_id = POR_chuli_fanduizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_intelligence_agency = yes
+		add_ideas = POR_kuoda_jiandie_zuzhi
+		}
+	}
+	#扩大民兵
+	focus = {
+		id = POR_kuoda_minbing
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = POR_chuli_fanduizhe }
+		prerequisite = { focus = POR_yunxu_xuwei_junzhu }
+		relative_position_id = POR_chuli_fanduizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_putaoya_juntuan_2
+		remove_idea = POR_putaoya_juntuan
+		}
+		}
+	}
+	#加入轴心
+	focus = {
+		id = POR_jiaru_zhouxin
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = POR_kuoda_minbing }
+		relative_position_id = POR_kuoda_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		PLS = {
+		exists = no
+		}
+		AUS = {
+		exists = no
+		}
+		HSA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		HNW = { add_to_faction = POR }
+		}
+	}
+	#夺回巴西
+	focus = {
+		id = POR_duohui_baxi
+		icon = GFX_focus_por_recover_brazil
+		prerequisite = { focus = POR_kuoda_minbing }
+		relative_position_id = POR_kuoda_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KNL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SSL
+    type = annex_everything
+}
+declare_war_on = {
+    target = LEV
+    type = annex_everything
+}
+        add_state_claim = 503
+		add_state_claim = 502
+		add_state_claim = 501
+		add_state_claim = 504
+		add_state_claim = 505
+		add_state_claim = 496
+		add_state_claim = 500
+		add_state_claim = 499
+		add_state_claim = 498
+		add_state_claim = 497
+		add_state_claim = 1803
+		add_state_claim = 1805
+		add_state_claim = 1802
+		add_state_claim = 1798
+		add_state_claim = 1794
+		add_state_claim = 1804
+		add_state_claim = 1806
+		}
+	}
+	#扩大南美领土
+	focus = {
+		id = POR_kuoda_nanmei_lingtu
+		icon = GFX_focus_por_recover_latin_america
+		prerequisite = { focus = POR_duohui_baxi }
+		relative_position_id = POR_duohui_baxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		owns_state = 503
+		owns_state = 502
+		owns_state = 501
+		owns_state = 504
+		owns_state = 505
+		owns_state = 496
+		owns_state = 500
+		owns_state = 499
+		owns_state = 498
+		owns_state = 497
+		owns_state = 1803
+		owns_state = 1805
+		owns_state = 1802
+		owns_state = 1798
+		owns_state = 1794
+		owns_state = 1804
+		owns_state = 1806
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = GJY
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARG
+    type = annex_everything
+}
+		}
+	}
+	#进军加利西亚
+	focus = {
+		id = POR_jinjun_jialixiya
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = POR_yunxu_xuwei_junzhu }
+		relative_position_id = POR_yunxu_xuwei_junzhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		GLC = {
+		exists = yes
+		}
+		}
+		bypass = {
+		GLC = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = GLC
+    transfer_troops = yes
+}
+		}
+	}
+	#复辟的准备
+	focus = {
+		id = POR_fubi_zhunbei
+		icon = GFX_focus_generic_monarchy_2
+		mutually_exclusive = { focus = POR_renmin_zhengxian }
+		mutually_exclusive = { focus = POR_yanxu_junshi_ducai }
+		x = 32
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_fubi
+		remove_idea = POR_junshi_zhuanzheng
+		}
+		}
+	}
+	#承诺立宪
+	focus = {
+		id = POR_chengnuo_lixian
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = POR_fubi_zhunbei }
+		relative_position_id = POR_fubi_zhunbei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_fubi_2
+		remove_idea = POR_fubi
+		}
+		}
+	}
+	#废除反复辟法
+	focus = {
+		id = POR_feichu_fanfubifa
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = POR_chengnuo_lixian }
+		relative_position_id = POR_chengnuo_lixian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = POR_fubi_3
+		remove_idea = POR_fubi_2
+		}
+		add_timed_idea = {
+    idea = POR_feichu_fanfubifa
+    days = 70
+}
+		}
+	}
+	#增加宣传
+	focus = {
+		id = POR_zengjia_xuanchuan
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = POR_fubi_zhunbei }
+		relative_position_id = POR_fubi_zhunbei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+		}
+	}
+	#动员支持者
+	focus = {
+		id = POR_dongyuan_zhichizhe
+		icon = GFX_focus_por_reclaim_crown_jewel
+		prerequisite = { focus = POR_zengjia_xuanchuan }
+		relative_position_id = POR_zengjia_xuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = POR_dongyuan_zhichizhe
+    days = 180
+}
+		}
+	}
+	#王国回归
+	focus = {
+		id = POR_wangguo_huigui
+		icon = GFX_focus_por_the_kingdom_reunited
+		prerequisite = { focus = POR_feichu_fanfubifa }
+		prerequisite = { focus = POR_dongyuan_zhichizhe }
+		relative_position_id = POR_dongyuan_zhichizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = { 
+		has_idea = POR_feichu_fanfubifa 
+		} 
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#伊比利亚新秩序
+	focus = {
+		id = POR_yibiliya_xinzhixu
+		icon = GFX_focus_por_portuguese_legion
+		prerequisite = { focus = POR_jinjun_jialixiya focus = POR_wangguo_huigui }
+		relative_position_id = POR_wangguo_huigui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#粉红地图计划
+	focus = {
+		id = POR_fenhongditu_jihua
+		icon = GFX_focus_por_the_pink_map
+		prerequisite = { focus = POR_yibiliya_xinzhixu }
+		relative_position_id = POR_yibiliya_xinzhixu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		MMP = { exists = yes }
+		}
+		completion_reward = {
+		add_state_claim = 545
+		add_state_claim = 771
+		add_state_claim = 295
+		add_state_claim = 542
+		add_state_claim = 541
+		add_state_claim = 894
+		add_state_claim = 895
+		add_state_claim = 1014
+		add_state_claim = 1016
+		add_state_claim = 893
+		add_state_claim = 1027
+		add_state_claim = 1017
+		add_state_claim = 889
+		add_state_claim = 1011
+		add_state_claim = 1018
+		create_wargoal = {
+    type = annex_everything
+    target = MBL
+}
+create_wargoal = {
+    type = annex_everything
+    target = AWB
+}
+create_wargoal = {
+    type = annex_everything
+    target = MMP
+}
+		}
+	}
+	#干预东方
+	focus = {
+		id = POR_ganyu_dongfang
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = POR_yibiliya_xinzhixu }
+		relative_position_id = POR_yibiliya_xinzhixu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 721
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = MDL
+}
+		}
+	}
+	#宣称奥利文萨
+	focus = {
+		id = POR_xuancheng_aoliwensa
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = POR_yibiliya_xinzhixu }
+		relative_position_id = POR_yibiliya_xinzhixu
+		mutually_exclusive = { focus = POR_wangguan_zailianhe }
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1937.10.1
+		}
+		completion_reward = {
+		add_state_claim = 169
+		add_state_claim = 789
+		add_state_claim = 170
+		add_state_claim = 173
+		add_state_claim = 1833
+		add_state_claim = 1836
+		add_state_claim = 1839
+		create_wargoal = {
+    type = annex_everything
+    target = UKH
+}
+create_wargoal = {
+    type = annex_everything
+    target = CSP
+}
+create_wargoal = {
+    type = annex_everything
+    target = XTZ
+}
+annex_country = {
+    target = XBY
+    transfer_troops = yes
+}
+news_event = {
+				id = holy_news.138 days = 1
+			}
+		}
+	}
+	#扶持卡洛斯派
+	focus = {
+		id = POR_fuchi_kaluosi_pai
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = POR_wangguo_huigui }
+		relative_position_id = POR_wangguo_huigui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		XBY = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+		}
+		}
+	}
+	#一笔交易
+	focus = {
+		id = POR_yibi_jiaoyi
+		icon = GFX_focus_por_iberian_summit
+		prerequisite = { focus = POR_fuchi_kaluosi_pai }
+		relative_position_id = POR_fuchi_kaluosi_pai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = XTZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = CSP
+    type = annex_everything
+}
+declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+news_event = {
+				id = holy_news.138 days = 1
+			}
+		}
+	}
+	#王冠再联合
+	focus = {
+		id = POR_wangguan_zailianhe
+		icon = GFX_focus_por_iberian_summit
+		prerequisite = { focus = POR_yibi_jiaoyi }
+		relative_position_id = POR_yibi_jiaoyi
+		mutually_exclusive = { focus = POR_xuancheng_aoliwensa }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		XTZ = {
+		exists = no
+		}
+		UKH = {
+		exists = no
+		}
+		CSP = {
+		exists = no
+		}
+		CAT = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.137 days = 1
+			}
+		annex_country = {
+    target = XBY
+    transfer_troops = yes
+}
+every_state = {
+			limit = {
+			OR = {
+			region = 41
+			region = 209
+			region = 210
+			}
+			}
+			add_core_of = POR
+			}
+            set_cosmetic_tag = IBR
+		XBY = { change_tag_from = POR }
+		}
+	}
+	#改革殖民体系
+	focus = {
+		id = POR_gaige_zhimin_tixi
+		icon = GFX_focus_ETH_peacekeeping_forces
+		x = 20
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = POR_yanxu_junshi_ducai
+		has_completed_focus = POR_wangguo_huigui
+		has_completed_focus = POR_geming_shengli
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POR_zhimindi_kongzhi_2
+			remove_idea = POR_zhimindi_kongzhi
+			}
+		}
+	}
+	#殖民教化
+	focus = {
+		id = POR_zhimin_jiaohua
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = POR_gaige_zhimin_tixi }
+		relative_position_id = POR_gaige_zhimin_tixi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_zhimin_jiaohua
+		}
+	}
+	#开启移民策略
+	focus = {
+		id = POR_kaiqi_yimin_celue
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = POR_zhimin_jiaohua }
+		relative_position_id = POR_zhimin_jiaohua
+		mutually_exclusive = { focus = POR_yunxu_zizhi }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 540
+			add_state_core = 796
+			add_state_core = 544
+			add_state_core = 272
+			add_state_core = 1012
+			add_state_core = 891
+			add_state_core = 892
+			add_state_core = 1030
+			add_state_core = 897
+			add_state_core = 1029
+			add_state_core = 896
+			add_state_core = 1028
+		}
+	}
+	#扩大殖民地军队
+	focus = {
+		id = POR_kuoda_zhimindi_jundui
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = POR_gaige_zhimin_tixi }
+		relative_position_id = POR_gaige_zhimin_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_zhimindi_jundui
+		}
+	}
+	#允许自治
+	focus = {
+		id = POR_yunxu_zizhi
+		icon = GFX_focus_por_limited_self_rule
+		prerequisite = { focus = POR_kuoda_zhimindi_jundui }
+		relative_position_id = POR_kuoda_zhimindi_jundui
+		mutually_exclusive = { focus = POR_kaiqi_yimin_celue }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			release_puppet = ANG
+			release_puppet = MZB
+			release_puppet = GNB
+			swap_ideas = {
+			add_idea = POR_zhimindi_jundui_2
+			remove_idea = POR_zhimindi_jundui
+			}
+		}
+	}
+	#建设热带
+	focus = {
+		id = POR_jianshe_redai
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = POR_gaige_zhimin_tixi }
+		prerequisite = { focus = POR_guojia_jingji_jianshe }
+		relative_position_id = POR_gaige_zhimin_tixi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			540 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			796 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			544 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#开发安哥拉
+	focus = {
+		id = POR_kaifa_angela
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = POR_jianshe_redai }
+		relative_position_id = POR_jianshe_redai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			796 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			540 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 8248
+					instant_build = yes
+				}
+
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+
+				add_resource = {
+					type = rubber
+					amount = 4
+				}
+			}
+			892 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#开发莫桑比克
+	focus = {
+		id = POR_kaifa_mosangbike
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = POR_kaifa_angela }
+		relative_position_id = POR_kaifa_angela
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			544 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 2123				
+					instant_build = yes
+				}
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+			896 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			897 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	#国家经济建设
+	focus = {
+		id = POR_guojia_jingji_jianshe
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 27
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = POR_yanxu_junshi_ducai
+		has_completed_focus = POR_wangguo_huigui
+		has_completed_focus = POR_geming_shengli
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#建设基础设施
+	focus = {
+		id = POR_jianshe_jichu_sheshi
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = POR_guojia_jingji_jianshe }
+		relative_position_id = POR_guojia_jingji_jianshe
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			112 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			180 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			795 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#水利发电
+	focus = {
+		id = POR_shuili_fadian
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = POR_jianshe_jichu_sheshi }
+		relative_position_id = POR_jianshe_jichu_sheshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_shuili_fadian
+		}
+	}
+	#扩建国家福利
+	focus = {
+		id = POR_kuojian_guojia_fuli
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = POR_shuili_fadian }
+		relative_position_id = POR_shuili_fadian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_kuojian_guojia_fuli
+		}
+	}
+	#征服天空
+	focus = {
+		id = POR_zhengfu_tiankong
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = POR_guojia_jingji_jianshe }
+		relative_position_id = POR_guojia_jingji_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 2
+				category = air_techs
+				category = air_doctrine
+			}
+		}
+	}
+	#航空材料工业
+	focus = {
+		id = POR_hangkong_cailiao_gongye
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = POR_zhengfu_tiankong }
+		relative_position_id = POR_zhengfu_tiankong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			112 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			179 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#工程材料工业
+	focus = {
+		id = POR_gongcheng_cailiao_gongye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = POR_hangkong_cailiao_gongye }
+		relative_position_id = POR_hangkong_cailiao_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			181 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			180 = {
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#空军培育
+	focus = {
+		id = POR_kongjun_peiyu
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = POR_zhengfu_tiankong }
+		relative_position_id = POR_zhengfu_tiankong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_ideas = POR_air_army
+		}
+	}
+	#保持天空优越
+	focus = {
+		id = POR_baochi_tiankong_youyue
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = POR_kongjun_peiyu }
+		relative_position_id = POR_kongjun_peiyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    swap_ideas = {
+		add_idea = POR_air_army_2
+		remove_idea = POR_air_army
+		}
+		}
+	}
+	#工业现代化
+	focus = {
+		id = POR_gongye_xiandaihua
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = POR_guojia_jingji_jianshe }
+		relative_position_id = POR_guojia_jingji_jianshe
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_gongye_xiandaihua
+		}
+	}
+	#新式工业
+	focus = {
+		id = POR_new_ic
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = POR_gongye_xiandaihua }
+		relative_position_id = POR_gongye_xiandaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POR_gongye_xiandaihua_2
+			remove_idea = POR_gongye_xiandaihua
+			}
+		}
+	}
+	#食品工业
+	focus = {
+		id = POR_shiping_gongye
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = POR_guojia_jingji_jianshe }
+		relative_position_id = POR_guojia_jingji_jianshe
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			179 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			795 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#纺织工业
+	focus = {
+		id = POR_fangzhi_gongye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = POR_shiping_gongye }
+		relative_position_id = POR_shiping_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			112 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			180 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#国家科研大学
+	focus = {
+		id = POR_guojia_keyan_daxue
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = POR_new_ic }
+		prerequisite = { focus = POR_fangzhi_gongye }
+		relative_position_id = POR_fangzhi_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#葡萄牙军队
+	focus = {
+		id = POR_putaoya_army
+		icon = GFX_focus_por_estado_novo
+		x = 27
+		y = 13
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = POR_yanxu_junshi_ducai
+		has_completed_focus = POR_wangguo_huigui
+		has_completed_focus = POR_geming_shengli
+		}
+		}
+		completion_reward = {
+			remove_ideas = POR_unreliable_army
+		}
+	}
+	#陆军整编
+	focus = {
+		id = POR_lujun_zhengbian
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = POR_putaoya_army }
+		relative_position_id = POR_putaoya_army
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_new_army
+		}
+	}
+	#葡萄牙火炮
+	focus = {
+		id = POR_putaoya_huopao
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = POR_lujun_zhengbian }
+		relative_position_id = POR_lujun_zhengbian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_putaoya_huopao
+		}
+	}
+	#优势火力
+	focus = {
+		id = POR_youshi_huoli
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = POR_putaoya_huopao }
+		relative_position_id = POR_putaoya_huopao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POR_putaoya_huopao_2
+			remove_idea = POR_putaoya_huopao
+			}
+		}
+	}
+	#摩托化军队
+	focus = {
+		id = POR_motuohua_jundui
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = POR_lujun_zhengbian }
+		relative_position_id = POR_lujun_zhengbian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_motuohua_jundui
+		}
+	}
+	#后勤革新
+	focus = {
+		id = POR_houqin_gexin
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = POR_motuohua_jundui }
+		relative_position_id = POR_motuohua_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_houqin_gexin
+		}
+	}
+	#装甲科研
+	focus = {
+		id = POR_zhuangjia_keyan
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = POR_youshi_huoli }
+		prerequisite = { focus = POR_houqin_gexin }
+		relative_position_id = POR_houqin_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	#陆军总参谋部
+	focus = {
+		id = POR_lujun_zongcanmoubu
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = POR_lujun_zhengbian }
+		relative_position_id = POR_lujun_zhengbian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_zongcanmoubu
+		}
+	}
+	#边界要塞化
+	focus = {
+		id = POR_bianjie_yaosaihua
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = POR_lujun_zongcanmoubu }
+		relative_position_id = POR_lujun_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			180 = {
+			add_building_construction = {
+				type = bunker
+				province = 6921
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11673
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3892
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 877
+				level = 2
+				instant_build = yes
+			}
+		}
+		795 = {
+			add_building_construction = {
+				type = bunker
+				province = 3886
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3926
+				level = 2
+				instant_build = yes
+			}
+		}
+		181 = {
+			add_building_construction = {
+				type = bunker
+				province = 845
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 938
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3969
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#防范海洋威胁
+	focus = {
+		id = POR_fangfan_haiyang_weixie
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = POR_lujun_zongcanmoubu }
+		relative_position_id = POR_lujun_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		112 = {
+			add_building_construction = {
+				type = bunker
+				province = 11805
+				level = 5
+				instant_build = yes
+			}
+		}
+		180 = {
+			add_building_construction = {
+				type = bunker
+				province = 9817
+				level = 5
+				instant_build = yes
+			}
+		}
+		179 = {
+			add_building_construction = {
+				type = bunker
+				province = 3790
+				level = 5
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#革新海军
+	focus = {
+		id = POR_gexin_haijun
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = POR_putaoya_army }
+		relative_position_id = POR_putaoya_army
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			navy_experience = 100
+		}
+	}
+	#保护贸易线
+	focus = {
+		id = POR_baohu_maoyixian
+		icon = GFX_focus_generic_mine_warfare
+		prerequisite = { focus = POR_gexin_haijun }
+		relative_position_id = POR_gexin_haijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_baohu_maoyixian
+		}
+	}
+    #扩大贸易
+	focus = {
+		id = POR_kuoda_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = POR_baohu_maoyixian }
+		relative_position_id = POR_baohu_maoyixian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POR_baohu_maoyixian_2
+			remove_idea = POR_baohu_maoyixian
+			}
+		}
+	}
+	#扩建造船厂
+	focus = {
+		id = POR_kuojian_zaochuanchang
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = POR_gexin_haijun }
+		relative_position_id = POR_gexin_haijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			112 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			180 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#属于我们的海
+	focus = {
+		id = POR_for_we_sea
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = POR_kuojian_zaochuanchang }
+		relative_position_id = POR_kuojian_zaochuanchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				category = BB_tech
+				category = CV_tech
+			}
+		}
+	}
+	#大西洋壁垒
+	focus = {
+		id = POR_daxiyang_bilei
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = POR_for_we_sea }
+		relative_position_id = POR_for_we_sea
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		698 = {
+			add_building_construction = {
+				type = bunker
+				province = 1751
+				level = 5
+				instant_build = yes
+			}
+		}
+		697 = {
+			add_building_construction = {
+				type = bunker
+				province = 3118
+				level = 5
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#袭击策略
+	focus = {
+		id = POR_xiji_celue
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = POR_baohu_maoyixian }
+		prerequisite = { focus = POR_kuojian_zaochuanchang }
+		relative_position_id = POR_kuojian_zaochuanchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = dd_tech
+			}
+		}
+	}
+	#海洋之子
+	focus = {
+		id = POR_haiyang_zhizi
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = POR_kuoda_maoyi }
+		prerequisite = { focus = POR_xiji_celue }
+		relative_position_id = POR_xiji_celue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POR_sea_son
+		}
+	}
+}

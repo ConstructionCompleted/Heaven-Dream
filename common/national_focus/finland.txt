@@ -1,0 +1,1267 @@
+focus_tree = {
+	id = FIN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FIN
+		}
+	}
+	
+	default = no
+ 
+    #赫尔辛基之火
+	focus = {
+		id = FIN_heerxinji_zhihuo
+		icon = GFX_focus_EST_national_pride_in_finland
+		x = 20
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = FIN_heerxinji_hongjun
+		}
+	}
+	#渗透卡累利阿
+	focus = {
+		id = FIN_shentou_kaleilia
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = FIN_heerxinji_zhihuo}
+		relative_position_id = FIN_heerxinji_zhihuo
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUN = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		RUN = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = FIN
+}
+}
+		}
+	}
+	#芬兰的自由
+	focus = {
+		id = FIN_free_fenlan
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = FIN_heerxinji_zhihuo}
+		relative_position_id = FIN_heerxinji_zhihuo
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+		}
+	}
+	#寻求苏联支持
+	focus = {
+		id = FIN_xunqiu_sulian_zhichi
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = FIN_free_fenlan}
+		relative_position_id = FIN_free_fenlan
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SOV = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 3500
+    target = FIN
+}
+}
+		}
+	}
+	#夺取乡村
+	focus = {
+		id = FIN_duoqu_xiangcun
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = FIN_free_fenlan}
+		relative_position_id = FIN_free_fenlan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_duoqu_xiangcun
+		set_equipment_fraction = 0.25
+		add_manpower = -100000
+		}
+	}
+	#动员人民
+	focus = {
+		id = FIN_dongyuan_renmin
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = FIN_free_fenlan}
+		relative_position_id = FIN_free_fenlan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = war_economy
+		add_ideas = extensive_conscription
+		}
+	}
+	#西苏精神
+	focus = {
+		id = FIN_xisu_jingshen
+		icon = GFX_focus_generic_attack_finland
+		prerequisite = { focus = FIN_free_fenlan}
+		relative_position_id = FIN_free_fenlan
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_sisu_jingshen
+		}
+	}
+	#捍卫拉皮
+	focus = {
+		id = FIN_hanwei_lapi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FIN_xunqiu_sulian_zhichi}
+		prerequisite = { focus = FIN_duoqu_xiangcun}
+		prerequisite = { focus = FIN_dongyuan_renmin}
+		prerequisite = { focus = FIN_xisu_jingshen}
+		relative_position_id = FIN_duoqu_xiangcun
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		 start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 1843
+        num_provinces = 5
+		on_win = holy_beiou.26
+    }
+				
+    defender = {
+        state = 148
+        num_provinces = 5
+    }
+}
+		}
+	}
+	#参与岛屿争端
+	focus = {
+		id = FIN_canyu_daoyu_zhengduan
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = FIN_xunqiu_sulian_zhichi}
+		prerequisite = { focus = FIN_duoqu_xiangcun}
+		prerequisite = { focus = FIN_dongyuan_renmin}
+		prerequisite = { focus = FIN_xisu_jingshen}
+		relative_position_id = FIN_dongyuan_renmin
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#退出联邦
+	focus = {
+		id = FIN_tuichu_lianbang
+		icon = GFX_focus_generic_scandinavia_flags
+		prerequisite = { focus = FIN_hanwei_lapi}
+		prerequisite = { focus = FIN_canyu_daoyu_zhengduan}
+		relative_position_id = FIN_hanwei_lapi
+		mutually_exclusive = { focus = FIN_light_for_beifang }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		add_popularity = {
+    ideology = communism 
+    popularity = -0.1
+}
+		}
+	}
+	#拉普阿的胜利
+	focus = {
+		id = FIN_lapua_shengli
+		icon = GFX_focus_SWI_embrace_panoramaheim
+		prerequisite = { focus = FIN_tuichu_lianbang}
+		relative_position_id = FIN_tuichu_lianbang
+		mutually_exclusive = { focus = FIN_mannahaimu_shengli }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 148
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = fascism  
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = communism 
+    popularity = -0.05
+}
+set_politics = {
+	ruling_party = fascism
+}
+		}
+	}
+	#北方要塞化
+	focus = {
+		id = FIN_beifang_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = FIN_lapua_shengli}
+		relative_position_id = FIN_lapua_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 148
+		}
+		completion_reward = {
+		148 = {
+		add_building_construction = {
+    type = bunker
+    level = 5
+    instant_build = yes
+    province = 11125
+}
+add_building_construction = {
+    type = bunker
+    level = 5
+    instant_build = yes
+    province = 3193
+}
+add_building_construction = {
+    type = bunker
+    level = 5
+    instant_build = yes
+    province = 11115
+}
+add_building_construction = {
+    type = bunker
+    level = 5
+    instant_build = yes
+    province = 11130
+}
+	}
+		}
+	}
+	#北方部队
+	focus = {
+		id = FIN_beifang_budui
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = FIN_beifang_yaosaihua}
+		relative_position_id = FIN_beifang_yaosaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 148
+		}
+		completion_reward = {
+		load_oob = FIN_beifang_budui
+		}
+	}
+	#清算行动
+	focus = {
+		id = FIN_qingsuan_xingdong
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = FIN_lapua_shengli}
+		relative_position_id = FIN_lapua_shengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = communism 
+    popularity = -0.1
+}
+kill_ideology_leader = communism
+		}
+	}
+	#宣传新土地
+	focus = {
+		id = FIN_xuancheng_new_tudi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = FIN_qingsuan_xingdong}
+		relative_position_id = FIN_qingsuan_xingdong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 213
+		add_state_claim = 215
+		add_state_claim = 216
+		add_state_claim = 1383
+		add_state_claim = 1398
+		add_state_claim = 1854
+		}
+	}
+	#大芬兰
+	focus = {
+		id = FIN_big_fenlan
+		icon = GFX_focus_POL_support_global_falangism
+		prerequisite = { focus = FIN_xuancheng_new_tudi}
+		prerequisite = { focus = FIN_beifang_budui}
+		relative_position_id = FIN_xuancheng_new_tudi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#试探卡累利阿
+	focus = {
+		id = FIN_shitan_kaleilia
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = FIN_big_fenlan}
+		relative_position_id = FIN_big_fenlan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		add_state_claim = 213
+		add_state_claim = 215
+		add_state_claim = 216
+		add_state_claim = 1383
+		add_state_claim = 1398
+		add_state_claim = 1854
+		}
+	}
+	#边界战争
+	focus = {
+		id = FIN_bianjie_war
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = FIN_shitan_kaleilia}
+		relative_position_id = FIN_shitan_kaleilia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 722
+        num_provinces = 4
+    }
+				
+    defender = {
+        state = 213
+        num_provinces = 4
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 150
+        num_provinces = 4
+    }
+				
+    defender = {
+        state = 215
+        num_provinces = 4
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 111
+        num_provinces = 4
+    }
+				
+    defender = {
+        state = 146
+        num_provinces = 4
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 147
+        num_provinces = 4
+    }
+				
+    defender = {
+        state = 1383
+        num_provinces = 4
+    }
+}
+		}
+	}
+	#全面进攻
+	focus = {
+		id = FIN_quanmian_zhanzheng
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = FIN_bianjie_war}
+		relative_position_id = FIN_bianjie_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		controls_state = 213
+		controls_state = 215
+		controls_state = 216
+		controls_state = 145
+		controls_state = 1383
+		}
+		}
+		FIN = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		}
+		}
+	}
+	#乌戈尔征服
+	focus = {
+		id = FIN_wugeer_zhengfu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = FIN_quanmian_zhanzheng}
+		relative_position_id = FIN_quanmian_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		controls_state = 13
+		controls_state = 191
+		controls_state = 195
+		controls_state = 244
+		controls_state = 264
+		controls_state = 351
+		controls_state = 214
+		controls_state = 262
+		controls_state = 397
+		}
+		}
+		FIN = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		}
+		}
+	}
+	#曼纳海姆的胜利
+	focus = {
+		id = FIN_mannahaimu_shengli
+		icon = GFX_goal_generic_build_tank
+		mutually_exclusive = { focus = FIN_lapua_shengli }
+		prerequisite = { focus = FIN_tuichu_lianbang}
+		relative_position_id = FIN_tuichu_lianbang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = neutrality  
+    popularity = 0.2
+}
+add_popularity = {
+    ideology = fascism
+    popularity = -0.2
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#曼纳海姆防线
+	focus = {
+		id = FIN_mannahaimu_fangxian
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = FIN_mannahaimu_shengli}
+		relative_position_id = FIN_mannahaimu_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		111 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 52
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6186
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6082
+}
+	}
+	150 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 139
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3030
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9181
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6210
+}
+	}
+		}
+	}
+	#战士的领袖
+	focus = {
+		id = FIN_zhanshi_leaders
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = FIN_mannahaimu_fangxian}
+		relative_position_id = FIN_mannahaimu_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_zhanshi_leaders
+		}
+	}
+	#芬兰骑兵
+	focus = {
+		id = FIN_fenlan_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = FIN_mannahaimu_shengli}
+		relative_position_id = FIN_mannahaimu_shengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_fenlan_qibing
+		}
+	}
+	#推动民主化
+	focus = {
+		id = FIN_tuidong_minzhuhua
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = FIN_fenlan_qibing}
+		relative_position_id = FIN_fenlan_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = democratic   
+    popularity = 0.2
+}
+		}
+	}
+	#恪守中立
+	focus = {
+		id = FIN_keshou_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = FIN_zhanshi_leaders}
+		prerequisite = { focus = FIN_tuidong_minzhuhua}
+		relative_position_id = FIN_tuidong_minzhuhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#扩建防线
+	focus = {
+		id = FIN_kuojian_fangxian
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = FIN_keshou_zhongli}
+		relative_position_id = FIN_keshou_zhongli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		147 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9158
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 147
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11085
+}
+	}
+	148 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6128
+    }
+}
+	722 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6012
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6183
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9140
+}
+	}
+		}
+	}
+	#南北铁路
+	focus = {
+		id = FIN_nanbei_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = FIN_kuojian_fangxian}
+		relative_position_id = FIN_kuojian_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		148 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			150 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			111 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#防空火力
+	focus = {
+		id = FIN_fangkonghuoli
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = FIN_nanbei_tielu}
+		relative_position_id = FIN_nanbei_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		148 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 2
+    instant_build = yes
+}
+			}
+			150 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 2
+    instant_build = yes
+}
+			}
+			111 = {
+			add_building_construction = {
+    type = anti_air_building
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#守卫者
+	focus = {
+		id = FIN_shouweizhe
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = FIN_fangkonghuoli}
+		relative_position_id = FIN_fangkonghuoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = FIN_zhanshi_leaders_2
+		remove_idea = FIN_zhanshi_leaders
+		}
+		}
+	}
+	#芬兰工业化
+	focus = {
+		id = FIN_fenlan_gongyehua
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = FIN_big_fenlan focus = FIN_keshou_zhongli }
+		relative_position_id = FIN_big_fenlan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#开发矿产
+	focus = {
+		id = FIN_kaifa_kuangchan
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = FIN_fenlan_gongyehua }
+		relative_position_id = FIN_fenlan_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = steel
+    amount = 50
+    state = 111
+}
+		}
+	}
+	#芬兰机械化
+	focus = {
+		id = FIN_fenlan_jixiehua
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = FIN_kaifa_kuangchan }
+		relative_position_id = FIN_kaifa_kuangchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		111 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#芬兰教育体系
+	focus = {
+		id = FIN_fenlan_jiaoyu_tixi
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = FIN_fenlan_jixiehua }
+		prerequisite = { focus = FIN_jieneng_shenghuo }
+		relative_position_id = FIN_fenlan_jixiehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#利用森林
+	focus = {
+		id = FIN_liyong_senlin
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = FIN_fenlan_gongyehua }
+		relative_position_id = FIN_fenlan_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_liyong_senlin
+		}
+	}
+	#节能生活
+	focus = {
+		id = FIN_jieneng_shenghuo
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = FIN_liyong_senlin }
+		relative_position_id = FIN_liyong_senlin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = FIN_liyong_senlin_2
+		remove_idea = FIN_liyong_senlin
+		}
+		}
+	}
+	#光自北方来
+	focus = {
+		id = FIN_light_for_beifang
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = FIN_hanwei_lapi}
+		prerequisite = { focus = FIN_canyu_daoyu_zhengduan}
+		relative_position_id = FIN_hanwei_lapi
+		mutually_exclusive = { focus = FIN_tuichu_lianbang }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		add_popularity = {
+    ideology = communism 
+    popularity = 0.2
+}
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 192
+						region = 10
+						}
+					}
+add_claim_by = FIN
+		}
+		add_state_claim = 101
+		add_state_claim = 100
+		add_state_claim = 337
+		add_state_claim = 145
+		add_state_claim = 124
+		add_state_claim = 38
+		add_state_claim = 99
+		add_state_claim = 1824
+		add_state_claim = 1041
+		remove_state_claim = 213
+		remove_state_claim = 1854
+		remove_state_claim = 1398
+		remove_state_claim = 1854
+		remove_state_claim = 146
+		}
+	}
+	#寻求苏联援助
+	focus = {
+		id = FIN_xunqiu_sov_yuanzhu
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = FIN_light_for_beifang}
+		relative_position_id = FIN_light_for_beifang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#国际援芬志愿军
+	focus = {
+		id = FIN_guoji_yuanfen_zhiyuanjun
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = FIN_xunqiu_sov_yuanzhu}
+		relative_position_id = FIN_xunqiu_sov_yuanzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = FIN_guoji_zhiyuanjun
+		}
+	}
+	#击溃纸老虎
+	focus = {
+		id = FIN_jikui_paper_tiger
+		icon = GFX_focus_generic_attack_sweden
+		prerequisite = { focus = FIN_light_for_beifang}
+		relative_position_id = FIN_light_for_beifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+		}
+	}
+	#动员瑞典人民
+	focus = {
+		id = FIN_dongyuan_ruidian_renmin
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = FIN_jikui_paper_tiger}
+		relative_position_id = FIN_jikui_paper_tiger
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 141
+		}
+		completion_reward = {
+		load_oob = FIN_swe_dongyuan
+		}
+	}
+	#挪威军事行动
+	focus = {
+		id = FIN_nuowei_junshixingdong
+		icon = GFX_focus_generic_attack_norway
+		prerequisite = { focus = FIN_jikui_paper_tiger}
+		relative_position_id = FIN_jikui_paper_tiger
+		x = -2
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+		}
+	}
+	#动员挪威人民
+	focus = {
+		id = FIN_dongyuan_nuowei_renmin
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = FIN_nuowei_junshixingdong}
+		relative_position_id = FIN_nuowei_junshixingdong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 110
+		}
+		completion_reward = {
+		load_oob = FIN_noe_dongyuan
+		}
+	}
+	#丹麦军事行动
+	focus = {
+		id = FIN_danmai_junshixingdong
+		icon = GFX_focus_generic_attack_denmark
+		prerequisite = { focus = FIN_jikui_paper_tiger}
+		relative_position_id = FIN_jikui_paper_tiger
+		x = 2
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = DEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = ICE
+    type = annex_everything
+}
+		}
+	}
+	#动员丹麦人民
+	focus = {
+		id = FIN_dongyuan_danmai_renmin
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = FIN_danmai_junshixingdong}
+		relative_position_id = FIN_danmai_junshixingdong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 37
+		}
+		completion_reward = {
+		load_oob = FIN_den_dongyuan
+		}
+	}
+	#北欧再统一
+	focus = {
+		id = FIN_beiou_zaitongyi
+		icon = GFX_focus_generic_scandinavian_alliance
+		prerequisite = { focus = FIN_dongyuan_danmai_renmin}
+		prerequisite = { focus = FIN_dongyuan_nuowei_renmin}
+		relative_position_id = FIN_dongyuan_danmai_renmin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SWE = {
+		exists = no
+		}
+		NOR = {
+		exists = no
+		}
+		KEM = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = DEN
+    transfer_troops = yes
+}
+annex_country = {
+    target = ICE
+    transfer_troops = yes
+}
+		every_state = {
+					limit = {
+					OR = {
+						region = 11
+						region = 191
+						region = 13
+						region = 12
+						region = 247
+						region = 192
+						region = 10
+						}
+					}
+add_core_of = FIN
+		}
+		add_state_core = 101
+		add_state_core = 100
+		add_state_core = 337
+		add_state_core = 145
+		add_state_core = 124
+		add_state_core = 38
+		add_state_core = 99
+		add_state_core = 1824
+		add_state_core = 1041
+		remove_state_core = 213
+		remove_state_core = 1854
+		remove_state_core = 1398
+		remove_state_core = 1854
+		remove_state_core = 146
+		load_focus_tree = { tree = KEM_new keep_completed = no }
+		set_cosmetic_tag = KEM
+		    hidden_effect = { KEM = { set_cosmetic_tag = KEM } }
+		}
+	}
+	#红色兵工厂
+	focus = {
+		id = FIN_red_binggongchang
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = FIN_light_for_beifang}
+		relative_position_id = FIN_light_for_beifang
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		111 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#劳动者的力量
+	focus = {
+		id = FIN_laodongzhe_liliang
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = FIN_red_binggongchang}
+		relative_position_id = FIN_red_binggongchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FIN_laodongzhe_liliang
+		}
+	}
+}

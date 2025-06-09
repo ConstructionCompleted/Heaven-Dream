@@ -1,0 +1,301 @@
+focus_tree = {
+	id = AIU_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AIU
+		}
+	}
+	
+	default = no
+ 
+    #阿伊努的未来
+	focus = {
+		id = AIU_ayinu_weilai
+		icon = GFX_focus_spr_crush_the_revolution
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#接纳外来者
+	focus = {
+		id = AIU_jiena_wailaizhe
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = AIU_ayinu_weilai}
+		relative_position_id = AIU_ayinu_weilai
+		mutually_exclusive = { focus = AIU_fandui_wailaizhe }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = AIU_sixiang_huchi
+		}
+	}
+	#札幌经济圈
+	focus = {
+		id = AIU_lihuang_jingji_quan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = AIU_jiena_wailaizhe}
+		relative_position_id = AIU_jiena_wailaizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_gongye_wenti
+    add_idea = AIU_gongye_wenti_2
+}
+		}
+	}
+	#工业开发
+	focus = {
+		id = AIU_gongye_kaifa
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = AIU_lihuang_jingji_quan}
+		relative_position_id = AIU_lihuang_jingji_quan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_gongye_wenti_2
+    add_idea = AIU_gongye_wenti_3
+}
+		}
+	}
+	#现代化建设
+	focus = {
+		id = AIU_xiandaihua_jianshe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = AIU_gongye_kaifa}
+		relative_position_id = AIU_gongye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_gongye_wenti_3
+    add_idea = AIU_gongye_wenti_4
+}
+		}
+	}
+	#多民族军队
+	focus = {
+		id = AIU_duominzu_army
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = AIU_jiena_wailaizhe}
+		relative_position_id = AIU_jiena_wailaizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_minzu_wenti
+    add_idea = AIU_minzu_wenti_2
+}
+		}
+	}
+	#协调组织
+	focus = {
+		id = AIU_xietiao_zuzhi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = AIU_duominzu_army}
+		relative_position_id = AIU_duominzu_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_minzu_wenti_2
+    add_idea = AIU_minzu_wenti_3
+}
+		}
+	}
+	#北部要塞
+	focus = {
+		id = AIU_beibu_yaosai
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = AIU_xietiao_zuzhi}
+		relative_position_id = AIU_xietiao_zuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			536 = {
+			add_building_construction = {
+				type = bunker
+				province = 3962
+				level = 4
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#反对外来者
+	focus = {
+		id = AIU_fandui_wailaizhe
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = AIU_ayinu_weilai}
+		relative_position_id = AIU_ayinu_weilai
+		mutually_exclusive = { focus = AIU_jiena_wailaizhe }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = AIU_sixiang_huchi
+		}
+	}
+	#摧毁工业
+	focus = {
+		id = AIU_cuihui_gongye
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = AIU_fandui_wailaizhe}
+		relative_position_id = AIU_fandui_wailaizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_gongye_wenti
+    add_idea = AIU_cuihui_gongye
+}
+		}
+	}
+	#驱逐和人
+	focus = {
+		id = AIU_quzhu_heren
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = AIU_cuihui_gongye}
+		relative_position_id = AIU_cuihui_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_cuihui_gongye_2
+    add_idea = AIU_cuihui_gongye_3
+}
+        536 = {
+		add_manpower = -200000
+		}
+		}
+	}
+	#封闭国家
+	focus = {
+		id = AIU_fengbi_guojia
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = AIU_quzhu_heren}
+		relative_position_id = AIU_quzhu_heren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_cuihui_gongye_3
+    add_idea = AIU_cuihui_gongye_4
+}
+		}
+	}
+	#雕刻的历史
+	focus = {
+		id = AIU_diaoke_lishi
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = AIU_fandui_wailaizhe}
+		relative_position_id = AIU_fandui_wailaizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_minzu_wenti
+    add_idea = AIU_diaoke_lishi
+}
+		}
+	}
+	#万物有灵
+	focus = {
+		id = AIU_wanwu_youling
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = AIU_diaoke_lishi}
+		relative_position_id = AIU_diaoke_lishi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_diaoke_lishi
+    add_idea = AIU_diaoke_lishi_2
+}
+		}
+	}
+	#祭祀
+	focus = {
+		id = AIU_jisi
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = AIU_wanwu_youling}
+		relative_position_id = AIU_wanwu_youling
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+    remove_idea = AIU_diaoke_lishi_2
+    add_idea = AIU_diaoke_lishi_3
+}
+		}
+	}
+}

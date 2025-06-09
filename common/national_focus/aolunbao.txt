@@ -1,0 +1,211 @@
+focus_tree = {
+	id = URL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = URL
+		}
+	}
+	
+	default = no
+ 
+    #奥伦堡铁骑
+	focus = {
+		id = URL_aolunbao_tieqi
+		icon = GFX_goal_generic_cavalry
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#突袭马格尼托哥尔斯克
+	focus = {
+		id = URL_tuxi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = URL_aolunbao_tieqi}
+		relative_position_id = URL_aolunbao_tieqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        transfer_state = 582
+		transfer_state = 1351
+		}
+	}
+	#奥伦堡军工
+	focus = {
+		id = URL_aolunbao_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = URL_aolunbao_tieqi}
+		relative_position_id = URL_aolunbao_tieqi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = URL_wuzhaung_quefa
+		}
+	}
+	#收拢高尔察克残军
+	focus = {
+		id = URL_shoulong_gaoerchake_canjun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = URL_aolunbao_tieqi}
+		relative_position_id = URL_aolunbao_tieqi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = URL_gaoerchake_canjun
+		}
+	}
+	#南方突袭
+	focus = {
+		id = URL_nanfang_tuxi
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = URL_shoulong_gaoerchake_canjun}
+		prerequisite = { focus = URL_tuxi}
+		prerequisite = { focus = URL_aolunbao_jungong}
+		relative_position_id = URL_tuxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+		}
+	}
+	#劫掠集体农庄
+	focus = {
+		id = URL_jielue_jitinongzhuang
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = URL_nanfang_tuxi}
+		relative_position_id = URL_nanfang_tuxi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		KAZ = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#招募小玉兹叛军
+	focus = {
+		id = URL_zhaomu_panjun
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = URL_nanfang_tuxi}
+		relative_position_id = URL_nanfang_tuxi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = URL_zhaomu_paijun
+		}
+	}
+	#反共宣传
+	focus = {
+		id = URL_fangong_xuanchuan
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = URL_nanfang_tuxi}
+		relative_position_id = URL_nanfang_tuxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = communism
+    popularity = -0.25
+}
+add_popularity = {
+    ideology = socialism
+    popularity = -0.25
+}
+		}
+	}
+	#哈萨克之主
+	focus = {
+		id = URL_jinjun_zhongyuzi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = URL_jielue_jitinongzhuang}
+		prerequisite = { focus = URL_zhaomu_panjun}
+		prerequisite = { focus = URL_fangong_xuanchuan}
+		relative_position_id = URL_fangong_xuanchuan
+		available = {
+		KAZ = {
+		exists = no
+		}
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		is_core_of = ARS
+		}
+		add_core_of = URL
+		}
+		}
+	}
+	#哥萨克帝国
+	focus = {
+		id = URL_gesake_diguo
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = URL_jinjun_zhongyuzi}
+		relative_position_id = URL_jinjun_zhongyuzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = KAZ
+		has_war_with = ARS
+		}
+		is_puppet = no
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+}

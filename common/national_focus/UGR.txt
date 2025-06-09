@@ -1,0 +1,4056 @@
+focus_tree = {
+	id = UGR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UGR
+		}
+	}
+	
+	default = no
+	#1848梦想！
+	focus = {
+		id = UGR_1848_dream
+		icon = GFX_focus_ger_revive_kaiserreich
+		x = 35
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	#德意志兰大开发
+	focus = {
+		id = UGR_deyizhilian_dakaifa
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = UGR_1848_dream}
+		relative_position_id = UGR_1848_dream
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gongye_dageming_2
+			remove_idea = UGR_gongye_dageming
+			}
+		}
+	}
+	#汉萨贸易核心
+	focus = {
+		id = UGR_hansa_maoyi_hexin
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = UGR_deyizhilian_dakaifa}
+		relative_position_id = UGR_deyizhilian_dakaifa
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_hansa_maoyi_hexin
+			950 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			58 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#低地航行
+	focus = {
+		id = UGR_didi_hangxing
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = UGR_hansa_maoyi_hexin}
+		relative_position_id = UGR_hansa_maoyi_hexin
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_didi_hangxing
+			7 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			934 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#汉诺威军工
+	focus = {
+		id = UGR_hannuowei_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = UGR_hansa_maoyi_hexin}
+		relative_position_id = UGR_hansa_maoyi_hexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_hannuowei_jungong
+			59 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			56 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#莱茵兰工业化
+	focus = {
+		id = UGR_laiyinlan_gongyehua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = UGR_hannuowei_jungong}
+		prerequisite = { focus = UGR_didi_hangxing}
+		relative_position_id = UGR_didi_hangxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_laiyinlan_gongyehua
+			51 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			42 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#洛林边疆军事化
+	focus = {
+		id = UGR_luolin_bianjiang_junshihua
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = UGR_laiyinlan_gongyehua}
+		relative_position_id = UGR_laiyinlan_gongyehua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 28
+		controls_state = 1821
+		}
+		completion_reward = {
+			add_ideas = UGR_luolin_bianjiang_junshihua
+			28 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			1821 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#符腾堡黄金水道
+	focus = {
+		id = UGR_futengbao_huangjin_shuidao
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = UGR_laiyinlan_gongyehua}
+		relative_position_id = UGR_laiyinlan_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_futengbao_huangjin_shuidao
+			28 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			1821 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#勃兰登堡行政中心
+	focus = {
+		id = UGR_bolandengbao_xingzhengzhongxin
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = UGR_hansa_maoyi_hexin}
+		relative_position_id = UGR_hansa_maoyi_hexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_bolandengbao_xingzhengzhongxin
+			64 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			940 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#萨克森资本
+	focus = {
+		id = UGR_sakesen_ziben
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = UGR_hannuowei_jungong}
+		prerequisite = { focus = UGR_bolandengbao_xingzhengzhongxin}
+		relative_position_id = UGR_hannuowei_jungong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_sakesen_ziben
+			65 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			941 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#瑞士要塞化
+	focus = {
+		id = UGR_ruishi_yaosaihua
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = UGR_futengbao_huangjin_shuidao }
+		prerequisite = { focus = UGR_luolin_bianjiang_junshihua }
+		relative_position_id = UGR_luolin_bianjiang_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_ruishi_yaosaihua
+			3 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			151 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#巴伐利亚啤酒
+	focus = {
+		id = UGR_bafaliya_pijiu
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = UGR_sakesen_ziben}
+		relative_position_id = UGR_sakesen_ziben
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_bafaliya_pijiu
+			54 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			52 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#普鲁士农业
+	focus = {
+		id = UGR_pulushi_nongye
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = UGR_hansa_maoyi_hexin}
+		relative_position_id = UGR_hansa_maoyi_hexin
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_pulushi_nongye
+			763 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			1541 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 4
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西里西亚纺织业
+	focus = {
+		id = UGR_xilixiya_fangzhiye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = UGR_pulushi_nongye}
+		prerequisite = { focus = UGR_bolandengbao_xingzhengzhongxin}
+		relative_position_id = UGR_pulushi_nongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_xilixiya_fangzhiye
+			66 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			942 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#波西米亚学院
+	focus = {
+		id = UGR_boximiya_xueyuan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = UGR_xilixiya_fangzhiye}
+		relative_position_id = UGR_xilixiya_fangzhiye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_boximiya_xueyuan
+			add_research_slot = 1
+		}
+	}
+	#奥地利艺术
+	focus = {
+		id = UGR_aodili_yishu
+		icon = GFX_focus_ARG_defense_and_democracy
+		prerequisite = { focus = UGR_bafaliya_pijiu }
+		prerequisite = { focus = UGR_boximiya_xueyuan }
+		relative_position_id = UGR_boximiya_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_aodili_yishu
+			4 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+    level = 4
+    instant_build = yes
+}
+			}
+		}
+	}
+	#大经济体系
+	focus = {
+		id = UGR_dajingji_tixi
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = UGR_deyizhilian_dakaifa }
+		relative_position_id = UGR_deyizhilian_dakaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gongye_dageming_3
+			remove_idea = UGR_gongye_dageming_2
+			}
+		}
+	}
+	#德意志高速公路
+	focus = {
+		id = UGR_deyizhi_gaosu_gonglu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = UGR_dajingji_tixi }
+		relative_position_id = UGR_dajingji_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_deyizhi_liantong
+		}
+	}
+	#工业技术革新
+	focus = {
+		id = UGR_gongye_jishu_gexin
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = UGR_deyizhi_gaosu_gonglu }
+		relative_position_id = UGR_deyizhi_gaosu_gonglu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gongye_dageming_4
+			remove_idea = UGR_gongye_dageming_3
+			}
+		}
+	}
+	#改革生产线
+	focus = {
+		id = UGR_gaige_shengchanxian
+		icon = GFX_focus_DEN_no_regulations
+		prerequisite = { focus = UGR_gongye_jishu_gexin }
+		relative_position_id = UGR_gongye_jishu_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gongye_dageming_5
+			remove_idea = UGR_gongye_dageming_4
+			}
+		}
+	}
+	#完成国家联通
+	focus = {
+		id = UGR_wancheng_guojia_liantong
+		icon = GFX_focus_NORDIC_dem_capstone_civilian
+		prerequisite = { focus = UGR_deyizhi_gaosu_gonglu }
+		relative_position_id = UGR_deyizhi_gaosu_gonglu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_deyizhi_liantong_2
+			remove_idea = UGR_deyizhi_liantong
+			}
+		}
+	}
+	#汽车上路
+	focus = {
+		id = UGR_qiche_shanglu
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = UGR_wancheng_guojia_liantong }
+		relative_position_id = UGR_wancheng_guojia_liantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_deyizhi_liantong_3
+			remove_idea = UGR_deyizhi_liantong_2
+			}
+			add_resource = {
+    type = rubber
+    amount = 30
+    state = 58
+}
+add_resource = {
+    type = rubber
+    amount = 30
+    state = 950
+}
+		}
+	}
+	#煤钢联合体
+	focus = {
+		id = UGR_meigang_lianheti
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = UGR_gaige_shengchanxian }
+		prerequisite = { focus = UGR_qiche_shanglu }
+		relative_position_id = UGR_qiche_shanglu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gongye_dageming_6
+			remove_idea = UGR_gongye_dageming_5
+			}
+		}
+	}
+	#欧洲经济同盟
+	focus = {
+		id = UGR_ouzhou_jingji_tongmeng
+		icon = GFX_focus_NORDIC_com_capstone_materiel
+		prerequisite = { focus = UGR_meigang_lianheti }
+		relative_position_id = UGR_meigang_lianheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FRA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		RSC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SAD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		VNC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		MLA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		UKM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		EGL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ELB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		WLS = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SCL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SCO = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		IRE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NIR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		IRP = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		CAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		UKH = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		POR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XBY = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		CSP = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		GLD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XTZ = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		DKL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SER = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XYL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SLO = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		TRA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		YUM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NWM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BYT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		GRE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BUL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ALB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		WAL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		MOL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		DEN = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ICE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		KEM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		FIN = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SWE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NOR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		EST = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		LAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		LIT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+			is_puppet_of = UGR
+			}
+			add_ideas = UGR_jingji_lianheti
+			}
+		}
+	}
+	#欧罗巴团结
+	focus = {
+		id = UGR_ouluoba_tuanjie
+		icon = GFX_focus_usa_focus_on_europe
+		prerequisite = { focus = UGR_1848_dream}
+		relative_position_id = UGR_1848_dream
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_ouzhou_tuanjie_dream_2
+			remove_idea = UGR_ouzhou_tuanjie_dream
+			}
+		}
+	}
+	#军队革新方案
+	focus = {
+		id = UGR_jundui_gexin_fangan
+		icon = GFX_focus_FIN_weapon_caches
+		prerequisite = { focus = UGR_ouluoba_tuanjie }
+		prerequisite = { focus = UGR_deyizhilian_dakaifa }
+		relative_position_id = UGR_ouluoba_tuanjie
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_juntuan_2
+			remove_idea = UGR_gonghe_juntuan
+			}
+		}
+	}
+	#征服蓝天
+	focus = {
+		id = UGR_zhengfu_lantian
+		icon = GFX_focus_FIN_weapon_caches
+		prerequisite = { focus = UGR_jundui_gexin_fangan }
+		relative_position_id = UGR_jundui_gexin_fangan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_zhengfu_lantian
+		}
+	}
+	#空军建设
+	focus = {
+		id = UGR_kongjun_jianshe
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = UGR_zhengfu_lantian }
+		relative_position_id = UGR_zhengfu_lantian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhengfu_lantian_2
+			remove_idea = UGR_zhengfu_lantian
+			}
+		}
+	}
+	#战术支援
+	focus = {
+		id = UGR_zhanshu_zhiyuan
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = UGR_kongjun_jianshe }
+		relative_position_id = UGR_kongjun_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhengfu_lantian_3
+			remove_idea = UGR_zhengfu_lantian_2
+			}
+		}
+	}
+	#战略轰炸
+	focus = {
+		id = UGR_zhanlue_hongzha
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = UGR_zhanshu_zhiyuan }
+		relative_position_id = UGR_zhanshu_zhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhengfu_lantian_4
+			remove_idea = UGR_zhengfu_lantian_3
+			}
+		}
+	}
+	#扩建军事学院
+	focus = {
+		id = UGR_kuojian_junshixueyuan
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = UGR_jundui_gexin_fangan }
+		relative_position_id = UGR_jundui_gexin_fangan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_juntuan_3
+			remove_idea = UGR_gonghe_juntuan_2
+			}
+		}
+	}
+	#精锐化军团
+	focus = {
+		id = UGR_jingruihua_juntuan
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = UGR_kuojian_junshixueyuan }
+		relative_position_id = UGR_kuojian_junshixueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_juntuan_4
+			remove_idea = UGR_gonghe_juntuan_3
+			}
+		}
+	}
+	#特种军团
+	focus = {
+		id = UGR_tezhongjuntuan
+		icon = GFX_focus_ICE_expanding_the_university_of_reykjavik
+		prerequisite = { focus = UGR_jingruihua_juntuan }
+		relative_position_id = UGR_jingruihua_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_juntuan_5
+			remove_idea = UGR_gonghe_juntuan_4
+			}
+		}
+	}
+	#适应训练
+	focus = {
+		id = UGR_shiying_xunlian
+		icon = GFX_focus_FIN_sissi
+		prerequisite = { focus = UGR_tezhongjuntuan }
+		relative_position_id = UGR_tezhongjuntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_juntuan_6
+			remove_idea = UGR_gonghe_juntuan_5
+			}
+		}
+	}
+	#装甲开发
+	focus = {
+		id = UGR_zhuangjia_kaifa
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = UGR_jundui_gexin_fangan }
+		relative_position_id = UGR_jundui_gexin_fangan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_zhuangbei_yanfa
+		}
+	}
+	#大规模机械化
+	focus = {
+		id = UGR_daguimo_jixiehua
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = UGR_zhuangjia_kaifa }
+		relative_position_id = UGR_zhuangjia_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhuangbei_yanfa_2
+			remove_idea = UGR_zhuangbei_yanfa
+			}
+		}
+	}
+	#后勤现代化
+	focus = {
+		id = UGR_houqin_xiandaihua
+		icon = GFX_focus_BRA_rubber_war
+		prerequisite = { focus = UGR_daguimo_jixiehua }
+		relative_position_id = UGR_daguimo_jixiehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhuangbei_yanfa_3
+			remove_idea = UGR_zhuangbei_yanfa_2
+			}
+		}
+	}
+	#战术革新
+	focus = {
+		id = UGR_zhanshu_gexin
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = UGR_houqin_xiandaihua }
+		relative_position_id = UGR_houqin_xiandaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_zhuangbei_yanfa_4
+			remove_idea = UGR_zhuangbei_yanfa_3
+			}
+		}
+	}
+	#联合梦想
+	focus = {
+		id = UGR_lianhe_mengxiang
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = UGR_ouluoba_tuanjie }
+		relative_position_id = UGR_ouluoba_tuanjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_ouzhou_tuanjie_dream_3
+			remove_idea = UGR_ouzhou_tuanjie_dream_2
+			}
+		}
+	}
+	#民主同盟
+	focus = {
+		id = UGR_minzhu_tongmeng
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = UGR_lianhe_mengxiang }
+		relative_position_id = UGR_lianhe_mengxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			dismantle_faction = yes
+			add_political_power = 100
+			create_faction = minzhu_tongmeng
+		}
+	}
+	#扩大地方控制
+	focus = {
+		id = UGR_kuoda_difang_kongzhi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = UGR_minzhu_tongmeng }
+		relative_position_id = UGR_minzhu_tongmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_gonghe_xinsheng
+		}
+	}
+	#建立联合指挥
+	focus = {
+		id = UGR_jianli_lianhe_zhenghui
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = UGR_kuoda_difang_kongzhi }
+		relative_position_id = UGR_kuoda_difang_kongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = UGR_gonghe_xinsheng_2
+			remove_idea = UGR_gonghe_xinsheng
+			}
+		}
+	}
+	#整合加盟国
+	focus = {
+		id = UGR_zhenghe_jiamengguo
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = UGR_jianli_lianhe_zhenghui }
+		relative_position_id = UGR_jianli_lianhe_zhenghui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#摧毁极端思潮
+	focus = {
+		id = UGR_cuihui_jiduan_sichao
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = UGR_lianhe_mengxiang }
+		relative_position_id = UGR_lianhe_mengxiang
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#授予战争权力
+	focus = {
+		id = UGR_shouyu_zhanzheng_quanli
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = UGR_cuihui_jiduan_sichao }
+		relative_position_id = UGR_cuihui_jiduan_sichao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_zhanzheng_quanli
+		}
+	}
+	#统合改良主义
+	focus = {
+		id = UGR_tonghe_gailiangzhuyi
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = UGR_shouyu_zhanzheng_quanli }
+		relative_position_id = UGR_shouyu_zhanzheng_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = UGR_tonghe_gailiangzhuyi
+		}
+	}
+	#联合西欧
+	focus = {
+		id = UGR_lianhe_xiou
+		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
+		prerequisite = { focus = UGR_minzhu_tongmeng }
+		prerequisite = { focus = UGR_cuihui_jiduan_sichao }
+		relative_position_id = UGR_minzhu_tongmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			FRA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			UKM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			EGL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ELB = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			WLS = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SCL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SCO = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			IRE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			NIR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			IRP = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+		}
+	}
+	#联合南欧
+	focus = {
+		id = UGR_lianhe_nanou
+		icon = GFX_focus_ITA_mare_nostrum
+		prerequisite = { focus = UGR_lianhe_xiou }
+		relative_position_id = UGR_lianhe_xiou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			ITA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ITB = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RSC = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SAD = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			VNC = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			MLA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ITC = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ITD = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			XTZ = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			GLD = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			CSP = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			XBY = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			POR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			UKH = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			CAT = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+		}
+	}
+	#联合北欧
+	focus = {
+		id = UGR_lianhe_beiou
+		icon = GFX_focus_SWE_the_nordic_decentralized_nordic_army_command
+		prerequisite = { focus = UGR_minzhu_tongmeng }
+		prerequisite = { focus = UGR_cuihui_jiduan_sichao }
+		relative_position_id = UGR_minzhu_tongmeng
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			DEN = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ICE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			KEM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			FIN = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SWE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			NOR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BLD = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			EST = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			LAT = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			LIT = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+		}
+	}
+	#联合东欧
+	focus = {
+		id = UGR_lianhe_dongou
+		icon = GFX_focus_POL_belarus_army
+		prerequisite = { focus = UGR_lianhe_beiou }
+		relative_position_id = UGR_lianhe_beiou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			BLA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BLC = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BLR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			MOL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			WAL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			ALB = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BUL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			GRE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BYT = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			NWM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			DKL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SER = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			XYL = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SLO = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			TRA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			YUM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BAT = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+		}
+	}
+	#泛欧战争
+	focus = {
+		id = UGR_fanou_zhanzheng
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = UGR_lianhe_nanou }
+		prerequisite = { focus = UGR_lianhe_dongou }
+		prerequisite = { focus = UGR_tonghe_gailiangzhuyi }
+		relative_position_id = UGR_lianhe_dongou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			SOV	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			POA = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			KZN = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RUN = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RNN = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RNE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RNW = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			create_wargoal = {
+    type = puppet_wargoal_focus
+    target = GSK
+}
+			NVG = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RUS = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RUD = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			RUJ = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			KLM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			NCC = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			CHE = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			DRG = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			CRM = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BUK = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			DKS = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			UKR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			UNR = {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			TRS	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SVN	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			PRM	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			KRL	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			TRS	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SBG	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BMO	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SRU	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SBP	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SBN	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SBR	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			SBC	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			MGD	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			YAK	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+			BRY	= {
+			limit = {
+			OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+			country_event = {
+    id = holy_german.3
+    days = 3
+}
+limit = {
+NOT = {
+OR = {
+			has_government = democratic
+			has_government = progressism
+			has_government = conservatism
+			}
+			}
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PREV
+}
+			}
+		}
+	}
+	#欧洲军事同盟
+	focus = {
+		id = UGR_ouzhou_junshi_tongmeng
+		icon = GFX_focus_NORDIC_com_selector_civilian
+		prerequisite = { focus = UGR_fanou_zhanzheng }
+		prerequisite = { focus = UGR_zhenghe_jiamengguo }
+		relative_position_id = UGR_fanou_zhanzheng
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FRA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		RSC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SAD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		VNC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		MLA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ITD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		UKM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		EGL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ELB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		WLS = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SCL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SCO = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		IRE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NIR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		IRP = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		CAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		UKH = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		POR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XBY = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		CSP = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		GLD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XTZ = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		DKL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SER = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		XYL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SLO = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		TRA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		YUM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NWM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BYT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		GRE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BUL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ALB = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		WAL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		MOL = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		DEN = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		ICE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		KEM = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		FIN = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		SWE = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		NOR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLR = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLA = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLC = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		BLD = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		EST = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		LAT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		LIT = {
+		OR = {
+		exists = no
+		is_in_faction_with = UGR
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+			is_puppet_of = UGR
+			}
+			add_ideas = UGR_junshi_lianheti
+			}
+		}
+	}
+	#欧罗巴联合之梦
+	focus = {
+		id = UGR_ouluoba_lianhe_zhimeng
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		prerequisite = { focus = UGR_ouzhou_junshi_tongmeng }
+		prerequisite = { focus = UGR_ouzhou_jingji_tongmeng }
+		relative_position_id = UGR_ouzhou_junshi_tongmeng
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_cosmetic_tag = EUR_UNIFIED
+		news_event = {
+    id = holy_news.140
+}
+		}
+	}
+}

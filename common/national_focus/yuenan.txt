@@ -1,0 +1,1322 @@
+focus_tree = {
+	id = VIN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = VIN
+		}
+	}
+	
+	default = no
+ 
+    #革命的烈焰
+	focus = {
+		id = VIN_geming_lieyan
+		icon = GFX_goal_support_communism
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = VIN_fanfa_zhanzheng
+			add_ideas = VIN_youji_zhanzheng
+			add_ideas = VIN_nongye_guojia
+		}
+	}
+	#利用法国暴行
+	focus = {
+		id = VIN_liyong_faguo_baoxing
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = VIN_geming_lieyan}
+		relative_position_id = VIN_geming_lieyan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_idea = {
+			add_ideas = VIN_fanfa_zhanzheng_2
+			remove_ideas = VIN_fanfa_zhanzheng
+			}
+		}
+	}
+	#驱逐北方法军
+	focus = {
+		id = VIN_quzhu_beifang_zhanzheng
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = VIN_liyong_faguo_baoxing}
+		relative_position_id = VIN_liyong_faguo_baoxing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		IDC = {
+			remove_state_core = 671
+		remove_state_core = 1195
+		remove_state_core = 1187
+		remove_state_core = 1197
+		remove_state_core = 1194
+		remove_state_core = 1193
+			}
+		}
+	}
+	#组建北部民兵
+	focus = {
+		id = VIN_zujian_beibu_minbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = VIN_liyong_faguo_baoxing}
+		relative_position_id = VIN_liyong_faguo_baoxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = VIN_beibu_minbing
+		}
+	}
+	#寻求南方支持
+	focus = {
+		id = VIN_xunqiu_nanfang_zhichi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = VIN_zujian_beibu_minbing}
+		prerequisite = { focus = VIN_quzhu_beifang_zhanzheng}
+		relative_position_id = VIN_quzhu_beifang_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = NVI
+}
+		}
+	}
+	#越南抗法同盟
+	focus = {
+		id = VIN_yuenan_kangfa_tongmeng
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = VIN_geming_lieyan}
+		relative_position_id = VIN_geming_lieyan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#游击作战
+	focus = {
+		id = VIN_youji_zuozhan
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = VIN_yuenan_kangfa_tongmeng}
+		relative_position_id = VIN_yuenan_kangfa_tongmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_idea = {
+			add_ideas = VIN_youji_zhanzheng_2
+			remove_ideas = VIN_youji_zhanzheng
+			}
+		}
+	}
+	#持久战思想
+	focus = {
+		id = VIN_chijiuzhan_sixiang
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = VIN_youji_zuozhan}
+		relative_position_id = VIN_youji_zuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_idea = {
+			add_ideas = VIN_youji_zhanzheng_3
+			remove_ideas = VIN_youji_zhanzheng_2
+			}
+		}
+	}
+	#战略防御
+	focus = {
+		id = VIN_zhanlue_fangyu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = VIN_yuenan_kangfa_tongmeng}
+		relative_position_id = VIN_yuenan_kangfa_tongmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = VIN_zhanlue_fangyu
+    days = 180
+}
+		}
+	}
+	#解放志向
+	focus = {
+		id = VIN_jiefang_zhixiang
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = VIN_zhanlue_fangyu}
+		relative_position_id = VIN_zhanlue_fangyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_jiefang_zhanzheng
+		}
+	}
+	#发起反击
+	focus = {
+		id = VIN_faqi_fanji
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = VIN_xunqiu_nanfang_zhichi}
+		prerequisite = { focus = VIN_chijiuzhan_sixiang}
+		prerequisite = { focus = VIN_jiefang_zhixiang}
+		relative_position_id = VIN_jiefang_zhixiang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+			has_idea = VIN_zhanlue_fangyu
+			}
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = VIN_faqi_fanji
+    days = 180
+}
+		}
+	}
+	#掌控南部
+	focus = {
+		id = VIN_zhangkong_nanbu
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = VIN_faqi_fanji}
+		relative_position_id = VIN_faqi_fanji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 286
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_political_power = 50
+		}
+	}
+	#继续战争
+	focus = {
+		id = VIN_jixu_zhanzheng
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = VIN_faqi_fanji}
+		relative_position_id = VIN_faqi_fanji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 286
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = IDC
+    type = annex_everything
+}
+add_war_support = 0.1
+		}
+	}
+	#完成革命
+	focus = {
+		id = VIN_wancheng_geming
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = VIN_zhangkong_nanbu}
+		prerequisite = { focus = VIN_jixu_zhanzheng}
+		relative_position_id = VIN_jixu_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		IDC = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			transfer_state = 286
+		}
+	}
+	#东南亚革命联盟
+	focus = {
+		id = VIN_dongnanya_geming_lianmeng
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = VIN_wancheng_geming}
+		relative_position_id = VIN_wancheng_geming
+		mutually_exclusive = { focus = VIN_tuanjie_yizhi }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		LAO = {
+		has_government = communism 
+		}
+		CAM = {
+		has_government = communism 
+		}
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = CAM }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = CAM
+			}
+			}
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = LAO }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = LAO
+			}
+			}
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = VIN }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = VIN
+			}
+			}
+		}
+	}
+	#组建地方政治
+	focus = {
+		id = VIN_zujian_difang_zhengzhi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = VIN_dongnanya_geming_lianmeng}
+		relative_position_id = VIN_dongnanya_geming_lianmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_difang_zhengzhi
+		}
+	}
+	#人民公社
+	focus = {
+		id = VIN_renmin_gongshe
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = VIN_zujian_difang_zhengzhi}
+		relative_position_id = VIN_zujian_difang_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_idea = {
+			add_ideas = VIN_difang_zhengzhi_2
+			remove_ideas = VIN_difang_zhengzhi
+			}
+		}
+	}
+	#斩断修正毒蛇
+	focus = {
+		id = VIN_zhanduan_xiuzheng_dushe
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = VIN_renmin_gongshe}
+		relative_position_id = VIN_renmin_gongshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = democratic
+    popularity = -0.3
+}
+		}
+	}
+	#建立三国联系
+	focus = {
+		id = VIN_jianli_sanguo_lianxi
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = VIN_dongnanya_geming_lianmeng}
+		relative_position_id = VIN_dongnanya_geming_lianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#维持老挝革命
+	focus = {
+		id = VIN_weichi_laowo_geming
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = VIN_jianli_sanguo_lianxi}
+		relative_position_id = VIN_jianli_sanguo_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			LAO = {
+			has_government = communism
+			}
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = LAO }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = LAO
+			}
+			}
+			}
+			}
+			if = {
+			limit = {
+			LAO = {
+			NOT = {
+			has_government = communism
+			}
+			}
+			VIN = { 
+			declare_war_on = {
+    target = LAO
+    type = puppet_wargoal_focus
+}
+}
+			}
+			}
+		}
+	}
+	#维持柬埔寨革命
+	focus = {
+		id = VIN_weichi_jianpuzhai_geming
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = VIN_weichi_laowo_geming}
+		relative_position_id = VIN_weichi_laowo_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			CAM = {
+			has_government = communism
+			}
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = CAM }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = CAM
+			}
+			}
+			}
+			}
+			if = {
+			limit = {
+			CAM = {
+			NOT = {
+			has_government = communism
+			}
+			}
+			VIN = { 
+			declare_war_on = {
+    target = CAM
+    type = puppet_wargoal_focus
+}
+}
+			}
+			}
+		}
+	}
+	#解放东南亚
+	focus = {
+		id = VIN_jiefang_dongnanya
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = VIN_dongnanya_geming_lianmeng focus = VIN_tuanjie_yizhi }
+		relative_position_id = VIN_dongnanya_geming_lianmeng
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 286
+		controls_state = 1186
+			controls_state = 671
+		controls_state = 1195
+		controls_state = 1187
+		controls_state = 1197
+		controls_state = 1194
+		controls_state = 1193
+		OR = {
+		AND = {
+		LAO = {
+		controls_state = 670
+		controls_state = 1190
+		controls_state = 1196
+		controls_state = 1199
+		controls_state = 1185
+		has_government = communism
+		}
+		}
+		AND = {
+		controls_state = 670
+		controls_state = 1190
+		controls_state = 1196
+		controls_state = 1199
+		controls_state = 1185
+		}
+		}
+		OR = {
+		AND = {
+		CAM = {
+		controls_state = 741
+		controls_state = 1191
+		controls_state = 1192
+		has_government = communism
+		}
+		}
+		AND = {
+		controls_state = 741
+		controls_state = 1191
+		controls_state = 1192
+		}
+		}
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#暹罗战争
+	focus = {
+		id = VIN_xianluo_zhanzheng
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = VIN_jiefang_dongnanya }
+		relative_position_id = VIN_jiefang_dongnanya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SIA
+    type = annex_everything
+}
+		}
+	}
+	#解放缅甸
+	focus = {
+		id = VIN_jiefang_miandian
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = VIN_xianluo_zhanzheng }
+		relative_position_id = VIN_xianluo_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SIA = {
+		OR = {
+		exists = no
+		has_government = communism
+		}
+		}
+		}
+		bypass = {
+		BRM = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+	}
+	}
+	#解放马来亚
+	focus = {
+		id = VIN_jiefang_malaiya
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = VIN_xianluo_zhanzheng }
+		relative_position_id = VIN_xianluo_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SIA = {
+		OR = {
+		exists = no
+		has_government = communism
+		}
+		}
+		}
+		bypass = {
+		MAL = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+		}
+	}
+	#团结一致
+	focus = {
+		id = VIN_tuanjie_yizhi
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		prerequisite = { focus = VIN_wancheng_geming}
+		relative_position_id = VIN_wancheng_geming
+		mutually_exclusive = { focus = VIN_dongnanya_geming_lianmeng }
+		x = 4
+		y = 1
+		available = {
+		LAO = {
+		OR = {
+		has_government = communism 
+		exists = no
+		}
+		}
+		CAM = {
+		OR = {
+		has_government = communism 
+		exists = no
+		}
+		}
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			annex_country = {
+    target = LAO
+    transfer_troops = yes
+}
+annex_country = {
+    target = CAM
+    transfer_troops = yes
+}
+            if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = VIN }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = VIN
+			}
+			}
+		}
+	}
+	#老挝整合
+	focus = {
+		id = VIN_laowo_zhenghe
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = VIN_tuanjie_yizhi}
+		relative_position_id = VIN_tuanjie_yizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 670
+		controls_state = 1190
+		controls_state = 1196
+		controls_state = 1199
+		controls_state = 1185
+		controls_state = 1189
+		}
+		completion_reward = {
+			add_state_core = 670
+		add_state_core = 1190
+		add_state_core = 1196
+		add_state_core = 1199
+		add_state_core = 1185
+		add_state_core = 1189
+		}
+	}
+	#柬埔寨整合
+	focus = {
+		id = VIN_jianpuzhai_zhenghe
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = VIN_tuanjie_yizhi}
+		relative_position_id = VIN_tuanjie_yizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 741
+		controls_state = 1191
+		controls_state = 1192
+		}
+		completion_reward = {
+			add_state_core = 741
+		add_state_core = 1191
+		add_state_core = 1192
+		}
+	}
+	#联邦的诞生
+	focus = {
+		id = VIN_lianbang_dansheng
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = VIN_laowo_zhenghe}
+		prerequisite = { focus = VIN_jianpuzhai_zhenghe}
+		relative_position_id = VIN_jianpuzhai_zhenghe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			set_cosmetic_tag = IDC
+		}
+	}
+	#政治和谐
+	focus = {
+		id = VIN_zhengzhi_hexie
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = VIN_lianbang_dansheng}
+		relative_position_id = VIN_lianbang_dansheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = VIN_zhengzhi_hexie
+		}
+	}
+	#团结人民
+	focus = {
+		id = VIN_tuanjie_renmin
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = VIN_lianbang_dansheng}
+		relative_position_id = VIN_lianbang_dansheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = VIN_tuanjie_renmin
+		}
+	}
+	#人民武装
+	focus = {
+		id = VIN_renmin_wuzhaung
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = VIN_wancheng_geming}
+		relative_position_id = VIN_wancheng_geming
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_renmin_wuzhaung
+			remove_idea = VIN_jiefang_zhanzheng
+			}
+		}
+	}
+	#现代化战争
+	focus = {
+		id = VIN_xiandaihua_zhanzheng
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = VIN_renmin_wuzhaung}
+		relative_position_id = VIN_renmin_wuzhaung
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#工兵体系
+	focus = {
+		id = VIN_gongbing_tixi
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = VIN_xiandaihua_zhanzheng}
+		relative_position_id = VIN_xiandaihua_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_gongbing_tixi
+		}
+	}
+	#侦察计划
+	focus = {
+		id = VIN_zhencha_plan
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = VIN_gongbing_tixi}
+		relative_position_id = VIN_gongbing_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_zhencha_plan
+		}
+	}
+	#步兵武装
+	focus = {
+		id = VIN_bubing_wuzhaung
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = VIN_xiandaihua_zhanzheng}
+		relative_position_id = VIN_xiandaihua_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#研究法国科技
+	focus = {
+		id = VIN_yanjiu_faguo_keji
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = VIN_bubing_wuzhaung}
+		relative_position_id = VIN_bubing_wuzhaung
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = VIN_yanjiu_faguo_keji
+    days = 180
+}
+		}
+	}
+	#政治委员
+	focus = {
+		id = VIN_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = VIN_renmin_wuzhaung}
+		relative_position_id = VIN_renmin_wuzhaung
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_renmin_wuzhaung_2
+			remove_idea = VIN_renmin_wuzhaung
+			}
+		}
+	}
+	#组建人民军
+	focus = {
+		id = VIN_zujian_renminjun
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = VIN_zhengzhi_weiyuan}
+		relative_position_id = VIN_zhengzhi_weiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_renmin_wuzhaung_3
+			remove_idea = VIN_renmin_wuzhaung_2
+			}
+		}
+	}
+	#利用战争经验
+	focus = {
+		id = VIN_liyong_zhanzheng
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = VIN_renmin_wuzhaung}
+		relative_position_id = VIN_renmin_wuzhaung
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	#游击战革新
+	focus = {
+		id = VIN_youjizhan_gexin
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = VIN_liyong_zhanzheng}
+		relative_position_id = VIN_liyong_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_youji_zhanzheng_4
+			remove_idea = VIN_youji_zhanzheng_3
+			}
+		}
+	}
+	#人民战争
+	focus = {
+		id = VIN_liyong_zhanzheng
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = VIN_youjizhan_gexin}
+		prerequisite = { focus = VIN_zujian_renminjun}
+		relative_position_id = VIN_zujian_renminjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_renmin_zhanzheng
+		}
+	}
+	#计划经济
+	focus = {
+		id = VIN_plan_jingji
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = VIN_wancheng_geming}
+		relative_position_id = VIN_wancheng_geming
+		x = 9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_plan_jingji
+		}
+	}
+	#农业革新
+	focus = {
+		id = VIN_nongye_gexin
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = VIN_plan_jingji}
+		relative_position_id = VIN_plan_jingji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_nongye_gexin
+			remove_idea = VIN_nongye_guojia
+			}
+		}
+	}
+	#农业合作社
+	focus = {
+		id = VIN_nongye_hezuoshe
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = VIN_nongye_gexin}
+		relative_position_id = VIN_nongye_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_nongye_gexin_2
+			remove_idea = VIN_nongye_gexin
+			}
+		}
+	}
+	#农村教育
+	focus = {
+		id = VIN_nongcun_jiaoyu
+		icon = GFX_focus_research
+		prerequisite = { focus = VIN_nongye_gexin}
+		relative_position_id = VIN_nongye_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = VIN_nongcun_jiaoyu
+		}
+	}
+	#摆脱落后
+	focus = {
+		id = VIN_baituo_luohou
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = VIN_nongye_hezuoshe}
+		prerequisite = { focus = VIN_nongcun_jiaoyu}
+		relative_position_id = VIN_nongye_hezuoshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_nongye_gexin_3
+			remove_idea = VIN_nongye_gexin_2
+			}
+		}
+	}
+	#建立工业区
+	focus = {
+		id = VIN_jianli_gongyequ
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = VIN_plan_jingji}
+		relative_position_id = VIN_plan_jingji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = VIN_plan_jingji_2
+			remove_idea = VIN_plan_jingji
+			}
+		}
+	}
+	#北越开发
+	focus = {
+		id = VIN_beiyue_kaifa
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = VIN_jianli_gongyequ}
+		relative_position_id = VIN_jianli_gongyequ
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			671 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#南部经济
+	focus = {
+		id = VIN_nanbu_jingji
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = VIN_beiyue_kaifa}
+		relative_position_id = VIN_beiyue_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			286 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#老挝开发
+	focus = {
+		id = VIN_laowo_kaifa
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = VIN_jianli_gongyequ}
+		relative_position_id = VIN_jianli_gongyequ
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 670
+		}
+		completion_reward = {
+			670 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#柬埔寨开发
+	focus = {
+		id = VIN_jianpuzhai_kaifa
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = VIN_laowo_kaifa}
+		relative_position_id = VIN_laowo_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 741
+		}
+		completion_reward = {
+			741 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+}

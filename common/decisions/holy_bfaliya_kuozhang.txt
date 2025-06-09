@@ -1,0 +1,174 @@
+holy_bafaliya_kuozhang = {
+    #整合奥地利
+    holy_bafaliya_aodili = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			     tag = BAF
+		}
+	}	
+		available = {
+           BAF = { has_completed_focus = BAF_da_nandeyizhi_plan }
+		  controls_state = 39
+controls_state = 152
+controls_state = 4
+controls_state = 153
+controls_state = 736
+controls_state = 102
+controls_state = 952
+controls_state = 953
+controls_state = 951
+controls_state = 1827
+controls_state = 1829
+controls_state = 1828
+		}
+		cost = 150
+        fire_only_once = yes
+		days_remove = 300
+		complete_effect = {
+		add_state_core = 39
+add_state_core = 152
+add_state_core = 4
+add_state_core = 153
+add_state_core = 736
+add_state_core = 102
+add_state_core = 952
+add_state_core = 953
+add_state_core = 1372
+add_state_core = 1369
+add_state_core = 951
+add_state_core = 1827
+add_state_core = 1829
+add_state_core = 1828
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#取缔瑞士自治
+    holy_bafaliya_ruishi_zizhi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			     tag = BAF
+		}
+	}	
+		available = {
+           BAF = { has_completed_focus = BAF_da_nandeyizhi_plan }
+		   BAF = { is_puppet_of = RUI }
+		}
+		cost = 100
+        fire_only_once = yes
+		days_remove = 150
+		complete_effect = {
+		annex_country = { target = RUI transfer_troops = yes }
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#整合瑞士
+    holy_bafaliya_rusihi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			    tag = BAF
+		}
+	}	
+		available = {
+           BAF = { has_completed_focus = BAF_da_nandeyizhi_plan }
+		   all_state = {
+		   limit = {
+		   is_core_of = RUI
+		   }
+		   is_controlled_by = BAF
+		}
+		}
+		cost = 150
+        fire_only_once = yes
+		days_remove = 300
+		complete_effect = {
+		every_state = {
+		   limit = {
+		   is_core_of = RUI
+		   }
+		   add_core_of = BAF
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+		}
+	#取缔波西米亚自治
+    holy_bafaliya_boximiya_zizhi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			     tag = BAF
+		}
+	}	
+		available = {
+           BAF = { has_completed_focus = BAF_da_nandeyizhi_plan }
+		   BAF = { is_puppet_of = BXM }
+		}
+		cost = 100
+        fire_only_once = yes
+		days_remove = 150
+		complete_effect = {
+		annex_country = { target = BXM transfer_troops = yes }
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#整合波西米亚
+    holy_bafaliya_boximiya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+			     tag = BAF
+		}
+	}	
+		available = {
+           BAF = { has_completed_focus = BAF_da_nandeyizhi_plan }
+		   controls_state = 9
+		   controls_state = 69
+		   controls_state = 74
+		   controls_state = 72
+		   controls_state = 75
+		   controls_state = 989
+		   controls_state = 990
+		   controls_state = 986
+		   controls_state = 987
+		   controls_state = 988
+		}
+		cost = 200
+        fire_only_once = yes
+		days_remove = 300
+		complete_effect = {
+		add_state_core = 9 
+		add_state_core = 69
+		add_state_core = 74
+		add_state_core = 75
+		add_state_core = 72
+		add_state_core = 989
+		   add_state_core = 990
+		   add_state_core = 986
+		   add_state_core = 987
+		   add_state_core = 988
+	    }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

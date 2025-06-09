@@ -1,0 +1,2159 @@
+add_namespace = holy_yingguo
+#直布罗陀问题
+country_event = {
+	id = holy_yingguo.1
+	title = holy_yingguo.1.t
+	desc = holy_yingguo.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		XBY = {
+		transfer_state = 118
+		add_state_core = 118
+		}
+	}
+	option = {
+		name = holy_yingguo.1.b
+		ai_chance = {
+		    factor = 0
+		}
+		XBY = {
+		add_state_core = 118
+		create_wargoal = {
+           type = ENG
+           target = annex_everything
+           }
+		}
+	}
+}
+#缅甸宣告独立
+country_event = {
+	id = holy_yingguo.2
+	title = holy_yingguo.2.t
+	desc = holy_yingguo.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.2.a
+		ai_chance = {
+		factor = 0
+		}
+		declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+BRM = {
+country_event = { id = holy_yingguo.3 days = 2 } 
+}
+	}
+	option = {
+		name = holy_yingguo.2.b
+		ai_chance = {
+		    factor = 50
+		}
+		BRM = {
+		country_event = { id = holy_yingguo.3 days = 2 } 
+		}
+	}
+}
+#我们的自由
+country_event = {
+	id = holy_yingguo.3
+	title = holy_yingguo.3.t
+	desc = holy_yingguo.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.3.a
+		ai_chance = {
+		factor = 10
+		}
+		load_oob = BRM_ziyou_jun
+	}
+}
+#爱尔兰的怒吼
+country_event = {
+	id = holy_yingguo.4
+	title = holy_yingguo.4.t
+	desc = holy_yingguo.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = UKM
+		date > 1937.6.5
+	}
+	option = {
+		name = holy_yingguo.4.a
+		ai_chance = {
+		factor = 10
+		}
+		RAJ = { country_event = { id = holy_yingguo.6 days = 35 } }
+		country_event = { id = holy_yingguo.13 days = 40 } 
+		NIR = {
+	transfer_state = 119
+	transfer_state = 932
+	transfer_state = 909
+	    add_state_core = 113
+		add_state_core = 135
+		add_state_core = 134
+		add_state_core = 911
+		add_state_core = 915
+		add_state_core = 912
+		add_state_core = 914
+		add_state_core = 913
+		add_state_core = 909
+		add_state_core = 910
+		load_oob = NIR_1936
+	}
+		IRE = {
+		transfer_state = 113
+		transfer_state = 134
+		transfer_state = 912
+		transfer_state = 914
+		transfer_state = 913
+		transfer_state = 909
+		transfer_state = 910
+		load_oob = IRE_qiyijun
+		create_faction = kaierte_lianmeng
+		country_event = { id = holy_yingguo.5 } 
+		}
+		IRP = {
+		transfer_state = 135
+		transfer_state = 911
+		transfer_state = 915
+		add_state_core = 113
+		add_state_core = 135
+		add_state_core = 134
+		add_state_core = 911
+		add_state_core = 915
+		add_state_core = 912
+		add_state_core = 914
+		add_state_core = 913
+		add_state_core = 909
+		add_state_core = 910
+		add_state_core = 119
+	add_state_core = 932
+		load_oob = IRP_1936
+		country_event = { id = holy_yingguo.5 } 
+		create_faction = renmin_lianjun
+		add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = communism
+}
+		}
+		declare_war_on = {
+    target = IRE
+    type = annex_everything
+	}
+	declare_war_on = {
+    target = IRP
+    type = annex_everything
+	}
+	puppet = NIR
+	IRP = {
+	declare_war_on = {
+    target = IRE
+    type = annex_everything
+	}
+	declare_war_on = {
+    target = NIR
+    type = annex_everything
+	}
+	}
+	IRE = {
+	declare_war_on = {
+    target = IRP
+    type = annex_everything
+	}
+	declare_war_on = {
+    target = NIR
+    type = annex_everything
+	}
+	}
+	news_event = {
+				id = holy_news.1 days = 1
+			}
+	}
+}
+#为了爱尔兰！
+country_event = {
+	id = holy_yingguo.5
+	title = holy_yingguo.5.t
+	desc = holy_yingguo.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.5.a
+		ai_chance = {
+		factor = 10
+		}
+		add_war_support = 0.1
+	}
+}
+#印度之春
+country_event = {
+	id = holy_yingguo.6
+	title = holy_yingguo.6.t
+	desc = holy_yingguo.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.6.a
+		ai_chance = {
+		factor = 10
+		}
+		news_event = {
+				id = holy_news.2 days = 1
+			}
+	UKM = { country_event = { id = holy_yingguo.7 } }
+	end_puppet = BAN
+	end_puppet = MSR
+	end_puppet = HYD
+	every_country = {
+	if = {
+	limit = {
+	has_war_with = UKM
+	}
+	white_peace = RAJ
+	white_peace = BAN
+	white_peace = MSR
+	white_peace = NGP
+	white_peace = HYD
+	white_peace = SRL
+	white_peace = TML
+	white_peace = MDS
+	}
+	}
+	BAN = {
+	leave_faction = yes
+	}
+	HYD = {
+	leave_faction = yes
+	}
+	MSR = {
+	leave_faction = yes
+	}
+	leave_faction = yes
+	remove_ideas = RAJ_zongdude_hairentusha
+	kill_country_leader = yes
+	}
+}
+#我们的皇座
+country_event = {
+	id = holy_yingguo.7
+	title = holy_yingguo.7.t
+	desc = holy_yingguo.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.7.a
+		ai_chance = {
+		factor = 10
+		}
+end_puppet = RAJ
+}
+}
+#大不列颠的崩溃
+country_event = {
+	id = holy_yingguo.8
+	title = holy_yingguo.8.t
+	desc = holy_yingguo.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.8.a
+		ai_chance = {
+		factor = 10
+		}
+		news_event = {
+				id = holy_news.3 days = 1
+			}
+		add_ideas = UKM_dabuliedian_bengkui
+		add_political_power = -200
+		set_stability = 0
+		retire_country_leader = yes
+		add_war_support = -0.3
+		complete_national_focus = UKM_dabuliedian_bengkui
+		country_event = { id = holy_yingguo.30 days = 90 }
+		country_event = { id = holy_yingguo.46 days = 5 }
+		country_event = { id = holy_yingguo.34 days = 10 }
+	}
+}
+#教育问题
+country_event = {
+	id = holy_yingguo.9
+	title = holy_yingguo.9.t
+	desc = holy_yingguo.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.9.a
+		ai_chance = {
+		factor = 10
+		}
+		add_ideas = UKM_jianqiao_daxue
+		remove_ideas = UKM_jiaoyu_touzi
+	}
+	option = {
+		name = holy_yingguo.9.b
+		ai_chance = {
+		factor = 10
+		}
+		add_ideas = UKM_niujin_daxue
+		remove_ideas = UKM_jiaoyu_touzi
+	}
+}
+#伦敦的扩建
+country_event = {
+	id = holy_yingguo.10
+	title = holy_yingguo.10.t
+	desc = holy_yingguo.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.10.a
+		ai_chance = {
+		factor = 0
+		}
+	}
+	option = {
+		name = holy_yingguo.10.b
+		ai_chance = {
+		factor = 100
+		}
+		add_timed_idea = {
+    idea = UKM_touzi_lundun
+    days = 50
+        }
+		add_political_power = -20
+		126 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	option = {
+		name = holy_yingguo.10.c
+		ai_chance = {
+		factor = 20
+		}
+		add_timed_idea = {
+    idea = UKM_touzi_lundun
+    days = 180
+        }
+		add_political_power = -50
+		126 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+#阿非利加战争
+country_event = {
+	id = holy_yingguo.13
+	title = holy_yingguo.13.t
+	desc = holy_yingguo.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.13.a
+		ai_chance = {
+		factor = 10
+		}
+		end_puppet = SJB
+		SJB = {
+		create_faction = feizhou_lianmeng
+		add_ideas = AFK_duli_zhanzheng
+		}
+	end_puppet = BGD
+	BGD = {
+	leave_faction = yes
+	}
+	end_puppet = BTU
+	BTU = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = SJB
+		}
+		white_peace = SJB
+		}
+		if = {
+		limit = {
+		has_war_with = BTU
+		}
+		white_peace = BTU
+		}
+		if = {
+		limit = {
+		has_war_with = BGD
+		}
+		white_peace = BGD
+		}
+		}
+	SJB = {
+	add_to_faction = BTU
+	add_to_faction = BGD
+	declare_war_on = {
+    target = UEF
+    type = annex_everything
+}
+	}
+	UKM = {
+	country_event = { id = holy_yingguo.8 days = 3} 
+	}
+	news_event = {
+				id = holy_news.77 days = 1
+			}
+	}
+}
+#政治斗争
+country_event = {
+	id = holy_yingguo.14
+	title = holy_yingguo.14.t
+	desc = holy_yingguo.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.14.a
+		ai_chance = {
+		factor = 15
+		}
+		add_ideas = UKM_zhichi_minzhu
+	}
+	option = {
+		name = holy_yingguo.14.b
+		ai_chance = {
+		factor = 10
+		}
+		add_ideas = UKM_guowang_dangyu
+	}
+}
+#终结危机
+country_event = {
+	id = holy_yingguo.17
+	title = holy_yingguo.17.t
+	desc = holy_yingguo.17.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.17.a
+		ai_chance = {
+		factor = 10
+		}
+		news_event = {
+				id = holy_news.4 days = 1
+			}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.18
+	title = holy_yingguo.18.t
+	desc = holy_yingguo.18.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.18.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = KID }
+	}
+	option = {
+	    name = holy_yingguo.18.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = KID }
+	}
+	option = {
+	    name = holy_yingguo.18.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.19
+	title = holy_yingguo.19.t
+	desc = holy_yingguo.19.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.19.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = TDY}
+	}
+	option = {
+	    name = holy_yingguo.19.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = TDY}
+	}
+	option = {
+	    name = holy_yingguo.19.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.20
+	title = holy_yingguo.20.t
+	desc = holy_yingguo.20.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.20.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = ECU}
+	}
+	option = {
+	    name = holy_yingguo.20.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = ECU}
+	}
+	option = {
+	    name = holy_yingguo.20.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.21
+	title = holy_yingguo.21.t
+	desc = holy_yingguo.21.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.21.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = PRU}
+	}
+	option = {
+	    name = holy_yingguo.21.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = PRU}
+	}
+	option = {
+	    name = holy_yingguo.21.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.22
+	title = holy_yingguo.22.t
+	desc = holy_yingguo.22.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.22.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = BOL}
+	}
+	option = {
+	    name = holy_yingguo.22.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = BOL}
+	}
+	option = {
+	    name = holy_yingguo.22.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.23
+	title = holy_yingguo.23.t
+	desc = holy_yingguo.23.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.23.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = CHL}
+	}
+	option = {
+	    name = holy_yingguo.23.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = CHL}
+	}
+	option = {
+	    name = holy_yingguo.23.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.24
+	title = holy_yingguo.24.t
+	desc = holy_yingguo.24.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.24.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = ARG}
+	}
+	option = {
+	    name = holy_yingguo.24.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = ARG}
+	}
+	option = {
+	    name = holy_yingguo.24.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.25
+	title = holy_yingguo.25.t
+	desc = holy_yingguo.25.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.25.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = BRA}
+	}
+	option = {
+	    name = holy_yingguo.25.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = BRA}
+	}
+	option = {
+	    name = holy_yingguo.25.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.26
+	title = holy_yingguo.26.t
+	desc = holy_yingguo.26.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.26.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = URR}
+	}
+	option = {
+	    name = holy_yingguo.26.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = URR}
+	}
+	option = {
+	    name = holy_yingguo.26.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#英国要求我们屈服
+country_event = {
+	id = holy_yingguo.27
+	title = holy_yingguo.27.t
+	desc = holy_yingguo.27.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.27.a
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { puppet = PAR}
+	}
+	option = {
+	    name = holy_yingguo.27.b
+		ai_chance = {
+		factor = 10
+		}
+		UKM = { add_to_faction = PAR}
+	}
+	option = {
+	    name = holy_yingguo.27.c
+		ai_chance = {
+		factor = 20
+		}
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+	}
+}
+#索取埃及地区
+country_event = {
+	id = holy_yingguo.28
+	title = holy_yingguo.28.t
+	desc = holy_yingguo.28.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+	    name = holy_yingguo.28.a
+		ai_chance = {
+		factor = 2
+		}
+		OTT = {
+		transfer_state = 551
+		transfer_state = 549
+		transfer_state = 767
+		transfer_state = 883
+	transfer_state = 1324
+	transfer_state = 1325
+	transfer_state = 1327
+	transfer_state = 1328
+	transfer_state = 886
+	transfer_state = 1319
+	transfer_state = 1323
+	transfer_state = 884
+	transfer_state = 1322
+	transfer_state = 1320
+	transfer_state = 887
+	transfer_state = 885
+	transfer_state = 1321
+	transfer_state = 1326
+	transfer_state = 1306
+		}
+	}
+	option = {
+	    name = holy_yingguo.28.b
+		ai_chance = {
+		factor = 10
+		}
+		OTT = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = UKM
+}
+		}
+	}
+}
+#埃及宣言
+country_event = {
+	id = holy_yingguo.29
+	title = holy_yingguo.29.t
+	desc = holy_yingguo.29.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = UKM
+		date > 1936.11.2
+	}
+	option = {
+		name = holy_yingguo.29.a
+	}
+}
+#伯明翰暴动
+country_event = {
+	id = holy_yingguo.30
+	title = holy_yingguo.30.t
+	desc = holy_yingguo.30.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.30.a
+		country_event = { id = holy_yingguo.31 days = 10 } 
+		EGL = {
+		transfer_state = 128
+		}
+	}
+}
+#利物浦起义
+country_event = {
+	id = holy_yingguo.31
+	title = holy_yingguo.31.t
+	desc = holy_yingguo.31.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.31.a
+		country_event = { id = holy_yingguo.32 days = 5 } 
+		EGL = {
+		transfer_state = 132
+		}
+	}
+}
+#左翼起义
+country_event = {
+	id = holy_yingguo.32
+	title = holy_yingguo.32.t
+	desc = holy_yingguo.32.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	EGL = {
+		transfer_state = 130
+		transfer_state = 127
+		transfer_state = 128
+		transfer_state = 1813
+		transfer_state = 1814
+		transfer_state = 1811
+		load_oob = EGL_1936
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+IRP = {
+leave_faction = yes
+}
+create_faction = renmin_lianjun
+EGL = { add_to_faction = IRP }
+		}
+    UKM = { 
+	country_event = { id = holy_yingguo.33 days = 35 } 
+	country_event = { id = holy_yingguo.47 days = 10 }
+	}
+	news_event = {
+				id = holy_news.93 days = 1
+			}
+	}
+	option = {
+		name = holy_yingguo.32.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+	option = {
+		name = holy_yingguo.32.b
+		ai_chance = {
+		factor = 0
+		}
+		EGL = { change_tag_from = UKM }
+	}
+}
+#黑衫军起义
+country_event = {
+	id = holy_yingguo.33
+	title = holy_yingguo.33.t
+	desc = holy_yingguo.33.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	ELB = {
+	transfer_state = 125
+    transfer_state = 129
+	transfer_state = 123
+	transfer_state = 131
+	transfer_state = 338
+	add_state_core = 125
+	add_state_core = 129
+	add_state_core = 123
+	add_state_core = 131
+	add_state_core = 130
+	add_state_core = 128
+	add_state_core = 132
+	add_state_core = 338
+	add_state_core = 127
+	add_state_core = 126
+	add_state_core = 1813
+	add_state_core = 1814
+	add_state_core = 1811
+	add_state_core = 1815
+	add_state_core = 1812
+	load_oob = ELB_1936
+	declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+declare_war_on = {
+    target = EGL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCL
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIR
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRP
+    type = annex_everything
+}
+declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+	}
+	news_event = {
+				id = holy_news.94 days = 1
+			}
+	}
+	option = {
+		name = holy_yingguo.33.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+	option = {
+		name = holy_yingguo.33.b
+		ai_chance = {
+		factor = 0
+		}
+		ELB = { change_tag_from = UKM }
+	}
+}
+#非洲秩序受重创
+country_event = {
+	id = holy_yingguo.34
+	title = holy_yingguo.34.t
+	desc = holy_yingguo.34.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	end_puppet = MMP
+	end_puppet = MBL
+	end_puppet = AWB
+	MMP = {
+	leave_faction = yes
+	}
+	MBL = {
+	leave_faction = yes
+	}
+	AWB = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = MMP
+		}
+		white_peace = MMP
+		}
+		if = {
+		limit = {
+		has_war_with = MBL
+		}
+		white_peace = MBL
+		}
+		if = {
+		limit = {
+		has_war_with = AWB
+		}
+		white_peace = AWB
+		}
+		}
+	SJB = { add_to_faction = MMP }
+	SJB = { add_to_faction = MBL }
+	SJB = { add_to_faction = AWB }
+	news_event = {
+				id = holy_news.78 days = 1
+			}
+	SAF = { country_event = { id = holy_yingguo.51 days = 15 } }
+	}
+	option = {
+		name = holy_yingguo.34.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+}
+#威尔士叛乱
+country_event = {
+	id = holy_yingguo.35
+	title = holy_yingguo.35.t
+	desc = holy_yingguo.35.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1938.1.1
+	tag = UKM
+	has_war = yes
+	}
+	immediate = {
+	WLS = {
+	transfer_state = 122
+	transfer_state = 918
+	load_oob = WLS_1936
+	IRE = { add_to_faction = WLS }
+	}
+	UKM = {
+	declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+	}
+	EGL = {
+	declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+	}
+	ELB = {
+	declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+	}
+	news_event = {
+				id = holy_news.95 days = 1
+			}
+	}
+	option = {
+		name = holy_yingguo.35.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+	option = {
+		name = holy_yingguo.35.b
+		ai_chance = {
+		factor = 0
+		}
+		WLS = { change_tag_from = UKM }
+	}
+}
+#布尔人的胜利
+country_event = {
+	id = holy_yingguo.36
+	title = holy_yingguo.36.t
+	desc = holy_yingguo.36.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag = BOO
+	controls_state = 541
+	controls_state = 1014
+	controls_state = 895
+	controls_state = 894
+	controls_state = 1015
+	controls_state = 1016
+	controls_state = 893
+    controls_state = 681
+	controls_state = 275
+	controls_state = 719
+	controls_state = 1026
+	controls_state = 1025
+	controls_state = 1024
+	controls_state = 1023
+	controls_state = 1022
+	controls_state = 1021
+	}
+	option = {
+		name = holy_yingguo.36.a
+		ai_chance = {
+		factor = 10
+		}
+		BOO = {
+		transfer_state = 541
+	transfer_state = 1014
+	transfer_state = 895
+	transfer_state = 894
+	transfer_state = 1015
+	transfer_state = 1016
+	transfer_state = 893
+    transfer_state = 681
+	transfer_state = 275
+	transfer_state = 719
+	transfer_state = 1026
+	transfer_state = 1025
+	transfer_state = 1024
+	transfer_state = 1023
+	transfer_state = 1022
+	transfer_state = 1021
+		}
+	}
+}
+#非洲联盟的胜利
+country_event = {
+	id = holy_yingguo.37
+	title = holy_yingguo.37.t
+	desc = holy_yingguo.37.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1937.1.1
+	KYL = {
+	controls_state = 1021
+	}
+	ZUR = {
+	controls_state = 1022
+	controls_state = 1024
+	}
+	tag = SJB
+	}
+	option = {
+		name = holy_yingguo.37.a
+		ai_chance = {
+		factor = 10
+		}
+		KYL = {
+		transfer_state = 1021
+		}
+		ZUR = {
+		transfer_state = 1022
+		transfer_state = 1024
+		}
+		MMP = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+add_state_core = 896
+add_state_core = 544
+		add_state_core = 1029
+		}
+		MBL = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+		}
+		AWB = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+		}
+		SJB = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+add_state_core = 897
+		add_state_core = 1030
+		}
+		ZUR = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+add_state_core = 1028
+		}
+		KYL = {
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		}
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+		}
+		if = {
+		limit = {
+		ANG = {
+		exists = yes
+		is_puppet = no
+		}
+		}
+		SJB = { add_to_faction = ANG }
+		}
+	}
+}
+#安哥拉之战
+country_event = {
+	id = holy_yingguo.38
+	title = holy_yingguo.38.t
+	desc = holy_yingguo.38.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag - SJB
+	1012 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = ANG
+	ANG = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	891 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = ANG
+	ANG = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	892 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = ANG
+	ANG = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	540 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = ANG
+	ANG = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	}
+	option = {
+		name = holy_yingguo.38.a
+		ai_chance = {
+		factor = 10
+		}
+		end_puppet = ANG
+		every_country = {
+		if = {
+		limit = {
+		has_war_with = ANG
+		}
+		white_peace = ANG
+		}
+		}
+		ANG = {
+		transfer_state = 891
+		transfer_state = 892
+		transfer_state = 1012
+		transfer_state = 540
+		load_oob = ANG_qiyi
+		load_oob = ANG_qiyi_2
+		}
+		if = {
+		limit = {
+		POR = {
+		NOT = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		ANG = {
+		declare_war_on = {
+    target = POR
+    type = annex_everything
+}
+}
+}
+		SJB = { add_to_faction = ANG }
+	}
+}
+#莫桑比克沦陷
+country_event = {
+	id = holy_yingguo.39
+	title = holy_yingguo.39.t
+	desc = holy_yingguo.39.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag = SJB
+	896 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	544 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	1029 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	897 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	1030 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	1028 = {
+	OR = {
+	is_controlled_by = KYL
+	is_controlled_by = ZUR
+	is_controlled_by = SJB
+	is_controlled_by = AWB
+	is_controlled_by = MBL
+	is_controlled_by = MMP
+	AND = {
+	is_controlled_by = MZB
+	MZB = {
+	is_puppet = no
+	}
+	}
+	}
+	}
+	}
+	option = {
+		name = holy_yingguo.39.a
+		ai_chance = {
+		factor = 10
+		}
+		ZUR = {
+		transfer_state = 1028
+		add_state_core = 1028
+		}
+		SJB = {
+		transfer_state = 897
+		transfer_state = 1030
+		transfer_state = 1029
+		transfer_state = 544
+		transfer_state = 896
+		add_state_core = 897
+		add_state_core = 1030
+		add_state_core = 1029
+		add_state_core = 544
+		add_state_core = 896
+		}
+	}
+}
+#中非危机
+country_event = {
+	id = holy_yingguo.41
+	title = holy_yingguo.41.t
+	desc = holy_yingguo.41.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1937.1.1
+	tag = FRC
+	KYL = {
+	controls_state = 1021
+	}
+	ZUR = {
+	controls_state = 1022
+	controls_state = 1024
+	}
+	}
+	immediate = {
+	FRA = {
+	end_puppet = KGK
+	end_puppet = KNN
+	}
+	KGK = {
+	leave_faction = yes
+	}
+	KNN = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = KNN
+		}
+		white_peace = KNN
+		}
+		if = {
+		limit = {
+		has_war_with = KGK
+		}
+		white_peace = KGK
+		}
+		}
+	SJB = { add_to_faction = KNN }
+	SJB = { add_to_faction = KGK }
+	KNN = {
+	declare_war_on = {
+    target = FRC
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_yingguo.41.a
+		ai_chance = {
+		factor = 10
+		}
+		SJB = {
+		country_event = { id = holy_yingguo.52 days = 4}
+		}
+	}
+}
+#西非情况失控
+country_event = {
+	id = holy_yingguo.42
+	title = holy_yingguo.42.t
+	desc = holy_yingguo.42.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1937.1.1
+	tag = FRE
+	KNN = { has_war_with = FRC }
+	}
+	immediate = {
+	FRA = {
+	end_puppet = ASD
+	end_puppet = FLN
+	end_puppet = TKR
+	}
+	ASD = {
+	leave_faction = yes
+	}
+	FLN = {
+	leave_faction = yes
+	}
+	TKR = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = ASD
+		}
+		white_peace = ASD
+		}
+		if = {
+		limit = {
+		has_war_with = FLN
+		}
+		white_peace = FLN
+		}
+		if = {
+		limit = {
+		has_war_with = TKR
+		}
+		white_peace = TKR
+		}
+		}
+	SJB = { add_to_faction = ASD }
+	SJB = { add_to_faction = FLN }
+	SJB = { add_to_faction = TKR }
+	ASD = {
+		declare_war_on = {
+    target = FRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = UWF
+    type = annex_everything
+}
+		}
+		FLN = {
+		declare_war_on = {
+    target = FRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = UWF
+    type = annex_everything
+}
+		}
+		TKR = {
+		declare_war_on = {
+    target = FRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = UWF
+    type = annex_everything
+}
+		}
+	}
+	option = {
+		name = holy_yingguo.42.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+}
+#北非战争
+country_event = {
+	id = holy_yingguo.43
+	title = holy_yingguo.43.t
+	desc = holy_yingguo.43.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1937.1.1
+	tag = FRN
+	ASD = { has_war_with = FRE }
+	QTK = { has_war_with = FRE }
+	FLN = { has_war_with = FRE }
+	AER = {
+	exists = yes
+	}
+	}
+	immediate = {
+	FRA = {
+	end_puppet = AER
+	}
+	AER = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = AER
+		}
+		white_peace = AER
+		}
+		}
+	SJB = { add_to_faction = AER }
+	AER = {
+	declare_war_on = {
+    target = FRN
+    type = annex_everything
+}
+transfer_state = 513
+transfer_state = 462
+if = {
+limit = {
+FRN = {
+controls_state = 665
+}
+}
+transfer_state = 665
+}
+add_state_core = 462
+add_state_core = 665
+add_state_core = 458
+add_state_core = 461
+load_oob = AER_qiyi
+	}
+	}
+	option = {
+		name = holy_yingguo.43.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+}
+#夏威夷独立
+country_event = {
+	id = holy_yingguo.46
+	title = holy_yingguo.46.t
+	desc = holy_yingguo.46.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	end_puppet = HWI
+	HWI = { leave_faction = yes }
+	every_country = {
+		white_peace = HWI
+		}
+	news_event = {
+				id = holy_news.89 days = 1
+			}
+	}
+	option = {
+		name = holy_yingguo.46.a
+		ai_chance = {
+		factor = 0
+		}
+		declare_war_on = {
+    target = HWI
+    type = annex_everything
+}
+add_stability = -0.1
+	}
+	option = {
+		name = holy_yingguo.46.b
+		ai_chance = {
+		    factor = 50
+		}
+	}
+}
+#马耳他失控
+country_event = {
+	id = holy_yingguo.47
+	title = holy_yingguo.47.t
+	desc = holy_yingguo.47.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	end_puppet = MLT
+	MLT = { 
+	leave_faction = yes 
+	add_popularity = {
+    ideology = neutrality
+    popularity = 0.5
+}
+set_politics = {
+	ruling_party = neutrality
+}
+	}
+	every_country = {
+		white_peace = MLT
+		}
+	}
+	option = {
+		name = holy_yingguo.47.a
+		ai_chance = {
+		factor = 0
+		}
+		declare_war_on = {
+    target = MLT
+    type = annex_everything
+}
+add_stability = -0.1
+	}
+	option = {
+		name = holy_yingguo.47.b
+		ai_chance = {
+		    factor = 50
+		}
+	}
+}
+#威斯特敏体系崩溃
+country_event = {
+	id = holy_yingguo.48
+	title = holy_yingguo.48.t
+	desc = holy_yingguo.48.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag = UKM
+	OR = {
+	NOT = {
+	controls_state = 125
+	controls_state = 129
+	controls_state = 123
+	controls_state = 131
+	controls_state = 130
+	controls_state = 122
+	controls_state = 128
+	controls_state = 132
+	controls_state = 338
+	controls_state = 127
+	controls_state = 126
+	}
+	surrender_progress > 0.65
+	}
+	}
+	option = {
+		name = holy_yingguo.48.a
+		ai_chance = {
+		factor = 10
+		}
+		CAN = { change_tag_from = UKM }
+		UKM = {
+		end_puppet = CAN
+		end_puppet = MAL
+		end_puppet = AST
+		end_puppet = SAF
+		end_puppet = RAJ
+		end_puppet = NZL
+		}
+		every_country = {
+		limit = {
+		is_puppet_of = UKM
+		}
+		UKM = {
+		end_puppet = PREV
+		}
+		CAN = {
+		puppet = PREV
+		}
+		}
+		CAN = {
+		annex_country = {
+    target = UKM
+    transfer_troops = yes
+}
+add_offsite_building = { type = arms_factory level = 3 }
+add_offsite_building = { type = industrial_complex level = 7 }
+add_ideas = CAN_diguoyishi
+add_ideas = CAN_buliedian_yichan
+add_ideas = CAN_junxin_nanding
+set_country_flag = CAN_liuwang
+set_cosmetic_tag = CAN_buliedian
+		}
+		every_state = {
+		if = {
+		limit = {
+		is_core_of = UKM
+		}
+		add_core_of = CAN
+		}
+		}
+		news_event = {
+				id = holy_news.142 days = 1
+			}
+			OMA = {
+			transfer_state = 658
+			}
+			YEM = {
+			transfer_state = 659
+			transfer_state = 1062
+			transfer_state = 1063
+			}
+			SIA = {
+			transfer_state = 733
+			}
+			ARG = {
+			transfer_state = 299
+			transfer_state = 720
+			}
+			CAN = {
+			transfer_state = 332
+			transfer_state = 331
+			}
+			if = {
+	limit = {
+	XBY = { controls_state = 41 }
+	}
+	XBY = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	GLD = { controls_state = 41 }
+	}
+	GLD = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	CSP = { controls_state = 41 }
+	}
+	CSP = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	UKH = { controls_state = 41 }
+	}
+	UKH = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	CAT = { controls_state = 41 }
+	}
+	CAT = { transfer_state = 118 }
+	}
+	if = {
+	limit = {
+	POR = { controls_state = 41 }
+	}
+	POR = { transfer_state = 118 }
+	}
+	}
+}
+#凯尔特联合？
+country_event = {
+	id = holy_yingguo.49
+	title = holy_yingguo.49.t
+	desc = holy_yingguo.49.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_yingguo.49.a
+		ai_chance = {
+		factor = 10
+		}
+		WLS = {
+annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+	}
+	}
+	option = {
+		name = holy_yingguo.49.b
+		ai_chance = {
+		factor = 0
+		}
+		WLS = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+	}
+	}
+}
+#不列颠的危机
+country_event = {
+	id = holy_yingguo.50
+	title = holy_yingguo.50.t
+	desc = holy_yingguo.50.d
+	picture = GFX_report_event_german_speech
+	trigger = {
+	date > 1936.8.1
+	tag = UKM
+	}
+	fire_only_once = yes
+	option = {
+		name = holy_yingguo.50.a
+		ai_chance = {
+		    factor = 25
+		}
+	}
+}
+#南非战争
+country_event = {
+	id = holy_yingguo.51
+	title = holy_yingguo.51.t
+	desc = holy_yingguo.51.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+	UKM = {
+	end_puppet = BOO
+	end_puppet = KYL
+	end_puppet = ZUR
+	}
+	BOO = {
+	leave_faction = yes
+	}
+	KYL = {
+	leave_faction = yes
+	}
+	ZUR = {
+	leave_faction = yes
+	}
+	every_country = {
+		if = {
+		limit = {
+		has_war_with = BOO
+		}
+		white_peace = BOO
+		}
+		if = {
+		limit = {
+		has_war_with = KYL
+		}
+		white_peace = KYL
+		}
+		if = {
+		limit = {
+		has_war_with = ZUR
+		}
+		white_peace = ZUR
+		}
+		}
+	SJB = { add_to_faction = KYL }
+	SJB = { add_to_faction = ZUR }
+	KYL = {
+	declare_war_on = {
+    target = SAF
+    type = annex_everything
+}
+declare_war_on = {
+    target = BOO
+    type = annex_everything
+}
+}
+ZUR = {
+declare_war_on = {
+    target = BOO
+    type = annex_everything
+}
+declare_war_on = {
+    target = KYL
+    type = annex_everything
+}
+}
+BOO = {
+declare_war_on = {
+    target = SAF
+    type = annex_everything
+}
+}
+	news_event = {
+				id = holy_news.101 days = 1
+			}
+	}
+	option = {
+		name = holy_yingguo.51.a
+		ai_chance = {
+		factor = 10
+		}
+	}
+}

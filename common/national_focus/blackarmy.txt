@@ -1,0 +1,1176 @@
+focus_tree = {
+	id = BUK_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BUK
+		}
+	}
+	
+	default = no
+ 
+    #自由的土地
+	focus = {
+		id = BUK_ziyou_tudi
+		icon = GFX_focus_generic_military_academy
+		x = 25
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#安娜其的孩子
+	focus = {
+		id = BUK_annaqi_haizi
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = BUK_ziyou_tudi}
+		relative_position_id = BUK_ziyou_tudi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_annaqi_haizi
+		}
+	}
+	#安抚扎波罗热
+	focus = {
+		id = BUK_anfu_zhaboluore
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = BUK_annaqi_haizi}
+		relative_position_id = BUK_annaqi_haizi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_ziyou_zhanshi_2
+			remove_idea = BUK_ziyou_zhanshi
+			}
+		}
+	}
+	#号召自由战士
+	focus = {
+		id = BUK_haozhao_ziyou_zhanshi
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = BUK_annaqi_haizi}
+		relative_position_id = BUK_annaqi_haizi
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BUK_haozhao_ziyou_zhanshi
+		}
+	}
+	#公社的自治和自由
+	focus = {
+		id = BUK_gongshe_zizhi_ziyou
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = BUK_haozhao_ziyou_zhanshi}
+		prerequisite = { focus = BUK_anfu_zhaboluore}
+		relative_position_id = BUK_anfu_zhaboluore
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_ziyou_zizhi
+			remove_idea = BUK_ziyou_zhitu
+			}
+		}
+	}
+	#推动领土发展
+	focus = {
+		id = BUK_tuidong_lingtu_fazhan
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = BUK_gongshe_zizhi_ziyou}
+		relative_position_id = BUK_gongshe_zizhi_ziyou
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_tuidong_lingtu_fazhan
+			remove_idea = BUK_gongye_kunjing
+			}
+		}
+	}
+	#号召工业化
+	focus = {
+		id = BUK_haozhao_gongyehua
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = BUK_tuidong_lingtu_fazhan}
+		relative_position_id = BUK_tuidong_lingtu_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_haozhao_gongyehua
+			remove_idea = BUK_tuidong_lingtu_fazhan
+			}
+		}
+	}
+	#扩大化作坊
+	focus = {
+		id = BUK_kuodahua_zuofang
+		icon = GFX_focus_DEN_heavy_regulations
+		prerequisite = { focus = BUK_haozhao_gongyehua}
+		relative_position_id = BUK_haozhao_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_haozhao_gongyehua_2
+			remove_idea = BUK_haozhao_gongyehua
+			}
+		}
+	}
+	#利用机械
+	focus = {
+		id = BUK_liyong_jixie
+		icon = GFX_focus_NORDIC_com_civilian
+		prerequisite = { focus = BUK_kuodahua_zuofang}
+		relative_position_id = BUK_kuodahua_zuofang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_haozhao_gongyehua_3
+			remove_idea = BUK_haozhao_gongyehua_2
+			}
+		}
+	}
+	#公社的农业
+	focus = {
+		id = BUK_gongshe_nongye
+		icon = GFX_focus_ARG_capitalize_the_beef_industry
+		prerequisite = { focus = BUK_tuidong_lingtu_fazhan}
+		relative_position_id = BUK_tuidong_lingtu_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_gongshe_nongye
+		}
+	}
+	#地方农业自治
+	focus = {
+		id = BUK_difang_nongye_zizhi
+		icon = GFX_focus_BRA_cafe_com_leite_politics
+		prerequisite = { focus = BUK_gongshe_nongye}
+		relative_position_id = BUK_gongshe_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_gongshe_nongye_2
+			remove_idea = BUK_gongshe_nongye
+			}
+		}
+	}
+	#抹去饥饿
+	focus = {
+		id = BUK_moqu_jie
+		icon = GFX_focus_BRA_support_sugar_barons
+		prerequisite = { focus = BUK_difang_nongye_zizhi}
+		relative_position_id = BUK_difang_nongye_zizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_gongshe_nongye_3
+			remove_idea = BUK_gongshe_nongye_2
+			}
+		}
+	}
+	#地方集合体
+	focus = {
+		id = BUK_difang_jiheti
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = BUK_kuodahua_zuofang}
+		prerequisite = { focus = BUK_difang_nongye_zizhi}
+		relative_position_id = BUK_kuodahua_zuofang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = BUK_gongnong_lianhe
+		}
+	}
+	#工农联合
+	focus = {
+		id = BUK_gongnong_lianhe
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = BUK_kuodahua_zuofang}
+		prerequisite = { focus = BUK_difang_nongye_zizhi}
+		relative_position_id = BUK_kuodahua_zuofang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongnong_lianhe_2
+			remove_idea = BUK_gongnong_lianhe
+			}
+		}
+	}
+	#保证农民地位
+	focus = {
+		id = BUK_baozheng_nongmin_diwei
+		icon = GFX_focus_SWE_beneath_sticks_and_stone
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		prerequisite = { focus = BUK_gongnong_lianhe }
+		relative_position_id = BUK_gongnong_lianhe
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongshe_nongye_4
+			remove_idea = BUK_gongshe_nongye_3
+			}
+		}
+	}
+	#建设乡村武装
+	focus = {
+		id = BUK_jianshe_xiangcun_wuzhuang
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = BUK_baozheng_nongmin_diwei }
+		relative_position_id = BUK_baozheng_nongmin_diwei
+		mutually_exclusive = { focus = BUK_qianghua_xiangcun_zizhi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongshe_nongye_wuzhuang
+			remove_idea = BUK_gongshe_nongye_4
+			}
+		}
+	}
+	#强化乡村自治
+	focus = {
+		id = BUK_qianghua_xiangcun_zizhi
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = BUK_baozheng_nongmin_diwei }
+		relative_position_id = BUK_baozheng_nongmin_diwei
+		mutually_exclusive = { focus = BUK_jianshe_xiangcun_wuzhuang }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_qianghua_xiangcun_zizhi
+			remove_idea = BUK_gongshe_nongye_4
+			}
+		}
+	}
+	#工业化集体
+	focus = {
+		id = BUK_gongye_jitihua
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		prerequisite = { focus = BUK_gongnong_lianhe }
+		relative_position_id = BUK_gongnong_lianhe
+		mutually_exclusive = { focus = BUK_kuojian_xiaoxinggongchang }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongye_jitihua
+			remove_idea = BUK_haozhao_gongyehua_3
+			}
+		}
+	}
+	#流水线生产
+	focus = {
+		id = BUK_liushuixian_shengchan
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = BUK_gongye_jitihua }
+		relative_position_id = BUK_gongye_jitihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongye_jitihua_2
+			remove_idea = BUK_gongye_jitihua
+			}
+		}
+	}
+	#扩建小型工厂
+	focus = {
+		id = BUK_kuojian_xiaoxinggongchang
+		icon = GFX_focus_NORDIC_mon_civilian
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		prerequisite = { focus = BUK_gongnong_lianhe }
+		relative_position_id = BUK_gongnong_lianhe
+		mutually_exclusive = { focus = BUK_gongye_jitihua }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongye_lisanhua
+			remove_idea = BUK_haozhao_gongyehua_3
+			}
+		}
+	}
+	#改善生产技巧
+	focus = {
+		id = BUK_gaishan_shengchan_jiqiao
+		icon = GFX_focus_SWE_SKF_ball_bearings
+		prerequisite = { focus = BUK_kuojian_xiaoxinggongchang }
+		relative_position_id = BUK_kuojian_xiaoxinggongchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongye_lisanhua_2
+			remove_idea = BUK_gongye_lisanhua
+			}
+		}
+	}
+	#自由的生产
+	focus = {
+		id = BUK_ziyou_shengchan
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = BUK_gaishan_shengchan_jiqiao focus = BUK_liushuixian_shengchan }
+		prerequisite = { focus = BUK_qianghua_xiangcun_zizhi focus = BUK_jianshe_xiangcun_wuzhuang }
+		relative_position_id = BUK_qianghua_xiangcun_zizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = BUK_gongnong_lianhe_3
+			remove_idea = BUK_gongnong_lianhe_2
+			}
+		}
+	}
+	#没有众神，没有主人
+	focus = {
+		id = BUK_meiyouzhongshen_meiyouzhuren
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		prerequisite = { focus = BUK_gongshe_zizhi_ziyou}
+		relative_position_id = BUK_gongshe_zizhi_ziyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UNR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_meiyouzhongshen_meiyouzhuren
+			remove_idea = BUK_ziyou_zizhi
+			}
+			declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = LIT
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+		}
+	}
+	#乌克兰的自由
+	focus = {
+		id = BUK_wukelan_ziyou
+		icon = GFX_focus_POL_ukrainian_army
+		prerequisite = { focus = BUK_meiyouzhongshen_meiyouzhuren}
+		relative_position_id = BUK_meiyouzhongshen_meiyouzhuren
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 197
+		controls_state = 202
+		controls_state = 203
+		controls_state = 192
+		controls_state = 834
+		controls_state = 226
+		controls_state = 200
+		controls_state = 1069
+		controls_state = 196
+		controls_state = 137
+		controls_state = 1068
+		controls_state = 1067
+		controls_state = 193
+		controls_state = 225
+		controls_state = 259
+		controls_state = 221
+		controls_state = 227
+		controls_state = 228
+		controls_state = 1429
+		controls_state = 1432
+		controls_state = 201
+		controls_state = 199
+		controls_state = 1431
+		controls_state = 1430
+		controls_state = 1859
+		controls_state = 198
+		}
+		completion_reward = {
+			add_ideas = BUK_ukrfree
+		}
+	}
+	#撕裂囚笼
+	focus = {
+		id = BUK_silie_qiulong
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = BUK_wukelan_ziyou}
+		relative_position_id = BUK_wukelan_ziyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_meiyouzhongshen_meiyouzhuren_2
+			remove_idea = BUK_meiyouzhongshen_meiyouzhuren
+			}
+		}
+	}
+	#波兰的自由
+	focus = {
+		id = BUK_bolan_ziyou
+		icon = GFX_focus_POL_common_organization_of_society
+		prerequisite = { focus = BUK_meiyouzhongshen_meiyouzhuren}
+		relative_position_id = BUK_meiyouzhongshen_meiyouzhuren
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1066
+		controls_state = 241
+		controls_state = 207
+		controls_state = 1550
+		controls_state = 206
+		controls_state = 204
+		controls_state = 1543
+		controls_state = 194
+		controls_state = 96
+		controls_state = 1551
+		controls_state = 94
+		controls_state = 95
+		controls_state = 1547
+		controls_state = 1545
+		controls_state = 1544
+		controls_state = 93
+		controls_state = 1552
+		controls_state = 91
+		controls_state = 89
+		controls_state = 97
+		controls_state = 98
+		controls_state = 92
+		controls_state = 982
+		controls_state = 1542
+		controls_state = 10
+		controls_state = 90
+		controls_state = 87
+		controls_state = 974
+		controls_state = 88
+		controls_state = 1555
+		}
+		completion_reward = {
+			add_ideas = BUK_blaziyou
+			add_state_core = 1066
+		add_state_core = 241
+		add_state_core = 207
+		add_state_core = 1550
+		add_state_core = 206
+		add_state_core = 204
+		add_state_core = 1543
+		add_state_core = 194
+		add_state_core = 96
+		add_state_core = 1551
+		add_state_core = 94
+		add_state_core = 95
+		add_state_core = 1547
+		add_state_core = 1545
+		add_state_core = 1544
+		add_state_core = 93
+		add_state_core = 1552
+		add_state_core = 91
+		add_state_core = 89
+		add_state_core = 97
+		add_state_core = 98
+		add_state_core = 92
+		add_state_core = 982
+		add_state_core = 1542
+		add_state_core = 10
+		add_state_core = 90
+		add_state_core = 87
+		add_state_core = 974
+		add_state_core = 88
+		add_state_core = 1555
+		}
+	}
+	#战胜谎言
+	focus = {
+		id = BUK_zhansheng_huangyan
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = BUK_bolan_ziyou}
+		relative_position_id = BUK_bolan_ziyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_2
+			remove_idea = BUK_annaqi_haizi
+			}
+		}
+	}
+	#东欧无政府
+	focus = {
+		id = BUK_dongou_wuzhengfu
+		icon = GFX_focus_ARG_no_gods_no_masters
+		prerequisite = { focus = BUK_silie_qiulong}
+		prerequisite = { focus = BUK_zhansheng_huangyan}
+		relative_position_id = BUK_zhansheng_huangyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_3
+			remove_idea = BUK_annaqi_haizi_2
+			}
+		}
+	}
+	#自由者之土
+	focus = {
+		id = BUK_ziyouzhe_zhitu
+		icon = GFX_focus_BRA_deal_with_the_cangaco
+		prerequisite = { focus = BUK_silie_qiulong}
+		prerequisite = { focus = BUK_zhansheng_huangyan}
+		relative_position_id = BUK_zhansheng_huangyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = BUK_ukrfree
+			remove_ideas = BUK_blaziyou
+			add_ideas = BUK_ziyouzhe_zhitu
+			add_ideas = BUK_zongjiao_maodun
+		}
+	}
+	#改善行政机关
+	focus = {
+		id = BUK_gaishan_xingzheng_jiguan
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = BUK_ziyouzhe_zhitu}
+		relative_position_id = BUK_ziyouzhe_zhitu
+		mutually_exclusive = { focus = BUK_cuihui_xingzheng_tixi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_xingzzheng
+			remove_idea = BUK_annaqi_haizi_3
+			}
+		}
+	}
+	#秩序化生产
+	focus = {
+		id = BUK_zhixuhua_shengchan
+		icon = GFX_focus_ITA_workers_unions
+		prerequisite = { focus = BUK_gaishan_xingzheng_jiguan}
+		relative_position_id = BUK_gaishan_xingzheng_jiguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_xingzzheng_2
+			remove_idea = BUK_annaqi_haizi_xingzzheng
+			}
+		}
+	}
+	#重建必要之法
+	focus = {
+		id = BUK_chongjian_biyao_zhifa
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = { focus = BUK_zhixuhua_shengchan}
+		relative_position_id = BUK_zhixuhua_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_xingzzheng_3
+			remove_idea = BUK_annaqi_haizi_xingzzheng_2
+			}
+		}
+	}
+	#摧毁行政体系
+	focus = {
+		id = BUK_cuihui_xingzheng_tixi
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = BUK_ziyouzhe_zhitu}
+		relative_position_id = BUK_ziyouzhe_zhitu
+		mutually_exclusive = { focus = BUK_gaishan_xingzheng_jiguan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_wuzhengfu
+			remove_idea = BUK_annaqi_haizi_3
+			}
+		}
+	}
+	#信任社会链接
+	focus = {
+		id = BUK_xinren_shehui_lianjie
+		icon = GFX_focus_SWE_form_rfsu
+		prerequisite = { focus = BUK_cuihui_xingzheng_tixi}
+		relative_position_id = BUK_cuihui_xingzheng_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_wuzhengfu_2
+			remove_idea = BUK_annaqi_haizi_wuzhengfu
+			}
+		}
+	}
+	#培养人民友谊
+	focus = {
+		id = BUK_peiyang_renmin_youyi
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = BUK_xinren_shehui_lianjie}
+		relative_position_id = BUK_xinren_shehui_lianjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_annaqi_haizi_wuzhengfu_3
+			remove_idea = BUK_annaqi_haizi_wuzhengfu_2
+			}
+		}
+	}
+	#世界解放之路
+	focus = {
+		id = BUK_shijiejiefang_zhilu
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = BUK_peiyang_renmin_youyi}
+		prerequisite = { focus = BUK_chongjian_biyao_zhifa}
+		relative_position_id = BUK_chongjian_biyao_zhifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_country = {
+			BUK = {
+			create_wargoal = {
+    type = annex_everything
+    target = PREV
+}
+			}
+			}
+			every_state = {
+			add_claim_by = BUK
+			}
+		}
+	}
+	#从而自由之人
+	focus = {
+		id = BUK_congerziyou_zhiren
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = BUK_shijiejiefang_zhilu}
+		relative_position_id = BUK_shijiejiefang_zhilu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_ziyouzhe_zhitu_2
+			remove_idea = BUK_ziyouzhe_zhitu
+			}
+		}
+	}
+	#吸收自由战士
+	focus = {
+		id = BUK_xishou_ziyou_zhanshi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = BUK_gongshe_zizhi_ziyou}
+		relative_position_id = BUK_gongshe_zizhi_ziyou
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = BUK_ziyou_zhanshi_2
+			add_idea = BUK_ziyou_zhanshi_3
+			}
+		}
+	}
+	#坚持战斗
+	focus = {
+		id = BUK_jianchi_zhandou
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BUK_xishou_ziyou_zhanshi}
+		relative_position_id = BUK_xishou_ziyou_zhanshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_jianchi_zhandou
+		}
+	}
+	#自由卫士
+	focus = {
+		id = BUK_ziyou_weishi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = BUK_jianchi_zhandou}
+		relative_position_id = BUK_jianchi_zhandou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_jianchi_zhandou_2
+			remove_idea = BUK_jianchi_zhandou
+			}
+		}
+	}
+	#不退一步
+	focus = {
+		id = BUK_butuiyibu
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BUK_ziyou_weishi}
+		relative_position_id = BUK_ziyou_weishi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_jianchi_zhandou_3
+			remove_idea = BUK_jianchi_zhandou_2
+			}
+		}
+	}
+	#来去如风
+	focus = {
+		id = BUK_laiqu_rufeng
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = BUK_xishou_ziyou_zhanshi}
+		relative_position_id = BUK_xishou_ziyou_zhanshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_laiqu_rufeng
+		}
+	}
+	#游战激斗
+	focus = {
+		id = BUK_youzhan_jidou
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = BUK_laiqu_rufeng}
+		relative_position_id = BUK_laiqu_rufeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_laiqu_rufeng_2
+			remove_idea = BUK_laiqu_rufeng
+			}
+		}
+	}
+	#军团机动
+	focus = {
+		id = BUK_juntuan_jidong
+		icon = GFX_focus_FIN_strengthen_military_administration
+		prerequisite = { focus = BUK_youzhan_jidou}
+		relative_position_id = BUK_youzhan_jidou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BUK_laiqu_rufeng_3
+			remove_idea = BUK_laiqu_rufeng_2
+			}
+		}
+	}
+	#自由的剑刃
+	focus = {
+		id = BUK_ziyou_jianren
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = BUK_ziyou_weishi}
+		prerequisite = { focus = BUK_youzhan_jidou}
+		relative_position_id = BUK_ziyou_weishi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = BUK_ziyou_zhanshi_3
+			add_idea = BUK_ziyou_zhanshi_4
+			}
+		}
+	}
+	#解放旅途
+	focus = {
+		id = BUK_jiefang_lvtu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = BUK_ziyou_jianren }
+		relative_position_id = BUK_ziyou_jianren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = BUK_ziyou_zhanshi_4
+			add_idea = BUK_ziyou_zhanshi_5
+			}
+		}
+	}
+	#文化融合
+	focus = {
+		id = BUK_wenhua_ronghe
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = BUK_jiefang_lvtu }
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		relative_position_id = BUK_jiefang_lvtu
+		mutually_exclusive = { focus = BUK_wenhua_ziyou }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_wenhua_ronghe
+		}
+	}
+	#科研统合
+	focus = {
+		id = BUK_keyan_tonghe
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		prerequisite = { focus = BUK_wenhua_ronghe focus = BUK_wenhua_ziyou}
+		relative_position_id = BUK_wenhua_ronghe
+		mutually_exclusive = { focus = BUK_sanfa_tianxing }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#文化自由
+	focus = {
+		id = BUK_wenhua_ziyou
+		icon = GFX_focus_ARG_peronism
+		prerequisite = { focus = BUK_jiefang_lvtu }
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		relative_position_id = BUK_jiefang_lvtu
+		mutually_exclusive = { focus = BUK_wenhua_ronghe }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_wenhua_ziyou
+		}
+	}
+	#散发天性
+	focus = {
+		id = BUK_sanfa_tianxing
+		icon = GFX_focus_ARG_universidad_de_buenos_aires
+		prerequisite = { focus = BUK_wenhua_ziyou focus = BUK_wenhua_ronghe}
+		relative_position_id = BUK_wenhua_ziyou
+		mutually_exclusive = { focus = BUK_keyan_tonghe }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_sanfa_tianxing
+		}
+	}
+	#消除宗教矛盾
+	focus = {
+		id = BUK_xiaochu_zongjiao_maodun
+		icon = GFX_focus_ARG_state_atheism
+		prerequisite = { focus = BUK_wenhua_ziyou focus = BUK_wenhua_ronghe}
+		relative_position_id = BUK_wenhua_ziyou
+		mutually_exclusive = { focus = BUK_keyan_tonghe }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = BUK_zongjiao_maodun
+		}
+	}
+	#扩大化军团
+	focus = {
+		id = BUK_kuodahua_juntuan
+		icon = GFX_focus_NORDIC_com_selector_army
+		prerequisite = { focus = BUK_jiefang_lvtu }
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		relative_position_id = BUK_jiefang_lvtu
+		mutually_exclusive = { focus = BUK_ziyouhua_juntuan }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_kuodahua_juntuan
+		}
+	}
+	#战争的孩子
+	focus = {
+		id = BUK_zhanzheng_haizi
+		icon = GFX_focus_NORDIC_com_army
+		prerequisite = { focus = BUK_kuodahua_juntuan }
+		relative_position_id = BUK_kuodahua_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = BUK_kuodahua_juntuan
+			add_idea = BUK_kuodahua_juntuan_2
+			}
+		}
+	}
+	#自由化军团
+	focus = {
+		id = BUK_ziyouhua_juntuan
+		icon = GFX_focus_NORDIC_dem_army
+		prerequisite = { focus = BUK_jiefang_lvtu }
+		prerequisite = { focus = BUK_ziyouzhe_zhitu }
+		relative_position_id = BUK_jiefang_lvtu
+		mutually_exclusive = { focus = BUK_kuodahua_juntuan }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_ziyouhua_juntuan
+		}
+	}
+	#歌颂自由其名
+	focus = {
+		id = BUK_gesong_ziyou_qiming
+		icon = GFX_focus_ARG_no_gods_no_masters
+		prerequisite = { focus = BUK_ziyouhua_juntuan }
+		relative_position_id = BUK_ziyouhua_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = BUK_ziyouhua_juntuan
+			add_idea = BUK_ziyouhua_juntuan_2
+			}
+		}
+	}
+	#穿越冰原
+	focus = {
+		id = BUK_chuanyue_bingyuan
+		icon = GFX_focus_BRA_amazon_colonization
+		prerequisite = { focus = BUK_gesong_ziyou_qiming focus = BUK_zhanzheng_haizi}
+		relative_position_id = BUK_zhanzheng_haizi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BUK_chuanyue_bingyuan
+		}
+	}
+}

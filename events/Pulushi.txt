@@ -1,0 +1,236 @@
+add_namespace = holy_pulushi
+#议会开始
+country_event = {
+	id = holy_pulushi.1
+	title = holy_pulushi.1.t
+	desc = holy_pulushi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	    date > 1936.6.1
+        tag = PLS
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_pulushi.1.a
+		complete_national_focus = PLS_jingzheng_kaichang
+		AUS = { country_event = { id = holy_aodili.4 } complete_national_focus = AUS_chongzhang_jiuri_zhiwei }	
+		BAF = { country_event = { id = holy_bafaliya.1 } }
+		FTB = { country_event = { id = holy_futengbao.1 } }
+		BXM = { country_event = { id = holy_boximiya.1 } }
+		SKS = { country_event = { id = holy_sakesen.1 } }
+	}
+}
+#会议之后
+country_event = {
+	id = holy_pulushi.2
+	title = holy_pulushi.2.t
+	desc = holy_pulushi.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+        tag = PLS
+		}
+	option = {
+		name = holy_pulushi.2.a
+		add_political_power = 100
+		complete_national_focus = PLS_lalongzhichizhe
+	}
+}
+#"亲爱的兄弟"
+country_event = {
+	id = holy_pulushi.3
+	title = holy_pulushi.3.t
+	desc = holy_pulushi.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.3.a
+	}
+}
+#纽伦堡的密道
+country_event = {
+	id = holy_pulushi.4
+	title = holy_pulushi.4.t
+	desc = holy_pulushi.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.4.a
+	}
+}
+#与符腾堡之王的见面
+country_event = {
+	id = holy_pulushi.5
+	title = holy_pulushi.5.t
+	desc = holy_pulushi.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.5.a
+	}
+}
+#波西米亚宣称西里西亚
+country_event = {
+	id = holy_pulushi.6
+	title = holy_pulushi.6.t
+	desc = holy_pulushi.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.6.a
+	}
+}
+#西里西亚破坏
+country_event = {
+	id = holy_pulushi.7
+	title = holy_pulushi.7.t
+	desc = holy_pulushi.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.7.a
+	    762 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		67 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		66 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.7
+			}
+		}
+	}
+}
+#西里西亚暴乱
+country_event = {
+	id = holy_pulushi.8
+	title = holy_pulushi.8.t
+	desc = holy_pulushi.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.8.a
+	    762 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		67 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+		66 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.7
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.7
+			}
+		}
+		942 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+		943 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+	}
+}
+#西里西亚起义
+country_event = {
+	id = holy_pulushi.9
+	title = holy_pulushi.9.t
+	desc = holy_pulushi.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.9.a
+		trigger = { NOT = has_war = yes }
+		ai_chance = {
+		    factor = 30
+		}
+		declare_war_on = {
+            target = BXM
+            type = annex_everything
+            }
+	}
+	option = {
+		name = holy_pulushi.9.b
+		ai_chance = {
+		    factor = 30
+		}
+		create_wargoal = {
+    type = annex_everything
+    target = BXM
+}
+	}
+}
+#柏林城下
+country_event = {
+	id = holy_pulushi.10
+	title = holy_pulushi.10.t
+	desc = holy_pulushi.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.10.a
+	}
+}
+#洛林的阴谋
+country_event = {
+	id = holy_pulushi.11
+	title = holy_pulushi.11.t
+	desc = holy_pulushi.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_pulushi.11.a
+	}
+}

@@ -1,0 +1,402 @@
+focus_tree = {
+	id = NIR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NIR
+		}
+	}
+	
+	default = no
+ 
+    #北部军政府
+	focus = {
+		id = NIR_beibu_junzhengfu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NIR_junzhengfu
+			add_ideas = NIR_aierlan_fandui
+		}
+	}
+	#北爱尔兰民兵
+	focus = {
+		id = NIR_beiaierlan_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = NIR_beibu_junzhengfu}
+		relative_position_id = NIR_beibu_junzhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NIR_beiaierlan_minbing
+		}
+	}
+	#和新教徒合作
+	focus = {
+		id = NIR_xinjiaotu_hezuo
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = NIR_beibu_junzhengfu}
+		relative_position_id = NIR_beibu_junzhengfu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = NIR_junzhengfu
+		add_idea = NIR_junzhengfu_2
+		}
+		}
+	}
+	#吸收不列颠装备
+	focus = {
+		id = NIR_xishou_buliedian_zhuangbei
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = NIR_beibu_junzhengfu}
+		relative_position_id = NIR_beibu_junzhengfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = UKM
+}
+		}
+	}
+	#镇压民族派
+	focus = {
+		id = NIR_zhenya_minzupai
+		icon = GFX_focus_focus_fra_ratify_stresa
+		prerequisite = { focus = NIR_xishou_buliedian_zhuangbei}
+		relative_position_id = NIR_xishou_buliedian_zhuangbei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = NIR_aierlan_fandui
+		add_idea = NIR_aierlan_fandui_2
+		}
+		}
+	}
+	#迫害天主教徒
+	focus = {
+		id = NIR_pohai_tianzhu_jiaotu
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = NIR_xinjiaotu_hezuo}
+		relative_position_id = NIR_xinjiaotu_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = NIR_junzhengfu_2
+		add_idea = NIR_junzhengfu_3
+		}
+		}
+	}
+	#军事化管理
+	focus = {
+		id = NIR_junshihua_guanli
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = NIR_zhenya_minzupai}
+		prerequisite = { focus = NIR_beiaierlan_minbing}
+		prerequisite = { focus = NIR_pohai_tianzhu_jiaotu}
+		relative_position_id = NIR_beiaierlan_minbing
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = NIR_junzhengfu_3
+		add_idea = NIR_junzhengfu_4
+		}
+		}
+	}
+	#摧毁反对者
+	focus = {
+		id = NIR_cuihui_fanduizhe
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = NIR_junshihua_guanli}
+		relative_position_id = NIR_junshihua_guanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = NIR_aierlan_fandui_2
+		119 = {
+		add_manpower = -195411
+		}
+		}
+	}
+	#新式武器
+	focus = {
+		id = NIR_new_wuqi
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = NIR_cuihui_fanduizhe}
+		relative_position_id = NIR_cuihui_fanduizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = -0.1
+		add_ideas = NIR_new_wuqi
+		}
+	}
+	#战争理论
+	focus = {
+		id = NIR_war_lilun
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = NIR_cuihui_fanduizhe}
+		relative_position_id = NIR_cuihui_fanduizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	#清除反对者
+	focus = {
+		id = NIR_qingchu_fanduizhe
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = NIR_war_lilun}
+		prerequisite = { focus = NIR_new_wuqi}
+		relative_position_id = NIR_new_wuqi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 113
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		}
+		bypass = {
+		OR = {
+		IRE = {
+		exists = no
+		}
+		IRP	= {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		134 = {
+		add_manpower = -59777
+		}
+		113 = {
+		add_manpower = -28956
+		}
+		135 = {
+		add_manpower = -29336
+		}
+		911 = {
+		add_manpower = -29336
+		}
+		915 = {
+		add_manpower = -29336
+		}
+		912 = {
+		add_manpower = -29336
+		}
+		914 = {
+		add_manpower = -29336
+		}
+		913 = {
+		add_manpower = -29336
+		}
+		909 = {
+		add_manpower = -29336
+		}
+		910 = {
+		add_manpower = -29336
+		}
+		}
+	}
+	#毁灭爱尔兰独立
+	focus = {
+		id = NIR_huimie_aierlan_duli
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = NIR_qingchu_fanduizhe}
+		relative_position_id = NIR_qingchu_fanduizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		IRE = {
+		exists = no
+		}
+		IRP	= {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		remove_state_core = 134
+		remove_state_core = 113
+		remove_state_core = 119
+		remove_state_core = 135
+		remove_state_core = 911
+		remove_state_core = 915
+		remove_state_core = 912
+		remove_state_core = 914
+		remove_state_core = 913
+		remove_state_core = 909
+		remove_state_core = 910
+		remove_state_core = 932
+		IRE = {
+		remove_state_core = 134
+		remove_state_core = 113
+		remove_state_core = 119
+		remove_state_core = 135
+		remove_state_core = 911
+		remove_state_core = 915
+		remove_state_core = 912
+		remove_state_core = 914
+		remove_state_core = 913
+		remove_state_core = 909
+		remove_state_core = 910
+		remove_state_core = 932
+		}
+		IRP = {
+		remove_state_core = 134
+		remove_state_core = 113
+		remove_state_core = 119
+		remove_state_core = 135
+		remove_state_core = 911
+		remove_state_core = 915
+		remove_state_core = 912
+		remove_state_core = 914
+		remove_state_core = 913
+		remove_state_core = 909
+		remove_state_core = 910
+		remove_state_core = 932
+		}
+		}
+	}
+	#回归不列颠
+	focus = {
+		id = NIR_huigui_buliedian
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = NIR_huimie_aierlan_duli}
+		relative_position_id = NIR_huimie_aierlan_duli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		AND = {
+		controls_state = 113
+		controls_state = 119
+		controls_state = 134
+		controls_state = 135
+		controls_state = 911
+		controls_state = 915
+		controls_state = 912
+		controls_state = 914
+		controls_state = 913
+		controls_state = 909
+		controls_state = 910
+		controls_state = 932
+		}
+		is_puppet_of = UKM
+		is_puppet_of = CAN
+		}
+		IRE = {
+		OR = {
+		exists = no
+		has_capitulated = yes
+		}
+		}
+		IRP = {
+		OR = {
+		exists = no
+		has_capitulated = yes
+		}
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { exists = yes }
+		}
+		UKM = {
+		annex_country = {
+    target = NIR
+    transfer_troops = yes
+}
+		}
+		}
+		if = {
+		limit = {
+		UKM = { exists = NO	}
+		}
+		CAN = {
+		annex_country = {
+    target = NIR
+    transfer_troops = yes
+}
+		}
+		}
+		}
+	}
+}

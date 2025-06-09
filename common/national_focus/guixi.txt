@@ -1,0 +1,779 @@
+focus_tree = {
+	id = GUI_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GUI
+		}
+	}
+	
+	default = no
+ 
+	#危机四伏
+	focus = {
+		id = GUI_weiji_sifu
+		icon = GFX_goal_generic_attack_allies
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		bypass = {
+		has_war_with = YUE
+		has_war_with = QYZ
+		has_war_with = OGU
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#三寓
+	focus = {
+		id = GUI_sanyu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GUI_weiji_sifu}
+		relative_position_id = GUI_weiji_sifu
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_stability = 0.05
+		}
+	}
+	#战时军事
+	focus = {
+		id = GUI_zhanshi_junshi
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = GUI_sanyu}
+		relative_position_id = GUI_sanyu
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_our_army_2
+			remove_idea = GUI_our_army
+			}
+		}
+	}
+	#军团重整
+	focus = {
+		id = GUI_juntuan_chongzheng
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = GUI_zhanshi_junshi}
+		relative_position_id = GUI_zhanshi_junshi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_our_army_3
+			remove_idea = GUI_our_army_2
+			}
+		}
+	}
+	#组建民兵
+	focus = {
+		id = GUI_zuzian_minbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = GUI_sanyu}
+		prerequisite = { focus = GUI_sanzi}
+		relative_position_id = GUI_sanyu
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = GUI_zujian_minbing
+		}
+	}
+	#自给军事工业
+	focus = {
+		id = GUI_ziji_junshi_gongye
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = GUI_sanzi}
+		relative_position_id = GUI_sanzi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#保卫广西
+	focus = {
+		id = GUI_baowei_guangxi
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = GUI_zuzian_minbing}
+		prerequisite = { focus = GUI_ziji_junshi_gongye}
+		relative_position_id = GUI_ziji_junshi_gongye
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_nanbu_bazhu_2
+			remove_idea = GUI_nanbu_bazhu
+			}
+		}
+	}
+	#三自
+	focus = {
+		id = GUI_sanzi
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = GUI_weiji_sifu}
+		relative_position_id = GUI_weiji_sifu
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_war_support = 0.05
+		}
+	}
+	#广东战争
+	focus = {
+		id = GUI_guangdong_war
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = GUI_baowei_guangxi}
+		prerequisite = { focus = GUI_juntuan_chongzheng}
+		relative_position_id = GUI_baowei_guangxi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		YUE = {
+		exists = no
+		}
+		OGU = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#校长我来了！
+	focus = {
+		id = GUI_xiaozhang_wolaile
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = GUI_guangdong_war}
+		relative_position_id = GUI_guangdong_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    NNJ = { puppet = GUI } 
+		}
+	}
+	#桂系战争计划
+	focus = {
+		id = GUI_guixi_war_plan
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = GUI_xiaozhang_wolaile}
+		relative_position_id = GUI_xiaozhang_wolaile
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    create_wargoal = {
+    type = puppet_wargoal_focus
+    target = QAN
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = DIA
+}
+		}
+	}
+	#俩广工业化
+	focus = {
+		id = GUI_liaguang_gongyehua
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = GUI_guangdong_war}
+		relative_position_id = GUI_guangdong_war
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		limit = {
+		region = 248
+		}
+		is_controlled_by = GUI
+		}
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_guangxi_gongye_2
+			remove_idea = GUI_guangxi_gongye
+			}
+		}
+	}
+	#民生工业
+	focus = {
+		id = GUI_minsheng_gongye
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = GUI_liaguang_gongyehua}
+		relative_position_id = GUI_liaguang_gongyehua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_guangxi_gongye_2
+			remove_idea = GUI_guangxi_gongye
+			}
+		}
+	}
+	#消费品恢复
+	focus = {
+		id = GUI_xiaofeiping_huifu
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = GUI_minsheng_gongye}
+		relative_position_id = GUI_minsheng_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_guangxi_gongye_3
+			remove_idea = GUI_guangxi_gongye_2
+			}
+		}
+	}
+	#海港开发
+	focus = {
+		id = GUI_haigang_kaifa
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = GUI_fangkuan_guangzhou}
+		prerequisite = { focus = GUI_minsheng_gongye}
+		relative_position_id = GUI_minsheng_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    1257 = {
+			add_extra_state_shared_building_slots = 2
+		    add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+		}
+		591 = {
+			add_extra_state_shared_building_slots = 1
+		    add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#广西轻工业
+	focus = {
+		id = GUI_guangxi_qinggongye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = GUI_haigang_kaifa}
+		prerequisite = { focus = GUI_xiaofeiping_huifu}
+		relative_position_id = GUI_xiaofeiping_huifu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    1254 = {
+			add_extra_state_shared_building_slots = 2
+		    add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		 594 = {
+			add_extra_state_shared_building_slots = 2
+		    add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		remove_ideas = GUI_guangxi_gongye_3
+		}
+	}
+	#放宽广州
+	focus = {
+		id = GUI_fangkuan_guangzhou
+		icon = GFX_goal_continuous_restrict_freedom
+		prerequisite = { focus = GUI_liaguang_gongyehua}
+		relative_position_id = GUI_liaguang_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_zhagan_guangzhou_2
+			remove_idea = GUI_zhagan_guangzhou
+			}
+		}
+	}
+	#军事工业
+	focus = {
+		id = GUI_junshi_gongye
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = GUI_liaguang_gongyehua}
+		relative_position_id = GUI_liaguang_gongyehua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1261 = {
+		    add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		1254 = {
+		    add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+	}
+	}
+	#广东归心
+	focus = {
+		id = GUI_guangdong_guixin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = GUI_haigang_kaifa}
+		prerequisite = { focus = GUI_dongbu_junshihua}
+		relative_position_id = GUI_dongbu_junshihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 591
+		add_state_core = 592
+		add_state_core = 593
+		add_state_core = 1263
+		add_state_core = 729
+		add_state_core = 728
+		add_state_core = 1163
+		add_state_core = 1264
+		add_state_core = 1259
+		add_state_core = 1265
+		add_state_core = 1281
+		add_state_core = 1282
+		add_state_core = 1283
+		add_state_core = 1284
+			remove_ideas = GUI_zhagan_guangzhou_2
+		}
+	}
+	#完成工业化
+	focus = {
+		id = GUI_wancheng_gongye_jianshe
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = GUI_guangxi_qinggongye}
+		prerequisite = { focus = GUI_guangdong_guixin}
+		prerequisite = { focus = GUI_jinkou_hangkong}
+		relative_position_id = GUI_guangdong_guixin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = GUI_wancheng_gongyehua
+		}
+	}
+	#东部军事化
+	focus = {
+		id = GUI_dongbu_junshihua
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = GUI_junshi_gongye}
+		prerequisite = { focus = GUI_fangkuan_guangzhou}
+		relative_position_id = GUI_fangkuan_guangzhou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    592 = {
+			add_extra_state_shared_building_slots = 2
+		    add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		 593 = {
+			add_extra_state_shared_building_slots = 2
+		    add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#柳州军工厂
+	focus = {
+		id = GUI_liuzhou_jungongchang
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = GUI_junshi_gongye}
+		relative_position_id = GUI_junshi_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    599 = {
+		    add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		 1272 = {
+		    add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#进口航空
+	focus = {
+		id = GUI_jinkou_hangkong
+		icon = GFX_focus_generic_armored_air_support
+		prerequisite = { focus = GUI_liuzhou_jungongchang}
+		prerequisite = { focus = GUI_dongbu_junshihua}
+		relative_position_id = GUI_dongbu_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = early_bomber
+    amount = 20
+    producer = PLS
+}
+	}
+	}
+	#军队现代化
+	focus = {
+		id = GUI_jundui_xiandaihua
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = GUI_guangdong_war}
+		relative_position_id = GUI_guangdong_war
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		add_state_core = 591
+		add_state_core = 592
+		add_state_core = 593
+		add_state_core = 1263
+		add_state_core = 729
+		add_state_core = 728
+		add_state_core = 1163
+		add_state_core = 1264
+		add_state_core = 1259
+		add_state_core = 1265
+		add_state_core = 1281
+		add_state_core = 1282
+		add_state_core = 1283
+		add_state_core = 1284
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_our_army_4
+			remove_idea = GUI_our_army_3
+			}
+		}
+	}
+	#扩大化
+	focus = {
+		id = GUI_kuodahua
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = GUI_jundui_xiandaihua}
+		relative_position_id = GUI_jundui_xiandaihua
+		mutually_exclusive = { focus = GUI_jingruihua }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_kuodahua_amry
+			remove_idea = GUI_our_army_4
+			}
+		}
+	}
+	#加大武装力量
+	focus = {
+		id = GUI_jiada_wuzhuang_liliang
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = GUI_kuodahua}
+		relative_position_id = GUI_kuodahua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_kuodahua_amry_2
+			remove_idea = GUI_kuodahua_amry
+			}
+		}
+	}
+	#合理化征兵
+	focus = {
+		id = GUI_helihua_zhengbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = GUI_jiada_wuzhuang_liliang}
+		relative_position_id = GUI_jiada_wuzhuang_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_kuodahua_amry_3
+			remove_idea = GUI_kuodahua_amry_2
+			}
+		}
+	}
+	#如狼似虎
+	focus = {
+		id = GUI_rulang_sihu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = GUI_helihua_zhengbing }
+		prerequisite = { focus = GUI_minzu_zhanzheng }
+		relative_position_id = GUI_minzu_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_kuodahua_amry_4
+			remove_idea = GUI_kuodahua_amry_3
+			}
+		}
+	}
+	#战斗意志
+	focus = {
+		id = GUI_zhandou_yizhi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = GUI_jingruihua focus = GUI_kuodahua}
+		relative_position_id = GUI_kuodahua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = GUI_zhandou_yizhi
+		}
+	}
+	#民族战争
+	focus = {
+		id = GUI_minzu_zhanzheng
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = GUI_zhandou_yizhi }
+		relative_position_id = GUI_zhandou_yizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = GUI_minzu_war
+		}
+	}
+	#总参谋部
+	focus = {
+		id = GUI_zongcanmoubu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = GUI_zhandou_yizhi }
+		relative_position_id = GUI_zhandou_yizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = GUI_zongcanmoubu
+		}
+	}
+	#精锐化
+	focus = {
+		id = GUI_jingruihua
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = GUI_jundui_xiandaihua}
+		relative_position_id = GUI_jundui_xiandaihua
+		mutually_exclusive = { focus = GUI_kuodahua }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_jingruihua_amry
+			remove_idea = GUI_our_army_4
+			}
+		}
+	}
+	#扩大军官团体
+	focus = {
+		id = GUI_kuoda_junguan_tuanti
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = GUI_jingruihua}
+		relative_position_id = GUI_jingruihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_jingruihua_amry_2
+			remove_idea = GUI_jingruihua_amry
+			}
+		}
+	}
+	#精编化军队
+	focus = {
+		id = GUI_jingbianhua_jundui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = GUI_kuoda_junguan_tuanti}
+		relative_position_id = GUI_kuoda_junguan_tuanti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_jingruihua_amry_3
+			remove_idea = GUI_jingruihua_amry_2
+			}
+		}
+	}
+	#真正的战争
+	focus = {
+		id = GUI_ture_war
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = GUI_zongcanmoubu}
+		prerequisite = { focus = GUI_jingbianhua_jundui}
+		relative_position_id = GUI_jingbianhua_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = GUI_jingruihua_amry_4
+			remove_idea = GUI_jingruihua_amry_3
+			}
+		}
+	}
+}

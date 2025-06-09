@@ -1,0 +1,443 @@
+focus_tree = {
+	id = TRA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = TRA
+		}
+	}
+	
+	default = no
+ 
+    #三教正中央
+	focus = {
+		id = TRA_sanjiao_zhengzhongyang
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#拉拢当地军队
+	focus = {
+		id = TRA_lalong_dangdi_jundui
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = TRA_sanjiao_zhengzhongyang}
+		relative_position_id = TRA_sanjiao_zhengzhongyang
+		x = -4
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			load_oob = TRA_lalong_jundui
+		}
+	}
+	#建立地方控制
+	focus = {
+		id = TRA_jianli_difang_kongzhi
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = TRA_sanjiao_zhengzhongyang}
+		relative_position_id = TRA_sanjiao_zhengzhongyang
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_ideas = TRA_difang_kongzhi
+		}
+	}
+	#建立地下军工
+	focus = {
+		id = TRA_jianli_dixia_jungong
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = TRA_jianli_difang_kongzhi}
+		prerequisite = { focus = TRA_lalong_dangdi_jundui}
+		relative_position_id = TRA_jianli_difang_kongzhi
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#维持宗教稳定
+	focus = {
+		id = TRA_weichi_zongjiao_wending
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = TRA_sanjiao_zhengzhongyang }
+		relative_position_id = TRA_sanjiao_zhengzhongyang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XYL_zongjiao_chongtu_2
+			remove_idea = XYL_zongjiao_chongtu
+			}
+		}
+	}
+	#接管匈牙利武装
+	focus = {
+		id = TRA_jieguan_xiongyali_wuzhuang
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = TRA_jianli_difang_kongzhi}
+		prerequisite = { focus = TRA_weichi_zongjiao_wending}
+		relative_position_id = TRA_weichi_zongjiao_wending
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = XYL
+}
+		}
+	}
+	#反对民族压迫
+	focus = {
+		id = TRA_fandui_minzu_yapo
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = TRA_sanjiao_zhengzhongyang }
+		relative_position_id = TRA_sanjiao_zhengzhongyang
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XYL_daqiya_zhengyi_2
+			remove_idea = XYL_daqiya_zhengyi
+			}
+		}
+	}
+	#团结德意志人
+	focus = {
+		id = TRA_tuanjie_deyizhi_ren
+		icon = GFX_focus_ger_oppose_hitler
+		prerequisite = { focus = TRA_weichi_zongjiao_wending}
+		prerequisite = { focus = TRA_fandui_minzu_yapo}
+		relative_position_id = TRA_fandui_minzu_yapo
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			load_oob = TRA_tuanjie_deyizhi
+		}
+	}
+	#联合地方农民
+	focus = {
+		id = TRA_lianhe_difang_nongmin
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = TRA_sanjiao_zhengzhongyang }
+		relative_position_id = TRA_sanjiao_zhengzhongyang
+		x = 4
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_ideas = TRA_lianhe_nongmin
+		}
+	}
+	#扩大乡村卫队
+	focus = {
+		id = TRA_kuoda_xiangcun_weidui
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = TRA_fandui_minzu_yapo}
+		prerequisite = { focus = TRA_lianhe_difang_nongmin}
+		relative_position_id = TRA_lianhe_difang_nongmin
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			load_oob = TRA_xiangcun_weidui
+		}
+	}
+	#游击战
+	focus = {
+		id = TRA_youjizhan
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = TRA_kuoda_xiangcun_weidui}
+		prerequisite = { focus = TRA_tuanjie_deyizhi_ren}
+		relative_position_id = TRA_tuanjie_deyizhi_ren
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_ideas = TRA_youjizhan
+		}
+	}
+	#后勤战
+	focus = {
+		id = TRA_houqinzhan
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = TRA_jianli_dixia_jungong}
+		prerequisite = { focus = TRA_jieguan_xiongyali_wuzhuang}
+		relative_position_id = TRA_jieguan_xiongyali_wuzhuang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_ideas = TRA_houqinzhan
+		}
+	}
+	#达契亚人万岁！
+	focus = {
+		id = TRA_daqiya_wansui
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = TRA_youjizhan}
+		prerequisite = { focus = TRA_houqinzhan}
+		relative_position_id = TRA_houqinzhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 84
+		controls_state = 971
+		controls_state = 977
+		controls_state = 76
+		controls_state = 972
+		controls_state = 83
+		NOT = {
+		has_war_with = XYL
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XYL_zongjiao_chongtu_3
+			remove_idea = XYL_zongjiao_chongtu_2
+			}
+		}
+	}
+	#建立地区自治
+	focus = {
+		id = TRA_jianli_diqu_zizhi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TRA_daqiya_wansui}
+		relative_position_id = TRA_daqiya_wansui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = TRA_difang_kongzhi_2
+			remove_idea = TRA_difang_kongzhi
+			}
+		}
+	}
+	#开发城市区
+	focus = {
+		id = TRA_kaifa_chengshiqu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = TRA_jianli_diqu_zizhi }
+		relative_position_id = TRA_jianli_diqu_zizhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			76 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			84 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#完成宗教革新
+	focus = {
+		id = TRA_wancheng_zongjiao_gexin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = TRA_jianli_diqu_zizhi }
+		relative_position_id = TRA_jianli_diqu_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			remove_ideas = XYL_zongjiao_chongtu_2
+		}
+	}
+	#认可统一思想
+	focus = {
+		id = TRA_renke_tongyi_sixiang
+		icon = GFX_focus_rom_preserve_romania
+		prerequisite = { focus = TRA_jianli_diqu_zizhi }
+		relative_position_id = TRA_jianli_diqu_zizhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+	#扩建工业
+	focus = {
+		id = TRA_kuojian_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TRA_kaifa_chengshiqu }
+		prerequisite = { focus = TRA_wancheng_zongjiao_gexin }
+		relative_position_id = TRA_wancheng_zongjiao_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			977 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			83 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#改善放牧体系
+	focus = {
+		id = TRA_gaishan_fangmu_tixi
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = TRA_women_zhengyi }
+		prerequisite = { focus = TRA_kuojian_gongye }
+		relative_position_id = TRA_women_zhengyi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_ideas = TRA_gaishan_fangmu_tixi
+		}
+	}
+	#我们的正义
+	focus = {
+		id = TRA_women_zhengyi
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = TRA_renke_tongyi_sixiang }
+		prerequisite = { focus = TRA_wancheng_zongjiao_gexin }
+		relative_position_id = TRA_wancheng_zongjiao_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = TRA_lianhe_nongmin_2
+			remove_idea = TRA_lianhe_nongmin
+			}
+		}
+	}
+	#特兰西瓦尼亚武装
+	focus = {
+		id = TRA_telanxiwaniya_wuzhuang
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = TRA_women_zhengyi }
+		prerequisite = { focus = TRA_kuojian_gongye }
+		relative_position_id = TRA_women_zhengyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XYL_daqiya_zhengyi_4
+			remove_idea = XYL_daqiya_zhengyi_3
+			}
+		}
+	}
+	#改善军事理念
+	focus = {
+		id = TRA_gaishan_junshi_linian
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = TRA_women_zhengyi }
+		prerequisite = { focus = TRA_kuojian_gongye }
+		relative_position_id = TRA_women_zhengyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			remove_ideas = TRA_youjizhan
+			remove_ideas = TRA_houqinzhan
+			add_ideas = TRA_gaishan_junshi_linian
+		}
+	}
+}

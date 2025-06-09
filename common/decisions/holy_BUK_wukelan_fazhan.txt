@@ -1,0 +1,196 @@
+holy_BUK_diqu = {
+    #统一乌克兰
+    holy_BUK_tongyiwukelan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			UNR = {
+			exists = no
+			}
+			CRM = {
+			exists = no
+			}
+		}
+		cost = 0
+        fire_only_once = yes
+		complete_effect = {
+			declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+    #乡村自治
+    holy_BUK_xiangcunzizhi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			has_completed_focus = BUK_qianghua_xiangcun_zizhi 
+		}
+		target_trigger = {
+            FROM = {
+			is_core_by = BUK
+			is_owned_and_controlled_by = BUK
+			}
+        }
+		cost = 20
+		days_remove = 100
+        fire_only_once = yes
+		state_target = yes
+		on_map_mode = map_only
+		remove_effect = {
+			FROM = {
+			local_building_slots = 2
+			local_resources = 0.3
+			state_production_speed_buildings_factor = 0.1
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#乡村武装
+    holy_BUK_xiangcunwuzhuang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			has_completed_focus = BUK_jianshe_xiangcun_wuzhuang 
+		}
+		target_trigger = {
+            FROM = {
+			is_core_by = BUK
+			is_owned_and_controlled_by = BUK
+			}
+        }
+		cost = 20
+		days_remove = 100
+        fire_only_once = yes
+		state_target = yes
+		on_map_mode = map_only
+		remove_effect = {
+			FROM = {
+			local_supplies_for_controller = 0.3
+			local_manpower = 0.3
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#行政机关
+    holy_BUK_xingzhengjiguan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			has_completed_focus = BUK_gaishan_xingzheng_jiguan 
+		}
+		target_trigger = {
+            FROM = {
+			is_core_by = BUK
+			is_owned_and_controlled_by = BUK
+			}
+        }
+		cost = 10
+		days_remove = 100
+        fire_only_once = yes
+		state_target = yes
+		on_map_mode = map_only
+		remove_effect = {
+			FROM = {
+			state_repair_speed_buildings_factor = 0.1
+			mobilization_speed = 0.3
+			army_speed_factor_for_controller = 0.2
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#新社会体系
+    holy_BUK_xinshehuitixi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			has_completed_focus = BUK_cuihui_xingzheng_tixi 
+		}
+		target_trigger = {
+            FROM = {
+			is_core_by = BUK
+			is_owned_and_controlled_by = BUK
+			}
+        }
+		cost = 10
+		days_remove = 100
+        fire_only_once = yes
+		state_target = yes
+		on_map_mode = map_only
+		remove_effect = {
+			FROM = {
+			local_intel_to_enemies = -0.5
+			local_supplies_for_controller = 0.3
+			resistance_damage_to_garrison = 0.3
+			resistance_garrison_penetration_chance = 0.3
+			resistance_target = 0.3
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#自由之路
+    holy_BUK_ziyouzhilu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = BUK
+	}	
+		available = {
+			has_completed_focus = BUK_congerziyou_zhiren 
+		}
+		target_trigger = {
+            FROM = {
+			is_owned_and_controlled_by = BUK
+			}
+        }
+		days_remove = 180
+        fire_only_once = yes
+		state_target = yes
+		on_map_mode = map_only
+		remove_effect = {
+			FROM = {
+			add_core_of = BUK
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

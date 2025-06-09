@@ -1,0 +1,84 @@
+holy_tubo = {
+    #结束战争
+    holy_over_war = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = ZAG
+	}	
+		available = {
+			has_completed_focus = ZAG_duoqu_xikang
+			OR = {
+			has_war_with = SHU
+			has_war_with = YUX
+			has_war_with = XKA
+			}
+			controls_state = 601
+			controls_state = 752
+			controls_state = 1278
+			controls_state = 1279
+			controls_state = 1086
+		}
+		cost = 0
+        fire_only_once = yes
+		complete_effect = {
+		every_enemy_country = {
+		white_peace = ZAG
+        }
+		transfer_state = 601
+		transfer_state = 752
+		transfer_state = 434
+		transfer_state = 1278
+			transfer_state = 1279
+			transfer_state = 1086
+			transfer_state = 1157
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#结束战争
+    holy_over_war_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = ZAG
+	}	
+		available = {
+			has_completed_focus = ZAG_canyu_xibei_war
+			OR = {
+			has_war_with = MJJ
+			has_war_with = XIH
+			has_war_with = NIN
+			}
+			controls_state = 754
+			controls_state = 755
+			controls_state = 604
+			controls_state = 1293
+			controls_state = 1294
+			controls_state = 1295
+			controls_state = 1296
+			controls_state = 1297
+		}
+		cost = 0
+        fire_only_once = yes
+		complete_effect = {
+		every_enemy_country = {
+		white_peace = ZAG
+        }
+		transfer_state = 754
+		transfer_state = 755
+		transfer_state = 604
+		transfer_state = 1293
+			transfer_state = 1294
+			transfer_state = 1295
+			transfer_state = 1296
+			transfer_state = 1297
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

@@ -1,0 +1,101 @@
+add_namespace = holy_nanhai
+#毛利人问题
+country_event = {
+	id = holy_nanhai.1
+	title = holy_nanhai.1.t
+	desc = holy_nanhai.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_nanhai.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = -100
+		284 = {
+		add_manpower = 200000
+		}
+		723 = {
+		add_manpower = 300000
+		}
+	}
+	option = {
+		name = holy_nanhai.1.b
+		ai_chance = {
+		    factor = 25
+		}
+		add_stability = 0.05
+		284 = {
+		add_manpower = 100000
+		}
+		723 = {
+		add_manpower = 100000
+		}
+	}
+}
+#1937大选
+country_event = {
+	id = holy_nanhai.2
+	title = holy_nanhai.2.t
+	desc = holy_nanhai.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_nanhai.2.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = socialism
+}
+complete_national_focus = NHL_nanhai_geming_lianmeng
+	}
+	option = {
+		name = holy_nanhai.2.b
+		ai_chance = {
+		    factor = 25
+		}
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = progressism
+}
+complete_national_focus = NHL_lianmengdang_dangxuan
+	}
+	option = {
+		name = holy_nanhai.2.c
+		ai_chance = {
+		    factor = 25
+		}
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+complete_national_focus = NHL_xianfengzhuyi_duoquan
+	}
+	option = {
+		name = holy_nanhai.2.e
+		ai_chance = {
+		    factor = 25
+		}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = neutrality
+}
+complete_national_focus = NHL_fubi_junzhulixian
+	}
+}

@@ -1,0 +1,145 @@
+add_namespace = holy_bafaliya
+#选边站
+country_event = {
+	id = holy_bafaliya.1
+	title = holy_bafaliya.1.t
+	desc = holy_bafaliya.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.1.a
+		trigger = { NOT = { has_completed_focus = BAF_king_pupuet } }
+		ai_chance = {
+		    factor = 20
+		}
+		add_opinion_modifier = { target = PLS modifier = PLS_zhichizhe}
+		add_ideas = PLS_supporter
+		PLS = { complete_national_focus = PLS_bafaliya_ying }
+		PLS = { add_ideas = BAF_zhichi }
+		complete_national_focus = BAF_pulushi_zhichizhe
+	}
+	option = {
+		name = holy_bafaliya.1.b
+		trigger = { NOT = { has_completed_focus = BAF_king_pupuet } }
+		ai_chance = {
+		    factor = 40
+		}
+		add_opinion_modifier = { target = AUS modifier = AUS_zhichizhe}
+		add_ideas = AUS_supporter
+		AUS = { complete_national_focus = AUS_nanfang_yiti }
+		AUS = { add_ideas = BAF_zhichi }
+		complete_national_focus = BAF_aodili_zhichizhe
+		PLS = { end_puppet = BAF }
+	}
+	option = {
+		name = holy_bafaliya.1.c
+		trigger = { has_completed_focus = BAF_king_pupuet }
+		ai_chance = {
+		    factor = 2
+		}
+		PLS = { end_puppet = BAF }
+	    leave_faction = yes
+	}
+}
+#南北一体化
+country_event = {
+	id = holy_bafaliya.2
+	title = holy_bafaliya.2.t
+	desc = holy_bafaliya.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.2.a
+		add_ideas = PLS_nanbei_yitihua
+		PLS = { add_ideas = PLS_nanbei_yitihua }
+	}
+}
+#纽伦堡的密道
+country_event = {
+	id = holy_bafaliya.3
+	title = holy_bafaliya.3.t
+	desc = holy_bafaliya.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.3.a
+		swap_ideas = {
+				remove_idea = PLS_supporter
+				add_idea = PLS_supporter 2
+		}
+	}
+}
+#南方一体
+country_event = {
+	id = holy_bafaliya.4
+	title = holy_bafaliya.4.t
+	desc = holy_bafaliya.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.4.a
+		swap_ideas = {
+	}
+  }
+}
+#美泉宫会议
+country_event = {
+	id = holy_bafaliya.5
+	title = holy_bafaliya.5.t
+	desc = holy_bafaliya.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.5.a
+		swap_ideas = {
+				remove_idea = AUS_supporter
+				add_idea = AUS_supporter 2
+		}
+	}
+}
+#竞争达到高潮
+country_event = {
+	id = holy_bafaliya.6
+	title = holy_bafaliya.6.t
+	desc = holy_bafaliya.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = BAF
+		date > 1936.1.2
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_bafaliya.6.a
+		complete_national_focus = BAF_junzhuzhi_yongcun
+		complete_national_focus = BAF_zihongsa_zhigao
+	}
+	option = {
+		name = holy_bafaliya.6.b
+		complete_national_focus = BAF_junzhuzhi_yongcun
+		complete_national_focus = BAF_junzhu_lixian
+	}
+	option = {
+		name = holy_bafaliya.6.c
+		complete_national_focus = BAF_siwangzhiying
+	}
+}
+#傀儡之王
+country_event = {
+	id = holy_bafaliya.7
+	title = holy_bafaliya.7.t
+	desc = holy_bafaliya.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_bafaliya.7.a
+	}
+}

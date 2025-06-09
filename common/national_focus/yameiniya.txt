@@ -1,0 +1,365 @@
+focus_tree = {
+	id = ARM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ARM
+		}
+	}
+	
+	default = no
+	
+	#埃里温之火
+	focus = {
+		id = ARM_ailiwen_zhihuo
+		icon = GFX_goal_generic_alliance
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ARM_ailiwen_zhihuo
+		}
+	}
+	#特拉比松联合
+	focus = {
+		id = ARM_tela_bisong_lianhe
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = ARM_ailiwen_zhihuo}
+		relative_position_id = ARM_ailiwen_zhihuo
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ARM_telabisong_lianhe
+		transfer_state = 1586
+		transfer_state = 1587
+		}
+	}
+	#进驻通杰利
+	focus = {
+		id = ARM_jinzhu_tongjieli
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = ARM_ailiwen_zhihuo}
+		relative_position_id = ARM_ailiwen_zhihuo
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ARM_tongjieli_lianhe
+		}
+	}
+	#扩大征兵
+	focus = {
+		id = ARM_kuoda_zhengbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ARM_ailiwen_zhihuo}
+		relative_position_id = ARM_ailiwen_zhihuo
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ARM_kuoda_zhengbing
+		}
+	}
+	#凡湖之水
+	focus = {
+		id = ARM_fancheng_zhishui
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = ARM_ailiwen_zhihuo}
+		relative_position_id = ARM_ailiwen_zhihuo
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ARM_fanhu_lianhe
+		}
+	}
+	#高加索补给
+	focus = {
+		id = ARM_gaojiasuo_buji
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = ARM_tela_bisong_lianhe}
+		prerequisite = { focus = ARM_jinzhu_tongjieli}
+		relative_position_id = ARM_jinzhu_tongjieli
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ARM_gaojiusuo_buji
+		}
+	}
+	#奇里乞亚之声
+	focus = {
+		id = ARM_qiliqiya_zhisheng
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = ARM_kuoda_zhengbing}
+		prerequisite = { focus = ARM_jinzhu_tongjieli}
+		relative_position_id = ARM_kuoda_zhengbing
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ARM_gaojiusuo_buji
+		add_days_mission_timeout = {
+				mission = holy_sugelan_duli
+				days = -180
+			}	
+		}
+	}
+	#独立之血
+	focus = {
+		id = ARM_dulizhixue
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = ARM_kuoda_zhengbing}
+		prerequisite = { focus = ARM_fancheng_zhishui}
+		relative_position_id = ARM_kuoda_zhengbing
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ARM_qiyi_huoyan
+		remove_idea = ARM_qiyi_huoyan_2
+		}
+		}
+	}
+	#联通西方
+	focus = {
+		id = ARM_liantong_xifang
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = ARM_gaojiasuo_buji }
+		prerequisite = { focus = ARM_qiliqiya_zhisheng }
+		prerequisite = { focus = ARM_dulizhixue }
+		relative_position_id = ARM_qiliqiya_zhisheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#大亚美尼亚
+	focus = {
+		id = ARM_dayameiniya
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = ARM_liantong_xifang }
+		relative_position_id = ARM_liantong_xifang
+		mutually_exclusive = { focus = ARM_chewang_dongfang }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 230
+		controls_state = 344
+		controls_state = 354
+		controls_state = 1158
+		controls_state = 1586
+		controls_state = 1587
+		controls_state = 1581
+		controls_state = 1580
+		controls_state = 353
+		controls_state = 800
+		}
+		completion_reward = {
+		leave_faction = yes
+		declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+transfer_state = 800
+remove_ideas = ARM_daxiao_zhenzhi
+		}
+	}
+	#驱逐异族
+	focus = {
+		id = ARM_quzhu_yizu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = ARM_dayameiniya }
+		relative_position_id = ARM_dayameiniya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 230
+		controls_state = 344
+		controls_state = 354
+		controls_state = 1158
+		controls_state = 1586
+		controls_state = 1587
+		controls_state = 1581
+		controls_state = 1580
+		controls_state = 353
+		controls_state = 800
+		}
+		completion_reward = {
+		353 = {
+		add_manpower = -500000
+		add_core_of = ARM
+		}
+		48 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		344 = {
+		add_manpower = -1000000
+		add_core_of = ARM
+		}
+		800 = {
+		add_manpower = -300000
+		add_core_of = ARM
+		}
+		354 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		1158 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		1586 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		1587 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		1580 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		1581 = {
+		add_manpower = -750000
+		add_core_of = ARM
+		}
+		}
+	}
+	#撤往东方
+	focus = {
+		id = ARM_chewang_dongfang
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = ARM_liantong_xifang }
+		relative_position_id = ARM_liantong_xifang
+		mutually_exclusive = { focus = ARM_dayameiniya }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		if = {
+		limit = {
+		OR = {
+		state = 230
+		state = 344
+		state = 354
+		state = 1158
+		state = 1586
+		state = 1587
+		state = 1581
+		state = 1580
+		state = 353
+		state = 800
+		}
+		}
+		OR = {
+		is_controlled_by = ARM
+		AND = {
+		is_controlled_by = KUR
+		KUR = {
+		is_in_faction_with = ARM
+		}
+		}
+		}
+		}
+		}
+		}
+		completion_reward = {
+		348 = {
+		add_manpower = -750000
+		remove_core_of = ARM
+		}
+		344 = {
+		add_manpower = -1000000
+		remove_core_of = ARM
+		}
+		353 = {
+		add_manpower = -500000
+		remove_claim_by = ARM
+		}
+		800 = {
+		add_manpower = -500000
+		remove_core_of = ARM
+		}
+		354 = {
+		add_manpower = -750000
+		remove_core_of = ARM
+		}
+		remove_ideas = ARM_daxiao_zhenzhi
+		}
+	}
+	#扩建埃里温
+	focus = {
+		id = ARM_kuojian_ailiwen
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = ARM_chewang_dongfang }
+		relative_position_id = ARM_chewang_dongfang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 230
+		}
+		completion_reward = {
+	    230 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 10
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+		}
+		}
+	}
+}

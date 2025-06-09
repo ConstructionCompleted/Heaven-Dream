@@ -1,0 +1,867 @@
+focus_tree = {
+	id = CAN_liuwang_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CAN
+		}
+	}
+	
+	default = no
+ 
+    #终达彼岸
+	focus = {
+		id = CAN_zhongda_bian
+		icon = GFX_focus_ARG_defense_and_democracy
+		x = 25
+		y = 0
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_flag = CAN_liuwang
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			declare_war_on = {
+    target = EGL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ELB
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRP
+    type = annex_everything
+}
+declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+		}
+	}
+	#确立权威
+	focus = {
+		id = CAN_queli_quanwei
+		icon = GFX_focus_DEN_expand_haerens_tekniske_korps
+		prerequisite = { focus = CAN_zhongda_bian }
+		relative_position_id = CAN_zhongda_bian
+		mutually_exclusive = { focus = CAN_chongjian_gonghe }
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKM = {
+		has_completed_focus = UKM_nvhuang_zailin_buliedian
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_diguoyishi_2
+			remove_idea = CAN_diguoyishi
+			}
+			add_ideas = CAN_diguo_quanwei
+		}
+	}
+	#重建共和
+	focus = {
+		id = CAN_chongjian_gonghe
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = CAN_zhongda_bian }
+		relative_position_id = CAN_zhongda_bian
+		mutually_exclusive = { focus = CAN_queli_quanwei }
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKM = {
+		NOT = {
+		has_completed_focus = UKM_nvhuang_zailin_buliedian
+		}
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_diguoyishi_2
+			remove_idea = CAN_diguoyishi
+			}
+			add_ideas = CAN_chongjian_gonghe
+		}
+	}
+	#团结政治力量
+	focus = {
+		id = CAN_tuanjie_zhengzhi_liliang
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = CAN_queli_quanwei focus = CAN_chongjian_gonghe }
+		relative_position_id = CAN_queli_quanwei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_buliedian_yichan_2
+			remove_idea = CAN_buliedian_yichan
+			}
+		}
+	}
+	#英语圈联合
+	focus = {
+		id = CAN_yingyuquan_lianhe
+		icon = GFX_focus_eng_imperial_federation
+		prerequisite = { focus = CAN_queli_quanwei focus = CAN_chongjian_gonghe }
+		relative_position_id = CAN_queli_quanwei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_yingyuquan_lianhe
+			swap_ideas = {
+			add_idea = CAN_diguoyishi_3
+			remove_idea = CAN_diguoyishi_2
+			}
+		}
+	}
+	#王冠之名
+	focus = {
+		id = CAN_wangguan_zhiming
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = CAN_yingyuquan_lianhe }
+		relative_position_id = CAN_yingyuquan_lianhe
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CAN_queli_quanwei
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_diguo_quanwei_2
+			remove_idea = CAN_diguo_quanwei
+			}
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.25
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+		}
+	}
+	#重组内阁
+	focus = {
+		id = CAN_chongzu_neige
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = CAN_wangguan_zhiming }
+		relative_position_id = CAN_wangguan_zhiming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_chongzu_neige
+		}
+	}
+	#民族联合体
+	focus = {
+		id = CAN_minzu_lianheti
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = CAN_chongzu_neige }
+		relative_position_id = CAN_chongzu_neige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_chongzu_neige_2
+			remove_idea = CAN_chongzu_neige
+			}
+		}
+	}
+	#扩张地方权利
+	focus = {
+		id = CAN_kuozhang_difang_quanli
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = CAN_minzu_lianheti }
+		relative_position_id = CAN_minzu_lianheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_chongzu_neige_3
+			remove_idea = CAN_chongzu_neige_2
+			}
+		}
+	}
+	#宣告王权领地
+	focus = {
+		id = CAN_xuangao_wangquan_lingdi
+		icon = GFX_focus_DEN_limited_regulations
+		prerequisite = { focus = CAN_wangguan_zhiming }
+		relative_position_id = CAN_wangguan_zhiming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_wangquan_lingdi
+		}
+	}
+	#建立王室工业
+	focus = {
+		id = CAN_jianli_wangshi_gongye
+		icon = GFX_focus_DEN_heavy_regulations
+		prerequisite = { focus = CAN_xuangao_wangquan_lingdi }
+		relative_position_id = CAN_xuangao_wangquan_lingdi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_wangquan_lingdi_2
+			remove_idea = CAN_wangquan_lingdi
+			}
+		}
+	}
+	#投资慈善
+	focus = {
+		id = CAN_touzi_cishan
+		icon = GFX_focus_DEN_no_regulations
+		prerequisite = { focus = CAN_jianli_wangshi_gongye }
+		relative_position_id = CAN_jianli_wangshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_wangquan_lingdi_3
+			remove_idea = CAN_wangquan_lingdi_2
+			}
+		}
+	}
+	#不列颠共和
+	focus = {
+		id = CAN_buliedian_gonghe
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CAN_yingyuquan_lianhe }
+		relative_position_id = CAN_yingyuquan_lianhe
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CAN_chongjian_gonghe
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_chongjian_gonghe_2
+			remove_idea = CAN_chongjian_gonghe
+			}
+			add_popularity = {
+    ideology = democratic
+    popularity = 0.25
+}
+set_politics = {
+	ruling_party = democratic
+}
+		}
+	}
+	#组建联合议会
+	focus = {
+		id = CAN_zujian_lianhe_yihui
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = CAN_buliedian_gonghe }
+		relative_position_id = CAN_buliedian_gonghe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_lianhe_yihui
+		}
+	}
+	#建设地区民主
+	focus = {
+		id = CAN_jianshe_diqu_minzhu
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = CAN_zujian_lianhe_yihui }
+		relative_position_id = CAN_zujian_lianhe_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_lianhe_yihui_2
+			remove_idea = CAN_lianhe_yihui
+			}
+		}
+	}
+	#自由梦想
+	focus = {
+		id = CAN_ziyou_mengxiang
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		prerequisite = { focus = CAN_jianshe_diqu_minzhu }
+		relative_position_id = CAN_jianshe_diqu_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_lianhe_yihui_3
+			remove_idea = CAN_lianhe_yihui_2
+			}
+		}
+	}
+	#利用加拿大资源
+	focus = {
+		id = CAN_liyong_jianada_ziyuan
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = CAN_buliedian_gonghe }
+		relative_position_id = CAN_buliedian_gonghe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_jianda_gongye
+		}
+	}
+	#扩大投资
+	focus = {
+		id = CAN_kuoda_touzi
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = CAN_liyong_jianada_ziyuan }
+		relative_position_id = CAN_liyong_jianada_ziyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_jianda_gongye_2
+			remove_idea = CAN_jianda_gongye
+			}
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#军事化工业
+	focus = {
+		id = CAN_junshihua_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CAN_kuoda_touzi }
+		relative_position_id = CAN_kuoda_touzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_jianda_gongye_3
+			remove_idea = CAN_jianda_gongye_2
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#加拿大再武装
+	focus = {
+		id = CAN_jianada_zaiwuzhuang
+		icon = GFX_focus_BRA_deal_with_the_cangaco
+		prerequisite = { focus = CAN_buliedian_gonghe focus = CAN_wangguan_zhiming }
+		relative_position_id = CAN_buliedian_gonghe
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_jianada_zaiwuzhuang
+			remove_idea = CAN_junxin_nanding
+			}
+			add_political_power = 150
+		}
+	}
+	#鼓舞士气
+	focus = {
+		id = CAN_guwu_shiqi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = CAN_jianada_zaiwuzhuang }
+		relative_position_id = CAN_jianada_zaiwuzhuang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_jianada_zaiwuzhuang_2
+			remove_idea = CAN_jianada_zaiwuzhuang
+			}
+		}
+	}
+	#扩张军队
+	focus = {
+		id = CAN_kuozhang_jundui
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = CAN_jianada_zaiwuzhuang }
+		relative_position_id = CAN_jianada_zaiwuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_kuozhang_jundui
+		}
+	}
+	#重建陆军
+	focus = {
+		id = CAN_chongjian_lujun
+		icon = GFX_focus_NORDIC_com_army
+		prerequisite = { focus = CAN_guwu_shiqi }
+		prerequisite = { focus = CAN_kuozhang_jundui }
+		relative_position_id = CAN_kuozhang_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_jianada_zaiwuzhuang_3
+			remove_idea = CAN_jianada_zaiwuzhuang_2
+			}
+		}
+	}
+	#强化归乡思想
+	focus = {
+		id = CAN_qianghua_guixiang_sixiang
+		icon = GFX_focus_NORDIC_com_selector_army
+		prerequisite = { focus = CAN_jianada_zaiwuzhuang }
+		relative_position_id = CAN_jianada_zaiwuzhuang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAN_guixiang
+		}
+	}
+	#海洋登陆战
+	focus = {
+		id = CAN_haiyang_dengluzhan
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { focus = CAN_chongjian_lujun }
+		prerequisite = { focus = CAN_kuozhang_jundui }
+		relative_position_id = CAN_kuozhang_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAN_guixiang_2
+			remove_idea = CAN_guixiang
+			}
+		}
+	}
+	#向西部进军
+	focus = {
+		id = CAN_xiangxibu_jinjun
+		icon = GFX_focus_ICE_the_viking_spirit
+		prerequisite = { focus = CAN_haiyang_dengluzhan }
+		prerequisite = { focus = CAN_chongjian_lujun }
+		relative_position_id = CAN_chongjian_lujun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = CRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = BFT
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALU
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIT
+    type = annex_everything
+}
+		}
+	}
+	#进军泽兰卡特
+	focus = {
+		id = CAN_jinjun_zelante
+		icon = GFX_focus_ICE_hrafninn_flygur
+		prerequisite = { focus = CAN_xiangxibu_jinjun }
+		relative_position_id = CAN_xiangxibu_jinjun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    target = ABN
+    type = annex_everything
+}
+create_wargoal = {
+    target = MHG
+    type = annex_everything
+}
+create_wargoal = {
+    target = LNP
+    type = annex_everything
+}
+create_wargoal = {
+    target = XAO
+    type = annex_everything
+}
+create_wargoal = {
+    target = YLK
+    type = annex_everything
+}
+		}
+	}
+	#扫荡阿柏斯霍特
+	focus = {
+		id = CAN_saodang_abosihuote
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		prerequisite = { focus = CAN_jinjun_zelante }
+		relative_position_id = CAN_jinjun_zelante
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 126
+		}
+		completion_reward = {
+			create_wargoal = {
+    target = CEP
+    type = annex_everything
+}
+create_wargoal = {
+    target = MAI
+    type = annex_everything
+}
+create_wargoal = {
+    target = YLY
+    type = annex_everything
+}
+create_wargoal = {
+    target = OJB
+    type = annex_everything
+}
+		}
+	}
+	#进军加米亚
+	focus = {
+		id = CAN_jinjun_jiamiya
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = CAN_jinjun_zelante }
+		relative_position_id = CAN_jinjun_zelante
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 126
+		}
+		completion_reward = {
+			create_wargoal = {
+    target = SMI
+    type = annex_everything
+}
+create_wargoal = {
+    target = PWT
+    type = annex_everything
+}
+create_wargoal = {
+    target = KLK
+    type = annex_everything
+}
+		}
+	}
+	#征服西南
+	focus = {
+		id = CAN_zhengfu_xinan
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CAN_saodang_abosihuote }
+		prerequisite = { focus = CAN_jinjun_jiamiya }
+		relative_position_id = CAN_jinjun_jiamiya
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 126
+		}
+		completion_reward = {
+			create_wargoal = {
+    target = SUZ
+    type = annex_everything
+}
+create_wargoal = {
+    target = KRO
+    type = annex_everything
+}
+create_wargoal = {
+    target = NWH
+    type = annex_everything
+}
+create_wargoal = {
+    target = BON
+    type = annex_everything
+}
+create_wargoal = {
+    target = QNK
+    type = annex_everything
+}
+create_wargoal = {
+    target = YOT
+    type = annex_everything
+}
+create_wargoal = {
+    target = JOW
+    type = annex_everything
+}
+create_wargoal = {
+    target = KMC
+    type = annex_everything
+}
+create_wargoal = {
+    target = PWB
+    type = annex_everything
+}
+create_wargoal = {
+    target = APA
+    type = annex_everything
+}
+create_wargoal = {
+    target = APH
+    type = annex_everything
+}
+create_wargoal = {
+    target = CMA
+    type = annex_everything
+}
+		}
+	}
+	#登录爱尔兰
+	focus = {
+		id = CAN_denglu_aierlan
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = CAN_xiangxibu_jinjun }
+		relative_position_id = CAN_xiangxibu_jinjun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			set_state_controller = 119
+			set_state_controller = 932
+			load_oob = CAN_aierlan
+		}
+	}
+	#号召伦敦起义
+	focus = {
+		id = CAN_haozhao_lundun_qiyi
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = CAN_denglu_aierlan }
+		relative_position_id = CAN_denglu_aierlan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			set_state_controller = 1813
+			set_state_controller = 126
+			load_oob = CAN_lundun
+		}
+	}
+	#北海攻势
+	focus = {
+		id = CAN_beihai_gongshi
+		icon = GFX_focus_NOR_hurtigruten
+		prerequisite = { focus = CAN_denglu_aierlan }
+		relative_position_id = CAN_denglu_aierlan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_claim_state = 100
+			add_claim_state = 101
+			add_claim_state = 337
+			every_country = {
+			limit = {
+			OR = {
+			controls_state = 100
+			controls_state = 101
+			controls_state = 337
+			}
+			}
+			CAN = {
+			create_wargoal = {
+    target = PREV
+    type = annex_everything
+}
+			}
+			}
+		}
+	}
+	#光复不列颠
+	focus = {
+		id = CAN_guangfu_buliedian
+		icon = GFX_focus_eng_unite_the_anglosphere
+		prerequisite = { focus = CAN_beihai_gongshi }
+		prerequisite = { focus = CAN_haozhao_lundun_qiyi }
+		relative_position_id = CAN_haozhao_lundun_qiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		controls_state = 122
+		controls_state = 918
+		}
+		completion_reward = {
+			remove_ideas = CAN_diguoyishi_3
+		}
+	}
+	#大西洋主义
+	focus = {
+		id = CAN_daxiyang_zhuyi
+		icon = GFX_focus_usa_build_the_pentagon
+		prerequisite = { focus = CAN_guangfu_buliedian }
+		prerequisite = { focus = CAN_zhengfu_xinan }
+		relative_position_id = CAN_guangfu_buliedian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			region = 197
+			region = 117
+			state = 100
+			state = 101
+			state = 337
+			}
+			}
+			add_core_of = CAN
+			}
+		}
+	}
+}

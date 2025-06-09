@@ -1,0 +1,749 @@
+holy_RAJ_tanhean = {
+    #弹劾案进行中......
+    holy_RAJ_zongdu_tanhean = {                          
+        allowed = { tag = RAJ }                
+        activation = {                          
+            has_idea = RAJ_sanjiao_zhengzhi                   
+        }
+		available = {                           
+            always = no
+        }
+        is_good = no
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 60             
+        timeout_effect = {
+            country_event = { id = holy_yingshuyindu.12 }
+}
+    }
+	#拉拢报社
+	RAJ_lalong_baoshe = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		allowed = { 
+		    tag = RAJ
+	    }
+		days_re_enable = 10
+		cost = 20
+		complete_effect = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.05
+}
+add_political_power = 100
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#拉拢公务员体系
+	RAJ_lalong_gongwuyuan_tixi = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		allowed = { 
+		    tag = RAJ
+	    }
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_stability = 0.1
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#联络军方
+	RAJ_lianluo_junfang = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		allowed = { 
+		    tag = RAJ
+	    }
+		days_re_enable = 20
+		cost = 35
+		complete_effect = {
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+add_stability = -0.05
+add_war_support = 0.1
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#印度的声音
+    holy_RAJ_yindu_shengyin = {
+        allowed = { tag = RAJ }                
+        activation = {                          
+            has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		available = {                           
+            NOT = { has_active_mission = holy_RAJ_zongdu_tanhean }
+        }
+        is_good = no
+        selectable_mission = no
+        days_mission_timeout = 18
+        timeout_effect = {
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.05
+}
+}
+    }
+	#打击印度人
+	RAJ_daji_yinduren = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		allowed = { 
+		    tag = RAJ
+	    }
+		days_re_enable = 5
+		cost = 20
+		complete_effect = {
+		add_popularity = {
+    ideology = reconcilism
+    popularity = -0.03
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#贿赂选举人
+	RAJ_huilu_xuanjuren = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_active_mission = holy_RAJ_zongdu_tanhean
+        }
+		allowed = { 
+		    tag = RAJ
+	    }
+		days_re_enable = 5
+		cost = 30
+		complete_effect = {
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.05
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_RAJ_lalong_wanggong = {
+    #拉拢王公
+	RAJ_lalong_wanggong = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_completed_focus = RAJ_fangkuan_wanggong_jiasuo
+        }
+		allowed = { 
+		    tag = RAJ
+			has_completed_focus = RAJ_fangkuan_wanggong_jiasuo
+	    }
+		target_trigger = {
+               FROM = {
+                    OR = {
+                         tag = MDS
+                         tag = TML
+                    }
+					OR = {
+					has_idea = RAJ_lalong
+					has_idea = MSR_lalong
+					}
+               }
+          }
+		on_map_mode = map_and_decisions_view 
+		days_re_enable = 10
+		cost = 50
+		complete_effect = {
+		FROM = {
+		if = {
+		limit = {
+		has_idea = RAJ_lalong
+		}
+		swap_ideas = {
+		add_idea = RAJ_lalong_2
+		remove_idea = RAJ_lalong
+		}
+		}
+		if = {
+		limit = {
+		has_idea = MSR_lalong
+		}
+		swap_ideas = {
+		add_idea = RAJ_lalong
+		remove_idea = MSR_lalong
+		}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_RAJ_haiyang_xitong = {
+    #扩大海关税
+	RAJ_kuoda_haiguanshui = {
+
+		icon = generic_army_support
+		visible = {
+            tag = RAJ
+			has_completed_focus = RAJ_kuoda_haiguan_shui
+        }
+		allowed = { 
+		    tag = RAJ
+			has_completed_focus = RAJ_kuoda_haiguan_shui
+	    }
+		target_trigger = {
+               FROM = {
+                    OR = {
+                         tag = MDS
+                         tag = TML
+						 tag = BHP
+						 tag = SRL
+						 tag = BAN
+						 tag = MSR
+						 tag = HYD
+                    }
+					is_puppet_of = RAJ
+               }
+          }
+		on_map_mode = map_and_decisions_view 
+		days_re_enable = 180
+		complete_effect = {
+		FROM = {
+		add_timed_idea = {
+    idea = RAJ_haiguanshui_jiqiang
+    days = 180
+}
+}
+		add_political_power = 100
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_RAJ_hdsgreatwar = {
+    #印度统一
+    RAJ_yindu_tongyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		always = yes
+	}	
+		available = {
+		KSM = {
+		exists = no
+		}
+		HDS = {
+		exists = no
+		}
+		MLM = {
+		exists = no
+		}
+		BAN = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		KND = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		RJS = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		TML = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		HYD = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		MSR = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		MDS = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		BHP = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		NGP = {
+		OR = {
+		exists = no
+		is_puppet_of = RAJ
+		}
+		}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		set_global_flag = HDS_yindutongyi
+		complete_national_focus = RAJ_yindu_yitong
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#进军北方
+	RAJ_jinjun_beifang = {
+
+		icon = generic_army_support
+        cost = 20
+        visible = {
+			has_global_flag = HDS_greatwar
+		}
+		available = {
+            has_completed_focus = RAJ_jinjun_beifang
+		}
+        target_trigger = {
+        FROM = {
+          OR = {
+			  tag = MLM
+			  tag = NGP
+			  tag = RAR
+             }
+		NOT = {
+		has_war_with = RAJ
+		}
+          }
+        }
+		on_map_mode = map_and_decisions_view 
+		fire_only_once = yes
+        remove_effect = {
+            declare_war_on = {
+    target = FROM
+    type = annex_everything
+}
+        }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+			has_war = yes
+			surrender_progress < 0.1
+			any_war_score > 30
+			factor = 10
+			}
+			modifier = {
+			surrender_progress > 0.2
+			factor = 0
+			}
+		}
+	}
+	#毁灭反对者
+	RAJ_huimie_fanduizhe = {
+
+		icon = generic_army_support
+        cost = 20
+        visible = {
+			has_global_flag = HDS_greatwar
+		}
+		available = {
+            has_completed_focus = RAJ_huimie_fanduizhe
+		}
+        target_trigger = {
+        FROM = {
+          OR = {
+			  tag = RJS
+			  tag = KSM
+			  tag = BAN
+             }
+		NOT = {
+		has_war_with = RAJ
+		}
+          }
+        }
+		on_map_mode = map_and_decisions_view 
+		fire_only_once = yes
+        remove_effect = {
+            declare_war_on = {
+    target = FROM
+    type = annex_everything
+}
+        }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+			has_war = yes
+			surrender_progress < 0.1
+			any_war_score > 30
+			factor = 10
+			}
+			modifier = {
+			surrender_progress > 0.2
+			factor = 0
+			}
+		}
+	}
+	#惩罚叛徒
+	RAJ_chengfa_pantu = {
+
+		icon = generic_army_support
+        cost = 20
+        visible = {
+			has_global_flag = HDS_greatwar
+		}
+		available = {
+            has_completed_focus = RAJ_chengfa_pantu
+		}
+        target_trigger = {
+        FROM = {
+          OR = {
+			  tag = MSR
+			  tag = HYD
+			  tag = MDS
+			  tag = BHP
+			  tag = SRL
+			  tag = TML
+             }
+		NOT = {
+		has_war_with = RAJ
+		}
+          }
+        }
+		on_map_mode = map_and_decisions_view 
+		fire_only_once = yes
+        remove_effect = {
+            declare_war_on = {
+    target = FROM
+    type = annex_everything
+}
+        }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+			has_war = yes
+			surrender_progress < 0.1
+			any_war_score > 30
+			factor = 10
+			}
+			modifier = {
+			surrender_progress > 0.2
+			factor = 0
+			}
+		}
+	}
+}
+holy_RAJ_tudigaige = {
+    #土地改革
+	RAJ_tudi_gaige = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		OR = {
+			has_idea = RAJ_tudi_gaige
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+		}
+		}
+		available = {
+            OR = {
+			has_idea = RAJ_tudi_gaige
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+		}
+		}
+		days_remove = 180
+        remove_effect = {
+           if = {
+		   limit = {
+		   has_idea = RAJ_tudi_gaige
+		   }
+		   swap_ideas = {
+		   add_idea = RAJ_tudi_gaige_2
+		   remove_idea = RAJ_tudi_gaige
+		   }
+		   }
+		   if = {
+		   limit = {
+		   has_idea = RAJ_tudi_gaige_2
+		   }
+		   swap_ideas = {
+		   add_idea = RAJ_tudi_gaige_3
+		   remove_idea = RAJ_tudi_gaige_2
+		   }
+		   }
+		   if = {
+		   limit = {
+		   has_idea = RAJ_tudi_gaige_3
+		   }
+		   swap_ideas = {
+		   add_idea = RAJ_tudi_gaige_4
+		   remove_idea = RAJ_tudi_gaige_3
+		   }
+		   }
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#分配土地
+	RAJ_fenpei_tudi = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		available = {
+            OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		days_remove = 180
+		fire_only_once = yes
+        remove_effect = {
+           add_ideas = RAJ_fenpei_tudi
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#革新农业技术
+	RAJ_gexin_nongye_jishu = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		OR = {
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		available = {
+            OR = {
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		days_remove = 180
+		fire_only_once = yes
+        remove_effect = {
+           add_ideas = RAJ_gexin_nongye
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#改良农种
+	RAJ_gailiang_nongzhong = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		available = {
+            OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		days_remove = 180
+		fire_only_once = yes
+        remove_effect = {
+           add_ideas = RAJ_gailiang_nongzhong
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#扩建水利
+	RAJ_kuojian_shuili = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		available = {
+            OR = {
+			has_idea = RAJ_tudi_gaige_2
+			has_idea = RAJ_tudi_gaige_3
+			has_idea = RAJ_tudi_gaige_4
+		}
+		}
+		days_remove = 180
+		fire_only_once = yes
+        remove_effect = {
+           add_ideas = RAJ_kuojian_shuili
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}
+holy_RAJ_yanxu_gongyehua = {
+    #印度银行
+	RAJ_yinduyinhang = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		has_completed_focus = RAJ_quanmian_gongyehua
+		}
+		available = {
+            has_completed_focus = RAJ_quanmian_gongyehua
+		}
+		days_remove = 180
+        remove_effect = {
+           add_ideas = RAJ_yinduyinhang
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#产业贷款
+	RAJ_chanye_daikuan = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		has_idea = RAJ_quanmian_gongyehua
+		}
+		available = {
+            has_completed_focus = RAJ_yinduyinhang
+		}
+		days_remove = 180
+        remove_effect = {
+           swap_ideas = {
+		   add_idea = RAJ_yinduyinhang_2
+		   remove_idea = RAJ_yinduyinhang
+		   }
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#扩大贸易收益
+	RAJ_kuoda_maoyi_shouyi = {
+
+		icon = generic_army_support
+        cost = 50
+        visible = {
+		has_completed_focus = RAJ_quanmian_gongyehua
+		}
+		available = {
+            has_idea = RAJ_haiyang_maoyi
+		}
+		days_remove = 180
+        remove_effect = {
+           add_ideas = RAJ_yinduyinhang
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#全境工业投资
+    RAJ_quanjing_gongye_touzi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = RAJ_quanmian_gongyehua
+	}
+		available = {
+		has_completed_focus = RAJ_wanquan_chanyelian
+		}
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+            FROM = {
+			is_core_by = RAJ
+			is_owned_and_controlled_by = RAJ
+			}
+        }
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		random_list = {
+		add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

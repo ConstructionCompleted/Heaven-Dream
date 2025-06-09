@@ -1,0 +1,203 @@
+add_namespace = holy_boximiya
+#选边站
+country_event = {
+	id = holy_boximiya.1
+	title = holy_boximiya.1.t
+	desc = holy_boximiya.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.1.a
+		trigger = { NOT = { has_completed_focus = BXM_cze_youxian } }
+		ai_chance = {
+		    factor = 30
+		}
+		add_opinion_modifier = { target = PLS modifier = PLS_zhichizhe}
+		add_ideas = PLS_supporter
+		PLS = { complete_national_focus = PLS_boximiya_shenzhizi }
+		PLS = { add_ideas = BXM_zhichi }
+		complete_national_focus = BXM_pulushi_zhichizhe
+	}
+	option = {
+		name = holy_boximiya.1.b
+		trigger = { NOT = { has_completed_focus = BXM_cze_youxian } }
+		ai_chance = {
+		    factor = 30
+		}
+		add_opinion_modifier = { target = AUS modifier = AUS_zhichizhe}
+		add_ideas = AUS_supporter
+		AUS = { complete_national_focus = AUS_boximiya_jiuriwangwei }
+		AUS = { add_ideas = BXM_zhichi }
+		PLS = { end_puppet = BXM }
+		complete_national_focus = BXM_aodili_zhichizhe
+    }
+	option = {
+		name = holy_boximiya.1.c
+		trigger = { has_completed_focus = BXM_cze_youxian }
+		ai_chance = {
+		    factor = 10
+		}
+		complete_national_focus = BXM_ziqiang
+		PLS = { end_puppet = BXM }
+		leave_faction = yes
+    }
+}
+#普鲁士给与捷克人自治
+country_event = {
+	id = holy_boximiya.2
+	title = holy_boximiya.2.t
+	desc = holy_boximiya.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.2.a
+		PLS = { add_ideas = PLS_jieke_zizhi }
+	}
+}
+#云梦的来信
+country_event = {
+	id = holy_boximiya.3
+	title = holy_boximiya.3.t
+	desc = holy_boximiya.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.3.a
+		    swap_ideas = {
+				remove_idea = PLS_supporter
+				add_idea = PLS_supporter 2
+	    }
+    }
+}
+#和平外交的承诺
+country_event = {
+	id = holy_boximiya.4
+	title = holy_boximiya.4.t
+	desc = holy_boximiya.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.4.a
+	    }
+	}
+#王室联姻
+country_event = {
+	id = holy_boximiya.5
+	title = holy_boximiya.5.t
+	desc = holy_boximiya.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.5.a
+		swap_ideas = {
+				remove_idea = PLS_supporter
+				add_idea = PLS_supporter 2
+	    }
+	}
+}
+#宣称西里西亚
+country_event = {
+	id = holy_boximiya.6
+	title = holy_boximiya.6.t
+	desc = holy_boximiya.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.6.a
+		PLS = { country_event = { id = holy_pulushi.6 days = 3 } }
+	    }
+	}
+#渗透西里西亚
+country_event = {
+	id = holy_boximiya.7
+	title = holy_boximiya.7.t
+	desc = holy_boximiya.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.7.a
+	    }
+	}
+#联络独立派
+country_event = {
+	id = holy_boximiya.8
+	title = holy_boximiya.8.t
+	desc = holy_boximiya.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.8.a
+	    }
+	}
+#签订条约
+country_event = {
+	id = holy_boximiya.9
+	title = holy_boximiya.9.t
+	desc = holy_boximiya.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.9.a
+		create_faction = BXM_linshi_tongmeng
+	}
+}
+#克拉科夫条约
+country_event = {
+	id = holy_boximiya.10
+	title = holy_boximiya.10.t
+	desc = holy_boximiya.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boximiya.10.a
+		create_faction = BXM_kelakefu_xieyue
+	}
+}
+#解散同盟
+country_event = {
+	id = holy_boximiya.10
+	title = holy_boximiya.10.t
+	desc = holy_boximiya.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	    tag = BXM
+		NOT = { BLA = { num_occupied_states = 10 } }
+		BXM = { has_completed_focus = BXM_qidong_plan }
+	}
+	option = {
+		name = holy_boximiya.10.a
+		dismantle_faction = yes
+	}
+}
+#波西米亚与南德意志
+country_event = {
+	id = holy_boximiya.11
+	title = holy_boximiya.11.t
+	desc = holy_boximiya.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	option = {
+	    name = holy_boximiya.11.a
+		BAF = { puppet = BXM }
+	}
+	option = {
+	    name = holy_boximiya.11.b
+		BAF = {
+		create_wargoal = {
+        type = annex_everything
+        target = BXM
+            }
+	    }
+	}
+}

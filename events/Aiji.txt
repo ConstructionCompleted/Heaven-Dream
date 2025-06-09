@@ -1,0 +1,73 @@
+add_namespace = holy_aiji
+#埃及人的提议
+country_event = {
+	id = holy_aiji.1
+	title = holy_aiji.1.t
+	desc = holy_aiji.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aiji.1.a
+		EGY = { 
+		country_event = { id = holy_aiji.2 days = 4}
+		puppet = OMA 
+		}
+		add_state_core = 658
+	}
+}
+#阿曼同意了！
+country_event = {
+	id = holy_aiji.2
+	title = holy_aiji.2.t
+	desc = holy_aiji.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aiji.2.a
+	}
+}
+#埃及控制了西奈
+country_event = {
+	id = holy_aiji.3
+	title = holy_aiji.3.t
+	desc = holy_aiji.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aiji.3.a
+		EGY = {
+		transfer_state = 453
+		transfer_state = 446
+		transfer_state = 1567
+		}
+	}
+}
+#停止北非战争
+country_event = {
+	id = holy_aiji.4
+	title = holy_aiji.4.t
+	desc = holy_aiji.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	OR = {
+	tag = EGY
+	tag = DLB
+	}
+	has_war_with = FRN
+	FRN = {
+	has_capitulated = yes
+	}
+	}
+	option = {
+		name = holy_aiji.3.a
+		annex_country = {
+    target = FRN
+    transfer_troops = no
+}
+	}
+}

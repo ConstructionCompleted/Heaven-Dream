@@ -1,0 +1,521 @@
+holy_UNR_wukelan_gongyehua = {
+    #扩建基辅资源开采
+    holy_UNR_kuojian_jifu_ziyuan_kaicai = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_kuoda_kuangchan_kaicai 
+		controls_state = 202
+		}
+		cost = 30
+		days_remove = 100
+        fire_only_once = yes
+		remove_effect = {
+			add_resource = {
+    type = oil
+    amount = 20
+    state = 202
+}
+add_resource = {
+    type = steel
+    amount = 20
+    state = 202
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩建哈尔科夫资源开采
+    holy_UNR_kuojian_haerkefu_ziyuan_kaicai = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_kuoda_kuangchan_kaicai 
+		controls_state = 221
+		}
+		cost = 30
+		days_remove = 100
+        fire_only_once = yes
+		remove_effect = {
+add_resource = {
+    type = steel
+    amount = 50
+    state = 202
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#重建顿巴斯
+    holy_UNR_chongjian_dunbasi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_kuoda_kuangchan_kaicai
+		controls_state = 228
+		controls_state = 227
+		}
+		cost = 50
+		days_remove = 180
+        fire_only_once = yes
+		remove_effect = {
+		228 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+        }
+		227 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#克里米亚工业化
+    holy_UNR_kelimiya_gongyehua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_quanwukelan_gongyeweiyuanhui
+		controls_state = 137
+		}
+		cost = 25
+		days_remove = 120
+        fire_only_once = yes
+		remove_effect = {
+		137 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+set_state_flag = UNR_kelimiya_kaifa
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#克里米亚工业化2
+    holy_UNR_kelimiya_gongyehua_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_quanwukelan_gongyeweiyuanhui
+		controls_state = 137
+		137 = {
+		has_state_flag = UNR_kelimiya_kaifa
+		}
+		}
+		cost = 25
+		days_remove = 120
+        fire_only_once = yes
+		remove_effect = {
+		137 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#基辅大开发
+    holy_UNR_jifu_dakaifa = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_quanwukelan_gongyeweiyuanhui
+		controls_state = 202
+		}
+		cost = 50
+		days_remove = 180
+        fire_only_once = yes
+		remove_effect = {
+		202 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+set_state_flag = UNR_jifu_dakaifa
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#乌克兰能源体系
+    holy_UNR_wukelan_nengyuantixi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = UNR
+	}	
+		available = {
+			has_completed_focus = UNR_quanwukelan_gongyeweiyuanhui
+		controls_state = 202
+		has_state_flag = UNR_jifu_dakaifa
+		}
+		cost = 50
+		days_remove = 180
+        fire_only_once = yes
+		remove_effect = {
+		202 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+        }
+		add_ideas = UNR_wukelan_nengyuan
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_UNR_tudigaige = {
+    #乌克兰农业建设
+	UNR_wukelan_nongye_jianshe = {
+
+		icon = generic_army_support
+        cost = 10
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			tag = UNR
+		}
+		available = {
+            has_completed_focus = UNR_difang_tudi_weiyuanhui
+		}
+        target_trigger = {
+            FROM = {
+			is_core_by = UNR
+			is_owned_and_controlled_by = UNR
+			}
+        }
+		fire_only_once = yes
+        complete_effect = {
+       add_to_variable = {
+    var = UNR.tudigaige
+    value = 2
+	tooltip = UNR_tudigaige_1_tt
+}
+		FROM = {
+		set_state_flag = UNR_nongye_jianshe
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_building_slots_factor = 0.1
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#乌克兰农业建设2
+	UNR_wukelan_nongye_jianshe = {
+
+		icon = generic_army_support
+        cost = 15
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			tag = UNR
+		}
+		available = {
+            has_completed_focus = UNR_difang_tudi_weiyuanhui
+		}
+        target_trigger = {
+            FROM = {
+			is_core_by = UNR
+			is_owned_and_controlled_by = UNR
+			has_state_flag = UNR_nongye_jianshe
+			}
+        }
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = UNR.tudigaige
+    value = 3
+	tooltip = UNR_tudigaige_2_tt
+}
+		FROM = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_building_slots_factor = 0.1
+local_resources = 0.2
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#乌克兰农业改革
+	UNR_wukelan_nongye_gaige = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+            check_variable = {
+    UNR.tudigaige > 49
+	}
+		}
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = UNR.tudigaige
+    value = -50
+	tooltip = UNR_tudigaige_3_tt
+}
+		swap_ideas = {
+		add_idea = UNR_nongye_gaige_2
+		remove_idea = UNR_nongye_gaige
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#乌克兰农业改革2
+	UNR_wukelan_nongye_gaige_2 = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+            check_variable = {
+    UNR.tudigaige > 99
+	}
+	has_idea = UNR_nongye_gaige_3
+		}
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = UNR.tudigaige
+    value = -100
+	tooltip = UNR_tudigaige_4_tt
+}
+		swap_ideas = {
+		add_idea = UNR_nongye_gaige_4
+		remove_idea = UNR_nongye_gaige_3
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+}
+holy_UNR_hexinhua = {
+    #红乌克兰核心化
+	UNR_hongwukelan_core = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+        controls_state = 245
+			controls_state = 218
+			controls_state = 1070
+			controls_state = 234
+			controls_state = 238
+			controls_state = 1071
+		}
+		fire_only_once = yes
+        cost = 50
+		days_remove = 150
+        remove_effect = {
+        add_state_core = 245
+			add_state_core = 218
+			add_state_core = 1070
+			add_state_core = 234
+			add_state_core = 238
+			add_state_core = 1071
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#东北新土核心化
+	UNR_dongbeixintu_core = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+        controls_state = 220
+			controls_state = 240
+			controls_state = 260
+			controls_state = 265
+			controls_state = 1065
+		}
+		fire_only_once = yes
+        cost = 100
+		days_remove = 300
+        remove_effect = {
+        add_state_core = 220
+			add_state_core = 240
+			add_state_core = 260
+			add_state_core = 265
+			add_state_core = 1065
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#新白罗斯核心化
+	UNR_newblr_core = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+		BLR = {
+        all_core_state = {
+			is_controlled_by = UNR
+		}
+		}
+		controls_state = 224
+		controls_state = 243
+		}
+		fire_only_once = yes
+        cost = 200
+		days_remove = 300
+        remove_effect = {
+        every_state = {
+			limit = {
+			is_core_by = BLR
+			}
+			add_core_of = UNR
+			}
+			add_state_core = 224
+			add_state_core = 243
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#摩尔多瓦核心化
+	UNR_mol_core = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+		controls_state = 78
+			controls_state = 1566
+			controls_state = 79
+			controls_state = 1565
+			controls_state = 1564
+			controls_state = 80
+		}
+		fire_only_once = yes
+		days_remove = 300
+		cost = 75
+        remove_effect = {
+        add_state_core = 78
+			add_state_core = 1566
+			add_state_core = 79
+			add_state_core = 1565
+			add_state_core = 1564
+			add_state_core = 80
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#喀尔巴阡核心化
+	UNR_kaerbaqian_core = {
+
+		icon = generic_army_support
+        visible = {
+			tag = UNR
+		}
+		available = {
+		controls_state = 73
+		}
+		fire_only_once = yes
+		days_remove = 150
+		cost = 25
+        remove_effect = {
+        add_state_core = 73
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

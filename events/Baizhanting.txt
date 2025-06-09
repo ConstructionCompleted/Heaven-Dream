@@ -1,0 +1,332 @@
+add_namespace = holy_baizhanting
+#未来
+country_event = {
+	id = holy_baizhanting.1
+	title = holy_baizhanting.1.t
+	desc = holy_baizhanting.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baizhanting.1.a
+		ai_chance = {
+		    factor = 30
+		}
+		complete_national_focus = BYT_chongshi_minzhu
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.2
+}
+remove_ideas = BYT_zhengzhi_chongtu
+	}
+	option = {
+		name = holy_baizhanting.1.b
+		ai_chance = {
+		    factor = 30
+		}
+		complete_national_focus = BYT_chongjian_dongluoma
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+remove_ideas = BYT_zhengzhi_chongtu
+	}
+}
+#与拜占庭谈判
+country_event = {
+	id = holy_baizhanting.2
+	title = holy_baizhanting.2.t
+	desc = holy_baizhanting.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baizhanting.2.a
+		trigger = { tag = OTT }
+		ai_chance = {
+		    factor = 15
+		}
+		set_truce = {
+    target = BYT
+    days = 360
+}
+	}
+	option = {
+		name = holy_baizhanting.2.b
+		trigger = { tag = OTF }
+		ai_chance = {
+		    factor = 30
+		}
+		set_truce = {
+    target = BYT
+    days = 360
+}
+	}
+	option = {
+		name = holy_baizhanting.2.c
+		trigger = { tag = DLB }
+		ai_chance = {
+		    factor = 10
+		}
+		set_truce = {
+    target = BYT
+    days = 360
+}
+	}
+	option = {
+		name = holy_baizhanting.2.e
+		ai_chance = {
+		    factor = 20
+		}
+	}
+}
+#拜占庭的要求
+country_event = {
+	id = holy_baizhanting.3
+	title = holy_baizhanting.3.t
+	desc = holy_baizhanting.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_baizhanting.3.a
+	    ai_chance = {
+		    factor = 5
+			modifier = {
+			is_in_faction = yes
+			factor = 2
+			}
+		}
+		BYT = {
+		puppet = SER
+		}
+	}
+	option = {
+	    name = holy_baizhanting.3.b
+	    ai_chance = {
+		    factor = 20
+		}
+		BYT = {
+		declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+		}
+	}
+}
+#拜占庭的要求
+country_event = {
+	id = holy_baizhanting.4
+	title = holy_baizhanting.4.t
+	desc = holy_baizhanting.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_baizhanting.4.a
+	    ai_chance = {
+		    factor = 5
+			modifier = {
+			is_in_faction = yes
+			factor = 2
+			}
+		}
+		BYT = {
+		puppet = BUL
+		}
+	}
+	option = {
+	    name = holy_baizhanting.4.b
+	    ai_chance = {
+		    factor = 20
+		}
+		BYT = {
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+		}
+	}
+}
+#奥斯曼要求西海岸
+country_event = {
+	id = holy_baizhanting.5
+	title = holy_baizhanting.5.t
+	desc = holy_baizhanting.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_baizhanting.5.a
+	    ai_chance = {
+		    factor = 0
+		}
+		add_timed_idea = {
+    idea = OTT_peikuan
+    days = 360
+    }
+		OTT = {
+		transfer_state = 339
+		transfer_state = 340
+		transfer_state = 342
+		transfer_state = 1571
+		transfer_state = 1572
+		transfer_state = 1573
+		transfer_state = 164
+		add_timed_idea = {
+    idea = OTT_peikuan2
+    days = 360
+    }
+		}
+	}
+	option = {
+	    name = holy_baizhanting.5.b
+	    ai_chance = {
+		    factor = 10
+		}
+		OTT = {
+		create_wargoal = {
+    type = annex_everything
+    target = BYT
+}
+		}
+	}
+}
+#中东红色政府的要求
+country_event = {
+	id = holy_baizhanting.6
+	title = holy_baizhanting.6.t
+	desc = holy_baizhanting.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_baizhanting.6.a
+	    ai_chance = {
+		    factor = 0
+		}
+		add_timed_idea = {
+    idea = OTT_peikuan
+    days = 360
+    }
+		ZDR = {
+		transfer_state = 339
+		transfer_state = 340
+		transfer_state = 342
+		transfer_state = 1571
+		transfer_state = 1572
+		transfer_state = 1573
+		transfer_state = 164
+		add_timed_idea = {
+    idea = OTT_peikuan2
+    days = 360
+    }
+		}
+	}
+	option = {
+	    name = holy_baizhanting.6.b
+	    ai_chance = {
+		    factor = 10
+		}
+		ZDR = {
+		create_wargoal = {
+    type = annex_everything
+    target = BYT
+}
+		}
+	}
+}
+#希腊联军
+country_event = {
+	id = holy_baizhanting.7
+	title = holy_baizhanting.7.t
+	desc = holy_baizhanting.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_baizhanting.7.a
+	    ai_chance = {
+		    factor = 0
+		}
+		load_oob = BYT_xilalianjun
+	}
+}
+#拜占庭的盟友
+country_event = {
+	id = holy_baizhanting.8
+	title = holy_baizhanting.8.t
+	desc = holy_baizhanting.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baizhanting.8.a
+		trigger = { UKM = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 12
+		}
+		UKM = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.8.b
+		ai_chance = {
+		    factor = 12
+		}
+		trigger = { FRA = { OR = { has_government = conservatism has_government = progressism } is_faction_leader = yes } }
+		FRA = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.8.c
+		trigger = { CAN = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 4
+		}
+		CAN = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.8.e
+		ai_chance = {
+		    factor = 1
+		}
+	}
+}
+#拜占庭的盟友
+country_event = {
+	id = holy_baizhanting.9
+	title = holy_baizhanting.9.t
+	desc = holy_baizhanting.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_baizhanting.9.a
+		trigger = { PLS = is_faction_leader = yes AUS = { is_faction_leader = no } }
+		ai_chance = {
+		    factor = 12
+		}
+		PLS = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.9.b
+		trigger = { AUS = is_faction_leader = yes PLS = { is_faction_leader = no } }
+		ai_chance = {
+		    factor = 12
+		}
+		AUS = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.9.c
+		trigger = { FRA = {has_government =  has_government = neutrality } is_faction_leader = yes }
+		ai_chance = {
+		    factor = 4
+		}
+		FRA = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_baizhanting.9.e
+		ai_chance = {
+		    factor = 1
+		}
+	}
+}

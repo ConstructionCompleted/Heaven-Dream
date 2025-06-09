@@ -1,0 +1,422 @@
+add_namespace = holy_hannuowei
+#梅福券1
+country_event = {
+	id = holy_hannuowei.1
+	title = holy_hannuowei.1.t
+	desc = holy_hannuowei.1.d
+	picture = GFX_report_event_german_speech
+	trigger = {
+        tag = HNW
+		has_idea = HNW_meifuquan_jingji
+	}
+	mean_time_to_happen = {
+	    day = 9
+	}
+	option = {
+		name = holy_hannuowei.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		swap_ideas = {
+		add_idea = HNW_meifuquan_jingji_2
+		remove_idea = HNW_meifuquan_jingji
+		}
+	}
+	option = {
+		name = holy_hannuowei.1.b
+		ai_chance = {
+		    factor = 1
+		}
+		swap_ideas = {
+		remove_idea = HNW_meifuquan_jingji
+		}
+	}
+}
+#梅福券2
+country_event = {
+	id = holy_hannuowei.12
+	title = holy_hannuowei.1.t
+	desc = holy_hannuowei.1.d
+	picture = GFX_report_event_german_speech
+	trigger = {
+        tag = HNW
+		has_idea = HNW_meifuquan_jingji_2
+	}
+	mean_time_to_happen = {
+	    day = 9
+	}
+	option = {
+		name = holy_hannuowei.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		swap_ideas = {
+		add_idea = HNW_meifuquan_jingji_3
+		remove_idea = HNW_meifuquan_jingji_2
+		}
+	}
+	option = {
+		name = holy_hannuowei.1.b
+		ai_chance = {
+		    factor = 1
+		}
+		swap_ideas = {
+		remove_idea = HNW_meifuquan_jingji_2
+		}
+	}
+}
+#梅福券3
+country_event = {
+	id = holy_hannuowei.13
+	title = holy_hannuowei.1.t
+	desc = holy_hannuowei.1.d
+	picture = GFX_report_event_german_speech
+	trigger = {
+        tag = HNW
+		has_idea = HNW_meifuquan_jingji_3
+	}
+	mean_time_to_happen = {
+	    day = 9
+	}
+	option = {
+		name = holy_hannuowei.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		swap_ideas = {
+		add_idea = HNW_meifuquan_jingji_4
+		remove_idea = HNW_meifuquan_jingji_3
+		}
+	}
+	option = {
+		name = holy_hannuowei.1.b
+		ai_chance = {
+		    factor = 1
+		}
+		swap_ideas = {
+		remove_idea = HNW_meifuquan_jingji_3
+		}
+	}
+}
+#梅福券4
+country_event = {
+	id = holy_hannuowei.14
+	title = holy_hannuowei.1.t
+	desc = holy_hannuowei.1.d
+	picture = GFX_report_event_german_speech
+	trigger = {
+        tag = HNW
+		has_idea = HNW_meifuquan_jingji_4
+	}
+	mean_time_to_happen = {
+	    day = 9
+	}
+	option = {
+		name = holy_hannuowei.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		swap_ideas = {
+		add_idea = HNW_meifuquan_jingji_5
+		remove_idea = HNW_meifuquan_jingji_4
+		}
+	}
+	option = {
+		name = holy_hannuowei.1.b
+		ai_chance = {
+		    factor = 1
+		}
+		swap_ideas = {
+		remove_idea = HNW_meifuquan_jingji_4
+		}
+	}
+}
+#合二为一
+country_event = {
+	id = holy_hannuowei.2
+	title = holy_hannuowei.2.t
+	desc = holy_hannuowei.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.2.a
+		ai_chance = {
+		    factor = 100
+		}
+		HNW = {
+		annex_country = {
+    target = LUO
+    transfer_troops = yes
+}
+		}
+		HNW = { change_tag_from = LUO }
+	}
+}
+#德意志的邀请
+country_event = {
+	id = holy_hannuowei.3
+	title = holy_hannuowei.3.t
+	desc = holy_hannuowei.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.3.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = { add_to_faction = KEM }
+	}
+	option = {
+		name = holy_hannuowei.3.b
+		ai_chance = {
+		    factor = 0
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = KEM
+}
+		}
+	}
+}
+#德意志的邀请
+country_event = {
+	id = holy_hannuowei.4
+	title = holy_hannuowei.4.t
+	desc = holy_hannuowei.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.4.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_hannuowei.4.b
+		ai_chance = {
+		    factor = 0
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = XYL
+}
+		}
+	}
+}
+#德意志对巴尔干的通牒
+country_event = {
+	id = holy_hannuowei.51
+	title = holy_hannuowei.5.t
+	desc = holy_hannuowei.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.5.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = SER
+}
+}
+	}
+	option = {
+		name = holy_hannuowei.5.b
+		ai_chance = {
+		    factor = 100
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = { puppet = SER }
+	}
+}
+#德意志对巴尔干的通牒
+country_event = {
+	id = holy_hannuowei.52
+	title = holy_hannuowei.5.t
+	desc = holy_hannuowei.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.5.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = BUL
+}
+}
+	}
+	option = {
+		name = holy_hannuowei.5.b
+		ai_chance = {
+		    factor = 100
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = { puppet = BUL }
+	}
+}
+#德意志对巴尔干的通牒
+country_event = {
+	id = holy_hannuowei.53
+	title = holy_hannuowei.5.t
+	desc = holy_hannuowei.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.5.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = ROOT
+}
+}
+	}
+	option = {
+		name = holy_hannuowei.5.b
+		ai_chance = {
+		    factor = 100
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = { puppet = ROOT }
+	}
+}
+#德意志对巴尔干的通牒
+country_event = {
+	id = holy_hannuowei.54
+	title = holy_hannuowei.5.t
+	desc = holy_hannuowei.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.5.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = DKL
+}
+}
+	}
+	option = {
+		name = holy_hannuowei.5.b
+		ai_chance = {
+		    factor = 100
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = { puppet = DKL }
+	}
+}
+#德意志的邀请
+country_event = {
+	id = holy_hannuowei.6
+	title = holy_hannuowei.6.t
+	desc = holy_hannuowei.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.6.a
+		ai_chance = {
+		    factor = 30
+		}
+		HNW = { add_to_faction = SWE }
+	}
+	option = {
+		name = holy_hannuowei.6.b
+		ai_chance = {
+		    factor = 0
+		}
+		trigger = {
+		OR = {
+		has_government = fascism
+		has_government = reconcilism
+		}
+		HNW = { NOT = { complete_national_focus = HNW_nacui_diguo } }
+		}
+		HNW = {
+		create_wargoal = {
+    type = annex_everything
+    target = SWE
+}
+		}
+	}
+}
+#反抗法兰西入侵
+country_event = {
+	id = holy_hannuowei.7
+	title = holy_hannuowei.7.t
+	desc = holy_hannuowei.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_hannuowei.7.a
+		ai_chance = {
+		    factor = 30
+		}
+		LUO = {
+		leave_faction = yes
+		}
+	}
+	option = {
+		name = holy_hannuowei.7.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_to_war = {
+    targeted_alliance = LUO
+    enemy = FRA
+    hostility_reason = asked_to_join
+}
+	}
+}

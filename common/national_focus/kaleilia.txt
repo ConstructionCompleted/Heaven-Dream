@@ -1,0 +1,274 @@
+focus_tree = {
+	id = KRL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KRL
+		}
+	}
+	
+	default = no
+ 
+    #北方的红星
+	focus = {
+		id = KRL_beifang_redstar
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#走私军火
+	focus = {
+		id = KRL_zousi_junhuo
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = KRL_beifang_redstar}
+		relative_position_id = KRL_beifang_redstar
+		mutually_exclusive = { focus = KRL_zousi_liangshi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 500
+}
+		}
+	}
+	#走私粮食
+	focus = {
+		id = KRL_zousi_liangshi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = KRL_beifang_redstar}
+		relative_position_id = KRL_beifang_redstar
+		mutually_exclusive = { focus = KRL_zousi_junhuo }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KRL_zousi_liangshi
+		}
+	}
+	#接管北欧占领区
+	focus = {
+		id = KRL_jieguan_beiou_zhanlingqu
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = KRL_zousi_junhuo focus = KRL_zousi_liangshi}
+		relative_position_id = KRL_zousi_junhuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KRL_youji_budui_2
+			remove_idea = KRL_youji_budui
+			}
+		}
+	}
+	#重建游击队联系
+	focus = {
+		id = KRL_chongjian_youjidui_lianxi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KRL_zousi_junhuo focus = KRL_zousi_liangshi}
+		relative_position_id = KRL_zousi_junhuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			RNN = {
+			add_ideas = KRL_youjidui
+			}
+		}
+	}
+	#地下工厂
+	focus = {
+		id = KRL_dixia_gongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = KRL_zousi_junhuo focus = KRL_zousi_liangshi}
+		relative_position_id = KRL_zousi_junhuo
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#将军的演讲
+	focus = {
+		id = KRL_jiangjun_yanjiang
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = KRL_jieguan_beiou_zhanlingqu }
+		prerequisite = { focus = KRL_chongjian_youjidui_lianxi }
+		prerequisite = { focus = KRL_dixia_gongchang }
+		relative_position_id = KRL_chongjian_youjidui_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_beieluosi.1
+	days = 1
+	}
+		}
+	}
+	#进军摩尔曼斯克！
+	focus = {
+		id = KRL_jinjun_moermansike
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = KRL_jiangjun_yanjiang }
+		relative_position_id = KRL_jiangjun_yanjiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KRL_youji_budui_3
+			remove_idea = KRL_youji_budui_2
+			}
+		}
+	}
+	#同志们的援助
+	focus = {
+		id = KRL_tongzhimen_yuanzhu
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = KRL_jinjun_moermansike }
+		relative_position_id = KRL_jinjun_moermansike
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 500
+}
+		}
+	}
+	#和芬兰的交流
+	focus = {
+		id = KRL_hefenlan_jiaoliu
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = KRL_jinjun_moermansike }
+		relative_position_id = KRL_jinjun_moermansike
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FIN = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+	target = FIN
+}
+		}
+	}
+	#奥涅加起义
+	focus = {
+		id = KRL_aoniejia_qiyi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = KRL_hefenlan_jiaoliu }
+		relative_position_id = KRL_hefenlan_jiaoliu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = KRL_aoniejia_qiyi
+		}
+	}
+	#送日林斯基下地狱！
+	focus = {
+		id = KRL_song_rlsj_xiadiyu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = KRL_aoniejia_qiyi }
+		relative_position_id = KRL_aoniejia_qiyi
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		controls_state = 146
+		controls_state = 215
+		controls_state = 216
+		controls_state = 1383
+		controls_state = 1398
+controls_state = 1854
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			RNN = {
+			kill_country_leader = yes
+			}
+		}
+	}
+	#我们的胜利！
+	focus = {
+		id = KRL_we_win
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = KRL_song_rlsj_xiadiyu }
+		relative_position_id = KRL_song_rlsj_xiadiyu
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		controls_state = 146
+		controls_state = 215
+		controls_state = 216
+		controls_state = 1383
+		controls_state = 1398
+controls_state = 1854
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = KRL
+			}
+		}
+	}
+}

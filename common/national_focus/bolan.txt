@@ -1,0 +1,2544 @@
+focus_tree = {
+	id = BLA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BLA
+		}
+	}
+	
+	default = no
+ 
+    #中央竞争
+	focus = {
+		id = BLA_zhongyang_jingzheng
+		icon = GFX_focus_SOV_the_comecon
+		x = 25
+		y = 0
+		cost = 50
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#重塑波兰王冠
+	focus = {
+		id = BLA_chongsu_bolan_wangguan
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = BLA_zhongyang_jingzheng}
+		relative_position_id = BLA_zhongyang_jingzheng
+		x = -6
+		y = 1
+		cost = 1
+		available = {
+		has_government = neutrality
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		
+		}
+	}
+	#重建联邦
+	focus = {
+		id = BLA_chongjian_lianbang
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = BLA_chongsu_bolan_wangguan}
+		relative_position_id = BLA_chongsu_bolan_wangguan
+		mutually_exclusive = { focus = BLA_boliesilafu_dream }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_leader = {
+    name = "齐格蒙特四世"
+	ruling_only = yes
+}
+		}
+		completion_reward = {
+		add_stability = -0.05
+		add_state_core = 188
+		add_state_core = 189
+		add_state_core = 11
+		add_state_core = 784
+		add_state_core = 815
+		add_state_core = 814
+		every_country = {
+		limit = {
+		is_puppet_of = BLA
+		}
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		set_cosmetic_tag = PLC_UNIFIED
+		custom_effect_tooltip = form_country_lithuania_coring_states_tt
+		}
+	}
+	#卢布林联合
+	focus = {
+		id = BLA_lubulin_lianhe
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = BLA_chongjian_lianbang}
+		relative_position_id = BLA_chongjian_lianbang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_lubulin_lianhe
+		}
+	}
+	#立陶宛工业化
+	focus = {
+		id = BLA_litaowan_gongyehua
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BLA_lubulin_lianhe}
+		relative_position_id = BLA_lubulin_lianhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		189 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		11 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		784 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#波兰工业化
+	focus = {
+		id = BLA_bolan_gongyehua
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = BLA_lubulin_lianhe}
+		relative_position_id = BLA_lubulin_lianhe
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		10 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		88 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		87 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#反俄罗斯宣言
+	focus = {
+		id = BLA_fan_ru_xuanyan
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = BLA_litaowan_gongyehua}
+		prerequisite = { focus = BLA_bolan_gongyehua}
+		relative_position_id = BLA_litaowan_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#宣扬荣光
+	focus = {
+		id = BLA_xuanyang_rongguang
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = BLA_fan_ru_xuanyan}
+		relative_position_id = BLA_fan_ru_xuanyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = BLA_dongbu_guifu
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		add_political_power = 100
+		}
+	}
+	#联通铁路
+	focus = {
+		id = BLA_liantong_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = BLA_chongjian_lianbang}
+		relative_position_id = BLA_chongjian_lianbang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		10 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		88 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		784 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建卢布林
+	focus = {
+		id = BLA_kuojian_lubulin
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = BLA_liantong_tielu}
+		relative_position_id = BLA_liantong_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		92 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 8
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建行政体系
+	focus = {
+		id = BLA_kuojian_xingzheng_tixi
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = BLA_kuojian_lubulin}
+		relative_position_id = BLA_kuojian_lubulin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_kuojian_xingzhengtixi
+		}
+	}
+	#构建文化认同
+	focus = {
+		id = BLA_goujian_wenhua_rentong
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = BLA_kuojian_lubulin}
+		relative_position_id = BLA_kuojian_lubulin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_goujian_wenhuarentong
+		}
+	}
+	#东部归附
+	focus = {
+		id = BLA_dongbu_guifu
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BLA_goujian_wenhua_rentong}
+		prerequisite = { focus = BLA_kuojian_xingzheng_tixi}
+		relative_position_id = BLA_kuojian_xingzheng_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_core = 206
+		add_state_core = 207
+		add_state_core = 204
+		add_state_core = 194
+		add_state_core = 201
+		add_state_core = 198
+		add_state_core = 199
+		add_state_core = 202
+		add_state_core = 1550
+		add_state_core = 1543
+		add_state_core = 1430
+		add_state_core = 1859
+		add_state_core = 1431
+		}
+	}
+	#波列斯拉夫之梦
+	focus = {
+		id = BLA_boliesilafu_dream
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = BLA_chongsu_bolan_wangguan}
+		relative_position_id = BLA_chongsu_bolan_wangguan
+		mutually_exclusive = { focus = BLA_chongjian_lianbang }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_leader = {
+    name = "莫兰"
+	ruling_only = yes
+}
+		}
+		completion_reward = {
+		add_stability = 0.05
+		}
+	}
+	#小波兰开发
+	focus = {
+		id = BLA_xiao_bolan_kaifa
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = BLA_boliesilafu_dream}
+		relative_position_id = BLA_boliesilafu_dream
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		88 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		90 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#东方新建设
+	focus = {
+		id = BLA_dongfang_new_build
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = BLA_xiao_bolan_kaifa}
+		relative_position_id = BLA_xiao_bolan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		93 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		94 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		95 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#克拉科夫贸易
+	focus = {
+		id = BLA_kelakefu_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = BLA_dongfang_new_build}
+		relative_position_id = BLA_dongfang_new_build
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_kelakefu_maoyi
+		}
+	}
+	#人民团结
+	focus = {
+		id = BLA_renmin_tuanjie
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = BLA_boliesilafu_dream}
+		relative_position_id = BLA_boliesilafu_dream
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#战争团结
+	focus = {
+		id = BLA_war_tuanjie
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = BLA_renmin_tuanjie}
+		relative_position_id = BLA_renmin_tuanjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#政治团结
+	focus = {
+		id = BLA_pp_tuanjie
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = BLA_war_tuanjie}
+		relative_position_id = BLA_war_tuanjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#真正的王冠
+	focus = {
+		id = BLA_ture_wangguan
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = BLA_pp_tuanjie}
+		prerequisite = { focus = BLA_kelakefu_maoyi}
+		relative_position_id = BLA_kelakefu_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_zhenzheng_wangguan
+		}
+	}
+	#进军格但斯克
+	focus = {
+		id = BLA_jinjun_gedansike
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = BLA_ture_wangguan focus = BLA_xuanyang_rongguang}
+		relative_position_id = BLA_xuanyang_rongguang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		PLS = {
+		OR = {
+		has_war = yes
+		exists = no
+		}
+		}
+		BLC = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		PLS = { 
+		country_event = {
+    id = holy_bolan.11
+    days = 1
+	}
+		}
+	}
+	}
+	#东方总计划
+	focus = {
+		id = BLA_dongfang_plan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = BLA_jinjun_gedansike}
+		relative_position_id = BLA_jinjun_gedansike
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = BLA_chongjian_lianbang
+		has_war = no
+		}
+		completion_reward = {
+		add_political_power = 100
+		declare_war_on = {
+    target = LIT
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+	}
+	}
+	#寻求西欧盟友
+	focus = {
+		id = BLA_hexiongyali_jiemeng
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BLA_jinjun_gedansike}
+		relative_position_id = BLA_jinjun_gedansike
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+		completion_reward = {
+		FRA = {
+		add_to_faction = BLA
+		}
+	}
+	}
+	#西方和平
+	focus = {
+		id = BLA_xifang_wp
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = BLA_jinjun_gedansike}
+		relative_position_id = BLA_jinjun_gedansike
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 5
+		controls_state = 85
+		controls_state = 86
+		controls_state = 1554
+		controls_state = 1551
+		controls_state = 1550
+		}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.05
+	}
+	}
+	#西部要塞化
+	focus = {
+		id = BLA_xibu_yaosaihua
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BLA_xifang_wp}
+		relative_position_id = BLA_xifang_wp
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 5
+		controls_state = 85
+		controls_state = 86
+		controls_state = 1554
+		controls_state = 1551
+		controls_state = 1550
+		}
+		completion_reward = {
+		86 = {
+		add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 11558
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 9532
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 3460
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 3532
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 388
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 11232
+}
+	}
+	5 = {
+		add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 243
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 279
+}
+add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 334
+}
+}
+85 = {
+		add_building_construction = {
+    type = bunker
+    level = 3
+    instant_build = yes
+    province = 9263
+}
+}
+	}
+	}
+	#摧毁赤色威胁
+	focus = {
+		id = BLA_cuihui_chise_weixie
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = BLA_dongfang_plan}
+		relative_position_id = BLA_dongfang_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		SOV = {
+		exists = no
+		}
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+	}
+	}
+	#击败奴役者
+	focus = {
+		id = BLA_jibainuyizhe
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = BLA_cuihui_chise_weixie}
+		relative_position_id = BLA_cuihui_chise_weixie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+	}
+	}
+	#再造联邦辉煌
+	focus = {
+		id = BLA_zaizao_lianbang_huihuang
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = BLA_jibainuyizhe}
+		relative_position_id = BLA_jibainuyizhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 210
+		controls_state = 1548
+		controls_state = 1549
+		controls_state = 242
+		controls_state = 243
+		controls_state = 224
+		controls_state = 1066
+		controls_state = 207
+		controls_state = 241
+		controls_state = 225
+		controls_state = 259
+		controls_state = 193
+		controls_state = 1068
+		controls_state = 1067
+		controls_state = 196
+		controls_state = 197
+		controls_state = 226
+		controls_state = 834
+		controls_state = 202
+		controls_state = 203
+		}
+		completion_reward = {
+		add_state_core = 210
+		add_state_core = 1548
+		add_state_core = 1549
+		add_state_core = 242
+		add_state_core = 243
+		add_state_core = 224
+		add_state_core = 1066
+		add_state_core = 207
+		add_state_core = 241
+		add_state_core = 225
+		add_state_core = 259
+		add_state_core = 193
+		add_state_core = 1068
+		add_state_core = 1067
+		add_state_core = 196
+		add_state_core = 197
+		add_state_core = 226
+		add_state_core = 834
+		add_state_core = 202
+		add_state_core = 203
+	}
+	}
+	#进攻波罗的海
+	focus = {
+		id = BLA_jingong_boluodihai
+		icon = GFX_focus_LAT_ostland
+		prerequisite = { focus = BLA_dongfang_plan}
+		relative_position_id = BLA_dongfang_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = EST
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAT
+    type = annex_everything
+}
+	}
+	}
+	#重建北方和平
+	focus = {
+		id = BLA_chongjian_beifang_wp
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = BLA_jingong_boluodihai}
+		relative_position_id = BLA_jingong_boluodihai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		controls_state = 12
+		controls_state = 190
+		controls_state = 191
+		controls_state = 808
+		controls_state = 809
+		controls_state = 810
+		}
+		completion_reward = {
+		add_state_core = 12
+		add_state_core = 190
+		add_state_core = 191
+		add_state_core = 808
+		add_state_core = 809
+		add_state_core = 810
+	}
+	}
+	#建设海港
+	focus = {
+		id = BLA_jianshe_haigang
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = BLA_chongjian_beifang_wp}
+		relative_position_id = BLA_chongjian_beifang_wp
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		12 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+		13 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	}
+	#进攻普鲁士
+	focus = {
+		id = BLA_jingong_pulushi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = BLA_jinjun_gedansike}
+		relative_position_id = BLA_jinjun_gedansike
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		PLS = {
+		exists = no
+		}
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+	}
+	}
+	#再征服捷克
+	focus = {
+		id = BLA_zaizhengfu_jieke
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = BLA_jingong_pulushi}
+		relative_position_id = BLA_jingong_pulushi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		BXM = {
+		exists = no
+		}
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BXM
+    type = annex_everything
+}
+	}
+	}
+	#刺入日耳曼
+	focus = {
+		id = BLA_ciru_rierman
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = BLA_zaizhengfu_jieke}
+		relative_position_id = BLA_zaizhengfu_jieke
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = SHA
+}
+create_wargoal = {
+    type = annex_everything
+    target = HNW
+}
+create_wargoal = {
+    type = annex_everything
+    target = SKS
+}
+create_wargoal = {
+    type = annex_everything
+    target = WFL
+}
+create_wargoal = {
+    type = annex_everything
+    target = DED
+}
+create_wargoal = {
+    type = annex_everything
+    target = LUO
+}
+create_wargoal = {
+    type = annex_everything
+    target = AUS
+}
+create_wargoal = {
+    type = annex_everything
+    target = RUI
+}
+create_wargoal = {
+    type = annex_everything
+    target = FTB
+}
+create_wargoal = {
+    type = annex_everything
+    target = BAF
+}
+	}
+	}
+	#北部安宁
+	focus = {
+		id = BLA_beibu_anning
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = BLA_jingong_pulushi}
+		relative_position_id = BLA_jingong_pulushi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		BLD = {
+		exists = no
+		}
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLD
+    type = annex_everything
+}
+	}
+	}
+	#边界线西移
+	focus = {
+		id = BLA_bianjiexian_xiyi
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = BLA_beibu_anning}
+		relative_position_id = BLA_beibu_anning
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 763
+		add_state_claim = 188
+		add_state_claim = 5
+		add_state_claim = 68
+		add_state_claim = 66
+		add_state_claim = 67
+		add_state_claim = 63
+		add_state_claim = 807
+		add_state_claim = 942
+		add_state_claim = 943
+		add_state_claim = 1539
+		add_state_claim = 1538
+	}
+	}
+	#西斯拉夫联合
+	focus = {
+		id = BLA_xisilafu_lianhe
+		icon = GFX_focus_POL_plan_east
+		prerequisite = { focus = BLA_bianjiexian_xiyi}
+		prerequisite = { focus = BLA_ciru_rierman}
+		relative_position_id = BLA_bianjiexian_xiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 763
+		controls_state = 188
+		controls_state = 5
+		controls_state = 68
+		controls_state = 66
+		controls_state = 67
+		controls_state = 63
+		controls_state = 807
+		controls_state = 942
+		controls_state = 943
+		controls_state = 1539
+		controls_state = 1538
+		}
+		completion_reward = {
+		add_state_core = 763
+		add_state_core = 188
+		add_state_core = 5
+		add_state_core = 68
+		add_state_core = 66
+		add_state_core = 67
+		add_state_core = 63
+		add_state_core = 807
+		add_state_core = 942
+		add_state_core = 943
+		add_state_core = 1539
+		add_state_core = 1538
+	}
+	}
+	#南方征服
+	focus = {
+		id = BLA_nanfang_zhengfu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = BLA_jinjun_gedansike}
+		relative_position_id = BLA_jinjun_gedansike
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		XYL = {
+		exists = no
+		}
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = XYL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SLO
+    type = annex_everything
+}
+declare_war_on = {
+    target = TRA
+    type = annex_everything
+}
+	}
+	}
+	#斯洛伐克秩序
+	focus = {
+		id = BLA_siluofake_zhixu
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = BLA_nanfang_zhengfu}
+		relative_position_id = BLA_nanfang_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 70
+		controls_state = 71
+		controls_state = 73
+		controls_state = 664
+		controls_state = 981
+		controls_state = 980
+		controls_state = 973
+		controls_state = 976
+		}
+		completion_reward = {
+		add_state_core = 70
+		add_state_core = 71
+		add_state_core = 73
+		add_state_core = 664
+		add_state_core = 981
+		add_state_core = 980
+		add_state_core = 973
+		add_state_core = 976
+	}
+	}
+	#潘诺尼亚之主
+	focus = {
+		id = BLA_pannuoniya_zhizhu
+		icon = GFX_focus_hol_united_netherlands
+		prerequisite = { focus = BLA_siluofake_zhixu}
+		relative_position_id = BLA_siluofake_zhixu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 155
+		controls_state = 979
+		}
+		completion_reward = {
+		add_state_core = 155
+		add_state_core = 979
+	}
+	}
+	#终结混乱
+	focus = {
+		id = BLA_zhongjie_hunluan
+		icon = GFX_focus_focus_fra_national_resistance_council
+		prerequisite = { focus = BLA_zhongyang_jingzheng}
+		relative_position_id = BLA_zhongyang_jingzheng
+		x = 10
+		y = 1
+		cost = 1
+		available = {
+		OR = {
+		has_government = dictatorship
+		has_government = conservatism
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		
+		}
+	}
+	#新毕苏斯基
+	focus = {
+		id = BLA_new_bisusiji
+		icon = GFX_focus_POL_nationalist_education
+		prerequisite = { focus = BLA_zhongjie_hunluan}
+		relative_position_id = BLA_zhongjie_hunluan
+		mutually_exclusive = { focus = BLA_bolan_gongheguo }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = dictatorship
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		add_stability = -0.05
+		add_political_power = 100
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.15
+}
+		}
+	}
+	#血腥一夜
+	focus = {
+		id = BLA_xuexing_yiye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = BLA_new_bisusiji}
+		relative_position_id = BLA_new_bisusiji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.1
+		add_popularity = {
+    ideology = communism
+    popularity = -1
+}
+add_popularity = {
+    ideology = socialism
+    popularity = -1
+}
+		}
+	}
+	#配给制度
+	focus = {
+		id = BLA_peiji_zhidu
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = BLA_xuexing_yiye}
+		relative_position_id = BLA_xuexing_yiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_peiji
+		}
+	}
+	#先军政策
+	focus = {
+		id = BLA_xianjun_zhengce
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = BLA_xuexing_yiye}
+		relative_position_id = BLA_xuexing_yiye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_xianjun
+		}
+	}
+	#军事产业动员
+	focus = {
+		id = BLA_junshi_chanye_dongyuan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BLA_xianjun_zhengce}
+		prerequisite = { focus = BLA_peiji_zhidu}
+		relative_position_id = BLA_xianjun_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 5 }
+		}
+	}
+	#干预俄罗斯内战
+	focus = {
+		id = BLA_ganyu_eluosi_neizhan
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = BLA_junshi_chanye_dongyuan}
+		relative_position_id = BLA_junshi_chanye_dongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+		}
+	}
+	#摧毁普鲁士
+	focus = {
+		id = BLA_cuihui_pulushi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = BLA_ganyu_eluosi_neizhan}
+		relative_position_id = BLA_ganyu_eluosi_neizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = PLS
+    type = annex_everything
+}
+		}
+	}
+	#波兰共和国
+	focus = {
+		id = BLA_bolan_gongheguo
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = BLA_zhongjie_hunluan}
+		relative_position_id = BLA_zhongjie_hunluan
+		mutually_exclusive = { focus = BLA_new_bisusiji }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = conservatism
+		}
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 50
+		add_popularity = {
+    ideology = conservatism 
+    popularity = 0.2
+}
+		}
+	}
+	#解除警戒
+	focus = {
+		id = BLA_jiechu_jingjie
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = BLA_bolan_gongheguo}
+		relative_position_id = BLA_bolan_gongheguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 50
+		add_popularity = {
+    ideology = conservatism 
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = conservatism
+}
+		}
+	}
+	#建立议院
+	focus = {
+		id = BLA_jianli_yiyuan
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = BLA_jiechu_jingjie}
+		relative_position_id = BLA_jiechu_jingjie
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_build_yiyuan
+		}
+	}
+	#地方民主制度
+	focus = {
+		id = BLA_difang_democratic_zhidu
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = BLA_jiechu_jingjie}
+		relative_position_id = BLA_jiechu_jingjie
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_difang_minzhu
+		}
+	}
+	#自由之鹰
+	focus = {
+		id = BLA_free_ying
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = BLA_difang_democratic_zhidu}
+		prerequisite = { focus = BLA_jianli_yiyuan}
+		relative_position_id = BLA_difang_democratic_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_ziyouzhiying
+		}
+	}
+	#波兰防御计划
+	focus = {
+		id = BLA_bolan_fangyu_plan
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = BLA_free_ying}
+		relative_position_id = BLA_free_ying
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_bolan_fangyu_plan
+		}
+	}
+	#寻求自由世界的保护
+	focus = {
+		id = BLA_xunqiu_ziyoushijie_baohu
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = BLA_bolan_fangyu_plan }
+		relative_position_id = BLA_bolan_fangyu_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#加入小协约国
+	focus = {
+		id = BLA_join_xiaoxieyueguo
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = { focus = BLA_xunqiu_ziyoushijie_baohu }
+		relative_position_id = BLA_xunqiu_ziyoushijie_baohu
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		FRA = { 
+		is_faction_leader = yes
+		has_government = conservatism
+		}
+		is_in_faction = no
+		NOT = {
+		has_war_with = BLR
+		has_war_with = BLC
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		FRA = { add_to_faction = BLA }
+		}
+	}
+	#加入同盟国
+	focus = {
+		id = BLA_join_tongmengguo
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = BLA_xunqiu_ziyoushijie_baohu }
+		relative_position_id = BLA_xunqiu_ziyoushijie_baohu
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		UKM = { 
+		is_faction_leader = yes
+		}
+		is_in_faction = no
+		NOT = {
+		has_war_with = BLR
+		has_war_with = BLC
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		UKM = { is_faction_leader = yes }
+		}
+		UKM = { add_to_faction = BLA }
+		}
+		if = {
+		limit = {
+		CAN = { is_faction_leader = yes }
+		}
+		CAN = { add_to_faction = BLA }
+		}
+		}
+	}
+	#推进工业化
+	focus = {
+		id = BLA_tuijin_gongyehua
+		icon = GFX_goal_generic_construct_civilian
+		x = 19
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = BLA_zhongyang_jingzheng
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BLA_gongyehua_kaishi
+		remove_idea = BLA_gongyehua_huanman
+		}
+		}
+	}
+	#赤字开支
+	focus = {
+		id = BLA_chizi_kaizhi
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = BLA_tuijin_gongyehua}
+		relative_position_id = BLA_tuijin_gongyehua
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1936.6.1
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		}
+		completion_reward = {
+		add_ideas = BLA_chizi_kaizhi
+		}
+	}
+	#华沙开发
+	focus = {
+		id = BLA_huasha_kaifa
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = BLA_chizi_kaizhi}
+		relative_position_id = BLA_chizi_kaizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		10 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#投资罗兹
+	focus = {
+		id = BLA_touzi_luozi
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = BLA_chizi_kaizhi}
+		relative_position_id = BLA_chizi_kaizhi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		87 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_popularity = {
+    ideology = socialism
+    popularity = -0.05
+}
+		}
+	}
+	#克拉科夫开发
+	focus = {
+		id = BLA_kelakefu_kaifa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = BLA_chizi_kaizhi}
+		relative_position_id = BLA_chizi_kaizhi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		88 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+		}
+	}
+	#立陶宛开发
+	focus = {
+		id = BLA_litaowan_kaifa
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = BLA_huasha_kaifa}
+		relative_position_id = BLA_huasha_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		11 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.05
+}
+		}
+	}
+	#东部开发
+	focus = {
+		id = BLA_dongbu_kaifa
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = BLA_huasha_kaifa}
+		relative_position_id = BLA_huasha_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		206 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		194 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		198 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	
+		}
+	}
+	#工业兴起
+	focus = {
+		id = BLA_gongye_xingqi
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = BLA_litaowan_kaifa}
+		prerequisite = { focus = BLA_dongbu_kaifa}
+		relative_position_id = BLA_dongbu_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = BLA_gongyehua_kaishi
+		}
+	}
+	#小波兰建设
+	focus = {
+		id = BLA_xiaobolan_build
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = BLA_gongye_xingqi}
+		relative_position_id = BLA_gongye_xingqi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 86
+		}
+		completion_reward = {
+		86 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#普鲁士建设
+	focus = {
+		id = BLA_xiaobolan_build
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = BLA_gongye_xingqi}
+		relative_position_id = BLA_gongye_xingqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 5
+		controls_state = 763
+		controls_state = 85
+		controls_state = 807
+		controls_state = 188
+		controls_state = 1540
+		controls_state = 1541
+		}
+		completion_reward = {
+		5 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		763 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		85 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#西里西亚建设
+	focus = {
+		id = BLA_xiaobolan_build
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = BLA_gongye_xingqi}
+		relative_position_id = BLA_gongye_xingqi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 67
+		controls_state = 762
+		controls_state = 66
+		controls_state = 942
+		controls_state = 943
+		controls_state = 1554
+		controls_state = 1540
+		controls_state = 1541
+		}
+		completion_reward = {
+		67 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		66 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		762 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#重建国家军队
+	focus = {
+		id = BLA_chongjian_guojia_jundui
+		icon = GFX_focus_secret_rearmament
+		x = 35
+		y = 15
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		}
+		has_completed_focus = BLA_zhongyang_jingzheng
+		}
+		completion_reward = {
+		army_experience = 50
+		}
+	}
+	#开设军官学院
+	focus = {
+		id = BLA_kaishe_junguan_xueyuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = BLA_chongjian_guojia_jundui}
+		relative_position_id = BLA_chongjian_guojia_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_kaishe_junguanxueyuan
+		}
+	}
+	#军事宣传
+	focus = {
+		id = BLA_junshi_xuanchuan
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = BLA_kaishe_junguan_xueyuan}
+		relative_position_id = BLA_kaishe_junguan_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#波兰民族主义
+	focus = {
+		id = BLA_bolan_minzu_zhuyi
+		icon = GFX_focus_POL_prepare_for_the_inevitable
+		prerequisite = { focus = BLA_kaishe_junguan_xueyuan}
+		relative_position_id = BLA_kaishe_junguan_xueyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_bolan_minzuzhuyi
+		}
+	}
+	#备战
+	focus = {
+		id = BLA_beizhan
+		icon = GFX_focus_POL_belarus_army
+		prerequisite = { focus = BLA_bolan_minzu_zhuyi}
+		prerequisite = { focus = BLA_junshi_xuanchuan}
+		relative_position_id = BLA_junshi_xuanchuan
+		mutually_exclusive = { focus = BLA_new_yiqibing}
+		mutually_exclusive = { focus = BLA_huoli_zhiyuan}
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	#东部要塞
+	focus = {
+		id = BLA_dongbu_yaosai
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = BLA_beizhan}
+		relative_position_id = BLA_beizhan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		96 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 358
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9341
+}
+	}
+	
+	294 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3267
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 294
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11322
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 342
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9289
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3378
+}
+	}
+	204 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6373
+}
+	}
+	194 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9249
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3507
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6319
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11453
+}
+	}
+	201 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9466
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 441
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 550
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11490
+}
+	}
+		}
+	}
+	#建立参谋部
+	focus = {
+		id = BLA_build_canmoubu
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = BLA_beizhan}
+		relative_position_id = BLA_beizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_jianli_canmoubu
+		}
+	}
+	#西部要塞
+	focus = {
+		id = BLA_xibu_yaosai
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = BLA_beizhan}
+		relative_position_id = BLA_beizhan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		97 = {
+		add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3254
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 400
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11357
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11329
+}
+	}
+	98 = {
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9316
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9290
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6321
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3230
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 6401
+}
+}
+87 = {
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 11515
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9439
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 9546
+}
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 584
+}
+}
+90 = {
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 3586
+}
+}
+88 = {
+add_building_construction = {
+    type = bunker
+    level = 2
+    instant_build = yes
+    province = 13205
+}
+}
+	}
+	}
+	#新翼骑兵
+	focus = {
+		id = BLA_new_yiqibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = BLA_bolan_minzu_zhuyi}
+		prerequisite = { focus = BLA_junshi_xuanchuan}
+		relative_position_id = BLA_junshi_xuanchuan
+		mutually_exclusive = { focus = BLA_huoli_zhiyuan }
+		mutually_exclusive = { focus = BLA_beizhan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	#坦克开发
+	focus = {
+		id = BLA_tanke_kaifa
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = BLA_new_yiqibing}
+		relative_position_id = BLA_new_yiqibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	#机械化部队
+	focus = {
+		id = BLA_jixiehua_budui
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = BLA_tanke_kaifa}
+		relative_position_id = BLA_tanke_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#冲锋！
+	focus = {
+		id = BLA_chongfeng
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = BLA_jixiehua_budui}
+		relative_position_id = BLA_jixiehua_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_chongfeng
+		}
+	}
+	#火力支援
+	focus = {
+		id = BLA_huoli_zhiyuan
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = BLA_bolan_minzu_zhuyi}
+		prerequisite = { focus = BLA_junshi_xuanchuan}
+		relative_position_id = BLA_junshi_xuanchuan
+		mutually_exclusive = { focus = BLA_beizhan }
+		mutually_exclusive = { focus = BLA_new_yiqibing}
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	#量产火炮
+	focus = {
+		id = BLA_liangchan_huopao
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = BLA_huoli_zhiyuan}
+		relative_position_id = BLA_huoli_zhiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BLA_liangchan_huopao
+		}
+	}
+	#火炮科研
+	focus = {
+		id = BLA_tech_huopao
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = BLA_huoli_zhiyuan}
+		relative_position_id = BLA_huoli_zhiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#支援装备
+	focus = {
+		id = BLA_zhiyuan_zhaungbei
+		icon = GFX_focus_SOV_women_in_aviation
+		prerequisite = { focus = BLA_tech_huopao}
+		prerequisite = { focus = BLA_liangchan_huopao}
+		relative_position_id = BLA_tech_huopao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = support
+			}
+		}
+	}
+}

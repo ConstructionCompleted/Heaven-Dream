@@ -1,0 +1,154 @@
+holy_guangdong = {
+    #广州争夺战
+    holy_guangzhou_zhengduo = {                          
+        visible = { 
+		tag = YUE 
+		}                
+        activation = {                          
+            progressism < 45
+        }
+		available = {     
+		   progressism > 50
+        }
+        is_good = no     
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 10
+        timeout_effect = {     
+		add_popularity = {
+    ideology = progressism 
+    popularity = 0.25
+}
+set_politics = {
+	ruling_party = progressism
+}
+dismantle_faction = yes
+end_puppet = OGU
+complete_national_focus = YUE_duoqu_guangzhou_cheng
+remove_state_core = 1282
+remove_state_core = 1283
+remove_state_core = 1284
+remove_state_core = 396
+}
+    }
+	#武装战斗
+    holy_wuzhuang_zhandou = {                          
+        visible = { 
+		tag = YUE 
+		}                
+        activation = {                          
+            controls_state = 1163
+            has_decision = holy_guangzhou_zhengduo	
+            tag = YUE 			
+        }
+		available = {                   
+           OR = {        
+           has_government = progressism
+		   has_completed_focus = YUE_pohuai_dixia_zuzhi
+		   }
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 5             
+        timeout_effect = {     
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.03
+}
+add_manpower = -500
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -100
+}
+}
+    }
+	#红色宣传
+    holy_hongse_xuanchuan = {                          
+        visible = { 
+		tag = YUE 
+		}                
+        activation = {                          
+            controls_state = 1163
+            has_decision = holy_guangzhou_zhengduo	
+            tag = YUE 			
+        }
+		available = {                           
+           OR = {        
+           has_government = progressism
+		   has_completed_focus = YUE_xiezhu_xuanchuan
+		   }
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 5             
+        timeout_effect = {     
+		add_popularity = {
+    ideology = progressism 
+    popularity = 0.03
+}
+add_stability = -0.02
+}
+    }
+	#镇压西城区
+    holy_zhenya_xichengqu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUE
+			controls_state = 1163
+	}	
+		available = {
+			has_completed_focus = YUE_jingong_xichengqu
+			NOT = {
+			has_government = progressism
+			}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -100
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#协助宣传
+    holy_xiezhu_xuanchuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YUE
+			controls_state = 1163
+	}	
+		available = {
+			has_completed_focus = YUE_xiezhu_xuanchuan
+			NOT = {
+			has_government = progressism
+			}
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.02
+}
+add_stability = -0.01
+add_war_support = -0.01
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

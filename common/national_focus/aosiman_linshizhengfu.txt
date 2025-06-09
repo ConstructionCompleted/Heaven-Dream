@@ -1,0 +1,2084 @@
+focus_tree = {
+	id = OTT_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = OTT
+		}
+	}
+	
+	default = no
+	#临时政府
+	focus = {
+		id = OTT_linshi_zhengfu
+		icon = GFX_goal_generic_neutrality_focus
+		x = 25
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#战时体系
+	focus = {
+		id = OTT_zhanshi_tixi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = OTT_linshi_zhengfu}
+		relative_position_id = OTT_linshi_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_zhanshi_tixi
+		}
+	}
+	#政治制度调配
+	focus = {
+		id = OTT_zhengzhi_zhidu_tiaopei
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = OTT_zhanshi_tixi}
+		relative_position_id = OTT_zhanshi_tixi
+		available = {
+		OR = {
+		NOT = { has_completed_focus = OTT_xiafang_difang_quanli}
+		NOT = { has_completed_focus = OTT_zongjiao_xueyuan}
+		}
+		}
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_zhengzhi_zhidudiaopei
+		}
+	}
+	#开放军队
+	focus = {
+		id = OTT_kaifang_jundui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = OTT_zhengzhi_zhidu_tiaopei}
+		relative_position_id = OTT_zhengzhi_zhidu_tiaopei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_kaifangjundui
+		}
+	}
+	#军政合一
+	focus = {
+		id = OTT_junzheng_heyi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = OTT_kaifang_jundui}
+		relative_position_id = OTT_kaifang_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = OTT_junzhengheyi
+			remove_idea = OTT_kaifangjundui
+			}
+		}
+	}
+	#准许宣传
+	focus = {
+		id = OTT_zhunxu_xuanchuan
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = OTT_zhengzhi_zhidu_tiaopei}
+		relative_position_id = OTT_zhengzhi_zhidu_tiaopei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = OTT_zhunxuxuanchuan
+		}
+	}
+	#组建政党
+	focus = {
+		id = OTT_zujian_zhengdang
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = OTT_zhunxu_xuanchuan}
+		relative_position_id = OTT_zhunxu_xuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = OTT_zujianzhengdang
+			remove_idea = OTT_zhunxuxuanchuan
+			}
+		}
+	}
+	#奥斯曼会议
+	focus = {
+		id = OTT_aosiman_huiyi
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = OTT_zujian_zhengdang}
+		prerequisite = { focus = OTT_junzheng_heyi}
+		relative_position_id = OTT_zujian_zhengdang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_completed_focus = OTT_quzhu_zhengzhi_renwu
+		}
+		}
+		completion_reward = {
+		retire_country_leader = yes
+add_popularity = {
+    ideology = fascism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.1
+}
+			create_country_leader = {
+	name = "奥斯曼会议"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = zhengzhi_lianmeng
+	traits = {
+		
+	}
+}
+    swap_ideas = {
+	add_idea = OTT_zhengfu_goucheng_pingheng_2
+	remove_idea = OTT_zhengfu_goucheng_pingheng
+    }
+		}
+	}
+	#寻求外部支持
+	focus = {
+		id = OTT_xunqiu_waibu_zhichi
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = OTT_zhanshi_tixi}
+		relative_position_id = OTT_zhanshi_tixi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_waibu_zhichi
+		}
+	}
+	#请求工业协助
+	focus = {
+		id = OTT_qingqiu_gongye_xiezhu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = OTT_xunqiu_waibu_zhichi}
+		relative_position_id = OTT_xunqiu_waibu_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = OTT_qingqiu_gongye
+    days = 180
+}
+		}
+	}
+	#更新生产方式
+	focus = {
+		id = OTT_genggai_shengchan_fangshi
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = OTT_qingqiu_gongye_xiezhu}
+		relative_position_id = OTT_qingqiu_gongye_xiezhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_genggai_shengchan
+		}
+	}
+	#工业科研学习
+	focus = {
+		id = OTT_ic_research_xuexi
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = OTT_genggai_shengchan_fangshi}
+		relative_position_id = OTT_genggai_shengchan_fangshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_gongye_ic_research
+		}
+	}
+	#军事化管理
+	focus = {
+		id = OTT_junshihua_guanli
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = OTT_zhanshi_tixi}
+		relative_position_id = OTT_zhanshi_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+	#号召老兵参战
+	focus = {
+		id = OTT_haozhao_minbing
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = OTT_junshihua_guanli}
+		relative_position_id = OTT_junshihua_guanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = OTT_laobing
+		}
+	}
+	#大规模征兵
+	focus = {
+		id = OTT_daguimo_zhengbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = OTT_junshihua_guanli}
+		relative_position_id = OTT_junshihua_guanli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = extensive_conscription
+		}
+	}
+	#寻求物资
+	focus = {
+		id = OTT_xunqiu_wuzi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = OTT_daguimo_zhengbing}
+		prerequisite = { focus = OTT_haozhao_minbing}
+		relative_position_id = OTT_daguimo_zhengbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_xuanqiu_wuzi
+		}
+	}
+	#进一步军事化
+	focus = {
+		id = OTT_jinyibu_junshihua
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = OTT_xunqiu_wuzi}
+		relative_position_id = OTT_xunqiu_wuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = OTT_junshihua_jinyibu
+			remove_idea = OTT_zhanshi_tixi
+			}
+		}
+	}
+	#调整配给
+	focus = {
+		id = OTT_tiaozheng_peiji
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = OTT_xunqiu_wuzi}
+		relative_position_id = OTT_xunqiu_wuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = OTT_tiaozhengpeiji
+			remove_idea = OTT_zhanshi_tixi
+			}
+		}
+	}
+	#向地方妥协
+	focus = {
+		id = OTT_xiangdifang_tuoxie
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = OTT_zhanshi_tixi}
+		relative_position_id = OTT_zhanshi_tixi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#下放地方权力
+	focus = {
+		id = OTT_xiafang_difang_quanli
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = OTT_xiangdifang_tuoxie}
+		relative_position_id = OTT_xiangdifang_tuoxie
+		available = {
+		NOT = { has_completed_focus = OTT_zhengzhi_zhidu_tiaopei}
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 6
+		}
+		completion_reward = {
+			add_ideas = OTT_xiafang_difangquanli
+		}
+	}
+	#重建贝伊————卡迪体系
+	focus = {
+		id = OTT_chongjian_beiyikadi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = OTT_xiafang_difang_quanli}
+		relative_position_id = OTT_xiafang_difang_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = OTT_chongjian_beiyikadi_tixi
+			remove_idea = OTT_xiafang_difangquanli
+			}
+		}
+	}
+	#宗教的力量
+	focus = {
+		id = OTT_zongjiao_liliang
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = OTT_zhanshi_tixi}
+		relative_position_id = OTT_zhanshi_tixi
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_zongjiaoliliang
+		}
+	}
+	#宗教学院
+	focus = {
+		id = OTT_zongjiao_xueyuan
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = OTT_zongjiao_liliang}
+		relative_position_id = OTT_zongjiao_liliang
+		available = {
+		NOT = { has_completed_focus = OTT_zhengzhi_zhidu_tiaopei}
+		}
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = OTT_zongjiaoxueyuan
+		}
+	}
+	#宗教米利特
+	focus = {
+		id = OTT_zongjiao_milite
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = OTT_zongjiao_xueyuan}
+		relative_position_id = OTT_zongjiao_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = OTT_zongjiao_milite
+			remove_idea = OTT_zongjiaoxueyuan
+			}
+		}
+	}
+	#驱逐政治人物
+	focus = {
+		id = OTT_quzhu_zhengzhi_renwu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = OTT_chongjian_beiyikadi}
+		prerequisite = { focus = OTT_zongjiao_milite}
+		relative_position_id = OTT_zongjiao_milite
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_completed_focus = OTT_aosiman_huiyi
+		}
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = neutrality
+}
+retire_country_leader = yes
+			create_country_leader = {
+	name = "奥斯曼同盟会"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = junzheng_system
+	traits = {
+		
+	}
+}
+    swap_ideas = {
+	add_idea = OTT_tongmenghui
+	remove_idea = OTT_zhengfu_goucheng_pingheng_2
+	}
+		}
+	}
+	#奥斯曼同盟会
+	focus = {
+		id = OTT_aosiman_tongmenghui
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 20
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = OTF
+		has_war_with = DLB
+		has_war_with = EGY
+		}
+		date < 1937.10.1
+		has_completed_focus = OTT_quzhu_zhengzhi_renwu
+		}
+		completion_reward = { 
+		news_event = {
+				id = holy_news.35 days = 1
+			}
+		dismantle_faction = yes
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.5
+}
+		}
+	}
+	#宗教政策
+	focus = {
+		id = OTT_zongjiao_zhengce
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = OTT_aosiman_tongmenghui}
+		relative_position_id = OTT_aosiman_tongmenghui
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_ideas = OTT_zongjiaozhengce
+		}
+	}
+	#传教便利
+	focus = {
+		id = OTT_chuanjiao_bianli
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = OTT_zongjiao_zhengce}
+		relative_position_id = OTT_zongjiao_zhengce
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_ideas = OTT_chuanjiaobianli
+		}
+	}
+	#清真寺建设
+	focus = {
+		id = OTT_qingzhensi_jianshe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = OTT_chuanjiao_bianli}
+		relative_position_id = OTT_chuanjiao_bianli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_stability = 0.1
+		}
+	}
+	#掌控教育
+	focus = {
+		id = OTT_zhangkong_jiaoyu
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = OTT_chuanjiao_bianli}
+		relative_position_id = OTT_chuanjiao_bianli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_research_slot = -1
+		}
+	}
+	#军官退休
+	focus = {
+		id = OTT_junguan_tuixiu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = OTT_aosiman_tongmenghui}
+		relative_position_id = OTT_aosiman_tongmenghui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_political_power = 50
+		}
+	}
+	#训练新兵
+	focus = {
+		id = OTT_xunlian_new_bing
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = OTT_junguan_tuixiu}
+		relative_position_id = OTT_junguan_tuixiu
+		mutually_exclusive = { focus = OTT_qianghua_difangjun }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			swap_ideas = { 
+			add_idea = OTT_xunlian_xinbing
+			remove_idea = OTT_difang_wuzhuang
+			}
+		}
+	}
+	#强化地方军
+	focus = {
+		id = OTT_qianghua_difangjun
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = OTT_junguan_tuixiu}
+		relative_position_id = OTT_junguan_tuixiu
+		mutually_exclusive = { focus = OTT_xunlian_new_bing }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			swap_ideas = { 
+			add_idea = OTT_qianghuadifangjun
+			remove_idea = OTT_difang_wuzhuang_gailiang
+			}
+		}
+	}
+	#控制军方势力
+	focus = {
+		id = OTT_kongzhi_junfang_shili
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = OTT_qianghua_difangjun focus = OTT_xunlian_new_bing }
+		relative_position_id = OTT_xunlian_new_bing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			army_experience = 100
+		}
+	}
+	#地主的诉求
+	focus = {
+		id = OTT_dizhu_suqiu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = OTT_aosiman_tongmenghui}
+		relative_position_id = OTT_aosiman_tongmenghui
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_political_power = 100
+		}
+	}
+	#增收税收
+	focus = {
+		id = OTT_zengshou_shuishou
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = OTT_dizhu_suqiu}
+		relative_position_id = OTT_dizhu_suqiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_ideas = OTT_zengshou_shui_shou
+		}
+	}
+	#控制工业
+	focus = {
+		id = OTT_kongye_ic
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = OTT_zengshou_shuishou}
+		relative_position_id = OTT_zengshou_shuishou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_kongzhi_gongye
+			remove_idea = OTT_zengshou_shui_shou
+			}
+		}
+	}
+	#奥斯曼区块化
+	focus = {
+		id = OTT_aosiman_qukauihua
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = OTT_zengshou_shuishou}
+		relative_position_id = OTT_zengshou_shuishou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_qukuaihua
+		}
+	}
+	#奥斯曼人民会议
+	focus = {
+		id = OTT_aosiman_renmin_huiyi
+		icon = GFX_focus_spr_unify_the_london_bureau
+		x = 30
+		y = 7
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = OTF
+		has_war_with = DLB
+		has_war_with = EGY
+		date < 1937.10.1
+		}
+		has_completed_focus = OTT_aosiman_huiyi
+		NOT = {
+		has_completed_focus = OTT_diguo_fuxing_hui
+		}
+		}
+		completion_reward = { 
+		dismantle_faction = yes
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = socialism
+}
+create_country_leader = {
+	name = ""
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = fanzuoyilianmeng_system
+	traits = {
+	}
+}
+swap_ideas = {
+add_idea = OTT_renmin_huiyi
+remove_idea = OTT_zhengfu_goucheng_pingheng_2
+}
+remove_ideas = OTT_difang_wuzhuang
+remove_ideas = OTT_zongjiao_kuangre
+news_event = {
+				id = holy_news.35 days = 1
+			}
+		}
+	}
+	#在废墟之上
+	focus = {
+		id = OTT_zai_feixu_zhishang
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_aosiman_renmin_huiyi}
+		relative_position_id = OTT_aosiman_renmin_huiyi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_timed_idea = {
+    idea = OTT_zaifeixushang
+    days = 180
+}
+		}
+	}
+	#制定工业计划
+	focus = {
+		id = OTT_zhiding_ic_plan
+		icon = GFX_goal_generic_forceful_treaty
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_zai_feixu_zhishang}
+		relative_position_id = OTT_zai_feixu_zhishang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_ideas = OTT_zhiding_gongye_jihua
+		}
+	}
+	#对外开放
+	focus = {
+		id = OTT_duiwai_kai_fang
+		icon = GFX_goal_generic_trade
+		x = 1
+		y = 1
+		prerequisite = { focus = OTT_zai_feixu_zhishang}
+		relative_position_id = OTT_zai_feixu_zhishang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+			add_ideas = OTT_duiwai_kaifang
+		}
+	}
+	#工业体系
+	focus = {
+		id = OTT_gongye_tixi
+		icon = GFX_goal_generic_production2
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_zhiding_ic_plan}
+		prerequisite = { focus = OTT_duiwai_kai_fang}
+		relative_position_id = OTT_duiwai_kai_fang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_gongyetixi
+			remove_idea = OTT_zhiding_gongye_jihua
+			}
+		}
+	}
+	#恢复教育体系
+	focus = {
+		id = OTT_huifu_jiaoyu_tixi
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = -4
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_huifu_jiaoyu
+		}
+	}
+	#初中学院
+	focus = {
+		id = OTT_chuzhong_xueyuan
+		icon = GFX_focus_research
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_huifu_jiaoyu_tixi}
+		relative_position_id = OTT_huifu_jiaoyu_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_chuzhongxueyuan
+		}
+	}
+	#人民的知识
+	focus = {
+		id = OTT_renmin_zhishi
+		icon = GFX_focus_generic_concessions
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_chuzhong_xueyuan}
+		relative_position_id = OTT_chuzhong_xueyuan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		swap_ideas = {
+		    add_idea = OTT_renminde_zhishi
+			remove_idea = OTT_chuzhongxueyuan
+			}
+		}
+	}
+	#大学
+	focus = {
+		id = OTT_daxue
+		icon = GFX_focus_research2
+		x = 1
+		y = 1
+		prerequisite = { focus = OTT_huifu_jiaoyu_tixi}
+		relative_position_id = OTT_huifu_jiaoyu_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		swap_ideas = {
+		    add_idea = OTT_da_xue
+			remove_idea = OTT_huifu_jiaoyu
+			}
+		}
+	}
+	#科研发展
+	focus = {
+		id = OTT_keyan_fazhan
+		icon = GFX_goal_generic_scientific_exchange
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_daxue}
+		relative_position_id = OTT_daxue
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_research_slot = 1
+		}
+	}
+	#禁止童工
+	focus = {
+		id = OTT_jinzhi_tong_gong
+		icon = GFX_goal_generic_forceful_treaty
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_jinzhi_tonggong
+			remove_idea = OTT_gongyetixi
+			}
+		}
+	}
+	#禁止延时
+	focus = {
+		id = OTT_jinzhi_yanshi
+		icon = GFX_goal_continuous_naval_production
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_jinzhi_tong_gong}
+		relative_position_id = OTT_jinzhi_tong_gong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_jinzhi_yan_shi
+			remove_idea = OTT_jinzhi_tonggong
+			}
+		}
+	}
+	#改良劳动法
+	focus = {
+		id = OTT_gailiang_laodongfa
+		icon = GFX_focus_generic_treaty
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_jinzhi_yanshi}
+		relative_position_id = OTT_jinzhi_yanshi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_gailiang_laodong_fa
+			remove_idea = OTT_jinzhi_yan_shi
+			}
+		}
+	}
+	#五年计划
+	focus = {
+		id = OTT_five_plan
+		icon = GFX_focus_generic_industry_3
+		x = 1
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_timed_idea = {
+    idea = OTT_five_jihua
+    days = 1800
+}
+		}
+	}
+	#反腐反贪
+	focus = {
+		id = OTT_fanfufantan
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_five_plan}
+		relative_position_id = OTT_five_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_fanfu_fantan
+		}
+	}
+	#工业建设
+	focus = {
+		id = OTT_gongye_jianshe
+		icon = GFX_focus_generic_industry_2
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_fanfufantan}
+		relative_position_id = OTT_fanfufantan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_offsite_building = { type = industrial_complex level = 5 }
+		}
+	}
+	#政治体系延续
+	focus = {
+		id = OTT_zhengzhi_tixi_yanxu
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_gongye_jianshe focus = OTT_gailiang_laodongfa}
+		relative_position_id = OTT_gongye_jianshe
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_zhengzhi_tixiyanxu
+		}
+	}
+	#中东中立条约
+	focus = {
+		id = OTT_zhongdong_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_zhengzhi_tixi_yanxu }
+		relative_position_id = OTT_zhengzhi_tixi_yanxu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    create_faction = zhongdong_zhongli_tiaoyue
+		}
+	}
+	#重建军队
+	focus = {
+		id = OTT_chongjian_jundui
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 4
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_chongjian_army
+		}
+	}
+	#构造新军
+	focus = {
+		id = OTT_gouzao_xinjun
+		icon = GFX_focus_generic_little_entente
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_chongjian_jundui}
+		relative_position_id = OTT_chongjian_jundui
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = { 
+			add_idea = OTT_gouzao_new_army
+			remove_idea = OTT_chongjian_army
+			}
+		}
+	}
+	#保家卫国
+	focus = {
+		id = OTT_baojiaweiguo
+		icon = GFX_goal_generic_defence
+		x = -1
+		y = 1
+		prerequisite = { focus = OTT_gouzao_xinjun}
+		relative_position_id = OTT_gouzao_xinjun
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = { 
+			add_idea = OTT_baojia_weiguo
+			remove_idea = OTT_gouzao_new_army
+			}
+		}
+	}
+	#政治委员
+	focus = {
+		id = OTT_zhengzhi_weiyuan
+		icon = GFX_goal_generic_military_deal
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_baojiaweiguo}
+		relative_position_id = OTT_baojiaweiguo
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = { 
+			add_idea = OTT_zhengzhiweiyuan
+			remove_idea = OTT_baojia_weiguo
+			}
+		}
+	}
+	#军事科研
+	focus = {
+		id = OTT_junshi_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 1
+		y = 1
+		prerequisite = { focus = OTT_gouzao_xinjun}
+		relative_position_id = OTT_gouzao_xinjun
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_junshi_reserach
+		}
+	}
+	#系统化训练
+	focus = {
+		id = OTT_xitonghua_xunlian
+		icon = GFX_focus_secret_rearmament
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_junshi_keyan}
+		relative_position_id = OTT_junshi_keyan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_xitonghuaxunlian
+		}
+	}
+	#面对文化问题
+	focus = {
+		id = OTT_miandui_wenhua_wenti
+		icon = GFX_goal_generic_major_alliance
+		x = 7
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_stability = 0.05
+		}
+	}
+	#认同差异
+	focus = {
+		id = OTT_rentong_chayi
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_miandui_wenhua_wenti}
+		relative_position_id = OTT_miandui_wenhua_wenti
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_rentongchayi
+		}
+	}
+	#少数民族政策
+	focus = {
+		id = OTT_shaoshu_minzu_zhengce
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_rentong_chayi}
+		relative_position_id = OTT_rentong_chayi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_sahoshu_minzuzhengce
+			remove_idea = OTT_rentongchayi
+			}
+		}
+	}
+	#不自治的自治区
+	focus = {
+		id = OTT_buzizhi_zizhiqu
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_shaoshu_minzu_zhengce}
+		relative_position_id = OTT_shaoshu_minzu_zhengce
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+			add_idea = OTT_buzizhizizhiqu
+			remove_idea = OTT_sahoshu_minzuzhengce
+			}
+		}
+	}
+	#世俗化步伐
+	focus = {
+		id = OTT_shisuhua_bufa
+		icon = GFX_goal_support_democracy
+		x = 9
+		y = 1
+		prerequisite = { focus = OTT_gongye_tixi}
+		relative_position_id = OTT_gongye_tixi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_stability = 0.05
+		}
+	}
+	#削弱宗教权力
+	focus = {
+		id = OTT_xueruo_zongjiao_quanli
+		icon = GFX_focus_generic_self_management
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_shisuhua_bufa}
+		relative_position_id = OTT_shisuhua_bufa
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_xueruo_zongjiaoquanli
+		}
+	}
+	#宗教法
+	focus = {
+		id = OTT_zongjiaofa
+		icon = GFX_focus_generic_national_security
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_xueruo_zongjiao_quanli}
+		relative_position_id = OTT_xueruo_zongjiao_quanli
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    add_ideas = OTT_zongjiao_fa
+		}
+	}
+	#信仰自由
+	focus = {
+		id = OTT_xinyang_ziyou
+		icon = GFX_focus_generic_conspiracy
+		x = 0
+		y = 1
+		prerequisite = { focus = OTT_zongjiaofa}
+		relative_position_id = OTT_zongjiaofa
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		    swap_ideas = {
+		    add_ideas = OTT_xinyangziyou
+			remove_idea = OTT_zongjiao_fa
+			}
+		}
+	}
+	#帝国复兴会
+	focus = {
+		id = OTT_diguo_fuxing_hui
+		icon = GFX_focus_ITA_generic_fascist_workers
+		x = 40
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = OTF
+		has_war_with = DLB
+		has_war_with = EGY
+		date < 1937.10.1
+		}
+		has_completed_focus = OTT_aosiman_huiyi
+		NOT = { has_completed_focus = OTT_aosiman_renmin_huiyi }
+		}
+		completion_reward = { 
+		dismantle_faction = yes
+		news_event = {
+				id = holy_news.35 days = 1
+			}
+			add_popularity = {
+    ideology = fascism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = fascism
+}
+create_country_leader = {
+	name = ""
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = zongjiao_mincui_zhuyi
+	traits = {
+	}
+}
+swap_ideas = {
+add_idea = OTT_diguo_fuxinghui
+remove_idea = OTT_zhengfu_goucheng_pingheng_2
+}
+remove_ideas = OTT_difang_wuzhuang
+		}
+	}
+	#继续军事化
+	focus = {
+		id = OTT_jixu_junshihua
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = OTT_diguo_fuxing_hui}
+		relative_position_id = OTT_diguo_fuxing_hui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = OTT_jinyibu_junshihua
+		}
+		completion_reward = { 
+swap_ideas = {
+add_idea = OTT_yongjiu_junshi
+remove_idea = OTT_junshihua_jinyibu
+}
+		}
+	}
+	#宗教改造
+	focus = {
+		id = OTT_zongjiaogaizao
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = OTT_jixu_junshihua}
+		relative_position_id = OTT_jixu_junshihua
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+swap_ideas = {
+add_idea = OTT_zongjiao_gaizao
+remove_idea = OTT_zongjiao_kuangre
+}
+		}
+	}
+	#信仰狂热
+	focus = {
+		id = OTT_xinyang_kuangre
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = OTT_zongjiaogaizao}
+		relative_position_id = OTT_zongjiaogaizao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+swap_ideas = {
+add_idea = OTT_xinyangkuangre
+remove_idea = OTT_zongjiao_gaizao
+}
+		}
+	}
+	#天选之国
+	focus = {
+		id = OTT_tianxuan_zhiguo
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = OTT_zongjiaogaizao}
+		relative_position_id = OTT_zongjiaogaizao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+        add_political_power = 50
+		add_stability = 0.1
+		}
+	}
+	#拿起手中的剑
+	focus = {
+		id = OTT_naqi_shouzhong_jian
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = OTT_tianxuan_zhiguo}
+		prerequisite = { focus = OTT_xinyang_kuangre}
+		relative_position_id = OTT_tianxuan_zhiguo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+        swap_ideas = {
+        add_idea = OTT_naqi_shouzhongjian
+        remove_idea = OTT_xinyangkuangre
+        }
+		}
+	}
+	#大奥斯曼理论
+	focus = {
+		id = OTT_daaosiman_lilun
+		icon = GFX_focus_TUR_pivot_to_the_past
+		prerequisite = { focus = OTT_jixu_junshihua}
+		relative_position_id = OTT_jixu_junshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_political_power = 50
+		}
+	}
+	#宣称阿拉伯王朝
+	focus = {
+		id = OTT_xuancheng_alabo_wangchao
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = OTT_jixu_junshihua}
+		relative_position_id = OTT_jixu_junshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = OTT_alabo_wangchao
+		}
+	}
+	#融入库尔德
+	focus = {
+		id = OTT_rongru_kuerde
+		icon = GFX_focus_generic_befriend_kurdistan
+		prerequisite = { focus = OTT_xuancheng_alabo_wangchao}
+		relative_position_id = OTT_xuancheng_alabo_wangchao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KUR = {
+		exists = no
+		}
+		GEO = {
+		exists = no
+		}
+		}
+		completion_reward = { 
+		KUR = {
+		remove_state_claim = 344
+		remove_state_claim = 291
+		remove_state_core = 676
+		remove_state_core = 352
+		remove_state_core = 353
+		remove_state_core = 421
+		remove_state_core = 680
+		remove_state_core = 800
+		remove_state_core = 418
+		remove_state_core = 350
+		remove_state_core = 1056
+		remove_state_core = 1329
+		remove_state_core = 1426
+		remove_state_core = 1057
+		remove_state_core = 1427
+		remove_state_core = 680
+		}
+		}
+	}
+	#高加索之王
+	focus = {
+		id = OTT_gaojiasuo_zhiwang
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = OTT_xuancheng_alabo_wangchao}
+		relative_position_id = OTT_xuancheng_alabo_wangchao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		231 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		230 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		229 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#帝国的未来
+	focus = {
+		id = OTT_diguo_weilai
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = OTT_gaojiasuo_zhiwang}
+		prerequisite = { focus = OTT_rongru_kuerde}
+		relative_position_id = OTT_gaojiasuo_zhiwang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_war_support = 0.1
+		}
+	}
+	#工业建设
+	focus = {
+		id = OTT_ic_build
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = OTT_jixu_junshihua}
+		relative_position_id = OTT_jixu_junshihua
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = OTT_ic_build
+		}
+	}
+	#修复废墟
+	focus = {
+		id = OTT_xiufu_feixu
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = OTT_ic_build}
+		relative_position_id = OTT_ic_build
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = OTT_xiufufeixu
+		}
+	}
+	#工业延长
+	focus = {
+		id = OTT_gongye_yanchang
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = OTT_ic_build}
+		relative_position_id = OTT_ic_build
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = OTT_gongyeyanchang
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = OTT_jusnhi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = OTT_gongye_yanchang}
+		prerequisite = { focus = OTT_xiufu_feixu}
+		relative_position_id = OTT_gongye_yanchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+	#进攻拜占庭
+	focus = {
+		id = OTT_jingong_baizhanting
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = OTT_diguo_weilai}
+		relative_position_id = OTT_diguo_weilai
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+		}
+	}
+	#推进塞尔维亚
+	focus = {
+		id = OTT_tuijin_saierweiya
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = OTT_jingong_baizhanting}
+		relative_position_id = OTT_jingong_baizhanting
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUM
+    type = annex_everything
+}
+		}
+	}
+	#进军布达佩斯
+	focus = {
+		id = OTT_jinjun_budapeisi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = OTT_tuijin_saierweiya}
+		relative_position_id = OTT_tuijin_saierweiya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = XYL
+    type = annex_everything
+}
+		}
+	}
+	#覆灭保加利亚
+	focus = {
+		id = OTT_fumie_baojialiya
+		icon = GFX_focus_generic_attack_bulgaria
+		prerequisite = { focus = OTT_jingong_baizhanting}
+		relative_position_id = OTT_jingong_baizhanting
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = NWM
+    type = annex_everything
+}
+		}
+	}
+	#两公国回归
+	focus = {
+		id = OTT_lianggongguo_huigui
+		icon = GFX_focus_generic_attack_romania
+		prerequisite = { focus = OTT_fumie_baojialiya}
+		relative_position_id = OTT_fumie_baojialiya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = WAL
+    type = annex_everything
+}
+declare_war_on = {
+    target = MOL
+    type = annex_everything
+}
+		}
+	}
+	#中东战略
+	focus = {
+		id = OTT_zhongdong_zhanlue
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = OTT_diguo_weilai}
+		relative_position_id = OTT_diguo_weilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		add_political_power = 50
+		}
+	}
+	#北非之主
+	focus = {
+		id = OTT_beifang_zhizhu
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = OTT_zhongdong_zhanlue}
+		relative_position_id = OTT_zhongdong_zhanlue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = FRN
+    type = annex_everything
+}
+		}
+	}
+	#索取苏丹
+	focus = {
+		id = OTT_suoqu_sudan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = OTT_beifang_zhizhu}
+		relative_position_id = OTT_beifang_zhizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = SUD
+}
+		}
+	}
+	#进军沙漠
+	focus = {
+		id = OTT_jinjun_shamo
+		icon = GFX_focus_TUR_taking_over_defense_of_the_gulf
+		prerequisite = { focus = OTT_zhongdong_zhanlue}
+		relative_position_id = OTT_zhongdong_zhanlue
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = HAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = SML
+    type = annex_everything
+}
+declare_war_on = {
+    target = NJD
+    type = annex_everything
+}
+declare_war_on = {
+    target = YEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = OMA
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUW
+    type = annex_everything
+}
+declare_war_on = {
+    target = QAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = UAE
+    type = annex_everything
+}
+		}
+	}
+	#麦加加冕
+	focus = {
+		id = OTT_maijia_jiamian
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = OTT_jinjun_shamo}
+		relative_position_id = OTT_jinjun_shamo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		add_ideas = OTT_maijiajiamian
+		}
+	}
+	#高加索计划
+	focus = {
+		id = OTT_gaojiasuo_plan
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = OTT_diguo_weilai}
+		relative_position_id = OTT_diguo_weilai
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		add_war_support = 0.1
+		}
+	}
+	#染指黑海
+	focus = {
+		id = OTT_ranzhi_heihai
+		icon = GFX_focus_generic_black_sea_focus
+		prerequisite = { focus = OTT_gaojiasuo_plan}
+		relative_position_id = OTT_gaojiasuo_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+		type = annex_everything
+        target = CRM
+		}
+		}
+	}
+	#第十次战争
+	focus = {
+		id = OTT_ten_war
+		icon = GFX_focus_attack_soviet
+		prerequisite = { focus = OTT_ranzhi_heihai}
+		relative_position_id = OTT_ranzhi_heihai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+		type = annex_everything
+        target = NCC
+		}
+		declare_war_on = {
+		type = annex_everything
+        target = KLM
+		}
+		declare_war_on = {
+		type = annex_everything
+        target = DRG
+		}
+		declare_war_on = {
+		type = annex_everything
+        target = CHE
+		}
+		}
+	}
+	#进攻波斯
+	focus = {
+		id = OTT_jingong_bosi
+		icon = GFX_focus_generic_attack_iran
+		prerequisite = { focus = OTT_diguo_weilai}
+		relative_position_id = OTT_diguo_weilai
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+		}
+	}
+	#加冕万王之王
+	focus = {
+		id = OTT_jiamian_kingofking
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = OTT_jingong_bosi}
+		relative_position_id = OTT_jingong_bosi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		add_ideas = OTT_jiamian_king
+		}
+	}
+	#干预东方
+	focus = {
+		id = OTT_ganyu_dongfang
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = OTT_jiamian_kingofking}
+		relative_position_id = OTT_jiamian_kingofking
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		completion_reward = { 
+		declare_war_on = {
+    target = PAK
+    type = annex_everything
+}
+declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+}

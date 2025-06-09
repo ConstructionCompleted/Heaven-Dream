@@ -1,0 +1,2135 @@
+focus_tree = {
+	id = DKL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DKL
+		}
+	}
+	
+	default = no
+	
+	#这是个背叛!
+	focus = {
+		id = DKL_zheshige_beipan
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 30
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.beizhan
+    value = 10
+	tooltip = YUM_beizhan_1_tt
+}
+		add_ideas = war_economy
+		add_ideas = extensive_conscription
+		}
+	}
+	#面向西方
+	focus = {
+		id = DKL_mianxiang_xifang
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = DKL_zheshige_beipan}
+		relative_position_id = DKL_zheshige_beipan
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2500
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1500
+    producer = FRA
+}
+		}
+	}
+	#救国者起义
+	focus = {
+		id = DKL_jiuguozhe_qiyi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = DKL_mianxiang_xifang }
+		relative_position_id = DKL_mianxiang_xifang
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = yes
+		}
+		completion_reward = {
+			load_oob = DKL_jiuguozhe_qiyi
+		}
+	}
+	#紧急动员
+	focus = {
+		id = DKL_jinji_dongyuan
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = DKL_zheshige_beipan }
+		relative_position_id = DKL_zheshige_beipan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DKL_jinji_dongyuan
+			swap_ideas = {
+			add_idea = DKL_chongzheng_juntuan_2
+			remove_idea = DKL_chongzheng_juntuan
+			}
+		}
+	}
+	#前往波斯尼亚
+	focus = {
+		id = DKL_qianwang_bosiniya
+		icon = GFX_focus_YUG_safeguard_bosnia
+		prerequisite = { focus = DKL_jinji_dongyuan }
+		relative_position_id = DKL_jinji_dongyuan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DKL_qianwang_bosiniya
+			swap_ideas = {
+			add_idea = DKL_dakeluodiya_dream_2
+			remove_idea = DKL_dakeluodiya_dream
+			}
+		}
+	}
+	#积极备战
+	focus = {
+		id = DKL_jiji_beizhan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = DKL_zheshige_beipan }
+		relative_position_id = DKL_zheshige_beipan
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = YUM.beizhan
+    value = 10
+	tooltip = YUM_beizhan_1_tt
+}
+	        add_ideas = DKL_zhanzheng_chanye
+		}
+	}
+	#增强生产
+	focus = {
+		id = DKL_zengqiang_shengchan
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = DKL_jiji_beizhan }
+		relative_position_id = DKL_jiji_beizhan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_chanye_2
+			remove_idea = DKL_zhanzheng_chanye
+			}
+		}
+	}
+	#初步胜利
+	focus = {
+		id = DKL_chubu_shengli
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = DKL_jiuguozhe_qiyi }
+		prerequisite = { focus = DKL_qianwang_bosiniya }
+		prerequisite = { focus = DKL_zengqiang_shengchan }
+		relative_position_id = DKL_qianwang_bosiniya
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhiyi_wangguan_2
+			remove_idea = DKL_zhiyi_wangguan
+			}
+		}
+	}
+	#克罗地亚武装
+	focus = {
+		id = DKL_keluodiya_wuzhuang
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = DKL_chubu_shengli }
+		relative_position_id = DKL_chubu_shengli
+		x = -10
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_chongzheng_juntuan_3
+			remove_idea = DKL_chongzheng_juntuan_2
+			}
+		}
+	}
+	#整编军团
+	focus = {
+		id = DKL_zhengbian_juntuan
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = DKL_keluodiya_wuzhuang }
+		relative_position_id = DKL_keluodiya_wuzhuang
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_chongzheng_juntuan_4
+			remove_idea = DKL_chongzheng_juntuan_3
+			}
+		}
+	}
+	#战争总策划
+	focus = {
+		id = DKL_zhanzheng_zongcehua
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = DKL_zhengbian_juntuan }
+		relative_position_id = DKL_zhengbian_juntuan
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_zhanzheng_cehua
+		}
+	}
+	#战争的经验
+	focus = {
+		id = DKL_zhanzheng_jingyan
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = DKL_zhengbian_juntuan }
+		relative_position_id = DKL_zhengbian_juntuan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_zhanzheng_jingyan
+		}
+	}
+	#战术性优势
+	focus = {
+		id = DKL_zhanshuxing_youshi
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = DKL_zhanzheng_zongcehua }
+		prerequisite = { focus = DKL_zhanzheng_jingyan }
+		relative_position_id = DKL_zhanzheng_zongcehua
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_cehua_2
+			remove_idea = DKL_zhanzheng_cehua
+			}
+		}
+	}
+	#武装新兵
+	focus = {
+		id = DKL_wuzhuang_xinbing
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = DKL_keluodiya_wuzhuang }
+		relative_position_id = DKL_keluodiya_wuzhuang
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_junshi_tixi
+		}
+	}
+	#秩序化军团
+	focus = {
+		id = DKL_zhixuhua_juntuan
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = DKL_zhengbian_juntuan }
+		prerequisite = { focus = DKL_wuzhuang_xinbing }
+		relative_position_id = DKL_wuzhuang_xinbing
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_chongzheng_juntuan_5
+			remove_idea = DKL_chongzheng_juntuan_4
+			}
+		}
+	}
+	#历战之师
+	focus = {
+		id = DKL_lizhanzhishi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = DKL_zhanzheng_jingyan }
+		prerequisite = { focus = DKL_zhixuhua_juntuan }
+		relative_position_id = DKL_zhixuhua_juntuan
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_jingyan_2
+			remove_idea = DKL_zhanzheng_jingyan
+			}
+		}
+	}
+	#民族主义动员
+	focus = {
+		id = DKL_minzuzhuyi_dongyuan
+		icon = GFX_focus_YUG_banovina_of_croatia
+		prerequisite = { focus = DKL_keluodiya_wuzhuang }
+		relative_position_id = DKL_keluodiya_wuzhuang
+		x = 4
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DKL_minzuzhuyi_dongyuan
+		}
+	}
+	#克罗地亚卫国体系
+	focus = {
+		id = DKL_keluodiya_weiguotixi
+		icon = GFX_goal_continuous_reduce_training_time
+		prerequisite = { focus = DKL_wuzhuang_xinbing }
+		prerequisite = { focus = DKL_minzuzhuyi_dongyuan }
+		relative_position_id = DKL_minzuzhuyi_dongyuan
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_junshi_tixi_2
+			remove_idea = DKL_junshi_tixi
+			}
+		}
+	}
+	#临时战争学院
+	focus = {
+		id = DKL_linshi_zhanzheng_xueyuan
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = DKL_keluodiya_weiguotixi }
+		prerequisite = { focus = DKL_zhixuhua_juntuan }
+		relative_position_id = DKL_zhixuhua_juntuan
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_zhanzheng_xueyuan
+		}
+	}
+	#经济总体战
+	focus = {
+		id = DKL_jingji_zongtizhan
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = DKL_keluodiya_weiguotixi }
+		relative_position_id = DKL_keluodiya_weiguotixi
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_junshi_tixi_3
+			remove_idea = DKL_junshi_tixi_2
+			}
+		}
+	}
+	#军队改造
+	focus = {
+		id = DKL_jundui_gaizao
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = DKL_zhanshuxing_youshi }
+		prerequisite = { focus = DKL_lizhanzhishi }
+		prerequisite = { focus = DKL_linshi_zhanzheng_xueyuan }
+		prerequisite = { focus = DKL_jingji_zongtizhan }
+		relative_position_id = DKL_lizhanzhishi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = DKL_shehui_gaizao
+		has_completed_focus = DKL_kaiming_junzhuzhi
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_jundui_gaizao
+			remove_idea = DKL_chongzheng_juntuan_5
+			}
+		}
+	}
+	#军事现代化
+	focus = {
+		id = DKL_junshi_xiandaihua
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = DKL_jundui_gaizao }
+		relative_position_id = DKL_jundui_gaizao
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#优势火力
+	focus = {
+		id = DKL_youshi_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = DKL_junshi_xiandaihua }
+		relative_position_id = DKL_junshi_xiandaihua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_youshi_huoli
+		}
+	}
+	#完善计划
+	focus = {
+		id = DKL_wanshan_plan
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = DKL_youshi_huoli }
+		relative_position_id = DKL_youshi_huoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_cehua_3
+			remove_idea = DKL_zhanzheng_cehua_2
+			}
+		}
+	}
+	#堑壕战
+	focus = {
+		id = DKL_qianhaozhan
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = DKL_junshi_xiandaihua }
+		relative_position_id = DKL_junshi_xiandaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_jingyan_3
+			remove_idea = DKL_zhanzheng_jingyan_2
+			}
+		}
+	}
+	#消耗战
+	focus = {
+		id = DKL_xiahaozhan
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = DKL_qianhaozhan }
+		relative_position_id = DKL_qianhaozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_jingyan_4
+			remove_idea = DKL_zhanzheng_jingyan_3
+			}
+		}
+	}
+	#军事学院正规化
+	focus = {
+		id = DKL_junshi_xueyuan_zhengguihua
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = DKL_jundui_gaizao }
+		relative_position_id = DKL_jundui_gaizao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_xueyuan_2
+			remove_idea = DKL_zhanzheng_xueyuan
+			}
+		}
+	}
+	#改良武装
+	focus = {
+		id = DKL_gailiang_wuzhuang
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = DKL_junshi_xueyuan_zhengguihua }
+		relative_position_id = DKL_junshi_xueyuan_zhengguihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_jundui_gaizao_2
+			remove_idea = DKL_jundui_gaizao
+			}
+		}
+	}
+	#联合作战
+	focus = {
+		id = DKL_lianhe_zuozhan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = DKL_junshi_xueyuan_zhengguihua }
+		relative_position_id = DKL_junshi_xueyuan_zhengguihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_zhanzheng_xueyuan_3
+			remove_idea = DKL_zhanzheng_xueyuan_2
+			}
+		}
+	}
+	#新时代突破
+	focus = {
+		id = DKL_xinshidai_tupo
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = DKL_gailiang_wuzhuang }
+		prerequisite = { focus = DKL_lianhe_zuozhan }
+		relative_position_id = DKL_gailiang_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_jundui_gaizao_3
+			remove_idea = DKL_jundui_gaizao_2
+			}
+		}
+	}
+	#扩大卫国体系
+	focus = {
+		id = DKL_kuoda_weiguo_tixi
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = DKL_jundui_gaizao }
+		relative_position_id = DKL_jundui_gaizao
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_junshi_tixi_4
+			remove_idea = DKL_junshi_tixi_3
+			}
+		}
+	}
+	#萨格勒布军工集团
+	focus = {
+		id = DKL_sagelebu_jungong_jituan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = DKL_kuoda_weiguo_tixi }
+		relative_position_id = DKL_kuoda_weiguo_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			109 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#向南方扩大
+	focus = {
+		id = DKL_xiangnanfang_kuoda
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = DKL_sagelebu_jungong_jituan }
+		relative_position_id = DKL_sagelebu_jungong_jituan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 104
+		}
+		completion_reward = {
+			104 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#人民的战士
+	focus = {
+		id = DKL_renmin_zhanshi
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = DKL_kuoda_weiguo_tixi }
+		relative_position_id = DKL_kuoda_weiguo_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_renmin_zhanshi
+		}
+	}
+	#团结一致
+	focus = {
+		id = DKL_tuanjie_yizhi
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = DKL_renmin_zhanshi }
+		relative_position_id = DKL_renmin_zhanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_renmin_zhanshi_2
+			remove_idea = DKL_renmin_zhanshi
+			}
+		}
+	}
+	#克罗地亚建设
+	focus = {
+		id = DKL_keluodiya_jianshe
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = DKL_chubu_shengli }
+		relative_position_id = DKL_chubu_shengli
+		x = 10
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = SER
+		has_war_with = NWM
+		has_war_with = YUM
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#建设达尔马提亚
+	focus = {
+		id = DKL_jianshe_daermatiya
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = DKL_keluodiya_jianshe }
+		relative_position_id = DKL_keluodiya_jianshe
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			962 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#海洋武装
+	focus = {
+		id = DKL_haiyang_wuzhuang
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = DKL_jianshe_daermatiya }
+		relative_position_id = DKL_jianshe_daermatiya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_haiyang_wuzhuang
+		}
+	}
+	#克罗地亚外贸
+	focus = {
+		id = DKL_keluodiya_waimao
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = DKL_haiyang_wuzhuang }
+		relative_position_id = DKL_haiyang_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_keluodiya_waimao
+		}
+	}
+	#萨格勒布产业
+	focus = {
+		id = DKL_sagelubu_chanye
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = DKL_keluodiya_jianshe }
+		relative_position_id = DKL_keluodiya_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			109 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#民用经济开发
+	focus = {
+		id = DKL_minyong_jingji_kaifa
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = DKL_sagelubu_chanye }
+		relative_position_id = DKL_sagelubu_chanye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_minyong_jingji_kaifa
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#轻工业腾飞
+	focus = {
+		id = DKL_qinggongye_tengfei
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = DKL_minyong_jingji_kaifa }
+		relative_position_id = DKL_minyong_jingji_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_minyong_jingji_kaifa_2
+			remove_idea = DKL_minyong_jingji_kaifa
+			}
+		}
+	}
+	#完善军工体系
+	focus = {
+		id = DKL_wanshan_jungong_tixi
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = DKL_sagelubu_chanye }
+		relative_position_id = DKL_sagelubu_chanye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_wanshan_jungong_tixi
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#装备标准化
+	focus = {
+		id = DKL_zhuangbei_biaozhunhua
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DKL_wanshan_jungong_tixi }
+		relative_position_id = DKL_wanshan_jungong_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_wanshan_jungong_tixi_2
+			remove_idea = DKL_wanshan_jungong_tixi
+			}
+		}
+	}
+	#矿产开发
+	focus = {
+		id = DKL_kuangchan_kaifa
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = DKL_keluodiya_jianshe }
+		relative_position_id = DKL_keluodiya_jianshe
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+    type = stell
+    amount = 50
+    state = 1046
+}
+add_resource = {
+    type = chromium
+    amount = 30
+    state = 962
+}
+		}
+	}
+	#外部贯通
+	focus = {
+		id = DKL_waibu_guantong
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = DKL_kuangchan_kaifa }
+		relative_position_id = DKL_kuangchan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		109 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		103 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		962 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#改善生产条件
+	focus = {
+		id = DKL_gaishan_shengchan_tiaojian
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = DKL_waibu_guantong }
+		relative_position_id = DKL_waibu_guantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DKL_gaishan_shengchan_tiaojian
+		}
+	}
+	#向内陆前进
+	focus = {
+		id = DKL_xiang_neilu_qianjin
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = DKL_keluodiya_waimao }
+		prerequisite = { focus = DKL_qinggongye_tengfei }
+		prerequisite = { focus = DKL_zhuangbei_biaozhunhua }
+		prerequisite = { focus = DKL_gaishan_shengchan_tiaojian }
+		relative_position_id = DKL_qinggongye_tengfei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 978
+			controls_state = 985
+			controls_state = 984
+			controls_state = 104
+			controls_state = 983
+			controls_state = 804
+			controls_state = 1047
+		}
+		completion_reward = {
+		104 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		984 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		804 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大内陆工业
+	focus = {
+		id = DKL_kuoda_neilu_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = DKL_xiang_neilu_qianjin }
+		relative_position_id = DKL_xiang_neilu_qianjin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		104 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		984 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		804 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#纺织之歌
+	focus = {
+		id = DKL_fangzhi_zhige
+		icon = GFX_focus_ETH_scavenging_tactics
+		prerequisite = { focus = DKL_kuoda_neilu_gongye }
+		relative_position_id = DKL_kuoda_neilu_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		104 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		983 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#波斯尼亚军事化
+	focus = {
+		id = DKL_bosiniya_junshihua
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = DKL_kuoda_neilu_gongye }
+		relative_position_id = DKL_kuoda_neilu_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		984 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		985 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#联合农业革新
+	focus = {
+		id = DKL_lianhe_nongye_gexin
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = DKL_xiang_neilu_qianjin }
+		relative_position_id = DKL_xiang_neilu_qianjin
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DKL_nongye_gexin
+		}
+	}
+	#水利开发
+	focus = {
+		id = DKL_shuili_kaifa
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = DKL_lianhe_nongye_gexin }
+		relative_position_id = DKL_lianhe_nongye_gexin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+			962 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+			962 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#打击波斯尼亚地主
+	focus = {
+		id = DKL_daji_bosiniya_dizhu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = DKL_lianhe_nongye_gexin }
+		relative_position_id = DKL_lianhe_nongye_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 100
+		}
+	}
+	#农业用具现代化
+	focus = {
+		id = DKL_daji_bosiniya_dizhu
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = DKL_lianhe_nongye_gexin }
+		relative_position_id = DKL_lianhe_nongye_gexin
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_nongye_gexin_2
+		remove_idea = DKL_nongye_gexin
+		}
+		}
+	}
+	#克罗地亚团结
+	focus = {
+		id = DKL_keluodiya_tuanjie
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = DKL_chubu_shengli }
+		relative_position_id = DKL_chubu_shengli
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_keluodiya_tuanjie
+		}
+	}
+	#凝聚的国度
+	focus = {
+		id = DKL_ningju_guodu
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = DKL_keluodiya_tuanjie }
+		relative_position_id = DKL_keluodiya_tuanjie
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_keluodiya_tuanjie_2
+			remove_idea = DKL_keluodiya_tuanjie
+			}
+		}
+	}
+	#《一致性法案》
+	focus = {
+		id = DKL_yizhixing_faan
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = DKL_ningju_guodu }
+		relative_position_id = DKL_ningju_guodu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_keluodiya_tuanjie_3
+			remove_idea = DKL_keluodiya_tuanjie_2
+			}
+		}
+	}
+	#天主教福音
+	focus = {
+		id = DKL_tianzhujiao_fuyin
+		icon = GFX_focus_generic_pope
+		prerequisite = { focus = DKL_keluodiya_tuanjie }
+		relative_position_id = DKL_keluodiya_tuanjie
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DKL_tianzhujiao_fuyin
+		}
+	}
+	#伊利里亚之名
+	focus = {
+		id = DKL_yililiya_zhiming
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = DKL_tianzhujiao_fuyin }
+		relative_position_id = DKL_tianzhujiao_fuyin
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_claim = 985
+			add_state_claim = 984
+			add_state_claim = 105
+			add_stability = 0.1
+		}
+	}
+	#民族的尊重
+	focus = {
+		id = DKL_minzu_zunzhong
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = DKL_chubu_shengli }
+		relative_position_id = DKL_chubu_shengli
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_minzu_maodun_2
+			remove_idea = DKL_minzu_maodun
+			}
+		}
+	}
+	#北方的朋友
+	focus = {
+		id = DKL_beifang_pengyou
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = DKL_minzu_zunzhong }
+		relative_position_id = DKL_minzu_zunzhong
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 100000
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#斯洛文尼亚志愿军
+	focus = {
+		id = DKL_siluowenniya_zhiyuanjun
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = DKL_beifang_pengyou }
+		relative_position_id = DKL_beifang_pengyou
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DKL_siluowenniya_zhiyuanjun
+		}
+	}
+	#达尔马提亚归心
+	focus = {
+		id = DKL_daermatiya_guixin
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = DKL_minzu_zunzhong }
+		relative_position_id = DKL_minzu_zunzhong
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 103
+		controls_state = 163
+		controls_state = 963
+		controls_state = 962
+		}
+		completion_reward = {
+			load_oob = DKL_daermatiya_guixin
+		}
+	}
+	#海洋的力量
+	focus = {
+		id = DKL_haiyang_liliang
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = DKL_daermatiya_guixin }
+		relative_position_id = DKL_daermatiya_guixin
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 103
+		controls_state = 163
+		controls_state = 963
+		controls_state = 962
+		}
+		completion_reward = {
+			103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#克罗地亚新生
+	focus = {
+		id = DKL_keluodiya_xinsheng
+		icon = GFX_focus_YUG_devolved_croatia
+		prerequisite = { focus = DKL_yizhixing_faan }
+		prerequisite = { focus = DKL_yililiya_zhiming }
+		prerequisite = { focus = DKL_siluowenniya_zhiyuanjun }
+		prerequisite = { focus = DKL_haiyang_liliang }
+		relative_position_id = DKL_yililiya_zhiming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = SER
+		has_war_with = ALB
+		has_war_with = NWM
+		has_war_with = YUM
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DKL_minzu_maodun_3
+			remove_idea = DKL_minzu_maodun_2
+			}
+			clr_country_flag = YUM_baergan_war
+		}
+	}
+	#斯洛文尼亚战争
+	focus = {
+		id = DKL_siluoweniya_war
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = DKL_keluodiya_xinsheng }
+		relative_position_id = DKL_keluodiya_xinsheng
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1938.6.1
+		NOT = {
+		has_completed_focus = DKL_shehui_gaizao
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		AUS = {
+		exists = yes
+		is_puppet = no
+		}
+		}
+			AUS = {
+			country_event = {
+    id = holy_baergan.14
+    days = 10
+}
+			}
+		}
+		if = {
+		limit = {
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet = yes
+		}
+		}
+		}
+			create_wargoal = {
+    target = SLV
+    type = annex_everything
+}
+		}
+		}
+	}
+	#整合斯洛文尼亚
+	focus = {
+		id = DKL_zhenghe_siluowen_niya
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = DKL_siluoweniya_war }
+		prerequisite = { focus = DKL_fuping_wenhua_maodun }
+		relative_position_id = DKL_siluoweniya_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1562
+		controls_state = 102
+		controls_state = 853
+		controls_state = 736
+		}
+		completion_reward = {
+		add_state_core = 1562
+		add_state_core = 102
+		add_state_core = 853
+		add_state_core = 736
+		}
+	}
+	#解决巴纳特争端
+	focus = {
+		id = DKL_jiejue_banate_zhengduan
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = DKL_keluodiya_xinsheng }
+		relative_position_id = DKL_keluodiya_xinsheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1938.6.1
+		NOT = {
+		has_completed_focus = DKL_shehui_gaizao
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		BAT = {
+		exists = yes
+		}
+		}
+		create_wargoal = {
+    target = BAT
+    type = annex_everything
+}
+		}
+		if = {
+		limit = {
+		BAT = {
+		exists = no
+		}
+		}
+		create_wargoal = {
+    target = XYL
+    type = annex_everything
+}
+		}
+		}
+	}
+	#整合巴纳特
+	focus = {
+		id = DKL_zhenghe_banate
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = DKL_fuping_wenhua_maodun }
+		relative_position_id = DKL_jiejue_banate_zhengduan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 82
+		controls_state = 764
+		controls_state = 45
+		controls_state = 1048
+		}
+		completion_reward = {
+		add_state_core = 82
+		add_state_core = 764
+		add_state_core = 45
+		add_state_core = 1048
+		}
+	}
+	#抚平文化矛盾
+	focus = {
+		id = DKL_fuping_wenhua_maodun
+		icon = GFX_focus_invite_yugoslavia
+		prerequisite = { focus = DKL_keluodiya_xinsheng }
+		relative_position_id = DKL_keluodiya_xinsheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = DKL_minzu_maodun_3
+		}
+	}
+	#击垮塞尔维亚人
+	focus = {
+		id = DKL_jikua_saierweiya
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = DKL_keluodiya_xinsheng }
+		relative_position_id = DKL_keluodiya_xinsheng
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1938.6.1
+		NOT = {
+		has_completed_focus = DKL_shehui_gaizao
+		}
+		}
+		completion_reward = {
+		create_wargoal = {
+    target = SER
+    type = annex_everything
+}
+		}
+	}
+	#波斯尼亚和平化
+	focus = {
+		id = DKL_bosiniya_hepinghua
+		icon = GFX_focus_YUG_divide_bosnia
+		prerequisite = { focus = DKL_fuping_wenhua_maodun }
+		relative_position_id = DKL_jikua_saierweiya
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 104
+		controls_state = 984
+		controls_state = 985
+		}
+		completion_reward = {
+		add_state_core = 104
+		add_state_core = 984
+		add_state_core = 985
+		}
+	}
+	#黑山联合
+	focus = {
+		id = DKL_heishan_lianhe
+		icon = GFX_focus_YUG_zmaj
+		prerequisite = { focus = DKL_fuping_wenhua_maodun }
+		relative_position_id = DKL_jikua_saierweiya
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 105
+		}
+		completion_reward = {
+		add_state_core = 105
+		}
+	}
+	#克罗地亚社会改造
+	focus = {
+		id = DKL_shehui_gaizao
+		icon = GFX_focus_YUG_devolved_croatia
+		relative_position_id = DKL_zheshige_beipan
+		x = -3
+		y = 12
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		date > 1936.7.1
+		has_completed_focus = DKL_keluodiya_xinsheng
+		OR = {
+		NOT = {
+		controls_state = 978
+		}
+		NOT = {
+			controls_state = 985
+			}
+			NOT = {
+			controls_state = 984
+			}
+			NOT = {
+			controls_state = 104
+			}
+			NOT = {
+			controls_state = 983
+			}
+			NOT = {
+			controls_state = 804
+			}
+			NOT = {
+			controls_state = 1047
+			}
+		}
+		NOT = {
+		has_war_with = SER
+		has_war_with = ALB
+		has_war_with = NWM
+		has_war_with = YUM
+		has_completed_focus = DKL_kaiming_junzhuzhi
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_shehui_gaizao
+		remove_idea = DKL_zhiyi_wangguan_2
+		}
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+clr_country_flag = YUM_baergan_war
+		}
+	}
+	#废除君主制
+	focus = {
+		id = DKL_feichu_junzhuzhi
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = DKL_shehui_gaizao }
+		relative_position_id = DKL_shehui_gaizao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_shehui_gaizao_2
+		remove_idea = DKL_shehui_gaizao
+		}
+		set_politics = {
+	ruling_party = progressism
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+		}
+	}
+	#国家和谐
+	focus = {
+		id = DKL_guojia_hexie
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = DKL_feichu_junzhuzhi }
+		relative_position_id = DKL_feichu_junzhuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_shehui_gaizao_3
+		remove_idea = DKL_shehui_gaizao_2
+		}
+		}
+	}
+	#人权主义
+	focus = {
+		id = DKL_renquan_zhuyi
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = DKL_guojia_hexie }
+		relative_position_id = DKL_guojia_hexie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_shehui_gaizao_4
+		remove_idea = DKL_shehui_gaizao_3
+		}
+		}
+	}
+	#福利化社会
+	focus = {
+		id = DKL_fulihua_shehui
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = DKL_renquan_zhuyi }
+		prerequisite = { focus = DKL_xiangcun_hezuohua }
+		relative_position_id = DKL_renquan_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_shehui_gaizao_5
+		remove_idea = DKL_shehui_gaizao_4
+		}
+		}
+	}
+	#联合大多数
+	focus = {
+		id = DKL_lianhe_daduoshu
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = DKL_shehui_gaizao }
+		relative_position_id = DKL_shehui_gaizao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 100
+		}
+	}
+	#累进税体系
+	focus = {
+		id = DKL_leijinshui_tixi
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = DKL_feichu_junzhuzhi }
+		prerequisite = { focus = DKL_lianhe_daduoshu }
+		relative_position_id = DKL_lianhe_daduoshu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = DKL_liangshi_gaige
+		}
+	}
+	#乡村合作化
+	focus = {
+		id = DKL_xiangcun_hezuohua
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = DKL_leijinshui_tixi }
+		relative_position_id = DKL_leijinshui_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		swap_ideas = {
+		add_idea = DKL_liangshi_gaige_2
+		remove_idea = DKL_liangshi_gaige
+		}
+		}
+	}
+	#劳工协会
+	focus = {
+		id = DKL_laogong_xiehui
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = DKL_lianhe_daduoshu }
+		relative_position_id = DKL_lianhe_daduoshu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		add_ideas = DKL_laogong_xiehui
+		}
+	}
+	#部分国有化
+	focus = {
+		id = DKL_bufen_guoyouhua
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = { focus = DKL_laogong_xiehui }
+		relative_position_id = DKL_laogong_xiehui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = { 
+		swap_ideas = {
+		add_idea = DKL_laogong_xiehui_2
+		remove_idea = DKL_laogong_xiehui
+		}
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#国家粮食垄断
+	focus = {
+		id = DKL_guojia_liangshi_longduan
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = DKL_xiangcun_hezuohua }
+		prerequisite = { focus = DKL_bufen_guoyouhua }
+		relative_position_id = DKL_bufen_guoyouhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_liangshi_gaige_3
+		remove_idea = DKL_liangshi_gaige_2
+		}
+		}
+	}
+	#开明君主制
+	focus = {
+		id = DKL_kaiming_junzhuzhi
+		icon = GFX_focus_generic_monarchy_2
+		relative_position_id = DKL_zheshige_beipan
+		x = 3
+		y = 12
+		cost = 1
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		date > 1936.7.1
+		has_completed_focus = DKL_keluodiya_xinsheng
+		controls_state = 978
+			controls_state = 985
+			controls_state = 984
+			controls_state = 104
+			controls_state = 983
+			controls_state = 804
+			controls_state = 1047
+		NOT = {
+		has_war_with = SER
+		has_war_with = ALB
+		has_war_with = NWM
+		has_war_with = YUM
+		has_completed_focus = DKL_shehui_gaizao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_kaiming_junzhu
+		remove_idea = DKL_zhiyi_wangguan_2
+		}
+		clr_country_flag = YUM_baergan_war
+		}
+	}
+	#“好学者”
+	focus = {
+		id = DKL_haoxuezhe
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = DKL_kaiming_junzhuzhi }
+		relative_position_id = DKL_kaiming_junzhuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_kaiming_junzhu_2
+		remove_idea = DKL_kaiming_junzhu
+		}
+		}
+	}
+	#加强王室权威
+	focus = {
+		id = DKL_jiaqiang_wangshi_quanwei
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = DKL_haoxuezhe }
+		relative_position_id = DKL_haoxuezhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_kaiming_junzhu_3
+		remove_idea = DKL_kaiming_junzhu_2
+		}
+		}
+	}
+	#王室纽带
+	focus = {
+		id = DKL_wangshi_niudai
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = DKL_jiaqiang_wangshi_quanwei }
+		relative_position_id = DKL_jiaqiang_wangshi_quanwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_kaiming_junzhu_4
+		remove_idea = DKL_kaiming_junzhu_3
+		}
+		}
+	}
+	#建立民主议会
+	focus = {
+		id = DKL_jianli_minzhu_yihui
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = DKL_kaiming_junzhuzhi }
+		relative_position_id = DKL_kaiming_junzhuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DKL_minzhu_yihui
+		}
+	}
+	#地方自治机关
+	focus = {
+		id = DKL_difang_zizhi_jiguan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = DKL_haoxuezhe }
+		prerequisite = { focus = DKL_jianli_minzhu_yihui }
+		relative_position_id = DKL_jianli_minzhu_yihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_minzhu_yihui_2
+		remove_idea = DKL_minzhu_yihui
+		}
+		}
+	}
+	#联盟的基石
+	focus = {
+		id = DKL_lianmeng_jishi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = DKL_difang_zizhi_jiguan }
+		relative_position_id = DKL_difang_zizhi_jiguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_minzhu_yihui_3
+		remove_idea = DKL_minzhu_yihui_2
+		}
+		}
+	}
+	#建设国家经济
+	focus = {
+		id = DKL_jianshe_guojia_jingji
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = DKL_jianli_minzhu_yihui }
+		relative_position_id = DKL_jianli_minzhu_yihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DKL_guojia_jingji
+		}
+	}
+	#邀请资本投入
+	focus = {
+		id = DKL_yaoqing_ziben_touru
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = DKL_jianshe_guojia_jingji }
+		relative_position_id = DKL_jianshe_guojia_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_guojia_jingji_2
+		remove_idea = DKL_guojia_jingji
+		}
+		}
+	}
+	#王室投资与贷款
+	focus = {
+		id = DKL_wangshi_touzi_daikuan
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = DKL_lianmeng_jishi }
+		prerequisite = { focus = DKL_wangshi_niudai }
+		relative_position_id = DKL_lianmeng_jishi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_kaiming_junzhu_5
+		remove_idea = DKL_kaiming_junzhu_4
+		}
+		}
+	}
+	#亚德里亚繁荣
+	focus = {
+		id = DKL_yadeliya_fanrong
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = DKL_lianmeng_jishi }
+		prerequisite = { focus = DKL_yaoqing_ziben_touru }
+		relative_position_id = DKL_lianmeng_jishi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKL_guojia_jingji_3
+		remove_idea = DKL_guojia_jingji_2
+		}
+		}
+	}
+}

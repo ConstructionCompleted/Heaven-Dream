@@ -1,0 +1,394 @@
+add_namespace = holy_aodili
+#进攻普鲁士
+country_event = {
+	id = holy_aodili.3
+	title = holy_aodili.3.t
+	desc = holy_aodili.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aodili.3.a
+		add_war_support = 0.1
+	}
+}
+#议会开始
+country_event = {
+	id = holy_aodili.4
+	title = holy_aodili.4.t
+	desc = holy_aodili.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aodili.4.a
+		leave_faction = yes
+	}
+}
+#巴纳特问题
+country_event = {
+	id = holy_aodili.5
+	title = holy_aodili.5.t
+	desc = holy_aodili.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aodili.5.a
+		ai_chance = {
+		    factor = 12
+		}
+		TRA = {
+		add_state_core = 82
+	add_state_core = 764
+	transfer_state = 82
+	transfer_state = 764
+		}
+	}
+	option = {
+		name = holy_aodili.5.b
+		ai_chance = {
+		    factor = 12
+		}
+		XYL = {
+	add_state_core = 82
+	add_state_core = 764
+	transfer_state = 82
+	transfer_state = 764
+		}
+	}
+	option = {
+		name = holy_aodili.5.c
+		ai_chance = {
+		    factor = 12
+		}
+		BAT = {
+	transfer_state = 82
+	transfer_state = 764
+	load_focus_tree = tongyong_focus
+		}
+		puppet = BAT
+	}
+}
+#我们的未来
+country_event = {
+	id = holy_aodili.6
+	title = holy_aodili.6.t
+	desc = holy_aodili.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aodili.6.a
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = AUS_duoyuandiguo
+	}
+	option = {
+		name = holy_aodili.6.b
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = AUS_gonghedream
+	}
+	option = {
+		name = holy_aodili.6.c
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = AUS_deyizhi_wansui
+		if = {
+		limit = {
+		WFL = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = WFL
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		FTB = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = FTB
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		BAF = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = BAF
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		SKS = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = SKS
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		BXM = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = BXM
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		PLS = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = PLS
+    transfer_troops = yes
+}
+		}
+		every_state = {
+					limit = {
+					OR = {
+						region = 6
+						region = 7
+						region = 8
+						region = 5
+						}
+					}
+add_core_of = AUS
+		}
+		remove_state_core = 1841
+		remove_state_core = 37
+		remove_state_core = 1842
+		remove_state_core = 99
+		add_state_core = 1821
+		add_state_core = 28
+		add_state_core = 923
+		add_state_core = 925
+		add_state_core = 928
+		add_state_core = 847
+		add_state_core = 3
+		add_state_core = 845
+		add_state_core = 846
+		add_state_core = 151
+		add_state_core = 848
+		add_state_core = 153
+		add_state_core = 39
+		add_state_core = 850
+		add_state_core = 1827
+		add_state_core = 736
+		add_state_core = 102
+		add_state_core = 1828
+		add_state_core = 4
+		add_state_core = 152
+		add_state_core = 952
+		add_state_core = 953
+		add_state_core = 1829
+		add_state_core = 951
+		add_state_core = 69
+		add_state_core = 986
+		add_state_core = 987
+		add_state_core = 988
+		add_state_core = 75
+		add_state_core = 74
+		add_state_core = 72
+		add_state_core = 9
+		add_state_core = 989
+		add_state_core = 990
+		add_state_core = 762
+		add_state_core = 86
+		add_state_core = 1554
+		add_state_core = 807
+		add_state_core = 85
+		add_state_core = 1541
+		add_state_core = 5
+		add_state_core = 1540
+		add_state_core = 763
+		add_state_core = 188
+	}
+	option = {
+		name = holy_aodili.6.e
+		ai_chance = {
+		    factor = 12
+		}
+		set_country_flag = AUS_shenluo_dream
+		every_state = {
+					limit = {
+					OR = {
+						region = 6
+						region = 7
+						region = 8
+						region = 5
+						}
+					}
+add_core_of = AUS
+		}
+		remove_state_core = 1841
+		remove_state_core = 37
+		remove_state_core = 1842
+		remove_state_core = 99
+		add_state_core = 1821
+		add_state_core = 28
+		add_state_core = 923
+		add_state_core = 925
+		add_state_core = 928
+		add_state_core = 847
+		add_state_core = 3
+		add_state_core = 845
+		add_state_core = 846
+		add_state_core = 151
+		add_state_core = 848
+		add_state_core = 153
+		add_state_core = 39
+		add_state_core = 850
+		add_state_core = 1827
+		add_state_core = 736
+		add_state_core = 102
+		add_state_core = 1828
+		add_state_core = 4
+		add_state_core = 152
+		add_state_core = 952
+		add_state_core = 953
+		add_state_core = 1829
+		add_state_core = 951
+		add_state_core = 69
+		add_state_core = 986
+		add_state_core = 987
+		add_state_core = 988
+		add_state_core = 75
+		add_state_core = 74
+		add_state_core = 72
+		add_state_core = 9
+		add_state_core = 989
+		add_state_core = 990
+		add_state_core = 762
+		add_state_core = 86
+		add_state_core = 1554
+		add_state_core = 807
+		add_state_core = 85
+		add_state_core = 1541
+		add_state_core = 5
+		add_state_core = 1540
+		add_state_core = 763
+		add_state_core = 188
+		if = {
+		limit = {
+		WFL = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = WFL
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		FTB = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = FTB
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		BAF = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = BAF
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		SKS = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = SKS
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		BXM = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = BXM
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		PLS = {
+		is_puppet_of = AUS
+		}
+		}
+		annex_country = {
+    target = PLS
+    transfer_troops = yes
+}
+		}
+	}
+}
+#奥地利的要求
+country_event = {
+	id = holy_aodili.7
+	title = holy_aodili.7.t
+	desc = holy_aodili.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_aodili.7.a
+		ai_chance = {
+		    factor = 12
+		}
+		AUS = {
+		annex_country = {
+    target = ROOT
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_aodili.7.a
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 0
+		}
+		leave_faction = yes
+		AUS = {
+		declare_war_on = {
+    target = ROOT
+    type = annex_everything
+}
+		}
+	}
+}

@@ -1,0 +1,1044 @@
+focus_tree = {
+	id = MNG_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MNG
+		}
+	}
+	
+	default = no
+    #干涉印度
+	focus = {
+		id = BRM_ganshe_yindu
+		icon = GFX_goal_generic_construction
+		x = 2
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   add_war_support = 0.1
+		}
+		
+	}
+	#进军孟加拉
+	focus = {
+		id = BRM_jinjun_mengjiala
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = BRM_ganshe_yindu}
+		relative_position_id = BRM_ganshe_yindu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        BAN = {
+		has_war_with = UKM
+		has_war_with = RAJ
+		}
+		}
+		completion_reward = {
+		   declare_war_on = {
+    target = BAN
+    type = annex_everything
+}
+		}
+	}
+	#第二次干涉印度
+	focus = {
+		id = BRM_two_ganshe_yindu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = BRM_jinjun_mengjiala}
+		relative_position_id = BRM_jinjun_mengjiala
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        controls_state = 608
+		}
+		completion_reward = {
+		   declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+		}
+	}
+	#天下局
+	focus = {
+		id = BRM_tianxiaju
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = BRM_two_ganshe_yindu}
+		relative_position_id = BRM_two_ganshe_yindu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        controls_state = 608
+		}
+		completion_reward = {
+		  add_ideas = tianxiaju
+		}
+	}
+    #大明继承者
+	focus = {
+		id = MNG_jichengzhe
+		icon = GFX_goal_generic_construction
+		x = 24
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   add_ideas = MNG_zhengzhi_hunluan
+		   add_ideas = MNG_bude_minxin
+		   add_ideas = MNG_gongye_luohou
+		}	
+	}
+	#天命于此
+	focus = {
+		id = MNG_tianming_yuci
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_jichengzhe}
+		relative_position_id = MNG_jichengzhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   swap_ideas = {
+		   add_idea = MNG_bude_minxin_2
+		   remove_idea = MNG_bude_minxin
+		   }
+		}	
+	}
+	#承奉日月
+	focus = {
+		id = MNG_chengfeng_riyue
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_tianming_yuci}
+		relative_position_id = MNG_tianming_yuci
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   swap_ideas = {
+		   add_idea = MNG_bude_minxin_3
+		   remove_idea = MNG_bude_minxin_2
+		   }
+		}	
+	}
+	#黄袍加身
+	focus = {
+		id = MNG_huangpao_jiasheng
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_chengfeng_riyue}
+		relative_position_id = MNG_chengfeng_riyue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   remove_ideas = MNG_bude_minxin_3
+		}	
+	}
+	#舵手启航
+	focus = {
+		id = MNG_duoshou_qihang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_huangpao_jiasheng}
+		relative_position_id = MNG_huangpao_jiasheng
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_duoshou_qihang
+		remove_idea = MNG_zhengzhi_hunluan
+		}
+		}	
+	}
+	#首辅与天子
+	focus = {
+		id = MNG_shoufu_tianzi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_duoshou_qihang}
+		relative_position_id = MNG_duoshou_qihang
+		mutually_exclusive = { focus = MNG_buchen_zhe }
+		mutually_exclusive = { focus = MNG_heli_fankang }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_shoufu_tianzi
+		remove_idea = MNG_duoshou_qihang
+		}
+		}	
+	}
+	#壮志激昂
+	focus = {
+		id = MNG_zhuangzhi_jiang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_shoufu_tianzi}
+		relative_position_id = MNG_shoufu_tianzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_zhuangzhi_jiang
+		remove_idea = MNG_shoufu_tianzi
+		}
+		}	
+	}
+	#菠与烈，共天下
+	focus = {
+		id = MNG_boyulie_gongtianxia
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_zhuangzhi_jiang}
+		relative_position_id = MNG_zhuangzhi_jiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_gongtianxia
+		remove_idea = MNG_zhuangzhi_jiang
+		}
+		}	
+	}
+	#不臣者
+	focus = {
+		id = MNG_buchen_zhe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_duoshou_qihang}
+		relative_position_id = MNG_duoshou_qihang
+		mutually_exclusive = { focus = MNG_heli_fankang }
+		mutually_exclusive = { focus = MNG_shoufu_tianzi }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_buchenzhe
+		remove_idea = MNG_duoshou_qihang
+		}
+		}	
+	}
+	#狸猫换太子
+	focus = {
+		id = MNG_limao_huantaizi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_buchen_zhe}
+		relative_position_id = MNG_buchen_zhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_limao_huantaizi
+		remove_idea = MNG_buchenzhe
+		}
+		}	
+	}
+	#皇宫政变
+	focus = {
+		id = MNG_huanggong_zhengbian
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_limao_huantaizi}
+		relative_position_id = MNG_limao_huantaizi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		    retire_country_leader = yes
+			create_country_leader = {
+	name = "时琦烈"
+	picture = "GFX262"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		
+	}
+}
+		}	
+	}
+	#合力反抗
+	focus = {
+		id = MNG_heli_fankang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_duoshou_qihang}
+		relative_position_id = MNG_duoshou_qihang
+		mutually_exclusive = { focus = MNG_buchen_zhe }
+		mutually_exclusive = { focus = MNG_shoufu_tianzi }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_heli_fankang
+		remove_idea = MNG_duoshou_qihang
+		}
+		}	
+	}
+	#七星刀
+	focus = {
+		id = MNG_seven_star_dao
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_heli_fankang}
+		relative_position_id = MNG_heli_fankang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_qixing_dao
+		remove_idea = MNG_heli_fankang
+		}
+		}	
+	}
+	#捍卫共和
+	focus = {
+		id = MNG_hanwei_gonghe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_seven_star_dao}
+		relative_position_id = MNG_seven_star_dao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_hanwei_gonghe
+		remove_idea = MNG_qixing_dao
+		}
+		start_civil_war = {
+    ruling_party = democratic
+    ideology = ROOT
+    size = 0.7
+    only_own_territory = no
+}
+		}	
+	}
+	#开发领土
+	focus = {
+		id = MNG_kaifa_lingtu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_huangpao_jiasheng}
+		relative_position_id = MNG_huangpao_jiasheng
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_kaifalingtu
+		remove_idea = MNG_gongye_luohou
+		}
+		}	
+	}
+	#缅甸军工发展
+	focus = {
+		id = MNG_miandian_jungong_fazhan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_kaifa_lingtu}
+		relative_position_id = MNG_kaifa_lingtu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}	
+	}
+	#缩衣节食
+	focus = {
+		id = MNG_suoyi_jieshi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_kaifa_lingtu}
+		relative_position_id = MNG_kaifa_lingtu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		NOT = {
+		has_ideas = MNG_bude_minxin
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_suoyijieshi
+		remove_idea = MNG_kaifalingtu
+		}
+		}	
+	}
+	#云南银矿
+	focus = {
+		id = MNG_yunnan_yingkuang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_suoyi_jieshi}
+		prerequisite = { focus = MNG_miandian_jungong_fazhan}
+		relative_position_id = MNG_miandian_jungong_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 326
+		controls_state = 747
+		controls_state = 603
+		controls_state = 748
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_yunnan_yinhang
+		remove_idea = MNG_suoyijieshi
+		}
+		}	
+	}
+	#川军再起
+	focus = {
+		id = MNG_chuanjun_zaiqi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_yunnan_yingkuang}
+		relative_position_id = MNG_yunnan_yingkuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 605
+		controls_state = 751
+		controls_state = 752
+		controls_state = 753
+		}
+		completion_reward = {
+		add_ideas = MNG_chuanjunzaiqi
+		}	
+	}
+	#两广经贸
+	focus = {
+		id = MNG_liangguang_jingmao
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_chuanjun_zaiqi}
+		relative_position_id = MNG_chuanjun_zaiqi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 591
+		controls_state = 592
+		controls_state = 593
+		controls_state = 594
+		controls_state = 599
+		}
+		completion_reward = {
+		add_ideas = MNG_liangguangjingmao
+		}	
+	}
+	#江南水乡
+	focus = {
+		id = MNG_jiangnan_shuixiang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_liangguang_jingmao}
+		relative_position_id = MNG_liangguang_jingmao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 749
+		controls_state = 613
+		controls_state = 606
+		controls_state = 596
+		controls_state = 595
+		controls_state = 598
+		}
+		completion_reward = {
+		add_ideas = MNG_jiangnanshuixiang
+		}	
+	}
+	#湖广富足
+	focus = {
+		id = MNG_huguang_fuzu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_chuanjun_zaiqi}
+		relative_position_id = MNG_chuanjun_zaiqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 602
+		controls_state = 750
+		controls_state = 620
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MNG_huguangfuzu
+		remove_idea = MNG_yunnan_yinhang
+		}
+		}	
+	}
+	#大北方工业
+	focus = {
+		id = MNG_dabeifang_ic
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_huguang_fuzu}
+		prerequisite = { focus = MNG_liangguang_jingmao}
+		relative_position_id = MNG_liangguang_jingmao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 597
+		controls_state = 614
+		controls_state = 608
+		controls_state = 609
+		controls_state = 615
+		}
+		completion_reward = {
+		add_ideas = MNG_gongye_beifang
+		}
+	}
+	#帝国整合
+	focus = {
+		id = MNG_diguo_zhenghe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_huguang_fuzu}
+		prerequisite = { focus = MNG_liangguang_jingmao}
+		relative_position_id = MNG_liangguang_jingmao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		controls_state = 613
+		controls_state = 608
+		controls_state = 328
+		controls_state = 592
+		controls_state = 607
+		}
+		completion_reward = {
+		remove_ideas = MNG_liangguangjingmao
+		remove_ideas = MNG_chuanjunzaiqi
+		remove_ideas = MNG_gongye_beifang
+		swap_ideas = {
+		add_idea = MNG_diguo_fuxing
+		remove_idea = MNG_huguangfuzu
+		}
+		}	
+	}
+	#鉴失其鹿
+	focus = {
+		id = MNG_jianshi_qilu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_huangpao_jiasheng}
+		relative_position_id = MNG_huangpao_jiasheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		has_war = no
+		}
+		completion_reward = {
+		   add_war_support = 0.1
+		   create_wargoal = {
+    type = annex_everything
+    target = SIA
+}
+		}	
+	}
+	#重返云贵
+	focus = {
+		id = MNG_chongfan_yungui
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_jianshi_qilu}
+		relative_position_id = MNG_jianshi_qilu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		has_war = no
+		}
+		completion_reward = {
+		   add_state_core = 325
+		   add_state_core = 747
+		   add_state_core = 603
+		   add_state_core = 748
+		  create_wargoal = {
+    type = annex_everything
+    target = YUN
+}
+		}	
+	}
+	#边区自治
+	focus = {
+		id = MNG_bianqu_zizhi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_chongfan_yungui}
+		relative_position_id = MNG_chongfan_yungui
+		mutually_exclusive = { focus = MNG_zhongyang_zhenghe }
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		   add_ideas = MNG_bianqu_zizhi
+		}	
+	}
+	#中央整合
+	focus = {
+		id = MNG_zhongyang_zhenghe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_chongfan_yungui}
+		relative_position_id = MNG_chongfan_yungui
+		mutually_exclusive = { focus = MNG_bianqu_zizhi }
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_political_power = 50
+		}	
+	}
+	#摧毁非法帝国
+	focus = {
+		id = MNG_cuihui_feifa_diguo
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_bianqu_zizhi focus = MNG_zhongyang_zhenghe}
+		relative_position_id = MNG_zhongyang_zhenghe
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = CHI
+    type = annex_everything
+}
+		}	
+	}
+	#进军中原
+	focus = {
+		id = MNG_jinjun_zhongyuan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_cuihui_feifa_diguo}
+		relative_position_id = MNG_cuihui_feifa_diguo
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = TAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAM
+    type = annex_everything
+}
+		}	
+	}
+	#收复两广
+	focus = {
+		id = MNG_shoufu_liangguang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_cuihui_feifa_diguo}
+		relative_position_id = MNG_cuihui_feifa_diguo
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = QIO
+    type = annex_everything
+}
+declare_war_on = {
+    target = GXC
+    type = annex_everything
+}
+declare_war_on = {
+    target = PUE
+    type = annex_everything
+}
+		}	
+	}
+	#东南归附
+	focus = {
+		id = MNG_dongnan_guifu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_cuihui_feifa_diguo}
+		relative_position_id = MNG_cuihui_feifa_diguo
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FIJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = TAH
+    type = annex_everything
+}
+declare_war_on = {
+    target = PHI
+    type = annex_everything
+}
+		}	
+	}
+	#南方整合
+	focus = {
+		id = MNG_nanfang_zhenghe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_jinjun_zhongyuan}
+		prerequisite = { focus = MNG_shoufu_liangguang}
+		prerequisite = { focus = MNG_dongnan_guifu}
+		relative_position_id = MNG_shoufu_liangguang
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_state_core = 605
+		add_state_core = 744
+		add_state_core = 753
+		add_state_core = 752
+		add_state_core = 750
+		add_state_core = 599
+		add_state_core = 594
+		add_state_core = 592
+		add_state_core = 593
+		add_state_core = 591
+		add_state_core = 602
+		add_state_core = 600
+		add_state_core = 620
+		add_state_core = 607
+		add_state_core = 606
+		add_state_core = 598
+		add_state_core = 613
+		add_state_core = 749
+		add_state_core = 596
+		add_state_core = 595
+		}	
+	}
+	#逆转萨尔浒
+	focus = {
+		id = MNG_nizhuan_saertu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_nanfang_zhenghe}
+		relative_position_id = MNG_nanfang_zhenghe
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_state_core = 597
+		add_state_core = 614
+		add_state_core = 608
+		add_state_core = 609
+		add_state_core = 610
+		add_state_core = 716
+		add_state_core = 715
+		add_state_core = 328
+		add_state_core = 527
+		add_state_core = 525
+		add_state_core = 717
+		add_state_core = 715
+		add_state_core = 714
+		add_state_core = 409
+		add_state_core = 761
+		add_state_core = 561
+		add_state_core = 560
+		add_state_core = 408
+		add_state_core = 655
+		add_state_core = 537
+		create_wargoal = {
+    type = annex_everything
+    target = 608
+}
+create_wargoal = {
+    type = annex_everything
+    target = 328
+}
+create_wargoal = {
+    type = annex_everything
+    target = 527
+}
+create_wargoal = {
+    type = annex_everything
+    target = 525
+}
+		}	
+	}
+	#过玉门
+	focus = {
+		id = MNG_guoyumen
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_nizhuan_saertu}
+		relative_position_id = MNG_nizhuan_saertu
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_state_core = 615
+		add_state_core = 622
+		add_state_core = 746
+		add_state_core = 283
+		add_state_core = 610
+		add_state_core = 616
+		add_state_core = 756
+		add_state_core = 755
+		add_state_core = 754
+		add_state_core = 604
+		add_state_core = 760
+		add_state_core = 759
+		add_state_core = 287
+		add_state_core = 617
+		add_state_core = 618
+		add_state_core = 619
+declare_war_on = {
+    target = SHX
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAH
+    type = annex_everything
+}
+declare_war_on = {
+    target = GYA
+    type = annex_everything
+}
+declare_war_on = {
+    target = SIK
+    type = annex_everything
+}
+declare_war_on = {
+    target = XSM
+    type = annex_everything
+}
+		}	
+	}
+	#渡阴山
+	focus = {
+		id = MNG_nizhuan_saertu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MNG_guoyumen}
+		relative_position_id = MNG_guoyumen
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+        is_puppet = no
+		}
+		completion_reward = {
+		add_state_core = 611
+		add_state_core = 612
+		add_state_core = 621
+		add_state_core = 330
+		add_state_core = 329
+		add_state_core = 566
+		add_state_core = 563
+		add_state_core = 564
+		add_state_core = 565
+declare_war_on = {
+    target = BAS
+    type = annex_everything
+}
+declare_war_on = {
+    target = FSM
+    type = annex_everything
+}
+	}
+}
+}

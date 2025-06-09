@@ -1,0 +1,541 @@
+add_namespace = holy_sovit
+add_namespace = holy_shahuang
+add_namespace = holy_eluosi
+#重建共产国际
+country_event = {
+	id = holy_sovit.3
+	title = holy_sovit.3.t
+	desc = holy_sovit.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = CMA
+	OR = {
+		has_government = socialism
+		has_government = communism
+		}
+        all_country = {
+	OR = {
+	exists = no
+	NOT = { has_country_flag = gongchanguoji }
+	}
+	}
+	SBN = {
+	exists = no
+	}
+	SBC = {
+	exists = no
+	}
+	KRL = {
+	exists = no
+	}
+	YAK = {
+	exists = no
+	}
+	SVN = {
+	exists = no
+	}
+	NVG = {
+	exists = no
+	}
+	KZN = {
+	exists = no
+	}
+	SBP = {
+	exists = no
+	}
+	SOV = {
+	exists = no
+	}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.3.a
+		ai_chance = {
+		    factor = 10
+		}
+		random_country = {
+		limit = {
+		OR = {
+		has_government = socialism
+		has_government = communism
+		}
+		is_in_faction = no
+		is_puppet = no
+	}
+		create_faction = world_librem_zhenxian
+		set_country_flag = gongchanguoji
+		}
+	}
+}
+#伏龙芝格勒
+country_event = {
+	id = holy_sovit.4
+	title = holy_sovit.4.t
+	desc = holy_sovit.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = SOV
+		date > 1936.4.2
+		controls_state = 653
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		653 = {
+		set_state_name = 伏龙芝格勒
+		}
+		set_province_name = {
+    id = 1821
+    name = "伏龙芝格勒"
+}
+news_event = {
+				id = holy_news.102 days = 1
+			}
+	}
+}
+#伏尔加格勒
+country_event = {
+	id = holy_sovit.5
+	title = holy_sovit.5.t
+	desc = holy_sovit.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = SOV
+		date > 1936.4.2
+		controls_state = 217
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.5.a
+		ai_chance = {
+		    factor = 10
+		}
+		217 = {
+		set_state_name = 伏尔加格勒
+		}
+		set_province_name = {
+    id = 3529
+    name = "伏尔加格勒"
+}
+news_event = {
+				id = holy_news.9 days = 1
+			}
+	}
+}
+#列宁格勒
+country_event = {
+	id = holy_sovit.6
+	title = holy_sovit.6.t
+	desc = holy_sovit.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = SOV
+		date > 1936.4.2
+		controls_state = 195
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.6.a
+		ai_chance = {
+		    factor = 10
+		}
+		195 = {
+		set_state_name = 列宁格勒
+		}
+		set_province_name = {
+    id = 3151
+    name = "列宁格勒"
+}
+news_event = {
+				id = holy_news.10 days = 1
+			}
+	}
+}
+#紧急会议的结果是......
+country_event = {
+	id = holy_sovit.7
+	title = holy_sovit.7.t
+	desc = holy_sovit.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sovit.7.a
+		trigger = { has_completed_focus = SOV_suweiai_lianmeng }
+		ai_chance = {
+		    factor = 15
+		}
+		complete_national_focus = SOV_rugangtie_yiban
+		add_ideas = SOV_youyi_fanduipai
+		add_ideas = SOV_jundui_fandui
+	}
+	option = {
+		name = holy_sovit.7.b
+		ai_chance = {
+		    factor = 5
+		}
+		complete_national_focus = SOV_jundui_ruchang
+		add_ideas = SOV_youyi_fanduipai
+		add_ideas = SOV_zuoyi_fanduipai
+	}
+	option = {
+		name = holy_sovit.7.c
+		trigger = { has_completed_focus = SOV_zunzhong_diqu_yuanze }
+		ai_chance = {
+		    factor = 10
+		}
+		complete_national_focus = SOV_buhalin_zaishengli
+		add_ideas = SOV_zuoyi_fanduipai
+		add_ideas = SOV_jundui_fandui
+	}
+}
+#苏维埃的未来
+country_event = {
+	id = holy_sovit.8
+	title = holy_sovit.8.t
+	desc = holy_sovit.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = SOV
+	focus_progress = {
+    focus = SOV_zhaokai_jinji_huiyi
+    progress > 0.5
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = SOV_suweiai_lianmeng
+	}
+	option = {
+		name = holy_sovit.8.b
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = SOV_zunzhong_diqu_yuanze
+		set_cosmetic_tag = RUS
+	}
+}
+#顿——克问题
+country_event = {
+	id = holy_sovit.9
+	title = holy_sovit.9.t
+	desc = holy_sovit.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	tag = SOV
+	focus_progress = {
+    focus = SOV_zhaokai_jinji_huiyi
+    progress > 0.5
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_sovit.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+		UKR = {
+		annex_country = {
+    target = DKS
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_sovit.9.b
+		ai_chance = {
+		    factor = 20
+	    }
+	}
+}
+#联盟的要求
+country_event = {
+	id = holy_sovit.10
+	title = holy_sovit.10.t
+	desc = holy_sovit.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sovit.10.a
+		ai_chance = {
+		    factor = 10
+	    }
+		LIT = {
+		limit = {
+		is_puppet_of = PREV
+		}
+		SOV = {
+		annex_country = {
+    target = LIT
+    transfer_troops = yes
+}
+		}
+		}
+		SOV = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_sovit.10.b
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#加冕仪式
+country_event = {
+	id = holy_shahuang.1
+	title = holy_shahuang.1.t
+	desc = holy_shahuang.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = 0.1
+		add_political_power = 200
+	}
+}
+#移交芬兰边界
+country_event = {
+	id = holy_shahuang.2
+	title = holy_shahuang.2.t
+	desc = holy_shahuang.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.2.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		transfer_state = 722
+		transfer_state = 147
+		}
+	}
+	option = {
+		name = holy_shahuang.2.b
+		ai_chance = {
+		    factor = 0
+		}
+		declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+	}
+}
+#沙皇的邀请
+country_event = {
+	id = holy_shahuang.3
+	title = holy_shahuang.3.t
+	desc = holy_shahuang.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.3.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = { add_to_faction = WAL }
+	}
+	option = {
+		name = holy_shahuang.3.b
+		ai_chance = {
+		    factor = 0
+		}
+		RUN = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = WAL
+}
+}
+	}
+}
+#摩尔达维亚进军
+country_event = {
+	id = holy_shahuang.4
+	title = holy_shahuang.4.t
+	desc = holy_shahuang.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = {
+		transfer_state = 722
+		transfer_state = 147
+		}
+	}
+	option = {
+		name = holy_shahuang.4.b
+		ai_chance = {
+		    factor = 0
+		}
+		declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+	}
+}
+#沙皇的邀请
+country_event = {
+	id = holy_shahuang.5
+	title = holy_shahuang.5.t
+	desc = holy_shahuang.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.5.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = { add_to_faction = XYL }
+	}
+	option = {
+		name = holy_shahuang.5.b
+		ai_chance = {
+		    factor = 0
+		}
+		RUN = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = XYL
+}
+}
+	}
+}
+#沙皇的邀请
+country_event = {
+	id = holy_shahuang.6
+	title = holy_shahuang.6.t
+	desc = holy_shahuang.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.6.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = { add_to_faction = BYT }
+	}
+	option = {
+		name = holy_shahuang.6.b
+		ai_chance = {
+		    factor = 0
+		}
+		RUN = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = BYT
+}
+}
+	}
+}
+#沙皇的邀请
+country_event = {
+	id = holy_shahuang.7
+	title = holy_shahuang.7.t
+	desc = holy_shahuang.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_shahuang.7.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUN = { add_to_faction = SER }
+	}
+	option = {
+		name = holy_shahuang.7.b
+		ai_chance = {
+		    factor = 0
+		}
+		RUN = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = SER
+}
+}
+	}
+}
+#共和国的要求
+country_event = {
+	id = holy_eluosi.1
+	title = holy_eluosi.1.t
+	desc = holy_eluosi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_eluosi.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		RUS = {
+		transfer_state = 201
+		transfer_state = 198
+		transfer_state = 1430
+		transfer_state = 1431
+		transfer_state = 1859
+		transfer_state = 199
+		transfer_state = 194
+		transfer_state = 1543
+		transfer_state = 204
+		transfer_state = 206
+		transfer_state = 1550
+		}
+	}
+	option = {
+		name = holy_eluosi.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		leave_faction = yes
+		RUS = {
+		declare_war_on = {
+    target = BLA
+    type = annex_everything
+}
+		}
+	}
+}

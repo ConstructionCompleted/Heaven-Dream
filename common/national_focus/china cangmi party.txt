@@ -1,0 +1,8044 @@
+focus_tree = {
+	id = CCP_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CCP
+		}
+	}
+	
+	default = no
+ 
+	#井冈山上
+	focus = {
+		id = CCP_jinggangshan_shang
+		icon = GFX_focus_generic_soviet_politics
+		x = 30
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_erjieduan
+		}
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huanan.5
+    days = 1
+}
+		}
+	}
+	#号召游击队
+	focus = {
+		id = CCP_haozhao_youjidui
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = CCP_jinggangshan_shang}
+		relative_position_id = CCP_jinggangshan_shang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#联合红区人民
+	focus = {
+		id = CCP_lianhe_hongqu_renmin
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CCP_jinggangshan_shang}
+		relative_position_id = CCP_jinggangshan_shang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_peopal_power_2
+			remove_idea = CCP_peopal_power
+			}
+		}
+	}
+	#江西攻势
+	focus = {
+		id = CCP_jiangxi_gongshi
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CCP_haozhao_youjidui}
+		prerequisite = { focus = CCP_lianhe_hongqu_renmin}
+		relative_position_id = CCP_haozhao_youjidui
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = CCP_jiangxi_gongshi		
+		}
+	}
+	#打地主分土地
+	focus = {
+		id = CCP_dadizhu_fentudi
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = CCP_jiangxi_gongshi}
+		relative_position_id = CCP_jiangxi_gongshi
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_2
+			remove_idea = CCP_nonghui_zuzhi
+			}
+		}
+	}
+	#反围剿计划
+	focus = {
+		id = CCP_fanweijiao_jihua
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CCP_jiangxi_gongshi}
+		relative_position_id = CCP_jiangxi_gongshi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_youji_zhanshu_2
+			remove_idea = CCP_youji_zhanshu
+			}
+		}
+	}
+	#政治宣传
+	focus = {
+		id = CCP_zhengzhi_xuanchuan
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = CCP_jiangxi_gongshi}
+		relative_position_id = CCP_jiangxi_gongshi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NNJ = {
+			add_ideas = CCP_zhengzhi_xuanchuan
+			}
+		}
+	}
+	#红色兵工厂
+	focus = {
+		id = CCP_hongse_binggongchang
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = CCP_jiangxi_gongshi}
+		relative_position_id = CCP_jiangxi_gongshi
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#解放政策
+	focus = {
+		id = CCP_jiefang_zhengce
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = CCP_dadizhu_fentudi}
+		relative_position_id = CCP_dadizhu_fentudi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_3
+			remove_idea = CCP_nonghui_zuzhi_2
+			}
+		}
+	}
+	#捍卫革命
+	focus = {
+		id = CCP_hanwei_geming
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CCP_dadizhu_fentudi}
+		prerequisite = { focus = CCP_fanweijiao_jihua}
+		relative_position_id = CCP_dadizhu_fentudi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_hanwei_geming
+    days = 180
+}
+		}
+	}
+	#思想渗透
+	focus = {
+		id = CCP_sixiang_shentou
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = CCP_zhengzhi_xuanchuan}
+		prerequisite = { focus = CCP_fanweijiao_jihua}
+		relative_position_id = CCP_fanweijiao_jihua
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NNJ = {
+			add_ideas = CCP_sixiang_shentou
+			}
+		}
+	}
+	#政委革新
+	focus = {
+		id = CCP_zhengwei_gexin
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = CCP_zhengzhi_xuanchuan}
+		prerequisite = { focus = CCP_hongse_binggongchang}
+		relative_position_id = CCP_zhengzhi_xuanchuan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_2
+			remove_idea = CCP_renmin_jiefangjun
+			}
+		}
+	}
+	#人民武装
+	focus = {
+		id = CCP_renmin_wuzhuang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = CCP_hongse_binggongchang}
+		relative_position_id = CCP_hongse_binggongchang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = CCP
+}
+		}
+	}
+	#胜利的第一步
+	focus = {
+		id = CCP_shengli_diyibu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CCP_jiefang_zhengce}
+		prerequisite = { focus = CCP_hanwei_geming}
+		prerequisite = { focus = CCP_sixiang_shentou}
+		prerequisite = { focus = CCP_zhengwei_gexin}
+		prerequisite = { focus = CCP_renmin_wuzhuang}
+		relative_position_id = CCP_sixiang_shentou
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+			NNJ = {
+			exists = no
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_ideas = CCP_difang_tixi
+			country_event = {
+    id = holy_newchina.5
+    days = 1
+}
+		}
+	}
+	#长江会议
+	focus = {
+		id = CCP_changjiang_huiyi
+		icon = GFX_focus_prc_social_democracy
+		prerequisite = { focus = CCP_shengli_diyibu}
+		relative_position_id = CCP_shengli_diyibu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		KMT = {
+		has_completed_focus = KMT_changjiang_huiyi
+		}
+		}
+		completion_reward = {
+			KMT = {
+			country_event = {
+    id = holy_huanan.6
+    days = 1
+}
+			}
+			if = {
+			limit = {
+			KMT = {
+			exists = no
+			}
+			}
+			complete_national_focus = CCP_nongye_shehui_zhuyi
+			}
+		}
+	}
+	#渗透华南
+	focus = {
+		id = CCP_shentou_huanan
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CCP_changjiang_huiyi}
+		relative_position_id = CCP_changjiang_huiyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#建立根据地
+	focus = {
+		id = CCP_jianli_genjudi
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = CCP_shentou_huanan}
+		relative_position_id = CCP_shentou_huanan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#接纳革命同志
+	focus = {
+		id = CCP_jiena_gm_tongzhi
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = CCP_shentou_huanan}
+		relative_position_id = CCP_shentou_huanan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#向西南前进
+	focus = {
+		id = CCP_xiang_xinan_qianjin
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CCP_jiena_gm_tongzhi}
+		prerequisite = { focus = CCP_jianli_genjudi}
+		relative_position_id = CCP_jianli_genjudi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#眺望北方
+	focus = {
+		id = CCP_tiaowang_beifang
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = CCP_changjiang_huiyi}
+		relative_position_id = CCP_changjiang_huiyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#反北洋通电
+	focus = {
+		id = CCP_fan_beiyang_tongdian
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = CCP_tiaowang_beifang}
+		relative_position_id = CCP_tiaowang_beifang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#联络西北同志
+	focus = {
+		id = CCP_lianluo_xibei_tongzhi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CCP_tiaowang_beifang}
+		relative_position_id = CCP_tiaowang_beifang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#华北战争
+	focus = {
+		id = CCP_huabei_zhanzheng
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = CCP_fan_beiyang_tongdian}
+		prerequisite = { focus = CCP_lianluo_xibei_tongzhi}
+		relative_position_id = CCP_fan_beiyang_tongdian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#向解放前进
+	focus = {
+		id = CCP_xiangjiefang_qianjin
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = CCP_xiang_xinan_qianjin}
+		prerequisite = { focus = CCP_huabei_zhanzheng}
+		relative_position_id = CCP_huabei_zhanzheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#新中国
+	focus = {
+		id = CCP_new_china
+		icon = GFX_focus_prc_proclaim_the_peoples_republic
+		prerequisite = { focus = CCP_xiangjiefang_qianjin}
+		relative_position_id = CCP_xiangjiefang_qianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DHJ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		HEI = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		WAN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		HHA = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		JAN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		NWA = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		JAD = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		LUJ	= {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		QIN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		JIN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		FEN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		NIN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		HAM = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		XQJ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		XIJ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		ETK = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		XIH = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		MJJ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		ZAG = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		XKA = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		SHU = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		YUX = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		DIA = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		QAN = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		XIG = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		ZHI = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		KMT = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		NNJ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		CGH = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		GUI = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		OGU = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		YUE = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		QYZ = {
+		OR = {
+		exists = no
+		is_puppet_of = CCP
+		}
+		}
+		has_completed_focus = CCP_maozedong_sixiang
+		}
+		completion_reward = {
+			set_cosmetic_tag = CHI
+			set_country_flag = CCP_erjieduan
+		    mark_focus_tree_layout_dirty = yes
+			news_event = {
+				id = holy_news.40 days = 1
+			}
+			add_ideas = CCP_quanguo_gongye_kunjing
+			add_ideas = CCP_tudi_gaige_kuozhanhua
+			remove_ideas = CCP_peopal_power_2
+			swap_ideas = {
+			add_idea = CCP_dongfang_geming_shiyuandi
+			remove_idea = CCP_wuchanjieji_sixiang_2
+			}
+			add_ideas = CCP_fanduipai_lianhe
+			add_ideas = CCP_zhanzheng_xiandaihua
+			custom_effect_tooltip = CCP_newchina_tt
+			every_country = {
+		if = {
+		limit = {
+		is_puppet_of = CCP
+		OR = {
+		tag = FEN
+		tag = HEI
+		tag = DHJ
+		tag = WAN
+		tag = ZHI
+		tag = LUJ
+		tag = JAD
+		tag = NWA
+		tag = JAN
+		tag = HHA
+		tag = NNJ
+		tag = CCP
+		tag = CGH
+		tag = KMT
+		tag = XIG
+		tag = YUE
+		tag = OGU
+		tag = GUI
+		tag = QYZ
+		tag = DIA
+		tag = QAN
+		tag = YUX
+		tag = XKA
+		tag = SHU
+		tag = JIN
+		tag = QIN
+		tag = NIN
+		tag = MJJ
+		tag = XIH
+		tag = HAM
+		tag = ETK
+		tag = XIN
+		tag = JNA
+		tag = TWA
+		}
+		}
+		CCP = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+		}
+			set_variable = {
+    var = CCP.gemingreqing
+    value = 200
+}
+clamp_temp_variable = {
+    var = CCP.gemingreqing
+    min = 0
+	max = 300
+}
+set_variable = {
+    var = CCP.juexingdu
+    value = 20
+}
+clamp_temp_variable = {
+    var = CCP.juexingdu
+    min = 0
+	max = 100
+}
+set_variable = {
+    var = CCP.nongyegaige
+    value = 0
+}
+clamp_temp_variable = {
+    var = CCP.nongyegaige
+    min = 0
+	max = 100
+}
+set_variable = {
+    var = CCP.nongyegaigediqu
+    value = 0
+}
+clamp_temp_variable = {
+    var = CCP.nongyegaigediqu
+    min = 0
+	max = 100
+}
+set_temp_variable = { CCP.gongyeyaoqiu = arms_factory }
+    add_to_variable = { CCP.gongyeyaoqiu = industrial_complex }
+    add_to_variable = { CCP.gongyeyaoqiu = dockyard }
+	multiply_variable = {
+    var = CCP.gongyeyaoqiu
+    value = 1.15
+    }
+		}
+	}
+	#开国大典
+	focus = {
+		id = CCP_kaiguo_dadian
+		icon = GFX_focus_chi_one_china_policy
+		x = 30
+		y = 3
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_newchina.1
+    days = 1
+}
+		}
+	}
+	#应对国内事务
+	focus = {
+		id = CCP_yingdui_guonei_shiwu
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = CCP_kaiguo_dadian}
+		relative_position_id = CCP_kaiguo_dadian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_fanduipai_lianhe_2
+			remove_idea = CCP_fanduipai_lianhe
+			}
+		}
+	}
+	#清扫国内土匪
+	focus = {
+		id = CCP_qingsao_guonei_tufei
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = CCP_yingdui_guonei_shiwu}
+		relative_position_id = CCP_yingdui_guonei_shiwu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#宣扬毛泽东思想
+	focus = {
+		id = CCP_xuanynag_maozedong_sixiang
+		icon = GFX_focus_prc_maoism
+		prerequisite = { focus = CCP_qingsao_guonei_tufei}
+		relative_position_id = CCP_qingsao_guonei_tufei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongfang_geming_shiyuandi_2
+			remove_idea = CCP_dongfang_geming_shiyuandi
+			}
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#镇压反革命分子
+	focus = {
+		id = CCP_zhenya_fangeming_fenzi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = CCP_qingsao_guonei_tufei}
+		prerequisite = { focus = CCP_xina_xianjin_minzhu_fenzi}
+		relative_position_id = CCP_xina_xianjin_minzhu_fenzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_fanduipai_lianhe_3
+			remove_idea = CCP_fanduipai_lianhe_2
+			}
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#三反五反！
+	focus = {
+		id = CCP_sanfan_wufan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = CCP_xuanynag_maozedong_sixiang}
+		prerequisite = { focus = CCP_zhenya_fangeming_fenzi}
+		relative_position_id = CCP_zhenya_fangeming_fenzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_fanduipai_lianhe_4
+			remove_idea = CCP_fanduipai_lianhe_3
+			}
+			add_timed_idea = {
+    idea = CCP_sanfan_wufan
+    days = 180
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#打击大汉族主义
+	focus = {
+		id = CCP_daji_dahanzu_zhuyi
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CCP_sanfan_wufan}
+		relative_position_id = CCP_sanfan_wufan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = CCP_sanfan_wufan
+		}
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_daji_dahanzu
+    days = 360
+}
+add_ideas = CCP_daji_minzu_zhuyi
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+		}
+	}
+	#以阶级斗争为纲
+	focus = {
+		id = CCP_yijiejidouzheng_weigang
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = CCP_sanfan_wufan}
+		relative_position_id = CCP_sanfan_wufan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = CCP_sanfan_wufan
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_fanduipai_lianhe_5
+			remove_idea = CCP_fanduipai_lianhe_4
+			}
+			add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+		}
+	}
+	#吸纳先进民主分子
+	focus = {
+		id = CCP_xina_xianjin_minzhu_fenzi
+		icon = GFX_focus_prc_social_democracy
+		prerequisite = { focus = CCP_yingdui_guonei_shiwu}
+		relative_position_id = CCP_yingdui_guonei_shiwu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_fanduipai_lianhe_3
+			remove_idea = CCP_fanduipai_lianhe_2
+			}
+		}
+	}
+	#启动义务教育
+	focus = {
+		id = CCP_qidong_yiwu_jiaoyu
+		icon = GFX_focus_research2
+		prerequisite = { focus = CCP_yingdui_guonei_shiwu}
+		relative_position_id = CCP_yingdui_guonei_shiwu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaoyu_gaige
+			remove_idea = CCP_jiaoyu_wenti
+			}
+		}
+	}
+	#保留部分教育体系
+	focus = {
+		id = CCP_baoliu_bufen_jiaoyu_tixi
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = CCP_qidong_yiwu_jiaoyu }
+		prerequisite = { focus = CCP_xina_xianjin_minzhu_fenzi }
+		relative_position_id = CCP_qidong_yiwu_jiaoyu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = CCP_renmin_jiaoyu_tixi
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiaoyu_tixi_2
+			remove_idea = CCP_renmin_jiaoyu_tixi
+			}
+		}
+	}
+	#建设技工学院
+	focus = {
+		id = CCP_jianshe_jigong_xueyuan
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = CCP_baoliu_bufen_jiaoyu_tixi }
+		relative_position_id = CCP_baoliu_bufen_jiaoyu_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = CCP_gongye_xueyuan
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongye_xueyuan_2
+			remove_idea = CCP_gongye_xueyuan
+			}
+		}
+	}
+	#开启扫盲运动
+	focus = {
+		id = CCP_kaiqi_soamang_yundong
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = CCP_qidong_yiwu_jiaoyu }
+		relative_position_id = CCP_qidong_yiwu_jiaoyu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaoyu_gaige_2
+			remove_idea = CCP_jiaoyu_gaige
+			}
+		}
+	}
+	#半劳动半教育
+	focus = {
+		id = CCP_banlaodong_banjiaoyu
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = CCP_kaiqi_soamang_yundong }
+		relative_position_id = CCP_kaiqi_soamang_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaoyu_gaige_3
+			remove_idea = CCP_jiaoyu_gaige_2
+			}
+			add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+		}
+	}
+	#乡村革命热情
+	focus = {
+		id = CCP_xiangcun_geming_reqing
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = CCP_banlaodong_banjiaoyu }
+		prerequisite = { focus = CCP_jianshe_jigong_xueyuan }
+		relative_position_id = CCP_jianshe_jigong_xueyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaoyu_gaige_4
+			remove_idea = CCP_jiaoyu_gaige_3
+			}
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#开启百花齐放
+	focus = {
+		id = CCP_kaiqi_baihua_qifang
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = CCP_banlaodong_banjiaoyu }
+		prerequisite = { focus = CCP_jianshe_jigong_xueyuan }
+		prerequisite = { focus = CCP_sanfan_wufan }
+		relative_position_id = CCP_jianshe_jigong_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_baihuaqifang
+    days = 180
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+country_event = {
+    id = holy_newchina.6
+    days = 1
+}
+		}
+	}
+	#摧毁自由派
+	focus = {
+		id = CCP_cuihui_ziyoupai
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = CCP_daji_dahanzu_zhuyi }
+		prerequisite = { focus = CCP_yijiejidouzheng_weigang }
+		prerequisite = { focus = CCP_kaiqi_baihua_qifang }
+		relative_position_id = CCP_yijiejidouzheng_weigang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = CCP_baihuaqifang
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_guojia_hexie
+			remove_idea = CCP_fanduipai_lianhe_5
+			}
+			add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#无产阶级文化大革命
+	focus = {
+		id = CCP_wuchanjieji_wenhuadageming
+		icon = GFX_goal_generic_war_with_comintern
+		relative_position_id = CCP_kaiqi_baihua_qifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		OR = {
+		has_country_flag = CCP_cr
+		has_country_flag = CCP_vic
+		}
+		}
+		completion_reward = {
+			add_political_power = 300
+			add_stability = -0.1
+			add_war_support = -0.1
+			custom_effect_tooltip = CCP_wuchanjieji_wenhuadageming_tt
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 50
+    tooltip = CCP_gemingreqing_6_tt
+}
+country_event = {
+    id = holy_newchina.7
+    days = 1
+}
+		}
+	}
+	#军队支援
+	focus = {
+		id = CCP_jundui_zhiyuan
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = CCP_wuchanjieji_wenhuadageming}
+		relative_position_id = CCP_wuchanjieji_wenhuadageming
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = CCP.junduizhichi
+    value = 25
+    tooltip = CCP_junduizhichi_2_tt
+}
+		}
+	}
+	#破四旧运动
+	focus = {
+		id = CCP_posijiu_yundong
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = CCP_wuchanjieji_wenhuadageming}
+		relative_position_id = CCP_wuchanjieji_wenhuadageming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_juexingdu_1_tt
+}
+		}
+	}
+	#压制右翼分子
+	focus = {
+		id = CCP_yazhi_youyi_fenzi
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CCP_jundui_zhiyuan}
+		prerequisite = { focus = CCP_posijiu_yundong}
+		relative_position_id = CCP_posijiu_yundong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 25
+    tooltip = CCP_gemingreqing_9_tt
+}
+add_stability = 0.1
+		}
+	}
+	#红卫兵和大字报
+	focus = {
+		id = CCP_hongweibing_dazibao
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = CCP_wuchanjieji_wenhuadageming }
+		relative_position_id = CCP_wuchanjieji_wenhuadageming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 150
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 20
+    tooltip = CCP_gemingreqing_1_tt
+}
+		}
+	}
+	#解体官僚机构
+	focus = {
+		id = CCP_jieti_guanliao_jigou
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = CCP_hongweibing_dazibao }
+		prerequisite = { focus = CCP_posijiu_yundong }
+		relative_position_id = CCP_hongweibing_dazibao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 25
+    tooltip = CCP_gemingreqing_9_tt
+}
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_stability = -0.3
+add_political_power = 500
+		}
+	}
+	#媒体大革命
+	focus = {
+		id = CCP_meiti_dageming
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = CCP_hongweibing_dazibao }
+		prerequisite = { focus = CCP_tuanjie_gongnong_qunzhong }
+		relative_position_id = CCP_tuanjie_gongnong_qunzhong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+add_to_variable = {
+    var = CCP.juexingdu
+    value = 5
+    tooltip = CCP_gemingreqing_1_tt
+}
+add_stability = -0.1
+add_political_power = 300
+		}
+	}
+	#团结工农群众
+	focus = {
+		id = CCP_tuanjie_gongnong_qunzhong
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = CCP_wuchanjieji_wenhuadageming}
+		relative_position_id = CCP_wuchanjieji_wenhuadageming
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 15
+    tooltip = CCP_gemingreqing_8_tt
+}
+		}
+	}
+	#革命大联合
+	focus = {
+		id = CCP_geming_dalianhe
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = CCP_meiti_dageming }
+		prerequisite = { focus = CCP_yazhi_youyi_fenzi }
+		prerequisite = { focus = CCP_jieti_guanliao_jigou }
+		relative_position_id = CCP_jieti_guanliao_jigou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		check_variable = { CCP.juexingdu > 149.9 }
+		}
+		completion_reward = {
+			clr_country_flag = CCP_cr
+			add_stability = 1
+			set_variable = {
+    var = CCP.gemingreqing
+    value = 300
+    tooltip = CCP_gemingreqing_10_tt
+}
+set_country_flag = CCP_vic
+mark_focus_tree_layout_dirty = yes
+remove_ideas = CCP_wenhua_dageming
+country_event = {
+    id = holy_newchina.8
+    days = 1
+}
+		}
+	}
+	#科研改革
+	focus = {
+		id = CCP_keyan_gaige
+		icon = GFX_goal_tfv_generic_tech_sharing
+		relative_position_id = CCP_new_china
+		x = 0
+		y = 2
+		cost = 1
+		available = {
+		has_completed_focus = CCP_changjiang_huiyi
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#吸收归国华侨
+	focus = {
+		id = CCP_xishou_guiguo_huaqiao
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CCP_keyan_gaige}
+		relative_position_id = CCP_keyan_gaige
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_xishou_guiguo
+    days = 360
+}
+		}
+	}
+	#利用民族情绪
+	focus = {
+		id = CCP_liyong_minzu_qingxu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CCP_xishou_guiguo_huaqiao}
+		relative_position_id = CCP_xishou_guiguo_huaqiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_xishou_guiguo
+    days = 360
+}
+		}
+	}
+	#联络中国科学家
+	focus = {
+		id = CCP_lianluo_zhongguo_kexuejia
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = CCP_keyan_gaige}
+		relative_position_id = CCP_keyan_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#国家科学院
+	focus = {
+		id = CCP_guojia_kexueyuan
+		icon = GFX_focus_research2
+		prerequisite = { focus = CCP_lianluo_zhongguo_kexuejia}
+		relative_position_id = CCP_lianluo_zhongguo_kexuejia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_of_civilian_factories > 300
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#科学优待
+	focus = {
+		id = CCP_kexue_youdai
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = CCP_guojia_kexueyuan}
+		relative_position_id = CCP_guojia_kexueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_kexue_youdai
+		}
+	}
+	#反政治化
+	focus = {
+		id = CCP_fanzhengzhihua
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CCP_kexue_youdai}
+		relative_position_id = CCP_kexue_youdai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_kexue_youdai_2
+			remove_idea = CCP_kexue_youdai
+			}
+		}
+	}
+	#建设人民大学
+	focus = {
+		id = CCP_jianshe_renmin_daxue
+		icon = GFX_focus_research2
+		prerequisite = { focus = CCP_guojia_kexueyuan}
+		relative_position_id = CCP_guojia_kexueyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_renmin_jiaoyu_tixi
+		}
+	}
+	#工业学院
+	focus = {
+		id = CCP_gongye_xueyuan
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CCP_jianshe_renmin_daxue}
+		relative_position_id = CCP_jianshe_renmin_daxue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_gongye_xueyuan
+		}
+	}
+	#赛先生的孩子
+	focus = {
+		id = CCP_saixiansheng_haizi
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = CCP_fanzhengzhihua}
+		prerequisite = { focus = CCP_gongye_xueyuan}
+		prerequisite = { focus = CCP_liyong_minzu_qingxu}
+		relative_position_id = CCP_gongye_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_of_civilian_factories > 1000
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#工业计划
+	focus = {
+		id = CCP_gongye_jihua
+		icon = GFX_goal_generic_construct_civilian
+		x = 16
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_changjiang_huiyi
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#一五计划
+	focus = {
+		id = CCP_yiwu_jihua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CCP_gongye_jihua}
+		relative_position_id = CCP_gongye_jihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_yiwu_plan
+    days = 1800
+}
+		}
+	}
+	#钢铁大练
+	focus = {
+		id = CCP_gangtie_dalian
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_yiwu_jihua}
+		relative_position_id = CCP_yiwu_jihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+    type = steel
+    amount = 100
+    state = 602
+}
+		}
+	}
+	#资源开发
+	focus = {
+		id = CCP_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = CCP_gangtie_dalian}
+		relative_position_id = CCP_gangtie_dalian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_ziyuan_kaifa
+		}
+	}
+	#部分自治经济
+	focus = {
+		id = CCP_bufen_zizhi_jingji
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = CCP_ziyuan_kaifa}
+		relative_position_id = CCP_ziyuan_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_bufen_zizhi_jingji
+			remove_idea = CCP_ziyuan_kaifa
+			}
+		}
+	}
+	#军事产业扩大
+	focus = {
+		id = CCP_junshi_chanye_kuoda
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = CCP_gangtie_dalian}
+		relative_position_id = CCP_gangtie_dalian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			602 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#地方计划
+	focus = {
+		id = CCP_difang_jihua
+		icon = GFX_goal_generic_construction
+		x = 13
+		y = 5
+		cost = 5
+		available = {
+		has_completed_focus = CCP_changjiang_huiyi
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#吸收部分旧官员
+	focus = {
+		id = CCP_xishou_oldguanyuan
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CCP_difang_jihua}
+		relative_position_id = CCP_difang_jihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_difang_tixi_2
+			remove_idea = CCP_difang_tixi
+			}
+		}
+	}
+	#扫除腐败
+	focus = {
+		id = CCP_saochu_fubai
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = CCP_xishou_oldguanyuan}
+		relative_position_id = CCP_xishou_oldguanyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_difang_tixi_3
+			remove_idea = CCP_difang_tixi_2
+			}
+		}
+	}
+	#人民的名义
+	focus = {
+		id = CCP_renmin_mingyi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = CCP_saochu_fubai}
+		relative_position_id = CCP_saochu_fubai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = CCP_difang_tixi_3
+		}
+	}
+	#清除地方封建残余
+	focus = {
+		id = CCP_qingchu_difang_fengjian_canyu
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CCP_difang_jihua}
+		relative_position_id = CCP_difang_jihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_4
+			remove_idea = CCP_nonghui_zuzhi_3
+			}
+		}
+	}
+	#农会改革
+	focus = {
+		id = CCP_nonghui_gaige
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = CCP_qingchu_difang_fengjian_canyu}
+		relative_position_id = CCP_qingchu_difang_fengjian_canyu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_5
+			remove_idea = CCP_nonghui_zuzhi_4
+			}
+		}
+	}
+	#一化三改
+	focus = {
+		id = CCP_yihua_sangai
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = CCP_nonghui_gaige}
+		prerequisite = { focus = CCP_junshi_chanye_kuoda}
+		relative_position_id = CCP_nonghui_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_completed_focus = CCP_yiwu_plan
+		NOT = {
+		has_idea = CCP_yiwu_plan
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_yiwu_plan_2
+			remove_idea = CCP_yiwu_plan
+			}
+		}
+	}
+	#集体化政策
+	focus = {
+		id = CCP_jitihua_zhengce
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CCP_yihua_sangai}
+		relative_position_id = CCP_yihua_sangai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_jitihua_zhengce
+		}
+	}
+	#人民公社
+	focus = {
+		id = CCP_renmin_gongshe
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = CCP_jitihua_zhengce}
+		relative_position_id = CCP_jitihua_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_6
+			remove_idea = CCP_nonghui_zuzhi_5
+			}
+		}
+	}
+	#农业合作社
+	focus = {
+		id = CCP_nongye_hezuoshe
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = CCP_renmin_gongshe}
+		relative_position_id = CCP_renmin_gongshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_7
+			remove_idea = CCP_nonghui_zuzhi_6
+			}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = CCP_nongye_jixiehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CCP_nongye_hezuoshe}
+		relative_position_id = CCP_nongye_hezuoshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nonghui_zuzhi_8
+			remove_idea = CCP_nonghui_zuzhi_7
+			}
+		}
+	}
+	#轻工业起步
+	focus = {
+		id = CCP_qinggongye_qibu
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CCP_yihua_sangai}
+		relative_position_id = CCP_yihua_sangai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_gongyehua
+		}
+	}
+	#整合商业体系
+	focus = {
+		id = CCP_zhenghe_shangyetixi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = CCP_qinggongye_qibu}
+		relative_position_id = CCP_qinggongye_qibu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongyehua_2
+			remove_idea = CCP_gongyehua
+			}
+		}
+	}
+	#扩展重型工业
+	focus = {
+		id = CCP_kuozhan_zhongxing_gongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CCP_zhenghe_shangyetixi}
+		relative_position_id = CCP_zhenghe_shangyetixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongyehua_3
+			remove_idea = CCP_gongyehua_2
+			}
+		}
+	}
+	#立体化工业
+	focus = {
+		id = CCP_litihua_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CCP_kuozhan_zhongxing_gongye}
+		relative_position_id = CCP_kuozhan_zhongxing_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongyehua_4
+			remove_idea = CCP_gongyehua_3
+			}
+		}
+	}
+	#新中国计划经济
+	focus = {
+		id = CCP_xinzhongguo_jihuajingji
+		icon = GFX_focus_generic_socialist_science
+		relative_position_id = CCP_yihua_sangai
+		x = 0
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		available = {
+		has_completed_focus = CCP_kaiguo_dadian
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_quanguo_gongye_kunjing_2
+			remove_idea = CCP_quanguo_gongye_kunjing
+			}
+			add_political_power = 100
+			country_event = {
+    id = holy_newchina.10
+    days = 1
+}
+		}
+	}
+	#延续土地改革
+	focus = {
+		id = CCP_yanxu_tudi_gaige
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CCP_xinzhongguo_jihuajingji}
+		relative_position_id = CCP_xinzhongguo_jihuajingji
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_tudi_gaige_kuozhanhua_2
+			remove_idea = CCP_tudi_gaige_kuozhanhua
+			}
+		}
+	}
+	#农田大开发
+	focus = {
+		id = CCP_nongtian_dakaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = CCP_yanxu_tudi_gaige }
+		relative_position_id = CCP_yanxu_tudi_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_nongye_kaifa
+			add_to_variable = {
+    var = CCP.nonyegaige
+    value = 5
+    tooltip = CCP_nongyegaige_1_tt
+}
+		}
+	}
+	#培育水稻
+	focus = {
+		id = CCP_peiyu_shuidao
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = CCP_nongtian_dakaifa }
+		relative_position_id = CCP_nongtian_dakaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_kaifa_2
+			remove_idea = CCP_nongye_kaifa
+			}
+		}
+	}
+	#良种化研究
+	focus = {
+		id = CCP_liangzhonghua_yanjiu
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = CCP_peiyu_shuidao }
+		relative_position_id = CCP_peiyu_shuidao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_kaifa_3
+			remove_idea = CCP_nongye_kaifa_2
+			}
+		}
+	}
+	#加强农村养殖
+	focus = {
+		id = CCP_jiaqiang_nongcun_yangzhi
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = CCP_liangzhonghua_yanjiu }
+		relative_position_id = CCP_liangzhonghua_yanjiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_kaifa_4
+			remove_idea = CCP_nongye_kaifa_3
+			}
+		}
+	}
+	#建设城村交通
+	focus = {
+		id = CCP_jianshe_chengqu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CCP_jiaqiang_nongcun_yangzhi }
+		relative_position_id = CCP_jiaqiang_nongcun_yangzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_kaifa_5
+			remove_idea = CCP_nongye_kaifa_4
+			}
+		}
+	}
+	#扩大农村合作
+	focus = {
+		id = CCP_kuoda_nongcun_hezuo
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = CCP_yanxu_tudi_gaige }
+		relative_position_id = CCP_yanxu_tudi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_nongcun_hezuo
+		}
+	}
+	#规章化生产队
+	focus = {
+		id = CCP_guizhanghua_shengchandui
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = CCP_nongtian_dakaifa }
+		prerequisite = { focus = CCP_kuoda_nongcun_hezuo }
+		relative_position_id = CCP_kuoda_nongcun_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongcun_hezuo_2
+			remove_idea = CCP_nongcun_hezuo
+			}
+		}
+	}
+	#规范种植技术
+	focus = {
+		id = CCP_guifan_zhongzhi_jishu
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CCP_guizhanghua_shengchandui }
+		relative_position_id = CCP_guizhanghua_shengchandui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongcun_hezuo_3
+			remove_idea = CCP_nongcun_hezuo_2
+			}
+		}
+	}
+	#水利建设
+	focus = {
+		id = CCP_shuili_jianshe
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = CCP_guifan_zhongzhi_jishu }
+		relative_position_id = CCP_guifan_zhongzhi_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongcun_hezuo_4
+			remove_idea = CCP_nongcun_hezuo_3
+			}
+		}
+	}
+	#彻底集体化
+	focus = {
+		id = CCP_chedi_jitihua
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = CCP_shuili_jianshe }
+		relative_position_id = CCP_shuili_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongcun_hezuo_5
+			remove_idea = CCP_nongcun_hezuo_4
+			}
+		}
+	}
+	#农业资金控制
+	focus = {
+		id = CCP_nongye_zijin_kongzhi
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = CCP_kuoda_nongcun_hezuo }
+		relative_position_id = CCP_kuoda_nongcun_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_nongye_xiandaihua
+		}
+	}
+	#现代化农业用具
+	focus = {
+		id = CCP_xiandaihua_nongye_yongju
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = CCP_nongye_zijin_kongzhi }
+		relative_position_id = CCP_nongye_zijin_kongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_xiandaihua_2
+			remove_idea = CCP_nongye_xiandaihua
+			}
+		}
+	}
+	#扩大人民土地
+	focus = {
+		id = CCP_kuoda_renmin_tudi
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CCP_xiandaihua_nongye_yongju }
+		relative_position_id = CCP_xiandaihua_nongye_yongju
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_xiandaihua_3
+			remove_idea = CCP_nongye_xiandaihua_2
+			}
+		}
+	}
+	#解放农民生产力
+	focus = {
+		id = CCP_jiefang_nongmin_shengchanli
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CCP_kuoda_renmin_tudi }
+		relative_position_id = CCP_kuoda_renmin_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_xiandaihua_4
+			remove_idea = CCP_nongye_xiandaihua_3
+			}
+		}
+	}
+	#人民与公社与党
+	focus = {
+		id = CCP_renmin_gongshe_dang
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = CCP_jianshe_chengqu }
+		prerequisite = { focus = CCP_chedi_jitihua }
+		prerequisite = { focus = CCP_jiefang_nongmin_shengchanli }
+		relative_position_id = CCP_chedi_jitihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = CCP_nongye_xiandaihua_4
+			remove_ideas = CCP_nongcun_hezuo_5
+			remove_ideas = CCP_nongye_kaifa_5
+			swap_ideas = {
+			add_idea = CCP_renmin_gongshe_dang
+			remove_idea = CCP_tudi_gaige_kuozhanhua_2
+			}
+			add_to_variable = {
+    var = CCP.juexingdu
+    value = 10
+    tooltip = CCP_juexingdu_2_tt
+}
+		}
+	}
+	#开启大跃进
+	focus = {
+		id = CCP_kaiqi_dayuejin
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = CCP_xinzhongguo_jihuajingji }
+		relative_position_id = CCP_xinzhongguo_jihuajingji
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = CCP_kaiqi_dayuejin
+    days = 960
+}
+		}
+	}
+	#工厂民主
+	focus = {
+		id = CCP_gongchang_minzhu
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = CCP_kaiqi_dayuejin }
+		relative_position_id = CCP_kaiqi_dayuejin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_gongchang_minzhu
+		}
+	}
+	#强化技术工人
+	focus = {
+		id = CCP_qianghua_jishu_gongren
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = CCP_gongchang_minzhu }
+		relative_position_id = CCP_gongchang_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongchang_minzhu_2
+			remove_idea = CCP_gongchang_minzhu
+			}
+		}
+	}
+	#生产积极性
+	focus = {
+		id = CCP_shengchan_jijixing
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = CCP_qianghua_jishu_gongren }
+		relative_position_id = CCP_qianghua_jishu_gongren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongchang_minzhu_3
+			remove_idea = CCP_gongchang_minzhu_2
+			}
+		}
+	}
+	#铁路扩建
+	focus = {
+		id = CCP_tielu_kuojian
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CCP_shengchan_jijixing }
+		relative_position_id = CCP_shengchan_jijixing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongchang_minzhu_4
+			remove_idea = CCP_gongchang_minzhu_3
+			}
+		}
+	}
+	#资源勘探
+	focus = {
+		id = CCP_ziyuan_kantan
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = CCP_tielu_kuojian }
+		relative_position_id = CCP_tielu_kuojian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_gongchang_minzhu_5
+			remove_idea = CCP_gongchang_minzhu_4
+			}
+		}
+	}
+	#产业链改革
+	focus = {
+		id = CCP_chanyelian_gaige
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { focus = CCP_kaiqi_dayuejin }
+		relative_position_id = CCP_kaiqi_dayuejin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_chanyelian_gaige
+		}
+	}
+	#加强地方自治
+	focus = {
+		id = CCP_jiaqiang_difang_zizhi
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = CCP_chanyelian_gaige }
+		relative_position_id = CCP_chanyelian_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chanyelian_gaige_2
+			remove_idea = CCP_chanyelian_gaige
+			}
+		}
+	}
+	#知识分子下乡
+	focus = {
+		id = CCP_zhishifenzi_xiaxiang
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = CCP_jiaqiang_difang_zizhi }
+		relative_position_id = CCP_jiaqiang_difang_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chanyelian_gaige_3
+			remove_idea = CCP_chanyelian_gaige_2
+			}
+		}
+	}
+	#地方资源倾斜
+	focus = {
+		id = CCP_difang_ziyuan_qingxie
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = CCP_zhishifenzi_xiaxiang }
+		relative_position_id = CCP_zhishifenzi_xiaxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chanyelian_gaige_4
+			remove_idea = CCP_chanyelian_gaige_3
+			}
+		}
+	}
+	#整合私外企
+	focus = {
+		id = CCP_zhenghe_siwaiqi
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = CCP_kaiqi_dayuejin }
+		relative_position_id = CCP_kaiqi_dayuejin
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_zhenghe_siwaiqi
+		}
+	}
+	#提高工人待遇
+	focus = {
+		id = CCP_tigao_gongren_daiyu
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = CCP_zhenghe_siwaiqi }
+		relative_position_id = CCP_zhenghe_siwaiqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zhenghe_siwaiqi_2
+			remove_idea = CCP_zhenghe_siwaiqi
+			}
+		}
+	}
+	#调控监察
+	focus = {
+		id = CCP_diaokong_jiancha
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = CCP_tigao_gongren_daiyu }
+		relative_position_id = CCP_tigao_gongren_daiyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zhenghe_siwaiqi_3
+			remove_idea = CCP_zhenghe_siwaiqi_2
+			}
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+		}
+	}
+	#消灭虚假信息
+	focus = {
+		id = CCP_xiaomie_xujia_xinxi
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CCP_diaokong_jiancha }
+		relative_position_id = CCP_diaokong_jiancha
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zhenghe_siwaiqi_4
+			remove_idea = CCP_zhenghe_siwaiqi_3
+			}
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+		}
+	}
+	#社会主义经济联合体
+	focus = {
+		id = CCP_shehuizhuyi_jingji_lianheti
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = CCP_difang_ziyuan_qingxie }
+		prerequisite = { focus = CCP_xiaomie_xujia_xinxi }
+		relative_position_id = CCP_xiaomie_xujia_xinxi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chanyelian_gaige_5
+			remove_idea = CCP_chanyelian_gaige_4
+			}
+			remove_ideas = CCP_zhenghe_siwaiqi_4
+		}
+	}
+	#大三线工程
+	focus = {
+		id = CCP_dasnaxian_gongcheng
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = CCP_ziyuan_kantan }
+		prerequisite = { focus = CCP_shehuizhuyi_jingji_lianheti }
+		relative_position_id = CCP_shehuizhuyi_jingji_lianheti
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jihua_jingji
+			remove_idea = CCP_quanguo_gongye_kunjing_2
+			}
+			remove_ideas = CCP_gongchang_minzhu_5
+			remove_ideas = CCP_chanyelian_gaige_5
+			add_to_variable = {
+    var = CCP.juexingdu
+    value = 10
+    tooltip = CCP_juexingdu_2_tt
+}
+		}
+	}
+	#北岸经济整合
+	focus = {
+		id = CCP_beian_jingji_zhenghe
+		icon = GFX_goal_generic_construct_civ_factory
+		relative_position_id = CCP_dasnaxian_gongcheng
+		x = 18
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		available = {
+		has_completed_focus = CCP_dasnaxian_gongcheng
+		has_completed_focus = CCP_renmin_gongshe_dang
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 657
+			state = 561
+			state = 560
+			state = 1344
+			state = 1345
+			state = 1342
+			state = 1343
+			state = 1347
+			state = 1338
+			}
+			}
+			add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.1
+			local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#草原铁路
+	focus = {
+		id = CCP_caoyuan_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CCP_beian_jingji_zhenghe }
+		relative_position_id = CCP_beian_jingji_zhenghe
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			819 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1339 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1228 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			761 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1518 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东北农业开发
+	focus = {
+		id = CCP_dongbei_nongye_kaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = CCP_beian_jingji_zhenghe }
+		prerequisite = { focus = CCP_dadongbu_gongyehua }
+		relative_position_id = CCP_beian_jingji_zhenghe
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 714
+			state = 761
+			state = 1110
+			state = 1107
+			state = 1527
+			state = 1528
+			state = 1518
+			state = 1518
+			}
+			}
+			add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.1
+			local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#南岸动力机械开发
+	focus = {
+		id = CCP_nanan_donglijixie_kaifa
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = CCP_caoyuan_tielu }
+		prerequisite = { focus = CCP_dongbei_nongye_kaifa }
+		relative_position_id = CCP_dongbei_nongye_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 1517
+			state = 328
+			}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#沈阳大型机械厂
+	focus = {
+		id = CCP_shenyang_daxing_jixiechang
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = CCP_nanan_donglijixie_kaifa }
+		relative_position_id = CCP_nanan_donglijixie_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 1522
+			}
+			}
+			add_extra_state_shared_building_slots = 6
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#大连船舶联合体
+	focus = {
+		id = CCP_dalian_chuanbo_lianheti
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CCP_shenyang_daxing_jixiechang }
+		relative_position_id = CCP_shenyang_daxing_jixiechang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 719
+			state = 745
+			state = 1108
+			}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			719 = {
+			add_building_construction = {
+				type = naval_base
+				province = 1150
+				level = 3
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#平壤重工业
+	focus = {
+		id = CCP_pingrang_zhonggongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CCP_shenyang_daxing_jixiechang }
+		relative_position_id = CCP_shenyang_daxing_jixiechang
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 527
+			state = 1161
+			state = 1168
+			}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#三星电子厂
+	focus = {
+		id = CCP_sanxing_dianzichang
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = CCP_pingrang_zhonggongye }
+		relative_position_id = CCP_pingrang_zhonggongye
+		x = 1
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 1170
+			state = 1172
+			}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			every_state = {
+			limit = {
+			state = 1174
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#大东部工业化
+	focus = {
+		id = CCP_dadongbu_gongyehua
+		icon = GFX_focus_generic_industry_3
+		relative_position_id = CCP_beian_jingji_zhenghe
+		x = 4
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		available = {
+		has_completed_focus = CCP_dasnaxian_gongcheng
+		has_completed_focus = CCP_renmin_gongshe_dang
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 657
+			state = 409
+			state = 1520
+			state = 560
+			}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#伯力工业化
+	focus = {
+		id = CCP_boli_gongyehua
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = CCP_dongbei_nongye_kaifa }
+		relative_position_id = CCP_dongbei_nongye_kaifa
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 408
+			state = 717
+			}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+local_building_slots_factor = 0.15
+local_resources_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#海参崴经济体
+	focus = {
+		id = CCP_haishenwai_jingjiti
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CCP_boli_gongyehua }
+		relative_position_id = CCP_boli_gongyehua
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 408
+			}
+			}
+			add_extra_state_shared_building_slots = 6
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+state_production_speed_buildings_factor = 0.05
+local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#库页岛石油开采
+	focus = {
+		id = CCP_kuyedao_shiyou_kaicai
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CCP_dadongbu_gongyehua }
+		relative_position_id = CCP_dadongbu_gongyehua
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			state = 655
+			state = 547
+			}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = synthetic_refinery
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+local_resources_factor = 0.15
+			}
+			}
+			add_resource = {
+    type = oil
+    amount = 20
+}
+			}
+		}
+	}
+	#新疆建设兵团
+	focus = {
+		id = CCP_xinjiang_jianshe_bingtuan
+		icon = GFX_focus_focus_fra_revolution_utmost
+		relative_position_id = CCP_dasnaxian_gongcheng
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_dasnaxian_gongcheng
+		has_completed_focus = CCP_renmin_gongshe_dang
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 760
+			state = 617
+			state = 618
+			state = 1298
+			state = 1300
+			state = 1301
+			state = 1302
+			state = 287
+			state = 759
+			state = 619
+			state = 1078
+			state = 1079
+			state = 1299
+			state = 1080
+			state = 1123
+			state = 586
+			state = 1122
+			state = 1076
+			state = 1337
+			state = 1336
+			state = 1335
+			}
+		}
+		add_state_modifier = {
+    modifier = {
+			state_production_speed_buildings_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#绥靖城军事产业链
+	focus = {
+		id = CCP_suijincheng_junshichnayelian
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = CCP_xinjiang_jianshe_bingtuan }
+		relative_position_id = CCP_xinjiang_jianshe_bingtuan
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1123
+			state = 1303
+			state = 1301
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#外西北城市化
+	focus = {
+		id = CCP_waixibei_chengshihua
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = CCP_suijincheng_junshichnayelian }
+		relative_position_id = CCP_suijincheng_junshichnayelian
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1122
+			state = 1076
+			state = 586
+			state = 1137
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#投资钢铁生产
+	focus = {
+		id = CCP_touzi_gangtie_shengchan
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_waixibei_chengshihua }
+		relative_position_id = CCP_waixibei_chengshihua
+		x = -1
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1136
+			state = 1135
+			state = 1137
+			}
+		}
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 10
+}
+			}
+		}
+	}
+	#投资喀什工业
+	focus = {
+		id = CCP_touzi_kashen_gongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = CCP_suijincheng_junshichnayelian }
+		relative_position_id = CCP_suijincheng_junshichnayelian
+		x = -1
+		y = 3
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 619
+			state = 1299
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		add_ideas = CCP_bianqu_junshi_chanye
+		}
+	}
+	#扩大南疆农业
+	focus = {
+		id = CCP_kuoda_nanjiang_nongye
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CCP_touzi_kashen_gongye }
+		prerequisite = { focus = CCP_zhengfu_takelamagan }
+		relative_position_id = CCP_zhengfu_takelamagan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 287
+			state = 1299
+			state = 759
+			state = 1080
+			}
+		}
+add_state_modifier = {
+    modifier = {
+			local_building_slots_factor = 0.1
+			local_manpower = 0.15
+			mobilization_speed = 0.25
+			}
+			}
+			}
+		}
+	}
+	#南疆纺织业
+	focus = {
+		id = CCP_nanjiang_fangzhiye
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = CCP_puyumian_zhidi }
+		prerequisite = { focus = CCP_zhengfu_takelamagan }
+		relative_position_id = CCP_zhengfu_takelamagan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 287
+			state = 1299
+			state = 759
+			state = 1080
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#迪化工业化
+	focus = {
+		id = CCP_dihua_gongyehua
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = CCP_xinjiang_jianshe_bingtuan }
+		relative_position_id = CCP_xinjiang_jianshe_bingtuan
+		x = -1
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 617
+			state = 1298
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#征服塔克拉玛干
+	focus = {
+		id = CCP_zhengfu_takelamagan
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CCP_dihua_gongyehua }
+		relative_position_id = CCP_dihua_gongyehua
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1078
+			state = 1079
+			}
+		}
+		add_extra_state_shared_building_slots = 6
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+add_manpower = 10000
+add_state_modifier = {
+    modifier = {
+			local_building_slots_factor = 0.15
+			}
+			}
+			}
+		}
+	}
+	#青藏铁路
+	focus = {
+		id = CCP_qingzang_tielu
+		icon = GFX_focus_GRE_a_land_of_mountains
+		prerequisite = { focus = CCP_zhengfu_takelamagan }
+		relative_position_id = CCP_zhengfu_takelamagan
+		x = 0
+		y = 3
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1294
+		state = 1292
+		state = 322
+		state = 758
+		state = 757
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			army_speed_factor_for_controller = 0.2
+			local_supplies_for_controller = 0.2
+			}
+			}
+			}
+		}
+	}
+	#那曲工业改革
+	focus = {
+		id = CCP_naqu_gongyegaige
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = CCP_qingzang_tielu }
+		relative_position_id = CCP_qingzang_tielu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1292
+		state = 322
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_manpower = 0.15
+			}
+			}
+			}
+		}
+	}
+	#建设日喀则
+	focus = {
+		id = CCP_jianshe_rikaze
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = CCP_naqu_gongyegaige }
+		relative_position_id = CCP_naqu_gongyegaige
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 757
+			}
+		}
+		add_extra_state_shared_building_slots = 6
+add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#拉萨畜牧加工产业
+	focus = {
+		id = CCP_lasa_xumujiagong_chanye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = CCP_naqu_gongyegaige }
+		relative_position_id = CCP_naqu_gongyegaige
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 757
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_manpower = 0.2
+			}
+			}
+			add_ideas = CCP_xumuye
+			}
+		}
+	}
+	#阿里军事建设
+	focus = {
+		id = CCP_ali_junshi_jianshe
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = CCP_qingzang_tielu }
+		prerequisite = { focus = CCP_touzi_gangtie_shengchan }
+		relative_position_id = CCP_qingzang_tielu
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 758
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_manpower = 0.2
+			local_supplies_for_controller = 0.2
+			}
+			}
+			}
+		}
+	}
+	#藏区资源开发
+	focus = {
+		id = CCP_zangqu_ziyuan_kaifa
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CCP_qingzang_tielu }
+		relative_position_id = CCP_qingzang_tielu
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 601
+			}
+		}
+		add_resource = {
+    type = oil
+    amount = 20
+}
+add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			}
+			}
+		every_state = {
+		limit = {
+		OR = {
+		state = 322
+			}
+		}
+		add_resource = {
+    type = tungsten
+    amount = 20
+}
+add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			}
+			}
+		}
+	}
+	#葡与棉之地
+	focus = {
+		id = CCP_puyumian_zhidi
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CCP_xinjiang_jianshe_bingtuan }
+		relative_position_id = CCP_xinjiang_jianshe_bingtuan
+		x = 2
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 760
+			state = 1300
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		add_ideas = CCP_puyumian_zhidi
+		}
+	}
+	#大漠工业化
+	focus = {
+		id = CCP_damo_gongyehua
+		icon = GFX_goal_continuous_non_factory_construct
+		relative_position_id = CCP_dasnaxian_gongcheng
+		x = 9
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_dasnaxian_gongcheng
+		has_completed_focus = CCP_renmin_gongshe_dang
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 330
+			state = 1339
+			state = 1340
+			state = 819
+			state = 817
+			state = 1111
+			state = 329
+			state = 654
+			state = 820
+			state = 818
+			}
+		}
+		add_state_modifier = {
+    modifier = {
+			state_production_speed_buildings_factor = 0.1
+			local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#扩大蒙古资源开发
+	focus = {
+		id = CCP_kuoda_menggu_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = CCP_damo_gongyehua }
+		relative_position_id = CCP_damo_gongyehua
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 330
+		state = 329
+			}
+		}
+		add_resource = {
+    type = steel
+    amount = 20
+}
+add_resource = {
+    type = chromium
+    amount = 25
+}
+		add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			}
+			}
+		every_state = {
+		limit = {
+		OR = {
+		state = 761
+		state = 612
+		state = 621
+		state = 1095
+			}
+		}
+		add_resource = {
+    type = steel
+    amount = 10
+}
+add_resource = {
+    type = aluminium
+    amount = 15
+}
+		add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#扩大北方城市化
+	focus = {
+		id = CCP_kuoda_beifang_chengshihua
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = CCP_kuoda_menggu_ziyuan_kaifa }
+		relative_position_id = CCP_kuoda_menggu_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 818
+		state = 330
+		state = 1091
+		state = 1092
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_building_slots_factor = 0.15
+			}
+			}
+			}
+		}
+	}
+	#开采西北资源
+	focus = {
+		id = CCP_kaicai_xibei_ziyuan
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = CCP_kuoda_beifang_chengshihua }
+		prerequisite = { focus = CCP_puyumian_zhidi }
+		relative_position_id = CCP_kuoda_beifang_chengshihua
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 283
+		state = 1094
+		state = 616
+			}
+		}
+add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			}
+			add_resource = {
+    type = tungsten
+    amount = 20
+}
+			}
+		every_state = {
+		limit = {
+		OR = {
+		state = 1094
+		state = 1092
+			}
+		}
+add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			}
+			add_resource = {
+    type = oil
+    amount = 25
+}
+			}
+		}
+	}
+	#西北实验所
+	focus = {
+		id = CCP_xibei_shiyansuo
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = CCP_kaicai_xibei_ziyuan }
+		relative_position_id = CCP_kaicai_xibei_ziyuan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CCP_xibei_shiyansuo
+		}
+	}
+	#兰州工业发展
+	focus = {
+		id = CCP_lanzhou_gongye_fazhan
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = CCP_kaicai_xibei_ziyuan }
+		relative_position_id = CCP_kaicai_xibei_ziyuan
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1295
+		state = 604
+		state = 755
+		state = 754
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_building_slots_factor = 0.1
+			}
+			}
+			}
+		}
+	}
+	#铁路向东
+	focus = {
+		id = CCP_tielu_xiangdong
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = CCP_kaicai_xibei_ziyuan }
+		prerequisite = { focus = CCP_yinchuan_gongyehua }
+		relative_position_id = CCP_kaicai_xibei_ziyuan
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1091
+		state = 1092
+		state = 283
+		state = 1094
+		state = 1411
+			}
+		}
+add_state_modifier = {
+    modifier = {
+			army_speed_factor_for_controller = 0.2
+			local_supplies_for_controller = 0.2
+			}
+			}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#陕西金属加工产业
+	focus = {
+		id = CCP_shanxi_jinshu_jiagong_chanye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CCP_baoding_shazhichang }
+		prerequisite = { focus = CCP_tielu_xiangdong }
+		relative_position_id = CCP_tielu_xiangdong
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1129
+		state = 622
+		state = 1093
+			}
+		}
+add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西安化工产业
+	focus = {
+		id = CCP_xian_huagong_chanye
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CCP_shanxi_jinshu_jiagong_chanye }
+		relative_position_id = CCP_shanxi_jinshu_jiagong_chanye
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1130
+		state = 1181
+		state = 734
+			}
+		}
+add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = synthetic_refinery
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#四川石化开发
+	focus = {
+		id = CCP_sichuan_shihua_kaifa
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CCP_xian_huagong_chanye }
+		prerequisite = { focus = CCP_lanzhou_gongye_fazhan }
+		prerequisite = { focus = CCP_xibei_shiyansuo }
+		relative_position_id = CCP_xian_huagong_chanye
+		x = -2
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1082
+		state = 1087
+		state = 1088
+			}
+		}
+add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = synthetic_refinery
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#开发理塘边区
+	focus = {
+		id = CCP_kaifa_litang_bianqu
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_sichuan_shihua_kaifa }
+		prerequisite = { focus = CCP_zangqu_ziyuan_kaifa }
+		relative_position_id = CCP_sichuan_shihua_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1086
+		state = 752
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 20
+}
+add_resource = {
+    type = chromium
+    amount = 5
+}
+			}
+		}
+	}
+	#大理军工体
+	focus = {
+		id = CCP_dali_jungong_ti
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CCP_kaifa_litang_bianqu }
+		relative_position_id = CCP_kaifa_litang_bianqu
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1276
+		state = 747
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#昆明联合工业体
+	focus = {
+		id = CCP_kunming_gongye_lianheti
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = CCP_chongqing_hangtiangongye_lianheti }
+		prerequisite = { focus = CCP_kaifa_litang_bianqu }
+		relative_position_id = CCP_kaifa_litang_bianqu
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1277
+		state = 325
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+state_production_speed_buildings_factor = 0.1
+}
+}
+			}
+		}
+	}
+	#云南交通体系
+	focus = {
+		id = CCP_yunnan_jiaotong_tixi
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = CCP_dali_jungong_ti }
+		prerequisite = { focus = CCP_kunming_gongye_lianheti }
+		relative_position_id = CCP_kunming_gongye_lianheti
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 747
+			state = 325
+			state = 1274
+			state = 1276
+			state = 1277
+			state = 1275
+			}
+		}
+add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+local_supplies_for_controller = 0.15
+army_speed_factor_for_controller = 0.15
+}
+}
+			}
+		}
+	}
+	#重庆航天工业联合体
+	focus = {
+		id = CCP_chongqing_hangtiangongye_lianheti
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = CCP_hubei_daliangang }
+		prerequisite = { focus = CCP_sichuan_shihua_kaifa }
+		relative_position_id = CCP_sichuan_shihua_kaifa
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 605
+			}
+		}
+add_extra_state_shared_building_slots = 6
+add_building_construction = {
+    type = arms_factory
+    level = 4
+    instant_build = yes
+}
+			}
+		add_ideas = CCP_hangtian_lianheti
+		}
+	}
+	#湖北大炼钢
+	focus = {
+		id = CCP_hubei_daliangang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_xian_huagong_chanye }
+		prerequisite = { focus = CCP_hefei_chanyelian }
+		relative_position_id = CCP_xian_huagong_chanye
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1136
+		state = 1135
+		state = 620
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 30
+}
+			}
+		}
+	}
+	#湖南钢铁集合体
+	focus = {
+		id = CCP_hunan_gangtie_jiheti
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_dongfeng_zaiju_kaifa }
+		prerequisite = { focus = CCP_hubei_daliangang }
+		relative_position_id = CCP_hubei_daliangang
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1142
+		state = 1139
+		state = 602
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 30
+}
+			}
+		}
+	}
+	#内蒙加工业
+	focus = {
+		id = CCP_neimeng_jiagongye
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = CCP_kuoda_menggu_ziyuan_kaifa }
+		relative_position_id = CCP_kuoda_menggu_ziyuan_kaifa
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 611
+		state = 1098
+		state = 621
+		state = 1104
+		state = 612
+		state = 1518
+		state = 761
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#银川工业化
+	focus = {
+		id = CCP_yinchuan_gongyehua
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CCP_neimeng_jiagongye }
+		relative_position_id = CCP_neimeng_jiagongye
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 616
+		state = 1303
+		state = 1095
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#畜牧业革新
+	focus = {
+		id = CCP_xumuye_gexin
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = CCP_caoyuan_tielu }
+		prerequisite = { focus = CCP_damo_gongyehua }
+		relative_position_id = CCP_damo_gongyehua
+		x = 4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 611
+			state = 612
+			state = 1104
+			state = 1105
+			state = 1529
+			state = 1488
+			state = 621
+			state = 746
+			state = 1098
+			}
+		}
+		add_state_modifier = {
+    modifier = {
+			mobilization_speed = 0.25
+			local_manpower = 0.1
+			}
+			}
+			}
+		}
+	}
+	#开发河套平原
+	focus = {
+		id = CCP_kaifa_hetao_pingyuan
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = CCP_xumuye_gexin }
+		relative_position_id = CCP_xumuye_gexin
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 407
+			state = 622
+			state = 744
+			state = 1129
+			state = 1093
+			state = 1130
+			state = 1131
+			}
+		}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+    modifier = {
+			local_manpower = 0.15
+			}
+			}
+			}
+		}
+	}
+	#山西矿产开发
+	focus = {
+		id = CCP_shanxi_kuangchan_kaifa
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_kaifa_hetao_pingyuan }
+		relative_position_id = CCP_kaifa_hetao_pingyuan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+			state = 615
+			state = 1096
+			state = 1097
+			state = 1533
+			state = 1532
+			state = 1531
+			}
+		}
+add_state_modifier = {
+    modifier = {
+			local_resources_factor = 0.15
+			}
+			add_resource = {
+    type = oil
+    amount = 10
+}
+add_resource = {
+    type = steel
+    amount = 20
+}
+			}
+			}
+		}
+	}
+	#北方铁路线
+	focus = {
+		id = CCP_beifang_tieluxian
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = CCP_xumuye_gexin }
+		relative_position_id = CCP_xumuye_gexin
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1511
+			state = 1506
+			state = 1106
+			state = 1105
+			state = 1104
+			state = 609
+			state = 608
+			}
+		}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#唐山工业联合体
+	focus = {
+		id = CCP_tangshan_gongye_lianheti
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = CCP_beifang_tieluxian }
+		relative_position_id = CCP_beifang_tieluxian
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1103
+		state = 609
+		state = 1118
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+            add_state_modifier = {
+            modifier = {
+			state_production_speed_buildings_factor = 0.05
+			local_building_slots_factor = 0.1
+	        }
+	    }
+			}
+		}
+	}
+	#保定钞纸厂
+	focus = {
+		id = CCP_baoding_shazhichang
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = CCP_tangshan_gongye_lianheti }
+		prerequisite = { focus = CCP_shanxi_kuangchan_kaifa }
+		relative_position_id = CCP_tangshan_gongye_lianheti
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 614
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+			add_ideas = CCP_baoding_shazhichang
+		}
+	}
+	#太原化工建设
+	focus = {
+		id = CCP_taiyuan_huagong_jianshe
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = CCP_baoding_shazhichang }
+		relative_position_id = CCP_baoding_shazhichang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1531
+		state = 1532
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = synthetic_refinery
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#河南钢铁—农业开发
+	focus = {
+		id = CCP_henangangtie_nongyekaifa
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_taiyuan_huagong_jianshe }
+		relative_position_id = CCP_taiyuan_huagong_jianshe
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1117
+		state = 1120
+		state = 1125
+		state = 607
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 20
+}
+			}
+		}
+	}
+	#天津海军基地
+	focus = {
+		id = CCP_tianjin_haijun_jidi
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = CCP_beifang_tieluxian }
+		prerequisite = { focus = CCP_shenyang_daxing_jixiechang	}
+		relative_position_id = CCP_beifang_tieluxian
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1100
+			}
+		}
+		add_extra_state_shared_building_slots = 6
+			add_building_construction = {
+    type = dockyard
+    level = 4
+    instant_build = yes
+}
+            add_state_modifier = {
+            modifier = {
+			state_resource_oil = 5
+	        }
+	    }
+		add_building_construction = {
+				type = naval_base
+				province = 10068
+				level = 4
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#大沽船厂
+	focus = {
+		id = CCP_dagu_chaunchang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CCP_tianjin_haijun_jidi }
+		relative_position_id = CCP_tianjin_haijun_jidi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1099
+		state = 1162
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#济南资源开发
+	focus = {
+		id = CCP_jinan_ziyuan_kaifa
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = CCP_dagu_chaunchang }
+		relative_position_id = CCP_dagu_chaunchang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1116
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+    level = 4
+    instant_build = yes
+}
+add_resource = {
+    type = oil
+    amount = 30
+}
+add_resource = {
+    type = steel
+    amount = 20
+}
+add_resource = {
+    type = aluminium
+    amount = 10
+}
+add_resource = {
+    type = chromium
+    amount = 30
+}
+			}
+		}
+	}
+	#青岛海港建设
+	focus = {
+		id = CCP_qingdao_haigang_kaifa
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = CCP_dagu_chaunchang }
+		relative_position_id = CCP_dagu_chaunchang
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 743
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = dockyard
+    level = 4
+    instant_build = yes
+}
+add_building_construction = {
+				type = naval_base
+				province = 10000
+				level = 4
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#地区特色开发
+	focus = {
+		id = CCP_diqu_tese_kaifa
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = CCP_jinan_ziyuan_kaifa }
+		prerequisite = { focus = CCP_qingdao_haigang_kaifa }
+		relative_position_id = CCP_qingdao_haigang_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1151
+		state = 598
+		state = 1154
+		state = 1150
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		every_state = {
+		limit = {
+		OR = {
+		state = 1154
+		state = 1150
+			}
+		}
+			add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#南京研究所
+	focus = {
+		id = CCP_nanjing_keyansuo
+		icon = GFX_focus_research2
+		prerequisite = { focus = CCP_diqu_tese_kaifa }
+		relative_position_id = CCP_diqu_tese_kaifa
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CCP_nanjing_keyansuo
+		}
+	}
+	#上海贸易开发
+	focus = {
+		id = CCP_shanghai_maoyi_kaifa
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = CCP_diqu_tese_kaifa }
+		relative_position_id = CCP_diqu_tese_kaifa
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 613
+			}
+		}
+		add_extra_state_shared_building_slots = 6
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		add_ideas = CCP_maoyi_kaifa
+		}
+	}
+	#浙江工业改革
+	focus = {
+		id = CCP_zhejiang_gongye_gaige
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = CCP_shanghai_maoyi_kaifa }
+		prerequisite = { focus = CCP_nanjing_keyansuo }
+		relative_position_id = CCP_nanjing_keyansuo
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1164
+		state = 1247
+		state = 1245
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#江南造船厂
+	focus = {
+		id = CCP_jiangnan_zaochuanchang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = CCP_zhejiang_gongye_gaige }
+		relative_position_id = CCP_zhejiang_gongye_gaige
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 596
+		state = 1247
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#福建海洋开发
+	focus = {
+		id = CCP_fujian_hanyang_kaifa
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { focus = CCP_jiangnan_zaochuanchang }
+		relative_position_id = CCP_jiangnan_zaochuanchang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1285
+		state = 1291
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#台北电子厂
+	focus = {
+		id = CCP_taibei_dianzichang
+		icon = GFX_goal_generic_radar
+		relative_position_id = CCP_fujian_hanyang_kaifa
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_fujian_hanyang_kaifa
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		has_country_flag = CCP_erjieduan
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1486
+		state = 1487
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+state_production_speed_buildings_factor = 0.1
+}
+}
+			}
+		}
+	}
+	#高雄造船厂
+	focus = {
+		id = CCP_gaoxiong_zaochuanchang
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = CCP_taibei_dianzichang }
+		relative_position_id = CCP_taibei_dianzichang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 524
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = dockyard
+    level = 4
+    instant_build = yes
+}
+			}
+		}
+	}
+	#菏泽农业机械化
+	focus = {
+		id = CCP_heze_nongye_jixiehua
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = CCP_jinan_ziyuan_kaifa }
+		relative_position_id = CCP_jinan_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1414
+		state = 597
+		state = 1415
+			}
+		}
+		add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+local_building_slots_factor = 0.1
+}
+}
+			}
+		}
+	}
+	#合肥产业链
+	focus = {
+		id = CCP_hefei_chanyelian
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = CCP_heze_nongye_jixiehua }
+		prerequisite = { focus = CCP_henangangtie_nongyekaifa }
+		relative_position_id = CCP_heze_nongye_jixiehua
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1147
+		state = 1146
+		state = 1145
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东风载具开发
+	focus = {
+		id = CCP_dongfeng_zaiju_kaifa
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = CCP_hefei_chanyelian }
+		relative_position_id = CCP_hefei_chanyelian
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1132
+		state = 1134
+		state = 1133
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#湖南电子研究所
+	focus = {
+		id = CCP_hunan_dianzi_yanjiusuo
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = CCP_hefei_chanyelian }
+		relative_position_id = CCP_hefei_chanyelian
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = CCP_dianzi_yanjiusuo
+		}
+	}
+	#南部农业开发
+	focus = {
+		id = CCP_nanbu_nongye_kaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = CCP_chongqing_hangtiangongye_lianheti }
+		prerequisite = { focus = CCP_hunan_gangtie_jiheti }
+		prerequisite = { focus = CCP_hunan_dianzi_yanjiusuo }
+		relative_position_id = CCP_hunan_gangtie_jiheti
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 605
+			state = 1268
+			state = 1083
+			state = 1270
+			state = 1271
+			state = 1112
+			state = 602
+			state = 1090
+			state = 1138
+			state = 1139
+			state = 1140
+			state = 1141
+			state = 1142
+			state = 1143
+			state = 620
+			state = 750
+			state = 1114
+			state = 1131
+			state = 1132
+			state = 1133
+			state = 1134
+			state = 1135
+			state = 1136
+			}
+		}
+add_state_modifier = {
+modifier = {
+local_building_slots_factor = 0.1
+local_manpower = 0.1
+}
+}
+			}
+		}
+	}
+	#柳州钢铁厂
+	focus = {
+		id = CCP_liuzhou_gangtiechang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = CCP_nanbu_nongye_kaifa }
+		relative_position_id = CCP_nanbu_nongye_kaifa
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 1261
+			state = 1262
+			state = 1150
+			}
+		}
+add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_resource = {
+    type = steel
+    amount = 30
+}
+			}
+		}
+	}
+	#南宁冶金厂
+	focus = {
+		id = CCP_nanning_yejinsuo
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = CCP_liuzhou_gangtiechang }
+		relative_position_id = CCP_liuzhou_gangtiechang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 1256
+			state = 1257
+			state = 594
+			}
+		}
+add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_resource = {
+    type = aluminium
+    amount = 10
+}
+add_resource = {
+    type = tungsten
+    amount = 10
+}
+			}
+		add_ideas = CCP_nanning_yejinsuo
+		}
+	}
+	#海南渔业开发
+	focus = {
+		id = CCP_hainan_yuye_kaifa
+		icon = GFX_goal_continuous_naval_production
+		relative_position_id = CCP_liuzhou_gangtiechang
+		x = 0
+		y = 2
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_liuzhou_gangtiechang
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		has_country_flag = CCP_erjieduan
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 591
+			}
+		}
+add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		every_state = {
+		limit = {
+		OR = {
+		    state = 728
+			state = 1263
+			}
+		}
+add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#广北铁路线
+	focus = {
+		id = CCP_guangbei_tieluxian
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = CCP_nanbu_nongye_kaifa }
+		relative_position_id = CCP_nanbu_nongye_kaifa
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 1140
+			state = 1143
+			state = 1141
+			state = 1139
+			state = 1281
+			state = 1264
+			state = 1259
+			state = 593
+			}
+		}
+add_state_modifier = {
+modifier = {
+army_speed_factor_for_controller = 0.05
+local_building_slots_factor = 0.05
+}
+}
+			}
+		}
+	}
+	#潮汕食品加工
+	focus = {
+		id = CCP_chaoshan_shiping_jiagong
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = CCP_guangbei_tieluxian }
+		prerequisite = { focus = CCP_xiamen_maoyi_zhongxin }
+		relative_position_id = CCP_guangbei_tieluxian
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 1282
+			state = 1283
+			state = 1284
+			}
+		}
+add_state_modifier = {
+modifier = {
+local_building_slots_factor = 0.1
+local_manpower = 0.1
+}
+}
+add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#广州海贸港联合体
+	focus = {
+		id = CCP_guangzhou_haimaogang_lianheti
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = CCP_guangbei_tieluxian }
+		relative_position_id = CCP_guangbei_tieluxian
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		    state = 1163
+			state = 326
+			state = 729
+			}
+		}
+add_state_modifier = {
+modifier = {
+local_building_slots_factor = 0.15
+}
+}
+add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		add_ideas = CCP_guangzhou_lianheti
+		}
+	}
+	#江西机械综合体
+	focus = {
+		id = CCP_jiangxi_jixie_zongheti
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = CCP_hunan_dianzi_yanjiusuo }
+		prerequisite = { focus = CCP_zhejiang_gongye_gaige }
+		relative_position_id = CCP_hunan_dianzi_yanjiusuo
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 600
+		state = 1253
+		state = 1251
+			}
+		}
+		add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#厦门贸易中心
+	focus = {
+		id = CCP_xiamen_maoyi_zhongxin
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = CCP_fujian_hanyang_kaifa }
+		prerequisite = { focus = CCP_jiangxi_jixie_zongheti }
+		relative_position_id = CCP_jiangxi_jixie_zongheti
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1286
+			}
+		}
+		add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		swap_ideas = {
+		add_idea = CCP_maoyi_kaifa_2
+		remove_idea = CCP_maoyi_kaifa
+		}
+		}
+	}
+	#东海造船厂
+	focus = {
+		id = CCP_donghai_zaochuanchang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = CCP_dagu_chaunchang }
+		relative_position_id = CCP_dagu_chaunchang
+		x = 4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		OR = {
+		state = 1114
+		state = 1115
+			}
+		}
+		add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#人民解放军
+	focus = {
+		id = CCP_renmin_jiefangjun
+		icon = GFX_focus_chi_army_reform
+		x = 40
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_changjiang_huiyi
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#战争的经验
+	focus = {
+		id = CCP_zhanzheng_jingyan
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = CCP_renmin_jiefangjun}
+		relative_position_id = CCP_renmin_jiefangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#持久战理论
+	focus = {
+		id = CCP_chijiuzhan_lilun
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_chijiuzhan_lilun
+		}
+	}
+	#动员人民
+	focus = {
+		id = CCP_dongyuan_renmin
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CCP_chijiuzhan_lilun}
+		relative_position_id = CCP_chijiuzhan_lilun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_dongyuan_renmin
+		}
+	}
+	#民兵体系
+	focus = {
+		id = CCP_minbing_tixi
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = CCP_dongyuan_renmin}
+		relative_position_id = CCP_dongyuan_renmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongyuan_renmin_2
+			remove_idea = CCP_dongyuan_renmin
+			}
+		}
+	}
+	#部队扫盲
+	focus = {
+		id = CCP_budui_saomang
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = CCP_minbing_tixi}
+		relative_position_id = CCP_minbing_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_buduisaomang
+		}
+	}
+	#汪洋大海
+	focus = {
+		id = CCP_wangyang_dahai
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = CCP_minbing_tixi}
+		relative_position_id = CCP_minbing_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongyuan_renmin_3
+			remove_idea = CCP_dongyuan_renmin_2
+			}
+		}
+	}
+	#民兵训练
+	focus = {
+		id = CCP_minbing_xunlian
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CCP_budui_saomang}
+		prerequisite = { focus = CCP_wangyang_dahai}
+		relative_position_id = CCP_budui_saomang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongyuan_renmin_4
+			remove_idea = CCP_dongyuan_renmin_3
+			}
+		}
+	}
+	#扫除农村反动派
+	focus = {
+		id = CCP_saochu_nongcun_fandongpai
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CCP_minbing_xunlian}
+		relative_position_id = CCP_minbing_xunlian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_2_tt
+}
+add_ideas = CCP_xiangcun_gaige
+		}
+	}
+	#链接乡村
+	focus = {
+		id = CCP_lianjie_xiangcun
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = CCP_saochu_nongcun_fandongpai}
+		relative_position_id = CCP_saochu_nongcun_fandongpai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xiangcun_gaige_2
+			remove_idea = CCP_xiangcun_gaige
+			}
+		}
+	}
+	#增强民兵武装
+	focus = {
+		id = CCP_zengqiang_minbing_wuzhuang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = CCP_minbing_xunlian}
+		relative_position_id = CCP_minbing_xunlian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongyuan_renmin_5
+			remove_idea = CCP_dongyuan_renmin_4
+			}
+		}
+	}
+	#小型武装常规化
+	focus = {
+		id = CCP_xiaoxing_wuzhuang_changguihua
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = CCP_zengqiang_minbing_wuzhuang }
+		relative_position_id = CCP_zengqiang_minbing_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_dongyuan_renmin_6
+			remove_idea = CCP_dongyuan_renmin_5
+			}
+		}
+	}
+	#游击战争
+	focus = {
+		id = CCP_youji_zhanzheng
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = CCP_chijiuzhan_lilun}
+		relative_position_id = CCP_chijiuzhan_lilun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chijiuzhan_lilun_2
+			remove_idea = CCP_chijiuzhan_lilun
+			}
+		}
+	}
+	#十六字战术
+	focus = {
+		id = CCP_shiliuzi_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = CCP_youji_zhanzheng}
+		relative_position_id = CCP_youji_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chijiuzhan_lilun_3
+			remove_idea = CCP_chijiuzhan_lilun_2
+			}
+		}
+	}
+	#解放之志
+	focus = {
+		id = CCP_jiefang_zhizhi
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = CCP_sixiang_shentou
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_3
+			remove_idea = CCP_renmin_jiefangjun_2
+			}
+		}
+	}
+	#三项纪律八大注意
+	focus = {
+		id = CCP_sanxiang_bada
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CCP_jiefang_zhizhi}
+		relative_position_id = CCP_jiefang_zhizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_4
+			remove_idea = CCP_renmin_jiefangjun_3
+			}
+		}
+	}
+	#艰苦征途
+	focus = {
+		id = CCP_jianku_zhengtu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = CCP_sanxiang_bada}
+		relative_position_id = CCP_sanxiang_bada
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_5
+			remove_idea = CCP_renmin_jiefangjun_4
+			}
+		}
+	}
+	#战争的艺术
+	focus = {
+		id = CCP_zhenzheng_yishu
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CCP_sanxiang_bada}
+		relative_position_id = CCP_sanxiang_bada
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 2
+				category = army_doctrine
+			}
+		}
+	}
+	#冲锋号角
+	focus = {
+		id = CCP_chongfeng_haojiao
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = CCP_jianku_zhengtu}
+		prerequisite = { focus = CCP_zhenzheng_yishu}
+		relative_position_id = CCP_zhenzheng_yishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_6
+			remove_idea = CCP_renmin_jiefangjun_5
+			}
+		}
+	}
+	#真正的军队
+	focus = {
+		id = CCP_ture_army
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = CCP_chongfeng_haojiao}
+		relative_position_id = CCP_chongfeng_haojiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_7
+			remove_idea = CCP_renmin_jiefangjun_6
+			}
+		}
+	}
+	#一往无前
+	focus = {
+		id = CCP_yiwang_wuqian
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = CCP_ture_army }
+		relative_position_id = CCP_ture_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_renmin_jiefangjun_8
+			remove_idea = CCP_renmin_jiefangjun_7
+			}
+		}
+	}
+	#三三制进攻
+	focus = {
+		id = CCP_sansanzhi_jingong
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = CCP_zhenzheng_yishu}
+		relative_position_id = CCP_zhenzheng_yishu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_33zhi
+		}
+	}
+	#包抄战术
+	focus = {
+		id = CCP_baochao_zhanshu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CCP_sansanzhi_jingong}
+		relative_position_id = CCP_sansanzhi_jingong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_baochao_zhanshu
+			remove_idea = CCP_33zhi
+			}
+		}
+	}
+	#多元化战争
+	focus = {
+		id = CCP_duoyuanhua_zhanzheng
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = CCP_baochao_zhanshu}
+		prerequisite = { focus = CCP_lujun_jixiehua}
+		relative_position_id = CCP_baochao_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_duoyuanhua_zhanzheng
+			remove_idea = CCP_baochao_zhanshu
+			}
+		}
+	}
+	#分散战争
+	focus = {
+		id = CCP_fensan_zhanzheng
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = CCP_jianku_zhengtu}
+		prerequisite = { focus = CCP_shiliuzi_zhanshu}
+		relative_position_id = CCP_jianku_zhengtu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chijiuzhan_lilun_4
+			remove_idea = CCP_chijiuzhan_lilun_3
+			}
+		}
+	}
+	#团结一心
+	focus = {
+		id = CCP_tuanjie_yixin
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CCP_fensan_zhanzheng}
+		relative_position_id = CCP_fensan_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chijiuzhan_lilun_5
+			remove_idea = CCP_chijiuzhan_lilun_4
+			}
+		}
+	}
+	#加强部队联络
+	focus = {
+		id = CCP_jiaqiang_budui_lianluo
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = CCP_tuanjie_yixin}
+		relative_position_id = CCP_tuanjie_yixin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_chijiuzhan_lilun_6
+			remove_idea = CCP_chijiuzhan_lilun_5
+			}
+		}
+	}
+	#新中国革命军
+	focus = {
+		id = CCP_xinzhongguo_gemingjun
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = CCP_jiaqiang_budui_lianluo}
+		prerequisite = { focus = CCP_yiwang_wuqian}
+		prerequisite = { focus = CCP_duoyuanhua_zhanzheng}
+		relative_position_id = CCP_yiwang_wuqian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xinzhongguo_gemingjun
+			remove_idea = CCP_renmin_jiefangjun_8
+			}
+		}
+	}
+	#军事科研开发
+	focus = {
+		id = CCP_junshi_keyan_kaifa
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 4
+				category = industry
+				category = artillery
+				category = armor
+			}
+		}
+	}
+	#研究坦克制造
+	focus = {
+		id = CCP_yanjiu_tanke_zhizao
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus = CCP_junshi_keyan_kaifa}
+		relative_position_id = CCP_junshi_keyan_kaifa
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_zhuangjia_kaifa
+		}
+	}
+	#完善中国装甲
+	focus = {
+		id = CCP_wanshan_zhongguo_zhuangjia
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = CCP_yanjiu_tanke_zhizao}
+		relative_position_id = CCP_yanjiu_tanke_zhizao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zhuangjia_kaifa_2
+			remove_idea = CCP_zhuangjia_kaifa
+			}
+		}
+	}
+	#陆军机械化
+	focus = {
+		id = CCP_lujun_jixiehua
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = CCP_wanshan_zhongguo_zhuangjia}
+		relative_position_id = CCP_wanshan_zhongguo_zhuangjia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zhuangjia_kaifa_3
+			remove_idea = CCP_zhuangjia_kaifa_2
+			}
+		}
+	}
+	#火炮再开发
+	focus = {
+		id = CCP_huopao_zaikaifa
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = CCP_junshi_keyan_kaifa}
+		relative_position_id = CCP_junshi_keyan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_huoli_zaikaifa
+		}
+	}
+	#天地火力
+	focus = {
+		id = CCP_tiandi_huoli
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = CCP_huopao_zaikaifa}
+		relative_position_id = CCP_huopao_zaikaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_huoli_zaikaifa_2
+			remove_idea = CCP_huoli_zaikaifa
+			}
+		}
+	}
+	#笼罩级攻势
+	focus = {
+		id = CCP_longzhao_gongshi
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = CCP_tiandi_huoli}
+		relative_position_id = CCP_tiandi_huoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_huoli_zaikaifa_3
+			remove_idea = CCP_huoli_zaikaifa_2
+			}
+		}
+	}
+	#强化堑壕战
+	focus = {
+		id = CCP_qianghua_qianhaozhan
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = CCP_junshi_keyan_kaifa}
+		relative_position_id = CCP_junshi_keyan_kaifa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_qianhaozhan
+		}
+	}
+	#现代医疗
+	focus = {
+		id = CCP_xiandaihua_yiliao
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CCP_qianghua_qianhaozhan}
+		relative_position_id = CCP_qianghua_qianhaozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_xiandaihua_yiliao
+		}
+	}
+	#电子化作战
+	focus = {
+		id = CCP_dianzihua_zuozhan
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = CCP_xiandaihua_yiliao}
+		relative_position_id = CCP_xiandaihua_yiliao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_dianzihua_zuozhan
+		}
+	}
+	#保证军事科学
+	focus = {
+		id = CCP_baozheng_junshi_kexue
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = CCP_lujun_jixiehua}
+		prerequisite = { focus = CCP_longzhao_gongshi}
+		prerequisite = { focus = CCP_dianzihua_zuozhan}
+		relative_position_id = CCP_longzhao_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_of_military_factories > 1000
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#核能科学
+	focus = {
+		id = CCP_heneng_kexue
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = CCP_baozheng_junshi_kexue}
+		relative_position_id = CCP_baozheng_junshi_kexue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_xibei_shiyansuo
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = nuclear
+			}
+		}
+	}
+	#火箭科学
+	focus = {
+		id = CCP_huojian_kexue
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = CCP_baozheng_junshi_kexue}
+		relative_position_id = CCP_baozheng_junshi_kexue
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = CCP_xibei_shiyansuo
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = rocketry
+			}
+		}
+	}
+	#现代化战争
+	focus = {
+		id = CCP_xiandaihua_zhanzheng
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = 14
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_ideas = CCP_xiandaihua_zhanzheng
+		}
+	}
+	#战争总计划
+	focus = {
+		id = CCP_zhanzheng_zongjihua
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = CCP_xiandaihua_zhanzheng}
+		relative_position_id = CCP_xiandaihua_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_zongtizhan
+		}
+	}
+	#建设总体战
+	focus = {
+		id = CCP_jianshe_zongtizhan
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = CCP_zhanzheng_zongjihua}
+		relative_position_id = CCP_zhanzheng_zongjihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zongtizhan_2
+			remove_idea = CCP_zongtizhan
+			}
+		}
+	}
+	#扩大战争潜力
+	focus = {
+		id = CCP_kuoda_zhanzheng_qianli
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CCP_jianshe_zongtizhan}
+		relative_position_id = CCP_jianshe_zongtizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zongtizhan_3
+			remove_idea = CCP_zongtizhan_2
+			}
+		}
+	}
+	#扩张军事工业
+	focus = {
+		id = CCP_kuozhang_junshi_gongye
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = CCP_kuoda_zhanzheng_qianli}
+		relative_position_id = CCP_kuoda_zhanzheng_qianli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_zongtizhan_4
+			remove_idea = CCP_zongtizhan_3
+			}
+		}
+	}
+	#建设军事学院
+	focus = {
+		id = CCP_jianshe_junshi_xueyuan
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = CCP_xiandaihua_zhanzheng}
+		relative_position_id = CCP_xiandaihua_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xiandaihua_zhanzheng_2
+			remove_idea = CCP_xiandaihua_zhanzheng
+			}
+		}
+	}
+	#军官职业化
+	focus = {
+		id = CCP_junguan_zhiyehua
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = CCP_jianshe_junshi_xueyuan}
+		relative_position_id = CCP_jianshe_junshi_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xiandaihua_zhanzheng_3
+			remove_idea = CCP_xiandaihua_zhanzheng_2
+			}
+		}
+	}
+	#基础自主权
+	focus = {
+		id = CCP_jichu_zizhuquan
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = CCP_junguan_zhiyehua}
+		relative_position_id = CCP_junguan_zhiyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xiandaihua_zhanzheng_4
+			remove_idea = CCP_xiandaihua_zhanzheng_3
+			}
+		}
+	}
+	#加强将领素养
+	focus = {
+		id = CCP_jiaqiang_jiangling_suyang
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = CCP_jianshe_junshi_xueyuan}
+		relative_position_id = CCP_jianshe_junshi_xueyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_jiaqiang_zhihui_tixi
+			every_army_leader = {
+			add_attack = 1
+			add_planning = 1
+			}
+		}
+	}
+	#改革军衔体系
+	focus = {
+		id = CCP_gaige_junxian_tixi
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = CCP_jiaqiang_jiangling_suyang}
+		relative_position_id = CCP_jiaqiang_jiangling_suyang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaqiang_zhihui_tixi_2
+			remove_idea = CCP_jiaqiang_zhihui_tixi
+			}
+			every_army_leader = {
+			add_defense = 1
+			add_logistics = 1
+			add_max_trait = 2
+			add_skill_level = 1
+			}
+		}
+	}
+	#战术优势
+	focus = {
+		id = CCP_zhanshu_youshi
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = CCP_gaige_junxian_tixi}
+		prerequisite = { focus = CCP_jichu_zizhuquan}
+		relative_position_id = CCP_gaige_junxian_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_jiaqiang_zhihui_tixi_3
+			remove_idea = CCP_jiaqiang_zhihui_tixi_2
+			}
+		}
+	}
+	#步步向前
+	focus = {
+		id = CCP_bubu_xiangqian
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = CCP_kuozhang_junshi_gongye}
+		prerequisite = { focus = CCP_zhanshu_youshi}
+		relative_position_id = CCP_zhanshu_youshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_xiandaihua_zhanzheng_5
+			remove_idea = CCP_xiandaihua_zhanzheng_4
+			}
+		}
+	}
+	#向蓝海前进
+	focus = {
+		id = CCP_xianglanhai_qianjin
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = 19
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 6
+				category = naval_equipment
+				category = dd_tech
+			}
+		}
+	}
+	#屏卫海军科研
+	focus = {
+		id = CCP_pinwei_haijun_keyan
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = CCP_xianglanhai_qianjin}
+		relative_position_id = CCP_xianglanhai_qianjin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_haijun_fazhan
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+	#潜艇发展
+	focus = {
+		id = CCP_qianting_fazhan
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = CCP_pinwei_haijun_keyan}
+		relative_position_id = CCP_pinwei_haijun_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haijun_fazhan_2
+			remove_idea = CCP_haijun_fazhan
+			}
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+	#中型支援火力
+	focus = {
+		id = CCP_zhongxing_zhiyuan_huoli
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = CCP_qianting_fazhan}
+		relative_position_id = CCP_qianting_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haijun_fazhan_3
+			remove_idea = CCP_haijun_fazhan_2
+			}
+		}
+	}
+	#开发大型海军
+	focus = {
+		id = CCP_kaifa_daxing_haijun
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = CCP_zhongxing_zhiyuan_huoli}
+		relative_position_id = CCP_zhongxing_zhiyuan_huoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haijun_fazhan_4
+			remove_idea = CCP_haijun_fazhan_3
+			}
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = bb_tech
+			}
+		}
+	}
+	#海空军事学院
+	focus = {
+		id = CCP_haikong_junshi_xueyuan
+		icon = GFX_focus_usa_escort_fighters
+		prerequisite = { focus = CCP_xianglanhai_qianjin}
+		prerequisite = { focus = CCP_hanwei_women_lantian}
+		relative_position_id = CCP_hanwei_women_lantian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_haikong_gaige
+		}
+	}
+	#培养海军步兵
+	focus = {
+		id = CCP_peiyang_haijun_bubing
+		icon = GFX_goal_continuous_reduce_training_time
+		prerequisite = { focus = CCP_haikong_junshi_xueyuan}
+		relative_position_id = CCP_haikong_junshi_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haikong_gaige_2
+			remove_idea = CCP_haikong_gaige
+			}
+		}
+	}
+	#培养专业地勤
+	focus = {
+		id = CCP_peiyang_zhuanye_diqin
+		icon = GFX_goal_continuous_repairments
+		prerequisite = { focus = CCP_peiyang_haijun_bubing}
+		relative_position_id = CCP_peiyang_haijun_bubing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haikong_gaige_3
+			remove_idea = CCP_haikong_gaige_2
+			}
+		}
+	}
+	#建设海洋空军
+	focus = {
+		id = CCP_jianshe_haiyang_kongjun
+		icon = GFX_focus_chi_flying_tigers
+		prerequisite = { focus = CCP_peiyang_zhuanye_diqin}
+		relative_position_id = CCP_peiyang_zhuanye_diqin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haikong_gaige_4
+			remove_idea = CCP_haikong_gaige_3
+			}
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+	#共和国航母
+	focus = {
+		id = CCP_gongheguo_hangmu
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = CCP_jianshe_haiyang_kongjun}
+		prerequisite = { focus = CCP_jianshe_haiyang_kongjun}
+		relative_position_id = CCP_jianshe_haiyang_kongjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_haijun_fazhan_5
+			remove_idea = CCP_haijun_fazhan_4
+			}
+			add_tech_bonus = {
+				bonus = 3
+				uses = 2
+				category = cc_tech
+			}
+		}
+	}
+	#捍卫我们的蓝天
+	focus = {
+		id = CCP_hanwei_women_lantian
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = CCP_zhanzheng_jingyan}
+		relative_position_id = CCP_zhanzheng_jingyan
+		x = 21
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			add_ideas = CCP_hanwei_lantian
+		}
+	}
+	#利用技术优势
+	focus = {
+		id = CCP_liyong_jishuyoushi
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = CCP_hanwei_women_lantian}
+		relative_position_id = CCP_hanwei_women_lantian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 6
+				category = light_air
+				category = air_equipment
+			}
+		}
+	}
+	#扩大空军科学
+	focus = {
+		id = CCP_kuoda_kongjun_kexue
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = CCP_liyong_jishuyoushi}
+		relative_position_id = CCP_liyong_jishuyoushi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_hanwei_lantian_2
+			remove_idea = CCP_hanwei_lantian
+			}
+		}
+	}
+	#确保空军质量
+	focus = {
+		id = CCP_quebao_kongjun_zhiliang
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = CCP_kuoda_kongjun_kexue}
+		relative_position_id = CCP_kuoda_kongjun_kexue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_hanwei_lantian_3
+			remove_idea = CCP_hanwei_lantian_2
+			}
+		}
+	}
+	#培养飞行员
+	focus = {
+		id = CCP_peiyang_feixingyuan
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = CCP_quebao_kongjun_zhiliang}
+		relative_position_id = CCP_quebao_kongjun_zhiliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_hanwei_lantian_4
+			remove_idea = CCP_hanwei_lantian_3
+			}
+		}
+	}
+	#改革天空战术
+	focus = {
+		id = CCP_gaige_tiankong_zhanshu
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = CCP_peiyang_feixingyuan}
+		prerequisite = { focus = CCP_jianshe_haiyang_kongjun}
+		relative_position_id = CCP_peiyang_feixingyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_hanwei_lantian_5
+			remove_idea = CCP_hanwei_lantian_4
+			}
+		}
+	}
+	#农业社会主义
+	focus = {
+		id = CCP_nongye_shehui_zhuyi
+		icon = GFX_focus_prc_agrarian_socialism
+		relative_position_id = CCP_jinggangshan_shang
+		mutually_exclusive = { focus = CCP_lianhe_zhengfu }
+		x = 15
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_erjieduan
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_shehuizhuyi
+			remove_idea = CCP_sixiang_wenti
+			}
+			add_stability = -0.05
+		}
+	}
+	#无产阶级思想
+	focus = {
+		id = CCP_wuchanjieji_sixiang
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = CCP_nongye_shehui_zhuyi}
+		relative_position_id = CCP_nongye_shehui_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CCP_wuchanjieji_sixiang
+		}
+	}
+	#共产主义先锋队
+	focus = {
+		id = CCP_gczy_xfd
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = CCP_wuchanjieji_sixiang}
+		relative_position_id = CCP_wuchanjieji_sixiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_wuchanjieji_sixiang_2
+			remove_idea = CCP_wuchanjieji_sixiang
+			}
+		}
+	}
+	#整风运动
+	focus = {
+		id = CCP_zhengfeng_yundong
+		icon = GFX_focus_SOV_the_last_purge
+		prerequisite = { focus = CCP_nongye_shehui_zhuyi}
+		relative_position_id = CCP_nongye_shehui_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_nongye_shehuizhuyi_2
+			remove_idea = CCP_nongye_shehuizhuyi
+			}
+			add_stability = -0.05
+		}
+	}
+	#反旧反军阀
+	focus = {
+		id = CCP_fanjiu_fanjunfa
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CCP_zhengfeng_yundong}
+		relative_position_id = CCP_zhengfeng_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#毛泽东思想
+	focus = {
+		id = CCP_maozedong_sixiang
+		icon = GFX_focus_prc_maoism
+		prerequisite = { focus = CCP_fanjiu_fanjunfa}
+		prerequisite = { focus = CCP_gczy_xfd}
+		relative_position_id = CCP_gczy_xfd
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CCP_maozedong_sixiang
+			remove_idea = CCP_nongye_shehuizhuyi_2
+			}
+		}
+	}
+	#联合政府
+	focus = {
+		id = CCP_lianhe_zhengfu
+		icon = GFX_focus_chi_united_front
+		relative_position_id = CCP_jinggangshan_shang
+		mutually_exclusive = { focus = CCP_nongye_shehui_zhuyi }
+		x = 20
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = CCP_erjieduan
+		}
+		}
+		completion_reward = {
+			add_political_power = 50
+			remove_ideas = CCP_sixiang_wenti
+		}
+	}
+	#第二次长江会议
+	focus = {
+		id = CCP_dierci_changjiang_huiyi
+		icon = GFX_focus_chi_proclaim_rival_government
+		prerequisite = { focus = CCP_lianhe_zhengfu}
+		relative_position_id = CCP_lianhe_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KMT = {
+			add_stability = 0.05
+		    }
+			add_stability = 0.05
+		}
+	}
+	#打击温和派
+	focus = {
+		id = CCP_daji_wenhepai
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CCP_dierci_changjiang_huiyi}
+		relative_position_id = CCP_dierci_changjiang_huiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KMT = {
+			add_popularity = {
+    ideology = conservatism
+    popularity = -0.2
+}
+		    }
+		}
+	}
+	#联合激进派
+	focus = {
+		id = CCP_lianhe_jijinpai
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = CCP_dierci_changjiang_huiyi}
+		relative_position_id = CCP_dierci_changjiang_huiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KMT = {
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+		    }
+		}
+	}
+	#旧日梦想
+	focus = {
+		id = CCP_old_dream
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = CCP_lianhe_jijinpai}
+		prerequisite = { focus = CCP_daji_wenhepai}
+		relative_position_id = CCP_daji_wenhepai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KMT = {
+			annex_country = {
+    target = CCP
+    transfer_troops = yes
+}
+		    }
+			KMT = { change_tag_from = ROOT }
+		}
+	}
+	#东方红
+	focus = {
+		id = CCP_dongfanghong
+		icon = GFX_focus_focus_fra_revolution_utmost
+		relative_position_id = CCP_kaiguo_dadian
+		x = 8
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = CCP_erjieduan
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+		if = {
+			limit = {
+			NOT = {
+            has_country_flag = gongchanguoji
+            }
+			}
+			CCP = {
+			leave_faction = yes
+			create_faction = world_librem_zhenxian
+		set_country_flag = gongchanguoji
+			}
+			}
+			every_country = {
+			limit = {
+			OR = {
+            is_in_faction_with = CCP
+			NOT = {
+			is_puppet_of = CCP
+			}
+            }
+			}
+			leave_faction = yes
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }
+			add_to_faction = PREV
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }
+			add_to_faction = CCP
+			}
+		}
+	}
+	#向西革命
+	focus = {
+		id = CCP_xiangxi_geming
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = CCP_dongfanghong }
+		relative_position_id = CCP_dongfanghong
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = MCR
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = ARS
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = URL
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SHV
+    type = puppet_wargoal_focus
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = AFG
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#进入中南半岛
+	focus = {
+		id = CCP_jinru_zhongnan_bandao
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = CCP_dongfanghong }
+		relative_position_id = CCP_dongfanghong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = IDC
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = SIA
+    type = puppet_wargoal_focus
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = CAM
+    type = puppet_wargoal_focus
+}
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = LAO
+    type = puppet_wargoal_focus
+}
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = MAL
+    type = puppet_wargoal_focus
+}
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = BRM
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#解放东海
+	focus = {
+		id = CCP_jiefang_donghai
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = CCP_dongfanghong }
+		relative_position_id = CCP_dongfanghong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SAO
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = EDO
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = CEU
+    type = puppet_wargoal_focus
+}
+declare_war_on = {
+    target = DYD
+    type = puppet_wargoal_focus
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = AIU
+    type = puppet_wargoal_focus
+}
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = LIU
+    type = puppet_wargoal_focus
+}
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = SHN
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#列宁之志
+	focus = {
+		id = CCP_liening_zhizhi
+		icon = GFX_focus_SOV_socialism_in_one_country
+		prerequisite = { focus = CCP_xiangxi_geming }
+		relative_position_id = CCP_xiangxi_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = DRG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+declare_war_on = {
+    target = MGD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+add_to_faction = NCC
+add_to_faction = NVG
+add_to_faction = KZN
+add_to_faction = SVN
+add_to_faction = KRL
+add_to_faction = SBC
+add_to_faction = SBN
+add_to_faction = SBP
+add_to_faction = YAK
+add_to_faction = SOV
+		}
+	}
+	#跳跃南方
+	focus = {
+		id = CCP_tiaoyue_nanfang
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CCP_jinru_zhongnan_bandao }
+		prerequisite = { focus = CCP_jiefang_donghai }
+		relative_position_id = CCP_jinru_zhongnan_bandao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = WEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = MNY
+    type = annex_everything
+}
+declare_war_on = {
+    target = MDL
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAW
+    type = annex_everything
+}
+declare_war_on = {
+    target = TEE
+    type = annex_everything
+}
+declare_war_on = {
+    target = NHL
+    type = annex_everything
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = PHI
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#向未来冲刺
+	focus = {
+		id = CCP_xiang_weilai_chongci
+		icon = GFX_focus_RAJ_seek_help_from_soviet
+		prerequisite = { focus = CCP_tiaoyue_nanfang }
+		relative_position_id = CCP_tiaoyue_nanfang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_country_flag = CCP_cr
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = HDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RJS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = KSM
+    type = annex_everything
+}
+declare_war_on = {
+    target = MLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = HYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = MDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHP
+    type = annex_everything
+}
+declare_war_on = {
+    target = TML
+    type = annex_everything
+}
+declare_war_on = {
+    target = NEP
+    type = annex_everything
+}
+declare_war_on = {
+    target = SIK
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHU
+    type = annex_everything
+}
+if = {
+limit = {
+NOT = {
+OR = {
+has_government = socialism
+has_government = communism
+}
+}
+}
+declare_war_on = {
+    target = SRL
+    type = puppet_wargoal_focus
+}
+}
+		}
+	}
+	#东亚一体化
+	focus = {
+		id = CCP_dongya_yitihua
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CCP_xiang_weilai_chongci }
+		relative_position_id = CCP_xiang_weilai_chongci
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		check_variable = {
+		CCP.juexingdu > 99.9
+		}
+		AND = {
+		check_variable = {
+		CCP.juexingdu > 149.9
+		}
+		has_country_flag = CCP_vic
+		}
+		}
+		}
+		completion_reward = {
+		puppet = SHN
+		puppet = VIN
+   puppet = CAM
+   puppet = LAO
+   puppet = SIA
+   puppet = BRM
+   puppet = RAR
+   puppet = PHI
+   puppet = WEN
+   puppet = YAW
+   puppet = MAL
+   puppet = TEE
+   puppet = MNY
+   puppet = MDL
+		}
+	}
+	#经济一体化
+	focus = {
+		id = CCP_jingji_yitihua
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = CCP_dongya_yitihua }
+		relative_position_id = CCP_dongya_yitihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   add_ideas = CCP_jingji_yitihua
+   }
+   add_ideas = CCP_jingji_yitihua
+		}
+	}
+	#军事一体化
+	focus = {
+		id = CCP_junshi_yitihua
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = CCP_dongya_yitihua }
+		relative_position_id = CCP_dongya_yitihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   add_ideas = CCP_junshi_yitihua
+   }
+   add_ideas = CCP_junshi_yitihua
+		}
+	}
+	#行政一体化
+	focus = {
+		id = CCP_xinzgheng_yitihua
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = CCP_jingji_yitihua }
+		prerequisite = { focus = CCP_junshi_yitihua }
+		relative_position_id = CCP_junshi_yitihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   add_ideas = CCP_xinzgheng_yitihua
+   }
+   add_ideas = CCP_xinzgheng_yitihua
+		}
+	}
+	#科研一体化
+	focus = {
+		id = CCP_keyan_yitihua
+		icon = GFX_focus_spr_unify_the_london_bureau
+		prerequisite = { focus = CCP_jingji_yitihua }
+		prerequisite = { focus = CCP_junshi_yitihua }
+		relative_position_id = CCP_jingji_yitihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   add_research_slot = 1
+   }
+   add_research_slot = 1
+		}
+	}
+	#贸易一体化
+	focus = {
+		id = CCP_maoyi_yitihua
+		icon = GFX_focus_hol_legacy_of_the_de_zeven_provincien_mutiny
+		prerequisite = { focus = CCP_jingji_yitihua }
+		prerequisite = { focus = CCP_junshi_yitihua }
+		relative_position_id = CCP_junshi_yitihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   add_ideas = CCP_maoyi_yitihua
+   }
+   add_ideas = CCP_maoyi_yitihua
+		}
+	}
+	#梦想矗立东方之阳
+	focus = {
+		id = CCP_mengxiang_chuli_dongfang_zhiyang
+		icon = GFX_focus_SOV_international_union_of_soviet_republics
+		prerequisite = { focus = CCP_xinzgheng_yitihua }
+		prerequisite = { focus = CCP_keyan_yitihua }
+		prerequisite = { focus = CCP_maoyi_yitihua }
+		relative_position_id = CCP_maoyi_yitihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_newchina.11
+    days = 1
+}
+		every_state = {
+		limit = {
+		OR = {
+		is_core_of = VIN
+   is_core_of = CAM
+   is_core_of = LAO
+   is_core_of = SIA
+   is_core_of = BRM
+   is_core_of = RAR
+   is_core_of = SHN
+   is_core_of = PHI
+   is_core_of = WEN
+   is_core_of = YAW
+   is_core_of = MAL
+   is_core_of = TEE
+   is_core_of = MNY
+   is_core_of = MDL
+		}
+		}
+		add_core_of = CCP
+		}
+		every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   is_puppet_of = CCP
+   }
+   CCP = {
+   annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+}
+   }
+   set_cosmetic_tag = CCP_donggonglian
+		}
+	}
+}

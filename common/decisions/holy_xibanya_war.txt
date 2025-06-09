@@ -1,0 +1,348 @@
+holy_neizhan_war = {
+    #阿拉贡动员
+    holy_alagong_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 794
+		controls_state = 166
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_alagong
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#巴伦西亚动员
+    holy_balunxiya_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 167
+		controls_state = 168
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_balunxiya
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#格拉纳达动员
+    holy_gelanada_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 173
+		controls_state = 789
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_gelanada
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#塞维利亚动员
+    holy_saiweiliya_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 169
+		controls_state = 170
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_saiweiliya
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#马德里动员
+    holy_madeli_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 175
+		controls_state = 41
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_madeli
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#莱昂动员
+    holy_laiang_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 174
+		controls_state = 788
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_laiai
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#布尔戈斯动员
+    holy_buergesi_dongyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+	    tag = XBY
+		tag = XTZ
+		tag = CSP
+		tag = UKH
+		tag = CAT
+		}
+		has_war = yes
+	}	
+		available = {
+		controls_state = 176
+		controls_state = 791
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = XBY_buergesi
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+}
+holy_xinshiji_fuyin_zhanshi = {
+    #骑士团地区
+    XTZ_qishituandiqu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+	    tag = XTZ
+	}	
+		available = {
+		has_completed_focus = XTZ_jianli_qishituan_wuzhuang
+		}
+		target_trigger = {
+		FROM = {
+		is_controlled_by = XTZ
+		is_core_of = XTZ
+		NOT = {
+		has_state_flag = XTZ_diqushiyong
+		}
+		}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		cost = 40
+		complete_effect = {
+		FROM = {
+		set_state_flag = XTZ_diqushiyong
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+local_org_regain = 0.3
+}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#教会地区
+    XTZ_jiaohuidiqu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+	    tag = XTZ
+	}	
+		available = {
+		has_completed_focus = XTZ_qianghua_yesuhui
+		}
+		target_trigger = {
+		FROM = {
+		is_controlled_by = XTZ
+		is_core_of = XTZ
+		NOT = {
+		has_state_flag = XTZ_diqushiyong
+		}
+		}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		cost = 40
+		complete_effect = {
+		FROM = {
+		set_state_flag = XTZ_diqushiyong
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+state_resources_factor = 0.2
+local_supplies = 0.1
+}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#合作地区
+    XTZ_hezuodiqu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+	    tag = XTZ
+	}	
+		available = {
+		has_completed_focus = XTZ_jieshou_shangye_hezuo
+		}
+		target_trigger = {
+		FROM = {
+		is_controlled_by = XTZ
+		is_core_of = XTZ
+		NOT = {
+		has_state_flag = XTZ_diqushiyong
+		}
+		}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		cost = 40
+		complete_effect = {
+		FROM = {
+		set_state_flag = XTZ_diqushiyong
+		add_state_modifier = {
+modifier = {
+local_building_slots_factor = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#再统一步伐
+    XTZ_zaitongyi_bufa = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XTZ
+		
+	}	
+		available = {
+		GLD = {
+		exists = no
+		}
+		CSP = {
+		exists = no
+		}
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+		declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+}

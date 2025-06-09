@@ -1,0 +1,418 @@
+focus_tree = {
+	id = BRY_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BRY
+		}
+	}
+	
+	default = no
+ 
+    #贝加尔之民
+	focus = {
+		id = BRY_beijiaer_zhimin
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#政治问题
+	focus = {
+		id = BRY_zhengzhi_wenti
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = BRY_beijiaer_zhimin}
+		relative_position_id = BRY_beijiaer_zhimin
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_zhengzhi_wenti
+			remove_idea = BRY_sixiang_jiduanhua
+			}
+		}
+	}
+	#维持和平
+	focus = {
+		id = BRY_weichi_heping
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = BRY_zhengzhi_wenti}
+		relative_position_id = BRY_zhengzhi_wenti
+		mutually_exclusive = { focus = BRY_kuozhan_lingtu }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_weichi_heping
+			remove_idea = BRY_zhengzhi_wenti
+			}
+		}
+	}
+	#要塞化边界
+	focus = {
+		id = BRY_yaosaihua_bianjie
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BRY_weichi_heping}
+		relative_position_id = BRY_weichi_heping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			564 = {
+			add_building_construction = {
+				type = bunker
+				province = 4837
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7759
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10583
+				level = 3
+				instant_build = yes
+			}
+		}
+		565 = {
+			add_building_construction = {
+				type = bunker
+				province = 4821
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1666
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12565
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#防御部队
+	focus = {
+		id = BRY_fangyu_budui
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BRY_yaosaihua_bianjie}
+		relative_position_id = BRY_yaosaihua_bianjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BRY_fangyu_budui
+		}
+	}
+	#扩展我们的领土
+	focus = {
+		id = BRY_kuozhan_lingtu
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = BRY_zhengzhi_wenti}
+		relative_position_id = BRY_zhengzhi_wenti
+		mutually_exclusive = { focus = BRY_weichi_heping }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_kuozhan_lingtu
+			remove_idea = BRY_zhengzhi_wenti
+			}
+		}
+	}
+	#扩张主义进军
+	focus = {
+		id = BRY_kuozhangzhuyi_jinjun
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = BRY_kuozhan_lingtu}
+		relative_position_id = BRY_kuozhan_lingtu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 564
+        num_provinces = 6
+    }
+				
+    defender = {
+        state = 566
+		num_provinces = 6
+    }
+}
+		}
+	}
+	#宣告大布里亚特
+	focus = {
+		id = BRY_xuangao_dabuliyate
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = BRY_kuozhangzhuyi_jinjun}
+		relative_position_id = BRY_kuozhangzhuyi_jinjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 566
+		}
+		completion_reward = {
+			add_state_core = 567
+			add_state_core = 575
+			add_state_core = 566
+			add_popularity = {
+    ideology = fascism
+    popularity = 0.2
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+		}
+	}
+	#抚平民族问题
+	focus = {
+		id = BRY_fuping_minzu_wenti
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = BRY_beijiaer_zhimin}
+		relative_position_id = BRY_beijiaer_zhimin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_renkou_hunza_2
+			remove_idea = BRY_renkou_hunza
+			}
+		}
+	}
+	#维持两族和谐
+	focus = {
+		id = BRY_weichi_liangzu_hexie
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = BRY_fuping_minzu_wenti}
+		relative_position_id = BRY_fuping_minzu_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_renkou_hunza_3
+			remove_idea = BRY_renkou_hunza_2
+			}
+		}
+	}
+	#地位平等化
+	focus = {
+		id = BRY_diwei_pingdehua
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = BRY_fuping_minzu_wenti}
+		relative_position_id = BRY_fuping_minzu_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = BRY_renkou_hunza_3
+		}
+	}
+	#塑造国家认同
+	focus = {
+		id = BRY_suzao_guojiarentong
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = BRY_diwei_pingdehua}
+		relative_position_id = BRY_diwei_pingdehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BRY_suzao_guojia_rentong
+		}
+	}
+	#回归俄罗斯
+	focus = {
+		id = BRY_huigui_eluosi
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = BRY_suzao_guojiarentong}
+		relative_position_id = BRY_suzao_guojiarentong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		date > 1939.1.1
+		is_puppet = no
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xiboliya.6
+    days = 5
+	}
+		}
+	}
+	#自卫部队
+	focus = {
+		id = BRY_ziwei_budui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = BRY_beijiaer_zhimin}
+		relative_position_id = BRY_beijiaer_zhimin
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BRY_ziwei_budui
+		}
+	}
+	#军事工业扩张
+	focus = {
+		id = BRY_junshi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BRY_ziwei_budui}
+		relative_position_id = BRY_ziwei_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#军事科研进步
+	focus = {
+		id = BRY_junshi_keyan_jinbu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = BRY_junshi_gongye_kuozhan}
+		relative_position_id = BRY_junshi_gongye_kuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#组建动员体系
+	focus = {
+		id = BRY_zujian_dongyuan_tixi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = BRY_ziwei_budui}
+		relative_position_id = BRY_ziwei_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_hanweiduli_2
+			remove_idea = BRY_hanweiduli
+			}
+		}
+	}
+	#民族主义宣传
+	focus = {
+		id = BRY_minzuzhuyi_xuanchuan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = BRY_zujian_dongyuan_tixi}
+		relative_position_id = BRY_zujian_dongyuan_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_hanweiduli_3
+			remove_idea = BRY_hanweiduli_2
+			}
+			add_popularity = {
+    ideology = fascism
+    popularity = 0.1
+}
+		}
+	}
+	#现代化部队
+	focus = {
+		id = BRY_xiandaihua_budui
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = BRY_minzuzhuyi_xuanchuan}
+		prerequisite = { focus = BRY_junshi_keyan_jinbu}
+		relative_position_id = BRY_minzuzhuyi_xuanchuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BRY_xiandaihua_budui
+			remove_idea = BRY_hanweiduli_3
+			}
+		}
+	}
+}

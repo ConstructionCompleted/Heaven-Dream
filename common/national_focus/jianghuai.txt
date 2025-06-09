@@ -1,0 +1,364 @@
+focus_tree = {
+	id = JAN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = JAN
+		}
+	}
+	
+	default = no
+ 
+	#孙传芳遇刺！
+	focus = {
+		id = JAN_sunchuanfang_yuci
+		icon = GFX_focus_usa_tank_destroyer_doctrine
+		x = 15
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#我还能战斗！
+	focus = {
+		id = JAN_wohainneg_ttk
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = JAN_sunchuanfang_yuci}
+		relative_position_id = JAN_sunchuanfang_yuci
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#号召支持者
+	focus = {
+		id = JAN_haozhao_zhichizhe
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = JAN_wohainneg_ttk}
+		relative_position_id = JAN_wohainneg_ttk
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = JAN_zhichizhe
+		}
+	}
+	#缴械齐燮元
+	focus = {
+		id = JAN_jiaoxie_qixieyuan
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = JAN_wohainneg_ttk}
+		relative_position_id = JAN_wohainneg_ttk
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huabei.10
+}
+		}
+	}
+	#搜集残余武装
+	focus = {
+		id = JAN_souji_canyu_wuzhuang
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = JAN_haozhao_zhichizhe}
+		relative_position_id = JAN_haozhao_zhichizhe
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+}
+		}
+	}
+	#民兵系统
+	focus = {
+		id = JAN_minbing_xitong
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = JAN_haozhao_zhichizhe}
+		prerequisite = { focus = JAN_jiaoxie_qixieyuan}
+		relative_position_id = JAN_haozhao_zhichizhe
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = JAN_minbing
+		}
+	}
+	#整合残余工业
+	focus = {
+		id = JAN_zhenghe_canyu_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = JAN_jiaoxie_qixieyuan}
+		relative_position_id = JAN_jiaoxie_qixieyuan
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#倒向吴佩孚
+	focus = {
+		id = JAN_daoxiang_wupeifu
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = JAN_souji_canyu_wuzhuang}
+		prerequisite = { focus = JAN_minbing_xitong}
+		prerequisite = { focus = JAN_zhenghe_canyu_gongye}
+		relative_position_id = JAN_minbing_xitong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			ZHI = {
+			puppet = JAN
+			}
+		}
+	}
+	#重整淮海工业
+	focus = {
+		id = JAN_chongzheng_huaihai_gongye
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = JAN_daoxiang_wupeifu}
+		relative_position_id = JAN_daoxiang_wupeifu
+		available = {
+		controls_state = 1153
+		controls_state = 598
+		controls_state = 1154
+		controls_state = 1152
+		controls_state = 1151
+		controls_state = 1150
+		}
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			598 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+}
+1151 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+}
+1154 = {
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#利用资源
+	focus = {
+		id = JAN_liyong_ziyuan
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = JAN_chongzheng_huaihai_gongye}
+		relative_position_id = JAN_chongzheng_huaihai_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_ideas = JAN_liyong_ziyuan
+		}
+	}
+	#吸收外资
+	focus = {
+		id = JAN_xishou_waizi
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = JAN_chongzheng_huaihai_gongye}
+		relative_position_id = JAN_chongzheng_huaihai_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = JAN_jingji_weiji
+			remove_idea = JAN_jingji_weiji_2
+			}
+		}
+	}
+	#武装江南军
+	focus = {
+		id = JAN_wuzhuang_jiangnanjun
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = JAN_daoxiang_wupeifu}
+		relative_position_id = JAN_daoxiang_wupeifu
+		available = {
+		controls_state = 606
+		controls_state = 1145
+		controls_state = 1146
+		controls_state = 1147
+		controls_state = 1149
+		}
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = JAN_jianghuai_dongluan_2
+			add_ideas = JAN_wuzhuang_jiangnanjun
+		}
+	}
+	#直系战争经验
+	focus = {
+		id = JAN_zhixi_jingyan
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = JAN_wuzhuang_jiangnanjun}
+		relative_position_id = JAN_wuzhuang_jiangnanjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 100
+		}
+	}
+	#加强武装能力
+	focus = {
+		id = JAN_jiaqiang_wuzhuang_nengli
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = JAN_wuzhuang_jiangnanjun}
+		relative_position_id = JAN_wuzhuang_jiangnanjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = JAN_wuzhuang_jiangnanjun_2
+			remove_idea = JAN_wuzhuang_jiangnanjun
+			}
+		}
+	}
+	#进军南京
+	focus = {
+		id = JAN_jinjun_nanjing
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = JAN_daoxiang_wupeifu}
+		relative_position_id = JAN_daoxiang_wupeifu
+		x = 0
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+		NNJ = {
+		has_war = yes
+		}
+		has_army_manpower = { size > 300000 }
+		}
+		completion_reward = {
+			start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 1145
+        num_provinces = 10
+    }
+				
+    defender = {
+        state = 749
+        num_provinces = 10
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 1147
+        num_provinces = 10
+    }
+				
+    defender = {
+        state = 1148
+        num_provinces = 10
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 598
+        num_provinces = 10
+    }
+				
+    defender = {
+        state = 1155
+        num_provinces = 10
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 1154
+        num_provinces = 10
+    }
+				
+    defender = {
+        state = 613
+        num_provinces = 10
+    }
+}
+		}
+	}
+}

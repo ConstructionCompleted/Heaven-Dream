@@ -1,0 +1,1004 @@
+focus_tree = {
+	id = LAI_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = LAI
+		}
+	}
+	
+	default = no
+	#联邦的未来
+	focus = {
+		id = LAI_lianbang_weilai
+		icon = GFX_focus_generic_court
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#卡普政变
+	focus = {
+		id = LAI_kapu_zhengbian
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = LAI_lianbang_weilai}
+		relative_position_id = LAI_lianbang_weilai
+		mutually_exclusive = { focus = LAI_junshitanding_yanxu }
+		mutually_exclusive = { focus = LAI_gepeier_vic }
+		x = -8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+		leave_faction = yes
+			swap_ideas = {
+			add_idea = LAI_kapu_zhengfu
+			remove_idea = LAI_lianbang_zhengfu
+			}
+			DED = {
+			transfer_state = 8
+			transfer_state = 936
+			}
+			42 = {
+			set_demilitarized_zone = yes
+			}
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.25
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#掌控西部工业
+	focus = {
+		id = LAI_zhangkong_xibu_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = LAI_kapu_zhengbian}
+		relative_position_id = LAI_kapu_zhengbian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			42 = {
+			set_demilitarized_zone = no
+			}
+		}
+	}
+	#国有化工业
+	focus = {
+		id = LAI_guoyouhua_gongye
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = LAI_zhangkong_xibu_gongye}
+		relative_position_id = LAI_zhangkong_xibu_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			remove_ideas = LAI_jingji_fanrong
+		}
+	}
+	#建设鲁尔
+	focus = {
+		id = LAI_jianshe_luer
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = LAI_guoyouhua_gongye}
+		relative_position_id = LAI_guoyouhua_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			42 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	}
+	51 = {
+			add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#额外军事工业
+	focus = {
+		id = LAI_ewai_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LAI_jianshe_luer}
+		relative_position_id = LAI_jianshe_luer
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#莱茵河经济
+	focus = {
+		id = LAI_laiyinhe_jingji
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = LAI_ewai_junshi_gongye}
+		relative_position_id = LAI_ewai_junshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAI_jingji_fanrong
+		}
+	}
+	#扩充军官团
+	focus = {
+		id = LAI_kuochong_junguan_tuan
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = LAI_kapu_zhengbian}
+		relative_position_id = LAI_kapu_zhengbian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_junguan_army
+			remove_idea = LAI_free_army
+			}
+		}
+	}
+	#建设军官队伍
+	focus = {
+		id = LAI_jianshe_junguan_duiwu
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = LAI_kuochong_junguan_tuan}
+		relative_position_id = LAI_kuochong_junguan_tuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_junguan_army_2
+			remove_idea = LAI_junguan_army
+			}
+		}
+	}
+	#扩建莱茵武装
+	focus = {
+		id = LAI_kuojian_laiyin_wuzhuang
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = LAI_jianshe_junguan_duiwu}
+		relative_position_id = LAI_jianshe_junguan_duiwu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_junguan_army_3
+			remove_idea = LAI_junguan_army_2
+			}
+		}
+	}
+	#总参谋部
+	focus = {
+		id = LAI_zongcanmoubu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = LAI_kuojian_laiyin_wuzhuang}
+		relative_position_id = LAI_kuojian_laiyin_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAI_zongcanmoubu
+		}
+	}
+	#基层军官
+	focus = {
+		id = LAI_jiceng_junguan
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = LAI_zongcanmoubu}
+		relative_position_id = LAI_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAI_jiceng_junguan
+		}
+	}
+	#训练化士兵
+	focus = {
+		id = LAI_xunlianhua_shibing
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = LAI_kuojian_laiyin_wuzhuang}
+		relative_position_id = LAI_kuojian_laiyin_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_junguan_army_4
+			remove_idea = LAI_junguan_army_3
+			}
+		}
+	}
+	#步兵武装
+	focus = {
+		id = LAI_bubing_wuzhuang
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = LAI_xunlianhua_shibing}
+		relative_position_id = LAI_xunlianhua_shibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_junguan_army_5
+			remove_idea = LAI_junguan_army_4
+			}
+		}
+	}
+	#清剿反对者
+	focus = {
+		id = LAI_qingjiao_fanduizhe
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = LAI_kapu_zhengbian}
+		relative_position_id = LAI_kapu_zhengbian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_kapu_zhengfu_2
+			remove_idea = LAI_kapu_zhengfu
+			}
+			add_stability = -0.1
+		}
+	}
+	#联合反对派
+	focus = {
+		id = LAI_lianhe_fanduipai
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = LAI_qingjiao_fanduizhe}
+		relative_position_id = LAI_qingjiao_fanduizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_kapu_zhengfu_3
+			remove_idea = LAI_kapu_zhengfu_2
+			}
+		}
+	}
+	#地方军事化
+	focus = {
+		id = LAI_difang_junshihua
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = LAI_lianhe_fanduipai}
+		relative_position_id = LAI_lianhe_fanduipai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_kapu_zhengfu_4
+			remove_idea = LAI_kapu_zhengfu_3
+			}
+		}
+	}
+	#武装动员体系
+	focus = {
+		id = LAI_wuzhuang_dongyuan_tixi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = LAI_difang_junshihua}
+		relative_position_id = LAI_difang_junshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_kapu_zhengfu_5
+			remove_idea = LAI_kapu_zhengfu_4
+			}
+		}
+	}
+	#要塞化莱茵
+	focus = {
+		id = LAI_yaosaihua_laiyin
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = LAI_wuzhuang_dongyuan_tixi}
+		relative_position_id = LAI_wuzhuang_dongyuan_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			51 = {
+			add_building_construction = {
+				type = bunker
+				province = 3444
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 587
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6469
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3547
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#君士坦丁的延续
+	focus = {
+		id = LAI_junshitanding_yanxu
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = LAI_lianbang_weilai}
+		relative_position_id = LAI_lianbang_weilai
+		mutually_exclusive = { focus = LAI_kapu_zhengbian }
+		mutually_exclusive = { focus = LAI_gepeier_vic }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 60
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = democreatic
+    popularity = 0.1
+}
+		}
+	}
+	#经济开发延续
+	focus = {
+		id = LAI_jingji_kaifa_yanxu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = LAI_junshitanding_yanxu}
+		relative_position_id = LAI_junshitanding_yanxu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_jingji_fanrong_2
+			remove_idea = LAI_jingji_fanrong
+			}
+		}
+	}
+	#鲁尔工业化
+	focus = {
+		id = LAI_luer_gongyehua
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = LAI_jingji_kaifa_yanxu}
+		relative_position_id = LAI_jingji_kaifa_yanxu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			42 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#西部经济开发
+	focus = {
+		id = LAI_xibu_jingji_kaifa
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = LAI_luer_gongyehua}
+		relative_position_id = LAI_luer_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			8 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+			936 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+			51 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#民主化国家
+	focus = {
+		id = LAI_minzhuhua_guojia
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = LAI_junshitanding_yanxu}
+		relative_position_id = LAI_junshitanding_yanxu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_lianbang_zhengfu_2
+			remove_idea = LAI_lianbang_zhengfu
+			}
+		}
+	}
+	#政治平衡
+	focus = {
+		id = LAI_zhengzhi_pingheng
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = LAI_minzhuhua_guojia}
+		relative_position_id = LAI_minzhuhua_guojia
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_lianbang_zhengfu_3
+			remove_idea = LAI_lianbang_zhengfu_2
+			}
+		}
+	}
+	#吸收外资投入
+	focus = {
+		id = LAI_xishou_waizi
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = LAI_minzhuhua_guojia}
+		prerequisite = { focus = LAI_jingji_kaifa_yanxu}
+		relative_position_id = LAI_jingji_kaifa_yanxu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = LAI_xishou_waizi
+    days = 360
+}
+		}
+	}
+	#东部经济开发
+	focus = {
+		id = LAI_dongbu_jingji_kaifa
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = LAI_luer_gongyehua}
+		prerequisite = { focus = LAI_xishou_waizi}
+		relative_position_id = LAI_xishou_waizi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			937 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#禁止街头斗争
+	focus = {
+		id = LAI_jinzhi_jietou_douzheng
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = LAI_zhengzhi_pingheng}
+		relative_position_id = LAI_zhengzhi_pingheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#规章化议会
+	focus = {
+		id = LAI_guizhang_yihui
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = LAI_zhengzhi_pingheng}
+		prerequisite = { focus = LAI_xishou_waizi}
+		relative_position_id = LAI_xishou_waizi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_lianbang_zhengfu_4
+			remove_idea = LAI_lianbang_zhengfu_3
+			}
+		}
+	}
+	#建立联盟贸易
+	focus = {
+		id = LAI_jianli_lianmeng_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = LAI_dongbu_jingji_kaifa}
+		prerequisite = { focus = LAI_xibu_jingji_kaifa}
+		relative_position_id = LAI_xibu_jingji_kaifa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_jingji_fanrong_3
+			remove_idea = LAI_jingji_fanrong_2
+			}
+		}
+	}
+	#防御计划
+	focus = {
+		id = LAI_fangyu_plan
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = LAI_jinzhi_jietou_douzheng}
+		prerequisite = { focus = LAI_guizhang_yihui}
+		relative_position_id = LAI_guizhang_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAI_free_army_2
+			remove_idea = LAI_free_army
+			}
+		}
+	}
+	#戈培尔的胜利
+	focus = {
+		id = LAI_gepeier_vic
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = LAI_lianbang_weilai}
+		relative_position_id = LAI_lianbang_weilai
+		mutually_exclusive = { focus = LAI_kapu_zhengbian }
+		mutually_exclusive = { focus = LAI_junshitanding_yanxu }
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 15
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = fascism
+    popularity = 0.25
+}
+set_politics = {
+	ruling_party = fascism
+}
+swap_ideas = {
+add_idea = LAI_laiyin_nacui
+remove_idea = LAI_lianbang_zhengfu
+}
+      DED = {
+			transfer_state = 8
+			transfer_state = 936
+			}
+			42 = {
+			set_demilitarized_zone = yes
+			}
+		}
+	}
+	#解散旧政党
+	focus = {
+		id = LAI_jiesan_oldzhengdang
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = LAI_gepeier_vic}
+		relative_position_id = LAI_gepeier_vic
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = democreatic
+    popularity = -0.25
+}
+add_stability = -0.1
+swap_ideas = {
+add_idea = LAI_laiyin_nacui_2
+remove_idea = LAI_laiyin_nacui
+}
+        42 = {
+			set_demilitarized_zone = no
+			}
+		}
+	}
+	#吞并国家机器
+	focus = {
+		id = LAI_tunbing_guojia_jiqi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = LAI_gepeier_vic}
+		relative_position_id = LAI_gepeier_vic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        remove_ideas = LAI_jingji_fanrong
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#动员军队
+	focus = {
+		id = LAI_dongyuan_jundui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = LAI_gepeier_vic}
+		relative_position_id = LAI_gepeier_vic
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = LAI_nacui_army
+		remove_idea = LAI_free_army
+		}
+		}
+	}
+	#加入汉诺威
+	focus = {
+		id = LAI_jiaru_hannuowei
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = LAI_gepeier_vic}
+		relative_position_id = LAI_gepeier_vic
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		HNW = {
+		is_faction_leader = yes
+		}
+		}
+		completion_reward = {
+        HNW = { add_to_faction = LAI }
+		}
+	}
+	#组建纳粹党派
+	focus = {
+		id = LAI_zujian_nacui_dangpai
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = LAI_jiesan_oldzhengdang}
+		relative_position_id = LAI_jiesan_oldzhengdang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LAI_laiyin_nacui_3
+		remove_idea = LAI_laiyin_nacui_2
+		}
+		}
+	}
+	#民粹宣传
+	focus = {
+		id = LAI_mincui_xuanchuan
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = LAI_zujian_nacui_dangpai}
+		relative_position_id = LAI_zujian_nacui_dangpai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LAI_laiyin_nacui_4
+		remove_idea = LAI_laiyin_nacui_3
+		}
+		}
+	}
+	#《我们的新秩序》
+	focus = {
+		id = LAI_we_tno
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = LAI_mincui_xuanchuan}
+		relative_position_id = LAI_mincui_xuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LAI_laiyin_nacui_5
+		remove_idea = LAI_laiyin_nacui_4
+		}
+		}
+	}
+	#四年计划
+	focus = {
+		id = LAI_sinian_jihua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = LAI_jiesan_oldzhengdang}
+		prerequisite = { focus = LAI_tunbing_guojia_jiqi}
+		relative_position_id = LAI_tunbing_guojia_jiqi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = LAI_sinian_plan
+		}
+	}
+	#建设民用工业
+	focus = {
+		id = LAI_jianshe_minyong_gongye
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = LAI_sinian_jihua}
+		relative_position_id = LAI_sinian_jihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        42 = {
+			add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#扩张军事化
+	focus = {
+		id = LAI_kuozhang_junshihua
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LAI_jianshe_minyong_gongye}
+		relative_position_id = LAI_jianshe_minyong_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        51 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#改造国家军队
+	focus = {
+		id = LAI_gaizao_guojia_army
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = LAI_dongyuan_jundui}
+		prerequisite = { focus = LAI_tunbing_guojia_jiqi}
+		relative_position_id = LAI_tunbing_guojia_jiqi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = LAI_nacui_army_2
+		remove_idea = LAI_nacui_army
+		}
+		}
+	}
+	#接管地区民兵
+	focus = {
+		id = LAI_jieguan_diqu_minbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = LAI_gaizao_guojia_army}
+		relative_position_id = LAI_gaizao_guojia_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = LAI_nacui_army_3
+		remove_idea = LAI_nacui_army_2
+		}
+		}
+	}
+	#党派国防军
+	focus = {
+		id = LAI_dangpai_guofangjun
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = LAI_jieguan_diqu_minbing}
+		prerequisite = { focus = LAI_xianfengdui}
+		relative_position_id = LAI_jieguan_diqu_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = LAI_nacui_army_4
+		remove_idea = LAI_nacui_army_3
+		}
+		}
+	}
+	#莱茵党卫军
+	focus = {
+		id = LAI_laiyin_dangwejun
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = LAI_dongyuan_jundui}
+		relative_position_id = LAI_dongyuan_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        load_oob = HNW_dangweijun_2
+		}
+	}
+	#先锋队
+	focus = {
+		id = LAI_xianfengdui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = LAI_laiyin_dangwejun}
+		relative_position_id = LAI_laiyin_dangwejun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = LAI_xianfengdui
+		}
+	}
+}

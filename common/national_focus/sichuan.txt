@@ -1,0 +1,466 @@
+focus_tree = {
+	id = SHU_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SHU
+		}
+	}
+	
+	default = no
+ 
+	#统一全川之战
+	focus = {
+		id = SHU_tongyi_war
+		icon = GFX_focus_secret_rearmament
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#集中化政策
+	focus = {
+		id = SHU_jizhonghua_zhengce
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SHU_tongyi_war }
+		relative_position_id = SHU_tongyi_war
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_jizhonghua_jingji
+			remove_idea = SHU_canfei_jingji
+			}
+		}
+	}
+	#推行改革
+	focus = {
+		id = SHU_tuixing_gaige
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = SHU_jizhonghua_zhengce }
+		relative_position_id = SHU_jizhonghua_zhengce
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_jizhonghua_jingji_2
+			remove_idea = SHU_jizhonghua_jingji
+			}
+		}
+	}
+	#城市现代化
+	focus = {
+		id = SHU_chengshi_xiandaihua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = SHU_tuixing_gaige }
+		relative_position_id = SHU_tuixing_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_jizhonghua_jingji_3
+			remove_idea = SHU_jizhonghua_jingji_2
+			}
+		}
+	}
+	#马路计划
+	focus = {
+		id = SHU_malujihua
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SHU_chengshi_xiandaihua }
+		relative_position_id = SHU_chengshi_xiandaihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_malu_jihua
+		}
+	}
+	#公共教育馆
+	focus = {
+		id = SHU_gonggong_jiaoyuguan
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = SHU_malujihua }
+		relative_position_id = SHU_malujihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_gonggong_jiaoyuguan
+		}
+	}
+	#木业开发
+	focus = {
+		id = SHU_muye_kaifa
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SHU_chengshi_xiandaihua }
+		relative_position_id = SHU_chengshi_xiandaihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_muye_kaifa
+		}
+	}
+	#农民市场
+	focus = {
+		id = SHU_nongmin_shichang
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SHU_muye_kaifa }
+		relative_position_id = SHU_muye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_nongmin_shichang
+		}
+	}
+	#利用刘存厚
+	focus = {
+		id = SHU_liyong_liucunhou
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = SHU_jizhonghua_zhengce }
+		relative_position_id = SHU_jizhonghua_zhengce
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#四美德
+	focus = {
+		id = SHU_simeide
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = SHU_liyong_liucunhou }
+		relative_position_id = SHU_liyong_liucunhou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_simeide
+		}
+	}
+	#废除不良习俗
+	focus = {
+		id = SHU_feichu_buliang_xisu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = SHU_simeide }
+		relative_position_id = SHU_simeide
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_simeide_2
+			remove_idea = SHU_simeide
+			}
+		}
+	}
+	#天榜计划
+	focus = {
+		id = SHU_tianbang_plan
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = SHU_feichu_buliang_xisu }
+		relative_position_id = SHU_feichu_buliang_xisu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_simeide_3
+			remove_idea = SHU_simeide_2
+			}
+		}
+	}
+	#战争计划
+	focus = {
+		id = SHU_war_plan
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SHU_tongyi_war }
+		relative_position_id = SHU_tongyi_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_zhili_canbu_2
+			remove_idea = SHU_zhili_canbu
+			}
+		}
+	}
+	#精锐部队
+	focus = {
+		id = SHU_jingrui_budui
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SHU_war_plan }
+		relative_position_id = SHU_war_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_zhili_canbu_3
+			remove_idea = SHU_zhili_canbu_2
+			}
+		}
+	}
+	#吸收直系残部
+	focus = {
+		id = SHU_xishou_zhixi_canbu
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = SHU_war_plan }
+		relative_position_id = SHU_war_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SHU_zhixi_canbu
+		}
+	}
+	#直系军官团
+	focus = {
+		id = SHU_zhixi_junguantuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SHU_jingrui_budui }
+		prerequisite = { focus = SHU_xishou_zhixi_canbu }
+		relative_position_id = SHU_jingrui_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_zhili_canbu_4
+			remove_idea = SHU_zhili_canbu_3
+			}
+		}
+	}
+	#团结军阀
+	focus = {
+		id = SHU_tuanjie_junfa
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = SHU_zhixi_junguantuan }
+		relative_position_id = SHU_zhixi_junguantuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SHU_tuanjie_junfa
+		}
+	}
+	#川系军事化
+	focus = {
+		id = SHU_chuanxi_junshihua
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = SHU_zhixi_junguantuan }
+		relative_position_id = SHU_zhixi_junguantuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_zhili_canbu_5
+			remove_idea = SHU_zhili_canbu_4
+			}
+		}
+	}
+	#四川战争
+	focus = {
+		id = SHU_sichuan_zhanzheng
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = SHU_tuanjie_junfa }
+		prerequisite = { focus = SHU_chuanxi_junshihua }
+		relative_position_id = SHU_tuanjie_junfa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#驱散部分难民
+	focus = {
+		id = SHU_quzhu_bufen_nanming
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = SHU_tongyi_war }
+		relative_position_id = SHU_tongyi_war
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHU_qusan_nanming
+		}
+	}
+	#配给救济
+	focus = {
+		id = SHU_peiji_zhidu
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = SHU_quzhu_bufen_nanming }
+		relative_position_id = SHU_quzhu_bufen_nanming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_qusan_nanming_2
+			remove_idea = SHU_qusan_nanming
+			}
+		}
+	}
+	#抢夺商队
+	focus = {
+		id = SHU_qiangduo_shangdui
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = SHU_peiji_zhidu }
+		relative_position_id = SHU_peiji_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1500
+}
+add_stability = -0.05
+		}
+	}
+	#劫掠敌军粮仓
+	focus = {
+		id = SHU_jielue_dijun_liangcang
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = SHU_peiji_zhidu }
+		relative_position_id = SHU_peiji_zhidu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_qusan_nanming_3
+			remove_idea = SHU_qusan_nanming_2
+			}
+		}
+	}
+	#压下饥荒
+	focus = {
+		id = SHU_yaxia_jihuang
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = SHU_jielue_dijun_liangcang }
+		prerequisite = { focus = SHU_qiangduo_shangdui }
+		relative_position_id = SHU_qiangduo_shangdui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHU_qusan_nanming_4
+			remove_idea = SHU_qusan_nanming_3
+			}
+		}
+	}
+	#介入北方局势
+	focus = {
+		id = SHU_zhiyuan_wupeifu
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = SHU_tongyi_war }
+		relative_position_id = SHU_tongyi_war
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		XKA = {
+		exists = no
+		}
+		YUX = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_tanpan.13
+}
+		}
+	}
+}

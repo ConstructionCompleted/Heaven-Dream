@@ -1,0 +1,145 @@
+holy_FIN_zhenying = {
+	#加入奥地利
+    holy_faction_AUS_FIN = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = FIN
+	}	
+		available = {
+		has_war_with = SOV
+		is_in_faction = no
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = FIN
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_FIN = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = FIN
+	}	
+		available = {
+		has_war_with = SOV
+		is_in_faction = no
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = FIN
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_FIN = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = FIN
+	}	
+		available = {
+		has_war_with = SOV
+		is_in_faction = no
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = FIN
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = FIN
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法国势力圈
+    holy_faction_FRA_FIN = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = FIN
+	}	
+		available = {
+		has_war_with = SOV
+		is_in_faction = no
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		has_government = neutrality
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = FIN
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

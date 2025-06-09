@@ -1,0 +1,629 @@
+focus_tree = {
+	id = BKO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BKO
+		}
+	}
+	
+	default = no
+ 
+	#计划经济体系
+	focus = {
+		id = BKO_jihua_jingji_tixi
+		icon = GFX_focus_generic_industry_1
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#建设工业
+	focus = {
+		id = BKO_jishe_ic
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = BKO_jihua_jingji_tixi}
+		relative_position_id = BKO_jihua_jingji_tixi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_gongye_gexin_2
+		remove_idea = BKO_gongye_gexin
+		}
+		}
+	}
+	#重工业发展
+	focus = {
+		id = BKO_zhonggongye_fazhan
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = BKO_jishe_ic}
+		relative_position_id = BKO_jishe_ic
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_gongye_gexin_3
+		remove_idea = BKO_gongye_gexin_2
+		}
+		}
+	}
+	#建设南部地区
+	focus = {
+		id = BKO_jianshe_nanbu_diqu
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = BKO_zhonggongye_fazhan}
+		relative_position_id = BKO_zhonggongye_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		527 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建军事工业
+	focus = {
+		id = BKO_kuojian_junshigongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BKO_jishe_ic}
+		relative_position_id = BKO_jishe_ic
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#建立地下武装
+	focus = {
+		id = BKO_jianli_dixia_wuzhuang
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = BKO_kuojian_junshigongye}
+		relative_position_id = BKO_kuojian_junshigongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BKO_dixia_wuzhuang
+		}
+	}
+	#改革农业
+	focus = {
+		id = BKO_gaige_nongye
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = BKO_jihua_jingji_tixi}
+		relative_position_id = BKO_jihua_jingji_tixi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_nongye_gaige_2
+		remove_idea = BKO_nongye_gaige
+		}
+		}
+	}
+	#扩大矿产开发
+	focus = {
+		id = BKO_kuoda_kuangchan_kaifa
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = BKO_gaige_nongye}
+		relative_position_id = BKO_gaige_nongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BKO_kuoda_kuangchan
+		}
+	}
+	#建立煤钢产业
+	focus = {
+		id = BKO_jianli_meigang_chanye
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = BKO_kuoda_kuangchan_kaifa}
+		relative_position_id = BKO_kuoda_kuangchan_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1166 = {
+		add_resource = {
+    type = steel
+    amount = 30
+}
+			add_extra_state_shared_building_slots = 3
+add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大农业种植
+	focus = {
+		id = BKO_kuoda_nongye_zhongzhi
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = BKO_gaige_nongye}
+		relative_position_id = BKO_gaige_nongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_nongye_gaige_3
+		remove_idea = BKO_nongye_gaige_2
+		}
+		}
+	}
+	#改善种植技术
+	focus = {
+		id = BKO_gaishan_zhongzhi_jishu
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = BKO_kuoda_nongye_zhongzhi}
+		relative_position_id = BKO_kuoda_nongye_zhongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_nongye_gaige_4
+		remove_idea = BKO_nongye_gaige_3
+		}
+		}
+	}
+	#维持主体思想
+	focus = {
+		id = BKO_weichi_zhuti_sixiang
+		icon = GFX_focus_generic_socialist_science
+		x = 22
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+add_political_power = 50
+		}
+	}
+	#清扫反对派势力
+	focus = {
+		id = BKO_qingsao_fanduipai
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = BKO_weichi_zhuti_sixiang}
+		relative_position_id = BKO_weichi_zhuti_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = -100
+		add_stability = 0.1
+		}
+	}
+	#宣扬个人崇拜
+	focus = {
+		id = BKO_xuanyang_geren_chongbai
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = BKO_qingsao_fanduipai }
+		relative_position_id = BKO_qingsao_fanduipai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BKO_geren_chongbai
+		}
+	}
+	#控制媒体口径
+	focus = {
+		id = BKO_kongzhi_meiti_koujing
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = BKO_xuanyang_geren_chongbai }
+		relative_position_id = BKO_xuanyang_geren_chongbai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = BKO_meiti_koujing
+		}
+	}
+	#建立革命政治
+	focus = {
+		id = BKO_jianli_geming_zhengzhi
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = BKO_weichi_zhuti_sixiang }
+		relative_position_id = BKO_weichi_zhuti_sixiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_zhuti_sixiang_2
+		remove_idea = BKO_zhuti_sixiang
+		}
+		}
+	}
+	#改善人民生活
+	focus = {
+		id = BKO_gaishan_renmin_shenghuo
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = BKO_jianli_geming_zhengzhi }
+		relative_position_id = BKO_jianli_geming_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_zhuti_sixiang_3
+		remove_idea = BKO_zhuti_sixiang_2
+		}
+		}
+	}
+	#稳定化政局
+	focus = {
+		id = BKO_wendinghua_zhengju
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = BKO_gaishan_renmin_shenghuo }
+		relative_position_id = BKO_gaishan_renmin_shenghuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_zhuti_sixiang_4
+		remove_idea = BKO_zhuti_sixiang_3
+		}
+		}
+	}
+	#发起统一战争
+	focus = {
+		id = BKO_faqi_tongyi_war
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = BKO_kongzhi_meiti_koujing }
+		prerequisite = { focus = BKO_wendinghua_zhengju }
+		relative_position_id = BKO_wendinghua_zhengju
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+		}
+	}
+	#加入东亚革命
+	focus = {
+		id = BKO_jiaru_dongya_geming
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = BKO_faqi_tongyi_war }
+		relative_position_id = BKO_faqi_tongyi_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		NKO = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = BKO }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = BKO
+			}
+			}
+		}
+	}
+	#军事备战
+	focus = {
+		id = BKO_junshi_beizhan
+		icon = GFX_focus_generic_multi_role_aircraft
+		x = 15
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#改革红军部队
+	focus = {
+		id = BKO_gaige_hongjun_budui
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = BKO_junshi_beizhan }
+		relative_position_id = BKO_junshi_beizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_peopal_army_2
+		remove_idea = BKO_peopal_army
+		}
+		}
+	}
+	#改革军事战术
+	focus = {
+		id = BKO_gaige_junshi_zhanshu
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = BKO_gaige_hongjun_budui }
+		relative_position_id = BKO_gaige_hongjun_budui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		add_ideas = BKO_zhanshu_gexin
+		}
+	}
+	#军事科研
+	focus = {
+		id = BKO_junshi_keyan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = BKO_gaige_junshi_zhanshu }
+		relative_position_id = BKO_gaige_junshi_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_zhanshu_gexin_2
+		remove_idea = BKO_zhanshu_gexin
+		}
+		}
+	}
+	#扩大军队规模
+	focus = {
+		id = BKO_kuoda_jundui_guimo
+		icon = GFX_focus_SOV_organization_centralization_discipline
+		prerequisite = { focus = BKO_gaige_hongjun_budui }
+		relative_position_id = BKO_gaige_hongjun_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_peopal_army_3
+		remove_idea = BKO_peopal_army_2
+		}
+		}
+	}
+	#人民后勤兵团
+	focus = {
+		id = BKO_renmin_houqin_bingtuan
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = BKO_kuoda_jundui_guimo }
+		relative_position_id = BKO_kuoda_jundui_guimo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = BKO_peopal_army_4
+		remove_idea = BKO_peopal_army_3
+		}
+		}
+	}
+	#扩大南部游击战
+	focus = {
+		id = BKO_kuoda_nanbu_youjizhan
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = BKO_junshi_beizhan }
+		relative_position_id = BKO_junshi_beizhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		NKO = {
+		add_ideas = BKO_nanbu_youjizhan
+		}
+		}
+	}
+	#建立地下兵工厂
+	focus = {
+		id = BKO_jianli_dixia_binggongchang
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = BKO_kuoda_nanbu_youjizhan }
+		relative_position_id = BKO_kuoda_nanbu_youjizhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#联通乡村
+	focus = {
+		id = BKO_liantong_xiangcun
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = BKO_jianli_dixia_binggongchang }
+		relative_position_id = BKO_jianli_dixia_binggongchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		add_manpower = 200000
+		}
+	}
+	#扩大渗透
+	focus = {
+		id = BKO_kuoda_shentou
+		icon = GFX_focus_generic_copy_plane_designs
+		prerequisite = { focus = BKO_kuoda_nanbu_youjizhan }
+		relative_position_id = BKO_kuoda_nanbu_youjizhan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		random_state = {
+        limit = { 
+		is_owned_by = NKO
+		is_core_of = NKO
+		}
+		set_state_flag = BKO_shentou
+}
+random_state = {
+        limit = { 
+		is_owned_by = NKO
+		is_core_of = NKO
+		}
+		set_state_flag = BKO_shentou
+}
+		}
+	}
+	#地区政权战斗
+	focus = {
+		id = BKO_diqu_zhengquan_zhandou
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = BKO_kuoda_shentou }
+		relative_position_id = BKO_kuoda_shentou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		load_oob = BKO_qiyijun
+		every_state = {
+        limit = { 
+		has_state_flag = BKO_shentou
+		}
+		create_unit = {
+    division = "name = \"人民起义军\" division_template = \"人民起义军\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+    owner = BKO
+}
+create_unit = {
+    division = "name = \"人民起义军\" division_template = \"人民起义军\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+    owner = BKO
+}
+}
+		}
+	}
+}

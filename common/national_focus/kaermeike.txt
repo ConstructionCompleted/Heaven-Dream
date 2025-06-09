@@ -1,0 +1,258 @@
+focus_tree = {
+	id = KLM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KLM
+		}
+	}
+	
+	default = no
+ 
+    #卡尔梅克,我们的国
+	focus = {
+		id = KLM_our_country
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#叶卡捷琳娜的血腥
+	focus = {
+		id = KLM_yekajielinna_xuexing
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		prerequisite = { focus = KLM_our_country}
+		relative_position_id = KLM_our_country
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_beieluosi.3
+	days = 1
+	}
+		}
+	}
+	#俄罗斯走狗的残暴
+	focus = {
+		id = KLM_eluosi_zougou_canbao
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = KLM_yekajielinna_xuexing}
+		relative_position_id = KLM_yekajielinna_xuexing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_beieluosi.4
+	days = 1
+	}
+		}
+	}
+	#眺望卫拉特
+	focus = {
+		id = KLM_tiaowang_weilate
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = KLM_our_country}
+		relative_position_id = KLM_our_country
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = KLM_tiaowang_weilate
+			remove_idea = KLM_dongfang_yimin
+		}
+		}
+	}
+	#回忆圣地
+	focus = {
+		id = KLM_huiyi_shengdi
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = KLM_tiaowang_weilate}
+		relative_position_id = KLM_tiaowang_weilate
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = KLM_huiyi_shengdi
+			remove_idea = KLM_tiaowang_weilate
+		}
+		}
+	}
+	#重整军队纪律
+	focus = {
+		id = KLM_chongzheng_jundui_jilv
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KLM_our_country}
+		relative_position_id = KLM_our_country
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = KLM_junji_chongzheng
+			remove_idea = KLM_junji_sanman
+		}
+		}
+	}
+	#清洗反对派
+	focus = {
+		id = KLM_qingxi_fanduipai
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = KLM_chongzheng_jundui_jilv}
+		relative_position_id = KLM_chongzheng_jundui_jilv
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = KLM_junji_chongzheng
+		add_timed_idea = {
+    idea = KLM_qingxi_fanduipai
+    days = 180
+}
+		}
+	}
+	#征服金帐旧土
+	focus = {
+		id = KLM_zhengfu_jinzhang_jiutu
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = KLM_eluosi_zougou_canbao}
+		prerequisite = { focus = KLM_huiyi_shengdi}
+		prerequisite = { focus = KLM_qingxi_fanduipai}
+		relative_position_id = KLM_huiyi_shengdi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KLM_zhengfu_jinzhang_jiutu
+		}
+	}
+	#动员骑兵
+	focus = {
+		id = KLM_dongyuan_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = KLM_zhengfu_jinzhang_jiutu}
+		relative_position_id = KLM_zhengfu_jinzhang_jiutu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KLM_dongyuan_qibing
+		}
+	}
+	#整合顿河
+	focus = {
+		id = KLM_zhenghe_dunhe
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = KLM_dongyuan_qibing}
+		relative_position_id = KLM_dongyuan_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 238
+		controls_state = 245
+		controls_state = 218
+		controls_state = 1070
+		}
+		completion_reward = {
+		add_state_core = 238
+		add_state_core = 245
+		add_state_core = 218
+		add_state_core = 1070
+		}
+	}
+	#南方土地自治
+	focus = {
+		id = KLM_nanfang_tudi_zizhi
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = KLM_zhengfu_jinzhang_jiutu}
+		relative_position_id = KLM_zhengfu_jinzhang_jiutu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 235
+		controls_state = 234
+		controls_state = 233
+		controls_state = 232
+		controls_state = 821
+		controls_state = 827
+		controls_state = 828
+		controls_state = 1075
+		}
+		completion_reward = {
+		add_state_core = 235
+		add_state_core = 234
+		transfer_state = 233
+		CHE = {
+			transfer_state = 232
+			transfer_state = 821
+		transfer_state = 827
+		transfer_state = 828
+		transfer_state = 1075
+			}
+			puppet = CHE
+		}
+	}
+	#包税制度
+	focus = {
+		id = KLM_baoshui_zhidu
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = KLM_nanfang_tudi_zizhi}
+		relative_position_id = KLM_nanfang_tudi_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KLM_baoshui
+		CHE = {
+		add_ideas = KLM_baoshui_2
+		}
+		}
+	}
+}

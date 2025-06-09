@@ -1,0 +1,668 @@
+focus_tree = {
+	id = QAN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = QAN
+		}
+	}
+	
+	default = no
+ 
+	#黔地
+	focus = {
+		id = QAN_qiandi
+		icon = GFX_focus_ETH_adopt_the_lira
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#混乱经济
+	focus = {
+		id = QAN_hunluan_jingji
+		icon = GFX_focus_usa_tank_destroyer_doctrine
+		prerequisite = { focus = QAN_qiandi }
+		relative_position_id = QAN_qiandi
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+	#严苛军法
+	focus = {
+		id = QAN_yanke_junfa
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = QAN_qiandi }
+		relative_position_id = QAN_qiandi
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+	#昆明之乱
+	focus = {
+		id = QAN_kunming_zhiluan
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = QAN_hunluan_jingji }
+		prerequisite = { focus = QAN_yanke_junfa }
+		relative_position_id = QAN_yanke_junfa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1936.2.15
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.1
+    days = 3
+}
+		}
+	}
+	#贵阳鸿门宴
+	focus = {
+		id = QAN_guiyang_hongmenyan
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = QAN_kunming_zhiluan }
+		relative_position_id = QAN_kunming_zhiluan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.2
+    days = 3
+}
+		}
+	}
+	#对我开枪吧
+	focus = {
+		id = QAN_duiwo_kaiqiang
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = QAN_guiyang_hongmenyan }
+		relative_position_id = QAN_guiyang_hongmenyan
+		mutually_exclusive = { focus = QAN_chiwo_yiqiang }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		}
+	}
+	#接管贵州
+	focus = {
+		id = QAN_jieguan_guizhou
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = QAN_duiwo_kaiqiang }
+		relative_position_id = QAN_duiwo_kaiqiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_guizhou_zhengzhi
+		}
+	}
+	#清洗忠诚者
+	focus = {
+		id = QAN_qingxi_zhongchengzhe
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = QAN_duiwo_kaiqiang }
+		relative_position_id = QAN_duiwo_kaiqiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QAN_fankangzhe
+		}
+	}
+	#新秩序
+	focus = {
+		id = QAN_new_zhixu
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = QAN_jieguan_guizhou }
+		prerequisite = { focus = QAN_qingxi_zhongchengzhe }
+		relative_position_id = QAN_qingxi_zhongchengzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_guizhou_zhengzhi_2
+		remove_idea = QAN_guizhou_zhengzhi
+		}
+		}
+	}
+	#朱培德的梦想
+	focus = {
+		id = QAN_zhupeide_dream
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = QAN_new_zhixu }
+		relative_position_id = QAN_new_zhixu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_guizhou_zhengzhi_3
+		remove_idea = QAN_guizhou_zhengzhi_2
+		}
+		}
+	}
+	#加入武汉
+	focus = {
+		id = QAN_jiaru_wuhan
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = QAN_zhupeide_dream }
+		relative_position_id = QAN_zhupeide_dream
+		mutually_exclusive = { focus = QAN_jiaru_nanjing }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+		KMT = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		KMT = { puppet = QAN }
+		}
+	}
+	#加入南京
+	focus = {
+		id = QAN_jiaru_nanjing
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = QAN_zhupeide_dream }
+		relative_position_id = QAN_zhupeide_dream
+		mutually_exclusive = { focus = QAN_jiaru_wuhan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+		NNJ = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		NNJ = { puppet = QAN }
+		}
+	}
+	#吃我一枪！
+	focus = {
+		id = QAN_chiwo_yiqiang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = QAN_guiyang_hongmenyan }
+		relative_position_id = QAN_guiyang_hongmenyan
+		mutually_exclusive = { focus = QAN_duiwo_kaiqiang }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		}
+	}
+	#长久的严厉
+	focus = {
+		id = QAN_changjiu_yanli
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = QAN_chiwo_yiqiang }
+		relative_position_id = QAN_chiwo_yiqiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QAN_fankangzhe
+		}
+	}
+	#重塑经济体系
+	focus = {
+		id = QAN_chongsu_jingji_tixi
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = QAN_chiwo_yiqiang }
+		relative_position_id = QAN_chiwo_yiqiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_chongsu_jingji_tixi
+		}
+	}
+	#旧体系
+	focus = {
+		id = QAN_jiutixi
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = QAN_changjiu_yanli }
+		prerequisite = { focus = QAN_chongsu_jingji_tixi }
+		relative_position_id = QAN_changjiu_yanli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_chongsu_jingji_tixi_2
+		remove_idea = QAN_chongsu_jingji_tixi
+		}
+		}
+	}
+	#效忠昆明
+	focus = {
+		id = QAN_xiaozhong_kunming
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = QAN_jiutixi }
+		relative_position_id = QAN_jiutixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DIA = {
+		NOT = {
+		has_government = communism
+		}
+		}
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		DIA = {
+		is_puppet = no
+		}
+		}
+		DIA = { puppet = QAN }
+		}
+		if = {
+		limit = {
+		DIA = {
+		is_puppet = yes
+		}
+		}
+		every_country = {
+		limit = {
+		is_in_faction_with = DIA
+		}
+		add_to_faction = QAN
+		}
+	}
+	#贵州经济
+	focus = {
+		id = QAN_guizhou_jingji
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = QAN_guiyang_hongmenyan }
+		relative_position_id = QAN_guiyang_hongmenyan
+		x = -7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = QAN_guiyang_hongmenyan
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_luohou_jingji_2
+		remove_idea = QAN_luohou_jingji
+		}
+		}
+	}
+	#经济革新
+	focus = {
+		id = QAN_jingji_gexin
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = QAN_guizhou_jingji }
+		relative_position_id = QAN_guizhou_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = QAN_luohou_jingji_2
+		}
+	}
+	#贵州道路
+	focus = {
+		id = QAN_guizhou_daolu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = QAN_guizhou_jingji }
+		relative_position_id = QAN_guizhou_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		603 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		1101 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#鸦片扩大化
+	focus = {
+		id = QAN_yapian_kuodahua
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = QAN_jingji_gexin }
+		prerequisite = { focus = QAN_guizhou_daolu }
+		relative_position_id = QAN_jingji_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_yapian_kuodahua
+		}
+	}
+	#吸收云南资源
+	focus = {
+		id = QAN_xishou_yunnan_ziyuan
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = QAN_jingji_gexin }
+		prerequisite = { focus = QAN_guizhou_daolu }
+		relative_position_id = QAN_guizhou_daolu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_xishou_yunnan_ziyuan
+		}
+	}
+	#民用工业复兴
+	focus = {
+		id = QAN_minyong_gongye_fuxing
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = QAN_jingji_gexin }
+		prerequisite = { focus = QAN_guizhou_daolu }
+		relative_position_id = QAN_guizhou_daolu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_luohou_jingji_3
+		remove_idea = QAN_luohou_jingji_2
+		}
+		}
+	}
+	#遵义革新
+	focus = {
+		id = QAN_zunyi_gexin
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = QAN_minyong_gongye_fuxing }
+		relative_position_id = QAN_minyong_gongye_fuxing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		748 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#贵州新经济
+	focus = {
+		id = QAN_guizhou_new_jingji
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = QAN_zunyi_gexin }
+		relative_position_id = QAN_zunyi_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_luohou_jingji_4
+		remove_idea = QAN_luohou_jingji_3
+		}
+		}
+	}
+	#贵州军队
+	focus = {
+		id = QAN_guizhou_jundui
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = QAN_guiyang_hongmenyan }
+		relative_position_id = QAN_guiyang_hongmenyan
+		x = 7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = QAN_guiyang_hongmenyan
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		}
+	}
+	#八法不可违
+	focus = {
+		id = QAN_bafa_bukewei
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = QAN_guizhou_jundui }
+		relative_position_id = QAN_guizhou_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_guizhou_army_2
+		remove_idea = QAN_guizhou_army
+		}
+		}
+	}
+	#忠诚的回报
+	focus = {
+		id = QAN_zhongcheng_huibao
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = QAN_guizhou_jundui }
+		relative_position_id = QAN_guizhou_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_huibao
+		}
+	}
+	#纠察队革新
+	focus = {
+		id = QAN_jiuchadui_gexin
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = QAN_bafa_bukewei }
+		relative_position_id = QAN_bafa_bukewei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_guizhou_army_3
+		remove_idea = QAN_guizhou_army_2
+		}
+		}
+	}
+	#大义使命
+	focus = {
+		id = QAN_dayi_shiming
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { focus = QAN_zhongcheng_huibao }
+		relative_position_id = QAN_zhongcheng_huibao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_huibao_2
+		remove_idea = QAN_huibao
+		}
+		}
+	}
+	#坚决秩序
+	focus = {
+		id = QAN_jianjue_zhixu
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = QAN_zhongcheng_huibao }
+		prerequisite = { focus = QAN_bafa_bukewei }
+		relative_position_id = QAN_zhongcheng_huibao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = QAN_jianjue_zhixu
+		}
+	}
+	#贵阳兵工厂
+	focus = {
+		id = QAN_guiyang_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = QAN_jianjue_zhixu }
+		relative_position_id = QAN_jianjue_zhixu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1101 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#完成革新
+	focus = {
+		id = QAN_wancheng_gexin
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = QAN_guiyang_binggongchang }
+		relative_position_id = QAN_guiyang_binggongchang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = QAN_jianjue_zhixu_2
+		remove_idea = QAN_jianjue_zhixu
+		}
+		}
+	}
+}

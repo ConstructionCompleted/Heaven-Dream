@@ -1,0 +1,40 @@
+holy_EU = {
+	#整合加盟国
+    EU_zhenghe_jiamengguo = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = UGR
+	}	
+		available = {
+		    tag = UGR
+			has_completed_focus = UGR_zhenghe_jiamengguo
+		}
+		cost = 20
+        fire_only_once = yes
+		days_remove = 180
+		target_trigger = {
+               FROM = {
+                    is_puppet_of = UGR
+					all_owned_state = {
+					area = 1
+					}
+               }
+          }
+		remove_effect = {
+		FROM = {
+		every_owned_state = {
+		add_core_of = UGR
+		}
+		}
+		annex_country = {
+    target = FROM
+    transfer_troops = yes
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

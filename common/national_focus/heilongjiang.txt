@@ -1,0 +1,253 @@
+focus_tree = {
+	id = HEI_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HEI
+		}
+	}
+	
+	default = no
+ 
+	#白山黑水
+	focus = {
+		id = HEI_baishan_heishui
+		icon = GFX_goal_generic_attack_allies
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#征服土匪
+	focus = {
+		id = HEI_zhengfu_tufei
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = HEI_baishan_heishui}
+		relative_position_id = HEI_baishan_heishui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = HEI_tufei
+			swap_ideas = {
+			add_idea = HEI_hunlun_army_2
+			remove_idea = HEI_hunlun_army
+			}
+		}
+	}
+	#抢劫经济
+	focus = {
+		id = HEI_qiangjie_jingji
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = HEI_baishan_heishui}
+		relative_position_id = HEI_baishan_heishui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HEI_tufei_jingji_2
+			remove_idea = HEI_tufei_jingji
+			}
+		}
+	}
+	#拒绝民族
+	focus = {
+		id = HEI_jujue_minzu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = HEI_baishan_heishui}
+		relative_position_id = HEI_baishan_heishui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#联合武装
+	focus = {
+		id = HEI_lianhe_wuzhuang
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = HEI_zhengfu_tufei}
+		prerequisite = { focus = HEI_qiangjie_jingji}
+		relative_position_id = HEI_qiangjie_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HEI_hunlun_army_3
+			remove_idea = HEI_hunlun_army_2
+			}
+		}
+	}
+	#军事工业
+	focus = {
+		id = HEI_junshi_gongye
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = HEI_lianhe_wuzhuang}
+		prerequisite = { focus = HEI_jujue_minzu}
+		relative_position_id = HEI_jujue_minzu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			714 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#野蛮部队
+	focus = {
+		id = HEI_yeman_budui
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = HEI_lianhe_wuzhuang}
+		relative_position_id = HEI_lianhe_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HEI_yeman_budui
+			remove_idea = HEI_hunlun_army_3
+			}
+		}
+	}
+	#进口武装
+	focus = {
+		id = HEI_jinkou_wuzhaung
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = HEI_yeman_budui}
+		relative_position_id = HEI_yeman_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#开发军事
+	focus = {
+		id = HEI_kaifa_junshi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = HEI_yeman_budui}
+		relative_position_id = HEI_yeman_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			560 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#继续工业建设
+	focus = {
+		id = HEI_jixu_gongye_jianshe
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = HEI_junshi_gongye}
+		relative_position_id = HEI_junshi_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = HEI_tufei_jingji_3
+			remove_idea = HEI_tufei_jingji_2
+			}
+		}
+	}
+	#消费品生产
+	focus = {
+		id = HEI_xiaofeiping_shengchan
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = HEI_jixu_gongye_jianshe}
+		relative_position_id = HEI_jixu_gongye_jianshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			561 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#开发道路
+	focus = {
+		id = HEI_kaifa_daolu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = HEI_jixu_gongye_jianshe}
+		relative_position_id = HEI_jixu_gongye_jianshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_owned_state = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+}

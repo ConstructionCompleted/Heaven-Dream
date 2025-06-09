@@ -1,0 +1,62 @@
+add_namespace = holy_xila
+#革命的胜利
+country_event = {
+	id = holy_xila.1
+	title = holy_xila.1.t
+	desc = holy_xila.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xila.1.a
+	}
+}
+#归还希腊领土
+country_event = {
+	id = holy_xila.2
+	title = holy_xila.2.t
+	desc = holy_xila.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xila.2.a
+		ai_chance = {
+		    factor = 10
+		}
+		GRE = {
+		transfer_state = 731
+		transfer_state = 184
+		transfer_state = 1386
+		transfer_state = 1387
+		}
+	}
+	option = {
+		name = holy_xila.2.b
+		ai_chance = {
+		    factor = 0
+		}
+		GRE = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = BUL
+}
+		}
+	}
+}
+#君士坦丁行动
+country_event = {
+	id = holy_xila.3
+	title = holy_xila.3.t
+	desc = holy_xila.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xila.3.a
+		transfer_state = 341
+		transfer_state = 797
+		transfer_state = 1583
+		transfer_state = 1587
+	}
+}

@@ -1,0 +1,3114 @@
+focus_tree = {
+	id = NHL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NHL
+		}
+	}
+	
+	default = no
+ 
+	#修建大洲铁路
+	focus = {
+		id = NHL_xiujian_dazhou_tielu
+		icon = GFX_focus_generic_railroad
+		x = 17
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			872 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			520 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			870 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			522 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大城市化
+	focus = {
+		id = NHL_kuoda_chengshihua
+		icon = GFX_focus_POL_warsaw_main_station
+		x = 17
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_chengshihua
+		}
+	}
+	#接触国际市场
+	focus = {
+		id = NHL_jiechuguoji_shichang
+		icon = GFX_goal_generic_trade
+		x = 19
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_guoji_shichang
+		}
+	}
+	#大陆工业化
+	focus = {
+		id = NHL_dalu_gongyehua
+		icon = GFX_goal_generic_production
+		x = 19
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_gongyehua
+		}
+	}
+	#对外政策调整
+	focus = {
+		id = NHL_duiwai_zhengce
+		icon = GFX_goal_generic_improve_relations
+		x = 21
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
+	}
+	#媒体宣传提案
+	focus = {
+		id = NHL_meiti_xuanchuan_tian
+		icon = GFX_goal_generic_propaganda
+		x = 21
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_meiti_xuanchuan
+		}
+	}
+	#军队改革
+	focus = {
+		id = NHL_jundui_gaige
+		icon = GFX_focus_chi_army_reform
+		x = 23
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_quefajingyan_lujun_2
+			remove_idea = NHL_quefajingyan_lujun
+			}
+		}
+	}
+	#军事体系提案
+	focus = {
+		id = NHL_junshitixi_tian
+		icon = GFX_focus_generic_tank_production
+		x = 23
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_junshitixi_tian
+		}
+	}
+	#毛利人提案
+	focus = {
+		id = NHL_maoliren_tian
+		icon = GFX_focus_ETH_sway_the_warlords
+		x = 25
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = { id = holy_nanhai.1 }
+		}
+	}
+	#大陆居住区
+	focus = {
+		id = NHL_dalu_juzhuqu
+		icon = GFX_focus_generic_treaty
+		x = 25
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_duoyuan_lianmeng_2
+			remove_idea = NHL_duoyuan_lianmeng
+			}
+		}
+	}
+	#1937大选
+	focus = {
+		id = NHL_1937daxuan
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = NHL_xiujian_dazhou_tielu }
+		prerequisite = { focus = NHL_kuoda_chengshihua }
+		prerequisite = { focus = NHL_jiechuguoji_shichang }
+		prerequisite = { focus = NHL_dalu_gongyehua }
+		prerequisite = { focus = NHL_duiwai_zhengce }
+		prerequisite = { focus = NHL_meiti_xuanchuan_tian }
+		prerequisite = { focus = NHL_jundui_gaige }
+		prerequisite = { focus = NHL_junshitixi_tian }
+		prerequisite = { focus = NHL_maoliren_tian }
+		prerequisite = { focus = NHL_dalu_juzhuqu }
+		relative_position_id = NHL_meiti_xuanchuan_tian
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		select_effect = {
+		swap_ideas = {
+		add_idea = NHL_zhengzhi_hunluan
+		remove_idea = NHL_zhengzhi_fenqi
+		}
+		}
+		completion_reward = {
+			country_event = { id = holy_nanhai.2 days = 10 }
+		}
+	}
+	#南海革命联盟
+	focus = {
+		id = NHL_nanhai_geming_lianmeng
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = NHL_1937daxuan }
+		relative_position_id = NHL_1937daxuan
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_geming_lianmeng
+			remove_idea = NHL_zhengzhi_hunluan
+			}
+		}
+	}
+	#解放女性权利
+	focus = {
+		id = NHL_jiefang_nvxingquanli
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = NHL_nanhai_geming_lianmeng }
+		relative_position_id = NHL_nanhai_geming_lianmeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_lianbang_hexie
+		}
+	}
+	#拒绝民族选项
+	focus = {
+		id = NHL_jujue_minzuxuanxiang
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = NHL_jiefang_nvxingquanli }
+		relative_position_id = NHL_jiefang_nvxingquanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_lianbang_hexie_2
+			remove_idea = NHL_lianbang_hexie
+			}
+		}
+	}
+	#工农联合议会
+	focus = {
+		id = NHL_gongnong_lianhe_yihui
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = NHL_nanhai_geming_lianmeng }
+		relative_position_id = NHL_nanhai_geming_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_geming_lianmeng_2
+			remove_idea = NHL_geming_lianmeng
+			}
+		}
+	}
+	#加强地区管控
+	focus = {
+		id = NHL_jiaqiang_diqu_guankong
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = NHL_gongnong_lianhe_yihui }
+		relative_position_id = NHL_gongnong_lianhe_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_geming_lianmeng_3
+			remove_idea = NHL_geming_lianmeng_2
+			}
+		}
+	}
+	#建立国家工团
+	focus = {
+		id = NHL_jianli_guojia_gongtuan
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = NHL_nanhai_geming_lianmeng }
+		relative_position_id = NHL_nanhai_geming_lianmeng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_guojia_gongtuan
+		}
+	}
+	#联合体计划经济
+	focus = {
+		id = NHL_lianheti_jihuajingji
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		prerequisite = { focus = NHL_jianli_guojia_gongtuan }
+		relative_position_id = NHL_jianli_guojia_gongtuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_guojia_gongtuan_2
+			remove_idea = NHL_guojia_gongtuan
+			}
+		}
+	}
+	#无产阶级宪法
+	focus = {
+		id = NHL_wuchanjieji_xianfa
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = NHL_lianheti_jihuajingji }
+		prerequisite = { focus = NHL_jiaqiang_diqu_guankong }
+		prerequisite = { focus = NHL_jujue_minzuxuanxiang }
+		relative_position_id = NHL_jiaqiang_diqu_guankong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_geming_lianmeng_4
+			remove_idea = NHL_geming_lianmeng_3
+			}
+		}
+	}
+	#改革媒体
+	focus = {
+		id = NHL_gaige_meiti
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = NHL_wuchanjieji_xianfa }
+		relative_position_id = NHL_wuchanjieji_xianfa
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_meiti
+			remove_idea = NHL_meiti_xuanchuan
+			}
+		}
+	}
+	#人民的声音
+	focus = {
+		id = NHL_renmin_shengyin
+		icon = GFX_focus_ITA_topple_amhara_rulers
+		prerequisite = { focus = NHL_gaige_meiti }
+		relative_position_id = NHL_gaige_meiti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_meiti_2
+			remove_idea = NHL_gaige_meiti
+			}
+		}
+	}
+	#出品劳动法
+	focus = {
+		id = NHL_chuping_laodongfa
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = NHL_wuchanjieji_xianfa }
+		relative_position_id = NHL_wuchanjieji_xianfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_geming_lianmeng_5
+			remove_idea = NHL_geming_lianmeng_4
+			}
+		}
+	}
+	#组织农业合作
+	focus = {
+		id = NHL_zuzhi_nongye_hezuo
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = NHL_wuchanjieji_xianfa }
+		relative_position_id = NHL_wuchanjieji_xianfa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_guojia_gongtuan_3
+			remove_idea = NHL_guojia_gongtuan_2
+			}
+		}
+	}
+	#多劳多得
+	focus = {
+		id = NHL_duolaoduode
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = NHL_chuping_laodongfa }
+		prerequisite = { focus = NHL_zuzhi_nongye_hezuo }
+		relative_position_id = NHL_zuzhi_nongye_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_guojia_gongtuan_4
+			remove_idea = NHL_guojia_gongtuan_3
+			}
+		}
+	}
+	#联盟党当选
+	focus = {
+		id = NHL_lianmengdang_dangxuan
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = NHL_1937daxuan }
+		relative_position_id = NHL_1937daxuan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_lianmeng_yanxu
+			remove_idea = NHL_zhengzhi_hunluan
+			}
+		}
+	}
+	#压制极端主义
+	focus = {
+		id = NHL_yazhi_jiduan_zhuyi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = NHL_lianmengdang_dangxuan }
+		relative_position_id = NHL_lianmengdang_dangxuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_daji_fanduipai
+			add_popularity = {
+    ideology = reconcilism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = socialism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.2
+}
+		}
+	}
+	#强化总统权利
+	focus = {
+		id = NHL_qianghua_zongtong_quanli
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = NHL_lianmengdang_dangxuan }
+		relative_position_id = NHL_lianmengdang_dangxuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_lianmeng_yanxu_2
+			remove_idea = NHL_lianmeng_yanxu
+			}
+		}
+	}
+	#打击地方主义
+	focus = {
+		id = NHL_daji_difang_zhuyi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = NHL_yazhi_jiduan_zhuyi }
+		relative_position_id = NHL_yazhi_jiduan_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_daji_fanduipai_2
+			remove_idea = NHL_daji_fanduipai
+			}
+		}
+	}
+	#重构国家议会
+	focus = {
+		id = NHL_chonggou_guojia_yihui
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = NHL_yazhi_jiduan_zhuyi }
+		prerequisite = { focus = NHL_qianghua_zongtong_quanli }
+		relative_position_id = NHL_qianghua_zongtong_quanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_lianmeng_yanxu_3
+			remove_idea = NHL_lianmeng_yanxu_2
+			}
+		}
+	}
+	#重建地区民主
+	focus = {
+		id = NHL_chongjian_diqu_minzhu
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = NHL_qianghua_zongtong_quanli }
+		relative_position_id = NHL_qianghua_zongtong_quanli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_diqu_gaige
+		}
+	}
+	#民族流通
+	focus = {
+		id = NHL_minzu_liutong
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = NHL_daji_difang_zhuyi }
+		prerequisite = { focus = NHL_chonggou_guojia_yihui }
+		relative_position_id = NHL_chonggou_guojia_yihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_daji_fanduipai_3
+			remove_idea = NHL_daji_fanduipai_2
+			}
+		}
+	}
+	#建立地区议会
+	focus = {
+		id = NHL_diqu_yihui
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = NHL_chongjian_diqu_minzhu }
+		prerequisite = { focus = NHL_chonggou_guojia_yihui }
+		relative_position_id = NHL_chonggou_guojia_yihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_diqu_gaige_2
+			remove_idea = NHL_diqu_gaige
+			}
+		}
+	}
+	#建设共和学院
+	focus = {
+		id = NHL_jianshe_gonghe_xueyuan
+		icon = GFX_focus_research2
+		prerequisite = { focus = NHL_minzu_liutong }
+		relative_position_id = NHL_minzu_liutong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_gonghe_xueyuan
+		}
+	}
+	#扩大福利改革
+	focus = {
+		id = NHL_kuoda_fuli_gaige
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = NHL_minzu_liutong }
+		prerequisite = { focus = NHL_diqu_yihui }
+		relative_position_id = NHL_diqu_yihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_fuli_gaige
+		}
+	}
+	#建设公共设施
+	focus = {
+		id = NHL_jianshe_gonggong_sheshi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = NHL_diqu_yihui }
+		relative_position_id = NHL_diqu_yihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_diqu_gaige_3
+			remove_idea = NHL_diqu_gaige_2
+			}
+		}
+	}
+	#自由共和国
+	focus = {
+		id = NHL_ziyou_gongheguo
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = NHL_jianshe_gonghe_xueyuan }
+		prerequisite = { focus = NHL_kuoda_fuli_gaige }
+		prerequisite = { focus = NHL_jianshe_gonggong_sheshi }
+		relative_position_id = NHL_kuoda_fuli_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_lianmeng_yanxu_4
+			remove_idea = NHL_lianmeng_yanxu_3
+			}
+		}
+	}
+	#先锋主义夺权
+	focus = {
+		id = NHL_xianfengzhuyi_duoquan
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = NHL_1937daxuan }
+		relative_position_id = NHL_1937daxuan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_fatuan
+			remove_idea = NHL_zhengzhi_hunluan
+			}
+		}
+	}
+	#建立地方军区
+	focus = {
+		id = NHL_jianli_difang_junqu
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = NHL_xianfengzhuyi_duoquan }
+		relative_position_id = NHL_xianfengzhuyi_duoquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_difang_junshihua
+		}
+	}
+	#建设法团主义
+	focus = {
+		id = NHL_jianshe_fatuan_zhuyi
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = NHL_xianfengzhuyi_duoquan }
+		relative_position_id = NHL_xianfengzhuyi_duoquan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_fatuan_2
+			remove_idea = NHL_xianfeng_fatuan
+			}
+		}
+	}
+	#吸收暴动者
+	focus = {
+		id = NHL_xishou_baodongzhe
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = NHL_jianli_difang_junqu }
+		relative_position_id = NHL_jianli_difang_junqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_difang_junshihua_2
+			remove_idea = NHL_difang_junshihua
+			}
+		}
+	}
+	#扩张军事化
+	focus = {
+		id = NHL_kuozhang_junshihua
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = NHL_xishou_baodongzhe }
+		relative_position_id = NHL_xishou_baodongzhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_difang_junshihua_3
+			remove_idea = NHL_difang_junshihua_2
+			}
+		}
+	}
+	#国家主导法团
+	focus = {
+		id = NHL_guojia_zhudao_fatuan
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = NHL_xishou_baodongzhe }
+		prerequisite = { focus = NHL_jianshe_fatuan_zhuyi }
+		relative_position_id = NHL_jianshe_fatuan_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_fatuan_3
+			remove_idea = NHL_xianfeng_fatuan_2
+			}
+		}
+	}
+	#阶级合作
+	focus = {
+		id = NHL_jieji_hezuo
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = NHL_guojia_zhudao_fatuan }
+		relative_position_id = NHL_guojia_zhudao_fatuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_fatuan_4
+			remove_idea = NHL_xianfeng_fatuan_3
+			}
+		}
+	}
+	#宣扬对外扩张
+	focus = {
+		id = NHL_xuanyang_duiwai_kuozhang
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = NHL_jianshe_fatuan_zhuyi }
+		relative_position_id = NHL_jianshe_fatuan_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_kuozhang_plan
+		}
+	}
+	#泛南海计划
+	focus = {
+		id = NHL_fannanhai_plan
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = NHL_xuanyang_duiwai_kuozhang }
+		relative_position_id = NHL_xuanyang_duiwai_kuozhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			is_core_of = MNY
+			is_core_of = WEN
+			is_core_of = TNT
+			is_core_of = YAW
+			is_core_of = MDL
+			is_core_of = PHI
+			}
+			}
+			add_claim_by = NHL
+			}
+		}
+	}
+	#资产的联盟
+	focus = {
+		id = NHL_zichan_lianmeng
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = NHL_kuozhang_junshihua }
+		prerequisite = { focus = NHL_jieji_hezuo }
+		relative_position_id = NHL_jieji_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_fatuan_5
+			remove_idea = NHL_xianfeng_fatuan_4
+			}
+		}
+	}
+	#人民的许诺
+	focus = {
+		id = NHL_renmin_xunuo
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = NHL_fannanhai_plan }
+		prerequisite = { focus = NHL_jieji_hezuo }
+		relative_position_id = NHL_jieji_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_renmin_xunuo
+		}
+	}
+	#开启战争之门
+	focus = {
+		id = NHL_kaiqi_zhanzheng_zhimen
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = NHL_renmin_xunuo }
+		prerequisite = { focus = NHL_zichan_lianmeng }
+		relative_position_id = NHL_zichan_lianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = puppet_wargoal_focus
+    target = MNY
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = WEN
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = TNT
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = YAW
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = MDL
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = PHI
+}
+		}
+	}
+	#复辟君主立宪
+	focus = {
+		id = NHL_fubi_junzhulixian
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = NHL_1937daxuan }
+		relative_position_id = NHL_1937daxuan
+		x = 9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junzhu_lixian
+			remove_idea = NHL_zhengzhi_hunluan
+			}
+		}
+	}
+	#君主品德
+	focus = {
+		id = NHL_junzhu_pingde
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = NHL_fubi_junzhulixian }
+		relative_position_id = NHL_fubi_junzhulixian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junzhu_lixian_2
+			remove_idea = NHL_junzhu_lixian
+			}
+		}
+	}
+	#扩大宣传口径
+	focus = {
+		id = NHL_kuoda_xuanchuan_koujing
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = NHL_junzhu_pingde }
+		relative_position_id = NHL_junzhu_pingde
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junzhu_lixian_3
+			remove_idea = NHL_junzhu_lixian_2
+			}
+		}
+	}
+	#接管皇家工业
+	focus = {
+		id = NHL_jieguan_huangjia_gongye
+		icon = GFX_focus_ITA_workers_unions
+		prerequisite = { focus = NHL_fubi_junzhulixian }
+		relative_position_id = NHL_fubi_junzhulixian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_huangjia_gongye
+			add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#建设皇家陆军
+	focus = {
+		id = NHL_jianshe_huangjia_lujun
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = NHL_jieguan_huangjia_gongye }
+		relative_position_id = NHL_jieguan_huangjia_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_huangjia_lujun
+		}
+	}
+	#建立皇家内阁
+	focus = {
+		id = NHL_jianli_huangjia_neige
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = NHL_fubi_junzhulixian }
+		relative_position_id = NHL_fubi_junzhulixian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_huangshi_gaige
+		}
+	}
+	#建设六部
+	focus = {
+		id = NHL_jianshe_liubu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = NHL_jianli_huangjia_neige }
+		relative_position_id = NHL_jianli_huangjia_neige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_huangshi_gaige_2
+			remove_idea = NHL_huangshi_gaige
+			}
+		}
+	}
+	#鼓励慈善
+	focus = {
+		id = NHL_guli_cishan
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = NHL_kuoda_xuanchuan_koujing }
+		prerequisite = { focus = NHL_jianshe_huangjia_lujun }
+		relative_position_id = NHL_jianshe_huangjia_lujun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junzhu_lixian_4
+			remove_idea = NHL_junzhu_lixian_3
+			}
+		}
+	}
+	#斥责党派政治
+	focus = {
+		id = NHL_chize_dangpai_zhengzhi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = NHL_guli_cishan }
+		relative_position_id = NHL_guli_cishan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = reconcilism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = socialism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = progressism
+    popularity = -0.2
+}
+add_political_power = 100
+		}
+	}
+	#国家指导经济
+	focus = {
+		id = NHL_guojia_zhidao_jingji
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = NHL_jianshe_liubu }
+		prerequisite = { focus = NHL_jianshe_huangjia_lujun }
+		relative_position_id = NHL_jianshe_huangjia_lujun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_huangjia_gongye_2
+			remove_idea = NHL_huangjia_gongye
+			}
+		}
+	}
+	#重商主义
+	focus = {
+		id = NHL_zhongshang_zhuyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = NHL_guojia_zhidao_jingji }
+		relative_position_id = NHL_guojia_zhidao_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_huangjia_gongye_3
+			remove_idea = NHL_huangjia_gongye_2
+			}
+		}
+	}
+	#人民的皇帝
+	focus = {
+		id = NHL_renmin_huangdi
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = NHL_chize_dangpai_zhengzhi }
+		prerequisite = { focus = NHL_zhongshang_zhuyi }
+		relative_position_id = NHL_zhongshang_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_huangshi_gaige_3
+			remove_idea = NHL_huangshi_gaige_2
+			}
+		}
+	}
+	#南海计划经济
+	focus = {
+		id = NHL_nanhai_plan_ecnomic
+		icon = GFX_focus_SOV_merge_plants
+		x = 17
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = NHL_1937daxuan
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingjigaige_2
+			remove_idea = NHL_jingjigaige
+			}
+		}
+	}
+	#改革生产线
+	focus = {
+		id = NHL_gaige_shengchanxian
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = NHL_nanhai_plan_ecnomic }
+		relative_position_id = NHL_nanhai_plan_ecnomic
+		x = -7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_gaige_shengchan
+		}
+	}
+	#邀请外国专家
+	focus = {
+		id = NHL_yaoqing_waiguo_zhuanjia
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = NHL_gaige_shengchanxian }
+		relative_position_id = NHL_gaige_shengchanxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_shengchan_2
+			remove_idea = NHL_gaige_shengchan
+			}
+		}
+	}
+	#扩大机器生产
+	focus = {
+		id = NHL_kuoda_jiqi_shengchan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = NHL_yaoqing_waiguo_zhuanjia }
+		relative_position_id = NHL_yaoqing_waiguo_zhuanjia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_shengchan_3
+			remove_idea = NHL_gaige_shengchan_2
+			}
+		}
+	}
+	#整合工业体系
+	focus = {
+		id = NHL_zhenghe_gongye_tixi
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = NHL_kuoda_jiqi_shengchan }
+		relative_position_id = NHL_kuoda_jiqi_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_shengchan_4
+			remove_idea = NHL_gaige_shengchan_3
+			}
+		}
+	}
+	#适应自然环境
+	focus = {
+		id = NHL_shiying_ziran_huanjing
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = NHL_nanhai_plan_ecnomic }
+		relative_position_id = NHL_nanhai_plan_ecnomic
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#计划牧业
+	focus = {
+		id = NHL_jihua_muye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = NHL_shiying_ziran_huanjing }
+		relative_position_id = NHL_shiying_ziran_huanjing
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_xumuye
+		}
+	}
+	#革新放牧技术
+	focus = {
+		id = NHL_gexin_fangmu_jishu
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = NHL_jihua_muye }
+		relative_position_id = NHL_jihua_muye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xumuye_2
+			remove_idea = NHL_xumuye
+			}
+		}
+	}
+	#改革后勤体系
+	focus = {
+		id = NHL_gaige_houqin_tixi
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = NHL_gexin_fangmu_jishu }
+		relative_position_id = NHL_gexin_fangmu_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xumuye_3
+			remove_idea = NHL_xumuye_2
+			}
+		}
+	}
+	#扩大煤矿产业
+	focus = {
+		id = NHL_kuoda_meikuang_chanye
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = NHL_shiying_ziran_huanjing }
+		relative_position_id = NHL_shiying_ziran_huanjing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_ziyuan_kaicai
+			add_resource = {
+    type = oil
+    amount = 25
+    state = 674
+}
+add_resource = {
+    type = oil
+    amount = 25
+    state = 521
+}
+		}
+	}
+	#扩建大陆炼钢
+	focus = {
+		id = NHL_kuoda_dalu_liangang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = NHL_kuoda_meikuang_chanye }
+		relative_position_id = NHL_kuoda_meikuang_chanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_ziyuan_kaicai_2
+			remove_idea = NHL_ziyuan_kaicai
+			}
+			add_resource = {
+    type = steel
+    amount = 30
+    state = 517
+}
+add_resource = {
+    type = steel
+    amount = 70
+    state = 520
+}
+		}
+	}
+	#改革资源体系
+	focus = {
+		id = NHL_gaige_ziyuan_tixi
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = NHL_kuoda_dalu_liangang }
+		relative_position_id = NHL_kuoda_dalu_liangang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_ziyuan_kaicai_3
+			remove_idea = NHL_ziyuan_kaicai_2
+			}
+		}
+	}
+	#改革农业技术
+	focus = {
+		id = NHL_gaige_nongye_jishu
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = NHL_shiying_ziran_huanjing }
+		relative_position_id = NHL_shiying_ziran_huanjing
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_gaige_nongye
+		}
+	}
+	#扩大东部农田
+	focus = {
+		id = NHL_kuoda_dongbu_nongtian
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = NHL_gaige_nongye_jishu }
+		relative_position_id = NHL_gaige_nongye_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			521 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			873 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			swap_ideas = {
+			add_idea = NHL_gaige_nongye_2
+			remove_idea = NHL_gaige_nongye
+			}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = NHL_nongye_jixiehua
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = NHL_kuoda_dongbu_nongtian }
+		relative_position_id = NHL_kuoda_dongbu_nongtian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gaige_nongye_3
+			remove_idea = NHL_gaige_nongye_2
+			}
+		}
+	}
+	#扩大南海工业
+	focus = {
+		id = NHL_kuoda_nanhai_gongye
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = NHL_nanhai_plan_ecnomic }
+		relative_position_id = NHL_nanhai_plan_ecnomic
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingjigaige_3
+			remove_idea = NHL_jingjigaige_2
+			}
+		}
+	}
+	#改革建设技术
+	focus = {
+		id = NHL_gaige_jianshe_jishu
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = NHL_kuoda_nanhai_gongye }
+		relative_position_id = NHL_kuoda_nanhai_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingjigaige_4
+			remove_idea = NHL_jingjigaige_3
+			}
+		}
+	}
+	#西部大开发
+	focus = {
+		id = NHL_xibu_dakaifa
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = NHL_gaige_jianshe_jishu }
+		relative_position_id = NHL_gaige_jianshe_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1243 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			871 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩建西海岸
+	focus = {
+		id = NHL_kuojian_xihaian
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = NHL_xibu_dakaifa }
+		relative_position_id = NHL_xibu_dakaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			522 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 5
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩张东部港口
+	focus = {
+		id = NHL_kuozhang_dongbu_gangkou
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = NHL_kuoda_nanhai_gongye }
+		relative_position_id = NHL_kuoda_nanhai_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			285 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东南工业化
+	focus = {
+		id = NHL_dongnan_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = NHL_gaige_jianshe_jishu }
+		prerequisite = { focus = NHL_kuozhang_dongbu_gangkou }
+		relative_position_id = NHL_kuozhang_dongbu_gangkou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			285 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			517 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#北部开拓
+	focus = {
+		id = NHL_beibu_kaituo
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = NHL_dongnan_gongye }
+		relative_position_id = NHL_dongnan_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			872 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 5
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			870 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 5
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			520 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 5
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#新西兰建设
+	focus = {
+		id = NHL_xinxilan_jianshe
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = NHL_kuozhang_dongbu_gangkou }
+		relative_position_id = NHL_kuozhang_dongbu_gangkou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			284 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			723 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#群岛开发
+	focus = {
+		id = NHL_qundao_kaifa
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { focus = NHL_xinxilan_jianshe }
+		relative_position_id = NHL_xinxilan_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			518 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+			734 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+			635 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#工业技术学院
+	focus = {
+		id = NHL_gongye_jishu_xueyuan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = NHL_nanhai_plan_ecnomic }
+		relative_position_id = NHL_nanhai_plan_ecnomic
+		x = 7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_gexin_jishu
+		}
+	}
+	#革新建设技术
+	focus = {
+		id = NHL_gexin_jianshe_jishu
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = NHL_gongye_jishu_xueyuan }
+		relative_position_id = NHL_gongye_jishu_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gexin_jishu_2
+			remove_idea = NHL_gexin_jishu
+			}
+		}
+	}
+	#扩大技工地位
+	focus = {
+		id = NHL_kuoda_jishu_diwei
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = NHL_gexin_jianshe_jishu }
+		relative_position_id = NHL_gexin_jianshe_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gexin_jishu_3
+			remove_idea = NHL_gexin_jishu_2
+			}
+		}
+	}
+	#合理化就业
+	focus = {
+		id = NHL_helihua_jiuye
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = NHL_kuoda_jishu_diwei }
+		relative_position_id = NHL_kuoda_jishu_diwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_gexin_jishu_4
+			remove_idea = NHL_gexin_jishu_3
+			}
+		}
+	}
+	#建设南海海军
+	focus = {
+		id = NHL_jianshe_nanhai_haijun
+		icon = GFX_focus_generic_refit_civilian_ships
+		x = 27
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = NHL_1937daxuan
+		}
+		completion_reward = {
+			add_ideas = NHL_nanhai_haijun
+		}
+	}
+	#建设小型海军
+	focus = {
+		id = NHL_jianshe_xiaoxing_haijun
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = NHL_jianshe_nanhai_haijun }
+		relative_position_id = NHL_jianshe_nanhai_haijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_nanhai_haijun_2
+			remove_idea = NHL_nanhai_haijun
+			}
+		}
+	}
+	#建设巡洋舰
+	focus = {
+		id = NHL_jianshe_xunyangjian
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = NHL_jianshe_xiaoxing_haijun }
+		relative_position_id = NHL_jianshe_xiaoxing_haijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_nanhai_haijun_3
+			remove_idea = NHL_nanhai_haijun_2
+			}
+		}
+	}
+	#海洋利维坦
+	focus = {
+		id = NHL_haiyang_liweitan
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = NHL_jianshe_xunyangjian }
+		relative_position_id = NHL_jianshe_xunyangjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_nanhai_haijun_4
+			remove_idea = NHL_nanhai_haijun_3
+			}
+		}
+	}
+	#扩建北部港口
+	focus = {
+		id = NHL_kuojian_beibu_gangkou
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = NHL_jianshe_nanhai_haijun }
+		relative_position_id = NHL_jianshe_nanhai_haijun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			520 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#准备登录
+	focus = {
+		id = NHL_zhunbei_denglu
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = NHL_kuojian_beibu_gangkou }
+		relative_position_id = NHL_kuojian_beibu_gangkou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhunbei_denglu
+		}
+	}
+	#洋流袭击者
+	focus = {
+		id = NHL_yangliu_xijizhe
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = NHL_zhunbei_denglu }
+		relative_position_id = NHL_zhunbei_denglu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_yangliu_xijizhe
+		}
+	}
+	#驶向天空
+	focus = {
+		id = NHL_shixiang_tiankong
+		icon = GFX_goal_generic_air_bomber
+		x = 32
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = NHL_1937daxuan
+		}
+		completion_reward = {
+			air_experience = 100
+		}
+	}
+	#三线进攻
+	focus = {
+		id = NHL_sanxian_jingong
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = NHL_jianshe_nanhai_haijun }
+		prerequisite = { focus = NHL_shixiang_tiankong }
+		relative_position_id = NHL_shixiang_tiankong
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_sanxian_jingong
+		}
+	}
+	#海上轰炸
+	focus = {
+		id = NHL_haishang_hongzha
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = NHL_sanxian_jingong }
+		relative_position_id = NHL_sanxian_jingong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_sanxian_jingong_2
+			remove_idea = NHL_sanxian_jingong
+			}
+			add_tech_bonus = {
+    bonus = 1.5
+    uses = 1
+    category = naval_bomber
+}
+		}
+	}
+	#海空合作
+	focus = {
+		id = NHL_haikonghezuo
+		icon = GFX_focus_generic_multi_role_aircraft
+		prerequisite = { focus = NHL_haishang_hongzha }
+		relative_position_id = NHL_haishang_hongzha
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_sanxian_jingong_3
+			remove_idea = NHL_sanxian_jingong_2
+			}
+		}
+	}
+	#战斗机科研
+	focus = {
+		id = NHL_zhandouji_keyan
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = NHL_shixiang_tiankong }
+		relative_position_id = NHL_shixiang_tiankong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+    bonus = 1.5
+    uses = 2
+    category = light_air
+}
+		}
+	}
+	#支援战斗
+	focus = {
+		id = NHL_zhiyuan_zhandou
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = NHL_zhandouji_keyan }
+		relative_position_id = NHL_zhandouji_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhiyuan_jingong
+		}
+	}
+	#破坏后方
+	focus = {
+		id = NHL_pohuai_houfang
+		icon = GFX_focus_chi_flying_tigers
+		prerequisite = { focus = NHL_zhiyuan_zhandou }
+		relative_position_id = NHL_zhiyuan_zhandou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhiyuan_jingong_2
+			remove_idea = NHL_zhiyuan_jingong
+			}
+		}
+	}
+	#扩大打击范围
+	focus = {
+		id = NHL_kuoda_daji_fanwei
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = NHL_shixiang_tiankong }
+		relative_position_id = NHL_shixiang_tiankong
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+    bonus = 1.5
+    uses = 2
+    category = medium_air
+	category = heavy_air
+}
+		}
+	}
+	#改革天空战术
+	focus = {
+		id = NHL_gaige_tiankong_zhanshu
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = NHL_kuoda_daji_fanwei }
+		relative_position_id = NHL_kuoda_daji_fanwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_tiankong_zhanshu
+		}
+	}
+	#燃油革新
+	focus = {
+		id = NHL_ranyou_gexin
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = NHL_gaige_tiankong_zhanshu }
+		relative_position_id = NHL_gaige_tiankong_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_tiankong_zhanshu_2
+			remove_idea = NHL_tiankong_zhanshu
+			}
+		}
+	}
+	#干预东南亚
+	focus = {
+		id = NHL_ganyu_dongnanya
+		icon = GFX_focus_generic_conspiracy
+		x = 20
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1938.1.1
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = WEN
+    type = annex_everything
+}
+if = {
+limit = {
+NOT = {
+has_government = progressism
+}
+}
+declare_war_on = {
+    target = YAW
+    type = annex_everything
+}
+declare_war_on = {
+    target = MDL
+    type = annex_everything
+}
+declare_war_on = {
+    target = MNY
+    type = annex_everything
+}
+}
+		}
+	}
+	#寻求世界同盟
+	focus = {
+		id = NHL_xunqiu_shijie_tongmeng
+		icon = GFX_focus_generic_court
+		x = 22
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		AND = {
+		has_government = progressism
+		FRA = { is_faction_leader = yes  has_government = conservatism }
+		}
+		AND = {
+		has_government = socialism
+		}
+		AND = {
+		has_government = neutrality
+		OR = {
+		AND = {
+		PLS = { is_faction_leader = yes }
+		AUS = { exists = no }
+		}
+		AND = {
+		AUS = { is_faction_leader = yes }
+		PLS = { exists = no }
+		}
+		}
+		}
+		}
+		}
+		completion_reward = {
+			if = {
+limit = {
+has_government = socialism
+}
+every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = NHL
+			}
+}
+if = {
+limit = {
+has_government = progressism
+}
+FRA = { add_to_faction = NHL }
+}
+if = {
+limit = {
+has_government = neutrality
+PLS = { is_faction_leader = yes }
+		AUS = { exists = no }
+}
+PLS = { add_to_faction = NHL }
+}
+if = {
+limit = {
+has_government = neutrality
+AUS = { is_faction_leader = yes }
+		PLS = { exists = no }
+}
+AUS = { add_to_faction = NHL }
+}
+		}
+	}
+	#先锋军团
+	focus = {
+		id = NHL_xianfeng_juntuan
+		icon = GFX_focus_generic_fascist_troops
+		x = 12
+		y = 18
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = NHL_xianfengzhuyi_duoquan
+		}
+		completion_reward = {
+			add_ideas = NHL_xianfeng_jun
+		}
+	}
+	#扩建准军事组织
+	focus = {
+		id = NHL_kuojian_zhunjunshi_zuzhi
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = NHL_xianfeng_juntuan }
+		relative_position_id = NHL_xianfeng_juntuan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhunjunshi_zuzhi
+		}
+	}
+	#完全军事化
+	focus = {
+		id = NHL_wanquan_junshihua
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = NHL_xianfeng_juntuan }
+		relative_position_id = NHL_xianfeng_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_jun_2
+			remove_idea = NHL_xianfeng_jun
+			}
+		}
+	}
+	#军队分等
+	focus = {
+		id = NHL_jundui_fendeng
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = NHL_kuojian_zhunjunshi_zuzhi }
+		prerequisite = { focus = NHL_wanquan_junshihua }
+		relative_position_id = NHL_wanquan_junshihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhunjunshi_zuzhi_2
+			remove_idea = NHL_zhunjunshi_zuzhi
+			}
+		}
+	}
+	#思想灌输
+	focus = {
+		id = NHL_sixiang_guanshu
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = NHL_xianfeng_juntuan }
+		relative_position_id = NHL_xianfeng_juntuan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_yizhi_gaizao
+		}
+	}
+	#铁血军事
+	focus = {
+		id = NHL_tiexue_junshi
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = NHL_sixiang_guanshu }
+		prerequisite = { focus = NHL_wanquan_junshihua }
+		relative_position_id = NHL_wanquan_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_jun_3
+			remove_idea = NHL_xianfeng_jun_2
+			}
+		}
+	}
+	#扩张先锋队
+	focus = {
+		id = NHL_kuozhang_xianfengdui
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = NHL_jundui_fendeng }
+		relative_position_id = NHL_jundui_fendeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhunjunshi_zuzhi_3
+			remove_idea = NHL_zhunjunshi_zuzhi_2
+			}
+		}
+	}
+	#改革战术
+	focus = {
+		id = NHL_gaige_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = NHL_kuozhang_xianfengdui }
+		relative_position_id = NHL_kuozhang_xianfengdui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhunjunshi_zuzhi_4
+			remove_idea = NHL_zhunjunshi_zuzhi_3
+			}
+		}
+	}
+	#苦难行军
+	focus = {
+		id = NHL_kunan_xingjun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = NHL_jundui_fendeng }
+		prerequisite = { focus = NHL_tiexue_junshi }
+		relative_position_id = NHL_tiexue_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_jun_4
+			remove_idea = NHL_xianfeng_jun_3
+			}
+		}
+	}
+	#征服自然
+	focus = {
+		id = NHL_zhengfu_ziran
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = NHL_kunan_xingjun }
+		relative_position_id = NHL_kunan_xingjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_xianfeng_jun_5
+			remove_idea = NHL_xianfeng_jun_4
+			}
+		}
+	}
+	#进攻万岁
+	focus = {
+		id = NHL_jingong_wansui
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = NHL_tiexue_junshi }
+		relative_position_id = NHL_tiexue_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_yizhi_gaizao_2
+			remove_idea = NHL_yizhi_gaizao
+			}
+		}
+	}
+	#意志的胜利
+	focus = {
+		id = NHL_yizhi_shengli
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = NHL_jingong_wansui }
+		relative_position_id = NHL_jingong_wansui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_yizhi_gaizao_3
+			remove_idea = NHL_yizhi_gaizao_2
+			}
+		}
+	}
+	#开启军事改革
+	focus = {
+		id = NHL_kaiqi_junshi_gaige
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 18
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = NHL_lianmengdang_dangxuan
+		has_completed_focus = NHL_fubi_junzhulixian
+		}
+		}
+		completion_reward = {
+			add_ideas = NHL_junshigaige
+		}
+	}
+	#军事扩大化
+	focus = {
+		id = NHL_junshi_kuodahua
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = NHL_kaiqi_junshi_gaige }
+		relative_position_id = NHL_kaiqi_junshi_gaige
+		mutually_exclusive = { focus = NHL_jingrui_zhuyi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junshi_kuodahua
+			remove_idea = NHL_junshigaige
+			}
+		}
+	}
+	#改革征兵
+	focus = {
+		id = NHL_gaige_zhengbing
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = NHL_junshi_kuodahua }
+		relative_position_id = NHL_junshi_kuodahua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junshi_kuodahua_2
+			remove_idea = NHL_junshi_kuodahua
+			}
+		}
+	}
+	#扩大武器生产
+	focus = {
+		id = NHL_kuoda_wuqi_shengchan
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = NHL_gaige_zhengbing }
+		relative_position_id = NHL_gaige_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junshi_kuodahua_3
+			remove_idea = NHL_junshi_kuodahua_2
+			}
+		}
+	}
+	#人海突击学说
+	focus = {
+		id = NHL_renhai_tuji_xueshuo
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = NHL_kuoda_wuqi_shengchan }
+		relative_position_id = NHL_kuoda_wuqi_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_junshi_kuodahua_4
+			remove_idea = NHL_junshi_kuodahua_3
+			}
+		}
+	}
+	#总参谋部
+	focus = {
+		id = NHL_zongcanmoubu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = NHL_junshi_kuodahua focus = NHL_kaiqi_junshi_gaige }
+		relative_position_id = NHL_junshi_kuodahua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhiyuan_zhanzheng
+		}
+	}
+	#天空侦察
+	focus = {
+		id = NHL_tiankong_zhencha
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = NHL_zongcanmoubu }
+		relative_position_id = NHL_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhiyuan_zhanzheng_2
+			remove_idea = NHL_zhiyuan_zhanzheng
+			}
+		}
+	}
+	#联合作战
+	focus = {
+		id = NHL_lianhezuozhan
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = NHL_tiankong_zhencha }
+		relative_position_id = NHL_tiankong_zhencha
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhiyuan_zhanzheng_3
+			remove_idea = NHL_zhiyuan_zhanzheng_2
+			}
+		}
+	}
+	#精锐主义
+	focus = {
+		id = NHL_jingrui_zhuyi
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = NHL_kaiqi_junshi_gaige }
+		relative_position_id = NHL_kaiqi_junshi_gaige
+		mutually_exclusive = { focus = NHL_junshi_kuodahua }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingrui_zhuyi
+			remove_idea = NHL_junshigaige
+			}
+		}
+	}
+	#改革部队编制
+	focus = {
+		id = NHL_gaige_budui_bianzhi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = NHL_jingrui_zhuyi }
+		relative_position_id = NHL_jingrui_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingrui_zhuyi_2
+			remove_idea = NHL_jingrui_zhuyi
+			}
+		}
+	}
+	#战争的艺术
+	focus = {
+		id = NHL_zhanzheng_yishu
+		icon = GFX_focus_generic_tank_air_support
+		prerequisite = { focus = NHL_gaige_budui_bianzhi }
+		relative_position_id = NHL_gaige_budui_bianzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingrui_zhuyi_3
+			remove_idea = NHL_jingrui_zhuyi_2
+			}
+		}
+	}
+	#暴风突击
+	focus = {
+		id = NHL_baofeng_tuji
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = NHL_zhanzheng_yishu }
+		relative_position_id = NHL_zhanzheng_yishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_jingrui_zhuyi_4
+			remove_idea = NHL_jingrui_zhuyi_3
+			}
+		}
+	}
+	#组建人民军
+	focus = {
+		id = NHL_zujian_renmin_jun
+		icon = GFX_focus_SOV_mobilization_plan
+		x = 24
+		y = 18
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = NHL_nanhai_geming_lianmeng
+		}
+		completion_reward = {
+			add_ideas = NHL_renmin_jun
+		}
+	}
+	#扩大赤卫队
+	focus = {
+		id = NHL_kuoda_chiweidui
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = NHL_zujian_renmin_jun }
+		relative_position_id = NHL_zujian_renmin_jun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_chiweidui
+		}
+	}
+	#游击战争
+	focus = {
+		id = NHL_youji_zhanzheng
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = NHL_kuoda_chiweidui }
+		relative_position_id = NHL_kuoda_chiweidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_chiweidui_2
+			remove_idea = NHL_chiweidui
+			}
+		}
+	}
+	#守卫土地
+	focus = {
+		id = NHL_shouwei_tudi
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = NHL_youji_zhanzheng }
+		relative_position_id = NHL_youji_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_chiweidui_3
+			remove_idea = NHL_chiweidui_2
+			}
+		}
+	}
+	#构建工农军队
+	focus = {
+		id = NHL_goujian_gongnong_jundui
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = NHL_zujian_renmin_jun }
+		relative_position_id = NHL_zujian_renmin_jun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_renmin_jun_2
+			remove_idea = NHL_renmin_jun
+			}
+		}
+	}
+	#人民的战士
+	focus = {
+		id = NHL_renmin_zhanshi
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = NHL_goujian_gongnong_jundui }
+		relative_position_id = NHL_goujian_gongnong_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_renmin_jun_3
+			remove_idea = NHL_renmin_jun_2
+			}
+		}
+	}
+	#运动作战
+	focus = {
+		id = NHL_yundong_zuozhan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = NHL_renmin_zhanshi }
+		relative_position_id = NHL_renmin_zhanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_renmin_jun_4
+			remove_idea = NHL_renmin_jun_3
+			}
+		}
+	}
+	#设立政治委员
+	focus = {
+		id = NHL_sheli_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = NHL_zujian_renmin_jun }
+		relative_position_id = NHL_zujian_renmin_jun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_hongse_gaige
+		}
+	}
+	#革命军事学院
+	focus = {
+		id = NHL_geming_junshi_xueyuan
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = NHL_sheli_zhengzhi_weiyuan }
+		relative_position_id = NHL_sheli_zhengzhi_weiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_hongse_gaige_2
+			remove_idea = NHL_hongse_gaige
+			}
+		}
+	}
+	#人民后勤
+	focus = {
+		id = NHL_renmin_houqing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = NHL_geming_junshi_xueyuan }
+		relative_position_id = NHL_geming_junshi_xueyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_hongse_gaige_3
+			remove_idea = NHL_hongse_gaige_2
+			}
+		}
+	}
+	#人民之海
+	focus = {
+		id = NHL_renmin_zhihai
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = NHL_shouwei_tudi }
+		prerequisite = { focus = NHL_yundong_zuozhan }
+		prerequisite = { focus = NHL_renmin_houqing }
+		relative_position_id = NHL_yundong_zuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_hongse_gaige_4
+			remove_idea = NHL_hongse_gaige_3
+			}
+		}
+	}
+	#职业化军队
+	focus = {
+		id = NHL_zhiyehua_jundui
+		icon = GFX_focus_generic_military_mission
+		x = 31
+		y = 18
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = NHL_lianmengdang_dangxuan
+		has_completed_focus = NHL_fubi_junzhulixian
+		has_completed_focus = NHL_nanhai_geming_lianmeng
+		has_completed_focus = NHL_xianfengzhuyi_duoquan
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_quefajingyan_lujun_3
+			remove_idea = NHL_quefajingyan_lujun_2
+			}
+		}
+	}
+	#革新支援体系
+	focus = {
+		id = NHL_gexin_zhiyuan_tixi
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = NHL_zhiyehua_jundui }
+		relative_position_id = NHL_zhiyehua_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#堑壕工事
+	focus = {
+		id = NHL_qianhao_gongshi
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = NHL_gexin_zhiyuan_tixi }
+		relative_position_id = NHL_gexin_zhiyuan_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_qianhao_gongshi
+		}
+	}
+	#战地医院
+	focus = {
+		id = NHL_zhandi_yiyuan
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = NHL_qianhao_gongshi }
+		relative_position_id = NHL_qianhao_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhandi_yiyuan
+		}
+	}
+	#战地维修
+	focus = {
+		id = NHL_zhandi_weixiu
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = NHL_zhandi_yiyuan }
+		relative_position_id = NHL_zhandi_yiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhandi_weixiu
+		}
+	}
+	#革新军事技术
+	focus = {
+		id = NHL_gexin_junshi_jishu
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = NHL_zhiyehua_jundui }
+		relative_position_id = NHL_zhiyehua_jundui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		arms_factory > 40
+		}
+		completion_reward = {
+			remove_ideas = NHL_quefajingyan_lujun_3
+		}
+	}
+	#装甲突袭
+	focus = {
+		id = NHL_zhuangjia_tuxi
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = NHL_gexin_junshi_jishu }
+		relative_position_id = NHL_gexin_junshi_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_zhuangjia_tuxi
+		}
+	}
+	#摩托化进军
+	focus = {
+		id = NHL_motuohua_jinjun
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = NHL_zhuangjia_tuxi }
+		relative_position_id = NHL_zhuangjia_tuxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_zhuangjia_tuxi_2
+			remove_idea = NHL_zhuangjia_tuxi
+			}
+		}
+	}
+	#改革步兵武装
+	focus = {
+		id = NHL_gaige_bubing_wuzhuang
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = NHL_gexin_junshi_jishu }
+		relative_position_id = NHL_gexin_junshi_jishu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NHL_wuzhuang_gaige
+		}
+	}
+	#扩大支援火力
+	focus = {
+		id = NHL_kuoda_zhiyuan_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = NHL_gaige_bubing_wuzhuang }
+		relative_position_id = NHL_gaige_bubing_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_wuzhuang_gaige_2
+			remove_idea = NHL_wuzhuang_gaige
+			}
+		}
+	}
+	#扩大特种部队
+	focus = {
+		id = NHL_kuoda_tezhong_budui
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = NHL_motuohua_jinjun }
+		prerequisite = { focus = NHL_kuoda_zhiyuan_huoli }
+		relative_position_id = NHL_kuoda_zhiyuan_huoli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NHL_wuzhuang_gaige_3
+			remove_idea = NHL_wuzhuang_gaige_2
+			}
+		}
+	}
+}

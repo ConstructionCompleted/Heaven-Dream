@@ -1,0 +1,363 @@
+focus_tree = {
+	id = NCC_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NCC
+		}
+	}
+	
+	default = no
+ 
+    #山区苏维埃
+	focus = {
+		id = NCC_shanqu_suweiai
+		icon = GFX_focus_generic_join_comintern
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#重组国家体系
+	focus = {
+		id = NCC_chongzu_guojia_tixi
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = NCC_shanqu_suweiai}
+		relative_position_id = NCC_shanqu_suweiai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_chongzu_tixi
+		remove_idea = NCC_guliwuyuan
+		}
+		}
+	}
+	#重建中央联系
+	focus = {
+		id = NCC_chongjian_zhongyang_lianxi
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = NCC_chongzu_guojia_tixi}
+		relative_position_id = NCC_chongzu_guojia_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = NCC_chongzu_tixi
+		}
+	}
+	#破除宗教
+	focus = {
+		id = NCC_pochu_zongjiao
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		prerequisite = { focus = NCC_chongjian_zhongyang_lianxi}
+		relative_position_id = NCC_chongjian_zhongyang_lianxi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_pochu_zongjiao
+		remove_idea = NCC_zongjiao_maodun
+		}
+		}
+	}
+	#清洗宗教
+	focus = {
+		id = NCC_qingxi_zongjiao
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = NCC_pochu_zongjiao}
+		relative_position_id = NCC_pochu_zongjiao
+		mutually_exclusive = { focus = NCC_xunxu_jianjin}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_qingxi_zongjiao
+		remove_idea = NCC_pochu_zongjiao
+		}
+		}
+	}
+	#循序渐进
+	focus = {
+		id = NCC_xunxu_jianjin
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = NCC_pochu_zongjiao}
+		relative_position_id = NCC_pochu_zongjiao
+		mutually_exclusive = { focus = NCC_qingxi_zongjiao}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_xunxu_jianjin
+		remove_idea = NCC_pochu_zongjiao
+		}
+		}
+	}
+	#寻求苏联支援
+	focus = {
+		id = NCC_xunqiu_sulian_zhiyuan
+		icon = GFX_focus_hol_legacy_of_the_de_zeven_provincien_mutiny
+		prerequisite = { focus = NCC_chongjian_zhongyang_lianxi}
+		relative_position_id = NCC_chongjian_zhongyang_lianxi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_xunqiu_sulian_zhiyuan
+		remove_idea = NCC_quefa_wuzi
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = SOV
+}
+		}
+	}
+	#重组国家生产
+	focus = {
+		id = NCC_chongzu_guojia_shengchan
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = NCC_xunqiu_sulian_zhiyuan}
+		relative_position_id = NCC_xunqiu_sulian_zhiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = NCC_xunqiu_sulian_zhiyuan
+		}
+	}
+	#民族融合
+	focus = {
+		id = NCC_minzu_ronghe
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = NCC_chongjian_zhongyang_lianxi}
+		relative_position_id = NCC_chongjian_zhongyang_lianxi
+		mutually_exclusive = { focus = NCC_minzu_zizhi }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_minzu_ronghe
+		remove_idea = NCC_minzu_maodun
+		}
+		}
+	}
+	#组建俄罗斯卫兵
+	focus = {
+		id = NCC_zujian_eluosi_weibing
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = NCC_minzu_ronghe}
+		relative_position_id = NCC_minzu_ronghe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_zujian_eluosi_weibing
+		remove_idea = NCC_minzu_ronghe
+		}
+		load_oob = NCC_eluosi_weibing
+		}
+	}
+	#民族自治
+	focus = {
+		id = NCC_minzu_zizhi
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = NCC_chongjian_zhongyang_lianxi}
+		relative_position_id = NCC_chongjian_zhongyang_lianxi
+		mutually_exclusive = { focus = NCC_minzu_ronghe }
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_minzu_zizhi
+		remove_idea = NCC_minzu_maodun
+		}
+		}
+	}
+	#组建多族联军
+	focus = {
+		id = NCC_zujian_duozu_lianjun
+		icon = GFX_focus_RAJ_indian_gentlemen_offcers
+		prerequisite = { focus = NCC_minzu_zizhi}
+		relative_position_id = NCC_minzu_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_zujian_duozu_lianjun
+		remove_idea = NCC_minzu_zizhi
+		}
+		load_oob = NCC_zujian_duozu_lianjun
+		}
+	}
+	#屹立北方
+	focus = {
+		id = NCC_yili_beifang
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = NCC_chongjian_zhongyang_lianxi}
+		relative_position_id = NCC_chongjian_zhongyang_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NCC_yili_beifang
+		}
+	}
+	#革命意志
+	focus = {
+		id = NCC_gm_yizhi
+		icon = GFX_focus_ITA_the_italian_republic
+		prerequisite = { focus = NCC_yili_beifang}
+		relative_position_id = NCC_yili_beifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_gm_yizhi
+		remove_idea = NCC_yili_beifang
+		}
+		}
+	}
+	#穿越山林
+	focus = {
+		id = NCC_chuanyue_shanlin
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = NCC_gm_yizhi }
+		relative_position_id = NCC_gm_yizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NCC_chuanyue_shanlin
+		}
+	}
+	#政治委员
+	focus = {
+		id = NCC_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = NCC_gm_yizhi}
+		relative_position_id = NCC_gm_yizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = NCC_zhengzhi_weiyuan
+		remove_idea = NCC_gm_yizhi
+		} 
+		}
+	}
+	#解放全境
+	focus = {
+		id = NCC_jiefang_quanjing
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = NCC_chuanyue_shanlin}
+		prerequisite = { focus = NCC_zhengzhi_weiyuan}
+		relative_position_id = NCC_zhengzhi_weiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 238
+		controls_state = 245
+		controls_state = 218
+		controls_state = 232
+		controls_state = 233
+		controls_state = 236
+		controls_state = 237
+		controls_state = 821
+		controls_state = 827
+		controls_state = 828
+		controls_state = 1075
+		controls_state = 1070
+		controls_state = 1416
+		}
+		completion_reward = {
+		add_state_core = 238
+		add_state_core = 245
+		add_state_core = 218
+		add_state_core = 232
+		add_state_core = 233
+		add_state_core = 236
+		add_state_core = 237
+		add_state_core = 821
+		add_state_core = 827
+		add_state_core = 828
+		add_state_core = 1075
+		add_state_core = 1070
+		add_state_core = 1416
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = NCC
+			}
+		}
+	}
+}

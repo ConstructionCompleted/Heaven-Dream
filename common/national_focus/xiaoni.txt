@@ -1,0 +1,482 @@
+focus_tree = {
+	id = XAO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = XAO
+		}
+	}
+	
+	default = no
+
+	#泽兰卡特的新希腊
+	focus = {
+		id = XAO_zelankete_newgre
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		x = 20
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_zelankete.5
+}
+		}
+	}
+	#第二十次地区会议
+	focus = {
+		id = XAO_diershici_diquhuiyi
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = XAO_zelankete_newgre }
+		relative_position_id = XAO_zelankete_newgre
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_zelankete.6
+	days = 5
+}
+		}
+	}
+	#地区资本经济
+	focus = {
+		id = XAO_diqu_ziben_jingji
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = XAO_diershici_diquhuiyi }
+		relative_position_id = XAO_diershici_diquhuiyi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_chengbang_jingji_2
+			remove_idea = XAO_chengbang_jingji
+			}
+		}
+	}
+	#扩展城邦联络
+	focus = {
+		id = XAO_kuozhan_chengbang_lianluo
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = XAO_diershici_diquhuiyi }
+		relative_position_id = XAO_diershici_diquhuiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XAO_kuozhan_chengbang_lianluo
+		}
+	}
+	#东部联合开发
+	focus = {
+		id = XAO_dongbu_lianhe_kaifa
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = XAO_diqu_ziben_jingji }
+		relative_position_id = XAO_diqu_ziben_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			362 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西部联合开发
+	focus = {
+		id = XAO_xibu_lianhe_kaifa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = XAO_dongbu_lianhe_kaifa }
+		relative_position_id = XAO_dongbu_lianhe_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			369 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+}
+368 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#搭建联系网络
+	focus = {
+		id = XAO_dajian_lianxi_wangluo
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = XAO_diqu_ziben_jingji }
+		prerequisite = { focus = XAO_kuozhan_chengbang_lianluo }
+		relative_position_id = XAO_kuozhan_chengbang_lianluo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_kuozhan_chengbang_lianluo_2
+			remove_idea = XAO_kuozhan_chengbang_lianluo
+			}
+		}
+	}
+	#联合体建设
+	focus = {
+		id = XAO_lianheti_jianshe
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = XAO_dajian_lianxi_wangluo }
+		relative_position_id = XAO_dajian_lianxi_wangluo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_kuozhan_chengbang_lianluo_3
+			remove_idea = XAO_kuozhan_chengbang_lianluo_2
+			}
+		}
+	}
+	#新希腊的光辉
+	focus = {
+		id = XAO_xinxila_guanghui
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = XAO_lianheti_jianshe }
+		prerequisite = { focus = XAO_xibu_lianhe_kaifa }
+		relative_position_id = XAO_xibu_lianhe_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_xinxila_guanghui
+			remove_idea = XAO_kuozhan_chengbang_lianluo_3
+			}
+		}
+	}
+	#军事再武装
+	focus = {
+		id = XAO_junshi_zaiwuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = XAO_diershici_diquhuiyi }
+		relative_position_id = XAO_diershici_diquhuiyi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = XAO_junshi_zaiwuzhuang
+    days = 180
+}
+		}
+	}
+	#重构军团战术
+	focus = {
+		id = XAO_chonggou_juntuan_zhanshi
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = XAO_junshi_zaiwuzhuang }
+		relative_position_id = XAO_junshi_zaiwuzhuang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XAO_chonggou_juntuan_zhanshi
+		}
+	}
+	#扩大民间武装
+	focus = {
+		id = XAO_kuoda_minjian_wuzhaung
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = XAO_chonggou_juntuan_zhanshi }
+		relative_position_id = XAO_chonggou_juntuan_zhanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = XAO_kuoda_minjian_wuzhaung
+		}
+	}
+	#外邦奴隶军
+	focus = {
+		id = XAO_waibang_nulibing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = XAO_kuoda_minjian_wuzhaung }
+		relative_position_id = XAO_kuoda_minjian_wuzhaung
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = XAO_youma_zhudao
+		}
+		completion_reward = {
+			load_oob = XAO_waibang_nulibing
+			add_ideas = XAO_waibang_nulibing
+		}
+	}
+	#进口军事物资
+	focus = {
+		id = XAO_jinkou_junshi_wuzi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = XAO_junshi_zaiwuzhuang }
+		relative_position_id = XAO_junshi_zaiwuzhuang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = XAO_junshi_zaiwuzhuang
+		}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+}
+add_political_power = -100
+		}
+	}
+	#扩大军工产业
+	focus = {
+		id = XAO_kuoda_jungong_chanye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = XAO_jinkou_junshi_wuzi }
+		relative_position_id = XAO_jinkou_junshi_wuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			362 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#开辟南方航水道
+	focus = {
+		id = XAO_kaipi_nanfang_hangshuidao
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = XAO_kuoda_jungong_chanye }
+		relative_position_id = XAO_kuoda_jungong_chanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			362 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+			add_ideas = XAO_nanfang_hangshuidao
+		}
+	}
+	#脱产城邦军团
+	focus = {
+		id = XAO_tuochan_chengbang_juntuan
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = XAO_junshi_zaiwuzhuang }
+		relative_position_id = XAO_junshi_zaiwuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_chonggou_juntuan_zhanshi_2
+			remove_idea = XAO_chonggou_juntuan_zhanshi
+			}
+		}
+	}
+	#军事科研体系
+	focus = {
+		id = XAO_junshikeyan_tixi
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = XAO_jinkou_junshi_wuzi }
+		relative_position_id = XAO_jinkou_junshi_wuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#现代化陆军
+	focus = {
+		id = XAO_xiandaihua_lujun
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = XAO_junshikeyan_tixi }
+		prerequisite = { focus = XAO_tuochan_chengbang_juntuan }
+		relative_position_id = XAO_junshikeyan_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XAO_xiandaihua_lujun
+			remove_idea = XAO_chonggou_juntuan_zhanshi_2
+			}
+		}
+	}
+	#合并易洛魁
+	focus = {
+		id = XAO_hebing_yiluokui
+		icon = GFX_goal_generic_alliance
+		x = 20
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1937.1.1
+		}
+		completion_reward = {
+		YLK = {
+			country_event = {
+    id = holy_zelankete.13
+	days = 5
+}
+		}
+		add_state_claim = 360
+add_state_claim = 261
+		}
+	}
+	#击破封建
+	focus = {
+		id = XAO_jipo_fengjian
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = XAO_hebing_yiluokui }
+		relative_position_id = XAO_hebing_yiluokui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		YLK = { exists = no }
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = MHG
+    type = annex_everything
+}
+declare_war_on = {
+    target = LNP
+    type = annex_everything
+}
+add_state_claim = 358
+add_state_claim = 359
+		}
+	}
+	#贸易战争
+	focus = {
+		id = XAO_maoyi_zhanzheng
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = XAO_jipo_fengjian }
+		relative_position_id = XAO_jipo_fengjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		YLK = { exists = no }
+		MHG = { exists = no }
+		LNP = { exists = no }
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = ABN
+    type = annex_everything
+}
+add_state_claim = 357
+add_state_claim = 468
+add_state_claim = 465
+add_state_claim = 464
+		}
+	}
+}

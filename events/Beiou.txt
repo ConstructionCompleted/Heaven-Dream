@@ -1,0 +1,1591 @@
+add_namespace = holy_beiou
+#瓜分波兰
+country_event = {
+	id = holy_beiou.1
+	title = holy_beiou.1.t
+	desc = holy_beiou.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_ideas = BXM_guafenbolan
+	}
+	option = {
+		name = holy_beiou.1.b
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+#签订条约
+country_event = {
+	id = holy_beiou.2
+	title = holy_beiou.2.t
+	desc = holy_beiou.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.2.a
+		ai_chance = {
+		    factor = 10
+		}
+		BXM = { add_to_faction = KEM }
+	}
+}
+#哥本哈根动荡
+country_event = {
+	id = holy_beiou.3
+	title = holy_beiou.3.t
+	desc = holy_beiou.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = KEM
+		date > 1936.1.27
+		date < 1936.1.29
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_beiou.3.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -100
+		add_stability = -0.1
+		country_event = {
+    id = holy_beiou.4
+    days = 5
+	}
+	}
+}
+#游行得到控制
+country_event = {
+	id = holy_beiou.4
+	title = holy_beiou.4.t
+	desc = holy_beiou.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = 50
+		add_stability = 0.05
+		country_event = {
+    id = holy_beiou.5
+    days = 11
+	}
+	}
+}
+#事情正在起变化
+country_event = {
+	id = holy_beiou.5
+	title = holy_beiou.5.t
+	desc = holy_beiou.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.5.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.05
+		country_event = {
+    id = holy_beiou.6
+    days = 1
+	}
+	country_event = {
+    id = holy_beiou.7
+    days = 3
+	}
+	country_event = {
+    id = holy_beiou.8
+    days = 5
+	}
+	}
+}
+#芬兰的混乱
+country_event = {
+	id = holy_beiou.6
+	title = holy_beiou.6.t
+	desc = holy_beiou.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.6.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = -50
+	}
+}
+#斯德哥尔摩枪击案
+country_event = {
+	id = holy_beiou.7
+	title = holy_beiou.7.t
+	desc = holy_beiou.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.7.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.05
+	}
+}
+#挪威的秘密报告
+country_event = {
+	id = holy_beiou.8
+	title = holy_beiou.8.t
+	desc = holy_beiou.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.8.a
+		ai_chance = {
+		    factor = 10
+		}
+	}
+}
+#惊魂之夜
+country_event = {
+	id = holy_beiou.9
+	title = holy_beiou.9.t
+	desc = holy_beiou.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.9.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.1
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+add_popularity = {
+    ideology = conservatism 
+    popularity = -0.3
+}
+set_politics = {
+	ruling_party = neutrality
+}
+	country_event = {
+    id = holy_beiou.10
+    days = 1
+	}
+	country_event = {
+    id = holy_beiou.11
+    days = 2
+	}
+	}
+}
+#炮轰哥本哈根
+country_event = {
+	id = holy_beiou.10
+	title = holy_beiou.10.t
+	desc = holy_beiou.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.10.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.05
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.05
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.05
+}
+37 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		country_event = {
+    id = holy_beiou.12
+    days = 2
+	}
+	}
+}
+#陆军开始进军
+country_event = {
+	id = holy_beiou.11
+	title = holy_beiou.11.t
+	desc = holy_beiou.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.11.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.05
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+99 = {
+set_demilitarized_zone = yes
+}
+	}
+}
+#海军登录
+country_event = {
+	id = holy_beiou.12
+	title = holy_beiou.12.t
+	desc = holy_beiou.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.12.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_stability = -0.05
+		add_popularity = {
+    ideology = democratic 
+    popularity = 0.1
+}
+37 = {
+set_demilitarized_zone = yes
+}
+1842 = {
+set_demilitarized_zone = yes
+}
+country_event = {
+    id = holy_beiou.13
+    days = 1
+	}
+	}
+}
+#北方冲突
+country_event = {
+	id = holy_beiou.13
+	title = holy_beiou.13.t
+	desc = holy_beiou.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.13.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = dictatorship 
+    popularity = -0.1
+}
+country_event = {
+    id = holy_beiou.17
+    days = 1
+	}
+	SWE = {
+	    transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+country_event = {
+    id = holy_beiou.22
+    days = 4
+	}
+	add_popularity = {
+    ideology = reconcilism
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+	}
+	delete_unit_template_and_units = {
+    division_template = "北欧国防军"
+    disband = yes 
+}
+	}
+	option = {
+		name = holy_beiou.13.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+country_event = {
+    id = holy_beiou.16
+    days = 1
+	}
+	NOR = {
+	    transfer_state = 110
+		transfer_state = 1373
+		transfer_state = 1374
+country_event = {
+    id = holy_beiou.19
+    days = 4
+	}
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = democratic
+}
+	}
+	transfer_navy = {
+    target = NOR
+}
+	}
+	option = {
+		name = holy_beiou.13.c
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = fascism 
+    popularity = -0.1
+}
+country_event = {
+    id = holy_beiou.17
+    days = 1
+	}
+	SWE = {
+	    transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+country_event = {
+    id = holy_beiou.22
+    days = 4
+	}
+	add_popularity = {
+    ideology = reconcilism
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+	}
+	delete_unit_template_and_units = {
+    division_template = "北欧国防军"
+    disband = yes 
+}
+	SWE = { change_tag_from = KEM }
+	}
+	option = {
+		name = holy_beiou.13.e
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+country_event = {
+    id = holy_beiou.16
+    days = 1
+	}
+	NOR = {
+	    transfer_state = 110
+		transfer_state = 1373
+		transfer_state = 1374
+country_event = {
+    id = holy_beiou.19
+    days = 4
+	}
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = democratic
+}
+	}
+	transfer_navy = {
+    target = NOR
+}
+	NOR = { change_tag_from = KEM }
+	}
+}
+#进军皇宫
+country_event = {
+	id = holy_beiou.16
+	title = holy_beiou.16.t
+	desc = holy_beiou.16.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.16.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = {
+    id = holy_beiou.14
+    days = 5
+	}
+	country_event = {
+    id = holy_beiou.18
+    days = 2
+	}
+	}
+}
+#进军皇宫
+country_event = {
+	id = holy_beiou.17
+	title = holy_beiou.17.t
+	desc = holy_beiou.17.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.16.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = {
+    id = holy_beiou.15
+    days = 5
+	}
+	country_event = {
+    id = holy_beiou.18
+    days = 2
+	}
+	}
+}
+#芬兰起义
+country_event = {
+	id = holy_beiou.18
+	title = holy_beiou.18.t
+	desc = holy_beiou.18.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.18.a
+		ai_chance = {
+		    factor = 10
+		}
+		FIN = {
+		transfer_state = 111
+		transfer_state = 149
+		transfer_state = 150
+		transfer_state = 1843
+		transfer_state = 1852
+		transfer_state = 147
+		transfer_state = 1847
+		transfer_state = 1848
+		transfer_state = 1849
+		transfer_state = 1845
+		transfer_state = 1844
+		transfer_state = 1846
+		transfer_state = 1850
+		load_oob = FIN_1936
+		add_popularity = {
+    ideology = communism
+    popularity = 0.15
+}
+set_politics = {
+	ruling_party = communism
+}
+load_oob = FIN_naval_1936
+		}
+	}
+	option = {
+		name = holy_beiou.18.b
+		ai_chance = {
+		    factor = 10
+		}
+		FIN = {
+		transfer_state = 111
+		transfer_state = 149
+		transfer_state = 150
+		transfer_state = 1843
+		transfer_state = 1852
+		transfer_state = 147
+		transfer_state = 1847
+		transfer_state = 1848
+		transfer_state = 1849
+		transfer_state = 1845
+		transfer_state = 1844
+		transfer_state = 1846
+		transfer_state = 1850
+		load_oob = FIN_1936
+		add_popularity = {
+    ideology = communism
+    popularity = 0.15
+}
+set_politics = {
+	ruling_party = communism
+}
+FIN = { change_tag_from = KEM }
+load_oob = FIN_naval_1936
+		}
+	}
+}
+#胜负已分
+country_event = {
+	id = holy_beiou.14
+	title = holy_beiou.14.t
+	desc = holy_beiou.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.14.a
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = -0.1
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+SWE = {
+	    transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+		load_oob = SWE_1936
+		load_oob = SWE_naval_1936
+	add_popularity = {
+    ideology = fascism
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = fascism
+}
+complete_national_focus = SWE_chewang_sidegeermo
+complete_national_focus = SWE_chongsu_daruidian
+	}
+	remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	}
+	option = {
+		name = holy_beiou.14.b
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = -0.1
+}
+SWE = {
+	   transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+country_event = {
+    id = holy_beiou.22
+    days = 2
+	}
+	add_popularity = {
+    ideology = dictatorship
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+	}
+	delete_unit_template_and_units = {
+    division_template = "北欧国防军"
+    disband = yes 
+}
+load_oob = KEM_1936_wangdang
+remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	}
+	option = {
+		name = holy_beiou.14.c
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = conservatism
+}
+load_oob = KEM_1936_minzhu
+SWE = {
+	    transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+		load_oob = SWE_1936
+		load_oob = SWE_naval_1936
+	add_popularity = {
+    ideology = dictatorship
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+complete_national_focus = SWE_chewang_sidegeermo
+complete_national_focus = SWE_chongsu_daruidian
+	}
+	remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	}
+	option = {
+		name = holy_beiou.14.e
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = -0.1
+}
+SWE = {
+	    transfer_state = 139
+		transfer_state = 140
+		transfer_state = 141
+		transfer_state = 38
+		transfer_state = 138
+		transfer_state = 1370
+		transfer_state = 1371
+		transfer_state = 1372
+		transfer_state = 1365
+		transfer_state = 1366
+		transfer_state = 1367
+		transfer_state = 1368
+		transfer_state = 1364
+country_event = {
+    id = holy_beiou.22
+    days = 2
+	}
+	add_popularity = {
+    ideology = dictatorship
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+	}
+	delete_unit_template_and_units = {
+    division_template = "北欧国防军"
+    disband = yes 
+}
+remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	SWE = { change_tag_from = KEM }
+	}
+}
+#胜负已分
+country_event = {
+	id = holy_beiou.15
+	title = holy_beiou.15.t
+	desc = holy_beiou.15.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.15.a
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = democratic
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = democratic
+}
+retire_ideology_leader = democratic
+	create_country_leader = {
+	name = "伊莱亚斯·科尼利乌森"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = ziyou_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+load_oob = KEM_1936_minzhu
+NOR = {
+	    transfer_state = 110
+		transfer_state = 1373
+		transfer_state = 1374
+	add_popularity = {
+    ideology = conservatism
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = conservatism
+}
+load_oob = NOR_1936
+load_oob = NOR_naval_1936
+complete_national_focus = NOR_aosilu_dengluzhan
+complete_national_focus = NOR_xunqiu_buliedian_zhiyuan
+	}
+remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	}
+	option = {
+		name = holy_beiou.15.b
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+load_oob = KEM_1936_wangdang
+	NOR = {
+	    transfer_state = 110
+		transfer_state = 1373
+		transfer_state = 1374
+country_event = {
+    id = holy_beiou.19
+    days = 4
+	}
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = democratic
+}
+	}
+	transfer_navy = {
+    target = NOR
+}
+remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+	}
+	option = {
+		name = holy_beiou.15.c
+		ai_chance = {
+		    factor = 10
+		}
+		37 = {
+set_demilitarized_zone = no
+}
+99 = {
+set_demilitarized_zone = no
+}
+1842 = {
+set_demilitarized_zone = no
+}
+100 = {
+set_demilitarized_zone = yes
+}
+101 = {
+set_demilitarized_zone = yes
+}
+337 = {
+set_demilitarized_zone = yes
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = democratic
+    popularity = -0.1
+}
+load_oob = KEM_1936_wangdang
+	NOR = {
+	    transfer_state = 110
+		transfer_state = 1373
+		transfer_state = 1374
+country_event = {
+    id = holy_beiou.19
+    days = 4
+	}
+	add_popularity = {
+    ideology = democratic
+    popularity = 0.4
+}
+set_politics = {
+	ruling_party = democratic
+}
+	}
+	transfer_navy = {
+    target = NOR
+}
+remove_ideas = {
+    KEM_songsan_lianhe
+    KEM_chenjin_guli
+	KEM_hailu_chongtu
+}
+complete_national_focus = KEM_dongdang
+NOR = { change_tag_from = KEM }
+	}
+}
+#奥斯陆登录
+country_event = {
+	id = holy_beiou.19
+	title = holy_beiou.19.t
+	desc = holy_beiou.19.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.19.a
+		ai_chance = {
+		    factor = 10
+		}
+		110 = { 
+			damage_building = {
+				type = infrastructure
+				damage = 0.3
+			}
+		}
+		country_event = {
+    id = holy_beiou.20
+    days = 1
+	}
+	complete_national_focus = NOR_aosilu_dengluzhan
+	}
+}
+#海湾突袭
+country_event = {
+	id = holy_beiou.20
+	title = holy_beiou.20.t
+	desc = holy_beiou.20.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.20.a
+		ai_chance = {
+		    factor = 10
+		}
+		110 = {
+set_demilitarized_zone = no
+}
+		country_event = {
+    id = holy_beiou.21
+    days = 2
+	}
+	}
+}
+#南城区之战
+country_event = {
+	id = holy_beiou.21
+	title = holy_beiou.21.t
+	desc = holy_beiou.21.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.21.a
+		ai_chance = {
+		    factor = 5
+		}
+		110 = {
+set_demilitarized_zone = no
+	}
+	retire_ideology_leader = democratic
+	create_country_leader = {
+	name = "伊莱亚斯·科尼利乌森"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = ziyou_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+create_navy_leader = {
+	name = "伊莱亚斯·科尼利乌森"
+	portrait_path = ""
+	traits = { navy_career_officer inshore_fighter spotter }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 4
+	maneuvering_skill = 3
+	coordination_skill = 1
+}
+load_oob = NOR_1936_navy
+complete_national_focus = NOR_wuzhuang_haijunluzhandui
+load_oob = NOR_naval_1936
+	}
+	option = {
+		name = holy_beiou.21.b
+		ai_chance = {
+		    factor = 10
+		}
+		110 = {
+set_demilitarized_zone = no
+	}
+	add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = conservatism
+}
+	load_oob = NOR_1936
+	load_oob = NOR_naval_1936
+	complete_national_focus = NOR_xunqiu_buliedian_zhiyuan
+	}
+}
+#渡过赫尔辛堡
+country_event = {
+	id = holy_beiou.22
+	title = holy_beiou.22.t
+	desc = holy_beiou.22.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.22.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = {
+    id = holy_beiou.23
+    days = 4
+	}
+	138 = {
+	set_demilitarized_zone = yes
+	}
+	139 = {
+	set_demilitarized_zone = yes
+	}
+	1372 = {
+	set_demilitarized_zone = yes
+	}
+	}
+}
+#进入斯德哥尔摩
+country_event = {
+	id = holy_beiou.23
+	title = holy_beiou.23.t
+	desc = holy_beiou.23.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.23.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = {
+    id = holy_beiou.24
+    days = 1
+	}
+	complete_national_focus = SWE_chewang_sidegeermo
+	141 = {
+	set_demilitarized_zone = yes
+	}
+	1371 = {
+	set_demilitarized_zone = yes
+	}
+	}
+}
+#瑞典决战
+country_event = {
+	id = holy_beiou.24
+	title = holy_beiou.24.t
+	desc = holy_beiou.24.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.24.a
+		ai_chance = {
+		    factor = 5
+		}
+		retire_ideology_leader = fascism
+		create_country_leader = {
+	name = "沫"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = junzheng_ducai_system
+	traits = { 
+	}
+}
+create_field_commander = {
+	name = "沫"
+	picture = ".jpg"
+	traits = { brilliant_strategist }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 3
+}
+load_oob = SWE_1936_army
+load_oob = SWE_naval_1936
+complete_national_focus = SEW_gebenhagen_weixian
+141 = {
+	set_demilitarized_zone = no
+	}
+	138 = {
+	set_demilitarized_zone = no
+	}
+	139 = {
+	set_demilitarized_zone = no
+	}
+	1371 = {
+	set_demilitarized_zone = no
+	}
+	1372 = {
+	set_demilitarized_zone = no
+	}
+	}
+	option = {
+		name = holy_beiou.24.b
+		ai_chance = {
+		    factor = 10
+		}
+		load_oob = SWE_1936
+		load_oob = SWE_naval_1936
+	complete_national_focus = SWE_chongsu_daruidian
+	141 = {
+	set_demilitarized_zone = no
+	}
+	138 = {
+	set_demilitarized_zone = no
+	}
+	139 = {
+	set_demilitarized_zone = no
+	}
+	1371 = {
+	set_demilitarized_zone = no
+	}
+	1372 = {
+	set_demilitarized_zone = no
+	}
+	}
+}
+#芬马克的胜利
+country_event = {
+	id = holy_beiou.25
+	title = holy_beiou.25.t
+	desc = holy_beiou.25.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.25.a
+		ai_chance = {
+		    factor = 10
+		}
+		transfer_state = 1375
+		transfer_state = 144
+		transfer_state = 1361
+		transfer_state = 1360
+	}
+}
+#进军拉普阿
+country_event = {
+	id = holy_beiou.26
+	title = holy_beiou.26.t
+	desc = holy_beiou.26.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.26.a
+		ai_chance = {
+		    factor = 10
+		}
+		transfer_state = 1384
+		transfer_state = 1851
+		transfer_state = 148
+		transfer_state = 1853
+		transfer_state = 1399
+		transfer_state = 722
+	}
+}
+#登录奥斯陆
+country_event = {
+	id = holy_beiou.27
+	title = holy_beiou.27.t
+	desc = holy_beiou.27.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.27.a
+		trigger = { 
+		has_equipment = {
+    infantry_equipment > 1000
+}
+}
+		ai_chance = {
+		    factor = 100
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -1000
+}
+NOR = {
+country_event = {
+    id = holy_beiou.28
+    days = 1
+	}
+	}
+	}
+	option = {
+		name = holy_beiou.27.b
+		ai_chance = {
+		    factor = 1
+		}
+		110 = {
+	set_demilitarized_zone = yes
+	}
+	}
+}
+#奥斯陆之战
+country_event = {
+	id = holy_beiou.28
+	title = holy_beiou.28.t
+	desc = holy_beiou.28.d
+	picture = GFX_report_event_german_speech
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.28.a
+		trigger = { 
+		has_equipment = {
+    infantry_equipment > 500
+}
+}
+		ai_chance = {
+		    factor = 100
+		}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -500
+}
+KEM = {
+country_event = {
+    id = holy_beiou.27
+    days = 1
+	}
+	}
+	}
+	option = {
+		name = holy_beiou.28.b
+		ai_chance = {
+		    factor = 1
+		}
+		KEM = {
+		transfer_state = 110
+		}
+		110 = {
+	set_demilitarized_zone = no
+	}
+	}
+}
+#胜利突袭
+country_event = {
+	id = holy_beiou.29
+	title = holy_beiou.29.t
+	desc = holy_beiou.29.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.29.a
+		ai_chance = {
+		    factor = 100
+		}
+		transfer_state = 138
+	}
+}
+#联合的可能？
+country_event = {
+	id = holy_beiou.30
+	title = holy_beiou.30.t
+	desc = holy_beiou.30.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.30.a
+		ai_chance = {
+		    factor = 10
+		}
+		KEM = {
+		puppet = NOR
+		}
+		load_focus = tongyong
+	}
+	option = {
+		name = holy_beiou.30.b
+		ai_chance = {
+		    factor = 10
+		}
+		KEM = {
+		declare_war_on = {
+    target = NOR
+    type = annex_everything
+	}
+	}
+	}
+}
+#联合的可能？
+country_event = {
+	id = holy_beiou.31
+	title = holy_beiou.31.t
+	desc = holy_beiou.31.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.31.a
+		ai_chance = {
+		    factor = 10
+		}
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+    target = KEM
+}
+	}
+	option = {
+		name = holy_beiou.31.b
+		ai_chance = {
+		    factor = 10
+		}
+	}
+}
+#《旧日褪色》
+country_event = {
+	id = holy_beiou.32
+	title = holy_beiou.32.t
+	desc = holy_beiou.32.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.32.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = 100
+		add_stability = 0.2
+		add_war_support = -0.1
+	}
+}
+#卡累利阿谈判
+country_event = {
+	id = holy_beiou.33
+	title = holy_beiou.33.t
+	desc = holy_beiou.33.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.33.a
+		ai_chance = {
+		    factor = 100
+		}
+		FIN = {
+		transfer_state = 146
+		add_ideas = FIN_ok
+		}
+	}
+	option = {
+		name = holy_beiou.33.b
+		ai_chance = {
+		    factor = 0
+		}
+		FIN = {
+		transfer_state = 146
+		transfer_state = 216
+		transfer_state = 215
+		transfer_state = 213
+		transfer_state = 1383
+		transfer_state = 1854
+		transfer_state = 1398
+		}
+		SOV = { add_to_faction = FIN }
+	}
+	option = {
+		name = holy_beiou.33.c
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+#北欧的联盟
+country_event = {
+	id = holy_beiou.34
+	title = holy_beiou.34.t
+	desc = holy_beiou.34.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiou.34.a
+		trigger = { UKM = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 12
+		}
+		UKM = { add_to_faction = KEM }
+	}
+	option = {
+		name = holy_beiou.34.b
+		ai_chance = {
+		    factor = 12
+		}
+		trigger = { FRA = { OR = { has_government = conservatism has_government = progressism } is_faction_leader = yes } }
+		FRA = { add_to_faction = KEM }
+	}
+	option = {
+		name = holy_beiou.34.c
+		trigger = { CAN = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 4
+		}
+		CAN = { add_to_faction = KEM }
+	}
+}

@@ -1,0 +1,874 @@
+focus_tree = {
+	id = FTB_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = FTB
+		}
+	}
+	
+	default = no
+
+    #边缘之侯
+	focus = {
+		id = FTB_diguo_bianjiang
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 6
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#帝国水道
+	focus = {
+		id = FTB_diguo_shuidao
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 0
+		y = 1
+		prerequisite = { focus = FTB_diguo_bianjiang}
+		relative_position_id = FTB_diguo_bianjiang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_diguoshuidao
+		}
+	}
+	#汽车工业
+	focus = {
+		id = FTB_qiche_ic
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FTB_diguo_shuidao}
+		relative_position_id = FTB_diguo_shuidao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_qiche_gongye
+			}
+		}
+	#消费品外售
+	focus = {
+		id = FTB_xiaofeiping_waishou
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = FTB_qiche_ic}
+		relative_position_id = FTB_qiche_ic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = FTB_xiaofeiping_waishou
+			add_idea = FTB_qiche_gongye
+			}
+		}
+	}
+	#机械化开发
+	focus = {
+		id = FTB_jixiehua_kiafa
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = FTB_xiaofeiping_waishou}
+		relative_position_id = FTB_xiaofeiping_waishou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 2
+				name = mech_army_bonus
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = mechanised_infantry
+			}
+		}
+	}
+	#机械加工
+	focus = {
+		id = FTB_jixiejiagong
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = FTB_diguo_shuidao}
+		relative_position_id = FTB_diguo_shuidao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_jixie_jiagong
+		}
+	}
+	#企业建设
+	focus = {
+		id = FTB_qiye_jianshe
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = FTB_jixiejiagong}
+		relative_position_id = FTB_jixiejiagong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FTB_qiye_jianshe
+			remove_idea = FTB_jixie_jiagong
+			}
+		}
+	}
+	#工业开发
+	focus = {
+		id = FTB_gongyekaifa
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = FTB_qiye_jianshe}
+		relative_position_id = FTB_qiye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			    name = FTB_jixiejiagong
+				bonus = 1.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#文化纽带
+	focus = {
+		id = FTB_wenhuaniudai
+		icon = GFX_focus_ger_revive_kaiserreich
+		prerequisite = { focus = FTB_gongyekaifa}
+		prerequisite = { focus = FTB_jixiehua_kiafa}
+		relative_position_id = FTB_gongyekaifa
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+		}
+	}
+	#川流不息
+	focus = {
+		id = FTB_hangyun_shiye
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = FTB_gongyekaifa}
+		prerequisite = { focus = FTB_jixiehua_kiafa}
+		relative_position_id = FTB_gongyekaifa
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = FTB_chuanliubuxi
+			remove_idea = FTB_diguo_shuidao
+			}
+		}
+	}
+	#铁路畅通
+	focus = {
+		id = FTB_tielu_changtong
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = FTB_gongyekaifa}
+		prerequisite = { focus = FTB_jixiehua_kiafa}
+		relative_position_id = FTB_gongyekaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_tielu_changtong
+		}
+	}
+	#媒体宣传
+	focus = {
+		id = FTB_meitixuanchuan
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = FTB_gongyekaifa}
+		prerequisite = { focus = FTB_jixiehua_kiafa}
+		relative_position_id = FTB_gongyekaifa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_meiti_xuanchuan
+		}
+	}
+	#外交事务
+	focus = {
+		id = FTB_waijiao_shiwu
+		icon = GFX_goal_continuous_increase_nu
+		x = 12
+		y = 0
+		cost = 8
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+	#与瑞士合作
+	focus = {
+		id = FTB_yuruishi_hezuo
+		icon = GFX_focus_SWI_aktion_nationaler_widerstand
+		prerequisite = { focus = FTB_waijiao_shiwu}
+		relative_position_id = FTB_waijiao_shiwu
+		mutually_exclusive = { focus = FTB_ruishibianjie_wenti }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = RUI modifier = FTB_hezuo }
+			RUI = { add_opinion_modifier = { target = FTB modifier = FTB_hezuo } }
+		}
+	}
+	#两国合作
+	focus = {
+		id = FTB_liangguo_hezuo
+		icon = GFX_focus_SWI_new_eidgenossenschaft
+		prerequisite = { focus = FTB_yuruishi_hezuo}
+		relative_position_id = FTB_yuruishi_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_ruishihezuo
+			RUI = {
+			add_ideas = FTB_ruishihezuo
+			}
+		}
+	}
+	#瑞士边界问题
+	focus = {
+		id = FTB_ruishibianjie_wenti
+		icon = GFX_focus_SWI_abandon_neutrality
+		prerequisite = { focus = FTB_waijiao_shiwu}
+		relative_position_id = FTB_waijiao_shiwu
+		mutually_exclusive = { focus = FTB_yuruishi_hezuo }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = RUI modifier = FTB_bianjiewenti }
+			RUI = { add_opinion_modifier = { target = FTB modifier = FTB_bianjiewenti } }
+		}
+	}
+	#驱逐瑞士人
+	focus = {
+		id = FTB_quzhu_ruishiren
+		icon = GFX_focus_SWI_aktion_nationaler_widerstand
+		prerequisite = { focus = FTB_ruishibianjie_wenti}
+		relative_position_id = FTB_ruishibianjie_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#巴伐利亚合作
+	focus = {
+		id = FTB_bafaliya_hezuo
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = FTB_waijiao_shiwu}
+		relative_position_id = FTB_waijiao_shiwu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = BAF modifier = FTB_hezuo }
+			BAF = { add_opinion_modifier = { target = FTB modifier = FTB_hezuo } }
+		}
+	}
+	#经济协定
+	focus = {
+		id = FTB_jingji_xieding
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = FTB_bafaliya_hezuo}
+		relative_position_id = FTB_bafaliya_hezuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_jingji_xieding_nande
+			BAF = {
+			add_ideas = FTB_jingji_xieding_nande
+			}
+		}
+	}
+	#与莱茵的关系
+	focus = {
+		id = FTB_yulaiyin_deguanxi
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = FTB_waijiao_shiwu}
+		relative_position_id = FTB_waijiao_shiwu
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = LAI modifier = FTB_hezuo }
+			LAI = { add_opinion_modifier = { target = FTB modifier = FTB_hezuo } }
+		}
+	}
+	#莱茵的"黄金"
+	focus = {
+		id = FTB_laiyin_huangjin
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = FTB_yulaiyin_deguanxi}
+		relative_position_id = FTB_yulaiyin_deguanxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = FTB_laiyin_huangjin
+			LAI = {
+			add_ideas = FTB_laiyin_huangjin
+			}
+		}
+	}
+	#奥地利的支持者
+	focus = {
+		id = FTB_aodili_zhichizhe
+		icon = GFX_focus_generic_court
+		x = 12
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		  always = no
+		}
+		completion_reward = {
+		AUS = { puppet = FTB }
+		}
+	}
+	#南德意志友好
+	focus = {
+		id = FTB_nandeyizhi_youhao
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = FTB_aodili_zhichizhe }
+		relative_position_id = FTB_aodili_zhichizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_opinion_modifier = { target = AUS modifier = FTB_nandeyizhiyouhao }
+			AUS = { add_opinion_modifier = { target = FTB modifier = FTB_nandeyizhiyouhao } }
+		}
+	}
+	#工业支持
+	focus = {
+		id = FTB_ic_zhichi
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = FTB_nandeyizhi_youhao }
+		relative_position_id = FTB_nandeyizhi_youhao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#维也纳的科研
+	focus = {
+		id = FTB_weiyena_keyan
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = FTB_aodili_zhichizhe }
+		relative_position_id = FTB_aodili_zhichizhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FTB_weiyena_keyan
+		}
+	}
+	#交通枢纽
+	focus = {
+		id = FTB_jiaotong_shuniu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = FTB_weiyena_keyan }
+		relative_position_id = FTB_weiyena_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = FTB_jiaotong_shuniu
+		}
+	}
+	#征召民兵
+	focus = {
+		id = FTB_zhengzhao_minbing
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = FTB_jiaotong_shuniu }
+		prerequisite = { focus = FTB_ic_zhichi }
+		relative_position_id = FTB_jiaotong_shuniu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   load_oob = FTB_minbing
+		}
+	}
+	#备战号角
+	focus = {
+		id = FTB_beizhan_haojiao
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = FTB_zhengzhao_minbing }
+		relative_position_id = FTB_zhengzhao_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		   add_ideas = FTB_beizhan_haojiao
+		}
+	}
+	#普鲁士支持者
+	focus = {
+		id = FTB_pulushi_zhichizhe
+		icon = GFX_focus_ger_return_of_the_kaiser
+		x = 12
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		  always = no
+		}
+		completion_reward = {
+		}
+	}
+	#坚壁清野
+	focus = {
+		id = FTB_jianbi_qingye
+		icon = GFX_focus_generic_coffee
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_pulushi_zhichizhe }
+		relative_position_id = FTB_pulushi_zhichizhe
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 6 }
+		add_offsite_building = { type = industrial_complex level = -2 }
+		}
+	}
+	#战前动员
+	focus = {
+		id = FTB_zhanqiandongyuan
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_jianbi_qingye }
+		relative_position_id = FTB_jianbi_qingye
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_dongyuanjuntuan
+		}
+	}
+	#军事学院
+	focus = {
+		id = FTB_junshi_xueyuan
+		icon = GFX_focus_chi_army_reform
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_pulushi_zhichizhe }
+		relative_position_id = FTB_pulushi_zhichizhe
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_junshixueyuan
+		}
+	}
+	#普鲁士的军官
+	focus = {
+		id = FTB_pulushi_junguan
+		icon = GFX_focus_mex_caudillo_private_armies
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_junshi_xueyuan }
+		relative_position_id = FTB_junshi_xueyuan
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_pulushi_junguan
+		}
+	}
+	#防御壁垒
+	focus = {
+		id = FTB_fangyu_bilei
+		icon = GFX_goal_generic_fortify_city
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_pulushi_junguan }
+		prerequisite = { focus = FTB_zhanqiandongyuan }
+		relative_position_id = FTB_pulushi_junguan
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_fangyu_bilei
+		}
+	}
+	#符腾堡万岁
+	focus = {
+		id = FTB_futengbao_wansui
+		icon = GFX_focus_generic_support_the_left_right
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_fangyu_bilei }
+		relative_position_id = FTB_fangyu_bilei
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.2
+		}
+	}
+	#符腾堡的荣耀
+	focus = {
+		id = FTB_futengbao_rongyao
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		  always = no
+		}
+		completion_reward = {
+		}
+	}
+	#旧日荣耀
+	focus = {
+		id = FTB_jiuri_rongyao
+		icon = GFX_focus_generic_monarchy_1
+		x = -2
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_futengbao_rongyao }
+		relative_position_id = FTB_futengbao_rongyao
+		mutually_exclusive = { focus = FTB_diguo_zhibang }
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#我们才是帝国皇帝！
+	focus = {
+		id = FTB_womencaishi_diguo_huangdi
+		icon = GFX_focus_generic_pope
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_jiuri_rongyao }
+		relative_position_id = FTB_jiuri_rongyao
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_diguo_huangdi
+		}
+	}
+	#南德意志霸主
+	focus = {
+		id = FTB_nandeyizhibazhu
+		icon = GFX_focus_usa_focus_on_europe
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_womencaishi_diguo_huangdi }
+		relative_position_id = FTB_womencaishi_diguo_huangdi
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = BAF
+}
+		}
+	}
+	#阿尔卑斯山征服
+	focus = {
+		id = FTB_aerbeisi_zhengfu
+		icon = GFX_goal_generic_major_war
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_nandeyizhibazhu }
+		relative_position_id = FTB_nandeyizhibazhu
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = RUI
+}
+		}
+	}
+	#莱茵的新主人
+	focus = {
+		id = FTB_laiyin_new_master
+		icon = GFX_focus_SOV_mobilization_plan
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_aerbeisi_zhengfu }
+		relative_position_id = FTB_aerbeisi_zhengfu
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = LAI
+}
+create_wargoal = {
+    type = annex_everything
+    target = WFL
+}
+		}
+	}
+	#蒂罗尔野心
+	focus = {
+		id = FTB_diluoer_yexin
+		icon = GFX_goal_generic_territory_or_war
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_nandeyizhibazhu }
+		relative_position_id = FTB_nandeyizhibazhu
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = AUS
+}
+		}
+	}
+	#洛林征服者
+	focus = {
+		id = FTB_luolin_zhengfuzhe
+		icon = GFX_focus_ger_oppose_hitler
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_diluoer_yexin }
+		relative_position_id = FTB_diluoer_yexin
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = annex_everything
+    target = LUO
+}
+		}
+	}
+	#帝国之王
+	focus = {
+		id = FTB_diguo_zhiwang
+		icon = GFX_focus_generic_vatican_state
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_luolin_zhengfuzhe }
+		relative_position_id = FTB_luolin_zhengfuzhe
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		 every_state = {
+					limit = {
+					OR = {
+						region = 6
+						region = 7
+						region = 8
+						region = 5
+						}
+					}
+add_core_of = LUO
+		}
+		remove_state_core = 1841
+		remove_state_core = 37
+		remove_state_core = 1842
+		remove_state_core = 99
+		add_state_core = 1821
+		add_state_core = 28
+		add_state_core = 923
+		add_state_core = 925
+		add_state_core = 928
+		add_state_core = 847
+		add_state_core = 3
+		add_state_core = 845
+		add_state_core = 846
+		add_state_core = 151
+		add_state_core = 848
+		add_state_core = 153
+		add_state_core = 39
+		add_state_core = 850
+		add_state_core = 1827
+		add_state_core = 736
+		add_state_core = 102
+		add_state_core = 1828
+		add_state_core = 4
+		add_state_core = 152
+		add_state_core = 952
+		add_state_core = 953
+		add_state_core = 1829
+		add_state_core = 951
+		add_state_core = 69
+		add_state_core = 986
+		add_state_core = 987
+		add_state_core = 988
+		add_state_core = 75
+		add_state_core = 74
+		add_state_core = 72
+		add_state_core = 9
+		add_state_core = 989
+		add_state_core = 990
+		add_state_core = 762
+		add_state_core = 86
+		add_state_core = 1554
+		add_state_core = 807
+		add_state_core = 85
+		add_state_core = 1541
+		add_state_core = 5
+		add_state_core = 1540
+		add_state_core = 763
+		add_state_core = 188
+		}
+	}
+	#帝国之邦
+	focus = {
+		id = FTB_diguo_zhibang
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 2
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_futengbao_rongyao }
+		relative_position_id = FTB_futengbao_rongyao
+		mutually_exclusive = { focus = FTB_jiuri_rongyao }
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.2
+		}
+	}
+	#武装中立
+	focus = {
+		id = FTB_wuzhuangzhongli
+		icon = GFX_focus_secret_rearmament
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = { focus = FTB_diguo_zhibang }
+		relative_position_id = FTB_diguo_zhibang
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = FTB_wuzhuangzhongli
+		load_focus_tree = tongyong_guoce
+		}
+	}
+}

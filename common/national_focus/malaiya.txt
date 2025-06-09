@@ -1,0 +1,1832 @@
+focus_tree = {
+	id = MAL_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MAL
+		}
+	}
+	
+	default = no
+ 
+    #马来亚的未来
+	focus = {
+		id = MAL_malaiya_weilai
+		icon = GFX_goal_generic_construction
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#独立梦想
+	focus = {
+		id = MAL_duli_mengxiang
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = MAL_malaiya_weilai}
+		relative_position_id = MAL_malaiya_weilai
+		mutually_exclusive = { focus = MAL_zhengqiu_zizhi }
+		mutually_exclusive = { focus = MAL_malaixiya_zhihuo }
+		x = -8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_duli_mengxiang
+			remove_idea = MAL_zhengzhi_chongtu
+			}
+		}
+	}
+	#帮扶独立工业
+	focus = {
+		id = MAL_bangfu_duli_gongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MAL_duli_mengxiang}
+		relative_position_id = MAL_duli_mengxiang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_bangfu_duli_gongye
+			remove_idea = MAL_gongye_fenhua
+			}
+		}
+	}
+	#潜规则反抗
+	focus = {
+		id = MAL_qianguize_fankang
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = MAL_bangfu_duli_gongye }
+		relative_position_id = MAL_bangfu_duli_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_bangfu_duli_gongye_2
+			remove_idea = MAL_bangfu_duli_gongye
+			}
+		}
+	}
+	#资助优秀民族工业
+	focus = {
+		id = MAL_zizhu_youxiu_minzu_gongye
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = MAL_qianguize_fankang}
+		relative_position_id = MAL_qianguize_fankang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_bangfu_duli_gongye_3
+			remove_idea = MAL_bangfu_duli_gongye_2
+			}
+		}
+	}
+	#争取各族人民
+	focus = {
+		id = MAL_zhengqiu_gezu_renmin
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = MAL_duli_mengxiang}
+		relative_position_id = MAL_duli_mengxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_hanzu_wenti_2
+			remove_idea = MAL_hanzu_wenti
+			}
+			swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_2
+			remove_idea = MAL_tuzhu_wenti
+			}
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+		}
+	}
+	#团结华人工会
+	focus = {
+		id = MAL_tuanjie_huaren_gonghui
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = MAL_zhengqiu_gezu_renmin}
+		relative_position_id = MAL_zhengqiu_gezu_renmin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_hanzu_wenti_3
+			remove_idea = MAL_hanzu_wenti_2
+			}
+		}
+	}
+	#佛教——儒教和谐
+	focus = {
+		id = MAL_fojiao_rujiaohexie
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = MAL_tuanjie_huaren_gonghui}
+		relative_position_id = MAL_tuanjie_huaren_gonghui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = MAL_hanzu_wenti_3
+		}
+	}
+	#团结土著人民
+	focus = {
+		id = MAL_tuanjie_tuzhu_renmin
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = MAL_zhengqiu_gezu_renmin}
+		relative_position_id = MAL_zhengqiu_gezu_renmin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_3
+			remove_idea = MAL_tuzhu_wenti_2
+			}
+		}
+	}
+	#伊斯兰信仰
+	focus = {
+		id = MAL_yisilan_xinyang
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = MAL_tuanjie_tuzhu_renmin}
+		relative_position_id = MAL_tuanjie_tuzhu_renmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = MAL_tuzhu_wenti_3
+		}
+	}
+	#组建独立游行
+	focus = {
+		id = MAL_zujian_duli_youxing
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = MAL_duli_mengxiang}
+		relative_position_id = MAL_duli_mengxiang
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_duli_mengxiang_2
+			remove_idea = MAL_duli_mengxiang
+			}
+		}
+	}
+	#官员本土化
+	focus = {
+		id = MAL_guanyuan_bendihua
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = MAL_zujian_duli_youxing}
+		relative_position_id = MAL_zujian_duli_youxing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_duli_mengxiang_3
+			remove_idea = MAL_duli_mengxiang_2
+			}
+		}
+	}
+	#官僚体系革新
+	focus = {
+		id = MAL_guanliao_tixi_gexin
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = MAL_guanyuan_bendihua}
+		relative_position_id = MAL_guanyuan_bendihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_duli_mengxiang_4
+			remove_idea = MAL_duli_mengxiang_3
+			}
+		}
+	}
+	#反抗英国体系
+	focus = {
+		id = MAL_fankang_yingguo_tixi
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = MAL_fojiao_rujiaohexie}
+		prerequisite = { focus = MAL_yisilan_xinyang}
+		prerequisite = { focus = MAL_zizhu_youxiu_minzu_gongye}
+		prerequisite = { focus = MAL_guanliao_tixi_gexin}
+		relative_position_id = MAL_yisilan_xinyang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = MAL_tuzhu_wenti_3
+			remove_ideas = MAL_hanzu_wenti_3
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+		}
+	}
+	#马来亚独立
+	focus = {
+		id = MAL_malaiya_duli
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = MAL_fankang_yingguo_tixi}
+		relative_position_id = MAL_fankang_yingguo_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKM = {
+		has_war = yes
+		date > 1937.4.1
+		}
+		}
+		completion_reward = {
+			UKM = {
+			end_puppet = MAL
+			country_event = { id = holy_dongnanya.6 days = 5 }
+		}
+		MAL = { leave_faction = yes }
+		every_country = {
+			white_peace = MAL
+			}
+			news_event = {
+				id = holy_news.55 days = 1
+			}
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = progressism
+}
+		}
+	}
+	#征求自治
+	focus = {
+		id = MAL_zhengqiu_zizhi
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MAL_malaiya_weilai}
+		relative_position_id = MAL_malaiya_weilai
+		mutually_exclusive = { focus = MAL_duli_mengxiang }
+		mutually_exclusive = { focus = MAL_malaixiya_zhihuo }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_zhengqiu_zizhi
+			remove_idea = MAL_zhengzhi_chongtu
+			}
+		}
+	}
+	#吸收外资
+	focus = {
+		id = MAL_xishou_waizi
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = MAL_zhengqiu_zizhi}
+		relative_position_id = MAL_zhengqiu_zizhi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_xishou_waizi
+			remove_idea = MAL_gongye_fenhua
+			}
+		}
+	}
+	#经济特权
+	focus = {
+		id = MAL_jingji_tequan
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = MAL_xishou_waizi}
+		relative_position_id = MAL_xishou_waizi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_xishou_waizi_2
+			remove_idea = MAL_xishou_waizi
+			}
+		}
+	}
+	#放弃保护政策
+	focus = {
+		id = MAL_fangqi_baohu_zhengce
+		icon = GFX_goal_continuous_def_against_influence
+		prerequisite = { focus = MAL_jingji_tequan}
+		relative_position_id = MAL_jingji_tequan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_xishou_waizi_3
+			remove_idea = MAL_xishou_waizi_2
+			}
+		}
+	}
+	#对抗土著运动
+	focus = {
+		id = MAL_duikang_tuzhu_yundong
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = MAL_zhengqiu_zizhi}
+		relative_position_id = MAL_zhengqiu_zizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_2
+			remove_idea = MAL_tuzhu_wenti
+			}
+		}
+	}
+	#打击伊斯兰势力
+	focus = {
+		id = MAL_daji_yisilan
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = MAL_duikang_tuzhu_yundong}
+		relative_position_id = MAL_duikang_tuzhu_yundong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_3
+			remove_idea = MAL_tuzhu_wenti_2
+			}
+		}
+	}
+	#针对华人
+	focus = {
+		id = MAL_zhendui_huaren
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = MAL_zhengqiu_zizhi}
+		relative_position_id = MAL_zhengqiu_zizhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_hanzu_wenti_2
+			remove_idea = MAL_hanzu_wenti
+			}
+		}
+	}
+	#取缔华人工会
+	focus = {
+		id = MAL_qudi_huaren_gonghui
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = MAL_zhendui_huaren}
+		relative_position_id = MAL_zhendui_huaren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_hanzu_wenti_3
+			remove_idea = MAL_hanzu_wenti_2
+			}
+		}
+	}
+	#降低政治权利
+	focus = {
+		id = MAL_jiangdi_zhengzhi_quanli
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = MAL_daji_yisilan}
+		prerequisite = { focus = MAL_qudi_huaren_gonghui}
+		relative_position_id = MAL_qudi_huaren_gonghui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    remove_ideas = MAL_hanzu_wenti_3
+			remove_ideas = MAL_tuzhu_wenti_3
+		}
+	}
+	#英语教育
+	focus = {
+		id = MAL_yingyu_jiaoyu
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = MAL_zhengqiu_zizhi}
+		relative_position_id = MAL_zhengqiu_zizhi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_yingshi_zhengzhi
+			remove_idea = MAL_zhengzhi_chongtu
+			}
+		}
+	}
+	#宣扬基督精神
+	focus = {
+		id = MAL_xuanyang_jidu_jingshen
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = MAL_yingyu_jiaoyu}
+		relative_position_id = MAL_yingyu_jiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_yingshi_zhengzhi_2
+			remove_idea = MAL_yingshi_zhengzhi
+			}
+		}
+	}
+	#现代学府
+	focus = {
+		id = MAL_xiandaihua_xuefu
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = MAL_xuanyang_jidu_jingshen}
+		relative_position_id = MAL_xuanyang_jidu_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_yingshi_zhengzhi_3
+			remove_idea = MAL_yingshi_zhengzhi_2
+			}
+		}
+	}
+	#英国经济
+	focus = {
+		id = MAL_yingguo_jingji
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = MAL_fangqi_baohu_zhengce}
+		relative_position_id = MAL_fangqi_baohu_zhengce
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_xishou_waizi_4
+			remove_idea = MAL_xishou_waizi_3
+			}
+		}
+	}
+	#征募仆从军队
+	focus = {
+		id = MAL_zhengmu_pucong_army
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = MAL_jiangdi_zhengzhi_quanli}
+		relative_position_id = MAL_jiangdi_zhengzhi_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = MAL_zhengmu_pucong_army
+		}
+	}
+	#先进英国官僚
+	focus = {
+		id = MAL_xianjin_yingguo_guanliao
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MAL_xiandaihua_xuefu}
+		relative_position_id = MAL_xiandaihua_xuefu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = MAL_yingshi_zhengzhi_4
+			remove_idea = MAL_yingshi_zhengzhi_3
+			}
+		}
+	}
+	#马来亚自治权
+	focus = {
+		id = MAL_malaiya_zizhiquan
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = MAL_yingguo_jingji}
+		prerequisite = { focus = MAL_zhengmu_pucong_army}
+		prerequisite = { focus = MAL_xianjin_yingguo_guanliao}
+		relative_position_id = MAL_zhengmu_pucong_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKM = {
+		has_war = yes
+		date > 1937.4.1
+		}
+		}
+		completion_reward = {
+			UKM = {
+			end_puppet = MAL
+		}
+		}
+	}
+	#外交政策
+	focus = {
+		id = MAL_waijiao_zhengce
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = MAL_malaiya_zizhiquan focus = MAL_malaiya_duli}
+		relative_position_id = MAL_malaiya_duli
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#大马来西亚
+	focus = {
+		id = MAL_dama_laixiya
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = MAL_waijiao_zhengce }
+		relative_position_id = MAL_waijiao_zhengce
+		mutually_exclusive = { focus = MAL_guojia_zhongli }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		NOT = {
+	    has_completed_focus = MAL_jiaru_wenlai_maoyi
+		}
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#宣称苏门答腊
+	focus = {
+		id = MAL_xuancheng_sumen_dala
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MAL_dama_laixiya }
+		relative_position_id = MAL_dama_laixiya
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 672
+			add_state_core = 1206
+			add_state_core = 1204
+		}
+	}
+	#边境战争
+	focus = {
+		id = MAL_bianjing_zhanzheng
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = MAL_xuancheng_sumen_dala }
+		relative_position_id = MAL_xuancheng_sumen_dala
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = YAW
+    type = annex_everything
+}
+		}
+	}
+	#北马来西亚
+	focus = {
+		id = MAL_beimalai_xiya
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = MAL_dama_laixiya }
+		relative_position_id = MAL_dama_laixiya
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 724
+			add_state_core = 1183
+			add_state_core = 1184
+		}
+	}
+	#对抗暹罗
+	focus = {
+		id = MAL_duikang_xianluo
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = MAL_beimalai_xiya }
+		relative_position_id = MAL_beimalai_xiya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SIA
+    type = annex_everything
+}
+		}
+	}
+	#国家中立
+	focus = {
+		id = MAL_guojia_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MAL_waijiao_zhengce }
+		relative_position_id = MAL_waijiao_zhengce
+		mutually_exclusive = { focus = MAL_dama_laixiya }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#联合苏门答腊
+	focus = {
+		id = MAL_lianhe_sumendala
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = MAL_guojia_zhongli }
+		relative_position_id = MAL_guojia_zhongli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		YAW = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#经济自由
+	focus = {
+		id = MAL_jingji_ziyou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = MAL_lianhe_sumendala }
+		relative_position_id = MAL_lianhe_sumendala
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		YAW = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#防备暹罗
+	focus = {
+		id = MAL_fangbei_xianluo
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = MAL_guojia_zhongli }
+		relative_position_id = MAL_guojia_zhongli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    336 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#边境要塞化
+	focus = {
+		id = MAL_bianjing_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = MAL_fangbei_xianluo }
+		relative_position_id = MAL_fangbei_xianluo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    336 = {
+			add_building_construction = {
+				type = bunker
+				province = 7329
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4310
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7342
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1291
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12144
+				level = 5
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#工业发展
+	focus = {
+		id = MAL_gongye_fazhan
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = MAL_malaiya_zizhiquan focus = MAL_malaiya_duli focus = MAL_zuge_tongxun }
+		relative_position_id = MAL_malaiya_duli
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#马来西亚工业
+	focus = {
+		id = MAL_malaixiya_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = MAL_gongye_fazhan }
+		relative_position_id = MAL_gongye_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			336 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#海洋经济
+	focus = {
+		id = MAL_haiyang_jingji
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = MAL_gongye_fazhan }
+		relative_position_id = MAL_gongye_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_haiyang_jingji
+		}
+	}
+	#制造业发展
+	focus = {
+		id = MAL_zhizaoye_fazhan
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = MAL_malaixiya_gongye }
+		prerequisite = { focus = MAL_haiyang_jingji }
+		relative_position_id = MAL_haiyang_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_haiyang_jingji_2
+			remove_idea = MAL_haiyang_jingji
+			}
+		}
+	}
+	#加入文莱贸易
+	focus = {
+		id = MAL_jiaru_wenlai_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = MAL_haiyang_jingji }
+		relative_position_id = MAL_haiyang_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+	    has_completed_focus = MAL_dama_laixiya
+		}
+		}
+		completion_reward = {
+			add_ideas = MAL_wenlai_maoyi
+		}
+	}
+	#开发军工
+	focus = {
+		id = MAL_kaifa_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MAL_malaixiya_gongye }
+		relative_position_id = MAL_malaixiya_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			336 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#工业先进化
+	focus = {
+		id = MAL_gongye_xianjinhua
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = MAL_kaifa_jungong }
+		prerequisite = { focus = MAL_zhizaoye_fazhan }
+		relative_position_id = MAL_zhizaoye_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			336 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#新加坡繁荣
+	focus = {
+		id = MAL_xinjiapo
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = MAL_jiaru_wenlai_maoyi }
+		prerequisite = { focus = MAL_zhizaoye_fazhan }
+		relative_position_id = MAL_zhizaoye_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			336 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#马来亚军事
+	focus = {
+		id = MAL_malaiya_junshi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = MAL_malaiya_zizhiquan focus = MAL_malaiya_duli focus = MAL_zuge_tongxun }
+		relative_position_id = MAL_malaiya_zizhiquan
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#轻兵器革新
+	focus = {
+		id = MAL_qingbing_gexin
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = MAL_malaiya_junshi }
+		relative_position_id = MAL_malaiya_junshi
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry
+			}
+		}
+	}
+	#火力开发
+	focus = {
+		id = MAL_huoli_kaifa
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = MAL_qingbing_gexin }
+		relative_position_id = MAL_qingbing_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_huoli_kaifa
+		}
+	}
+	#组建军官团
+	focus = {
+	    id = MAL_zujian_junguan
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = MAL_malaiya_junshi }
+		relative_position_id = MAL_malaiya_junshi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_zujian_junguan
+		}
+	}
+	#参谋部组织
+	focus = {
+	    id = MAL_canmoubu_zuzhi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = MAL_zujian_junguan }
+		relative_position_id = MAL_zujian_junguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_zujian_junguan_2
+			remove_idea = MAL_zujian_junguan
+			}
+		}
+	}
+	#侦察现代化
+	focus = {
+		id = MAL_zhencha_xiandaihua
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = MAL_canmoubu_zuzhi }
+		prerequisite = { focus = MAL_huoli_kaifa }
+		relative_position_id = MAL_huoli_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_zhencha_xiandaihua
+		}
+	}
+	#战争意志
+	focus = {
+	    id = MAL_zhanzheng_yizhi
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = MAL_malaiya_junshi }
+		relative_position_id = MAL_malaiya_junshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_zhanzheng_yizhi
+		}
+	}
+	#保家卫国
+	focus = {
+	    id = MAL_baojia_weiguo
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = MAL_zhanzheng_yizhi }
+		relative_position_id = MAL_zhanzheng_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_zhanzheng_yizhi_2
+			remove_idea = MAL_zhanzheng_yizhi
+			}
+		}
+	}
+	#战胜雨林
+	focus = {
+		id = MAL_zhansheng_yulin
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = MAL_canmoubu_zuzhi }
+		prerequisite = { focus = MAL_baojia_weiguo }
+		relative_position_id = MAL_baojia_weiguo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_zhansheng_yulin
+		}
+	}
+	#少数民族参军
+	focus = {
+	    id = MAL_shaoshu_minzu_canjun
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = MAL_malaiya_junshi }
+		relative_position_id = MAL_malaiya_junshi
+		mutually_exclusive = { focus = MAL_yinglianbang_jundui }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+			add_ideas = MAL_shaoshu_minzu_canjun
+		}
+	}
+	#协调指挥
+	focus = {
+	    id = MAL_xietiao_zhihui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = MAL_shaoshu_minzu_canjun }
+		relative_position_id = MAL_shaoshu_minzu_canjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_shaoshu_minzu_canjun_2
+			remove_idea = MAL_shaoshu_minzu_canjun
+			}
+		}
+	}
+	#英联邦军队
+	focus = {
+	    id = MAL_yinglianbang_jundui
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = MAL_malaiya_junshi }
+		relative_position_id = MAL_malaiya_junshi
+		mutually_exclusive = { focus = MAL_shaoshu_minzu_canjun }
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet_of = UKM
+		}
+		completion_reward = {
+			add_ideas = MAL_yinglianbang_jundui
+		}
+	}
+	#寻求英国支援
+	focus = {
+	    id = MAL_xunqiu_yingguo_zhiyuan
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = MAL_yinglianbang_jundui }
+		relative_position_id = MAL_yinglianbang_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = UKM
+}
+		}
+	}
+	#马来西亚之火
+	focus = {
+		id = MAL_malaixiya_zhihuo
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = MAL_malaiya_weilai}
+		relative_position_id = MAL_malaiya_weilai
+		mutually_exclusive = { focus = MAL_duli_mengxiang }
+		mutually_exclusive = { focus = MAL_zhengqiu_zizhi }
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_malaixiya_huo
+			remove_idea = MAL_zhengzhi_chongtu
+			}
+		}
+	}
+	#人民媒体
+	focus = {
+		id = MAL_renmin_meiti
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = MAL_malaixiya_zhihuo}
+		relative_position_id = MAL_malaixiya_zhihuo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_malaixiya_huo_2
+			remove_idea = MAL_malaixiya_huo
+			}
+		}
+	}
+	#建设游击队
+	focus = {
+		id = MAL_jianshe_youjidui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = MAL_renmin_meiti}
+		relative_position_id = MAL_renmin_meiti
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_build_youjidui
+		}
+	}
+	#雨林战斗
+	focus = {
+		id = MAL_yulin_zhandou
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = MAL_jianshe_youjidui}
+		relative_position_id = MAL_jianshe_youjidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_build_youjidui_2
+			remove_idea = MAL_build_youjidui
+			}
+		}
+	}
+	#组织罢工
+	focus = {
+		id = MAL_zuzhi_bagong
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = MAL_renmin_meiti }
+		prerequisite = { focus = MAL_dixiagonghui }
+		relative_position_id = MAL_renmin_meiti
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_dixia_gonghui_2
+			remove_idea = MAL_dixia_gonghui
+			}
+		}
+	}
+	#团结人民
+	focus = {
+		id = MAL_tuanjie_renmin
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = MAL_zuzhi_bagong }
+		relative_position_id = MAL_zuzhi_bagong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_2
+			remove_idea = MAL_tuzhu_wenti
+			}
+			swap_ideas = {
+			add_idea = MAL_hanzu_wenti_2
+			remove_idea = MAL_hanzu_wenti
+			}
+		}
+	}
+	#武力对抗
+	focus = {
+		id = MAL_wuli_duikang
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = MAL_yulin_zhandou }
+		prerequisite = { focus = MAL_tuanjie_renmin }
+		relative_position_id = MAL_tuanjie_renmin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_dixia_gonghui_3
+			remove_idea = MAL_dixia_gonghui_2
+			}
+		}
+	}
+	#地下工会
+	focus = {
+		id = MAL_dixiagonghui
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = MAL_malaixiya_zhihuo}
+		relative_position_id = MAL_malaixiya_zhihuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_dixia_gonghui
+		}
+	}
+	#渗透政府
+	focus = {
+		id = MAL_shentou_zheng_fu
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MAL_malaixiya_zhihuo}
+		relative_position_id = MAL_malaixiya_zhihuo
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_shentou_zhengfu
+		}
+	}
+	#破坏行政
+	focus = {
+		id = MAL_pohuai_xingzheng
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = MAL_dixiagonghui}
+		prerequisite = { focus = MAL_shentou_zheng_fu}
+		relative_position_id = MAL_shentou_zheng_fu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_shentou_zhengfu_2
+			remove_idea = MAL_shentou_zhengfu
+			}
+		}
+	}
+	#编织谎言
+	focus = {
+		id = MAL_pianzhi_huangyan
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = MAL_pohuai_xingzheng}
+		relative_position_id = MAL_pohuai_xingzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_shentou_zhengfu_3
+			remove_idea = MAL_shentou_zhengfu_2
+			}
+		}
+	}
+	#联络军队
+	focus = {
+		id = MAL_lianluo_army
+		icon = GFX_focus_SOV_womens_fascist_movement
+		prerequisite = { focus = MAL_shentou_zheng_fu}
+		relative_position_id = MAL_shentou_zheng_fu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MAL_army_bered
+		}
+	}
+	#军队党组织
+	focus = {
+		id = MAL_jundui_dangzuzhi
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = MAL_lianluo_army}
+		relative_position_id = MAL_lianluo_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_army_bered_2
+			remove_idea = MAL_army_bered
+			}
+		}
+	}
+	#新人民政府
+	focus = {
+		id = MAL_new_peopal_government
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = MAL_pianzhi_huangyan}
+		prerequisite = { focus = MAL_jundui_dangzuzhi}
+		relative_position_id = MAL_jundui_dangzuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_shentou_zhengfu_4
+			remove_idea = MAL_shentou_zhengfu_3
+			}
+		}
+	}
+	#阻隔通讯
+	focus = {
+		id = MAL_zuge_tongxun
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = MAL_wuli_duikang}
+		prerequisite = { focus = MAL_new_peopal_government}
+		relative_position_id = MAL_new_peopal_government
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			UKM = {
+			end_puppet = MAL
+			}
+			every_country = {
+			if = {
+			limit = {	
+			has_war_with = UKM
+			}
+			white_peace = MAL
+			}
+			}
+			leave_faction = yes
+				start_civil_war = {
+    ruling_party = communism
+    ideology = ROOT
+    size = 0.7
+    states = { 
+        1226 1227 1228
+    }
+}
+load_oob = MAL_wuzhuang_qiyijun
+random_state = {
+limit = {
+is_capital = yes
+is_controlled_by = MAL
+}
+create_unit = {
+    division = "name = \"马来亚起义军\" division_template = \"马来亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = MAL
+}
+create_unit = {
+    division = "name = \"马来亚起义军\" division_template = \"马来亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = MAL
+}
+create_unit = {
+    division = "name = \"马来亚起义军\" division_template = \"马来亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = MAL
+}
+}
+		}
+	}
+	#重组地区政治
+	focus = {
+		id = MAL_chongzu_diqu_zhengzhi
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MAL_zuge_tongxun }
+		relative_position_id = MAL_zuge_tongxun
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 100
+		}
+	}
+	#建立工业体系
+	focus = {
+		id = MAL_jianli_gongye_tixi
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = MAL_chongzu_diqu_zhengzhi }
+		relative_position_id = MAL_chongzu_diqu_zhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_red_gongye_tixi
+			remove_idea = MAL_gongye_fenhua
+			}
+		}
+	}
+	#社会主义经济
+	focus = {
+		id = MAL_shehuizhuyi_jingji
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = MAL_jianli_gongye_tixi }
+		relative_position_id = MAL_jianli_gongye_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_red_gongye_tixi_2
+			remove_idea = MAL_red_gongye_tixi
+			}
+		}
+	}
+	#马来亚跃进
+	focus = {
+		id = MAL_malaiya_yuejin
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = MAL_shehuizhuyi_jingji }
+		relative_position_id = MAL_shehuizhuyi_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_red_gongye_tixi_3
+			remove_idea = MAL_red_gongye_tixi_2
+			}
+		}
+	}
+	#建设人民议会
+	focus = {
+		id = MAL_jianshe_renmin_yihui
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = MAL_chongzu_diqu_zhengzhi }
+		relative_position_id = MAL_chongzu_diqu_zhengzhi
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_malaixiya_huo_3
+			remove_idea = MAL_malaixiya_huo_2
+			}
+		}
+	}
+	#建立人民公社
+	focus = {
+		id = MAL_jianli_renmin_gongshe
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = MAL_jianshe_renmin_yihui }
+		relative_position_id = MAL_jianshe_renmin_yihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_malaixiya_huo_4
+			remove_idea = MAL_malaixiya_huo_3
+			}
+		}
+	}
+	#扩大义务教育
+	focus = {
+		id = MAL_kuoda_yiwu_jiaoyu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = MAL_jianli_renmin_gongshe }
+		relative_position_id = MAL_jianli_renmin_gongshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#调节民族地位
+	focus = {
+		id = MAL_tiaojie_minzu_diwei
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = { focus = MAL_jianshe_renmin_yihui }
+		relative_position_id = MAL_jianshe_renmin_yihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MAL_tuzhu_wenti_3
+			remove_idea = MAL_tuzhu_wenti_2
+			}
+			swap_ideas = {
+			add_idea = MAL_hanzu_wenti_3
+			remove_idea = MAL_hanzu_wenti_2
+			}
+		}
+	}
+	#抚平创伤
+	focus = {
+		id = MAL_fuping_chuangshang
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = MAL_tiaojie_minzu_diwei }
+		relative_position_id = MAL_tiaojie_minzu_diwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = MAL_tuzhu_wenti_3
+			remove_ideas = MAL_hanzu_wenti_3
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = MAL_jiaru_gongchan_guoji
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = MAL_chongzu_diqu_zhengzhi }
+		relative_position_id = MAL_chongzu_diqu_zhengzhi
+		x = 6
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = MAL }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = MAL
+			}
+			}
+		}
+	}
+}

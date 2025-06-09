@@ -1,0 +1,214 @@
+focus_tree = {
+	id = NVG_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NVG
+		}
+	}
+	
+	default = no
+ 
+    #红军的先知
+	focus = {
+		id = NVG_redarmy_xianzhi
+		icon = GFX_focus_ETH_callout_to_the_world
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#诺夫哥罗德体系
+	focus = {
+		id = NVG_nuofugeluode_tixi
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = NVG_redarmy_xianzhi}
+		relative_position_id = NVG_redarmy_xianzhi
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NVG_nuofugeluode_tixi
+		}
+	}
+	#肃清反革命叛徒
+	focus = {
+		id = NVG_suqing_fan_gm_pantu
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		prerequisite = { focus = NVG_nuofugeluode_tixi}
+		relative_position_id = NVG_nuofugeluode_tixi
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = NVG_fulasuofu_wenti
+		add_stability = -0.1
+		}
+	}
+	#扩大军队
+	focus = {
+		id = NVG_kuoda_jundui
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = NVG_suqing_fan_gm_pantu}
+		relative_position_id = NVG_suqing_fan_gm_pantu
+	    x = -1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 246
+		}
+		completion_reward = {
+		load_oob = NVG_kuoda_jundui
+		}
+	}
+	#革命军政体系
+	focus = {
+		id = NVG_gm_junzheng_tixi
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = NVG_kuoda_jundui}
+		relative_position_id = NVG_kuoda_jundui
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = NVG_gm_junzhengtixi
+		}
+	}
+	#红色兵工厂
+	focus = {
+		id = NVG_red_arms_factory
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = NVG_suqing_fan_gm_pantu}
+		relative_position_id = NVG_suqing_fan_gm_pantu
+	    x = -3
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#联络安东诺夫
+	focus = {
+		id = NVG_lianluo_andongnuofu
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = NVG_suqing_fan_gm_pantu}
+		relative_position_id = NVG_suqing_fan_gm_pantu
+	    x = 1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = KZN
+}
+		}
+	}
+	#支援游击队
+	focus = {
+		id = NVG_zhiyuan_youjidui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = NVG_lianluo_andongnuofu}
+		relative_position_id = NVG_lianluo_andongnuofu
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#反军区起义
+	focus = {
+		id = NVG_fan_junqu_qiyi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = NVG_gm_junzheng_tixi}
+		prerequisite = { focus = NVG_zhiyuan_youjidui}
+		relative_position_id = NVG_zhiyuan_youjidui
+	    x = -1
+	    y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = NVG_fanjunqu_qiyi
+		}
+	}
+	#联合攻势
+	focus = {
+		id = NVG_lianhe_gongshi
+		icon = GFX_focus_generic_tank_air_support
+		prerequisite = { focus = NVG_fan_junqu_qiyi}
+		relative_position_id = NVG_fan_junqu_qiyi
+	    x = 0
+	    y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = NVG_lianhegongshi
+    days = 60
+}
+		}
+	}
+	#西部革命的胜利
+	focus = {
+		id = NVG_xibu_gm_shengli
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = NVG_lianhe_gongshi}
+		relative_position_id = NVG_lianhe_gongshi
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 208
+		controls_state = 209
+		controls_state = 210
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = NVG
+			}
+		}
+	}
+}

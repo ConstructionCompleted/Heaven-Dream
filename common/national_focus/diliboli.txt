@@ -1,0 +1,991 @@
+focus_tree = {
+	id = DLB_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DLB
+		}
+	}
+	
+	default = no
+ 
+    #摄政王的统治
+	focus = {
+		id = DLB_shezheng_tongzhi
+		icon = GFX_focus_generic_support_the_left_right
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 50000
+		}
+	}
+	#的黎波里开发
+	focus = {
+		id = DLB_dili_boli_kaifa
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = DLB_shezheng_tongzhi}
+		relative_position_id = DLB_shezheng_tongzhi
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DLB_dili_boli_kaifa
+		}
+	}
+	#进口工业设备
+	focus = {
+		id = DLB_jinkou_gongye_shebei
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = DLB_dili_boli_kaifa}
+		relative_position_id = DLB_dili_boli_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_dili_boli_kaifa_2
+			remove_idea = DLB_dili_boli_kaifa
+			}
+		}
+	}
+	#东方铁路
+	focus = {
+		id = DLB_dongfang_tielu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = DLB_dili_boli_kaifa}
+		relative_position_id = DLB_dili_boli_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			449 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		662 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#海港开发
+	focus = {
+		id = DLB_haigang_kaifa
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = DLB_jinkou_gongye_shebei}
+		relative_position_id = DLB_jinkou_gongye_shebei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			448 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#军事工业发展
+	focus = {
+		id = DLB_junshi_gongye_fazhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = DLB_jinkou_gongye_shebei}
+		prerequisite = { focus = DLB_dongfang_tielu}
+		relative_position_id = DLB_jinkou_gongye_shebei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			448 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			661 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#开发东部乡村
+	focus = {
+		id = DLB_kaifa_dongbu_xiangcun
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = DLB_lianhe_dongbu_chengzhen}
+		prerequisite = { focus = DLB_dongfang_tielu}
+		relative_position_id = DLB_dongfang_tielu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DLB_kaifa_xiangcun
+		}
+	}
+	#西部经济革新
+	focus = {
+		id = DLB_xibu_jingji_gexin
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = DLB_haigang_kaifa }
+		prerequisite = { focus = DLB_junshi_gongye_fazhan }
+		relative_position_id = DLB_junshi_gongye_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			661 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			448 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东部工业化
+	focus = {
+		id = DLB_dongbu_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = DLB_kaifa_dongbu_xiangcun }
+		prerequisite = { focus = DLB_junshi_gongye_fazhan }
+		relative_position_id = DLB_junshi_gongye_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			662 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			449 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#军队武装
+	focus = {
+		id = DLB_jundui_wuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DLB_shezheng_tongzhi}
+		relative_position_id = DLB_shezheng_tongzhi
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_hunluan_wuzhuang_2
+			remove_idea = DLB_hunluan_wuzhuang
+			}
+		}
+	}
+	#革新部队武装
+	focus = {
+		id = DLB_gexin_budui_wuzhuang
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = DLB_jundui_wuzhuang}
+		relative_position_id = DLB_jundui_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_gexin_army
+			remove_idea = DLB_hunluan_wuzhuang_2
+			}
+		}
+	}
+	#扩张部队武装
+	focus = {
+		id = DLB_kuozhang_budui_wuzhuang
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = DLB_jundui_wuzhuang}
+		relative_position_id = DLB_jundui_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DLB_kuoda_wuzhuang
+		}
+	}
+	#宗教狂热
+	focus = {
+		id = DLB_zongjiao_kuangre
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = DLB_gexin_budui_wuzhuang}
+		prerequisite = { focus = DLB_kuozhang_budui_wuzhuang}
+		relative_position_id = DLB_kuozhang_budui_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DLB_zongjiao_kuangre
+		}
+	}
+	#圣战主义
+	focus = {
+		id = DLB_shengzhan_zhuyi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = DLB_zongjiao_kuangre}
+		relative_position_id = DLB_zongjiao_kuangre
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_zongjiao_kuangre_2
+			remove_idea = DLB_zongjiao_kuangre
+			}
+		}
+	}
+	#联合地方地主
+	focus = {
+		id = DLB_lianhe_difang_dizhu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = DLB_kuozhang_budui_wuzhuang}
+		relative_position_id = DLB_kuozhang_budui_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = DLB_lianhe_difang_dizhu
+		}
+	}
+	#民兵体系
+	focus = {
+		id = DLB_minbing_tixi
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = DLB_lianhe_difang_dizhu}
+		relative_position_id = DLB_lianhe_difang_dizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DLB_minbing
+		}
+	}
+	#突尼斯计划
+	focus = {
+		id = DLB_tunisi_plan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = DLB_kuozhang_budui_wuzhuang}
+		relative_position_id = DLB_kuozhang_budui_wuzhuang
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = EGY
+		}
+		FRN = {
+		has_war = yes
+		}
+		}
+		completion_reward = {
+start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 448
+        num_provinces = 10
+		on_win = holy_aosiman.35
+    }
+				
+    defender = {
+        state = 665
+        num_provinces = 10
+    }
+}
+		}
+	}
+	#现代化军队
+	focus = {
+		id = DLB_xiandaihua_army
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = DLB_gexin_budui_wuzhuang }
+		prerequisite = { focus = DLB_lianhe_ziben_shili }
+		relative_position_id = DLB_gexin_budui_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_gexin_army_2
+			remove_idea = DLB_gexin_army
+			}
+		}
+	}
+	#战术思想革新
+	focus = {
+	    id = DLB_zhanshu_sixiang_gexin
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = DLB_xiandaihua_army }
+		relative_position_id = DLB_xiandaihua_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_gexin_army_3
+			remove_idea = DLB_gexin_army_2
+			}
+		}
+	}
+	#统合人心
+	focus = {
+		id = DLB_tonghe_renxin
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = DLB_shezheng_tongzhi}
+		relative_position_id = DLB_shezheng_tongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_kuilei_sudan_2
+			remove_idea = DLB_kuilei_sudan
+			}
+		}
+	}
+	#联合东部城镇
+	focus = {
+		id = DLB_lianhe_dongbu_chengzhen
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = DLB_tonghe_renxin}
+		relative_position_id = DLB_tonghe_renxin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#联合资本势力
+	focus = {
+		id = DLB_lianhe_ziben_shili
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = DLB_tonghe_renxin}
+		relative_position_id = DLB_tonghe_renxin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_kuilei_sudan_3
+			remove_idea = DLB_kuilei_sudan_2
+			}
+		}
+	}
+	#稳定国内局势
+	focus = {
+		id = DLB_wending_guonei_jushi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = DLB_lianhe_ziben_shili}
+		prerequisite = { focus = DLB_lianhe_dongbu_chengzhen}
+		relative_position_id = DLB_lianhe_dongbu_chengzhen
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_kuilei_sudan_4
+			remove_idea = DLB_kuilei_sudan_3
+			}
+		}
+	}
+	#眺望东方
+	focus = {
+		id = DLB_tiaowang_dongfang
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = DLB_wending_guonei_jushi}
+		relative_position_id = DLB_wending_guonei_jushi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		date > 1937.1.15
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = DLB_kuilei_sudan_4
+			remove_idea = DLB_kuilei_sudan_3
+			}
+		}
+	}
+	#吸收保王力量
+	focus = {
+		id = DLB_xishou_baowang_liliang
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = DLB_tiaowang_dongfang}
+		relative_position_id = DLB_tiaowang_dongfang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DLB_baowang_army
+		}
+	}
+	#联系中东盟友
+	focus = {
+		id = DLB_lianxi_zhongdong_mengyou
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = DLB_tiaowang_dongfang}
+		relative_position_id = DLB_tiaowang_dongfang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = DLB_zhongdong_mengyou
+		}
+	}
+	#参与中东战争
+	focus = {
+		id = DLB_canyu_zhongdong_war
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = DLB_lianxi_zhongdong_mengyou}
+		prerequisite = { focus = DLB_xishou_baowang_liliang}
+		relative_position_id = DLB_xishou_baowang_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		EGY = {
+		NOT = {
+		has_war_with = UKM
+		}
+		}
+		date > 1938.1.1
+		}
+		}
+		completion_reward = {
+		add_state_claim = 187
+		add_state_claim = 164
+		add_state_claim = 797
+		add_state_claim = 679
+		add_state_claim = 1309
+		add_state_claim = 855
+		add_state_claim = 1402
+		add_state_claim = 856
+		add_state_claim = 183
+		add_state_claim = 4
+		 every_state = {
+					limit = {
+					OR = {
+						region = 129
+						region = 28
+						region = 232
+						}
+					}
+add_claim_by = DLB
+		}
+		 every_state = {
+					limit = {
+						region = 128
+					}
+add_core_of = DLB
+		}
+		add_state_core = 552
+		remove_state_core = 446
+		declare_war_on = {
+		 target = OTT
+         type = annex_everything
+		}
+		declare_war_on = {
+		 target = GEO
+         type = annex_everything
+		}
+		declare_war_on = {
+		 target = OTF
+         type = annex_everything
+		}
+		declare_war_on = {
+		 target = EGY
+         type = annex_everything
+		}
+		news_event = {
+				id = holy_news.80 days = 1
+			}
+		}
+	}
+	#整合巴勒斯坦
+	focus = {
+		id = DLB_zhenghe_balesitan
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = DLB_canyu_zhongdong_war}
+		relative_position_id = DLB_canyu_zhongdong_war
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 454
+		controls_state = 455
+		controls_state = 453
+		controls_state = 1317
+		controls_state = 1567
+		controls_state = 1316
+		controls_state = 446
+		}
+		completion_reward = {
+		add_state_core = 454
+		add_state_core = 455
+		add_state_core = 453
+		add_state_core = 1317
+		add_state_core = 1567
+		add_state_core = 1316
+		add_state_core = 446
+		}
+	}
+	#整合叙利亚
+	focus = {
+		id = DLB_zhenghe_xuliya
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = DLB_canyu_zhongdong_war}
+		relative_position_id = DLB_canyu_zhongdong_war
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 680
+		controls_state = 677
+		controls_state = 799
+		controls_state = 554
+		controls_state = 553
+		controls_state = 1058
+		controls_state = 1057
+		controls_state = 1425
+		controls_state = 1568
+		controls_state = 1569
+		controls_state = 1570
+		}
+		completion_reward = {
+		add_state_core = 680
+		add_state_core = 677
+		add_state_core = 799
+		add_state_core = 554
+		add_state_core = 553
+		add_state_core = 1058
+		add_state_core = 1057
+		add_state_core = 1425
+		add_state_core = 1568
+		add_state_core = 1569
+		add_state_core = 1570
+		}
+	}
+	#整合土耳其
+	focus = {
+		id = DLB_zhenghe_tuerqi
+		icon = GFX_focus_generic_befriend_turkey
+		prerequisite = { focus = DLB_canyu_zhongdong_war}
+		relative_position_id = DLB_canyu_zhongdong_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		limit = {
+		region = 129
+		}
+		is_controlled_by = DLB
+		}
+		controls_state = 164
+		controls_state = 187
+		controls_state = 183
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+						region = 129
+					}
+add_core_of = DLB
+		}
+		add_state_core = 164
+		add_state_core = 187
+		add_state_core = 183
+		}
+	}
+	#整合伊拉克
+	focus = {
+		id = DLB_zhenghe_yilake
+		icon = GFX_focus_TUR_support_the_golden_square
+		prerequisite = { focus = DLB_canyu_zhongdong_war}
+		relative_position_id = DLB_canyu_zhongdong_war
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 291
+		controls_state = 1395
+		controls_state = 1396
+		controls_state = 1329
+		controls_state = 1056
+		controls_state = 676
+		controls_state = 1426
+		}
+		completion_reward = {
+		add_state_core = 676
+		add_state_core = 291
+		add_state_core = 656
+		add_state_core = 1329
+		add_state_core = 1395
+		add_state_core = 1396
+		add_state_core = 1426
+		}
+	}
+	#整合高加索
+	focus = {
+		id = DLB_zhenghe_gaojiasuo
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = DLB_canyu_zhongdong_war}
+		relative_position_id = DLB_canyu_zhongdong_war
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 231
+		controls_state = 230
+		controls_state = 229
+		controls_state = 826
+		controls_state = 1422
+		controls_state = 1418
+		controls_state = 1419
+		controls_state = 1423
+		controls_state = 1424
+		controls_state = 1421
+		controls_state = 1417
+		}
+		completion_reward = {
+		add_state_core = 231
+		add_state_core = 230
+		add_state_core = 229
+		add_state_core = 826
+		add_state_core = 1422
+		add_state_core = 1418
+		add_state_core = 1419
+		add_state_core = 1423
+		add_state_core = 1424
+		add_state_core = 1421
+		add_state_core = 1417
+		}
+	}
+	#帝国光复
+	focus = {
+		id = DLB_diguo_guangfu
+		icon = GFX_focus_TUR_pivot_to_the_past
+		prerequisite = { focus = DLB_zhenghe_tuerqi}
+		relative_position_id = DLB_zhenghe_tuerqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OTT = {
+		exists = no
+		}
+		EGY = {
+		exists = no
+		}
+		OTF = {
+		exists = no
+		}
+		GEO = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.96 days = 1
+			}
+		set_cosmetic_tag = OTT
+		annex_country = {
+    target = SMS
+    transfer_troops = yes
+}
+annex_country = {
+    target = HAZ
+    transfer_troops = yes
+}
+add_state_core = 450
+		add_state_core = 451
+		add_state_core = 663
+		add_state_core = 273
+		add_state_core = 679
+		add_state_core = 1309
+		add_state_core = 855
+		add_state_core = 679
+		add_state_core = 1410
+		add_state_core = 1402
+		add_state_core = 856
+		}
+	}
+	#北非战争
+	focus = {
+		id = DLB_beifei_war
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = DLB_diguo_guangfu}
+		relative_position_id = DLB_diguo_guangfu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FRN
+    type = annex_everything
+}
+		}
+	}
+	#进军阿拉伯
+	focus = {
+		id = DLB_jinjun_alabo
+		icon = GFX_focus_ETH_an_arabic_base
+		prerequisite = { focus = DLB_diguo_guangfu}
+		relative_position_id = DLB_diguo_guangfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SML
+    type = annex_everything
+}
+declare_war_on = {
+    target = NJD
+    type = annex_everything
+}
+declare_war_on = {
+    target = YEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = OMA
+    type = annex_everything
+}
+		}
+	}
+	#爱琴海战争
+	focus = {
+		id = DLB_aiqinhai_zhanzheng
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		prerequisite = { focus = DLB_diguo_guangfu}
+		relative_position_id = DLB_diguo_guangfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+		}
+	}
+	#巴尔干桥头堡
+	focus = {
+		id = DLB_baergan_qiaotoubao
+		icon = GFX_focus_generic_attack_bulgaria
+		prerequisite = { focus = DLB_beifei_war}
+		prerequisite = { focus = DLB_jinjun_alabo}
+		prerequisite = { focus = DLB_aiqinhai_zhanzheng}
+		relative_position_id = DLB_jinjun_alabo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = NWM
+    type = annex_everything
+}
+		}
+	}
+	#再次大征服
+	focus = {
+		id = DLB_zaici_dazhengfu
+		icon = GFX_focus_BUL_bulgaria_on_the_three_seas
+		prerequisite = { focus = DLB_baergan_qiaotoubao}
+		relative_position_id = DLB_baergan_qiaotoubao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = WAL
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = MOL
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = SER
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = ALB
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = DKL
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = YUM
+}
+		}
+	}
+}

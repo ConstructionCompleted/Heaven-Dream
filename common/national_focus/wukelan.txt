@@ -1,0 +1,609 @@
+focus_tree = {
+	id = UKR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UKR
+		}
+	}
+	
+	default = no
+ 
+    #第聂伯之红
+	focus = {
+		id = UKR_diniebo_zhihong
+		icon = GFX_focus_generic_join_comintern
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#实用才是真理
+	focus = {
+		id = UKR_shiyong_caishi_zhenli
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = UKR_diniebo_zhihong}
+		relative_position_id = UKR_diniebo_zhihong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#加速工业化
+	focus = {
+		id = UKR_jiasu_gongyehua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = UKR_shiyong_caishi_zhenli}
+		relative_position_id = UKR_shiyong_caishi_zhenli
+		mutually_exclusive = { focus = UKR_jiansu_gongyehua }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.05
+		}
+	}
+	#加大粮食收集
+	focus = {
+		id = UKR_jiadaliangshi_shouji
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = UKR_jiasu_gongyehua}
+		relative_position_id = UKR_jiasu_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = UKR_gongyehua_tuixing
+		add_idea = UKR_gongyehua_tuixing_2
+		}
+		swap_ideas = {
+		remove_idea = UKR_nongye_weiji
+		add_idea = UKR_nongye_weiji_2
+		}
+		}
+	}
+	#进口外部工业
+	focus = {
+		id = UKR_jinkou_waibu_gongye
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = UKR_jiadaliangshi_shouji}
+		relative_position_id = UKR_jiadaliangshi_shouji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = UKR_gongyehua_tuixing_2
+		add_idea = UKR_gongyehua_tuixing_3
+		}
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = UKR_junshi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = UKR_jinkou_waibu_gongye}
+		relative_position_id = UKR_jinkou_waibu_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#减速工业化
+	focus = {
+		id = UKR_jiansu_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = UKR_shiyong_caishi_zhenli}
+		relative_position_id = UKR_shiyong_caishi_zhenli
+		mutually_exclusive = { focus = UKR_jiasu_gongyehua }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#农业制度革新
+	focus = {
+		id = UKR_nongye_zhidu_gexin
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = UKR_jiansu_gongyehua}
+		relative_position_id = UKR_jiansu_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = UKR_nongye_weiji
+		add_idea = UKR_nongye_weiji_3
+		}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = UKR_nongye_jixiehua
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = UKR_nongye_zhidu_gexin}
+		relative_position_id = UKR_nongye_zhidu_gexin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = UKR_nongye_weiji_3
+		add_idea = UKR_nongye_weiji_4
+		}
+		}
+	}
+	#相辅相成
+	focus = {
+		id = UKR_xiangfuxiangcheng
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = UKR_nongye_jixiehua}
+		relative_position_id = UKR_nongye_jixiehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = UKR_nongye_weiji_4
+		add_idea = UKR_nongye_weiji_5
+		}
+		}
+	}
+	#扩大化罢工
+	focus = {
+		id = UKR_kuodahua_bagong
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = UKR_shiyong_caishi_zhenli}
+		relative_position_id = UKR_shiyong_caishi_zhenli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		UNR = {
+		add_ideas = UKR_da_bagong
+		}
+		CRM = {
+		add_ideas = UKR_da_bagong
+		}
+		}
+	}
+	#击溃彼得留拉
+	focus = {
+		id = UKR_jikui_bideliula
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = UKR_kuodahua_bagong}
+		relative_position_id = UKR_kuodahua_bagong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UNR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#邓尼金的末路
+	focus = {
+		id = UKR_dengnijin_molu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = UKR_jikui_bideliula}
+		relative_position_id = UKR_jikui_bideliula
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		CRM = {
+		NOT = {
+		controls_state = 196
+		}
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#黑军问题
+	focus = {
+		id = UKR_heijun_wenti
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = UKR_dengnijin_molu}
+		relative_position_id = UKR_dengnijin_molu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+		}
+	}
+	#乌克兰合并
+	focus = {
+		id = UKR_wukelan_hebing
+		icon = GFX_goal_continuous_boost_freedom
+		prerequisite = { focus = UKR_heijun_wenti}
+		relative_position_id = UKR_heijun_wenti
+		mutually_exclusive = { focus = UKR_chengren_dongxi_chayi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		immediate = {
+		DKS = {
+		dismantle_faction = yes
+		}
+		}
+		available = {
+		NOT = {
+		has_war_with = BUK
+		}
+		}
+		completion_reward = {
+		DKS = {
+		dismantle_faction = yes
+		country_event = {
+    id = holy_wukelan.4
+	}
+		}
+		add_state_core = 197
+		add_state_core = 196
+		add_state_core = 192
+		add_state_core = 226
+		add_state_core = 221
+		add_state_core = 228
+		add_state_core = 227
+		add_state_core = 200
+		add_state_core = 137
+		add_state_core = 1069
+		add_state_core = 834
+		add_state_core = 1429
+		add_state_core = 1432
+		remove_ideas = UKR_wukelan_fenlie
+		}
+	}
+	#承认东西差异
+	focus = {
+		id = UKR_chengren_dongxi_chayi
+		icon = GFX_goal_continuous_def_against_influence
+		prerequisite = { focus = UKR_heijun_wenti}
+		relative_position_id = UKR_heijun_wenti
+		mutually_exclusive = { focus = UKR_wukelan_hebing }
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		NOT = {
+		has_war_with = BUK
+		}
+		DKS = {
+		exists = yes
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		DKS = {
+		dismantle_faction = yes
+		}
+		remove_ideas = UKR_wukelan_fenlie
+		if = {
+		limit = {
+		controls_state = 834
+		}
+		DKS = {
+		transfer_state = 834
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 192
+		}
+		DKS = {
+		transfer_state = 192
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 197
+		}
+		DKS = {
+		transfer_state = 197
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 196
+		}
+		DKS = {
+		transfer_state = 196
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 226
+		}
+		DKS = {
+		transfer_state = 226
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 200
+		}
+		DKS = {
+		transfer_state = 200
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 221
+		}
+		DKS = {
+		transfer_state = 221
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1069
+		}
+		DKS = {
+		transfer_state = 1069
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 227
+		}
+		DKS = {
+		transfer_state = 227
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1432
+		}
+		DKS = {
+		transfer_state = 1432
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1429
+		}
+		DKS = {
+		transfer_state = 1429
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 228
+		}
+		DKS = {
+		transfer_state = 228
+		}
+		}
+		}
+	}
+	#参与东欧战争
+	focus = {
+		id = UKR_canyu_dongou_zhanzheng
+		icon = GFX_focus_SWE_the_threat_of_the_iron_curtain
+		prerequisite = { focus = UKR_wukelan_hebing focus = UKR_chengren_dongxi_chayi }
+		relative_position_id = UKR_wukelan_hebing
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		NOT = {
+		has_war_with = DKS
+		}
+		}
+		bypass = {
+		BLA = {
+		exists = no
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		BLR = {
+		add_to_faction = UKR
+		}
+		}
+	}
+	#回归苏维埃
+	focus = {
+		id = UKR_huigui_suweiai
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = UKR_canyu_dongou_zhanzheng }
+		relative_position_id = UKR_canyu_dongou_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		NOT = {
+		has_war_with = BLA
+		has_war_with = LIT
+		}
+		is_puppet = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		leave_faction = yes
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = UKR
+			}
+		}
+	}
+	#扩大军队
+	focus = {
+		id = UKR_kuoda_jundui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = UKR_shiyong_caishi_zhenli}
+		relative_position_id = UKR_shiyong_caishi_zhenli
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = UKR_kuoda_jundui
+		}
+	}
+	#利用本土化
+	focus = {
+		id = UKR_liyong_bentuhua
+		icon = GFX_focus_ETH_peacekeeping_forces
+		prerequisite = { focus = UKR_kuoda_jundui}
+		relative_position_id = UKR_kuoda_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UKR_liyong_bentuhua
+		}
+	}
+	#动员工人
+	focus = {
+		id = UKR_dongyuan_gongren
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = UKR_liyong_bentuhua}
+		relative_position_id = UKR_liyong_bentuhua
+		mutually_exclusive = { focus = UKR_zhaoji_nongmin }
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = UKR_jiasu_gongyehua
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = UKR_dongyuan_gongren
+		}
+	}
+	#革命军队
+	focus = {
+		id = UKR_gm_jundui
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = UKR_dongyuan_gongren}
+		relative_position_id = UKR_dongyuan_gongren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UKR_gemingjun
+		}
+	}
+	#召集农民
+	focus = {
+		id = UKR_zhaoji_nongmin
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = UKR_liyong_bentuhua}
+		relative_position_id = UKR_liyong_bentuhua
+		mutually_exclusive = { focus = UKR_dongyuan_gongren }
+		available = {
+		has_completed_focus = UKR_jiansu_gongyehua
+		}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = UKR_zhaoji_nongmin
+		}
+	}
+	#卫国军队
+	focus = {
+		id = UKR_weiguo_jundui
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = UKR_zhaoji_nongmin}
+		relative_position_id = UKR_zhaoji_nongmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = UKR_weiguo_jundui
+		}
+	}
+}

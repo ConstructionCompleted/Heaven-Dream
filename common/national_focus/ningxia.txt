@@ -1,0 +1,957 @@
+focus_tree = {
+	id = NIN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NIN
+		}
+	}
+	
+	default = no
+ 
+	#走廊之上
+	focus = {
+		id = NIN_zoulang_zhishang
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_xibu.8
+	days = 1
+}
+		}
+	}
+	#行宫之中
+	focus = {
+		id = NIN_xinggong_zhizhong
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = NIN_zoulang_zhishang}
+		relative_position_id = NIN_zoulang_zhishang
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.9
+	days = 1
+}
+		}
+	}
+	#西北的威胁
+	focus = {
+		id = NIN_xibei_weixie
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = NIN_zoulang_zhishang}
+		relative_position_id = NIN_zoulang_zhishang
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.10
+	days = 1
+}
+		}
+	}
+	#六年前的信
+	focus = {
+		id = NIN_sixyears_xin
+		icon = goal_generic_construction
+		prerequisite = { focus = NIN_zoulang_zhishang}
+		relative_position_id = NIN_zoulang_zhishang
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.11
+	days = 1
+}
+		}
+	}
+	#抉择
+	focus = {
+		id = NIN_jueze
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = NIN_sixyears_xin}
+		prerequisite = { focus = NIN_xibei_weixie}
+		prerequisite = { focus = NIN_xinggong_zhizhong}
+		relative_position_id = NIN_xibei_weixie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.12
+	days = 1
+}
+		}
+	}
+	#宣统维新
+	focus = {
+		id = NIN_xuantong_weixin
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		prerequisite = { focus = NIN_jueze}
+		relative_position_id = NIN_jueze
+		mutually_exclusive = { focus = NIN_ruanjin }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 4
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+retire_country_leader = yes
+            swap_ideas = {
+			add_idea = NIN_xuantong_weixin
+			remove_idea = NIN_zhengzhi_chongtu
+			}
+		}
+	}
+	#重建八旗部队
+	focus = {
+		id = NIN_chongjian_baqi_budui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = NIN_xuantong_weixin}
+		relative_position_id = NIN_xuantong_weixin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_hunluan_jundui_2
+			remove_idea = NIN_hunluan_jundui
+			}
+		}
+	}
+	#吸收君宪派
+	focus = {
+		id = NIN_xishou_junxianpai
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = NIN_xuantong_weixin}
+		relative_position_id = NIN_xuantong_weixin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_xuantong_weixin_2
+			remove_idea = NIN_xuantong_weixin
+			}
+		}
+	}
+	#重建九品中正
+	focus = {
+		id = NIN_chongjian_jiupinzhongzheng
+		icon = GFX_focus_jap_manchurian_project
+		prerequisite = { focus = NIN_chongjian_baqi_budui}
+		prerequisite = { focus = NIN_xishou_junxianpai}
+		relative_position_id = NIN_chongjian_baqi_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_xuantong_weixin_3
+			remove_idea = NIN_xuantong_weixin_2
+			}
+		}
+	}
+	#收编土匪军团
+	focus = {
+		id = NIN_shoubian_tufei_juntuan
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = NIN_chongjian_jiupinzhongzheng}
+		relative_position_id = NIN_chongjian_jiupinzhongzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = NIN_tufei
+		}
+	}
+	#绿营改革
+	focus = {
+		id = NIN_lvyin_gaige
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = NIN_shoubian_tufei_juntuan}
+		relative_position_id = NIN_shoubian_tufei_juntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_hunluan_jundui_2
+			remove_idea = NIN_hunluan_jundui
+			}
+		}
+	}
+	#联合蒙古
+	focus = {
+		id = NIN_lianhe_menggu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = NIN_lvyin_gaige}
+		relative_position_id = NIN_lvyin_gaige
+		mutually_exclusive = { focus = NIN_chongjian_menggu_kongzhi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		MOG = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			BKD = {
+			if = {
+			limit = {
+			has_government = neutrality
+			is_puppet = no
+			}
+			country_event = {
+    id = holy_xibu.18
+    days = 10
+}
+			}
+			}
+			SUY = {
+			if = {
+			limit = {
+			has_government = neutrality
+			is_puppet = no
+			}
+			country_event = {
+    id = holy_xibu.18
+    days = 10
+}
+			}
+			}
+			CHR = {
+			if = {
+			limit = {
+			has_government = neutrality
+			is_puppet = no
+			}
+			country_event = {
+    id = holy_xibu.18
+    days = 10
+}
+			}
+			}
+		}
+	}
+	#重建蒙古控制
+	focus = {
+		id = NIN_chongjian_menggu_kongzhi
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = NIN_lvyin_gaige}
+		relative_position_id = NIN_lvyin_gaige
+		mutually_exclusive = { focus = NIN_lianhe_menggu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 622
+		controls_state = 744
+		controls_state = 1129
+		controls_state = 1093
+		controls_state = 1130
+		controls_state = 1081
+		controls_state = 1137
+		}
+		completion_reward = {
+			create_wargoal = {
+    type = puppet_wargoal_focus
+    target = BKD
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = CHR
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = SUY
+}
+create_wargoal = {
+    type = puppet_wargoal_focus
+    target = MOG
+}
+		}
+	}
+	#平定西部
+	focus = {
+		id = NIN_pingding_xibu
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = NIN_lianhe_menggu focus = NIN_chongjian_menggu_kongzhi }
+		relative_position_id = NIN_lianhe_menggu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = XIJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XQJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = ETK
+    type = annex_everything
+}
+declare_war_on = {
+    target = HAM
+    type = annex_everything
+}
+		}
+	}
+	#扫荡西南
+	focus = {
+		id = NIN_saodang_xinan
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = NIN_lianhe_menggu focus = NIN_chongjian_menggu_kongzhi }
+		relative_position_id = NIN_lianhe_menggu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = XKA
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZAG
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUX
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHU
+    type = annex_everything
+}
+declare_war_on = {
+    type = annex_everything
+    target = MJJ
+}
+declare_war_on = {
+    type = annex_everything
+    target = XIH
+}
+		}
+	}
+	#光复东北
+	focus = {
+		id = NIN_guangfu_dongbei
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = NIN_lianhe_menggu focus = NIN_chongjian_menggu_kongzhi }
+		relative_position_id = NIN_lianhe_menggu
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = FEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = DHJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = HEI
+    type = annex_everything
+}
+declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+declare_war_on = {
+    type = annex_everything
+    target = BKO
+}
+		}
+	}
+	#再入关
+	focus = {
+		id = NIN_zairuguan
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = NIN_pingding_xibu }
+		prerequisite = { focus = NIN_saodang_xinan }
+		prerequisite = { focus = NIN_guangfu_dongbei }
+		relative_position_id = NIN_saodang_xinan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    type = annex_everything
+    target = DIA
+}
+declare_war_on = {
+    type = annex_everything
+    target = QAN
+}
+declare_war_on = {
+    type = annex_everything
+    target = OGU
+}
+declare_war_on = {
+    type = annex_everything
+    target = GUI
+}
+declare_war_on = {
+    type = annex_everything
+    target = YUE
+}
+declare_war_on = {
+    type = annex_everything
+    target = QYZ
+}
+declare_war_on = {
+    type = annex_everything
+    target = CGH
+}
+declare_war_on = {
+    type = annex_everything
+    target = CCP
+}
+declare_war_on = {
+    type = annex_everything
+    target = NNJ
+}
+declare_war_on = {
+    type = annex_everything
+    target = KMT
+}
+declare_war_on = {
+    type = annex_everything
+    target = XIG
+}
+declare_war_on = {
+    type = annex_everything
+    target = ZHI
+}
+declare_war_on = {
+    type = annex_everything
+    target = WAN
+}
+declare_war_on = {
+    type = annex_everything
+    target = NWA
+}
+declare_war_on = {
+    type = annex_everything
+    target = HHA
+}
+declare_war_on = {
+    type = annex_everything
+    target = JAN
+}
+declare_war_on = {
+    type = annex_everything
+    target = JAD
+}
+declare_war_on = {
+    type = annex_everything
+    target = LUJ
+}
+declare_war_on = {
+    type = annex_everything
+    target = JIN
+}
+		}
+	}
+	#重建王朝
+	focus = {
+		id = NIN_chongjian_wangchao
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		prerequisite = { focus = NIN_zairuguan }
+		relative_position_id = NIN_zairuguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_xuantong_weixin_4
+			remove_idea = NIN_xuantong_weixin_3
+			}
+		}
+	}
+	#软禁
+	focus = {
+		id = NIN_ruanjin
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = NIN_jueze}
+		relative_position_id = NIN_jueze
+		mutually_exclusive = { focus = NIN_xuantong_weixin }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+            swap_ideas = {
+			add_idea = NIN_junfa_zhengzhi
+			remove_idea = NIN_zhengzhi_chongtu
+			}
+		}
+	}
+	#第二封信
+	focus = {
+		id = NIN_dierfeng_xin
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = NIN_ruanjin}
+		relative_position_id = NIN_ruanjin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.13
+	days = 2
+}
+		}
+	}
+	#建立军阀政治
+	focus = {
+		id = NIN_jianli_junfa_zhengzhi
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = NIN_ruanjin}
+		relative_position_id = NIN_ruanjin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_junfa_zhengzhi_2
+			remove_idea = NIN_junfa_zhengzhi
+			}
+		}
+	}
+	#铲除封建余孽
+	focus = {
+		id = NIN_chanchu_fengjian_yunie
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = NIN_dierfeng_xin}
+		prerequisite = { focus = NIN_jianli_junfa_zhengzhi}
+		relative_position_id = NIN_dierfeng_xin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+    ideology = dictatorship
+    popularity = -0.2
+}
+		}
+	}
+	#安插亲信
+	focus = {
+		id = NIN_ancha_qinxin
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = NIN_chanchu_fengjian_yunie}
+		relative_position_id = NIN_chanchu_fengjian_yunie
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_junfa_zhengzhi_3
+			remove_idea = NIN_junfa_zhengzhi_2
+			}
+		}
+	}
+	#民族意志
+	focus = {
+		id = NIN_minzu_yizhi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = NIN_ancha_qinxin}
+		relative_position_id = NIN_ancha_qinxin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_hunluan_jundui_4
+			remove_idea = NIN_hunluan_jundui_2
+			}
+		}
+	}
+	#边界防御
+	focus = {
+		id = NIN_bianjie_fangyu
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = NIN_minzu_yizhi}
+		relative_position_id = NIN_minzu_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_hunluan_jundui_5
+			remove_idea = NIN_hunluan_jundui_4
+			}
+		}
+	}
+	#进军西海
+	focus = {
+		id = NIN_jinjun_xihai
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = NIN_bianjie_fangyu}
+		relative_position_id = NIN_bianjie_fangyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = MJJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIH
+    type = annex_everything
+}
+		}
+	}
+	#效忠张氏
+	focus = {
+		id = NIN_xiaozhong_zhangshi
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = NIN_jinjun_xihai}
+		relative_position_id = NIN_jinjun_xihai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+			FEN = { puppet = NIN }
+		}
+	}
+	#整顿宁夏
+	focus = {
+		id = NIN_zhundun_ningxia
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = NIN_ruanjin focus = NIN_xuantong_weixin }
+		relative_position_id = NIN_xuantong_weixin
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_canpo_diqu_2
+			remove_idea = NIN_canpo_diqu
+			}
+		}
+	}
+	#修复北部破损
+	focus = {
+		id = NIN_xiufu_beibu_posui
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		prerequisite = { focus = NIN_zhundun_ningxia }
+		relative_position_id = NIN_zhundun_ningxia
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 756
+		}
+		completion_reward = {
+			756 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#西北铁路
+	focus = {
+		id = NIN_xibei_tielu
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = NIN_xiufu_beibu_posui }
+		relative_position_id = NIN_xiufu_beibu_posui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 756
+		}
+		completion_reward = {
+			756 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1092 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#回民支队
+	focus = {
+		id = NIN_huimin_zhidui
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = NIN_xibei_tielu }
+		relative_position_id = NIN_xibei_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 756
+		controls_state = 1091
+		controls_state = 1092
+		}
+		completion_reward = {
+			add_ideas = NIN_huimin_zhidui
+		}
+	}
+	#河西工业化
+	focus = {
+		id = NIN_hexi_gongyehua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = NIN_xiufu_beibu_posui }
+		prerequisite = { focus = NIN_jixu_nanbu_kaifa }
+		relative_position_id = NIN_xiufu_beibu_posui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_canpo_diqu_3
+			remove_idea = NIN_canpo_diqu_2
+			}
+		}
+	}
+	#联合军工
+	focus = {
+		id = NIN_lianhe_jungong
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = NIN_hexi_gongyehua }
+		relative_position_id = NIN_hexi_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = NIN_canpo_diqu_3
+			add_timed_idea = {
+    idea = NIN_canpo_diqu_3
+    days = 360
+}
+add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#继续南部开发
+	focus = {
+		id = NIN_jixu_nanbu_kaifa
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = NIN_zhundun_ningxia }
+		relative_position_id = NIN_zhundun_ningxia
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 616
+		controls_state = 1303
+		}
+		completion_reward = {
+			616 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			1303 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#农业开发
+	focus = {
+		id = NIN_nongye_kaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = NIN_jixu_nanbu_kaifa }
+		relative_position_id = NIN_jixu_nanbu_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NIN_nongye_kaifa
+		}
+	}
+	#对抗沙漠
+	focus = {
+		id = NIN_duikang_shamo
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = NIN_nongye_kaifa }
+		relative_position_id = NIN_nongye_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = NIN_nongye_kaifa_2
+			remove_idea = NIN_nongye_kaifa
+			}
+		}
+	}
+}

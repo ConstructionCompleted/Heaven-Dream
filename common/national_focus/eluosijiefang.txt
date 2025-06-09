@@ -1,0 +1,334 @@
+focus_tree = {
+	id = POA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = POA
+		}
+	}
+	
+	default = no
+ 
+    #为俄罗斯之解放
+	focus = {
+		id = POA_forRU_jiefang
+		icon = GFX_focus_generic_league_of_nations
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#邪恶的布尔什维克
+	focus = {
+		id = POA_xiee_buershiweike
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = POA_forRU_jiefang}
+		relative_position_id = POA_forRU_jiefang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#邪恶的政治家
+	focus = {
+		id = POA_xiee_zhengzhijia
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = POA_forRU_jiefang}
+		relative_position_id = POA_forRU_jiefang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#邪恶的军阀
+	focus = {
+		id = POA_xiee_junfa
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = POA_forRU_jiefang}
+		relative_position_id = POA_forRU_jiefang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#正义的我们！
+	focus = {
+		id = POA_zhengyi_us
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = POA_xiee_zhengzhijia}
+		prerequisite = { focus = POA_xiee_buershiweike}
+		prerequisite = { focus = POA_xiee_junfa}
+		relative_position_id = POA_xiee_zhengzhijia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POA_beipanzhe_zhishang_2
+			remove_idea = POA_beipanzhe_zhishang
+			}
+		}
+	}
+	#向西方屈膝
+	focus = {
+		id = POA_xiangxifang_quxi
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = POA_zhengyi_us}
+		relative_position_id = POA_zhengyi_us
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = PLS
+}
+		}
+	}
+	#抚平人民伤痕
+	focus = {
+		id = POA_fuping_renmin_shanghen
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = POA_xiangxifang_quxi}
+		relative_position_id = POA_xiangxifang_quxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POA_renmin_fankang_2
+			remove_idea = POA_renmin_fankang
+			}
+		}
+	}
+	#组建军队
+	focus = {
+		id = POA_zujian_jundui
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = POA_xiangxifang_quxi}
+		relative_position_id = POA_xiangxifang_quxi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POA_zujianjundui
+		}
+	}
+	#吸收西方经验
+	focus = {
+		id = POA_xishou_xifang_jingyan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = POA_zujian_jundui}
+		relative_position_id = POA_zujian_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POA_zujianjundui_2
+			remove_idea = POA_zujianjundui
+			}
+		}
+	}
+	#寻求普鲁士帮助
+	focus = {
+		id = POA_xunqiu_pls_bangzhu
+		icon = GFX_focus_ger_return_of_the_kaiser
+		prerequisite = { focus = POA_xishou_xifang_jingyan}
+		relative_position_id = POA_xishou_xifang_jingyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POA_zujianjundui_3
+			remove_idea = POA_zujianjundui_2
+			}
+		}
+	}
+	#恢复工业生产
+	focus = {
+		id = POA_huifu_gongye_shengchan
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = POA_zujian_jundui}
+		prerequisite = { focus = POA_fuping_renmin_shanghen}
+		relative_position_id = POA_zujian_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#反抗者的力量
+	focus = {
+		id = POA_fankangzhe_liliang
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = POA_huifu_gongye_shengchan}
+		relative_position_id = POA_huifu_gongye_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = POA_beipanzhe_zhishang_3
+			remove_idea = POA_beipanzhe_zhishang_2
+			}
+		}
+	}
+	#反对托洛茨基暴政
+	focus = {
+		id = POA_fandui_tuoluociji_baozheng
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = POA_xiangxifang_quxi}
+		relative_position_id = POA_xiangxifang_quxi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NVG = {
+			add_stability = -0.1
+			}
+		}
+	}
+	#号召东方和平
+	focus = {
+		id = POA_haozhao_dongfang_wp
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = POA_fandui_tuoluociji_baozheng}
+		prerequisite = { focus = POA_fuping_renmin_shanghen}
+		relative_position_id = POA_fandui_tuoluociji_baozheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KZN = {
+			add_stability = -0.1
+			}
+		}
+	}
+	#反喀山宣传
+	focus = {
+		id = POA_fankashan_xuanchuan
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = POA_fandui_tuoluociji_baozheng}
+		relative_position_id = POA_fandui_tuoluociji_baozheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = POA_renmin_fankang_2
+		}
+	}
+	#俄罗斯之解放
+	focus = {
+		id = POA_rus_jiefang
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = POA_fankashan_xuanchuan}
+		prerequisite = { focus = POA_haozhao_dongfang_wp}
+		relative_position_id = POA_haozhao_dongfang_wp
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = POA_rus_jiefang
+		}
+	}
+	#俄罗斯民族真正的未来
+	focus = {
+		id = POA_eluosi_minzu_ture_milai
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = POA_rus_jiefang}
+		prerequisite = { focus = POA_xunqiu_pls_bangzhu}
+		prerequisite = { focus = POA_fankangzhe_liliang}
+		prerequisite = { focus = POA_fuping_renmin_shanghen}
+		relative_position_id = POA_fuping_renmin_shanghen
+		x = 0
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNE = {
+		exists = no
+		}
+		SVN = {
+		exists = no
+		}
+		KZN = {
+		exists = no
+		}
+		has_war = no
+		} 
+		completion_reward = {
+			remove_ideas = POA_renmin_fankang_2
+			PRM = {
+			country_event = {
+    id = holy_dongeluosi.3
+    days = 5
+	}
+		}
+		}
+	}
+}

@@ -1,0 +1,1066 @@
+focus_tree = {
+	id = LUJ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = LUJ
+		}
+	}
+	
+	default = no
+ 
+	#二月危机
+	focus = {
+		id = LUJ_eryue_weiji
+		icon = GFX_focus_rom_parties_end
+		x = 30
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.1
+		}
+	}
+	#张宗昌的退缩
+	focus = {
+		id = LUJ_zhangzongchang_tusuo
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = LUJ_eryue_weiji}
+		relative_position_id = LUJ_eryue_weiji
+		mutually_exclusive = { focus = LUJ_jixu_zhandou }
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = -0.1
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_liliang
+			remove_idea = LUJ_zongjiao_shentou
+			}
+			remove_ideas = LUJ_yuanshengzaidao_tongzhi
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_tongzhi
+			remove_idea = LUJ_popolanlan_zhengzhi
+			}
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army
+			remove_idea = LUJ_tufei_jundui
+			}
+			retire_country_leader = yes
+		}
+	}
+	#一贯道的胜利
+	focus = {
+		id = LUJ_yiguandao_shengli
+		icon = GFX_focus_ETH_scavenging_tactics
+		prerequisite = { focus = LUJ_zhangzongchang_tusuo}
+		relative_position_id = LUJ_zhangzongchang_tusuo
+		mutually_exclusive = { focus = LUJ_bailian_victory }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#弥勒佛传承
+	focus = {
+		id = LUJ_milefo_chuancheng
+		icon = GFX_focus_smiling_buddha
+		prerequisite = { focus = LUJ_yiguandao_shengli}
+		relative_position_id = LUJ_yiguandao_shengli
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_tongzhi_2
+			remove_idea = LUJ_zongjiao_tongzhi
+			}
+		}
+	}
+	#分坛联合
+	focus = {
+		id = LUJ_fentian_lianhe
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = LUJ_milefo_chuancheng}
+		relative_position_id = LUJ_milefo_chuancheng
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_tongzhi_3
+			remove_idea = LUJ_zongjiao_tongzhi_2
+			}
+		}
+	}
+	#白莲的胜利
+	focus = {
+		id = LUJ_bailian_victory
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = LUJ_zhangzongchang_tusuo}
+		relative_position_id = LUJ_zhangzongchang_tusuo
+		mutually_exclusive = { focus = LUJ_yiguandao_shengli }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_politics = {
+	ruling_party = fascism
+}
+set_political_party = {
+    ideology = fascism
+    popularity = 50
+}
+		}
+	}
+	#圣教三世纪
+	focus = {
+		id = LUJ_shengjiao_sanshiji
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = LUJ_bailian_victory}
+		relative_position_id = LUJ_bailian_victory
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_shengjiao_shiji
+			remove_idea = LUJ_zongjiao_tongzhi
+			}
+		}
+	}
+	#无量圣母
+	focus = {
+		id = LUJ_wuliang_shengmu
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = LUJ_shengjiao_sanshiji}
+		relative_position_id = LUJ_shengjiao_sanshiji
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_shengjiao_shiji_2
+			remove_idea = LUJ_shengjiao_shiji
+			}
+		}
+	}
+	#宗教民兵
+	focus = {
+		id = LUJ_zongjiao_minbing
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = LUJ_yiguandao_shengli focus = LUJ_bailian_victory}
+		relative_position_id = LUJ_bailian_victory
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = LUJ_zongjiao_minbing
+		}
+	}
+	#动员张氏旧部
+	focus = {
+		id = LUJ_dongyuan_zhangshi_old
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = LUJ_zongjiao_minbing }
+		relative_position_id = LUJ_zongjiao_minbing
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = LUJ_dongyuan_zhangshi_jiubu
+		}
+	}
+	#渗透白莲教
+	focus = {
+		id = LUJ_shentou_bailianjiao
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = LUJ_fentian_lianhe}
+		prerequisite = { focus = LUJ_dongyuan_zhangshi_old}
+		relative_position_id = LUJ_fentian_lianhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUJ_shentou_bailian
+		}
+	}
+	#统合各部势力
+	focus = {
+		id = LUJ_tonghe_gebu_shili
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = LUJ_wuliang_shengmu}
+		prerequisite = { focus = LUJ_dongyuan_zhangshi_old}
+		relative_position_id = LUJ_wuliang_shengmu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUJ_tonghe_gebu
+		}
+	}
+	#击败东部叛军
+	focus = {
+		id = LUJ_jibai_dongbu_panjun
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = LUJ_shentou_bailianjiao focus = LUJ_tonghe_gebu_shili}
+		relative_position_id = LUJ_tonghe_gebu_shili
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		controls_state = 743
+		controls_state = 1119
+		controls_state = 1115
+		controls_state = 1114
+		controls_state = 1414
+		controls_state = 1415
+		controls_state = 597
+		}
+		bypass = {
+		JAD = {
+		exists = no
+		}
+		date > 1936.3.1
+		NOT = {
+		controls_state = 743
+		controls_state = 1119
+		controls_state = 1115
+		controls_state = 1114
+		controls_state = 1414
+		controls_state = 1415
+		controls_state = 597
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 743
+		add_state_core = 1119
+		add_state_core = 1115
+		add_state_core = 1114
+		add_state_core = 1414
+		add_state_core = 1415
+		add_state_core = 597
+		}
+	}
+	#继续战斗
+	focus = {
+		id = LUJ_jixu_zhandou
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = LUJ_eryue_weiji}
+		relative_position_id = LUJ_eryue_weiji
+		mutually_exclusive = { focus = LUJ_zhangzongchang_tusuo }
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#利用一贯道
+	focus = {
+		id = LUJ_liyong_yiguandao
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = LUJ_jixu_zhandou}
+		relative_position_id = LUJ_jixu_zhandou
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_liyong_yiguandao
+			remove_idea = LUJ_zongjiao_shentou
+			}
+		}
+	}
+	#收买地方势力
+	focus = {
+		id = LUJ_shoumai_difang_shili
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = LUJ_jixu_zhandou}
+		relative_position_id = LUJ_jixu_zhandou
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_popolanlan_zhengzhi_2
+			remove_idea = LUJ_popolanlan_zhengzhi
+			}
+		}
+	}
+	#请求奉天支援
+	focus = {
+		id = LUJ_qingqiu_fengtian_zhiyuan
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = LUJ_jixu_zhandou}
+		relative_position_id = LUJ_jixu_zhandou
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			FEN = {
+			country_event = {
+    id = holy_huabei.19
+    days = 5
+}
+			}
+		}
+	}
+	#武装民兵
+	focus = {
+		id = LUJ_wuzhuang_minbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = LUJ_liyong_yiguandao}
+		prerequisite = { focus = LUJ_shoumai_difang_shili}
+		relative_position_id = LUJ_shoumai_difang_shili
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = LUJ_wuzhuang_minbing
+		}
+	}
+	#军事工业运行
+	focus = {
+		id = LUJ_junshi_gongye_yunxing
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = LUJ_qingqiu_fengtian_zhiyuan}
+		prerequisite = { focus = LUJ_shoumai_difang_shili}
+		relative_position_id = LUJ_shoumai_difang_shili
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#重整鲁系
+	focus = {
+		id = LUJ_chongzheng_luxi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = LUJ_wuzhuang_minbing}
+		prerequisite = { focus = LUJ_junshi_gongye_yunxing}
+		relative_position_id = LUJ_wuzhuang_minbing
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_yuanshengzaidao_tongzhi_2
+			remove_idea = LUJ_yuanshengzaidao_tongzhi
+			}
+			swap_ideas = {
+			add_idea = LUJ_tufei_jundui_2
+			remove_idea = LUJ_tufei_jundui
+			}
+		}
+	}
+	#武装军官团
+	focus = {
+		id = LUJ_wuzhuang_junguantuan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = LUJ_chongzheng_luxi}
+		relative_position_id = LUJ_chongzheng_luxi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_tufei_jundui_3
+			remove_idea = LUJ_tufei_jundui_2
+			}
+		}
+	}
+	#奋勇精神
+	focus = {
+		id = LUJ_fenyong_jingshen
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = LUJ_chongzheng_luxi}
+		relative_position_id = LUJ_chongzheng_luxi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUJ_fenyong_jingshen
+		}
+	}
+	#进军胶东
+	focus = {
+		id = LUJ_jinjun_jiaodong
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = LUJ_fenyong_jingshen}
+		prerequisite = { focus = LUJ_wuzhuang_junguantuan}
+		relative_position_id = LUJ_fenyong_jingshen
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		controls_state = 743
+		controls_state = 1119
+		controls_state = 1115
+		controls_state = 1114
+		controls_state = 1414
+		controls_state = 1415
+		controls_state = 597
+		}
+		bypass = {
+		JAD = {
+		exists = no
+		}
+		date > 1936.3.1
+		NOT = {
+		controls_state = 743
+		controls_state = 1119
+		controls_state = 1115
+		controls_state = 1114
+		controls_state = 1414
+		controls_state = 1415
+		controls_state = 597
+		}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_core = 743
+		add_state_core = 1119
+		add_state_core = 1115
+		add_state_core = 1114
+		add_state_core = 1414
+		add_state_core = 1415
+		add_state_core = 597
+		}
+	}
+	#外交政策
+	focus = {
+		id = LUJ_waijiao_zhengce
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = LUJ_jibai_dongbu_panjun focus = LUJ_jinjun_jiaodong}
+		relative_position_id = LUJ_jibai_dongbu_panjun
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#归迎大清
+	focus = {
+		id = LUJ_guiying_daqing
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = LUJ_waijiao_zhengce }
+		relative_position_id = LUJ_waijiao_zhengce
+		mutually_exclusive = { focus = LUJ_fengtian_jiangjun }
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = LUJ_jibai_dongbu_panjun
+		NIN = {
+		has_country_leader = {
+    name = "爱新觉罗.溥仪"
+    ruling_only = yes
+}
+}
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NIN = { puppet = LUJ } 
+		}
+	}
+	#奉天将军
+	focus = {
+		id = LUJ_fengtian_jiangjun
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = LUJ_waijiao_zhengce }
+		relative_position_id = LUJ_waijiao_zhengce
+		mutually_exclusive = { focus = LUJ_guiying_daqing }
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = LUJ_jinjun_jiaodong
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			FEN = { puppet = LUJ } 
+		}
+	}
+	#调节政治力量
+	focus = {
+		id = LUJ_tiaojie_zhengzhi_liliang
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = LUJ_guiying_daqing focus = LUJ_fengtian_jiangjun}
+		relative_position_id = LUJ_fengtian_jiangjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+		}
+	}
+	#皇帝的右手
+	focus = {
+		id = LUJ_huangdi_youshou
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = LUJ_tiaojie_zhengzhi_liliang }
+		relative_position_id = LUJ_tiaojie_zhengzhi_liliang
+		mutually_exclusive = { focus = LUJ_war_huo }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = NIN
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#山东前线
+	focus = {
+		id = LUJ_shandong_qianxian
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = LUJ_tiaojie_zhengzhi_liliang }
+		relative_position_id = LUJ_tiaojie_zhengzhi_liliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = FEN
+		}
+		completion_reward = {
+			597 = {
+			add_building_construction = {
+				type = bunker
+				province = 9974
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1124
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4181
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12015
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10043
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12069
+				level = 3
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#政治介入
+	focus = {
+		id = LUJ_zhengzhi_jieru
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = LUJ_jibai_dongbu_panjun focus = LUJ_jinjun_jiaodong}
+		relative_position_id = LUJ_jibai_dongbu_panjun
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = LUJ_jibai_dongbu_panjun
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#圣恩
+	focus = {
+		id = LUJ_shengen
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = LUJ_zhengzhi_jieru }
+		relative_position_id = LUJ_zhengzhi_jieru
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_tongzhi_4
+			remove_idea = LUJ_zongjiao_tongzhi_3
+			}
+			swap_ideas = {
+			add_idea = LUJ_shengjiao_shiji_3
+			remove_idea = LUJ_shengjiao_shiji_2
+			}
+		}
+	}
+	#政治军队
+	focus = {
+		id = LUJ_zhengzhi_jundui
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = LUJ_zhengzhi_jieru }
+		relative_position_id = LUJ_zhengzhi_jieru
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army_2
+			remove_idea = LUJ_zongjiao_army
+			}
+		}
+	}
+	#宗教扩张
+	focus = {
+		id = LUJ_zongjiao_kuozhang
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = LUJ_zhengzhi_jieru }
+		relative_position_id = LUJ_zhengzhi_jieru
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_liliang_2
+			remove_idea = LUJ_zongjiao_liliang
+			}
+		}
+	}
+	#圣战者狂热
+	focus = {
+		id = LUJ_shengzhanzhe_kuangre
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = LUJ_shengen }
+		prerequisite = { focus = LUJ_zhengzhi_jundui }
+		relative_position_id = LUJ_shengen
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army_3
+			remove_idea = LUJ_zongjiao_army_2
+			}
+		}
+	}
+	#渗透行动
+	focus = {
+		id = LUJ_shen_tou_xingdong
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = LUJ_zongjiao_kuozhang }
+		relative_position_id = LUJ_zongjiao_kuozhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 1150
+			add_state_core = 1151
+		}
+	}
+	#战争之火
+	focus = {
+		id = LUJ_war_huo
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = LUJ_shen_tou_xingdong }
+		relative_position_id = LUJ_shen_tou_xingdong
+		mutually_exclusive = { focus = LUJ_huangdi_youshou }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 597
+        num_provinces = 7
+    }
+				
+    defender = {
+        state = 1150
+        num_provinces = 7
+    }
+}
+start_border_war = {
+    change_state_after_war = yes
+    attacker = {
+        state = 1414
+        num_provinces = 7
+    }
+				
+    defender = {
+        state = 1151
+        num_provinces = 7
+    }
+}
+		}
+	}
+	#军事委员会
+	focus = {
+		id = LUJ_junshiweiyuan_hui
+		icon = GFX_focus_generic_secret_service_agency
+		prerequisite = { focus = LUJ_jibai_dongbu_panjun focus = LUJ_jinjun_jiaodong}
+		relative_position_id = LUJ_jinjun_jiaodong
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = LUJ_jinjun_jiaodong
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army_4
+			remove_idea = LUJ_zongjiao_army_3
+			}
+		}
+	}
+	#思想教育
+	focus = {
+		id = LUJ_sixiang_jiaoyu
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = LUJ_junshiweiyuan_hui }
+		relative_position_id = LUJ_junshiweiyuan_hui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army_5
+			remove_idea = LUJ_zongjiao_army_4
+			}
+		}
+	}
+	#搜集武装
+	focus = {
+		id = LUJ_souji_wuzhuang
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = LUJ_junshiweiyuan_hui }
+		relative_position_id = LUJ_junshiweiyuan_hui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+}
+		}
+	}
+	#爱国不爱民
+	focus = {
+		id = LUJ_aiguo_buaimin
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = LUJ_sixiang_jiaoyu }
+		relative_position_id = LUJ_sixiang_jiaoyu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUJ_zongjiao_army_6
+			remove_idea = LUJ_zongjiao_army_5
+			}
+		}
+	}
+	#奉天统合武装
+	focus = {
+		id = LUJ_fengtian_tonghe_wuzhuang
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = LUJ_sixiang_jiaoyu }
+		prerequisite = { focus = LUJ_souji_wuzhuang }
+		relative_position_id = LUJ_souji_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+}
+		}
+	}
+	#山东工业化
+	focus = {
+		id = LUJ_shandong_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = LUJ_jibai_dongbu_panjun focus = LUJ_jinjun_jiaodong}
+		relative_position_id = LUJ_jinjun_jiaodong
+		x = 6
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = LUJ_jinjun_jiaodong
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			597 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#胶东海港
+	focus = {
+		id = LUJ_jiaodong_haigang
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = LUJ_shandong_gongye }
+		relative_position_id = LUJ_shandong_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			743 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		1114 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#东部铁路
+	focus = {
+		id = LUJ_dongbu_tielu
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = LUJ_shandong_gongye }
+		relative_position_id = LUJ_shandong_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    743 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		1114 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		1119 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#山东科研
+	focus = {
+		id = LUJ_shandong_keyan
+		icon = GFX_focus_research
+		prerequisite = { focus = LUJ_dongbu_tielu }
+		prerequisite = { focus = LUJ_jiaodong_haigang }
+		relative_position_id = LUJ_dongbu_tielu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_research_slot = 1
+		}
+	}
+	#济南军工厂
+	focus = {
+		id = LUJ_jinan_jungongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LUJ_souji_wuzhuang }
+		prerequisite = { focus = LUJ_jiaodong_haigang }
+		relative_position_id = LUJ_jiaodong_haigang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    1116 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+}

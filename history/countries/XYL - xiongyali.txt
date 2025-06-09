@@ -1,0 +1,160 @@
+capital = 43
+create_country_leader = {
+	name = "霍尔蒂.匈雅提"
+	desc = "huoerdi_xiongtila_miaoshu"
+	picture = "GFX47"
+	expire = "1965.1.1"
+	ideology = fengjian_junzhu_system
+	traits = { 
+	    arkhigos
+		professional_crisis_solver
+	}
+}
+create_country_leader = {
+	name = "霍尔蒂.匈雅提"
+	desc = "huoerdi_xiongtila_miaoshu"
+	picture = "GFX47"
+	expire = "1965.1.1"
+	ideology = minzu_junzhu_system
+	traits = { 
+	    arkhigos
+		professional_crisis_solver
+	}
+}
+create_country_leader = {
+	name = "库恩·贝拉"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = weiyuanhui_gongchanzhuyi_ism
+	traits = {
+	}
+}
+set_oob = "XYL_1936"
+set_naval_oob = "XYL_naval_1936"
+set_air_oob = "XYL_1936_air_legacy"
+
+set_research_slots = 5
+set_stability = 1
+set_war_support = 0.7
+
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1		
+	tech_engineers = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	improved_light_tank = 1
+	basic_train = 1
+	early_fighter = 1
+	fighter1 = 1
+	early_bomber = 1
+	tactical_bomber1 = 1
+	strategic_bomber1 = 1
+	CAS1 = 1
+	naval_bomber1 = 1
+	
+	mobile_warfare = 1
+	trade_interdiction = 1
+	formation_flying = 1
+	synth_oil_experiments = 1
+	fuel_silos = 1
+	fuel_refining = 1
+}
+
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+		basic_battleship = 1
+		early_battlecruiser = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		panzerschiffe = 1
+		pre_dreadnoughts = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		mtg_transport = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_secondary_battery = 1
+		improved_secondary_battery = 1
+		basic_depth_charges = 1
+		sonar = 1
+		basic_cruiser_armor_scheme = 1
+	}
+}
+	set_autonomy = {
+		target = WAL
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = MOL
+		autonomous_state = autonomy_integrated_puppet
+	}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1932.10.30"
+	election_frequency = 72 
+	elections_allowed = no
+}
+set_popularities = {
+	socialism = 15
+	communism = 0
+	neutrality = 35
+	dictatorship = 10
+	democratic = 5
+	conservatism = 10
+	progressism = 5
+	reconcilism = 20
+	fascism = 0
+	destruction_system = 0
+}
+XYL = {
+	country_event = { id = holy_xiongyali.3 days = 10 }
+	country_event = { id = holy_xiongyali.4 days = 15 }
+	country_event = { id = holy_xiongyali.5 days = 25 }
+}
+add_ideas = {
+	XYL_minzu_chongtu
+	XYL_gongye_luohou
+    XYL_chauntong_nongye
+    XYL_jiushi_jundui
+	XYL_zhengzhi_kunjing
+	limited_conscription
+}

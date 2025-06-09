@@ -1,0 +1,1598 @@
+focus_tree = {
+	id = LUO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = LUO
+		}
+	}
+	
+	default = no
+	
+	#阴影渐生
+	focus = {
+		id = LUO_yinying_jiansehng
+		icon = GFX_focus_generic_conspiracy
+		x = 18
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#齿轮旋转
+	focus = {
+		id = LUO_chilun_xuanzhuan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = LUO_yinying_jiansehng}
+		relative_position_id = LUO_yinying_jiansehng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#法兰西渗透
+	focus = {
+		id = LUO_falanxi_shentou
+		icon = GFX_focus_SWI_fortify_border_with_france
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			FRA = { add_stability = -0.05 }
+		}
+	}
+	#黑色的太阳
+	focus = {
+		id = LUO_black_sun
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = LUO_falanxi_shentou}
+		relative_position_id = LUO_falanxi_shentou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_heise_taiyang
+		}
+	}
+	#日.光
+	focus = {
+		id = LUO_riguang
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = LUO_black_sun}
+		relative_position_id = LUO_black_sun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_ri_guang
+			remove_idea = LUO_heise_taiyang
+			}
+		}
+	}
+	#未.来
+	focus = {
+		id = LUO_weilai
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = LUO_riguang}
+		relative_position_id = LUO_riguang
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    every_state = {
+					limit = {
+					OR = {
+						region = 6
+						region = 7
+						region = 8
+						region = 5
+						}
+					}
+add_claim_by = LUO
+		}
+		remove_state_claim = 1841
+		remove_state_claim = 37
+		remove_state_claim = 1842
+		remove_state_claim = 99
+		add_state_claim = 1821
+		add_state_claim = 28
+		add_state_claim = 923
+		add_state_claim = 925
+		add_state_claim = 928
+		add_state_claim = 847
+		add_state_claim = 3
+		add_state_claim = 845
+		add_state_claim = 846
+		add_state_claim = 151
+		add_state_claim = 848
+		add_state_claim = 153
+		add_state_claim = 39
+		add_state_claim = 850
+		add_state_claim = 1827
+		add_state_claim = 736
+		add_state_claim = 102
+		add_state_claim = 1828
+		add_state_claim = 4
+		add_state_claim = 152
+		add_state_claim = 952
+		add_state_claim = 953
+		add_state_claim = 1829
+		add_state_claim = 951
+		add_state_claim = 69
+		add_state_claim = 986
+		add_state_claim = 987
+		add_state_claim = 988
+		add_state_claim = 75
+		add_state_claim = 74
+		add_state_claim = 72
+		add_state_claim = 9
+		add_state_claim = 989
+		add_state_claim = 990
+		add_state_claim = 762
+		add_state_claim = 86
+		add_state_claim = 1554
+		add_state_claim = 807
+		add_state_claim = 85
+		add_state_claim = 1541
+		add_state_claim = 5
+		add_state_claim = 1540
+		add_state_claim = 763
+		add_state_claim = 188
+		}
+	}
+	#洛林壁垒计划
+	focus = {
+		id = LUO_bilei_plan
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = -11
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			17 = {
+			add_building_construction = {
+				type = bunker
+				province = 521
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3646
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3666
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9642
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9658
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11488
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11516
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11642
+				level = 2
+				instant_build = yes
+			}
+		  }
+			28 = {
+			add_building_construction = {
+				type = bunker
+				province = 549
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 678
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3629
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6529
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9503
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9559
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11502
+				level = 2
+				instant_build = yes
+			}
+		  }
+		}
+	}
+	#全面要塞化
+	focus = {
+		id = LUO_quanmian_yaosai_hua
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = LUO_bilei_plan}
+		relative_position_id = LUO_bilei_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			17 = {
+			add_building_construction = {
+				type = bunker
+				province = 521
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3646
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3666
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9642
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9658
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11488
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11516
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11642
+				level = 2
+				instant_build = yes
+			}
+		  }
+			28 = {
+			add_building_construction = {
+				type = bunker
+				province = 549
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 678
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3629
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6529
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9503
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9559
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11502
+				level = 2
+				instant_build = yes
+			}
+		  }
+		}
+	}
+	#增大建设力度
+	focus = {
+		id = LUO_zengda_jianshe_lidu
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = LUO_quanmian_yaosai_hua}
+		relative_position_id = LUO_quanmian_yaosai_hua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			17 = {
+			add_building_construction = {
+				type = bunker
+				province = 521
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3646
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3666
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6698
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9642
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9658
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11488
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11516
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11642
+				level = 2
+				instant_build = yes
+			}
+		  }
+			28 = {
+			add_building_construction = {
+				type = bunker
+				province = 549
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 678
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3629
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6529
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9503
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9559
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11502
+				level = 2
+				instant_build = yes
+			}
+		  }
+		}
+	}
+	#尸骨长城
+	focus = {
+		id = LUO_shigu_changcheng
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = LUO_zengda_jianshe_lidu}
+		relative_position_id = LUO_zengda_jianshe_lidu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			17 = {
+			add_building_construction = {
+				type = bunker
+				province = 521
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 698
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3646
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3666
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6698
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9642
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9658
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11488
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11516
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11642
+				level = 1
+				instant_build = yes
+			}
+		  }
+			28 = {
+			add_building_construction = {
+				type = bunker
+				province = 549
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 678
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3629
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6529
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9503
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9559
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11502
+				level = 1
+				instant_build = yes
+			}
+		  }
+		}
+		add_ideas = LUO_shigu_cahngcheng
+	}
+	#洛林的教育
+	focus = {
+		id = LUO_luolin_jiaoyu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = -7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			country_event = { id = holy_luolin.1 }	
+		}
+	}
+	#雅利安至高者
+	focus = {
+		id = LUO_yalian_zhigao
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = LUO_luolin_jiaoyu}
+		relative_position_id = LUO_luolin_jiaoyu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_yalian_jiaoyu_1
+		}
+	}
+	#生来尊贵
+	focus = {
+		id = LUO_shenglai_zungui
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = LUO_yalian_zhigao}
+		relative_position_id = LUO_yalian_zhigao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_yalian_jiaoyu_2
+			remove_idea = LUO_yalian_jiaoyu_1
+			}
+		}
+	}
+	#扩充党卫军
+	focus = {
+		id = LUO_kuochong_zungui
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = LUO_shenglai_zungui}
+		relative_position_id = LUO_shenglai_zungui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_kuochong_dangweijun
+		}
+	}
+	#外族忠诚
+	focus = {
+		id = LUO_waizu_zhongcheng
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = LUO_luolin_jiaoyu}
+		relative_position_id = LUO_luolin_jiaoyu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+	    add_ideas = LUO_waizuzhongcheng
+		}
+	}
+	#为了新秩序
+	focus = {
+		id = LUO_weile_xinzhixu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = LUO_waizu_zhongcheng}
+		relative_position_id = LUO_waizu_zhongcheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_weilexinzhixu
+			remove_idea = LUO_waizuzhongcheng
+			}
+		}
+	}
+	#赎罪师
+	focus = {
+		id = LUO_shuzui_shi
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = LUO_weile_xinzhixu}
+		relative_position_id = LUO_weile_xinzhixu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_shuzuishi
+		}
+	}
+	#奴工计划
+	focus = {
+		id = LUO_nugong_plan
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.2
+			country_event = { id = holy_luolin.2 }	
+		}
+	}
+	#更多的工程
+	focus = {
+		id = LUO_gengduo_gongcheng
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = LUO_nugong_plan}
+		relative_position_id = LUO_nugong_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_more_gongcheng
+		}
+	}
+	#更多的工时
+	focus = {
+		id = LUO_gengduo_gongshi
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = LUO_gengduo_gongcheng}
+		relative_position_id = LUO_gengduo_gongcheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_more_gongshi
+			remove_idea = LUO_more_gongcheng
+			}
+		}
+	}
+	#更多的尸体
+	focus = {
+		id = LUO_gengduo_shiti
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = LUO_gengduo_gongshi}
+		relative_position_id = LUO_gengduo_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_more_shiti
+			remove_idea = LUO_more_gongshi
+			}
+		}
+	}
+	#进口奴隶
+	focus = {
+		id = LUO_jinkou_nuli
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = LUO_nugong_plan}
+		relative_position_id = LUO_nugong_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_jinkounuli
+		}
+	}
+	#血肉磨坊
+	focus = {
+		id = LUO_xuerou_mofang
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = LUO_jinkou_nuli}
+		relative_position_id = LUO_jinkou_nuli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_xueroumofang
+		}
+	}
+	#政治委员
+	focus = {
+		id = LUO_zhengzhi_weiyuan
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = LUO_xuerou_mofang}
+		relative_position_id = LUO_xuerou_mofang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_zhengzhiweiyuan
+		}
+	}
+	#情报计划
+	focus = {
+		id = LUO_qingbao_plan
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.2
+			country_event = { id = holy_luolin.3 }	
+		}
+	}
+	#破坏稳定
+	focus = {
+		id = LUO_pohuai_wending
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = LUO_qingbao_plan}
+		relative_position_id = LUO_qingbao_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			LAI = { add_stability = -0.1 }
+			DED = { add_stability = -0.1 }
+			BXM = { add_stability = -0.1 }
+			FTB = { add_stability = -0.1 }
+			BAF = { add_stability = -0.1 }
+			RUI = { add_stability = -0.1 }
+			AUS = { add_stability = -0.1 }
+			PLS = { add_stability = -0.1 }
+			HSA = { add_stability = -0.1 }
+			DAZ = { add_stability = -0.1 }
+		}
+	}
+	#毁灭工程
+	focus = {
+		id = LUO_huimie_gongcheng
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = LUO_pohuai_wending}
+		relative_position_id = LUO_pohuai_wending
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			LAI = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			DED = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			BXM = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			FTB = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			BAF = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			RUI = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			AUS = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			PLS = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			HSA = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+			DAZ = { add_timed_idea = { idea = LUO_huimiegongcheng days = 180} }
+		}
+	}
+	#刺杀要员
+	focus = {
+		id = LUO_cisha_yaoyuan
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = LUO_huimie_gongcheng}
+		relative_position_id = LUO_huimie_gongcheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			LAI = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			DED = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			BXM = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			FTB = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			BAF = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			RUI = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			AUS = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			PLS = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			HSA = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+			DAZ = { add_timed_idea = { idea = LUO_cishayaoyuan days = 180} }
+		}
+	}
+	#纯血间谍
+	focus = {
+		id = LUO_chunxue_jiandie
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = LUO_qingbao_plan}
+		relative_position_id = LUO_qingbao_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_yinying_zhiguo_2
+			remove_idea = LUO_yinying_zhiguo
+			}
+		}
+	}
+	#混血间谍
+	focus = {
+		id = LUO_hunxue_jiandie
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = LUO_chunxue_jiandie}
+		relative_position_id = LUO_chunxue_jiandie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_yinying_zhiguo_3
+			remove_idea = LUO_yinying_zhiguo_2
+			}
+		}
+	}
+	#密码破译
+	focus = {
+		id = LUO_mima_poyi
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = LUO_hunxue_jiandie}
+		relative_position_id = LUO_hunxue_jiandie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LUO_yinying_zhiguo_4
+			remove_idea = LUO_yinying_zhiguo_3
+			}
+		}
+	}
+	#与汉诺威的合作
+	focus = {
+		id = LUO_yuhannuowei_hezuo
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = 7
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.15
+			country_event = { id = holy_luolin.4 }	
+		}
+	}
+	#军事建设
+	focus = {
+		id = LUO_junshi_jianshe
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = LUO_yuhannuowei_hezuo}
+		relative_position_id = LUO_yuhannuowei_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#洛林铁矿
+	focus = {
+		id = LUO_luolin_tiekuang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = LUO_junshi_jianshe}
+		relative_position_id = LUO_junshi_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+                type = steel
+                amount = 150
+                state = 17
+            }
+		}
+	}
+	#洛林-汉诺威道路
+	focus = {
+		id = LUO_luolin_hannuowei_daolu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = LUO_luolin_tiekuang}
+		relative_position_id = LUO_luolin_tiekuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_liantong_tielu
+			HNW = {
+			add_ideas = LUO_liantong_tielu
+			}
+		}
+	}
+	#军官交流
+	focus = {
+		id = LUO_junguan_jiaoliu
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = LUO_yuhannuowei_hezuo}
+		relative_position_id = LUO_yuhannuowei_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_junguanjiaoliu
+			HNW = {
+			add_idead = LUO_junguanjiaoliu
+			}
+		}
+	}
+	#联合科研
+	focus = {
+		id = LUO_lianhe_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = LUO_junguan_jiaoliu}
+		relative_position_id = LUO_junguan_jiaoliu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_lianhekeyan
+			HNW = {
+			add_ideas = LUO_lianhekeyan
+			}
+		}
+	}
+	#秘密工程
+	focus = {
+		id = LUO_mimi_gongcheng
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = LUO_lianhe_keyan}
+		relative_position_id = LUO_lianhe_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LUO_mimigongcheng
+			HNW = {
+			add_ideas = LUO_mimigongcheng
+			}
+		}
+	}
+	#工业建设
+	focus = {
+		id = LUO_gongye_jianshe
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = LUO_chilun_xuanzhuan}
+		relative_position_id = LUO_chilun_xuanzhuan
+		x = 11
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	#军事开发
+	focus = {
+		id = LUO_jusnhi_kaifa
+		icon = GFX_focus_ITA_workers_unions
+		prerequisite = { focus = LUO_gongye_jianshe}
+		relative_position_id = LUO_gongye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 4 }
+		}
+	}
+	#军事增设
+	focus = {
+		id = LUO_junshi_zengshe
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = LUO_jusnhi_kaifa}
+		relative_position_id = LUO_jusnhi_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+	#地堡计划
+	focus = {
+		id = LUO_dibao_plan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = LUO_junshi_zengshe}
+		relative_position_id = LUO_junshi_zengshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = -500
+		}
+	}
+	#日耳曼的“未来”
+	focus = {
+		id = LUO_rierman_weilai
+		icon = GFX_focus_ITA_generic_fascist_workers
+		x = 18
+		y = 10
+		cost = 5
+		available = {
+		   date > 1938.6.1
+		   has_war = no
+		   HNW = { NOT = { has_completed_focus = HNW_sheri_zhanzheng } }
+		   }
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#黑太阳
+	focus = {
+		id = LUO_heiri_lingkong
+		icon = GFX_goal_generic_secret_weapon
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_rierman_weilai}
+		relative_position_id = LUO_rierman_weilai
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#渗透汉诺威
+	focus = {
+		id = LUO_shentou_hannuowei
+		icon = GFX_goal_generic_political_pressure
+		x = -3
+		y = 1
+		prerequisite = { focus = LUO_heiri_lingkong}
+		relative_position_id = LUO_heiri_lingkong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LUO_hannuowei_shentou
+		}
+	}
+	#运转控制区
+	focus = {
+		id = LUO_yunzhuan_kongzhiqu
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+		prerequisite = { focus = LUO_heiri_lingkong}
+		relative_position_id = LUO_heiri_lingkong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+	#破坏工程
+	focus = {
+		id = LUO_pohuai_gongcheng
+		icon = GFX_goal_generic_production
+		x = 1
+		y = 1
+		prerequisite = { focus = LUO_heiri_lingkong}
+		relative_position_id = LUO_heiri_lingkong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		HNW = {
+		add_ideas = LUO_pohuaigongcheng
+		}
+		}
+	}
+	#武装力量
+	focus = {
+		id = LUO_wuzhuang_liliang
+		icon = GFX_focus_secret_rearmament
+		x = 3
+		y = 1
+		prerequisite = { focus = LUO_heiri_lingkong}
+		relative_position_id = LUO_heiri_lingkong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = LUO_dangweijun
+		}
+	}
+	#黑日当空
+	focus = {
+		id = LUO_heiridangkong
+		icon = GFX_goal_poland_goal
+		x = -1
+		y = 1
+		prerequisite = { focus = LUO_pohuai_gongcheng}
+		prerequisite = { focus = LUO_wuzhuang_liliang}
+		prerequisite = { focus = LUO_shentou_hannuowei}
+		prerequisite = { focus = LUO_yunzhuan_kongzhiqu}
+		relative_position_id = LUO_pohuai_gongcheng
+		cost = 5
+		available = {
+		has_war = no
+		is_puppet = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		leave_faction = yes
+		declare_war_on = {
+    target = HNW
+    type = annex_everything
+}
+		}
+	}
+	#新雅利安帝国
+	focus = {
+		id = LUO_new_yalian_diguo
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_heiridangkong}
+		relative_position_id = LUO_heiridangkong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		set_cosmetic_tag = GER
+		hidden_effect = { GER = { set_cosmetic_tag = GER } }
+		country_event = { id = holy_luolin.5  }
+		}
+	}
+	#原料开采
+	focus = {
+		id = LUO_yuanliao_kaicai
+		icon = GFX_focus_wonderweapons
+		available = {
+		  has_completed_focus = LUO_dibao_plan
+		  has_completed_focus = LUO_new_yalian_diguo
+		  NOT = { has_war = yes }
+		}
+		x = 35
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LUO_hedan_1
+		}
+	}
+	#理论开发
+	focus = {
+		id = LUO_lilun_kaifa
+		icon = GFX_focus_wonderweapons
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_yuanliao_kaicai}
+		relative_position_id = LUO_yuanliao_kaicai
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LUO_hedan_2
+		remove_idea = LUO_hedan_1
+		}
+		}
+	}
+	#实验性质
+	focus = {
+		id = LUO_shiyan_xingzhi
+		icon = GFX_focus_wonderweapons
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_lilun_kaifa}
+		relative_position_id = LUO_lilun_kaifa
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LUO_hedan_3
+		remove_idea = LUO_hedan_2
+		}
+		}
+	}
+	#制造反应堆
+	focus = {
+		id = LUO_zhizao_fanyingdui
+		icon = GFX_focus_wonderweapons
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_shiyan_xingzhi}
+		relative_position_id = LUO_shiyan_xingzhi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LUO_hedan_4
+		remove_idea = LUO_hedan_3
+		}
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#第一枚核弹
+	focus = {
+		id = LUO_diyimei_hedan
+		icon = GFX_focus_wonderweapons
+		x = 0
+		y = 1
+		prerequisite = { focus = LUO_zhizao_fanyingdui}
+		relative_position_id = LUO_zhizao_fanyingdui
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = LUO_hedan_5
+		remove_idea = LUO_hedan_4
+		}
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#地下工程
+	focus = {
+		id = LUO_dixia_gongcheng
+		icon = GFX_focus_wonderweapons
+		x = -2
+		y = 1
+		prerequisite = { focus = LUO_diyimei_hedan}
+		relative_position_id = LUO_diyimei_hedan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LUO_dixiagongcheng
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#充沛物资
+	focus = {
+		id = LUO_chongzu_wuzi
+		icon = GFX_focus_wonderweapons
+		x = -1
+		y = 1
+		prerequisite = { focus = LUO_dixia_gongcheng}
+		relative_position_id = LUO_dixia_gongcheng
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#加固防护
+	focus = {
+		id = LUO_jiagu_fanghu
+		icon = GFX_focus_wonderweapons
+		x = 1
+		y = 1
+		prerequisite = { focus = LUO_dixia_gongcheng}
+		relative_position_id = LUO_dixia_gongcheng
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#加强研究
+	focus = {
+		id = LUO_jiaqiang_yanjiu
+		icon = GFX_focus_wonderweapons
+		x = 2
+		y = 1
+		prerequisite = { focus = LUO_diyimei_hedan}
+		relative_position_id = LUO_diyimei_hedan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LUO_jiaqiangyanjiu
+		add_offsite_building = { type = nuclear_reactor level = 1 }
+		}
+	}
+	#加大生产量
+	focus = {
+		id = LUO_jiada_shengchanliang
+		icon = GFX_focus_wonderweapons
+		x = -1
+		y = 1
+		prerequisite = { focus = LUO_jiaqiang_yanjiu}
+		relative_position_id = LUO_jiaqiang_yanjiu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = nuclear_reactor level = 2 }
+		}
+	}
+	#日耳曼的铜墙铁壁
+	focus = {
+		id = LUO_rierman_tongqiangtiebi
+		icon = GFX_focus_wonderweapons
+		x = 1
+		y = 1
+		prerequisite = { focus = LUO_jiaqiang_yanjiu}
+		relative_position_id = LUO_jiaqiang_yanjiu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = LUO_tongqiang_tiebi
+		}		
+	}
+	#计划开始
+	focus = {
+		id = LUO_plan_kaishi
+		icon = GFX_focus_wonderweapons
+		x = -1
+		y = 1
+		prerequisite = { focus = LUO_rierman_tongqiangtiebi}
+		prerequisite = { focus = LUO_jiada_shengchanliang}
+		prerequisite = { focus = LUO_chongzu_wuzi}
+		prerequisite = { focus = LUO_jiagu_fanghu}
+		relative_position_id = LUO_jiada_shengchanliang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+         country_event = { id = holy_luolin.6 days = 3 } 
+		}
+	}
+}

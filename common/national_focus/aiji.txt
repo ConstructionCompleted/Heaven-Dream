@@ -1,0 +1,1393 @@
+focus_tree = {
+	id = EGY_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = EGY
+		}
+	}
+	
+	default = no
+ 
+    #稳固王朝权力
+	focus = {
+		id = EGY_wengu_wangchao_quanli
+		icon = GFX_focus_BUL_the_unification_of_the_balkans
+		x = 25
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		mutually_exclusive = { focus = EGY_tuidong_minzhuhua_jincheng }
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality 
+    popularity = 0.1
+}
+		}
+	}
+	#团结伊蒂哈德
+	focus = {
+		id = EGY_tuanjie_yidehade
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = EGY_wengu_wangchao_quanli}
+		relative_position_id = EGY_wengu_wangchao_quanli
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality 
+    popularity = 0.05
+	}
+	swap_ideas = {
+	add_idea = EGY_king_tuanjie_yidihade
+	remove_idea = EGY_king_or_free
+	}
+		}
+	}
+	#谋求军队支持
+	focus = {
+		id = EGY_mouqiu_jundui_zhichi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = EGY_wengu_wangchao_quanli}
+		relative_position_id = EGY_wengu_wangchao_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality 
+    popularity = 0.05
+	}
+	add_timed_idea = {
+    idea = EGY_jundui_zhichi
+    days = 360
+}
+		}
+	}
+	#联合地主财阀
+	focus = {
+		id = EGY_lianhe_dizhucaifa
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = EGY_wengu_wangchao_quanli}
+		relative_position_id = EGY_wengu_wangchao_quanli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality 
+    popularity = 0.05
+	}
+	add_ideas = EGY_lianhe_dizhu_caifa
+		}
+	}
+	#肃清自由派
+	focus = {
+		id = EGY_suqing_ziyoupai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = EGY_tuanjie_yidehade}
+		prerequisite = { focus = EGY_lianhe_dizhucaifa}
+		prerequisite = { focus = EGY_mouqiu_jundui_zhichi}
+		relative_position_id = EGY_mouqiu_jundui_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_political_power = 100
+			set_political_party = {
+    ideology = progressism 
+    popularity = 0
+}
+		}
+	}
+	#备战宣传
+	focus = {
+		id = EGY_beizhan_xuanyan
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = EGY_suqing_ziyoupai}
+		relative_position_id = EGY_suqing_ziyoupai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#推动民主化进程
+	focus = {
+		id = EGY_tuidong_minzhuhua_jincheng
+		icon = GFX_goal_support_democracy
+		x = 33
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		mutually_exclusive = { focus = EGY_wengu_wangchao_quanli }
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = democratic
+    popularity = 0.05
+}
+		}
+	}
+	#团结青年军官
+	focus = {
+		id = EGY_tuanjie_qingnian_junguan
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = EGY_tuidong_minzhuhua_jincheng}
+		relative_position_id = EGY_tuidong_minzhuhua_jincheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.05
+}
+army_experience = 30
+		}
+	}
+	#世俗化宣传
+	focus = {
+		id = EGY_shisuhuaxuanchuan
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = EGY_tuidong_minzhuhua_jincheng}
+		relative_position_id = EGY_tuidong_minzhuhua_jincheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = EGY_shisuhua_xuanchuan
+		}
+	}
+	#夺取军权
+	focus = {
+		id = EGY_duoqu_junquan
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = EGY_tuanjie_qingnian_junguan}
+		relative_position_id = EGY_tuanjie_qingnian_junguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        set_politics = {
+	ruling_party = progressism
+}
+add_timed_idea = {
+idea = EGY_duoqujunquan
+days = 30
+}
+		}
+	}
+	#埃及文艺复兴
+	focus = {
+		id = EGY_aiji_wenyifuxing
+		icon = GFX_focus_BUL_the_unification_of_the_balkans
+		prerequisite = { focus = EGY_free_hua}
+		prerequisite = { focus = EGY_duoqu_junquan}
+		relative_position_id = EGY_free_hua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_popularity = {
+    ideology = progressism
+    popularity = 0.05
+}
+add_ideas = EGY_wenyifuxing
+swap_ideas = {
+	add_idea = EGY_king_tuanjie_yidihade
+	remove_idea = EGY_king_or_free
+	}
+		}
+	}
+	#自由化
+	focus = {
+		id = EGY_free_hua
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = EGY_shisuhuaxuanchuan}
+		relative_position_id = EGY_shisuhuaxuanchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_popularity = {
+    ideology = progressism 
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+		}
+	}
+	#阿拉伯梦想
+	focus = {
+		id = EGY_alabo_mengxiang
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = EGY_aiji_wenyifuxing focus = EGY_beizhan_xuanyan}
+		relative_position_id = EGY_aiji_wenyifuxing
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_political_power = 50
+		add_stability = 0.05
+		add_war_support = 0.1
+		 every_state = {
+					limit = {
+					OR = {
+						region = 182
+						region = 126
+						region = 127
+						region = 225
+						region = 128
+						region = 216
+						region = 128
+						region = 232
+						region = 28
+						region = 196
+						region = 236
+						region = 237
+						region = 238
+						}
+					}
+add_claim_by = EGY
+		}
+		add_state_claim = 163
+		add_state_claim = 183
+		remove_ideas = EGY_aiji_wenyifuxing
+		remove_ideas = EGY_king_tuanjie_yidihade
+		}
+	}
+	#与同胞的联络
+	focus = {
+		id = EGY_yutongbao_lianluo
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = EGY_alabo_mengxiang }
+		relative_position_id = EGY_alabo_mengxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#抗击不列颠
+	focus = {
+		id = EGY_kangji_buliedian
+		icon = GFX_focus_attack_britain
+		prerequisite = { focus = EGY_yutongbao_lianluo }
+		relative_position_id = EGY_yutongbao_lianluo
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		has_war_with = UKM
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+        add_ideas = EGY_kangji_UKM
+		MHD = {
+		annex_country = {
+    target = USU
+    transfer_troops = yes
+}
+		}
+		every_country = {
+			limit = {
+			    is_puppet_of = EGY
+				}
+				add_ideas = EGY_kangji_UKM
+			}
+		}
+	}
+	#黎凡特进军
+	focus = {
+		id = EGY_lifante_jinjun
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = EGY_kangji_buliedian }
+		relative_position_id = EGY_kangji_buliedian
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		NOT = {
+		has_war_with = UKM
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+        if = {
+		limit = {
+		PAL = { 
+		has_completed_focus = PAL_fanalbo_zhuyi
+		}
+		puppet = PAL
+		}
+		}
+		if = {
+		limit = {
+		PAL = { 
+		controls_state = 453 
+		controls_state = 446 
+		controls_state = 1567 
+		has_completed_focus = PAL_fanalbo_zhuyi
+		}
+		}
+		transfer_state = 453
+		transfer_state = 446 
+		transfer_state = 1567 
+		}
+		if = {
+		limit = {
+		PAL = { 
+		has_completed_focus = PAL_yanxu_shisu_zhuyi
+		}
+		}
+		OTF = { add_to_faction = PAL }
+		declare_war_on = {
+    target = PAL
+    type = annex_everything
+}
+		}
+		}
+	}
+	#介入奥斯曼内战
+	focus = {
+		id = EGY_jieru_aosiman_neizhan
+		icon = GFX_focus_TUR_pivot_to_the_past
+		prerequisite = { focus = EGY_lifante_jinjun }
+		relative_position_id = EGY_lifante_jinjun
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		NOT = { 
+		has_war_with = UKM
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.79 days = 1
+			}
+		country_event = {
+		id = holy_aosiman.26
+		}
+		}
+	}
+	#共同开发协定
+	focus = {
+		id = EGY_gongtong_kaifa_xieding
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = EGY_jieru_aosiman_neizhan }
+		relative_position_id = EGY_jieru_aosiman_neizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#贸易协定
+	focus = {
+		id = EGY_maoyixieding
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = EGY_gongtong_kaifa_xieding }
+		relative_position_id = EGY_gongtong_kaifa_xieding
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+			    is_in_faction_with = EGY
+				}
+				add_ideas = EGY_maoyi_xieding
+			}
+			add_stability = 0.1
+			add_political_power = 75
+		}
+	}
+	#军事武装协定
+	focus = {
+		id = EGY_junshi_wuzhuang_xieding
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = EGY_jieru_aosiman_neizhan }
+		relative_position_id = EGY_jieru_aosiman_neizhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#联合农业协定
+	focus = {
+		id = EGY_lianhe_nongye_xieding
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = EGY_junshi_wuzhuang_xieding }
+		relative_position_id = EGY_junshi_wuzhuang_xieding
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+			    is_puppet_of = EGY
+				}
+				add_ideas = EGY_nongye_gaishan
+			}
+			add_ideas = EGY_nongye_gaishan
+		}
+	}
+	#团结意志
+	focus = {
+		id = EGY_tuanjie_yizhi
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = EGY_maoyixieding }
+		prerequisite = { focus = EGY_lianhe_nongye_xieding }
+		relative_position_id = EGY_lianhe_nongye_xieding
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = UKM
+		}
+		OTF = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		DLB = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		OTT = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		SML = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		HAZ = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		OMA = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		KUR = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		ARM = {
+		OR = {
+		exists = no
+		is_puppet_of = EGY
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		tag = OMA
+		tag = YEM
+		tag = PAL
+		tag = NJD
+		tag = SML
+		tag = HAZ
+		tag = QAT
+		tag = UAE
+		tag = KUW
+		}
+		is_in_faction_with = EGY
+		}
+		country_event = {
+		id = holy_aosiman.67
+		days = 3
+		}
+		}
+		}
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		tag = OMA
+		tag = YEM
+		tag = PAL
+		tag = NJD
+		tag = SML
+		tag = HAZ
+		tag = QAT
+		tag = UAE
+		tag = KUW
+		}
+		NOT = { is_in_faction_with = EGY }
+		}
+		EGY = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		}
+		}
+	}
+	#阿拉伯统一
+	focus = {
+		id = EGY_alabo_tongyi
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = EGY_tuanjie_yizhi }
+		relative_position_id = EGY_tuanjie_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_war_with = OTT
+		has_war_with = OTF
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+		limit = {
+		OR = {
+		tag = SYR
+		tag = LBA
+		tag = IRQ
+		tag = MHD
+		tag = PAL
+		}
+		is_in_faction_with = EGY
+		}
+		country_event = {
+		id = holy_aosiman.67
+		days = 3
+		}
+		}
+		every_country = {
+		limit = {
+		OR = {
+		tag = SYR
+		tag = LBA
+		tag = IRQ
+		tag = MHD
+		tag = PAL
+		}
+		NOT = { is_in_faction_with = EGY }
+		}
+		EGY = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		add_state_core = 554
+		add_state_core = 677
+		add_state_core = 680
+		add_state_core = 553
+		add_state_core = 350
+		add_state_core = 344
+		add_state_core = 799
+		add_state_core = 455
+		add_state_core = 454
+		add_state_core = 676
+		add_state_core = 675
+		add_state_core = 291
+		add_state_core = 658
+		add_state_core = 659
+		add_state_core = 293
+		add_state_core = 765
+		add_state_core = 656
+		add_state_core = 294
+		add_state_core = 1121
+		add_state_core = 661
+		add_state_core = 662
+		add_state_core = 663
+		add_state_core = 449
+		add_state_core = 448
+		add_state_core = 451
+		add_state_core = 273
+		add_state_core = 450
+		add_state_core = 1316
+		add_state_core = 1317
+		add_state_core = 1058
+		add_state_core = 1057
+		add_state_core = 1307
+		add_state_core = 1308
+		add_state_core = 1315
+		add_state_core = 1365
+		add_state_core = 1309
+		add_state_core = 1364
+		add_state_core = 1061
+		add_state_core = 1060
+		add_state_core = 1063
+		add_state_core = 1062
+		add_state_core = 1064
+		add_state_core = 1362
+		add_state_core = 1312
+		add_state_core = 1361
+		add_state_core = 1334
+		add_state_core = 1363
+		add_state_core = 1313
+		add_state_core = 1366
+		add_state_core = 1395
+		add_state_core = 1396
+		add_state_core = 1329
+		add_state_core = 1056
+		add_state_core = 1402
+		add_state_core = 1314
+		add_state_core = 1816
+		add_state_core = 1860
+		add_state_core = 1401
+		add_state_core = 1425
+		add_state_core = 1568
+		add_state_core = 1569
+		add_state_core = 1570
+		add_state_core = 1426
+		add_state_core = 1327
+		add_state_core = 1325
+		add_state_core = 767
+		add_state_core = 551
+		add_state_core = 883
+		add_state_core = 1324
+		add_state_core = 1326
+		add_state_core = 1328
+		add_state_core = 886
+		add_state_core = 1319
+		add_state_core = 1323
+		add_state_core = 1322
+		add_state_core = 1321
+		add_state_core = 549
+		add_state_core = 1320
+		add_state_core = 887
+		add_state_core = 1306
+		add_state_core = 885
+		add_state_core = 884
+		set_cosmetic_tag = ALB_DATY
+		set_global_flag = form_arabia_flag
+		news_event = {
+				id = holy_news.34 days = 1
+			}
+		}
+	}
+	#北非战略
+	focus = {
+		id = EGY_beifei_zhanlue
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = EGY_alabo_tongyi }
+		relative_position_id = EGY_alabo_tongyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = FRN
+    type = annex_everything
+}
+declare_war_on = {
+    target = AER
+    type = annex_everything
+}
+		}
+	}
+	#驶向金角湾
+	focus = {
+		id = EGY_shixiang_jinjiaowan
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = EGY_alabo_tongyi }
+		relative_position_id = EGY_alabo_tongyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+		}
+	}
+	#再征服波斯
+	focus = {
+		id = EGY_zaizhengfu_bosi
+		icon = GFX_focus_generic_attack_iran
+		prerequisite = { focus = EGY_alabo_tongyi }
+		relative_position_id = EGY_alabo_tongyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+	#埃及军队
+	focus = {
+		id = EGY_aiji_army
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = EGY_yutongbao_lianluo }
+		relative_position_id = EGY_yutongbao_lianluo
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_chanruo_army_2
+		remove_idea = EGY_chanruo_army
+		}
+		}
+	}
+	#王权的永恒
+	focus = {
+		id = EGY_wangquan_yongheng
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = EGY_aiji_army }
+		relative_position_id = EGY_aiji_army
+		mutually_exclusive = { focus = EGY_shisuhua_army }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = neutrality
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangquan_army
+		remove_idea = EGY_chanruo_army_2
+		}
+		}
+	}
+	#扩大埃及征兵
+	focus = {
+		id = EGY_kuoda_zhengbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = EGY_wangquan_yongheng }
+		relative_position_id = EGY_wangquan_yongheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EGY_kuoda_zhengbing
+		}
+	}
+	#开设本土军工
+	focus = {
+		id = EGY_kaishe_bentu_jungong
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = EGY_kuoda_zhengbing }
+		relative_position_id = EGY_kuoda_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#沙漠战争
+	focus = {
+		id = EGY_shamo_zhanzheng
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = EGY_kaishe_bentu_jungong }
+		relative_position_id = EGY_kaishe_bentu_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EGY_shamo_zhanzheng
+		}
+	}
+	#忠君爱国
+	focus = {
+		id = EGY_zhongjun_aiguo
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = EGY_wangquan_yongheng }
+		relative_position_id = EGY_wangquan_yongheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangquan_army_2
+		remove_idea = EGY_wangquan_army
+		}
+		}
+	}
+	#培养王权军官
+	focus = {
+		id = EGY_peiyang_wangquan_junguan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = EGY_zhongjun_aiguo }
+		relative_position_id = EGY_zhongjun_aiguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangquan_army_3
+		remove_idea = EGY_wangquan_army_2
+		}
+		}
+	}
+	#神圣的战争
+	focus = {
+		id = EGY_shensheng_war
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = EGY_peiyang_wangquan_junguan }
+		relative_position_id = EGY_peiyang_wangquan_junguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangquan_army_4
+		remove_idea = EGY_wangquan_army_3
+		}
+		}
+	}
+	#世俗化军队
+	focus = {
+		id = EGY_shisuhua_army
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = EGY_aiji_army }
+		relative_position_id = EGY_aiji_army
+		mutually_exclusive = { focus = EGY_wangquan_yongheng }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = progressism
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shisuhua_army
+		remove_idea = EGY_chanruo_army_2
+		}
+		}
+	}
+	#自由意志
+	focus = {
+		id = EGY_ziyou_yizhi
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = EGY_shisuhua_army }
+		relative_position_id = EGY_shisuhua_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shisuhua_army_2
+		remove_idea = EGY_shisuhua_army
+		}
+		}
+	}
+	#阿拉伯解放军
+	focus = {
+		id = EGY_alabo_jiefangjun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = EGY_ziyou_yizhi }
+		relative_position_id = EGY_ziyou_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shisuhua_army_3
+		remove_idea = EGY_shisuhua_army_2
+		}
+		}
+	}
+	#自由的战争
+	focus = {
+		id = EGY_ziyou_war
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = EGY_alabo_jiefangjun }
+		relative_position_id = EGY_alabo_jiefangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shisuhua_army_4
+		remove_idea = EGY_shisuhua_army_3
+		}
+		}
+	}
+	#联合阿拉伯西化势力
+	focus = {
+		id = EGY_lianhe_alb_xihua
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = EGY_shisuhua_army }
+		relative_position_id = EGY_shisuhua_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+		}
+	}
+	#进口西方武装
+	focus = {
+		id = EGY_jinkou_xifang_wuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = EGY_lianhe_alb_xihua }
+		relative_position_id = EGY_lianhe_alb_xihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FRA
+}
+		}
+	}
+	#西方化火力
+	focus = {
+		id = EGY_xifanghua_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = EGY_jinkou_xifang_wuzhuang }
+		relative_position_id = EGY_jinkou_xifang_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EGY_xifanghua_huoli
+		}
+	}
+	#埃及工业化
+	focus = {
+		id = EGY_aiji_gongyehua
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = EGY_yutongbao_lianluo }
+		relative_position_id = EGY_yutongbao_lianluo
+		x = -8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_aiji_gongyehua
+		remove_idea = EGY_houxiaotiao_gongye
+		}
+		}
+	}
+	#社会工业化
+	focus = {
+		id = EGY_shehui_gongyehua
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = EGY_aiji_gongyehua }
+		relative_position_id = EGY_aiji_gongyehua
+		mutually_exclusive = { focus = EGY_wangguo_gongyehua }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = progressism
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shehui_gongyehua
+		remove_idea = EGY_aiji_gongyehua
+		}
+		}
+	}
+	#整合国内工业
+	focus = {
+		id = EGY_zhenghe_guonei_gongye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = EGY_shehui_gongyehua }
+		relative_position_id = EGY_shehui_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shehui_gongyehua_2
+		remove_idea = EGY_shehui_gongyehua
+		}
+		456 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#国家主导建设
+	focus = {
+		id = EGY_guojia_zhudao_jianshe
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = EGY_zhenghe_guonei_gongye }
+		relative_position_id = EGY_zhenghe_guonei_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shehui_gongyehua_3
+		remove_idea = EGY_shehui_gongyehua_2
+		}
+		}
+	}
+	#社会改革
+	focus = {
+		id = EGY_shehui_gaige
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = EGY_guojia_zhudao_jianshe }
+		relative_position_id = EGY_guojia_zhudao_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_shehui_gongyehua_4
+		remove_idea = EGY_shehui_gongyehua_3
+		}
+		}
+	}
+	#建设本土工业
+	focus = {
+		id = EGY_jianshe_bentu_gongye
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = EGY_wangguo_gongyehua focus = EGY_shehui_gongyehua}
+		relative_position_id = EGY_wangguo_gongyehua
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#开发亚历山大
+	focus = {
+		id = EGY_kaifa_yalishanda
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = EGY_jianshe_bentu_gongye }
+		relative_position_id = EGY_jianshe_bentu_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		447 = {
+		add_extra_state_shared_building_slots = 9
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#开发开罗
+	focus = {
+		id = EGY_kaifa_kailuo
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = EGY_jianshe_bentu_gongye }
+		relative_position_id = EGY_jianshe_bentu_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		446 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 3
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#王国工业化
+	focus = {
+		id = EGY_wangguo_gongyehua
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = EGY_aiji_gongyehua }
+		relative_position_id = EGY_aiji_gongyehua
+		mutually_exclusive = { focus = EGY_shehui_gongyehua }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = neutrality
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangguo_gongyehua
+		remove_idea = EGY_aiji_gongyehua
+		}
+		}
+	}
+	#扩展王室企业
+	focus = {
+		id = EGY_kuozhan_wangshi_qiye
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = EGY_wangguo_gongyehua }
+		relative_position_id = EGY_wangguo_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangguo_gongyehua_2
+		remove_idea = EGY_wangguo_gongyehua
+		}
+		}
+	}
+	#皇家工业
+	focus = {
+		id = EGY_huangjia_gongye
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = EGY_kuozhan_wangshi_qiye }
+		relative_position_id = EGY_kuozhan_wangshi_qiye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EGY_wangguo_gongyehua_3
+		remove_idea = EGY_wangguo_gongyehua_2
+		}
+		}
+	}
+	#贵族——地主经济
+	focus = {
+		id = EGY_guizu_dizhujingji
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = EGY_huangjia_gongye }
+		relative_position_id = EGY_huangjia_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EGY_lianhe_dizhu_caifa
+		}
+	}
+}

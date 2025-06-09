@@ -1,0 +1,214 @@
+holy_gesake = {
+    #哥萨克帝国
+    holy_gesake_diguo = {
+
+		icon = generic_army_support
+		
+		visible = {
+			OR = {
+		tag = DRG
+		tag = URL
+		tag = SBG
+		    }
+	    }	
+		available = {
+			OR = {
+		has_completed_focus = SBG_zhenzheng_gesake
+		has_completed_focus = DRG_gesake_diguo
+		has_completed_focus = URL_gesake_diguo
+		}
+		is_puppet = no
+		}
+        fire_only_once = yes
+		complete_effect = {
+		GSK = {
+		if = {
+		limit = {
+		has_completed_focus = DRG_gesaka_guodu
+		}
+		annex_country = {
+    target = DRG
+    transfer_troops = yes
+}
+}
+annex_country = {
+    target = URL
+    transfer_troops = yes
+}
+annex_country = {
+    target = SBG
+    transfer_troops = yes
+}
+every_state = {
+					limit = {
+					OR = {
+						region = 265
+						region = 132
+						region = 150
+						region = 133
+						region = 264
+						region = 40
+						region = 137
+						region = 135
+						region = 138
+						region = 14
+						region = 263
+						region = 151
+						region = 261
+						region = 262
+						region = 147
+						region = 149
+						region = 260
+						region = 259
+						region = 257
+						region = 258
+						region = 256
+						}
+					}
+add_core_of = GSK
+		}
+		add_state_core = 146
+		add_state_core = 1356
+		add_state_core = 213
+		add_state_core = 1854
+		add_state_core = 1398
+		add_state_core = 224
+		add_state_core = 205
+		add_state_core = 242
+		add_state_core = 243
+		add_state_claim = 582
+		add_state_claim = 1351
+		add_state_claim = 651
+		add_state_claim = 652
+		add_state_claim = 218
+		add_state_claim = 245
+		add_state_claim = 1070
+		add_state_claim = 238
+		add_state_claim = 237
+		add_state_claim = 1416
+		add_state_claim = 236
+		remove_state_core = 1347
+		remove_state_core = 654
+		remove_state_core = 1123
+		remove_state_core = 407
+		remove_state_core = 406
+		remove_state_core = 1073
+		remove_state_core = 1074
+		remove_state_core = 1550
+		remove_state_core = 206
+		remove_state_core = 204
+		remove_state_core = 1543
+		remove_state_core = 194
+		remove_state_core = 201
+		remove_state_core = 199
+		remove_state_core = 1431
+		remove_state_core = 198
+		remove_state_core = 1430
+		remove_state_core = 1859
+		remove_state_core = 232
+		remove_state_core = 1075
+		remove_state_core = 233
+		remove_state_core = 234
+		remove_state_core = 235
+		remove_state_core = 875
+		remove_state_core = 245
+		remove_state_core = 218
+		remove_state_core = 1070
+		remove_state_core = 1416
+		remove_state_core = 238
+		remove_state_core = 237
+		remove_state_core = 236
+	    remove_state_core = 652
+		remove_state_core = 651
+		remove_state_core = 582
+		remove_state_core = 1351
+		every_state = {
+					limit = {
+					OR = {
+						region = 136
+						region = 270
+						region = 267
+						region = 268
+						region = 269
+						region = 1300
+						}
+					}
+add_claim_by = GSK
+		}
+		add_state_claim = 234
+		add_state_claim = 235
+		add_state_claim = 233
+		add_state_claim = 1075
+		add_state_claim = 232
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 407
+		add_state_claim = 406
+		add_state_claim = 1073
+		add_state_claim = 1074
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = NCC
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+		}
+		if = {
+		limit = {
+		is_ai = no
+		}
+		change_tag_from = GSK
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

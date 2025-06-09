@@ -1,0 +1,4861 @@
+add_namespace = holy_huabei
+add_namespace = holy_huanan
+add_namespace = holy_xibu
+add_namespace = holy_fujia
+add_namespace = holy_tanpan
+add_namespace = holy_riben
+add_namespace = holy_dongnanya
+add_namespace = holy_beiyang
+add_namespace = holy_minguo
+add_namespace = holy_liuqiu
+add_namespace = holy_newchina
+#龙抬头
+country_event = {
+	id = holy_huabei.1
+	title = holy_huabei.1.t
+	desc = holy_huabei.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#选择
+country_event = {
+	id = holy_huabei.2
+	title = holy_huabei.2.t
+	desc = holy_huabei.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.2.a
+		ai_chance = {
+		    factor = 10
+			}
+			complete_national_focus = FEN_chengfu_yiyuan
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+	}
+	option = {
+		name = holy_huabei.2.b
+		ai_chance = {
+		    factor = 10
+			}
+			complete_national_focus = FEN_minguo_dream
+			add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+	}
+}
+#会面
+country_event = {
+	id = holy_huabei.3
+	title = holy_huabei.3.t
+	desc = holy_huabei.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = 0.05
+	}
+}
+#经济问题
+country_event = {
+	id = holy_huabei.4
+	title = holy_huabei.4.t
+	desc = holy_huabei.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		swap_ideas = {
+		add_idea = JAN_jingji_weiji_2
+		remove_idea = JAN_jingji_weiji
+		}
+		country_event = {
+    id = holy_huabei.5
+	days = 2
+}
+	}
+}
+#李二和大爷
+country_event = {
+	id = holy_huabei.5
+	title = holy_huabei.5.t
+	desc = holy_huabei.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -0.1
+		country_event = {
+    id = holy_huabei.6
+	days = 1
+}
+	}
+}
+#大帅遇刺
+country_event = {
+	id = holy_huabei.6
+	title = holy_huabei.6.t
+	desc = holy_huabei.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	complete_national_focus = JAN_sunchuanfang_yuci
+	}
+	option = {
+		name = holy_huabei.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -1
+		remove_ideas = JAN_jianghuai_dongluan
+		country_event = {
+    id = holy_huabei.8
+    days = 1
+}
+country_event = {
+    id = holy_huabei.7
+	days = 2
+}
+	}
+	option = {
+		name = holy_huabei.6.b
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = -0.2
+		swap_ideas = {
+		add_idea = JAN_jianghuai_dongluan_2
+		remove_idea = JAN_jianghuai_dongluan
+		}
+		country_event = {
+    id = holy_huabei.7
+	days = 2
+}
+country_event = {
+    id = holy_huabei.9
+	days = 15
+}
+	}
+}
+#陈调元的消息
+country_event = {
+	id = holy_huabei.7
+	title = holy_huabei.7.t
+	desc = holy_huabei.7.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+		606 = {
+		set_demilitarized_zone = yes
+		}
+		1145 = {
+		set_demilitarized_zone = yes
+		}
+		1146 = {
+		set_demilitarized_zone = yes
+		}
+		1147 = {
+		set_demilitarized_zone = yes
+		}
+		1149 = {
+		set_demilitarized_zone = yes
+		}
+	}
+}
+#孙传芳去世
+country_event = {
+	id = holy_huabei.8
+	title = holy_huabei.8.t
+	desc = holy_huabei.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		kill_country_leader = yes
+		HHA = {
+		transfer_state = 598
+		transfer_state = 1151
+		transfer_state = 1150
+		transfer_state = 1152
+		transfer_state = 1153
+		transfer_state = 1154
+		add_ideas = JAN_jingji_weiji_2
+		add_ideas = HHA_maige_haojiaqian
+		load_oob = HHA_1936
+		}
+		transfer_navy = {
+    target = HHA
+}
+		HHA = { change_tag_from = JAN }
+		country_event = {
+    id = holy_huabei.9
+	days = 3
+}
+	}
+}
+#陈调元的叛变
+country_event = {
+	id = holy_huabei.9
+	title = holy_huabei.9.t
+	desc = holy_huabei.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	delete_unit_template_and_units = {
+    division_template = "新皖军"
+    disband = yes 
+}
+	NWA = {
+		transfer_state = 606
+		transfer_state = 1145
+		transfer_state = 1146
+		transfer_state = 1147
+		transfer_state = 1149
+		add_ideas = NWA_wanjun
+		load_oob = NWA_1936
+		complete_national_focus = NWA_xinwanxi
+		}
+	remove_ideas = JAN_sanluan_jundui
+HHA = {
+complete_national_focus = HHA_qizhi_jianghuai
+declare_war_on = {
+    target = NWA
+    type = annex_everything
+}
+}
+JAN = {
+declare_war_on = {
+    target = NWA
+    type = annex_everything
+}
+}
+ZHI = {
+country_event = {
+    id = holy_huabei.17
+	days = 5
+}
+}
+WAN = {
+country_event = {
+    id = holy_huabei.17
+	days = 5
+}
+}
+	}
+	option = {
+		name = holy_huabei.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+	option = {
+		name = holy_huabei.9.b
+		ai_chance = {
+		    factor = 0
+	    }
+		NWA = { change_tag_from = ROOT }
+	}
+}
+#逮捕齐燮元
+country_event = {
+	id = holy_huabei.10
+	title = holy_huabei.10.t
+	desc = holy_huabei.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	add_political_power = 100
+	add_stability = 0.1
+	}
+	option = {
+		name = holy_huabei.10.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#淮海的求援
+country_event = {
+	id = holy_huabei.11
+	title = holy_huabei.11.t
+	desc = holy_huabei.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.11.a
+		ai_chance = {
+		    factor = 10
+	    }
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 3000
+    target = HHA
+}
+	}
+	option = {
+		name = holy_huabei.11.b
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#狗肉将军烦恼多
+country_event = {
+	id = holy_huabei.12
+	title = holy_huabei.12.t
+	desc = holy_huabei.12.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.12.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_huabei.13
+	days = 1
+}
+	}
+}
+#胶东异动
+country_event = {
+	id = holy_huabei.13
+	title = holy_huabei.13.t
+	desc = holy_huabei.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.13.a
+		ai_chance = {
+		    factor = 10
+	    }
+		743 = {
+		set_demilitarized_zone = yes
+		}
+		1114 = {
+		set_demilitarized_zone = yes
+		}
+		1115 = {
+		set_demilitarized_zone = yes
+		}
+		1119 = {
+		set_demilitarized_zone = yes
+		}
+		add_stability = -0.1
+		country_event = {
+    id = holy_huabei.14
+	days = 2
+}
+country_event = {
+    id = holy_huabei.15
+	days = 30
+}
+	}
+}
+#宗教狂热
+country_event = {
+	id = holy_huabei.14
+	title = holy_huabei.14.t
+	desc = holy_huabei.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.14.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#青岛战火
+country_event = {
+	id = holy_huabei.15
+	title = holy_huabei.15.t
+	desc = holy_huabei.15.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	JAD = {
+		transfer_state = 743
+		transfer_state = 1114
+		transfer_state = 1115
+		transfer_state = 1414
+		load_oob = JAD_1936
+		declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+add_ideas = JAD_fankang_baozheng
+add_ideas = JAD_sanluan_lianhe
+		}
+	}
+	option = {
+		name = holy_huabei.15.a
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		complete_national_focus = LUJ_zhangzongchang_tusuo
+	}
+	option = {
+		name = holy_huabei.15.b
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = LUJ_jixu_zhandou
+	}
+	option = {
+		name = holy_huabei.15.c
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = LUJ_zhangzongchang_tusuo
+		JAD = { change_tag_from = ROOT }
+	}
+}
+#残兵败将
+country_event = {
+	id = holy_huabei.16
+    title = holy_huabei.16.t
+	desc = holy_huabei.16.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.16.a
+		ai_chance = {
+		    factor = 10
+	    }
+		swap_ideas = {
+			add_idea = ZHI_canbingbaijiang_2
+			remove_idea = ZHI_canbingbaijiang
+			}
+	}
+}
+#江淮战争
+country_event = {
+	id = holy_huabei.17
+    title = holy_huabei.17.t
+	desc = holy_huabei.17.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.17.a
+		ai_chance = {
+		    factor = 10
+	    }
+		ZHI = { 
+		add_to_faction = JAN 
+		add_timed_idea = {
+    idea = ZHI_duikang_wanxi
+    days = 360
+}
+		}
+		WAN = { add_to_faction = NWA }
+		if = {
+		limit = {
+		tag = ZHI
+		}
+		news_event = {
+				id = holy_news.18 days = 1
+			}
+		}
+	}
+}
+#第六年
+country_event = {
+	id = holy_huabei.18
+    title = holy_huabei.18.t
+	desc = holy_huabei.18.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.18.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#张宗昌的求援
+country_event = {
+	id = holy_huabei.19
+	title = holy_huabei.19.t
+	desc = holy_huabei.19.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.19.a
+		ai_chance = {
+		    factor = 10
+	    }
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 3000
+    target = LUJ
+}
+	}
+	option = {
+		name = holy_huabei.19.b
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#第一次青岛会议
+country_event = {
+	id = holy_huabei.20
+	title = holy_huabei.20.t
+	desc = holy_huabei.20.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.20.a
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = JAD_nanjing_langquan
+	}
+	option = {
+		name = holy_huabei.20.b
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = JAD_xibei_guzhong
+	}
+}
+#一封电报
+country_event = {
+	id = holy_huabei.21
+	title = holy_huabei.21.t
+	desc = holy_huabei.21.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.21.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#韩复渠的情报
+country_event = {
+	id = holy_huabei.22
+	title = holy_huabei.22.t
+	desc = holy_huabei.22.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.22.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#宋哲元的情报
+country_event = {
+	id = holy_huabei.23
+	title = holy_huabei.23.t
+	desc = holy_huabei.23.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huabei.23.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#广州骚乱
+country_event = {
+	id = holy_huanan.1
+	title = holy_huanan.1.t
+	desc = holy_huanan.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = -50
+		add_stability = -0.05
+		add_war_support = -0.05
+		country_event = {
+    id = holy_huanan.2
+	days = 2
+}
+592 = {
+		set_demilitarized_zone = yes
+		}
+	1163 = {
+		set_demilitarized_zone = yes
+		}
+	729 = {
+		set_demilitarized_zone = yes
+		}
+	}
+}
+#南宁之战
+country_event = {
+	id = holy_huanan.2
+	title = holy_huanan.2.t
+	desc = holy_huanan.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -0.1
+		594 = {
+		set_demilitarized_zone = yes
+		}
+		1256 = {
+		set_demilitarized_zone = yes
+		}
+		1257 = {
+		set_demilitarized_zone = yes
+		}
+		1258 = {
+		set_demilitarized_zone = yes
+		}
+		country_event = {
+    id = holy_huanan.3
+	days = 5
+}
+	}
+}
+#海南生变
+country_event = {
+	id = holy_huanan.3
+	title = holy_huanan.3.t
+	desc = holy_huanan.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -0.05
+		add_war_support = -0.05
+		591 = {
+		set_demilitarized_zone = yes
+		}
+		1263 = {
+		set_demilitarized_zone = yes
+		}
+		728 = {
+		set_demilitarized_zone = yes
+		}
+		country_event = {
+    id = holy_huanan.4
+	days = 10
+}
+	}
+}
+#联合战争
+country_event = {
+	id = holy_huanan.4
+	title = holy_huanan.4.t
+	desc = holy_huanan.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	QYZ = {
+		transfer_state = 591
+		load_oob = QYZ_1936
+		add_ideas = QYZ_nanhai_liuguang
+		add_ideas = QYZ_yiwusuoyou
+		add_ideas = QYZ_buqubunao
+		declare_war_on = {
+    target = GUI
+    type = annex_everything
+}
+		}
+	OGU = {
+		transfer_state = 594
+		transfer_state = 1256
+		transfer_state = 1257
+		transfer_state = 1258
+		load_oob = OGU_1936
+		declare_war_on = {
+    target = GUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = QYZ
+    type = annex_everything
+}
+add_ideas = OGU_our_army
+add_ideas = OGU_guangxi_tixi
+		}
+	YUE = {
+	create_faction = liansheng_tongmeng
+	load_oob = YUE_guangzhou
+	add_to_faction = OGU
+	declare_war_on = {
+    target = GUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = QYZ
+    type = annex_everything
+}
+transfer_state = 592
+transfer_state = 1163
+transfer_state = 729
+complete_national_focus = YUE_lianhe_zhimeng
+add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.05
+}
+	}
+	}
+	option = {
+		name = holy_huanan.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+	option = {
+		name = holy_huanan.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+		OGU = { change_tag_from = GUI }
+	}
+	option = {
+		name = holy_huanan.4.c
+		ai_chance = {
+		    factor = 10
+	    }
+		QYZ = { change_tag_from = GUI }
+	}
+}
+#井冈山上
+country_event = {
+	id = holy_huanan.5
+	title = holy_huanan.5.t
+	desc = holy_huanan.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_war_support = 0.05
+	}
+}
+#长江会议
+country_event = {
+	id = holy_huanan.6
+	title = holy_huanan.6.t
+	desc = holy_huanan.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		news_event = {
+				id = holy_news.37 days = 1
+			}
+		CCP = {
+		country_event = {
+    id = holy_huanan.7
+    days = 3
+}
+add_state_claim = 1123
+		add_state_claim = 1122
+		add_state_claim = 1076
+		add_state_claim = 586
+		add_state_claim = 1337
+		add_state_claim = 1336
+		add_state_claim = 1335
+		add_state_claim = 537
+		add_state_claim = 654
+		add_state_claim = 1855
+		add_state_claim = 1273
+		add_state_claim = 1280
+		add_state_claim = 1486
+		add_state_claim = 1487
+		add_state_claim = 524
+		remove_state_claim = 323
+		remove_state_claim = 1396
+every_state = {
+					limit = {
+					OR = {
+						region = 255
+						region = 148
+						region = 242
+						region = 244
+						region = 186
+						region = 155
+						region = 165
+						region = 152
+						region = 266
+						region = 143
+						region = 247
+						region = 245
+						region = 164
+						region = 246
+						region = 248
+						region = 249
+						region = 250
+						region = 144
+						region = 200
+						region = 146
+						region = 287
+						region = 252
+						}
+					}
+add_claim_by = CCP
+		}
+		}
+		KMT = {
+		add_state_claim = 1123
+		add_state_claim = 1122
+		add_state_claim = 1076
+		add_state_claim = 586
+		add_state_claim = 1337
+		add_state_claim = 1336
+		add_state_claim = 1335
+		add_state_claim = 537
+		add_state_claim = 654
+		add_state_claim = 1855
+		add_state_claim = 1273
+		add_state_claim = 1280
+		add_state_claim = 1486
+		add_state_claim = 1487
+		add_state_claim = 524
+		remove_state_claim = 323
+		remove_state_claim = 1396
+every_state = {
+					limit = {
+					OR = {
+						region = 255
+						region = 148
+						region = 242
+						region = 244
+						region = 186
+						region = 155
+						region = 165
+						region = 152
+						region = 266
+						region = 143
+						region = 247
+						region = 245
+						region = 164
+						region = 246
+						region = 248
+						region = 249
+						region = 250
+						region = 144
+						region = 200
+						region = 146
+						region = 287
+						region = 252
+						}
+					}
+add_claim_by = KMT
+		}
+}
+	}
+}
+#联合的形式
+country_event = {
+	id = holy_huanan.7
+	title = holy_huanan.7.t
+	desc = holy_huanan.7.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.7.a
+		ai_chance = {
+		    factor = 30
+	    }
+		KMT = {
+		country_event = {
+    id = holy_huanan.8
+    days = 2
+}
+		}
+		complete_national_focus = CCP_nongye_shehui_zhuyi
+	}
+	option = {
+		name = holy_huanan.7.b
+		ai_chance = {
+		    factor = 10
+	    }
+		KMT = {
+		country_event = {
+    id = holy_huanan.9
+    days = 2
+}
+		}
+	}
+}
+#互相协助
+country_event = {
+	id = holy_huanan.8
+	title = holy_huanan.8.t
+	desc = holy_huanan.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.8.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_opinion_modifier = { target = CCP modifier = changjiang_huiyi }
+		CCP = { add_opinion_modifier = { target = KMT modifier = changjiang_huiyi } }
+	}
+}
+#联合政府
+country_event = {
+	id = holy_huanan.9
+	title = holy_huanan.9.t
+	desc = holy_huanan.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.9.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_opinion_modifier = { target = CCP modifier = changjiang_huiyi }
+		CCP = { 
+		add_opinion_modifier = { target = KMT modifier = changjiang_huiyi } 
+		complete_national_focus = CCP_lianhe_zhengfu
+		}
+	}
+}
+#来自南京的命令
+country_event = {
+	id = holy_huanan.10
+	title = holy_huanan.10.t
+	desc = holy_huanan.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.10.a
+		ai_chance = {
+		    factor = 20
+	    }
+		country_event = { id = holy_huanan.11 days = 4 }
+	}
+}
+#省宪派的行动
+country_event = {
+	id = holy_huanan.11
+	title = holy_huanan.11.t
+	desc = holy_huanan.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.11.a
+		ai_chance = {
+		    factor = 20
+	    }
+		country_event = { id = holy_huanan.12 days = 2 }
+	}
+}
+#唐生智的准备
+country_event = {
+	id = holy_huanan.12
+	title = holy_huanan.12.t
+	desc = holy_huanan.12.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.12.a
+		ai_chance = {
+		    factor = 20
+	    }
+		country_event = { id = holy_huanan.13 days = 4 }
+	}
+}
+#何健遇刺
+country_event = {
+	id = holy_huanan.13
+	title = holy_huanan.13.t
+	desc = holy_huanan.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.13.a
+		ai_chance = {
+		    factor = 15
+	    }
+		kill_country_leader = yes
+		add_stability = -0.05
+		create_country_leader = {
+	name = "赵恒惕"
+	desc = ""
+	picture = "GFX6"
+	expire = "1965.1.1"
+	ideology = warlord
+	traits = {
+		
+	}
+}
+swap_ideas = {
+add_idea = XIG_zhixi_pai
+remove_idea = XIG_nanjing_pai
+}
+complete_national_focus = XIG_zhaohengxi_vic
+NNJ = {
+end_puppet = XIG
+}
+leave_faction = yes
+	}
+	option = {
+		name = holy_huanan.13.b
+		ai_chance = {
+		    factor = 20
+	    }
+		kill_country_leader = yes
+		add_stability = -0.05
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = conservatism
+}
+swap_ideas = {
+add_idea = XIG_guomin_pai
+remove_idea = XIG_nanjing_pai
+}
+complete_national_focus = XIG_tangshengzhi_vic
+NNJ = {
+end_puppet = XIG
+}
+leave_faction = yes
+	}
+	option = {
+		name = holy_huanan.13.c
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = 0.05
+		complete_national_focus = XIG_hejian_hunan
+	}
+}
+#来自广州的电报
+country_event = {
+	id = holy_huanan.133
+	title = holy_huanan.133.t
+	desc = holy_huanan.133.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.133
+		add_political_power = 50
+	}
+}
+#第三次汕头大会
+country_event = {
+	id = holy_huanan.14
+	title = holy_huanan.14.t
+	desc = holy_huanan.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_huanan.14.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.25
+}
+add_political_power = 100
+add_stability = 0.1
+	}
+}
+#昆明事变
+country_event = {
+	id = holy_xibu.1
+	title = holy_xibu.1.t
+	desc = holy_xibu.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.1.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_political_power = -100
+		add_stability = 0.1
+		add_ideas = QAN_tuoxie
+	}
+	option = {
+		name = holy_xibu.1.b
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = -0.1
+	}
+}
+#贵阳鸿门宴
+country_event = {
+	id = holy_xibu.2
+	title = holy_xibu.2.t
+	desc = holy_xibu.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.2.a
+		trigger = { NOT = { has_idea = QAN_tuoxie } }
+		ai_chance = {
+		    factor = 20
+	    }
+		complete_national_focus = QAN_duiwo_kaiqiang
+		remove_ideas = QAN_fankangzhe
+		kill_country_leader = yes
+		set_politics = {
+	ruling_party = progressism
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.3
+}
+add_stability = -0.1
+	}
+	option = {
+		name = holy_xibu.2.b
+		trigger = { has_idea = QAN_tuoxie }
+		ai_chance = {
+		    factor = 20
+	    }
+		complete_national_focus = QAN_chiwo_yiqiang
+	}
+}
+#战争会议
+country_event = {
+	id = holy_xibu.3
+	title = holy_xibu.3.t
+	desc = holy_xibu.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.3.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = -0.1
+	}
+}
+#唐继尧的没路
+country_event = {
+	id = holy_xibu.4
+	title = holy_xibu.4.t
+	desc = holy_xibu.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.4.a
+		ai_chance = {
+		    factor = 20
+	    }
+		kill_country_leader = yes
+		create_country_leader = {
+	name = "龙云"
+	desc = ""
+	picture = "GFX8"
+	expire = "1965.1.1"
+	ideology = warlord
+	traits = {
+		
+	}
+}
+swap_ideas = {
+			remove_idea = DIA_yunnan_hunluan_4
+			add_idea = DIA_yunnan_hunluan_5
+			}
+		country_event = {
+    id = holy_xibu.5
+    days = 3
+}
+	}
+}
+#朱德的决定
+country_event = {
+	id = holy_xibu.5
+	title = holy_xibu.5.t
+	desc = holy_xibu.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.5.a
+		ai_chance = {
+		    factor = 30
+	    }
+		CCP = {
+		load_oob = CCP_zhude
+		create_corps_commander = {
+	name = "朱德"
+	picture = "GFX9"
+	traits = {  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 5
+	planning_skill = 4
+	logistics_skill = 5
+}
+		}
+	}
+	option = {
+		name = holy_xibu.5.b
+		ai_chance = {
+		    factor = 20
+	    }
+		create_country_leader = {
+	name = "朱德"
+	desc = ""
+	picture = "GFX9"
+	expire = "1965.1.1"
+	ideology = gongnong_xianfeng_zhuyi_ism
+	traits = {
+		
+	}
+	}
+	start_civil_war = {
+    ruling_party = communism
+    ideology = neutrality
+    size = 0
+    capital = 747
+    states = { 
+        747 1273 1280 1276 
+    }
+}
+load_oob = DIA_zhude
+	}
+}
+#重庆城内
+country_event = {
+	id = holy_xibu.6
+	title = holy_xibu.6.t
+	desc = holy_xibu.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.6.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = 0.05
+	}
+}
+#审判马家军
+country_event = {
+	id = holy_xibu.7
+	title = holy_xibu.7.t
+	desc = holy_xibu.7.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.7.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_war_support = 0.1
+		add_manpower = -4
+	}
+}
+#走廊
+country_event = {
+	id = holy_xibu.8
+	title = holy_xibu.8.t
+	desc = holy_xibu.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.8.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_political_power = 50
+	}
+}
+#行宫
+country_event = {
+	id = holy_xibu.9
+	title = holy_xibu.9.t
+	desc = holy_xibu.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.9.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = 0.05
+	}
+}
+#战局
+country_event = {
+	id = holy_xibu.10
+	title = holy_xibu.10.t
+	desc = holy_xibu.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.10.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_war_support = 0.05
+		add_claim_by = 622
+		add_claim_by = 744
+		add_claim_by = 1129
+		add_claim_by = 1093
+		add_claim_by = 1130
+		add_claim_by = 1081
+		add_claim_by = 1137
+	}
+}
+#信
+country_event = {
+	id = holy_xibu.11
+	title = holy_xibu.11.t
+	desc = holy_xibu.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.11.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_political_power = 50
+	}
+}
+#抉择
+country_event = {
+	id = holy_xibu.12
+	title = holy_xibu.12.t
+	desc = holy_xibu.12.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.12.a
+		ai_chance = {
+		    factor = 20
+	    }
+		complete_national_focus = NIN_xuantong_weixin
+	}
+	option = {
+		name = holy_xibu.12.b
+		ai_chance = {
+		    factor = 20
+	    }
+		complete_national_focus = NIN_ruanjin
+	}
+}
+#第二封信
+country_event = {
+	id = holy_xibu.13
+	title = holy_xibu.13.t
+	desc = holy_xibu.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.13.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_political_power = 50
+		add_stability = 0.05
+	}
+}
+#傅作义得到支援
+country_event = {
+	id = holy_xibu.14
+	title = holy_xibu.14.t
+	desc = holy_xibu.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.14.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.15
+}
+	}
+}
+#夺取甘肃
+country_event = {
+	id = holy_xibu.15
+	title = holy_xibu.15.t
+	desc = holy_xibu.15.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.15.a
+		ai_chance = {
+		    factor = 20
+	    }
+		transfer_state = 283
+		transfer_state = 1094
+		transfer_state = 1411
+		transfer_state = 1412
+	}
+}
+#冯玉祥的要求
+country_event = {
+	id = holy_xibu.16
+	title = holy_xibu.16.t
+	desc = holy_xibu.16.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.16.a
+		ai_chance = {
+		    factor = 5
+	    }
+		QIN = {
+		puppet = JIN
+		}
+	}
+	option = {
+		name = holy_xibu.16.b
+		ai_chance = {
+		    factor = 30
+	    }
+		JIN = {
+		declare_war_on = {
+    target = QIN
+    type = annex_everything
+}
+}
+	}
+}
+#哈密的求援
+country_event = {
+	id = holy_fujia.1
+	title = holy_fujia.1.t
+	desc = holy_fujia.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.1.a
+		ai_chance = {
+		    factor = 20
+	    }
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 500
+    target = HAM
+}
+	}
+	option = {
+		name = holy_fujia.1.b
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#绥靖城
+country_event = {
+	id = holy_fujia.2
+	title = holy_fujia.2.t
+	desc = holy_fujia.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.2.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_war_support = 0.05
+	}
+}
+#准噶尔
+country_event = {
+	id = holy_fujia.3
+	title = holy_fujia.3.t
+	desc = holy_fujia.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.3.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_stability = 0.05
+		country_event = {
+    id = holy_fujia.4
+	days = 3
+}
+	}
+}
+#盛世才的要求
+country_event = {
+	id = holy_fujia.4
+	title = holy_fujia.4.t
+	desc = holy_fujia.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.4.a
+		ai_chance = {
+		    factor = 20
+	    }
+		country_event = {
+    id = holy_fujia.5
+	days = 3
+}
+	}
+}
+#会面
+country_event = {
+	id = holy_fujia.5
+	title = holy_fujia.5.t
+	desc = holy_fujia.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		complete_national_focus = XIJ_wanjiu_weiju
+add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = conservatism
+}
+remove_ideas = XIJ_zhengzhi_douzheng
+	}
+	option = {
+		name = holy_fujia.5.b
+		ai_chance = {
+		    factor = 20
+	    }
+		country_event = {
+    id = holy_fujia.6
+	days = 1
+}
+	}
+}
+#对枪
+country_event = {
+	id = holy_fujia.6
+	title = holy_fujia.6.t
+	desc = holy_fujia.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.6.a
+		ai_chance = {
+		    factor = 20
+	    }
+		kill_country_leader = yes
+		complete_national_focus = XIJ_wanjiu_weiju
+add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = conservatism
+}
+remove_ideas = XIN_zhengzhi_douzheng
+	}
+	option = {
+		name = holy_fujia.6.b
+		ai_chance = {
+		    factor = 20
+	    }
+		complete_national_focus = XIJ_liren_shisha
+		remove_ideas = XIN_zhengzhi_douzheng
+	}
+	option = {
+		name = holy_fujia.6.c
+		ai_chance = {
+		    factor = 5
+	    }
+		kill_country_leader = yes
+		add_stability = -1
+		add_war_support = -1
+		ETK = {
+		transfer_state = 586 
+		}
+	}
+}
+#傅作义夺权
+country_event = {
+	id = holy_fujia.7
+	title = holy_fujia.7.t
+	desc = holy_fujia.7.d
+	picture = 
+	fire_only_once = yes
+	trigger = {
+	tag = SUY
+	date > 1936.1.1
+	conservatism > 0.45
+	}
+	option = {
+		name = holy_fujia.7.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = conservatism
+}
+	}
+}
+#忽里台大会
+country_event = {
+	id = holy_fujia.8
+	title = holy_fujia.8.t
+	desc = holy_fujia.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.8.a
+		ai_chance = {
+		    factor = 20
+	    }
+		MOG = {
+		annex_country = {
+    target = CHR
+    transfer_troops = yes
+}
+annex_country = {
+    target = SUY
+    transfer_troops = yes
+}
+annex_country = {
+    target = BKD
+    transfer_troops = yes
+}
+add_state_core = 330
+add_state_core = 329
+add_state_core = 612
+add_state_core = 611
+add_state_core = 621
+add_state_core = 746
+add_state_core = 654
+add_state_core = 1098
+add_state_core = 1104
+add_state_core = 1105
+add_state_core = 820
+add_state_core = 818
+			add_state_core = 1228
+			add_state_core = 1339
+			add_state_core = 1340
+			add_state_core = 819
+			add_state_core = 817
+			add_state_core = 1111
+			add_state_core = 1488
+create_faction = MOG_empire
+add_ideas = MOG_shangdi_zhibian
+add_ideas = MOG_zhengzhi_tonghe
+add_ideas = MOG_jingji_hunluan
+	}
+		MOG = { change_tag_from = ROOT }
+		news_event = {
+				id = holy_news.32 days = 1
+			}
+	}
+}
+#云王之死
+country_event = {
+	id = holy_fujia.9
+	title = holy_fujia.9.t
+	desc = holy_fujia.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.9.a
+		ai_chance = {
+		    factor = 20
+	    }
+		kill_country_leader = yes
+		complete_national_focus = CHR_yunwang_zhisi
+	}
+}
+#北方骑兵
+country_event = {
+	id = holy_fujia.10
+	title = holy_fujia.10.t
+	desc = holy_fujia.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.10.a
+		ai_chance = {
+		    factor = 20
+	    }
+		612 = {
+		set_demilitarized_zone = yes
+		}
+		1488 = {
+		set_demilitarized_zone = yes
+		}
+		add_stability = -0.05
+	}
+}
+#同盟军组建
+country_event = {
+	id = holy_fujia.11
+	title = holy_fujia.11.t
+	desc = holy_fujia.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.11.a
+		ai_chance = {
+		    factor = 20
+	    }
+		1104 = {
+		set_demilitarized_zone = yes
+		}
+		1105 = {
+		set_demilitarized_zone = yes
+		}
+		add_stability = -0.05
+	}
+}
+#张家口会战
+country_event = {
+	id = holy_fujia.12
+	title = holy_fujia.12.t
+	desc = holy_fujia.12.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	    612 = {
+		set_demilitarized_zone = no
+		}
+		1104 = {
+		set_demilitarized_zone = no
+		}
+		1105 = {
+		set_demilitarized_zone = no
+		}
+		1488 = {
+		set_demilitarized_zone = no
+		}
+	}
+	option = {
+		name = holy_fujia.12.a
+		ai_chance = {
+		    factor = 20
+	    }
+		retire_country_leader = yes
+		create_country_leader = {
+	name = "察哈尔联盟"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = youmu_system
+	traits = {
+		
+	}
+}
+complete_national_focus = CHR_lianmeng_vic
+	}
+	option = {
+		name = holy_fujia.12.b
+		ai_chance = {
+		    factor = 25
+	    }
+		retire_country_leader = yes
+		create_country_leader = {
+	name = "方振武"
+	desc = ""
+	picture = "GFX10"
+	expire = "1965.1.1"
+	ideology = jijin_gonghe_zhuyi
+	traits = {
+		
+	}
+}
+complete_national_focus = CHR_tongmeng_vic
+	}
+}
+#台湾支援
+country_event = {
+	id = holy_fujia.14
+	title = holy_fujia.14.t
+	desc = holy_fujia.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.14.a
+		ai_chance = {
+		    factor = 20
+	    }
+		TWA = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = CGH
+}
+	}
+	}
+}
+#和谈的可能
+country_event = {
+	id = holy_fujia.16
+	title = holy_fujia.16.t
+	desc = holy_fujia.16.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.16.a
+		ai_chance = {
+		    factor = 5
+	    }
+		NKO = {
+		annex_country = {
+    target = BKO
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_fujia.16.b
+		ai_chance = {
+		    factor = 10
+	    }
+		NKO = {
+		declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+		}
+	}
+}
+#呼伦贝尔之战
+country_event = {
+	id = holy_fujia.17
+	title = holy_fujia.17.t
+	desc = holy_fujia.17.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_fujia.17.a
+		ai_chance = {
+		    factor = 20
+	    }
+		transfer_state = 761
+		transfer_state = 1107
+	}
+}
+#宁夏的威胁
+country_event = {
+	id = holy_xibu.18
+	title = holy_xibu.18.t
+	desc = holy_xibu.18.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_xibu.18.a
+		ai_chance = {
+		    factor = 20
+	    }
+		NIN = {
+		puppet = ROOT
+		}
+	}
+	option = {
+		name = holy_xibu.18.b
+		ai_chance = {
+		    factor = 5
+	    }
+		NIN = {
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = ROOT
+}
+}
+	}
+}
+#东北易帜
+country_event = {
+	id = holy_tanpan.1
+	title = holy_tanpan.1.t
+	desc = holy_tanpan.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.1.a
+		ai_chance = {
+		    factor = 20
+	    }
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = FEN
+		}
+		leave_faction = yes
+		KMT = { puppet = PREV }
+		}
+		}
+		KMT = {
+		annex_country = {
+    target = FEN
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.1.b
+		ai_chance = {
+		    factor = 0
+	    }
+		KMT = {
+		country_event = {
+    id = holy_tanpan.3
+	days = 2
+}
+	}
+	}
+}
+#东北易帜
+country_event = {
+	id = holy_tanpan.2
+	title = holy_tanpan.2.t
+	desc = holy_tanpan.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.2.a
+		ai_chance = {
+		    factor = 20
+	    }
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = FEN
+		}
+		leave_faction = yes
+		NNJ = { puppet = PREV }
+		}
+		}
+		NNJ = {
+		annex_country = {
+    target = FEN
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.2.b
+		ai_chance = {
+		    factor = 0
+	    }
+		NNJ = {
+		country_event = {
+    id = holy_tanpan.3
+	days = 2
+}
+	}
+	}
+}
+#谈判破裂
+country_event = {
+	id = holy_tanpan.3
+	title = holy_tanpan.3.t
+	desc = holy_tanpan.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.3.a
+		ai_chance = {
+		    factor = 20
+	    }
+		declare_war_on = {
+    target = FEN
+    type = annex_everything
+}
+	}
+}
+#联省谈判
+country_event = {
+	id = holy_tanpan.4
+	title = holy_tanpan.4.t
+	desc = holy_tanpan.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = FEN
+		}
+		leave_faction = yes
+		YUE = { puppet = PREV }
+		}
+		}
+		YUE = {
+		annex_country = {
+    target = FEN
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#联省谈判
+country_event = {
+	id = holy_tanpan.5
+	title = holy_tanpan.5.t
+	desc = holy_tanpan.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = WAN
+		}
+		leave_faction = yes
+		YUE = { puppet = PREV }
+		}
+		}
+		YUE = {
+		annex_country = {
+    target = WAN
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#联省谈判
+country_event = {
+	id = holy_tanpan.6
+	title = holy_tanpan.6.t
+	desc = holy_tanpan.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		every_country = {
+		if = {
+		limit = {
+		is_puppet_of = ZHI
+		}
+		leave_faction = yes
+		YUE = { puppet = PREV }
+		}
+		}
+		YUE = {
+		annex_country = {
+    target = ZHI
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.6.b
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#宋庆龄的请求
+country_event = {
+	id = holy_tanpan.7
+	title = holy_tanpan.7.t
+	desc = holy_tanpan.7.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_tanpan.10
+	days = 2
+}
+	}
+	option = {
+		name = holy_tanpan.7.b
+		ai_chance = {
+		    factor = 0
+	    }
+		declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+	}
+}
+#蒋介石的谈判
+country_event = {
+	id = holy_tanpan.8
+	title = holy_tanpan.8.t
+	desc = holy_tanpan.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_tanpan.10
+	days = 2
+}
+	}
+	option = {
+		name = holy_tanpan.8.b
+		ai_chance = {
+		    factor = 5
+	    }
+		declare_war_on = {
+    target = NNJ
+    type = annex_everything
+}
+	}
+}
+#国民党的邀请
+country_event = {
+	id = holy_tanpan.9
+	title = holy_tanpan.9.t
+	desc = holy_tanpan.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_tanpan.11
+	days = 3
+}
+	}
+	option = {
+		name = holy_tanpan.9.b
+		ai_chance = {
+		    factor = 0
+	    }
+		declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+	}
+}
+#会谈开始
+country_event = {
+	id = holy_tanpan.10
+	title = holy_tanpan.10.t
+	desc = holy_tanpan.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.10.a
+		trigger = { NNJ = { exists = yes } }
+		ai_chance = {
+		    factor = 10
+	    }
+		NNJ = {
+		puppet = QIN
+		}
+		every_country = {
+		limit = {
+		is_in_faction_with = QIN
+		}
+	    NNJ = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+	}
+	option = {
+		name = holy_tanpan.10.b
+		trigger = { NNJ = { exists = yes } }
+		ai_chance = {
+		    factor = 10
+	    }
+		NNJ = {
+		annex_country = {
+    target = QIN
+    transfer_troops = yes
+}
+		}
+		every_country = {
+		limit = {
+		is_in_faction_with = QIN
+		}
+	    NNJ = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+	}
+	option = {
+		name = holy_tanpan.10.c
+		trigger = { NNJ = { exists = yes } }
+		ai_chance = {
+		    factor = 5
+	    }
+declare_war_on = {
+    target = NNJ
+    type = annex_everything
+}
+	}
+	option = {
+		name = holy_tanpan.10.e
+		trigger = { KMT = { exists = yes } }
+		ai_chance = {
+		    factor = 10
+	    }
+		declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+	}
+	option = {
+		name = holy_tanpan.10.f
+		trigger = { KMT = { exists = yes } }
+		ai_chance = {
+		    factor = 10
+	    }
+		every_country = {
+		limit = {
+		is_in_faction_with = QIN
+		}
+	    KMT = {
+		puppet = PREV
+		}
+		}
+		KMT = {
+		annex_country = {
+    target = QIN
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.10.g
+		trigger = { KMT = { exists = yes } }
+		ai_chance = {
+		    factor = 10
+	    }
+		KMT = {
+		puppet = QIN
+		}
+		every_country = {
+		limit = {
+		is_in_faction_with = QIN
+		}
+	    KMT = {
+		puppet = PREV
+		}
+		}
+	}
+}
+#武汉会议
+country_event = {
+	id = holy_tanpan.11
+	title = holy_tanpan.11.t
+	desc = holy_tanpan.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.11.a
+		ai_chance = {
+		    factor = 2
+	    }
+		KMT = {
+		annex_country = {
+    target = CCP
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_tanpan.11.b
+		ai_chance = {
+		    factor = 10
+	    }
+		declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+	}
+}
+#向北方靠拢
+country_event = {
+	id = holy_tanpan.13
+	title = holy_tanpan.13.t
+	desc = holy_tanpan.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_tanpan.13.a
+		trigger = { WAN = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 10
+	    }
+		WAN = {
+		puppet = ROOT
+		}
+	}
+	option = {
+		name = holy_tanpan.13.b
+		trigger = { ZHI = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 10
+	    }
+		ZHI = {
+		puppet = ROOT
+		}
+	}
+	option = {
+		name = holy_tanpan.13.c
+		trigger = { FEN = is_faction_leader = yes }
+		ai_chance = {
+		    factor = 10
+	    }
+		FEN = {
+		puppet = ROOT
+		}
+	}
+	option = {
+		name = holy_tanpan.13.e
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#丧失仙台控制
+country_event = {
+	id = holy_riben.1
+	title = holy_riben.1.t
+	desc = holy_riben.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		533 = {
+		set_demilitarized_zone = yes
+		}
+		1480 = {
+		set_demilitarized_zone = yes
+		}
+		1481 = {
+		set_demilitarized_zone = yes
+		}
+		1482 = {
+		set_demilitarized_zone = yes
+		}
+		1479 = {
+		set_demilitarized_zone = yes
+		}
+		EDO = {
+		add_state_core = 533
+		add_state_core = 1480
+		add_state_core = 1481
+		add_state_core = 1482
+		add_state_core = 1479
+		}
+	}
+}
+#江户城反抗
+country_event = {
+	id = holy_riben.2
+	title = holy_riben.2.t
+	desc = holy_riben.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		532 = {
+		set_demilitarized_zone = yes
+		}
+		282 = {
+		set_demilitarized_zone = yes
+		}
+		1471 = {
+		set_demilitarized_zone = yes
+		}
+		1473 = {
+		set_demilitarized_zone = yes
+		}
+		1472 = {
+		set_demilitarized_zone = yes
+		}
+		1475 = {
+		set_demilitarized_zone = yes
+		}
+		1476 = {
+		set_demilitarized_zone = yes
+		}
+		1477 = {
+		set_demilitarized_zone = yes
+		}
+		EDO = {
+		add_state_core = 532
+		add_state_core = 282
+		add_state_core = 1471
+		add_state_core = 1473
+		add_state_core = 1472
+		add_state_core = 1475
+		add_state_core = 1476
+		add_state_core = 1477
+		}
+	}
+}
+#广岛局势逆转
+country_event = {
+	id = holy_riben.3
+	title = holy_riben.3.t
+	desc = holy_riben.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		529 = {
+		set_demilitarized_zone = yes
+		}
+		1465 = {
+		set_demilitarized_zone = yes
+		}
+		1464 = {
+		set_demilitarized_zone = yes
+		}
+		1463 = {
+		set_demilitarized_zone = yes
+		}
+		1466 = {
+		set_demilitarized_zone = yes
+		}
+		CEU = {
+		add_state_core = 529
+		add_state_core = 1465
+		add_state_core = 1464
+		add_state_core = 1463
+		add_state_core = 1466
+		}
+	}
+}
+#硫磺岛危机
+country_event = {
+	id = holy_riben.4
+	title = holy_riben.4.t
+	desc = holy_riben.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		645 = {
+		set_demilitarized_zone = yes
+		}
+		SAO = {
+		add_state_core = 645
+		}
+	}
+}
+#北部政治斗争
+country_event = {
+	id = holy_riben.5
+	title = holy_riben.5.t
+	desc = holy_riben.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		534 = {
+		set_demilitarized_zone = yes
+		}
+		535 = {
+		set_demilitarized_zone = yes
+		}
+		1474 = {
+		set_demilitarized_zone = yes
+		}
+		1478 = {
+		set_demilitarized_zone = yes
+		}
+		1469 = {
+		set_demilitarized_zone = yes
+		}
+		SHN = {
+		add_state_core = 534
+		add_state_core = 535
+		add_state_core = 1474
+		add_state_core = 1478
+		add_state_core = 1469
+		}
+	}
+}
+#西部行政崩盘
+country_event = {
+	id = holy_riben.6
+	title = holy_riben.6.t
+	desc = holy_riben.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		530 = {
+		set_demilitarized_zone = yes
+		}
+		528 = {
+		set_demilitarized_zone = yes
+		}
+		1462 = {
+		set_demilitarized_zone = yes
+		}
+		1461 = {
+		set_demilitarized_zone = yes
+		}
+		1456 = {
+		set_demilitarized_zone = yes
+		}
+		1458 = {
+		set_demilitarized_zone = yes
+		}
+		1459 = {
+		set_demilitarized_zone = yes
+		}
+		1457 = {
+		set_demilitarized_zone = yes
+		}
+		1455 = {
+		set_demilitarized_zone = yes
+		}
+		1454 = {
+		set_demilitarized_zone = yes
+		}
+		SAO = {
+		add_state_core = 528
+		add_state_core = 1462
+		add_state_core = 1461
+		add_state_core = 1456
+		add_state_core = 1458
+		add_state_core = 1459
+		add_state_core = 1457
+		add_state_core = 1455
+		add_state_core = 1454
+		}
+		CEU = {
+		add_state_core = 530
+		}
+	}
+}
+#京都枪响
+country_event = {
+	id = holy_riben.7
+	title = holy_riben.7.t
+	desc = holy_riben.7.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	DYD = {
+		transfer_state = 531
+		transfer_state = 1468
+		transfer_state = 1467
+		transfer_state = 1470
+		every_state = {
+				limit = {
+					region = 154
+			}
+add_claim_by = DYD
+}
+		load_oob = DYD_1936
+		}
+	add_stability = -1
+	}
+	option = {
+		name = holy_riben.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+	option = {
+		name = holy_riben.7.b
+		ai_chance = {
+		    factor = 0
+	    }
+		DYD = { change_tag_from = ROOT }
+	}
+}
+#北海道——琉球独立宣言
+country_event = {
+	id = holy_riben.8
+	title = holy_riben.8.t
+	desc = holy_riben.8.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		end_puppet = AIU
+		end_puppet = LIU
+		LIU = {
+		country_event = {
+    id = holy_liuqiu.1
+    days = 8
+}
+}
+	}
+}
+#萨摩三藩独立
+country_event = {
+	id = holy_riben.9
+	title = holy_riben.9.t
+	desc = holy_riben.9.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	SAO = {
+		transfer_state = 1462
+		transfer_state = 1461
+		transfer_state = 1456
+		transfer_state = 1458
+		transfer_state = 1459
+		transfer_state = 1457
+		transfer_state = 1455
+		transfer_state = 1454
+		transfer_state = 528
+		transfer_state = 645
+		every_state = {
+				limit = {
+					region = 154
+			}
+add_core_of = SAO
+}
+		load_oob = SAO_1936
+		load_oob = SAO_naval_1936
+		declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = CEU
+    type = annex_everything
+}
+declare_war_on = {
+    target = EDO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHN
+    type = annex_everything
+}
+528 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+530 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+		}
+	}
+	option = {
+		name = holy_riben.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+		SAO = { change_tag_from = ROOT }
+	}
+	option = {
+		name = holy_riben.9.b
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#长洲————上杉联盟
+country_event = {
+	id = holy_riben.10
+	title = holy_riben.10.t
+	desc = holy_riben.10.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	SHN = {
+		transfer_state = 535
+		transfer_state = 534
+		transfer_state = 1474
+		transfer_state = 1478
+		transfer_state = 1469
+		load_oob = SHN_1936
+		load_oob = SHN_naval_1936
+		declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAO
+    type = annex_everything
+}
+		}
+	CEU = {
+		transfer_state = 529
+		transfer_state = 530
+		transfer_state = 1465
+		transfer_state = 1464
+		transfer_state = 1463
+		transfer_state = 1466
+		every_state = {
+				limit = {
+					region = 154
+			}
+add_core_of = CEU
+}
+		load_oob = CEU_1936
+		load_oob = CEU_naval_1936
+		puppet = SHN
+		declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAO
+    type = annex_everything
+}
+		}
+	}
+	option = {
+		name = holy_riben.10.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+	option = {
+		name = holy_riben.10.b
+		ai_chance = {
+		    factor = 0
+	    }
+		CEU = { change_tag_from = ROOT }
+	}
+	option = {
+		name = holy_riben.10.c
+		ai_chance = {
+		    factor = 0
+	    }
+		SHN = { change_tag_from = ROOT }
+	}
+}
+#德川独立
+country_event = {
+	id = holy_riben.11
+	title = holy_riben.11.t
+	desc = holy_riben.11.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+	EDO = { 
+		transfer_state = 282
+		transfer_state = 533
+		transfer_state = 1480
+		transfer_state = 1481
+		transfer_state = 1482
+		transfer_state = 1479
+		transfer_state = 532
+		transfer_state = 1471
+		transfer_state = 1473
+		transfer_state = 1472
+		transfer_state = 1475
+		transfer_state = 1476
+		transfer_state = 1477
+		every_state = {
+				limit = {
+					region = 154
+			}
+add_core_of = EDO
+}
+		load_oob = EDO_1936
+		load_oob = EDO_naval_1936
+		declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHN
+    type = annex_everything
+}
+declare_war_on = {
+    target = CEU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAO
+    type = annex_everything
+}
+		}
+		533 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+	}
+	option = {
+		name = holy_riben.11.a
+		news_event = {
+				id = holy_news.116 days = 1
+			}
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+	option = {
+		name = holy_riben.11.b
+		news_event = {
+				id = holy_news.116 days = 1
+			}
+		ai_chance = {
+		    factor = 0
+	    }
+		EDO = { change_tag_from = ROOT }
+	}
+}
+#左翼政变
+country_event = {
+	id = holy_riben.12
+	title = holy_riben.12.t
+	desc = holy_riben.12.d
+	picture = 
+	fire_only_once = yes
+	trigger = {
+	date > 1936.1.1
+	tag = SHN
+	has_war = yes
+	}
+	option = {
+		name = holy_riben.12.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = 0.05
+	}
+	option = {
+		name = holy_riben.12.b
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = communism
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = communism
+}
+add_stability = -0.1
+    CEU = {
+	end_puppet = SHN
+	}
+	load_focus_tree = SHN_com_focus
+	declare_war_on = {
+    target = DYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = CEU
+    type = annex_everything
+}
+declare_war_on = {
+    target = CEU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAO
+    type = annex_everything
+}
+       every_state = {
+				limit = {
+					region = 154
+			}
+add_core_of = SHN
+}
+		add_ideas = SHN_renmin_army
+		add_ideas = SHN_zhengzhi_chongtu
+	}
+}
+#和日本谈判（民主）
+country_event = {
+	id = holy_riben.13
+	title = holy_riben.13.t
+	desc = holy_riben.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.13.a
+		ai_chance = {
+		    factor = 20
+	    }
+		SAO = {
+		annex_country = {
+    target = AIU
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_riben.13.b
+		ai_chance = {
+		    factor = 5
+	    }
+		SAO = {
+		declare_war_on = {
+    target = AIU
+    type = annex_everything
+}
+		}
+	}
+}
+#和日本谈判（民主）
+country_event = {
+	id = holy_riben.14
+	title = holy_riben.14.t
+	desc = holy_riben.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.14.a
+		ai_chance = {
+		    factor = 10
+			modifier = {
+			has_government = democratic
+			factor = 50
+			}
+			modifier = {
+			has_government = dictatorship
+			factor = 0
+			}
+	    }
+		SAO = {
+		puppet = LIU
+		}
+	}
+	option = {
+		name = holy_riben.14.b
+		ai_chance = {
+		    factor = 10
+	    }
+		SAO = {
+		declare_war_on = {
+    target = LIU
+    type = annex_everything
+}
+		}
+	}
+}
+#日本的邀请
+country_event = {
+	id = holy_riben.15
+	title = holy_riben.15.t
+	desc = holy_riben.15.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.15.a
+		ai_chance = {
+		    factor = 10
+			modifier = {
+			has_government = democratic
+			factor = 50
+			}
+			modifier = {
+			has_government = dictatorship
+			factor = 0
+			}
+			modifier = {
+			has_government = socialism
+			factor = 0
+			}
+	    }
+		SAO = {
+		puppet = ROOT
+		}
+	}
+	option = {
+		name = holy_riben.15.b
+		ai_chance = {
+		    factor = 10
+	    }
+		SAO = {
+		declare_war_on = {
+    target = ROOT
+    type = annex_everything
+}
+		}
+	}
+}
+#日本的邀请
+country_event = {
+	id = holy_riben.16
+	title = holy_riben.16.t
+	desc = holy_riben.16.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.16.a
+		trigger = { 
+		is_in_faction = no 
+		is_puppet = no
+		}
+		ai_chance = {
+		    factor = 20
+			modifier = {
+			OR = {
+			has_government = democratic
+			has_government = conservatism
+			has_government = progressism
+			has_government = reconcilism
+			factor = 50
+			}
+			}
+			modifier = {
+			OR = {
+			has_government = dictatorship
+			has_government = neutrality
+			has_government = destruction_system
+			has_government = fascism
+			has_government = communism
+			has_government = socialism
+			}
+			factor = 0
+			}
+	    }
+		SAO = {
+		add_to_faction = ROOT
+		}
+	}
+	option = {
+		name = holy_riben.16.b
+		trigger = { 
+		NOT = { has_idea = WEN_maoyi_kongzhi_3 } 
+		OR = {
+		has_idea = WEN_maoyi_kongzhi
+		has_idea = WEN_maoyi_kongzhi_2
+		}
+		}
+		ai_chance = {
+		    factor = 20
+	    }
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi_2
+		}
+		swap_ideas = {
+		remove_idea = WEN_maoyi_kongzhi_2
+		add_idea = WEN_maoyi_kongzhi
+		}
+		}
+		if = {
+		limit = {
+		has_idea = WEN_maoyi_kongzhi
+		}
+		swap_ideas = {
+		remove_idea = WEN_maoyi_kongzhi
+		add_idea = SAO_maoyi_kongzhi
+		}
+		}
+	}
+	option = {
+		name = holy_riben.16.c
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#和日本谈判（幕府）
+country_event = {
+	id = holy_riben.17
+	title = holy_riben.17.t
+	desc = holy_riben.17.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.17.a
+		ai_chance = {
+		    factor = 5
+	    }
+		SAO = {
+		annex_country = {
+    target = AIU
+    transfer_troops = yes
+}
+		}
+	}
+	option = {
+		name = holy_riben.17.b
+		ai_chance = {
+		    factor = 5
+	    }
+		SAO = {
+		declare_war_on = {
+    target = AIU
+    type = annex_everything
+}
+		}
+	}
+}
+#和日本谈判（民主）
+country_event = {
+	id = holy_riben.18
+	title = holy_riben.18.t
+	desc = holy_riben.18.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_riben.18.a
+		ai_chance = {
+		    factor = 1
+			modifier = {
+			has_government = socialism
+			factor = 1000
+			}
+	    }
+		SHN = {
+		puppet = LIU
+		}
+	}
+	option = {
+		name = holy_riben.18.b
+		ai_chance = {
+		    factor = 100
+			modifier = {
+			has_government = socialism
+			factor = 0
+			}
+	    }
+		SHN = {
+		declare_war_on = {
+    target = LIU
+    type = annex_everything
+}
+		}
+	}
+}
+#美拉尼西亚的未来
+country_event = {
+	id = holy_dongnanya.1
+	title = holy_dongnanya.1.t
+	desc = holy_dongnanya.1.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.1.a
+		ai_chance = {
+		    factor = 12
+	    }
+		complete_national_focus = MNY_lianbang_yanxu 
+	}
+	option = {
+		name = holy_dongnanya.1.b
+		ai_chance = {
+		    factor = 12
+	    }
+		complete_national_focus = MNY_qiye_weiyuanhui 
+	}
+	option = {
+		name = holy_dongnanya.1.c
+		ai_chance = {
+		    factor = 12
+	    }
+		complete_national_focus = MNY_jidu_fuyin 
+	}
+}
+#巴布亚的基督徒
+country_event = {
+	id = holy_dongnanya.2
+	title = holy_dongnanya.2.t
+	desc = holy_dongnanya.2.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.2.a
+		ai_chance = {
+		    factor = 12
+	    }
+		UKM = { add_to_faction = MNY }
+	}
+	option = {
+		name = holy_dongnanya.2.b
+		ai_chance = {
+		    factor = 0
+	    }
+	}
+}
+#美拉尼西亚崩溃
+country_event = {
+	id = holy_dongnanya.3
+	title = holy_dongnanya.3.t
+	desc = holy_dongnanya.3.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.3.a
+		ai_chance = {
+		    factor = 12
+	    }
+	}
+	option = {
+		name = holy_dongnanya.3.b
+		trigger = { NOT = { MNY = { is_in_faction_with = UKM } } }
+		ai_chance = {
+		    factor = 12
+	    }
+		declare_war_on = {
+    target = WEN
+    type = annex_everything
+}
+	}
+}
+#印度支那的求援
+country_event = {
+	id = holy_dongnanya.4
+	title = holy_dongnanya.4.t
+	desc = holy_dongnanya.4.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.4.a
+		ai_chance = {
+		    factor = 1
+	    }
+	}
+	option = {
+		name = holy_dongnanya.4.b
+		trigger = { NOT = { has_government = communism } }
+		ai_chance = {
+		    factor = 100
+	    }
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = IDC
+}
+	}
+}
+#恶魔的交易
+country_event = {
+	id = holy_dongnanya.5
+	title = holy_dongnanya.5.t
+	desc = holy_dongnanya.5.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.5.a
+		ai_chance = {
+		    factor = 20
+	    }
+	}
+	option = {
+		name = holy_dongnanya.5.b
+		ai_chance = {
+		    factor = 2
+	    }
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = SIA
+}
+add_ideas = SIA_jieshou_xianluo_zhiyuan
+	}
+}
+#马来亚独立
+country_event = {
+	id = holy_dongnanya.6
+	title = holy_dongnanya.6.t
+	desc = holy_dongnanya.6.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.6.a
+		ai_chance = {
+		    factor = 20
+	    }
+	}
+	option = {
+		name = holy_dongnanya.6.b
+		ai_chance = {
+		    factor = 0
+	    }
+		declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+	}
+}
+#文莱的进军
+country_event = {
+	id = holy_dongnanya.13
+	title = holy_dongnanya.13.t
+	desc = holy_dongnanya.13.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.13.a
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 20
+			modifier = {
+			OR = {
+			has_government = socialism
+			has_government = communism
+			}
+			factor = 0
+			}
+	    }
+		WEN = { add_to_faction = MAL }
+	}
+	option = {
+		name = holy_dongnanya.13.b
+		trigger = { is_puppet = yes is_in_faction_with = UKM }
+		ai_chance = {
+		    factor = 20
+	    }
+		WEN = {
+		declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_dongnanya.13.c
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			OR = {
+			has_government = socialism
+			has_government = communism
+			}
+			factor = 100
+			}
+	    }
+		WEN = {
+		declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+	}
+	}
+}
+#文莱的进军
+country_event = {
+	id = holy_dongnanya.14
+	title = holy_dongnanya.14.t
+	desc = holy_dongnanya.14.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.14.a
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 20
+			modifier = {
+			OR = {
+			has_government = fascism 
+			has_government = dictatorship
+			}
+			factor = 0
+			}
+	    }
+		WEN = { add_to_faction = SIA }
+	}
+	option = {
+		name = holy_dongnanya.14.b
+		trigger = { is_puppet = yes is_in_faction_with = UKM }
+		ai_chance = {
+		    factor = 20
+	    }
+		WEN = {
+		declare_war_on = {
+    target = SIA
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_dongnanya.14.c
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			OR = {
+			has_government = fascism 
+			has_government = dictatorship
+			}
+			factor = 100
+			}
+	    }
+		WEN = {
+		declare_war_on = {
+    target = SIA
+    type = annex_everything
+}
+	}
+	}
+}
+#文莱的进军
+country_event = {
+	id = holy_dongnanya.15
+	title = holy_dongnanya.15.t
+	desc = holy_dongnanya.15.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.15.a
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 20
+			modifier = {
+			OR = {
+			has_government = neutrality 
+			has_government = communism
+			has_government = dictatorship
+			}
+			factor = 0
+			}
+	    }
+		WEN = { add_to_faction = BRM }
+	}
+	option = {
+		name = holy_dongnanya.15.b
+		trigger = { is_puppet = yes is_in_faction_with = UKM }
+		ai_chance = {
+		    factor = 20
+	    }
+		WEN = {
+		declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+	}
+	}
+	option = {
+		name = holy_dongnanya.15.c
+		trigger = { is_puppet = no }
+		ai_chance = {
+		    factor = 0
+			modifier = {
+			OR = {
+			has_government = neutrality 
+			has_government = communism
+			has_government = dictatorship
+			}
+			factor = 100
+			}
+	    }
+		WEN = {
+		declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+	}
+	}
+}
+#文莱推翻了我们的政府
+country_event = {
+	id = holy_dongnanya.16
+	title = holy_dongnanya.16.t
+	desc = holy_dongnanya.16.d
+	picture = 
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_dongnanya.16.a
+		ai_chance = {
+		    factor = 20
+	    }
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.5
+}
+set_politics = {
+	ruling_party = democratic
+}
+	}
+}
+#首都问题
+country_event = {
+	id = holy_beiyang.1
+	title = holy_beiyang.1.t
+	desc = holy_beiyang.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = ZHI
+	tag = WAN
+	tag = FEN
+	}
+	focus_progress = {
+    focus = CNA_new_minguo_huiyi
+    progress > 0.2
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_beiyang.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 1522 }
+	}
+	option = {
+		name = holy_beiyang.1.b
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 1155 }
+	}
+	option = {
+		name = holy_beiyang.1.c
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 608 }
+	}
+}
+#中华重建
+country_event = {
+	id = holy_beiyang.2
+	title = holy_beiyang.2.t
+	desc = holy_beiyang.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = ZHI
+	tag = WAN
+	tag = FEN
+	}
+	focus_progress = {
+    focus = CNA_new_minguo_huiyi
+    progress > 0.4
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_beiyang.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_ideas = CHA_zhonghua_chongjian
+	}
+}
+#外交问题
+country_event = {
+	id = holy_beiyang.3
+	title = holy_beiyang.3.t
+	desc = holy_beiyang.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = ZHI
+	tag = WAN
+	tag = FEN
+	}
+	focus_progress = {
+    focus = CNA_new_minguo_huiyi
+    progress > 0.6
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_beiyang.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_ideas = CHA_guli
+	}
+	option = {
+		name = holy_beiyang.3.b
+		ai_chance = {
+		    factor = 10
+	    }
+		add_ideas = CHA_kuozhang
+	}
+}
+#政府重建问题
+country_event = {
+	id = holy_beiyang.4
+	title = holy_beiyang.4.t
+	desc = holy_beiyang.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = ZHI
+	tag = WAN
+	tag = FEN
+	}
+	focus_progress = {
+    focus = CNA_new_minguo_huiyi
+    progress > 0.6
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_beiyang.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = CNA_zongtong_zhuanzhi
+		add_ideas = CNA_zhengzhihunluan
+	}
+	option = {
+		name = holy_beiyang.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = CNA_wanshan_neige_quanli
+		add_ideas = CNA_zhengzhihunluan
+	}
+}
+#中华民国联合会（周作人）
+country_event = {
+	id = holy_beiyang.5
+	title = holy_beiyang.5.t
+	desc = holy_beiyang.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiyang.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 100
+	}
+}
+#中华实业派（张孝若）
+country_event = {
+	id = holy_beiyang.6
+	title = holy_beiyang.6.t
+	desc = holy_beiyang.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiyang.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 20
+	}
+}
+#新稻园派（孙洪伊）
+country_event = {
+	id = holy_beiyang.7
+	title = holy_beiyang.7.t
+	desc = holy_beiyang.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiyang.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 50
+	}
+}
+#教育进步派（汤化龙）
+country_event = {
+	id = holy_beiyang.8
+	title = holy_beiyang.8.t
+	desc = holy_beiyang.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiyang.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 30
+	}
+}
+#重启政治选举
+country_event = {
+	id = holy_beiyang.9
+	title = holy_beiyang.9.t
+	desc = holy_beiyang.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_beiyang.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+		set_politics = {
+	ruling_party = democratic
+}
+retire_country_leader = yes
+create_country_leader = {
+	name = "胡适"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = ziyou_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_beiyang.9.b
+		ai_chance = {
+		    factor = 10
+	    }
+				set_politics = {
+	ruling_party = conservatism
+}
+retire_country_leader = yes
+		create_country_leader = {
+	name = "顾维钧"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = ziyou_baoshou_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_beiyang.9.c
+		ai_chance = {
+		    factor = 10
+	    }
+				set_politics = {
+	ruling_party = democratic
+}
+retire_country_leader = yes
+		create_country_leader = {
+	name = "蒋百里"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = baoshou_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_beiyang.9.e
+		ai_chance = {
+		    factor = 10
+	    }
+				set_politics = {
+	ruling_party = progressism
+}
+retire_country_leader = yes
+		create_country_leader = {
+	name = "蒋梦麟"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = shehui_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+	}
+}
+#新民国的首都
+country_event = {
+	id = holy_minguo.1
+	title = holy_minguo.1.t
+	desc = holy_minguo.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = KMT
+	tag = NNJ
+	}
+	focus_progress = {
+    focus = MIN_chongshe_minguo_xianfa
+    progress > 0.2
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_minguo.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 1132 }
+	}
+	option = {
+		name = holy_minguo.1.b
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 1155 }
+	}
+	option = {
+		name = holy_minguo.1.c
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 608 }
+	}
+	option = {
+		name = holy_minguo.1.e
+		ai_chance = {
+		    factor = 10
+	    }
+		set_capital = { state = 1163 }
+	}
+}
+#确立外交政策
+country_event = {
+	id = holy_minguo.2
+	title = holy_minguo.2.t
+	desc = holy_minguo.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = KMT
+	tag = NNJ
+	}
+	focus_progress = {
+    focus = MIN_chongshe_minguo_xianfa
+    progress > 0.4
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_minguo.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = MIN_dongfang_guangrong_guli
+	}
+	option = {
+		name = holy_minguo.2.b
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#北伐问题的结论
+country_event = {
+	id = holy_minguo.3
+	title = holy_minguo.3.t
+	desc = holy_minguo.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = KMT
+	tag = NNJ
+	}
+	focus_progress = {
+    focus = MIN_chongshe_minguo_xianfa
+    progress > 0.6
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_minguo.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+	}
+	option = {
+		name = holy_minguo.3.b
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+	}
+	option = {
+		name = holy_minguo.3.c
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = fascism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = -0.2
+}
+	}
+}
+#对共产党的态度
+country_event = {
+	id = holy_minguo.4
+	title = holy_minguo.4.t
+	desc = holy_minguo.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	OR = {
+	tag = KMT
+	tag = NNJ
+	}
+	focus_progress = {
+    focus = MIN_chongshe_minguo_xianfa
+    progress > 0.8
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_minguo.4.a
+		ai_chance = {
+		    factor = 5
+			modifier = {
+				has_government = neutrality
+				factor = 1000
+			}
+	    }
+		add_popularity = {
+    ideology = socialism
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = communism
+    popularity = -0.1
+}
+	}
+	option = {
+		name = holy_minguo.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.1
+}
+	}
+	option = {
+		name = holy_minguo.4.c
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#全国代表大会
+country_event = {
+	id = holy_minguo.5
+	title = holy_minguo.5.t
+	desc = holy_minguo.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_minguo.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = 0.05
+		add_political_power = 100
+	}
+}
+#中华民国大选
+country_event = {
+	id = holy_minguo.6
+	title = holy_minguo.6.t
+	desc = holy_minguo.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_minguo.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		set_politics = {
+	ruling_party = conservatism
+}
+		create_country_leader = {
+	name = "孙科"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = ziyou_baoshou_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_minguo.6.b
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		set_politics = {
+	ruling_party = progressism
+}
+		create_country_leader = {
+	name = "李济深"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = jijin_gonghe_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_minguo.6.c
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		set_politics = {
+	ruling_party = conservatism
+}
+		create_country_leader = {
+	name = "蒋经国"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = baoshou_minzhu_zhuyi
+	traits = {
+		
+	}
+}
+	}
+	option = {
+		name = holy_minguo.6.e
+		ai_chance = {
+		    factor = 10
+	    }
+		retire_country_leader = yes
+		set_politics = {
+	ruling_party = progressism
+}
+		create_country_leader = {
+	name = "周恩来"
+	desc = ""
+	picture = ".dds"
+	expire = "1965.1.1"
+	ideology = fanzuoyilianmeng_system
+	traits = {
+		
+	}
+}
+	}
+}
+#交出印度支那？
+country_event = {
+	id = holy_minguo.7
+	title = holy_minguo.7.t
+	desc = holy_minguo.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_minguo.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+		THIS = {
+		puppet = IDC
+		puppet = NVI
+		}
+	}
+	option = {
+		name = holy_minguo.7.b
+		ai_chance = {
+		    factor = 10
+	    }
+		THIS = {
+		declare_war_on = {
+    target = IDC
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVI
+    type = annex_everything
+}
+		}
+	}
+}
+#交出马来亚？
+country_event = {
+	id = holy_minguo.8
+	title = holy_minguo.8.t
+	desc = holy_minguo.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_minguo.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+		THIS = {
+		puppet = MAL
+		}
+	}
+	option = {
+		name = holy_minguo.8.b
+		ai_chance = {
+		    factor = 10
+	    }
+		THIS = {
+		declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+		}
+	}
+}
+#我们的独立
+country_event = {
+	id = holy_liuqiu.1
+	title = holy_liuqiu.1.t
+	desc = holy_liuqiu.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_liuqiu.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		load_oob = LIU_naval_1936
+		complete_national_focus = LIU_zujian_liuqiu_zhengfu
+		country_event = {
+    id = holy_liuqiu.2
+    days = 3
+}
+retire_country_leader = yes
+	}
+}
+#消失不见的日本驻军
+country_event = {
+	id = holy_liuqiu.2
+	title = holy_liuqiu.2.t
+	desc = holy_liuqiu.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_liuqiu.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -0.05
+	}
+}
+#琉球大选
+country_event = {
+	id = holy_liuqiu.3
+	title = holy_liuqiu.3.t
+	desc = holy_liuqiu.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    trigger = {
+	focus_progress = {
+    focus = LIU_diyici_liuqiuyihui_daxuan
+    progress > 0.2
+}
+	}
+	option = {
+		name = holy_liuqiu.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#突然的危机
+country_event = {
+	id = holy_liuqiu.4
+	title = holy_liuqiu.4.t
+	desc = holy_liuqiu.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    trigger = {
+	focus_progress = {
+    focus = LIU_diyici_liuqiuyihui_daxuan
+    progress > 0.5
+}
+	}
+	option = {
+		name = holy_liuqiu.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.5
+}
+set_politics = {
+	ruling_party = fascism
+}
+complete_national_focus = LIU_niudaoman_zhengfu
+	}
+	option = {
+		name = holy_liuqiu.4.b
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = -0.05
+		country_event = { id = holy_liuqiu.5 days = 8 }
+	}
+}
+#大选的结果
+country_event = {
+	id = holy_liuqiu.5
+	title = holy_liuqiu.5.t
+	desc = holy_liuqiu.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_liuqiu.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = LIU_qijianmingsheng_zhengfu
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = democratic
+}
+swap_ideas = {
+		add_idea = LIU_democratic_zhengfu
+		remove_idea = LIU_hunluan_zhengfu_2
+		}
+	}
+	option = {
+		name = holy_liuqiu.5.b
+		ai_chance = {
+		    factor = 10
+	    }
+		complete_national_focus = LIU_donghai_xinghuo
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = socialism
+}
+		remove_ideas = LIU_hunluan_zhengfu_2
+	}
+}
+#七月事件
+country_event = {
+	id = holy_liuqiu.6
+	title = holy_liuqiu.6.t
+	desc = holy_liuqiu.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_liuqiu.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_political_power = 100
+		add_stability = -0.05
+	}
+}
+#琉球大屠杀
+country_event = {
+	id = holy_liuqiu.7
+	title = holy_liuqiu.7.t
+	desc = holy_liuqiu.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_liuqiu.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_manpower = -20000
+	}
+}
+#开国大典
+country_event = {
+	id = holy_newchina.1
+	title = holy_newchina.1.t
+	desc = holy_newchina.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.1.a
+		ai_chance = {
+		    factor = 10
+	    }
+		add_stability = 0.05
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 10
+    tooltip = CCP_gemingreqing_1_tt
+}
+set_country_flag = CCP_new_country
+	}
+}
+#地区革命政权！
+country_event = {
+	id = holy_newchina.2
+	title = holy_newchina.2.t
+	desc = holy_newchina.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.2.a
+		ai_chance = {
+		    factor = 10
+	    }
+		CCP = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 2
+    tooltip = CCP_gemingreqing_3_tt
+}
+add_to_variable = {
+    var = CCP.duoquandiqu
+    value = 1
+    tooltip = CCP_duoquandiqu_1_tt
+}
+}
+if = {
+limit = {
+has_state_flag = CCP_dianfu_diqu
+}
+clr_state_flag = CCP_dianfu_diqu
+}
+if = {
+limit = {
+has_state_flag = CCP_chengshidiqu
+}
+CCP = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = 5
+    tooltip = CCP_gemingreqing_1_tt
+}
+}
+}
+set_state_flag = CCP_duoquan_diqu
+	}
+}
+#地区已被颠覆
+country_event = {
+	id = holy_newchina.3
+	title = holy_newchina.3.t
+	desc = holy_newchina.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.3.a
+		ai_chance = {
+		    factor = 10
+	    }
+		CCP = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = -2
+    tooltip = CCP_gemingreqing_4_tt
+}
+add_to_variable = {
+    var = CCP.dianfudiqu
+    value = 1
+    tooltip = CCP_dianfudiqu_1_tt
+}
+}
+if = {
+limit = {
+has_state_flag = CCP_duoquan_diqu
+}
+clr_state_flag = CCP_duoquan_diqu
+}
+if = {
+limit = {
+has_state_flag = CCP_chengshidiqu
+}
+CCP = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = -5
+    tooltip = CCP_gemingreqing_7_tt
+}
+}
+}
+set_state_flag = CCP_dianfu_diqu
+	}
+}
+#地区进入军事管制
+country_event = {
+	id = holy_newchina.4
+	title = holy_newchina.4.t
+	desc = holy_newchina.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.4.a
+		ai_chance = {
+		    factor = 10
+	    }
+		CCP = {
+		add_to_variable = {
+    var = CCP.gemingreqing
+    value = -1
+    tooltip = CCP_gemingreqing_5_tt
+}
+add_to_variable = {
+    var = CCP.junduizhichi
+    value = 1
+    tooltip = CCP_junduizhichi_1_tt
+}
+add_to_variable = {
+    var = CCP.junguandiqu
+    value = 1
+    tooltip = CCP_junguandiqu_1_tt
+}
+}
+set_state_flag = CCP_junguandiqu
+	}
+}
+#胜利的第一步
+country_event = {
+	id = holy_newchina.5
+	title = holy_newchina.5.t
+	desc = holy_newchina.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.5.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#百花齐放
+country_event = {
+	id = holy_newchina.6
+	title = holy_newchina.6.t
+	desc = holy_newchina.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.6.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#文化大革命开始
+country_event = {
+	id = holy_newchina.7
+	title = holy_newchina.7.t
+	desc = holy_newchina.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.7.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#文化大革命胜利
+country_event = {
+	id = holy_newchina.8
+	title = holy_newchina.8.t
+	desc = holy_newchina.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.8.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#文化大革命失败
+country_event = {
+	id = holy_newchina.9
+	title = holy_newchina.9.t
+	desc = holy_newchina.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.9.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#新中国计划经济
+country_event = {
+	id = holy_newchina.10
+	title = holy_newchina.10.t
+	desc = holy_newchina.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.10.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#东亚联盟成立
+country_event = {
+	id = holy_newchina.11
+	title = holy_newchina.11.t
+	desc = holy_newchina.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.11.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#上海解放(1)
+country_event = {
+	id = holy_newchina.12
+	title = holy_newchina.12.t
+	desc = holy_newchina.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    trigger = {
+	tag = CCP
+	controls_state = 613
+	}
+	option = {
+		name = holy_newchina.12.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_newchina.13
+    days = 1
+}
+	}
+}
+#上海解放(2)
+country_event = {
+	id = holy_newchina.13
+	title = holy_newchina.13.t
+    desc = holy_newchina.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.13.a
+		ai_chance = {
+		    factor = 10
+	    }
+		country_event = {
+    id = holy_newchina.15
+    days = 1
+}
+	}
+}
+#北京解放
+country_event = {
+	id = holy_newchina.14
+	title = holy_newchina.14.t
+	desc = holy_newchina.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    trigger = {
+	tag = CCP
+	controls_state = 608
+	}
+	option = {
+		name = holy_newchina.14.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}
+#纪律
+country_event = {
+	id = holy_newchina.15
+	title = holy_newchina.15.t
+    desc = holy_newchina.15.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+    is_triggered_only = yes
+	option = {
+		name = holy_newchina.15.a
+		ai_chance = {
+		    factor = 10
+	    }
+	}
+}

@@ -1,0 +1,232 @@
+focus_tree = {
+	id = NWA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NWA
+		}
+	}
+	
+	default = no
+ 
+	#新皖系
+	focus = {
+		id = NWA_xinwanxi
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 15
+		y = 1
+		cost = 5
+		available = {
+		always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+		limit = {
+		is_core_of = JAN
+		}
+		add_core_of = NWA
+		}
+	}
+	#征集保安团
+	focus = {
+		id = NWA_zhengji_baoantuan
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = NWA_xinwanxi}
+		relative_position_id = NWA_xinwanxi
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = NWA_baoantuan
+		}
+	}
+	#追随北京
+	focus = {
+		id = NWA_zhuisui_beijing
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = NWA_zhengji_baoantuan}
+		relative_position_id = NWA_zhengji_baoantuan
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#动员皖系军队
+	focus = {
+		id = NWA_dongyuan_weixi_army
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = NWA_zhuisui_beijing}
+		relative_position_id = NWA_zhuisui_beijing
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = NWA_dongyuan_army
+		}
+	}
+	#摧毁反叛者
+	focus = {
+		id = NWA_cuihui_fanpanzhe
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = NWA_zhuisui_beijing}
+		relative_position_id = NWA_zhuisui_beijing
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = dictatorship
+    popularity = 0.2
+}
+add_stability = 0.05
+		}
+	}
+	#侵吞江淮武装
+	focus = {
+		id = NWA_qintun_jianghuai_wuzhuang
+		icon = GFX_focus_ETH_peacekeeping_forces
+		prerequisite = { focus = NWA_zhuisui_beijing}
+		relative_position_id = NWA_zhuisui_beijing
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = JAN
+}
+		}
+	}
+	#吸收海军
+	focus = {
+		id = NWA_xishou_naval
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = NWA_dongyuan_weixi_army}
+		prerequisite = { focus = NWA_cuihui_fanpanzhe}
+		prerequisite = { focus = NWA_qintun_jianghuai_wuzhuang}
+		relative_position_id = NWA_cuihui_fanpanzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_convoys = 50
+		}
+	}
+	#整合军事工业
+	focus = {
+		id = NWA_zhenghe_junshi_gongye
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = NWA_xishou_naval}
+		relative_position_id = NWA_xishou_naval
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#下放地方权力
+	focus = {
+		id = NWA_xifang_quanli
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = NWA_dongyuan_weixi_army}
+		prerequisite = { focus = NWA_cuihui_fanpanzhe}
+		prerequisite = { focus = NWA_qintun_jianghuai_wuzhuang}
+		relative_position_id = NWA_cuihui_fanpanzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = NWA_xifang_quanli
+		}
+	}
+	#整合部队铁路
+	focus = {
+		id = NWA_zhenghe_budui_tielu
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = NWA_xifang_quanli}
+		relative_position_id = NWA_xifang_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			606 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1047 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#效忠北京
+	focus = {
+		id = NWA_xiaozhong_beijing
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = NWA_zhenghe_budui_tielu}
+		prerequisite = { focus = NWA_zhenghe_junshi_gongye}
+		relative_position_id = NWA_zhenghe_budui_tielu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		JAN = {
+		exists = no
+		}
+		HHA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		WAN = {
+		puppet = NWA
+		}
+		}
+	}
+}

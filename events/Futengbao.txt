@@ -1,0 +1,211 @@
+add_namespace = holy_futengbao
+#选边站
+country_event = {
+	id = holy_futengbao.1
+	title = holy_futengbao.1.t
+	desc = holy_futengbao.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.1.a
+		ai_chance = {
+		    factor = 20
+		}
+		add_opinion_modifier = { target = PLS modifier = PLS_zhichizhe}
+		add_ideas = PLS_supporter
+		PLS = { complete_national_focus = PLS_futengbao_xingui }
+		PLS = { add_ideas = FTB_zhichi }
+		complete_national_focus = FTB_pulushi_zhichizhe
+	}
+	option = {
+		name = holy_futengbao.1.b
+		ai_chance = {
+		    factor = 40
+		}
+		add_opinion_modifier = { target = AUS modifier = AUS_zhichizhe}
+		add_ideas = AUS_supporter
+		AUS = { complete_national_focus = AUS_futengbao_zhongshi }
+		AUS = { add_ideas = FTB_zhichi }
+		PLS = { end_puppet = FTB }
+		complete_national_focus = FTB_aodili_zhichizhe
+    }
+	option = {
+	    name = holy_futengbao.1.c
+		ai_chance = {
+		    factor = 5
+		}
+		complete_national_focus = FTB_futengbao_wansui
+	}
+}
+#初次接触
+country_event = {
+	id = holy_futengbao.2
+	title = holy_futengbao.2.t
+	desc = holy_futengbao.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.2.a
+	}
+}
+#军备援助
+country_event = {
+	id = holy_futengbao.3
+	title = holy_futengbao.3.t
+	desc = holy_futengbao.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.3.a
+		    add_offsite_building = { type = arms_factory level = 4 }
+		    swap_ideas = {
+				remove_idea = PLS_supporter
+				add_idea = PLS_supporter 2
+	    }
+    }
+}
+#奥地利的保护
+country_event = {
+	id = holy_futengbao.4
+	title = holy_futengbao.4.t
+	desc = holy_futengbao.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.4.a
+		add_offsite_building = { type = arms_factory level = 3 }
+	}
+}
+#安全保障
+country_event = {
+	id = holy_futengbao.5
+	title = holy_futengbao.5.t
+	desc = holy_futengbao.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.5.a
+		    swap_ideas = {
+				remove_idea = AUS_supporter
+				add_idea = AUS_supporter 2
+	    }
+    }
+}
+#巴伐利亚要求合并
+country_event = {
+	id = holy_futengbao.6
+	title = holy_futengbao.6.t
+	desc = holy_futengbao.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_futengbao.6.a
+		ai_chance = {
+		    factor = 20
+		}
+		BAF = { annex_country = { target = FTB transfer_troops = yes } }
+		add_state_core = 50
+		add_state_core = 944
+		add_state_core = 946
+		}
+	option = {
+		name = holy_futengbao.6.b
+		ai_chance = {
+		    factor = 0
+		}
+		AUS = { end_puppet = FTB }
+		PLS = { end_puppet = FTB } 
+		leave_faction = yes
+	BAF = {
+	    declare_war_on = {
+        target = FTB
+        type = annex_everything
+            }
+	    }
+		add_state_core = 50
+		add_state_core = 944
+		add_state_core = 946
+    }
+}
+#经济复苏
+country_event = {
+	id = holy_futengbao.7
+	title = holy_futengbao.7.t
+	desc = holy_futengbao.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FTB
+		complete_national_focus = FTB_gongyekaifa
+		complete_national_focus = FTB_jixiehua_kiafa
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_futengbao.7.a
+		    swap_ideas = {
+				remove_idea = FTB_jingjixiaotiao
+				add_idea = FTB_jingjifusu
+	    }
+    }
+}
+#走出困境
+country_event = {
+	id = holy_futengbao.8
+	title = holy_futengbao.8.t
+	desc = holy_futengbao.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FTB
+		has_completed_focus = FTB_wenhuaniudai
+		has_completed_focus = FTB_hangyun_shiye
+		has_completed_focus = FTB_tielu_changtong
+		has_completed_focus = FTB_meitixuanchuan
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_futengbao.8.a
+				remove_ideas = FTB_jingjifusu
+    }
+}
+#法兰西帝国的威胁
+country_event = {
+	id = holy_futengbao.9
+	title = holy_futengbao.9.t
+	desc = holy_futengbao.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_futengbao.9.a
+		    ai_chance = {
+		    factor = 10
+		}
+		FRA = { puppet = FTB }
+    }
+	option = {
+		name = holy_futengbao.9.b
+		    ai_chance = {
+		    factor = 10
+		}
+		FRA = {
+		declare_war_on = {
+    target = FTB
+    type = annex_everything
+}
+		}
+    }
+}

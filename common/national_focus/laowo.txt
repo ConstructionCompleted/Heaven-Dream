@@ -1,0 +1,481 @@
+focus_tree = {
+	id = LAO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = LAO
+		}
+	}
+	
+	default = no
+ 
+    #老挝革命
+	focus = {
+		id = LAO_laowo_geming
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#整合武装
+	focus = {
+		id = LAO_zhenghe_wuzhaung
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = LAO_laowo_geming}
+		relative_position_id = LAO_laowo_geming
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			670 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#组建反抗军
+	focus = {
+		id = LAO_zujian_fankangjun
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = LAO_laowo_geming}
+		relative_position_id = LAO_laowo_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = LAO_fankangjun
+		}
+	}
+	#寻求东部支援
+	focus = {
+		id = LAO_xunqiu_dongbu_zhiyuan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = LAO_laowo_geming}
+		relative_position_id = LAO_laowo_geming
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		VIN = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = VIN
+}
+		}
+	}
+	#反法战争
+	focus = {
+		id = LAO_fanfa_war
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = LAO_zhenghe_wuzhaung}
+		prerequisite = { focus = LAO_zujian_fankangjun}
+		relative_position_id = LAO_zujian_fankangjun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAO_fanfa_zhanzheng
+		}
+	}
+	#接受暹罗支援
+	focus = {
+		id = LAO_jieshou_xianluo
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = LAO_xunqiu_dongbu_zhiyuan}
+		prerequisite = { focus = LAO_zujian_fankangjun}
+		relative_position_id = LAO_zujian_fankangjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		SIA = {
+		has_government = fascism 
+		}
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = SIA
+}
+		}
+	}
+	#完成革命
+	focus = {
+		id = LAO_wancheng_geming
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = LAO_fanfa_war}
+		prerequisite = { focus = LAO_jieshou_xianluo}
+		relative_position_id = LAO_fanfa_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		IDC = {
+		OR = {
+		has_capitulated = yes
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			transfer_state = 1199
+			transfer_state = 1190
+			transfer_state = 1196
+			transfer_state = 1185
+			white_peace = IDC
+		}
+	}
+	#革命梦想
+	focus = {
+		id = LAO_geming_mengxiang
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = LAO_wancheng_geming}
+		relative_position_id = LAO_wancheng_geming
+		mutually_exclusive = { focus = LAO_yinghui_guowang }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = SIA_jieshou_xianluo_zhiyuan
+		}
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = communism
+}
+		}
+	}
+	#对抗山区
+	focus = {
+		id = LAO_duikang_shanqu
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = LAO_geming_mengxiang}
+		relative_position_id = LAO_geming_mengxiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1190 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1199 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#工业建设
+	focus = {
+		id = LAO_gongye_jianshe
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = LAO_duikang_shanqu}
+		relative_position_id = LAO_duikang_shanqu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			670 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+			1185 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#促进人口发展
+	focus = {
+		id = LAO_cujin_renkou_fazhan
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = LAO_gongye_jianshe}
+		relative_position_id = LAO_gongye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			670 = {
+			add_manpower = 300000
+			}
+			1190 = {
+			add_manpower = 250000
+			}
+			1185 = {
+			add_manpower = 250000
+			}
+		}
+	}
+	#政治肃清
+	focus = {
+		id = LAO_zhengzhi_suqing
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = LAO_geming_mengxiang}
+		relative_position_id = LAO_geming_mengxiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = -0.2
+}
+		}
+	}
+	#老越联盟
+	focus = {
+		id = LAO_laoyue_lianmeng
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = LAO_zhengzhi_suqing}
+		relative_position_id = LAO_zhengzhi_suqing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			VIN = {
+			give_guarantee = LAO
+			}
+			add_stability = 0.1
+		}
+	}
+	#寻求援助
+	focus = {
+		id = LAO_xunqiu_yuanzhu
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = LAO_laoyue_lianmeng}
+		relative_position_id = LAO_laoyue_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			670 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#迎回国王
+	focus = {
+		id = LAO_yinghui_guowang
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = LAO_wancheng_geming}
+		relative_position_id = LAO_wancheng_geming
+		mutually_exclusive = { focus = LAO_geming_mengxiang }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = SIA_jieshou_xianluo_zhiyuan
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#靠拢暹罗
+	focus = {
+		id = LAO_kaolong_xianluo
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = LAO_yinghui_guowang}
+		relative_position_id = LAO_yinghui_guowang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			SIA = {
+			give_guarantee = LAO
+			}
+			add_stability = 0.1
+		}
+	}
+	#旧日朝贡
+	focus = {
+		id = LAO_jiuri_chaogong
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = LAO_kaolong_xianluo}
+		relative_position_id = LAO_kaolong_xianluo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			SIA = {
+			puppet = LAO
+			}
+		}
+	}
+	#山地军队
+	focus = {
+		id = LAO_shandi_jundui
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = LAO_jiuri_chaogong}
+		relative_position_id = LAO_jiuri_chaogong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAO_shandi_jundui
+		}
+	}
+	#顺应传统
+	focus = {
+		id = LAO_shunying_chuantong
+		icon = GFX_focus_usa_voter_registration_act
+		prerequisite = { focus = LAO_yinghui_guowang}
+		relative_position_id = LAO_yinghui_guowang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = LAO_shunying_chuantong
+		}
+	}
+	#重建政治
+	focus = {
+		id = LAO_chongjian_zhengzhi
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = LAO_shunying_chuantong}
+		relative_position_id = LAO_shunying_chuantong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+		}
+	}
+	#三邦会议
+	focus = {
+		id = LAO_sanbang_huiyi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = LAO_chongjian_zhengzhi}
+		relative_position_id = LAO_chongjian_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = LAO_shunying_chuantong_2
+			remove_idea = LAO_shunying_chuantong
+			}
+		}
+	}
+}

@@ -1,0 +1,440 @@
+focus_tree = {
+	id = MOL_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MOL
+		}
+	}
+	
+	default = no
+
+	#剑拔弩张
+	focus = {
+		id = MOL_jianbanuzhang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 20
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_stability = -0.05
+		}
+	}
+	#革命前进
+	focus = {
+		id = MOL_geming_qianjin
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = MOL_jianbanuzhang}
+		relative_position_id = MOL_jianbanuzhang
+		mutually_exclusive = { focus = MOL_tieweituan_zhengzhi }
+		x = -3
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin
+		remove_idea = MOL_jiduanhua_zhengzhi
+		}
+		set_politics = {
+	ruling_party = communism
+}
+		}
+	}
+	#组建左翼联盟
+	focus = {
+		id = MOL_zujian_zuoyi_lianmeng
+		icon = GFX_focus_spr_unify_the_london_bureau
+		prerequisite = { focus = MOL_geming_qianjin}
+		relative_position_id = MOL_geming_qianjin
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_2
+		remove_idea = MOL_geming_qianjin
+		}
+		}
+	}
+	#渗透城市
+	focus = {
+		id = MOL_shentou_chengshi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = MOL_geming_qianjin}
+		relative_position_id = MOL_geming_qianjin
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MOL_shentou_chengshi
+		}
+	}
+	#土地承诺
+	focus = {
+		id = MOL_tudi_chengnuo
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = MOL_zujian_zuoyi_lianmeng}
+		relative_position_id = MOL_zujian_zuoyi_lianmeng
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = MOL_tudi_chengnuo
+    days = 360
+}
+		}
+	}
+	#动员农民
+	focus = {
+		id = MOL_dongyuan_nongmin
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = MOL_tudi_chengnuo}
+		relative_position_id = MOL_tudi_chengnuo
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = MOL_nongmin
+		}
+	}
+	#联合革命军队
+	focus = {
+		id = MOL_lianhe_geming_army
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = MOL_zujian_zuoyi_lianmeng}
+		prerequisite = { focus = MOL_shentou_chengshi}
+		relative_position_id = MOL_shentou_chengshi
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = MOL_geming_army
+		}
+	}
+	#破坏铁卫团结构
+	focus = {
+		id = MOL_pohuai_tieweituan_jiegou
+		icon = GFX_focus_rom_preserve_romania
+		prerequisite = { focus = MOL_lianhe_geming_army}
+		relative_position_id = MOL_lianhe_geming_army
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_3
+		remove_idea = MOL_geming_qianjin_2
+		}
+		}
+	}
+	#组建地下工会
+	focus = {
+		id = MOL_zujian_dixia_gonghui
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = MOL_shentou_chengshi}
+		relative_position_id = MOL_shentou_chengshi
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = MOL_dixia_gonghui
+		}
+	}
+	#进军媒体
+	focus = {
+		id = MOL_jinjun_meiti
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = MOL_zujian_dixia_gonghui}
+		relative_position_id = MOL_zujian_dixia_gonghui
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+		}
+	}
+	#铁卫团政治
+	focus = {
+		id = MOL_tieweituan_zhengzhi
+		icon = GFX_focus_generic_attack_romania
+		prerequisite = { focus = MOL_jianbanuzhang}
+		relative_position_id = MOL_jianbanuzhang
+		mutually_exclusive = { focus = MOL_geming_qianjin }
+		x = 3
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi
+		remove_idea = MOL_jiduanhua_zhengzhi
+		}
+		set_politics = {
+	ruling_party = fascism
+}
+		}
+	}
+	#掌控军事工业
+	focus = {
+		id = MOL_zhangkong_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MOL_tieweituan_zhengzhi}
+		relative_position_id = MOL_tieweituan_zhengzhi
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#地区政治
+	focus = {
+		id = MOL_diqu_zhengzhi
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = MOL_tieweituan_zhengzhi}
+		relative_position_id = MOL_tieweituan_zhengzhi
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi_2
+		remove_idea = MOL_tieweituan_zhengzhi
+		}
+		}
+	}
+	#团结国防军团
+	focus = {
+		id = MOL_tuanjie_guofang_juntuan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = MOL_zhangkong_junshi_gongye}
+		relative_position_id = MOL_zhangkong_junshi_gongye
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = MOL_guofang_juntuan
+		}
+	}
+	#组建地区民兵
+	focus = {
+		id = MOL_zujian_diqu_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = MOL_tuanjie_guofang_juntuan}
+		relative_position_id = MOL_tuanjie_guofang_juntuan
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = MOL_diqu_minbing
+		}
+	}
+	#摩尔达维亚工业化
+	focus = {
+		id = MOL_moerdaweiya_gongyehua
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = MOL_zhangkong_junshi_gongye}
+		prerequisite = { focus = MOL_diqu_zhengzhi}
+		relative_position_id = MOL_diqu_zhengzhi
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		79 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#建设海港
+	focus = {
+		id = MOL_jianshe_haigang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = MOL_moerdaweiya_gongyehua}
+		relative_position_id = MOL_moerdaweiya_gongyehua
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		766 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#警察卫戍
+	focus = {
+		id = MOL_jingcha_weishu
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = MOL_diqu_zhengzhi}
+		relative_position_id = MOL_diqu_zhengzhi
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = MOL_jingcha_weishu
+    days = 360
+}
+		}
+	}
+	#扫荡共产党
+	focus = {
+		id = MOL_saodang_gcd
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = MOL_jingcha_weishu}
+		relative_position_id = MOL_jingcha_weishu
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi_3
+		remove_idea = MOL_tieweituan_zhengzhi_2
+		}
+		}
+	}
+	#对抗瓦拉几亚
+	focus = {
+		id = MOL_duikang_walajiya
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = MOL_saodang_gcd focus = MOL_jinjun_meiti } 
+		prerequisite = { focus = MOL_jianshe_haigang focus = MOL_pohuai_tieweituan_jiegou } 
+		prerequisite = { focus = MOL_zujian_diqu_minbing focus = MOL_dongyuan_nongmin } 
+		relative_position_id = MOL_jianbanuzhang
+		x = 0
+		y = 5
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_war_with = WAL
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = WAL
+    type = annex_everything
+}
+news_event = {
+				id = holy_news.29 days = 1
+			}
+add_state_claim = 81
+		add_state_claim = 46
+		add_state_claim = 79
+		add_state_claim = 1534
+		add_state_claim = 1535
+		add_state_claim = 1536
+		add_state_claim = 1537
+		}
+	}
+	#成立罗马尼亚
+	focus = {
+		id = MOL_chengli_luomaniya
+		icon = GFX_focus_invite_romania
+		prerequisite = { focus = MOL_duikang_walajiya }
+		relative_position_id = MOL_duikang_walajiya
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 81
+		controls_state = 46
+		controls_state = 79
+		controls_state = 1534
+		controls_state = 1535
+		controls_state = 1536
+		controls_state = 1537
+		}
+		completion_reward = {
+		load_focus_tree = { tree = ROM_focus keep_completed = no }
+		set_cosmetic_tag = ROM
+		    hidden_effect = { ROM = { set_cosmetic_tag = ROM } }
+		news_event = {
+				id = holy_news.53 days = 1
+			}
+		add_state_core = 81
+		add_state_core = 46
+		add_state_core = 79
+		add_state_core = 1534
+		add_state_core = 1535
+		add_state_core = 1536
+		add_state_core = 1537
+		}
+	}
+}

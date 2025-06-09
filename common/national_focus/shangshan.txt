@@ -1,0 +1,212 @@
+focus_tree = {
+	id = SHN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SHN
+		}
+	}
+	
+	default = no
+ 
+    #上杉藩镇
+	focus = {
+		id = SHN_shangshan_fanzhen
+		icon = GFX_focus_generic_monarchy_1
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#武装民兵部队
+	focus = {
+		id = SHN_wuzhuang_minbing_budui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SHN_shangshan_fanzhen}
+		relative_position_id = SHN_shangshan_fanzhen
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SHN_wuzhuang_minbing
+		}
+	}
+	#跨越山脉
+	focus = {
+		id = SHN_kuayue_shanmai
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = SHN_shangshan_fanzhen}
+		relative_position_id = SHN_shangshan_fanzhen
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_kuayue_shanmai
+		}
+	}
+	#军事工业
+	focus = {
+		id = SHN_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SHN_wuzhuang_minbing_budui}
+		prerequisite = { focus = SHN_kuayue_shanmai}
+		relative_position_id = SHN_wuzhuang_minbing_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#战国之魂
+	focus = {
+		id = SHN_zhanguo_zhihun
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SHN_wuzhuang_minbing_budui}
+		prerequisite = { focus = SHN_kuayue_shanmai}
+		relative_position_id = SHN_kuayue_shanmai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_zhanguo_zhihun
+		}
+	}
+	#北部铁路
+	focus = {
+		id = SHN_beibu_tielu
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = SHN_wuzhuang_minbing_budui }
+		prerequisite = { focus = SHN_kuayue_shanmai }
+		relative_position_id = SHN_kuayue_shanmai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		535 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		534 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#武士基层
+	focus = {
+		id = SHN_wushi_jiceng
+		icon = GFX_focus_hol_war_on_pacifism
+		prerequisite = { focus = SHN_zhanguo_zhihun}
+		relative_position_id = SHN_zhanguo_zhihun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_zhanguo_zhihun_2
+			remove_idea = SHN_zhanguo_zhihun
+			}
+		}
+	}
+	#后勤体系
+	focus = {
+		id = SHN_houqin_tixi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = SHN_zhanguo_zhihun}
+		relative_position_id = SHN_zhanguo_zhihun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_houqin_tixi
+			remove_idea = SHN_kuayue_shanmai
+			}
+		}
+	}
+	#完成战争
+	focus = {
+		id = SHN_wancheng_zhanzheng
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = SHN_wushi_jiceng}
+		prerequisite = { focus = SHN_houqin_tixi}
+		relative_position_id = SHN_wushi_jiceng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SAO = {
+		exists = no
+		}
+		EDO = {
+		exists = no
+		}
+		DYD = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#回归日本
+	focus = {
+		id = SHN_huigui_riben
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SHN_wancheng_zhanzheng}
+		relative_position_id = SHN_wancheng_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			CEU = {
+			annex_country = {
+    target = SHN
+    transfer_troops = yes
+}
+			}
+		}
+	}
+}

@@ -1,0 +1,398 @@
+on_actions = {
+on_weekly_CCP = {
+   effect = {
+   if = {
+   limit = {
+   has_country_flag = CCP_erjieduan
+   check_variable = { CCP.juexingdu < 100 }
+   NOT = { has_country_flag = CCP_cr }
+   }
+   add_to_variable = { CCP.gemingreqing = -2 }
+   set_temp_variable = { CCP.zhongzhuan = CCP.juexingdu }
+   multiply_temp_variable = { CCP.zhongzhuan = 0.01 }
+   add_to_variable = { CCP.gemingreqing = CCP.zhongzhuan }
+   clear_variable = CCP.zhongzhuan
+   add_to_variable = { CCP.nongyegaige = 2 }
+   if = {
+   limit = {
+   has_completed_focus = CCP_jianshe_chengqu
+   }
+   add_to_variable = { CCP.nongyegaige = 2 }
+   }
+   if = {
+   limit = {
+   has_completed_focus = CCP_chedi_jitihua
+   }
+   add_to_variable = { CCP.nongyegaige = 2 }
+   }
+   if = {
+   limit = {
+   has_completed_focus = CCP_jiefang_nongmin_shengchanli
+   }
+   add_to_variable = { CCP.nongyegaige = 2 }
+   }
+   if = {
+   limit = {
+   has_completed_focus = CCP_renmin_gongshe_dang
+   }
+   add_to_variable = { CCP.nongyegaige = 2 }
+   }
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing > 299.9 }
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_2
+   remove_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemin_zhongjie
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 300 }
+   check_variable = { CCP.gemingreqing > 224.9 }
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemingreqing_2
+   remove_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemin_zhongjie
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 225 }
+   check_variable = { CCP.gemingreqing > 149.9 }
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_2
+   remove_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemin_zhongjie
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 150 }
+   check_variable = { CCP.gemingreqing > 80.9 }
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_2
+   remove_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemin_zhongjie
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 81 }
+   check_variable = { CCP.gemingreqing > 20.9 }
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_2
+   remove_ideas = CCP_gemin_zhongjie
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 81 }
+   check_variable = { CCP.gemingreqing > 20.9 }
+   has_variable = CCP.gemingreqing
+   NOT = { has_country_flag = CCP_cr }
+   }
+   set_country_flag = CCP_cr
+   add_ideas = CCP_wenhua_dageming
+   mark_focus_tree_layout_dirty = yes
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.gemingreqing < 21 }
+   has_country_flag = CCP_new_country
+   has_variable = CCP.gemingreqing
+   }
+   add_ideas = CCP_gemin_zhongjie
+   remove_ideas = CCP_gemingreqing_1
+   remove_ideas = CCP_gemingreqing_3
+   remove_ideas = CCP_gemingreqing_4
+   remove_ideas = CCP_gemingreqing_5
+   remove_ideas = CCP_gemingreqing_2
+   CCP = {
+   country_event = {
+    id = holy_newchina.9
+    days = 1
+}
+   }
+   }
+   if = {
+   limit = {
+   has_idea = CCP_gemin_zhongjie
+   NOT = { has_country_flag = CCP_geminzhongjie }
+   }
+   load_focus_tree = tongyong_guoce
+   set_country_flag = CCP_geminzhongjie
+   }
+   }
+   }
+on_monthly_CCP = {
+   effect = {
+   if = {
+   limit = {
+   any_state = {
+   is_core_of = CCP
+   has_state_flag = CCP_tudigaige_3
+   }
+   }
+   add_to_variable = { CCP.gemingreqing = 1 }
+   }
+   if = {
+   limit = {
+   num_of_factories > 3000
+   }
+   add_to_variable = { CCP.gemingreqing = 1 }
+   }
+   if = {
+   limit = {
+   check_variable = { CCP.juexingdu < 100 }
+   has_country_flag = CCP_cr
+   }
+   if = {
+   limit = {
+   NOT = {
+   has_variable = CCP.junduizhichi
+   }
+   }
+   set_variable = { CCP.junduizhichi = 150 }
+   set_variable = { CCP.zhongzhaun2 = arms_factory }
+   multiply_temp_variable = { CCP.zhongzhaun2 = 0.01 }
+   add_to_variable = { CCP.junduizhichi = CCP.zhongzhaun2 }
+   }
+   every_country = {
+   limit = {
+   OR = {
+   tag = VIN
+   tag = CAM
+   tag = LAO
+   tag = SIA
+   tag = BRM
+   tag = RAR
+   tag = SHN
+   tag = PHI
+   tag = WEN
+   tag = YAW
+   tag = MAL
+   tag = TEE
+   tag = MNY
+   tag = MDL
+   }
+   OR = {
+   has_government = socialism
+   has_government = communism
+   }
+   }
+   add_to_variable = { CCP.junduizhichi = 5 }
+   }
+   clamp_temp_variable = {
+    var = CCP.juexingdu
+    min = 0
+	max = 150
+}
+set_temp_variable = { CCP.zhongzhuan = CCP.juexingdu }
+   multiply_temp_variable = { CCP.zhongzhuan = 0.1 }
+   add_to_variable = { CCP.gemingreqing = CCP.zhongzhuan }
+   clear_variable = CCP.zhongzhuan
+   set_temp_variable = { CCP.duoquandiqu = 0 }
+   set_temp_variable = { CCP.junguandiqu = 0 }
+   set_temp_variable = { CCP.dianfudiqu = 0 }
+   add_to_variable = { CCP.gemingreqing = -15 }
+   add_to_variable = { CCP.juexingdu = 1 }
+   set_temp_variable = { CCP.zhongzhuan4 = CCP.duoquandiqu }
+   add_to_variable = { CCP.zhongzhuan4 = CCP.duoquandiqu }
+   add_to_variable = { CCP.zhongzhuan4 = -CCP.dianfudiqu }
+   add_to_variable = { CCP.zhongzhuan4 = -CCP.dianfudiqu }
+   add_to_variable = { CCP.zhongzhuan4 = -CCP.junguandiqu }
+   multiply_temp_variable = { CCP.zhongzhuan4 = 0.05 }
+   add_to_variable = { CCP.juexingdu = CCP.zhongzhuan4 }
+   clear_variable = CCP.zhongzhuan4
+   set_temp_variable = { CCP.zhongzhuan = CCP.juexingdu }
+   multiply_temp_variable = { CCP.zhongzhuan = 0.01 }
+   add_to_variable = { CCP.gemingreqing = CCP.zhongzhuan }
+   clear_variable = CCP.zhongzhuan
+   every_owned_controlled_state = {
+   limit = {
+   NOT = {
+   OR = {
+   has_state_flag = CCP_dianfu_diqu
+   has_state_flag = CCP_junguandiqu
+   }
+   }
+   }
+   state_event = {
+   id = holy_newchina.2
+   days = 10
+   random = 4
+   trigger_for = controller
+}
+}
+every_owned_controlled_state = {
+   limit = {
+   NOT = {
+   OR = {
+   has_state_flag = CCP_duoquan_diqu
+   has_state_flag = CCP_junguandiqu
+   }
+   }
+   }
+   state_event = {
+   id = holy_newchina.3
+   days = 10
+   random = 4
+   trigger_for = controller
+}
+}
+every_owned_controlled_state = {
+   limit = {
+   NOT = {
+   OR = {
+   has_state_flag = CCP_dianfu_diqu
+   has_state_flag = CCP_duoquan_diqu
+   }
+   }
+   has_completed_focus = CCP_jundui_zhiyuan
+   }
+   state_event = {
+   id = holy_newchina.4
+   days = 10
+   random = 2
+   trigger_for = controller
+}
+}
+every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_dianfu_diqu
+   }
+   CCP = {
+   add_to_variable = { CCP.gemingreqing = 0.2 }
+   }
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_dianfu_diqu
+   }
+   CCP = {
+   add_to_variable = { CCP.gemingreqing = -0.2 }
+   }
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_junguandiqu
+   }
+   CCP = {
+   add_to_variable = { CCP.junduizhichi = 0.1 }
+   add_to_variable = { CCP.gemingreqing = -0.1 }
+   }
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_dianfu_diqu
+   CCP = {
+   has_country_flag = {
+    flag = CCP_cr
+    days > 540
+}
+   }
+   }
+   state_event = {
+   id = holy_newchina.2
+   days = 10
+   random = 2
+   trigger_for = controller
+}
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_duoquan_diqu
+   NOT = { has_state_flag = CCP_duoquan_diqu_2 }
+   CCP = {
+   has_country_flag = {
+    flag = CCP_cr
+    days > 540
+}
+   }
+   }
+   state_event = {
+   id = holy_newchina.3
+   days = 10
+   random = 2
+   trigger_for = controller
+}
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_dianfu_diqu
+   has_state_flag = CCP_chengshidiqu
+   }
+   CCP = {
+   add_to_variable = { CCP.gemingreqing = 1 }
+   }
+   }
+   every_owned_controlled_state = {
+   limit = {
+   has_state_flag = CCP_dianfu_diqu
+   has_state_flag = CCP_chengshidiqu
+   }
+   CCP = {
+   add_to_variable = { CCP.gemingreqing = -1 }
+   }
+   }
+   every_state = {
+   limit = {
+   OR = {
+   state = 328
+   state = 1552
+   state = 1517
+   state = 408
+   state = 330
+   state = 1330
+   state = 757
+   state = 1082
+   state = 1081
+   state = 1132
+   state = 602
+   state = 1163
+   state = 605
+   state = 1277
+   state = 1285
+   state = 1164
+   state = 1486
+   state = 613
+   state = 1455
+   state = 1116
+   state = 743
+   state = 1110
+   state = 608
+   state = 1170
+   }
+   }
+   set_state_flag = CCP_chengshidiqu
+   }
+   if = {
+   limit = {
+   has_completed_focus = CCP_jieti_guanliao_jigou
+   }
+   add_to_variable = { CCP.gemingreqing = -10 }
+   add_to_variable = { CCP.juexingdu = 2 }
+   add_stability = -0.05
+   }
+   }
+   }
+   }
+}

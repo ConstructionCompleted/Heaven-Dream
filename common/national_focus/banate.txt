@@ -1,0 +1,1228 @@
+focus_tree = {
+	id = BAT_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BAT
+		}
+	}
+	
+	default = no
+ 
+	#巴纳特独立！
+	focus = {
+		id = BAT_banate_duli
+		icon = GFX_focus_generic_conspiracy
+		x = 25
+		y = 1
+		cost = 0.2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#接纳旧王国军队
+	focus = {
+		id = BAT_jiena_jiuwangguo_army
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = BAT_banate_duli}
+		relative_position_id = BAT_banate_duli
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BAT_oldarmy
+		}
+	}
+	#组建议院
+	focus = {
+		id = BAT_zujian_yiyuan
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = BAT_banate_duli}
+		relative_position_id = BAT_banate_duli
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_guojia_zhengzhi
+			remove_idea = BAT_guojia_zainan
+			}
+		}
+	}
+	#动员自卫队
+	focus = {
+		id = BAT_dongyuan_ziweidui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = BAT_banate_duli}
+		relative_position_id = BAT_banate_duli
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BAT_ziweidui
+		}
+	}
+	#开启选举
+	focus = {
+		id = BAT_kaiqi_xuanju
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = BAT_jiena_jiuwangguo_army}
+		prerequisite = { focus = BAT_zujian_yiyuan}
+		prerequisite = { focus = BAT_dongyuan_ziweidui}
+		relative_position_id = BAT_zujian_yiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			country_event = {
+			id = holy_xiongyali.18
+			}
+		}
+	}
+	#社会主义共和国
+	focus = {
+		id = BAT_shehuizhuyi_gongheguo
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = BAT_kaiqi_xuanju}
+		relative_position_id = BAT_kaiqi_xuanju
+		mutually_exclusive = { focus = BAT_shiwaben_lianhe }
+		mutually_exclusive = { focus = BAT_junshihua }
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = socialism
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			
+		}
+	}
+	#整顿工业发展
+	focus = {
+		id = BAT_zhengdungongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = BAT_shehuizhuyi_gongheguo}
+		relative_position_id = BAT_shehuizhuyi_gongheguo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#国际主义之花
+	focus = {
+		id = BAT_guojizhuyi_zhihua
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = BAT_zhengdungongye}
+		relative_position_id = BAT_zhengdungongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+		id = holy_xiongyali.19
+		days = 3
+		}
+		}
+	}
+	#接纳工人代表
+	focus = {
+		id = BAT_jiena_gongren_daibiao
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = BAT_shehuizhuyi_gongheguo}
+		relative_position_id = BAT_shehuizhuyi_gongheguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_geming_zhengzhi
+			remove_idea = BAT_guojia_zhengzhi
+			}
+		}
+	}
+	#政治去武装
+	focus = {
+		id = BAT_zhengzhi_quwuzhuang
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = BAT_jiena_gongren_daibiao}
+		relative_position_id = BAT_jiena_gongren_daibiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_geming_zhengzhi_2
+			remove_idea = BAT_geming_zhengzhi
+			}
+		}
+	}
+	#塑造国家认同
+	focus = {
+		id = BAT_suzao_guojia_rentong
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = BAT_shehuizhuyi_gongheguo}
+		relative_position_id = BAT_shehuizhuyi_gongheguo
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_minzu_gelie_2
+			remove_idea = BAT_minzu_gelie
+			}
+		}
+	}
+	#重启多边谈判
+	focus = {
+		id = BAT_chongqi_duobian_tanpan
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = BAT_suzao_guojia_rentong}
+		relative_position_id = BAT_suzao_guojia_rentong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = BAT_minzu_gelie_2
+		}
+	}
+	#奥兰的和平
+	focus = {
+		id = BAT_aolan_heping
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = BAT_guojizhuyi_zhihua}
+		prerequisite = { focus = BAT_zhengzhi_quwuzhuang}
+		prerequisite = { focus = BAT_chongqi_duobian_tanpan}
+		relative_position_id = BAT_zhengzhi_quwuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_geming_zhengzhi_3
+			remove_idea = BAT_geming_zhengzhi_2
+			}
+		}
+	}
+	#多元主义法律
+	focus = {
+		id = BAT_duoyuanzhuyi_falv
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = BAT_aolan_heping}
+		relative_position_id = BAT_aolan_heping
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_geming_zhengzhi_4
+			remove_idea = BAT_geming_zhengzhi_3
+			}
+			add_political_power = 100
+		}
+	}
+	#福利政策
+	focus = {
+		id = BAT_fuli_zhengce
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = BAT_aolan_heping}
+		relative_position_id = BAT_aolan_heping
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_fuli_zhengce
+		}
+	}
+	#军事化！
+	focus = {
+		id = BAT_junshihua
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = BAT_kaiqi_xuanju}
+		relative_position_id = BAT_kaiqi_xuanju
+		mutually_exclusive = { focus = BAT_shiwaben_lianhe }
+		mutually_exclusive = { focus = BAT_shehuizhuyi_gongheguo }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = dictatorship
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			
+		}
+	}
+	#联合巴纳特行动
+	focus = {
+		id = BAT_lianhe_banate_xingdong
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = BAT_junshihua}
+		relative_position_id = BAT_junshihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_junzhengfu
+			remove_idea = BAT_guojia_zhengzhi
+			}
+		}
+	}
+	#整编私人武装
+	focus = {
+		id = BAT_zhengbian_siren_wuzhuang
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = BAT_lianhe_banate_xingdong}
+		relative_position_id = BAT_lianhe_banate_xingdong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BAT_siren_wuzhuang
+			swap_ideas = {
+			add_idea = BAT_junzhengfu_2
+			remove_idea = BAT_junzhengfu
+			}
+		}
+	}
+	#改组警卫部队
+	focus = {
+		id = BAT_gaizu_jingweibudui
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = BAT_junshihua}
+		relative_position_id = BAT_junshihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_zhenya_gelie
+			remove_idea = BAT_minzu_gelie
+			}
+		}
+	}
+	#斩断分离主义
+	focus = {
+		id = BAT_zhanduan_fenli_zhuyi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = BAT_gaizu_jingweibudui}
+		relative_position_id = BAT_gaizu_jingweibudui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_zhenya_gelie_2
+			remove_idea = BAT_zhenya_gelie
+			}
+		}
+	}
+	#反对任何反对
+	focus = {
+		id = BAT_fandui_renhe_fandui
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = BAT_zhanduan_fenli_zhuyi}
+		prerequisite = { focus = BAT_zhengbian_siren_wuzhuang}
+		relative_position_id = BAT_zhanduan_fenli_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = BAT_zhenya_gelie_2
+			swap_ideas = {
+			add_idea = BAT_junzhengfu_3
+			remove_idea = BAT_junzhengfu_2
+			}
+		}
+	}
+	#军事化经济
+	focus = {
+		id = BAT_junshihua_jingji
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BAT_fandui_renhe_fandui}
+		relative_position_id = BAT_fandui_renhe_fandui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_junshihua_jingji
+		}
+	}
+	#扩编国防部队
+	focus = {
+		id = BAT_kuobian_guofangbudui
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = BAT_fandui_renhe_fandui}
+		relative_position_id = BAT_fandui_renhe_fandui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BAT_guofang_budui
+		}
+	}
+	#要塞化巴纳特
+	focus = {
+		id = BAT_yaosaihua_banate
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = BAT_fandui_renhe_fandui}
+		relative_position_id = BAT_fandui_renhe_fandui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_yaosaihua_banate
+		}
+	}
+	#施瓦本联合
+	focus = {
+		id = BAT_shiwaben_lianhe
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = BAT_kaiqi_xuanju}
+		relative_position_id = BAT_kaiqi_xuanju
+		mutually_exclusive = { focus = BAT_shehuizhuyi_gongheguo }
+		mutually_exclusive = { focus = BAT_junshihua }
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = reconcilism
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+			
+		}
+	}
+	#联络奥地利
+	focus = {
+		id = BAT_lianluo_aodili
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = BAT_shiwaben_lianhe}
+		relative_position_id = BAT_shiwaben_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			AUS = {
+			country_event = {
+			id =  holy_xiongyali.20
+			}
+			}
+			swap_ideas = {
+			add_idea = BAT_defa_zhengfu
+			remove_idea = BAT_guojia_zhengzhi
+			}
+		}
+	}
+	#德法和平
+	focus = {
+		id = BAT_defa_heping
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = BAT_lianluo_aodili}
+		relative_position_id = BAT_lianluo_aodili
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_defa_zhengfu_2
+			remove_idea = BAT_defa_zhengfu
+			}
+		}
+	}
+	#教育改革
+	focus = {
+		id = BAT_jiaoyu_gaige
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = BAT_defa_heping}
+		relative_position_id = BAT_defa_heping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_defa_zhengfu_3
+			remove_idea = BAT_defa_zhengfu_2
+			}
+		}
+	}
+	#压制主义
+	focus = {
+		id = BAT_yazhizhuyi
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = BAT_lianluo_aodili}
+		relative_position_id = BAT_lianluo_aodili
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_yazhizhuyi
+			remove_idea = BAT_minzu_gelie
+			}
+		}
+	}
+	#开启暴力
+	focus = {
+		id = BAT_kaiqi_baoli
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = BAT_yazhizhuyi}
+		relative_position_id = BAT_yazhizhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_kaiqi_baoli
+			remove_idea = BAT_yazhizhuyi
+			}
+		}
+	}
+	#接管教会
+	focus = {
+		id = BAT_jieguan_jiaohui
+		icon = GFX_focus_generic_catholic_dominion
+		prerequisite = { focus = BAT_lianluo_aodili}
+		relative_position_id = BAT_lianluo_aodili
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_jieguan_jiaohui
+		}
+	}
+	#宗教主义
+	focus = {
+		id = BAT_zongjiao_zhuyi
+		icon = GFX_focus_por_concordat
+		prerequisite = { focus = BAT_jieguan_jiaohui}
+		relative_position_id = BAT_jieguan_jiaohui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_jieguan_jiaohui_2
+			remove_idea = BAT_jieguan_jiaohui
+			}
+		}
+	}
+	#我们的土地
+	focus = {
+		id = BAT_we_tudi
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = BAT_jiaoyu_gaige}
+		prerequisite = { focus = BAT_kaiqi_baoli}
+		prerequisite = { focus = BAT_zongjiao_zhuyi}
+		relative_position_id = BAT_kaiqi_baoli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_defa_zhengfu_3
+			remove_idea = BAT_defa_zhengfu_2
+			}
+		}
+	}
+	#巴纳特发展
+	focus = {
+		id = BAT_banate_fazhan
+		icon = GFX_focus_generic_industry_2
+		x = 20
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = BAT_kaiqi_xuanju
+		}
+		completion_reward = {
+			82 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+            45 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+            764 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+1048 = {
+			add_extra_state_shared_building_slots = 5
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+		}
+	}
+	#重启外部贸易
+	focus = {
+		id = BAT_chongqi_waibu_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = BAT_banate_fazhan}
+		relative_position_id = BAT_banate_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_chongqi_waibu_maoyi
+		}
+	}
+	#西部工业化
+	focus = {
+		id = BAT_xibu_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = BAT_chongqi_waibu_maoyi}
+		relative_position_id = BAT_chongqi_waibu_maoyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			45 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+}
+            764 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+}
+		}
+	}
+	#东部工业化
+	focus = {
+		id = BAT_dongbu_gongyehua
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = BAT_xibu_gongyehua}
+		relative_position_id = BAT_xibu_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			82 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+}
+		}
+	}
+	#扩张平原农业
+	focus = {
+		id = BAT_kuozhang_pingyuan_nongye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = BAT_banate_fazhan}
+		relative_position_id = BAT_banate_fazhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_pingyuan_nongye
+		}
+	}
+	#扩大制糖产业
+	focus = {
+		id = BAT_kuoda_zhitang_chanye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = BAT_chongqi_waibu_maoyi}
+		prerequisite = { focus = BAT_kuozhang_pingyuan_nongye}
+		relative_position_id = BAT_kuozhang_pingyuan_nongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_chongqi_waibu_maoyi_2
+			remove_idea = BAT_chongqi_waibu_maoyi
+			}
+		}
+	}
+	#水利计划
+	focus = {
+		id = BAT_shuili_plan
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = BAT_kuozhang_pingyuan_nongye}
+		relative_position_id = BAT_kuozhang_pingyuan_nongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_pingyuan_nongye_2
+			remove_idea = BAT_pingyuan_nongye
+			}
+		}
+	}
+	#联通铁路
+	focus = {
+		id = BAT_liantong_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = BAT_kuoda_zhitang_chanye}
+		prerequisite = { focus = BAT_shuili_plan}
+		relative_position_id = BAT_kuoda_zhitang_chanye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_pingyuan_nongye_3
+			remove_idea = BAT_pingyuan_nongye_2
+			}
+		}
+	}
+	#捍卫独立
+	focus = {
+		id = BAT_hanwei_duli
+		icon = GFX_focus_generic_air_defense
+		x = 28
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = BAT_kaiqi_xuanju
+		}
+		completion_reward = {
+			add_ideas = BAT_hanwei_duli
+		}
+	}
+	#补贴军事产业
+	focus = {
+		id = BAT_butie_junshichanye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BAT_hanwei_duli }
+		prerequisite = { focus = BAT_banate_fazhan }
+		relative_position_id = BAT_banate_fazhan
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_junshi_chanye
+		}
+	}
+	#国有化军工
+	focus = {
+		id = BAT_guoyouhua_jungong
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = BAT_butie_junshichanye }
+		relative_position_id = BAT_butie_junshichanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#现代化产业线
+	focus = {
+		id = BAT_xiandaihua_chanyexian
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = BAT_guoyouhua_jungong }
+		relative_position_id = BAT_guoyouhua_jungong
+		mutually_exclusive = { focus = BAT_daguimo_junshihua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_xiandaihua_chanyexian
+			remove_idea = BAT_junshi_chanye
+			}
+		}
+	}
+	#大规模军事化
+	focus = {
+		id = BAT_daguimo_junshihua
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BAT_guoyouhua_jungong }
+		relative_position_id = BAT_guoyouhua_jungong
+		mutually_exclusive = { focus = BAT_xiandaihua_chanyexian }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_daguimo_junshihua
+			remove_idea = BAT_junshi_chanye
+			}
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#军事科学
+	focus = {
+		id = BAT_junshi_kexue
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = BAT_hanwei_duli }
+		relative_position_id = BAT_hanwei_duli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_junshi_kexue
+		}
+	}
+	#现代突进战术
+	focus = {
+		id = BAT_xiandai_tujin_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = BAT_junshi_kexue }
+		relative_position_id = BAT_junshi_kexue
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_xiandai_tujin_zhanshu
+		}
+	}
+	#扩大预备役
+	focus = {
+		id = BAT_kuoda_yubeiyi
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = BAT_junshi_kexue }
+		prerequisite = { focus = BAT_banate_zhijun }
+		relative_position_id = BAT_banate_zhijun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_kuoda_yubeizi
+		}
+	}
+	#军事职业化
+	focus = {
+		id = BAT_junshi_zhiyehua
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = BAT_xiandai_tujin_zhanshu }
+		prerequisite = { focus = BAT_kuoda_yubeiyi }
+		relative_position_id = BAT_kuoda_yubeiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_banate_zhijun_2
+			remove_idea = BAT_banate_zhijun
+			}
+		}
+	}
+	#巴纳特战争体系
+	focus = {
+		id = BAT_banate_zhanzheng_tixi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = BAT_junshi_zhiyehua }
+		relative_position_id = BAT_junshi_zhiyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_banate_zhijun_3
+			remove_idea = BAT_banate_zhijun_2
+			}
+		}
+	}
+	#巴纳特之军
+	focus = {
+		id = BAT_banate_zhijun
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = BAT_hanwei_duli }
+		relative_position_id = BAT_hanwei_duli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_banate_zhijun
+		}
+	}
+	#人民的战士
+	focus = {
+		id = BAT_renmin_zhanshi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = BAT_banate_zhijun }
+		relative_position_id = BAT_banate_zhijun
+		mutually_exclusive = { focus = BAT_defa_lianjun }
+		mutually_exclusive = { focus = BAT_junshihua_guanli }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_renmin_zhanshi
+		}
+	}
+	#政治委员
+	focus = {
+		id = BAT_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = BAT_renmin_zhanshi }
+		relative_position_id = BAT_renmin_zhanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_renmin_zhanshi_2
+			remove_idea = BAT_renmin_zhanshi
+			}
+		}
+	}
+	#参与世界革命
+	focus = {
+		id = BAT_canyu_shijie_geming
+		icon = GFX_focus_ger_great_red_menace
+		prerequisite = { focus = BAT_zhengzhi_weiyuan }
+		relative_position_id = BAT_zhengzhi_weiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		BAT = { is_puppet_of = XYL }
+		}
+		}
+		completion_reward = {
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = BAT
+			}
+		}
+	}
+	#军事化管理
+	focus = {
+		id = BAT_junshihua_guanli
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = BAT_banate_zhijun }
+		relative_position_id = BAT_banate_zhijun
+		mutually_exclusive = { focus = BAT_defa_lianjun }
+		mutually_exclusive = { focus = BAT_renmin_zhanshi }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_junshihua_guanli
+		}
+	}
+	#强制备战
+	focus = {
+		id = BAT_qiangzhi_beizhan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = BAT_junshihua_guanli }
+		relative_position_id = BAT_junshihua_guanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_junshihua_guanli_2
+			remove_idea = BAT_junshihua_guanli
+			}
+		}
+	}
+	#保卫巴纳特
+	focus = {
+		id = BAT_baowei_banate
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BAT_zhengzhi_weiyuan }
+		prerequisite = { focus = BAT_qiangzhi_beizhan }
+		relative_position_id = BAT_qiangzhi_beizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_baowei_banate
+		}
+	}
+	#德法联军
+	focus = {
+		id = BAT_defa_lianjun
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = BAT_banate_zhijun }
+		relative_position_id = BAT_banate_zhijun
+		mutually_exclusive = { focus = BAT_renmin_zhanshi }
+		mutually_exclusive = { focus = BAT_junshihua_guanli }
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_defa_lianjun
+		}
+	}
+	#吸收职业移民
+	focus = {
+		id = BAT_xishou_zhiye_yimin
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = BAT_defa_lianjun }
+		relative_position_id = BAT_defa_lianjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_defa_lianjun_2
+			remove_idea = BAT_defa_lianjun
+			}
+		}
+	}
+	#防备分离主义
+	focus = {
+		id = BAT_fangbei_fenli_zhuyi
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		prerequisite = { focus = BAT_xishou_zhiye_yimin }
+		prerequisite = { focus = BAT_qiangzhi_beizhan }
+		relative_position_id = BAT_xishou_zhiye_yimin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BAT_fangbei_fenli
+		}
+	}
+	#现代化军事
+	focus = {
+		id = BAT_xiandaihua_junshi
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = BAT_xishou_zhiye_yimin }
+		relative_position_id = BAT_xishou_zhiye_yimin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BAT_defa_lianjun_3
+			remove_idea = BAT_defa_lianjun_2
+			}
+		}
+	}
+}

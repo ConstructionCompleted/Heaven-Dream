@@ -1,0 +1,944 @@
+focus_tree = {
+	id = SHN_com_focus
+    
+	country = {
+		factor = 0
+	}
+	
+	default = no
+ 
+    #日本人民的国
+	focus = {
+		id = SHN_riben_renmin_deguo
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#工人纠察队
+	focus = {
+		id = SHN_gongren_jiucha
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = SHN_riben_renmin_deguo}
+		relative_position_id = SHN_riben_renmin_deguo
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_army_2
+			remove_idea = SHN_renmin_army
+			}
+			load_oob = SHN_gongren_jiuchadui
+		}
+	}
+	#接管上杉物资
+	focus = {
+		id = SHN_jieguan_shangshan_wuzi
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = SHN_riben_renmin_deguo}
+		relative_position_id = SHN_riben_renmin_deguo
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+	producer = SHN
+}
+		}
+	}
+	#重组军工
+	focus = {
+		id = SHN_chongzu_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SHN_gongren_jiucha }
+		prerequisite = { focus = SHN_jieguan_shangshan_wuzi}
+		relative_position_id = SHN_jieguan_shangshan_wuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#政治宣传
+	focus = {
+		id = SHN_zhengzhi_xuanchuan
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = SHN_riben_renmin_deguo}
+		relative_position_id = SHN_riben_renmin_deguo
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_zhengzhi_chongtu_2
+			remove_idea = SHN_zhengzhi_chongtu
+			}
+		}
+	}
+	#革命思想教育
+	focus = {
+		id = SHN_geming_sixiang_jiaoyu
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = SHN_zhengzhi_xuanchuan }
+		prerequisite = { focus = SHN_jieguan_shangshan_wuzi}
+		relative_position_id = SHN_jieguan_shangshan_wuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_zhengzhi_chongtu_3
+			remove_idea = SHN_zhengzhi_chongtu_2
+			}
+		}
+	}
+	#接管游击队
+	focus = {
+		id = SHN_jieguan_youjizhan
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = SHN_chongzu_jungong}
+		relative_position_id = SHN_chongzu_jungong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SHN_COM_youjidui
+			add_ideas = SHN_youji_war
+		}
+	}
+	#人民战争
+	focus = {
+		id = SHN_renmin_war
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = SHN_chongzu_jungong}
+		prerequisite = { focus = SHN_geming_sixiang_jiaoyu}
+		relative_position_id = SHN_geming_sixiang_jiaoyu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_army_3
+			remove_idea = SHN_renmin_army_2
+			}
+		}
+	}
+	#稳固中央机关
+	focus = {
+		id = SHN_wengu_zhongyang_jiguan
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = SHN_geming_sixiang_jiaoyu}
+		relative_position_id = SHN_geming_sixiang_jiaoyu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_wengu_zhongyang_jiguan
+			remove_idea = SHN_zhengzhi_chongtu_3
+			}
+		}
+	}
+	#夺得胜利
+	focus = {
+		id = SHN_duode_shengli
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = SHN_jieguan_youjizhan}
+		prerequisite = { focus = SHN_renmin_war}
+		prerequisite = { focus = SHN_wengu_zhongyang_jiguan}
+		relative_position_id = SHN_renmin_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		CEU = {
+		OR = {
+		exists = no
+		is_puppet_of = SHN
+		has_government = communism
+		}
+		}
+		DYD = {
+		OR = {
+		exists = no
+		is_puppet_of = SHN
+		has_government = communism
+		}
+		}
+		SAO = {
+		OR = {
+		exists = no
+		is_puppet_of = SHN
+		has_government = communism
+		}
+		}
+		EDO = {
+		OR = {
+		exists = no
+		is_puppet_of = SHN
+		has_government = communism
+		}
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.43 days = 1
+			}
+			annex_country = {
+    target = DYD
+    transfer_troops = yes
+}
+annex_country = {
+    target = CEU
+    transfer_troops = yes
+}
+annex_country = {
+    target = EDO
+    transfer_troops = yes
+}
+annex_country = {
+    target = SAO
+    transfer_troops = yes
+}
+add_stability = 0.15
+add_political_power = 100
+		}
+	}
+	#解放阿伊努
+	focus = {
+		id = SHN_jiefang_ayinu
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = SHN_duode_shengli}
+		relative_position_id = SHN_duode_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AIU
+    type = annex_everything
+}
+		}
+	}
+	#琉球问题
+	focus = {
+		id = SHN_liuqiu_wenti
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = SHN_duode_shengli}
+		relative_position_id = SHN_duode_shengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			LIU = {
+			country_event = {
+    id = holy_riben.18
+    days = 3
+}
+			}
+		}
+	}
+	#加入世界革命
+	focus = {
+		id = SHN_jiaru_shijie_geming
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		prerequisite = { focus = SHN_jiefang_ayinu}
+		prerequisite = { focus = SHN_liuqiu_wenti}
+		relative_position_id = SHN_liuqiu_wenti
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		limit = {
+		is_core_of = SHN
+		}
+		is_controlled_by = SHN
+		}
+		NOT = { has_war_with = LIU }
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			CCP = {
+			exists = yes
+			NOT = { has_completed_focus = CCP_new_china }
+			}
+			}
+			CCP = { add_to_faction = SHN }
+			}
+			if = {
+			limit = {
+			CCP = {
+			OR = {
+			exists = no
+			has_completed_focus = CCP_new_china
+			}
+			}
+			}
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = SHN
+			}
+			}
+		}
+	}
+	#人民解放军
+	focus = {
+		id = SHN_renmin_jiefangjun
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SHN_duode_shengli}
+		relative_position_id = SHN_duode_shengli
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_jiefangjun
+			remove_idea = SHN_renmin_army_3
+			}
+		}
+	}
+	#武装科研
+	focus = {
+		id = SHN_wuzhuang_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = SHN_renmin_jiefangjun}
+		relative_position_id = SHN_renmin_jiefangjun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#后勤革新
+	focus = {
+		id = SHN_houqin_gexin
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = SHN_wuzhuang_keyan}
+		relative_position_id = SHN_wuzhuang_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_houqin_gexin
+		}
+	}
+	#堑壕战术
+	focus = {
+		id = SHN_qianhao_zhanshu
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = SHN_houqin_gexin}
+		relative_position_id = SHN_houqin_gexin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_qianhao_zhanshu
+		}
+	}
+	#无线电科研
+	focus = {
+		id = SHN_wuxiandian_keyan
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SHN_houqin_gexin}
+		relative_position_id = SHN_houqin_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_wuxiandian_keyan
+		}
+	}
+	#人民民兵
+	focus = {
+		id = SHN_renmin_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SHN_renmin_jiefangjun}
+		relative_position_id = SHN_renmin_jiefangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_renmin_minbing
+		}
+	}
+	#清洗旧军官
+	focus = {
+		id = SHN_qingxi_jiujunguan
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = SHN_renmin_jiefangjun}
+		relative_position_id = SHN_renmin_jiefangjun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_jiefangjun_2
+			remove_idea = SHN_renmin_jiefangjun
+			}
+		}
+	}
+	#建立政治委员
+	focus = {
+		id = SHN_jianli_zhengzhi_weiyuan
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = SHN_renmin_minbing}
+		prerequisite = { focus = SHN_qingxi_jiujunguan}
+		relative_position_id = SHN_qingxi_jiujunguan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_jiefangjun_3
+			remove_idea = SHN_renmin_jiefangjun_2
+			}
+		}
+	}
+	#解放意志
+	focus = {
+		id = SHN_jiefang_yizhi
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = SHN_jianli_zhengzhi_weiyuan}
+		relative_position_id = SHN_jianli_zhengzhi_weiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_jiefangjun_4
+			remove_idea = SHN_renmin_jiefangjun_3
+			}
+		}
+	}
+	#现代化军队
+	focus = {
+		id = SHN_xiandaihua_army
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = SHN_jiefang_yizhi}
+		prerequisite = { focus = SHN_wuxiandian_keyan}
+		relative_position_id = SHN_jiefang_yizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_xiandaihua_army
+			remove_idea = SHN_renmin_jiefangjun_4
+			}
+		}
+	}
+	#地方政治
+	focus = {
+		id = SHN_difang_zhengzhi
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SHN_duode_shengli}
+		relative_position_id = SHN_duode_shengli
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_wengu_zhongyang_jiguan_2
+			remove_idea = SHN_wengu_zhongyang_jiguan
+			}
+		}
+	}
+	#男女平权
+	focus = {
+		id = SHN_nannv_pingquan
+		icon = GFX_focus_SWI_helvetic_junta
+		prerequisite = { focus = SHN_difang_zhengzhi}
+		relative_position_id = SHN_difang_zhengzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_nannv_pingquan
+		}
+	}
+	#妇女解放运动
+	focus = {
+		id = SHN_funv_jiefang_yundong
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SHN_nannv_pingquan}
+		relative_position_id = SHN_nannv_pingquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_nannv_pingquan_2
+			remove_idea = SHN_nannv_pingquan
+			}
+		}
+	}
+	#人民公社
+	focus = {
+		id = SHN_renmin_gongshe
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = SHN_difang_zhengzhi}
+		relative_position_id = SHN_difang_zhengzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_renmin_gongshe
+		}
+	}
+	#劳动最光荣
+	focus = {
+		id = SHN_laodong_zuiguangrong
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = SHN_renmin_gongshe}
+		prerequisite = { focus = SHN_nannv_pingquan}
+		relative_position_id = SHN_nannv_pingquan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_gongshe_2
+			remove_idea = SHN_renmin_gongshe
+			}
+		}
+	}
+	#农业流通
+	focus = {
+		id = SHN_nongye_liutong
+		icon = GFX_focus_ETH_scavenging_tactics
+		prerequisite = { focus = SHN_renmin_gongshe}
+		relative_position_id = SHN_renmin_gongshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_nongye_liutong
+		}
+	}
+	#文化改革
+	focus = {
+		id = SHN_wenhua_gaige
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = SHN_funv_jiefang_yundong}
+		prerequisite = { focus = SHN_laodong_zuiguangrong}
+		relative_position_id = SHN_laodong_zuiguangrong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_wenhua_gaige
+			remove_idea = SHN_nannv_pingquan_2
+			}
+		}
+	}
+	#反对奢侈
+	focus = {
+		id = SHN_fandui_shechi
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		prerequisite = { focus = SHN_nongye_liutong}
+		prerequisite = { focus = SHN_laodong_zuiguangrong}
+		relative_position_id = SHN_laodong_zuiguangrong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = SHN_renmin_gongshe_3
+			remove_idea = SHN_renmin_gongshe_2
+			}
+		}
+	}
+	#计划经济
+	focus = {
+		id = SHN_plan_jingji
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SHN_duode_shengli}
+		relative_position_id = SHN_duode_shengli
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			add_ideas = SHN_plan_jingji
+		}
+	}
+	#军事化工业
+	focus = {
+		id = SHN_junshihua_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SHN_plan_jingji}
+		relative_position_id = SHN_plan_jingji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			532 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+			282 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#联通东北
+	focus = {
+		id = SHN_liantong_dongbei
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SHN_junshihua_gongye}
+		relative_position_id = SHN_junshihua_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			534 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			535 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#联通阿伊努
+	focus = {
+		id = SHN_liantong_ayinu
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = SHN_liantong_dongbei}
+		relative_position_id = SHN_liantong_dongbei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			533 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+			536 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#现代兵工厂
+	focus = {
+		id = SHN_xiandaihua_binggongchang
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = SHN_junshihua_gongye}
+		relative_position_id = SHN_junshihua_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_xiandai_binggongchang
+		}
+	}
+	#民用工业扩建
+	focus = {
+		id = SHN_minyong_gongye_kuojian
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SHN_plan_jingji}
+		relative_position_id = SHN_plan_jingji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			531 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+			529 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#进口萧条设备
+	focus = {
+		id = SHN_jinkou_xiaotiao_shebei
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = SHN_minyong_gongye_kuojian}
+		relative_position_id = SHN_minyong_gongye_kuojian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 5 }
+		}
+	}
+	#扩大化工业
+	focus = {
+		id = SHN_kuodahua_gongye
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = SHN_jinkou_xiaotiao_shebei}
+		prerequisite = { focus = SHN_xiandaihua_binggongchang}
+		relative_position_id = SHN_jinkou_xiaotiao_shebei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_kuodahua_gongye
+		}
+	}
+	#勒紧裤腰带
+	focus = {
+		id = SHN_leijin_kuyaodai
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = SHN_minyong_gongye_kuojian}
+		relative_position_id = SHN_minyong_gongye_kuojian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_leijin_kuyaodai
+		}
+	}
+	#九州新经济
+	focus = {
+		id = SHN_jiuzhou_xinjingji
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = SHN_plan_jingji}
+		relative_position_id = SHN_plan_jingji
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			528 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 2
+add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#经济出口
+	focus = {
+		id = SHN_jingji_chukou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SHN_jiuzhou_xinjingji}
+		relative_position_id = SHN_jiuzhou_xinjingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SHN_jingji_chukou
+		}
+	}
+	#挑战大海
+	focus = {
+		id = SHN_tiaozhan_dahai
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = SHN_jingji_chukou}
+		prerequisite = { focus = SHN_leijin_kuyaodai}
+		relative_position_id = SHN_jingji_chukou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			530 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			529 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+}

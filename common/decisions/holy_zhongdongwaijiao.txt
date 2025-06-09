@@ -1,0 +1,444 @@
+holy_zhongdong_waijiao = {
+	#加入普鲁士
+    holy_faction_PLS_OTT = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = OTT
+	}	
+		available = {
+		OTT = {
+		has_completed_focus = OTT_aosiman_tongmenghui
+		is_in_faction = no
+		}
+		NOT = {
+		PER = { is_in_faction_with = PLS }
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = OTT
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_DLB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DLB
+	}	
+		available = {
+		DLB = {
+		has_completed_focus = DLB_diguo_guangfu
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		PER = { is_in_faction_with = PLS }
+		BYT = { is_in_faction_with = PLS }
+		BUL = { is_in_faction_with = PLS }
+		WAL = { is_in_faction_with = PLS }
+		MOL = { is_in_faction_with = PLS }
+		SER = { is_in_faction_with = PLS }
+		ALB = { is_in_faction_with = PLS }
+		DKL = { is_in_faction_with = PLS }
+		YUM = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = DLB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_PER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = PER
+	}	
+		available = {
+		PER = {
+		has_completed_focus = PER_safawei_jiuri
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		OTT = { is_in_faction_with = PLS }
+		DLB = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		date > 1939.6.1
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = PER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入奥地利
+    holy_faction_AUS_PER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = PER
+	}	
+		available = {
+		date > 1939.6.1
+		PER = {
+		has_completed_focus = PER_safawei_jiuri
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		OTT = { is_in_faction_with = PLS }
+		DLB = { is_in_faction_with = PLS }
+		}
+		}
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = PER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_PER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = PER
+	}	
+		available = {
+		date > 1938.6.1
+		PER = {
+		has_completed_focus = PER_kaiqi_baise_geming
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = PER
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = PER
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_OTT = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = OTT
+	}	
+		available = {
+		OTT = {
+		has_completed_focus = OTT_aosiman_renmin_huiyi
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = OTT
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = OTT
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_PER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = PER
+	}	
+		available = {
+		date > 1938.6.1
+		PER = {
+		has_completed_focus = PER_kaiqi_baise_geming
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = PER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_OTT = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = OTT
+	}	
+		available = {
+		OTT = {
+		has_completed_focus = OTT_aosiman_renmin_huiyi
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = OTT
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_OTT = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = OTT
+	}	
+		available = {
+		OTT = {
+		has_completed_focus = OTT_aosiman_tongmenghui
+		is_in_faction = no
+		}
+		NOT = {
+		PER = { is_in_faction_with = PLS }
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = OTT
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_DLB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DLB
+	}	
+		available = {
+	    DLB = {
+		has_completed_focus = DLB_diguo_guangfu
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		PER = { is_in_faction_with = PLS }
+		BYT = { is_in_faction_with = PLS }
+		BUL = { is_in_faction_with = PLS }
+		WAL = { is_in_faction_with = PLS }
+		MOL = { is_in_faction_with = PLS }
+		SER = { is_in_faction_with = PLS }
+		ALB = { is_in_faction_with = PLS }
+		DKL = { is_in_faction_with = PLS }
+		YUM = { is_in_faction_with = PLS }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = DLB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_PER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = PER
+	}	
+		available = {
+	    PER = {
+		has_completed_focus = PER_safawei_jiuri
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		OTT = { is_in_faction_with = PLS }
+		DLB = { is_in_faction_with = PLS }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		date > 1939.6.1
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = PER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

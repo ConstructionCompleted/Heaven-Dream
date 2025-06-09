@@ -1,0 +1,625 @@
+﻿focus_tree = {
+	id = IRQ_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = IRQ
+		}
+	}
+	
+	default = no
+	
+    #伊拉克之剑
+	focus = {
+		id = IRQ_yilake_zhijian
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 15
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_yilake_war
+		add_ideas = IRQ_qiyi_army
+		}
+	}
+	#宗教宪法
+	focus = {
+		id = IRQ_zongjiao_xianfa
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = IRQ_yilake_zhijian }
+		relative_position_id = IRQ_yilake_zhijian
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		load_oob = IRQ_zongjiao_weibing
+		}
+	}
+	#整合巴格达
+	focus = {
+		id = IRQ_zhenghe_bageda
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = IRQ_yilake_zhijian }
+		relative_position_id = IRQ_yilake_zhijian
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		load_oob = IRQ_zhenghe_bageda
+		}
+	}
+	#启用征兵法
+	focus = {
+		id = IRQ_qiyong_zhengbingfa
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = IRQ_yilake_zhijian }
+		relative_position_id = IRQ_yilake_zhijian
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_qiyi_army_2
+		remove_idea = IRQ_qiyi_army
+		}
+		}
+	}
+	#阿拉伯准军事力量
+	focus = {
+		id = IRQ_alabo_zhunjunshi_liliang
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = IRQ_zongjiao_xianfa }
+		relative_position_id = IRQ_zongjiao_xianfa
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_alabo_zhunjunshi_liliang
+		}
+	}
+	#穆斯林团结
+	focus = {
+		id = IRQ_musilin_tuanjie
+		icon = GFX_focus_TUR_turanist_ambition
+		prerequisite = { focus = IRQ_alabo_zhunjunshi_liliang }
+		relative_position_id = IRQ_alabo_zhunjunshi_liliang
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_musilin_tuanjie
+		}
+	}
+	#伊斯兰道德
+	focus = {
+		id = IRQ_myisilan_daode
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = IRQ_musilin_tuanjie }
+		relative_position_id = IRQ_musilin_tuanjie
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_musilin_tuanjie_2
+		remove_idea = IRQ_musilin_tuanjie
+		}
+		}
+	}
+	#重启巴格达生产
+	focus = {
+		id = IRQ_chongqi_bageda_shengchan
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = IRQ_zongjiao_xianfa }
+		prerequisite = { focus = IRQ_zhenghe_bageda }
+		relative_position_id = IRQ_zhenghe_bageda
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		291 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩张军工复合体
+	focus = {
+		id = IRQ_kuozhang_jungong_fuheti
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = IRQ_chongqi_bageda_shengchan }
+		relative_position_id = IRQ_chongqi_bageda_shengchan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_jungong_fuheti
+		}
+	}
+	#战争公路
+	focus = {
+		id = IRQ_zhanzheng_gonglu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = IRQ_kuozhang_jungong_fuheti }
+		relative_position_id = IRQ_kuozhang_jungong_fuheti
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_zhanzheng_gonglu
+		}
+	}
+	#利用民族主义
+	focus = {
+		id = IRQ_liyong_minzu_zhuyi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = IRQ_qiyong_zhengbingfa }
+		prerequisite = { focus = IRQ_zhenghe_bageda }
+		relative_position_id = IRQ_zhenghe_bageda
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_yilake_war_2
+		remove_idea = IRQ_yilake_war
+		}
+		}
+	}
+	#扩大占领区
+	focus = {
+		id = IRQ_kuoda_zhanlingqu
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = IRQ_liyong_minzu_zhuyi }
+		relative_position_id = IRQ_liyong_minzu_zhuyi
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		OR = {
+		controls_state = 676
+		controls_state = 675
+		controls_state = 1329
+		controls_state = 1056
+		controls_state = 1310
+		controls_state = 1311
+		controls_state = 1396
+		controls_state = 1395
+		controls_state = 1426
+		}
+		}
+		IRQ = {
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		}
+		load_oob = IRQ_kuoda_zhanlingqu
+		}
+	}
+	#大伊拉克宣称
+	focus = {
+		id = IRQ_dayilake_xuancheng
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = IRQ_kuoda_zhanlingqu }
+		relative_position_id = IRQ_kuoda_zhanlingqu
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UKM = { NOT = { controls_state = 656 } }
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		controls_state = 656
+		}
+		country_event = {
+		id = holy_aosiman.61
+		days = 4
+		}
+		}
+		}
+		}
+	}
+	#吸收战争经验
+	focus = {
+		id = IRQ_xishou_zhanzheng_jingyan
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = IRQ_qiyong_zhengbingfa }
+		relative_position_id = IRQ_qiyong_zhengbingfa
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_qiyi_army_3
+		remove_idea = IRQ_qiyi_army_2
+		}
+		}
+	}
+	#战术改革
+	focus = {
+		id = IRQ_zhanshu_gaige
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = IRQ_xishou_zhanzheng_jingyan }
+		relative_position_id = IRQ_xishou_zhanzheng_jingyan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_qiyi_army_4
+		remove_idea = IRQ_qiyi_army_3
+		}
+		}
+	}
+	#建设摩托化
+	focus = {
+		id = IRQ_jianshe_motuohua
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = IRQ_zhanshu_gaige }
+		relative_position_id = IRQ_zhanshu_gaige
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_jianshe_motuohua
+		}
+	}
+	#伊拉克统一
+	focus = {
+		id = IRQ_yilake_tongyi
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = IRQ_myisilan_daode }
+		prerequisite = { focus = IRQ_zhanzheng_gonglu }
+		prerequisite = { focus = IRQ_dayilake_xuancheng }
+		prerequisite = { focus = IRQ_jianshe_motuohua }
+		relative_position_id = IRQ_dayilake_xuancheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 291
+		controls_state = 676
+		controls_state = 675
+		controls_state = 1329
+		controls_state = 1056
+		controls_state = 1395
+		controls_state = 1396
+		controls_state = 1310
+		controls_state = 1311
+		controls_state = 1426
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_stability = 0.05
+		}
+	}
+	#扩张东部边境
+	focus = {
+		id = IRQ_kuozhang_dongbu_bianjing
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = IRQ_yilake_tongyi }
+		relative_position_id = IRQ_yilake_tongyi
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 421
+		add_state_claim = 413
+		}
+	}
+	#对抗伊朗
+	focus = {
+		id = IRQ_duikang_yilang
+		icon = GFX_focus_generic_attack_iran
+		prerequisite = { focus = IRQ_kuozhang_dongbu_bianjing }
+		relative_position_id = IRQ_kuozhang_dongbu_bianjing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 291
+        num_provinces = 10
+		on_win = holy_aosiman.64
+    }
+				
+    defender = {
+        state = 413
+        num_provinces = 10
+    }
+}
+start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 676
+        num_provinces = 10
+		on_win = holy_aosiman.65
+    }
+				
+    defender = {
+        state = 421
+        num_provinces = 10
+    }
+}
+		}
+	}
+	#俩河再开发
+	focus = {
+		id = IRQ_liahe_zaikaifa
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = IRQ_yilake_tongyi }
+		relative_position_id = IRQ_yilake_tongyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1056 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		676 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大摩苏尔工业
+	focus = {
+		id = IRQ_kuoda_mosuer_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = IRQ_liahe_zaikaifa }
+		relative_position_id = IRQ_liahe_zaikaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		676 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大巴士拉港口
+	focus = {
+		id = IRQ_kuoda_bashila_gangkou
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = IRQ_kuoda_mosuer_gongye }
+		relative_position_id = IRQ_kuoda_mosuer_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 656
+		}
+		completion_reward = {
+		656 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩张伊拉克铁路
+	focus = {
+		id = IRQ_kuozhang_yilake_tielu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = IRQ_kuoda_bashila_gangkou }
+		relative_position_id = IRQ_kuoda_bashila_gangkou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		675 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		676 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		291 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#伊拉克国家银行
+	focus = {
+		id = IRQ_yilake_guojia_yinhang
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = IRQ_liahe_zaikaifa }
+		relative_position_id = IRQ_liahe_zaikaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_yilake_guojia_yinhang
+		}
+	}
+	#农业技术复兴
+	focus = {
+		id = IRQ_nongye_jishu_fuxing
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = IRQ_kuoda_mosuer_gongye }
+		prerequisite = { focus = IRQ_yilake_guojia_yinhang }
+		relative_position_id = IRQ_yilake_guojia_yinhang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_nongye_jishu_fuxing
+		}
+	}
+	#分配国有土地
+	focus = {
+		id = IRQ_fenpei_guoyou_tudi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = IRQ_nongye_jishu_fuxing }
+		relative_position_id = IRQ_nongye_jishu_fuxing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_nongye_jishu_fuxing_2
+		remove_idea = IRQ_nongye_jishu_fuxing
+		}
+		}
+	}
+	#伊拉克劳工法
+	focus = {
+		id = IRQ_yilake_laogongfa
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = IRQ_yilake_guojia_yinhang }
+		relative_position_id = IRQ_yilake_guojia_yinhang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = IRQ_yilake_laogongfa
+		}
+	}
+	#贫困救济金
+	focus = {
+		id = IRQ_pinkun_jiujijin
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = IRQ_yilake_laogongfa }
+		relative_position_id = IRQ_yilake_laogongfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = IRQ_yilake_laogongfa_2
+		remove_idea = IRQ_yilake_laogongfa
+		}
+		}
+	}
+}

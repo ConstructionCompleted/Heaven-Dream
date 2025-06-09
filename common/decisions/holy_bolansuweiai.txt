@@ -1,0 +1,166 @@
+holy_BLC_guihuan = {
+    #归还领土
+    holy_BLC_guihuan_lingtu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    OR = {
+	    tag = BLC
+		tag = BLR
+	}
+	OR = {
+			controls_state = 201
+controls_state = 199
+controls_state = 198
+controls_state = 1430
+controls_state = 1431
+controls_state = 1859
+controls_state = 202
+controls_state = 203
+controls_state = 834
+controls_state = 192
+controls_state = 197
+controls_state = 226
+controls_state = 1069
+controls_state = 196
+controls_state = 137
+		}
+	}	
+		available = {
+		UNR = {
+		exists = no
+		}
+		OR = {
+			controls_state = 201
+controls_state = 199
+controls_state = 198
+controls_state = 1430
+controls_state = 1431
+controls_state = 1859
+controls_state = 202
+controls_state = 203
+controls_state = 834
+controls_state = 192
+controls_state = 197
+controls_state = 226
+controls_state = 1069
+controls_state = 196
+controls_state = 137
+		}
+		SOV = {
+		NOT = {
+		has_completed_focus = SOV_suweiai_lianmeng
+		}
+		}
+		}
+		cost = 0
+		complete_effect = {
+		every_country = {
+		limit = {
+		OR = {
+	    tag = BLC
+		tag = BLR
+		is_puppet_of = BLC
+		is_puppet_of = BLR
+	}
+		}
+		if = {
+		limit = {
+		controls_state = 201
+		}
+		UKR = {
+		transfer_state = 201
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 199
+		}
+		UKR = {
+		transfer_state = 199
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1430
+		}
+		UKR = {
+		transfer_state = 1430
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1431
+		}
+		UKR = {
+		transfer_state = 1431
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 1859
+		}
+		UKR = {
+		transfer_state = 1859
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 198
+		}
+		UKR = {
+		transfer_state = 198
+		}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_BLA_xibu_hexinhua = {
+    #西部核心化
+    BLA_xibuhexinhua = {
+
+		icon = generic_army_support
+		
+		visible = {
+		    OR = {
+	    tag = BLC
+		tag = BLA
+	}
+	}	
+		available = {
+		OR = {
+	    tag = BLC
+		tag = BLA
+	}
+		}
+		target_trigger = {
+		FROM = {
+		OR = {
+		is_controlled_by = BLC
+		is_controlled_by = BLA
+		}
+		}
+		}
+		targets = {
+			188 1540 763 5 1541 942 66 67 943
+		}
+		state_target = yes
+		on_map_mode = map_only
+		cost = 20
+		days_remove = 360
+		remove_effect = {
+		FROM = {
+		add_core_of = BLA
+		add_core_of = BLC
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

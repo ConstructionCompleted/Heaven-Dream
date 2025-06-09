@@ -1,0 +1,99 @@
+add_namespace = holy_abaisihuote
+#第一个五年计划的胜利
+country_event = {
+	id = holy_abaisihuote.1
+	title = holy_abaisihuote.1.t
+	desc = holy_abaisihuote.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_abaisihuote.1.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_political_power = 100
+		add_stability = 0.05
+		394 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+	}
+}
+#无产阶级专政
+country_event = {
+	id = holy_abaisihuote.2
+	title = holy_abaisihuote.2.t
+	desc = holy_abaisihuote.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_abaisihuote.2.a
+		ai_chance = {
+		    factor = 25
+		}
+		add_war_support = 0.1
+		add_stability = 0.1
+	}
+}
+#伊利诺伊暴乱
+country_event = {
+	id = holy_abaisihuote.3
+	title = holy_abaisihuote.3.t
+	desc = holy_abaisihuote.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_abaisihuote.3.a
+		ai_chance = {
+		    factor = 25
+		}
+		395 = { 
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+		}
+		1710 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+		1705 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.7
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.7
+			}
+		}
+		1707 = { 
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+		}
+		set_country_flag = CEP_zhanzheng_daojishi
+	}
+}

@@ -1,0 +1,1046 @@
+focus_tree = {
+	id = EDO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = EDO
+		}
+	}
+	
+	default = no
+ 
+    #德川回归
+	focus = {
+		id = EDO_dechuan_huigui
+		icon = GFX_focus_jap_spiritual_mobilization
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = EDO_mufu_huangdao
+			add_ideas = EDO_jingji_wenti
+		}
+	}
+	#整合军事工业
+	focus = {
+		id = EDO_zhenghe_junshi_gongye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = EDO_dechuan_huigui}
+		relative_position_id = EDO_dechuan_huigui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#扩建民兵部队
+	focus = {
+		id = EDO_kuojian_minbing_budui
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = EDO_dechuan_huigui}
+		relative_position_id = EDO_dechuan_huigui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = EDO_minbing
+		}
+	}
+	#皇道思想
+	focus = {
+		id = EDO_huangdao_sixiang
+		icon = GFX_focus_jap_manchurian_project
+		prerequisite = { focus = EDO_dechuan_huigui}
+		relative_position_id = EDO_dechuan_huigui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EDO_mufu_huangdao_2
+			remove_idea = EDO_mufu_huangdao
+			}
+		}
+	}
+	#江户再开发
+	focus = {
+		id = EDO_jianghu_zaikaifa
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = EDO_zhenghe_junshi_gongye}
+		relative_position_id = EDO_zhenghe_junshi_gongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			282 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#设立东京
+	focus = {
+		id = EDO_sheli_dongjing
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = EDO_jianghu_zaikaifa}
+		relative_position_id = EDO_jianghu_zaikaifa
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_victory_points = {
+    province = 1182
+    value = 30 
+}
+set_province_name = {
+    id = 1182
+    name = "东京"
+}
+		}
+	}
+	#扩大仙台征兵
+	focus = {
+		id = EDO_kuoda_xiantai_zhengbing
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = EDO_zhenghe_junshi_gongye}
+		prerequisite = { focus = EDO_kuojian_minbing_budui}
+		relative_position_id = EDO_kuojian_minbing_budui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = EDO_xiantai
+		}
+	}
+	#完善江户防线
+	focus = {
+		id = EDO_wanshan_jianghu_fangxian
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = EDO_kuoda_xiantai_zhengbing}
+		relative_position_id = EDO_kuoda_xiantai_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			608 = {
+			add_building_construction = {
+				type = bunker
+				province = 1182
+				level = 6
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1097
+				level = 4
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9998
+				level = 4
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#肉弹冲锋战术
+	focus = {
+		id = EDO_roudan_chongfeng
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = EDO_huangdao_sixiang}
+		prerequisite = { focus = EDO_kuojian_minbing_budui}
+		relative_position_id = EDO_kuojian_minbing_budui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EDO_mufu_huangdao_3
+			remove_idea = EDO_mufu_huangdao_2
+			}
+		}
+	}
+	#正规化工兵
+	focus = {
+		id = EDO_zhengguihua_gongbing
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = EDO_roudan_chongfeng}
+		relative_position_id = EDO_roudan_chongfeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = EDO_mufu_huangdao_4
+			remove_idea = EDO_mufu_huangdao_3
+			}
+		}
+	}
+	#利用宗教
+	focus = {
+		id = EDO_liyong_zongjiao
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = EDO_huangdao_sixiang}
+		relative_position_id = EDO_huangdao_sixiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+		}
+	}
+	#幕府的胜利
+	focus = {
+		id = EDO_mofu_shengli
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = EDO_wanshan_jianghu_fangxian}
+		prerequisite = { focus = EDO_zhengguihua_gongbing}
+		relative_position_id = EDO_zhengguihua_gongbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		CEU = {
+		OR = {
+		exists = no
+		is_puppet_of = EDO
+		}
+		}
+		DYD = {
+		OR = {
+		exists = no
+		is_puppet_of = EDO
+		}
+		}
+		SHN = {
+		OR = {
+		exists = no
+		is_puppet_of = EDO
+		}
+		}
+		SAO = {
+		OR = {
+		exists = no
+		is_puppet_of = EDO
+		}
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.44 days = 1
+			}
+		534 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+		529 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+			add_ideas = EDO_fanzhen_wenti
+		annex_country = {
+    target = DYD
+    transfer_troops = yes
+}
+annex_country = {
+    target = CEU
+    transfer_troops = yes
+}
+annex_country = {
+    target = EDO
+    transfer_troops = yes
+}
+annex_country = {
+    target = SHN
+    transfer_troops = yes
+}
+		}
+	}
+	#解决阿伊努
+	focus = {
+		id = EDO_jiejue_ayinu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = EDO_mofu_shengli}
+		relative_position_id = EDO_mofu_shengli
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		AIU = {
+		country_event = {
+    id = holy_riben.17
+	days = 3
+}
+		}
+		}
+	}
+	#迎回天皇
+	focus = {
+		id = EDO_yinghui_tianhuang
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = EDO_mofu_shengli}
+		relative_position_id = EDO_mofu_shengli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NIN = {
+		OR = {
+		exists = no
+		has_completed_focus = NIN_ruanjin
+		}
+		}
+		}
+		bypass = {
+		NIN = {
+		has_completed_focus = NIN_xuantong_weixin
+		}
+		}
+		completion_reward = {
+		retire_country_leader = yes
+		create_country_leader = {
+	name = "裕仁"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		
+	}
+}
+		}
+	}
+	#昭和维新
+	focus = {
+		id = EDO_zhaohe_weixin
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = EDO_yinghui_tianhuang}
+		relative_position_id = EDO_yinghui_tianhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#幕府军事
+	focus = {
+		id = EDO_mufu_junshi
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		army_experience = 50
+		}
+	}
+	#军事工业
+	focus = {
+		id = EDO_junshi_gongye
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = EDO_mufu_junshi}
+		relative_position_id = EDO_mufu_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		random_owned_controlled_state = {
+		if = { limit = {
+		is_controlled_by = EDO
+		} 
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+		}
+	}
+	#铁炮科研
+	focus = {
+		id = EDO_tiepao_keyan
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = EDO_junshi_gongye}
+		relative_position_id = EDO_junshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#武士道精神
+	focus = {
+		id = EDO_wushidao_jingshen
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = EDO_mufu_junshi}
+		relative_position_id = EDO_mufu_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_mufu_huangdao_5
+			remove_idea = EDO_mufu_huangdao_4
+			}
+		}
+	}
+	#忠君爱国
+	focus = {
+		id = EDO_zhongjun_aiguo
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = EDO_wushidao_jingshen}
+		relative_position_id = EDO_wushidao_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_mufu_huangdao_6
+			remove_idea = EDO_mufu_huangdao_5
+			}
+		}
+	}
+	#维持现状
+	focus = {
+		id = EDO_weichi_xianzhuang
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		mutually_exclusive = { focus = EDO_jizhong_quanli }
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_weichi_xianzhuang
+			remove_idea = EDO_fanzhen_wenti
+			}
+		}
+	}
+	#降低藩镇自治
+	focus = {
+		id = EDO_jiangdi_fanzhen_zizhi
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		prerequisite = { focus = EDO_weichi_xianzhuang}
+		relative_position_id = EDO_weichi_xianzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_weichi_xianzhuang_2
+			remove_idea = EDO_weichi_xianzhuang
+			}
+		}
+	}
+	#统一指挥部队
+	focus = {
+		id = EDO_tongyi_zhihui
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = EDO_jiangdi_fanzhen_zizhi}
+		relative_position_id = EDO_jiangdi_fanzhen_zizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = EDO_weichi_xianzhuang_2
+		534 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+    533 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+	528 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+			529 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+530 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+		534 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_gailiang }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+    533 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_gailiang }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+	528 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_gailiang }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+			529 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_gailiang }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+530 = {
+		clr_state_flag = 
+			add_province_modifier = {
+				static_modifiers = { fanzhen_gailiang }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+		}
+	}
+	#集中权利
+	focus = {
+		id = EDO_jizhong_quanli
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		mutually_exclusive = { focus = EDO_weichi_xianzhuang }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_jizhong_quanli
+			remove_idea = EDO_fanzhen_wenti
+			}
+			add_stability = -0.05
+		}
+	}
+	#归属国家
+	focus = {
+		id = EDO_guishu_guojia
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = EDO_jizhong_quanli}
+		relative_position_id = EDO_jizhong_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		534 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+    533 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+	528 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+			529 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+530 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+			add_stability = -0.1
+		}
+	}
+	#接管藩镇
+	focus = {
+		id = EDO_jieguan_fanzhen
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = EDO_guishu_guojia}
+		relative_position_id = EDO_guishu_guojia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = EDO_jizhong_quanli
+		}
+	}
+	#维持闭关
+	focus = {
+		id = EDO_weichi_biguan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		mutually_exclusive = { focus = EDO_kuozhang_mengxiang }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EDO_biguansuoguo
+		}
+	}
+	#日本民族卫士
+	focus = {
+		id = EDO_riben_minzu_weishi
+		icon = GFX_focus_AST_war_japan
+		prerequisite = { focus = EDO_weichi_biguan}
+		relative_position_id = EDO_weichi_biguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_biguansuoguo_2
+			remove_idea = EDO_biguansuoguo
+			}
+		}
+	}
+	#扩张梦想
+	focus = {
+		id = EDO_kuozhang_mengxiang
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		mutually_exclusive = { focus = EDO_weichi_biguan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#收复琉球
+	focus = {
+		id = EDO_shoufu_liuqiu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = EDO_kuozhang_mengxiang}
+		relative_position_id = EDO_kuozhang_mengxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = LIU
+    type = annex_everything
+}
+		}
+	}
+	#入侵朝鲜
+	focus = {
+		id = EDO_ruqin_chaoxian
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = EDO_shoufu_liuqiu}
+		relative_position_id = EDO_shoufu_liuqiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+all_country = {
+		if = {
+		limit = {
+		OR = {
+		controls_state = 525
+		controls_state = 527
+		controls_state = 1165
+		controls_state = 1166
+		controls_state = 1167
+		controls_state = 1168
+		controls_state = 1169
+		controls_state = 1170
+		controls_state = 1171
+		controls_state = 1172
+		controls_state = 1173
+		controls_state = 1174
+		controls_state = 1175
+		}
+		NOT = {
+		OR = {
+		tag = NKO
+		tag = BKO
+		}
+		}
+		}
+		declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+		}
+		}
+		}
+	}
+	#财政改革
+	focus = {
+		id = EDO_caizheng_gaige
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = EDO_zhaohe_weixin}
+		relative_position_id = EDO_zhaohe_weixin
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_jingji_wenti_2
+			remove_idea = EDO_jingji_wenti
+			}
+		}
+	}
+	#工业建设
+	focus = {
+		id = EDO_gongye_jianshe
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = EDO_caizheng_gaige}
+		relative_position_id = EDO_caizheng_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		random_owned_controlled_state = {
+		if = {
+		limit = {
+		is_controlled_by = EDO
+		}
+			add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+		}
+	}
+	#降低农业税收
+	focus = {
+		id = EDO_jiangdi_nongye_shuishou
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = EDO_caizheng_gaige}
+		relative_position_id = EDO_caizheng_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_jingji_wenti_3
+			remove_idea = EDO_jingji_wenti_2
+			}
+		}
+	}
+	#工业额外扩建
+	focus = {
+		id = EDO_gongye_ewai_kuojian
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = EDO_gongye_jianshe}
+		relative_position_id = EDO_gongye_jianshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		random_owned_controlled_state = {
+		if = {
+		limit = {
+		is_controlled_by = EDO
+		}
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+		}
+	}
+	#扩大商业税收
+	focus = {
+		id = EDO_kuoda_shangye_shuishou
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = EDO_gongye_jianshe}
+		prerequisite = { focus = EDO_jiangdi_nongye_shuishou}
+		relative_position_id = EDO_gongye_jianshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+			add_idea = EDO_jingji_wenti_4
+			remove_idea = EDO_jingji_wenti_3
+			}
+		}
+	}
+	#改善种植
+	focus = {
+		id = EDO_gaishan_zhongzhi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = EDO_jiangdi_nongye_shuishou}
+		relative_position_id = EDO_jiangdi_nongye_shuishou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = EDO_gaishan_zhongzhi
+		}
+	}
+	#地区铁路
+	focus = {
+		id = EDO_diqu_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = EDO_kuoda_shangye_shuishou}
+		prerequisite = { focus = EDO_gongye_ewai_kuojian}
+		relative_position_id = EDO_kuoda_shangye_shuishou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_owned_state = {
+		if = {
+		limit = {
+		is_core_of = EDO
+		}
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+		}
+	}
+	#农业改革
+	focus = {
+		id = EDO_nongyegaige
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = EDO_kuoda_shangye_shuishou}
+		prerequisite = { focus = EDO_gaishan_zhongzhi}
+		relative_position_id = EDO_kuoda_shangye_shuishou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = EDO_gaishan_zhongzhi_2
+		remove_idea = EDO_gaishan_zhongzhi
+		}
+		}
+	}
+}

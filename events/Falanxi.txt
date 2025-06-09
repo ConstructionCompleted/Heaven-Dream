@@ -1,0 +1,1026 @@
+add_namespace = holy_falanxi
+#选举，开始
+country_event = {
+	id = holy_falanxi.1
+	title = holy_falanxi.1.t
+	desc = holy_falanxi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FRA
+		date > 1936.1.1
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_falanxi.1.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = { id = holy_falanxi.2 days = 3}
+	}
+}
+#共产党发起北法兰西游行
+country_event = {
+	id = holy_falanxi.2
+	title = holy_falanxi.2.t
+	desc = holy_falanxi.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.2.a
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.3  days = 4}
+add_popularity = {
+    ideology = fascism
+    popularity = 0.03
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.02
+}
+add_political_power = -50
+add_stability = -0.03
+	}
+	option = {
+		name = holy_falanxi.2.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.3 days = 4}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.05
+}
+	}
+}
+#法西斯派普罗旺斯会晤
+country_event = {
+	id = holy_falanxi.3
+	title = holy_falanxi.3.t
+	desc = holy_falanxi.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.3.a
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.4  days = 2}
+add_popularity = {
+    ideology = fascism
+    popularity = 0.05
+}
+	}
+	option = {
+		name = holy_falanxi.3.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.4 days = 2}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.03
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.02
+}
+add_political_power = -25
+add_stability = -0.04
+	}
+}
+#《法兰西紧急经济法案》提案
+country_event = {
+	id = holy_falanxi.4
+	title = holy_falanxi.4.t
+	desc = holy_falanxi.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.4.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.5  days = 8}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.03
+}
+
+add_timed_idea = {
+    idea = FRA_plan_jingji
+    days = 180
+}
+	}
+	option = {
+		name = holy_falanxi.4.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.5  days = 8}
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.03
+}
+add_timed_idea = {
+    idea = FRA_bufenganyu
+    days = 180
+}
+	}
+	option = {
+		name = holy_falanxi.4.c
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.5  days = 8}
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.03
+}
+add_timed_idea = {
+    idea = FRA_lianluo_yinghangjia
+    days = 180
+}
+	}
+}
+#新铁路线
+country_event = {
+	id = holy_falanxi.5
+	title = holy_falanxi.5.t
+	desc = holy_falanxi.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.5.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.6  days = 7}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.03
+}
+        16 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		15 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		30 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	option = {
+		name = holy_falanxi.5.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.6  days = 7}
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.03
+}
+        22 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		21 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+		31 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	option = {
+		name = holy_falanxi.5.c
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.6  days = 7}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.03
+}
+        18 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+		27 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}
+#法兰西民族辩论
+country_event = {
+	id = holy_falanxi.6
+	title = holy_falanxi.6.t
+	desc = holy_falanxi.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.6.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.7  days = 6}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.08
+}
+add_popularity = {
+    ideology = fascism
+    popularity = 0.07
+}
+	}
+	option = {
+		name = holy_falanxi.6.b
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.7 days = 6}
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.05
+}
+	}
+}
+#共产党在东部组织罢工
+country_event = {
+	id = holy_falanxi.7
+	title = holy_falanxi.7.t
+	desc = holy_falanxi.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.7.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.8  days = 11}
+		add_timed_idea = {
+    idea = FRA_bagong
+    days = 15
+}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.05
+}
+	}
+	option = {
+		name = holy_falanxi.7.b
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.8 days = 11}
+		add_political_power = -50
+add_stability = -0.05
+	}
+}
+#海军新船坞
+country_event = {
+	id = holy_falanxi.8
+	title = holy_falanxi.8.t
+	desc = holy_falanxi.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.8.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.9  days = 10}
+		14 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.03
+}
+	}
+	option = {
+		name = holy_falanxi.8.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.9 days = 10}
+		21 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.03
+}
+	}
+	option = {
+		name = holy_falanxi.8.c
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.9 days = 10}
+	}
+}
+#民主的动作
+country_event = {
+	id = holy_falanxi.9
+	title = holy_falanxi.9.t
+	desc = holy_falanxi.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.9.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = { id = holy_falanxi.11  days = 8}
+add_popularity = {
+    ideology = socialism
+    popularity = -0.05
+}
+add_stability = -0.02
+	}
+	option = {
+		name = holy_falanxi.9.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.11 days = 8}
+		add_popularity = {
+    ideology = fascism
+    popularity = -0.05
+}
+add_stability = -0.02
+	}
+}
+#冲击巴黎
+country_event = {
+	id = holy_falanxi.10
+	title = holy_falanxi.10.t
+	desc = holy_falanxi.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FRA
+		date > 1936.2.22
+		fascism < 15
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_falanxi.10.a
+		ai_chance = {
+		    factor = 30
+		}
+add_popularity = {
+    ideology = fascism
+    popularity = -0.2
+}
+	}
+	option = {
+		name = holy_falanxi.10.b
+		ai_chance = {
+		    factor = 3
+		}
+		add_popularity = {
+    ideology = fascism
+    popularity = 0.2
+}
+	}
+}
+#君主联盟回国
+country_event = {
+	id = holy_falanxi.11
+	title = holy_falanxi.11.t
+	desc = holy_falanxi.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.11.a
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.12  days = 5}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+create_country_leader = {
+	name = "阿尔贝吕克.波拿巴"
+	desc = ""
+	picture = "GFX11"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		
+	}
+}
+	}
+}
+#乡村问题
+country_event = {
+	id = holy_falanxi.12
+	title = holy_falanxi.12.t
+	desc = holy_falanxi.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.12.a
+		ai_chance = {
+		    factor = 5
+		}
+		country_event = { id = holy_falanxi.13  days = 4}
+add_popularity = {
+    ideology = conservatism
+    popularity = 0.02
+}
+add_political_power = -100
+	}
+	option = {
+		name = holy_falanxi.12.b
+		ai_chance = {
+		    factor = 20
+		}
+		country_event = { id = holy_falanxi.13  days = 4}
+add_popularity = {
+    ideology = socialism
+    popularity = 0.03
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.02
+}
+	}
+}
+#巴黎选举
+country_event = {
+	id = holy_falanxi.13
+	title = holy_falanxi.13.t
+	desc = holy_falanxi.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.13.a
+		trigger = { fascism > 0.3 }
+		ai_chance = {
+		    factor = 15
+		}
+		set_politics = {
+	ruling_party = fascism
+}
+remove_ideas = FRA_zhengzhi_war
+complete_national_focus = FRA_duoqu_zhengquan
+news_event = {
+				id = holy_news.5 days = 1
+			}
+	}
+	option = {
+		name = holy_falanxi.13.b
+		trigger = { socialism > 0.3 }
+		ai_chance = {
+		    factor = 30
+		}
+		set_politics = {
+	ruling_party = socialism
+}
+remove_ideas = FRA_zhengzhi_war
+complete_national_focus = FRA_mengya
+news_event = {
+				id = holy_news.6 days = 1
+			}
+	}
+	option = {
+		name = holy_falanxi.13.c
+		trigger = { conservatism > 0.3 }
+		ai_chance = {
+		    factor = 60
+		}
+		set_politics = {
+	ruling_party = conservatism
+}
+remove_ideas = FRA_zhengzhi_war
+complete_national_focus = FRA_minzhu_shijie
+news_event = {
+				id = holy_news.7 days = 1
+			}
+	}
+	option = {
+		name = holy_falanxi.13.e
+		trigger = { neutrality > 0.3 }
+		ai_chance = {
+		    factor = 30
+		}
+		set_politics = {
+	ruling_party = neutrality
+}
+remove_ideas = FRA_zhengzhi_war
+complete_national_focus = FRA_disanci_huigui
+news_event = {
+				id = holy_news.8 days = 1
+			}
+	}
+}
+#巴黎阅兵
+country_event = {
+	id = holy_falanxi.14
+	title = holy_falanxi.14.t
+	desc = holy_falanxi.14.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.14.a
+		ai_chance = {
+		    factor = 20
+		}
+		swap_ideas = {
+		add_idea = FRA_king_falanxi_2
+		remove_idea = FRA_king_falanxi
+		}
+	}
+}
+#巴黎公社纪念日
+country_event = {
+	id = holy_falanxi.15
+	title = holy_falanxi.15.t
+	desc = holy_falanxi.15.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FRA
+		has_completed_focus = FRA_bali_gongshe_jinianri
+		count_triggers = {
+    amount = 1
+    date = 1936.3.18
+	date = 1937.3.18
+	date = 1938.3.18
+	date = 1939.3.18
+	date = 1940.3.18
+	date = 1941.3.18
+	date = 1942.3.18
+	date = 1943.3.18
+	date = 1944.3.18
+	date = 1945.3.18
+	date = 1946.3.18
+	date = 1947.3.18
+	date = 1948.3.18
+	date = 1949.3.18
+}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_falanxi.15.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = 15
+	}
+}
+#法兰西之冬
+country_event = {
+	id = holy_falanxi.16
+	title = holy_falanxi.16.t
+	desc = holy_falanxi.16.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.16.a
+		ai_chance = {
+		    factor = 10
+		}
+		country_event = { id = holy_falanxi.18 days = 3 }
+	}
+}
+#撤往阿非利加
+country_event = {
+	id = holy_falanxi.17
+	title = holy_falanxi.17.t
+	desc = holy_falanxi.17.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+        tag = FRA
+		has_government = socialism
+		has_completed_focus = FRA_ranshao_falanxi
+		controls_state = 33
+		controls_state = 1038
+		controls_state = 930
+		controls_state = 20
+		OR = {
+		controls_state = 21
+		controls_state = 19
+		}
+	}
+	mean_time_to_happen = {
+	    day = 1
+	}
+	immediate = {
+	news_event = {
+				id = holy_news.120 days = 1
+			}
+	transfer_navy = {
+    target = FRN
+}
+	FRN = {
+	set_cosmetic_tag = FRA
+	transfer_state = 1
+	load_focus_tree = FRA_liuwang_zhengfu_focus
+	add_popularity = {
+    ideology = fascism
+    popularity = 0.25
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.35
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = 0.35
+}
+	add_ideas = {
+	FRN_liuwang_zhengfu
+	FRN_linshi_zhengquan
+	FRN_feizhou_chongtu
+	}
+	load_oob = FRN_liuwang_army
+	add_state_core = 1
+	declare_war_on = {
+    target = AER
+    type = annex_everything
+}
+	}
+	735 = {
+	add_manpower = -250000
+	}
+	21 = {
+	add_manpower = -500000
+	}
+	851 = {
+	add_manpower = -200000
+	}
+	32 = {
+	add_manpower = -350000
+	}
+	1824 = {
+	add_manpower = -170000
+	}
+	31 = {
+	add_manpower = -30000
+	}
+	22 = {
+	add_manpower = -300000
+	}
+	1035 = {
+	add_manpower = -300000
+	}
+	1823 = {
+	add_manpower = -300000
+	}
+	1 = {
+	add_manpower = 500000
+	}
+	459 = {
+	add_manpower = 900000
+	}
+	1120 = {
+	add_manpower = 250000
+	}
+	460 = {
+	add_manpower = 500000
+	}
+	513 = {
+	add_manpower = 400000
+	}
+	MOR = {
+	transfer_state = 461
+	transfer_state = 462
+	load_oob = MOR_feifa
+	}
+	TUN = {
+	transfer_state = 458
+	transfer_state = 665
+	load_oob = TUN_feifa
+	}
+	}
+	option = {
+		name = holy_falanxi.17.a
+		ai_chance = {
+		    factor = 10
+		}
+	}
+	option = {
+		name = holy_falanxi.17.b
+		ai_chance = {
+		    factor = 0
+		}
+		FRN = { change_tag_from = FRC }
+	}
+}
+#法兰西崩溃
+country_event = {
+	id = holy_falanxi.18
+	title = holy_falanxi.18.t
+	desc = holy_falanxi.18.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.18.a
+		ai_chance = {
+		    factor = 10
+		}
+		BLT = {
+		transfer_state = 14
+		transfer_state = 30
+		transfer_state = 919
+		transfer_state = 1817
+		add_state_core = 1817
+		add_state_core = 919
+		add_state_core = 14
+		add_state_core = 30
+		load_oob = BLT_1936
+		}
+		XHP = {
+		transfer_state = 18
+		transfer_state = 921
+		transfer_state = 924
+		add_state_core = 921
+		add_state_core = 924
+		add_state_core = 18
+		load_oob = XHP_1936
+		}
+		NRM = {
+		transfer_state = 15
+		transfer_state = 920
+		transfer_state = 1819
+		add_state_core = 1819
+		add_state_core = 920
+		add_state_core = 15
+		load_oob = NRM_1936
+		}
+		BGN = {
+		transfer_state = 27
+		transfer_state = 20
+		transfer_state = 32
+		transfer_state = 929
+		transfer_state = 1037
+		add_state_core = 929
+		add_state_core = 1037
+		add_state_core = 27
+		add_state_core = 20
+		add_state_core = 32
+		add_state_core = 17
+		load_oob = BGN_1936
+		}
+		TLZ = {
+		transfer_state = 26
+		transfer_state = 22
+		transfer_state = 1823
+		transfer_state = 1824
+		transfer_state = 1039
+		add_state_core = 1039
+		add_state_core = 1823
+		add_state_core = 1824
+		add_state_core = 26
+		add_state_core = 22
+		add_state_core = 20
+		load_oob = TLZ_1936
+		}
+		JSK = {
+		transfer_state = 19
+		transfer_state = 806
+		transfer_state = 31
+		transfer_state = 25
+		transfer_state = 23
+		transfer_state = 927
+		transfer_state = 1033
+		transfer_state = 1034
+		transfer_state = 1035
+		transfer_state = 1038
+		transfer_state = 1031
+		transfer_state = 1818
+		transfer_state = 926
+		add_state_core = 19
+		add_state_core = 806
+		add_state_core = 31
+		add_state_core = 23
+		add_state_core = 25
+		add_state_core = 927
+		add_state_core = 1033
+		add_state_core = 1034
+		add_state_core = 1035
+		add_state_core = 1039
+		add_state_core = 1038
+		add_state_core = 1031
+		add_state_core = 1818
+		add_state_core = 926
+		load_oob = JSK_1936
+		}
+		PKD = {
+		transfer_state = 29
+		transfer_state = 785
+		transfer_state = 1032
+		add_state_core = 1032
+		add_state_core = 29
+		add_state_core = 785
+		load_oob = PKD_1936
+		}
+		ARL = {
+		transfer_state = 33
+		transfer_state = 24
+		transfer_state = 931
+		transfer_state = 1820
+		transfer_state = 1822
+		transfer_state = 930
+		add_state_core = 930
+		add_state_core = 1822
+		add_state_core = 1820
+		add_state_core = 931
+		add_state_core = 33
+		add_state_core = 24
+		load_oob = ARL_1936
+		}
+		PLW = {
+		transfer_state = 21
+		transfer_state = 735
+		transfer_state = 851
+		add_state_core = 851
+		add_state_core = 32
+		add_state_core = 21
+		add_state_core = 735
+		load_oob = PLW_1936
+		}
+		COR = {
+		transfer_state = 1
+		add_state_core = 1
+		load_oob = COR_1936
+		}
+		PYI = {
+		transfer_state = 16
+		transfer_state = 922
+		add_state_core = 922
+		add_state_core = 16
+		load_oob = PYI_1936
+		}
+	}
+}
+#非法政权占领马耳他
+country_event = {
+	id = holy_falanxi.19
+	title = holy_falanxi.19.t
+	desc = holy_falanxi.19.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.19.a
+		ai_chance = {
+		    factor = 10
+		}
+	}
+	option = {
+		name = holy_falanxi.19.a
+		ai_chance = {
+		    factor = 0
+		}
+		create_wargoal = {
+    type = puppet_wargoal_focus
+    target = FRN
+}
+	}
+}
+#小协约国的邀请
+country_event = {
+	id = holy_falanxi.20
+	title = holy_falanxi.20.t
+	desc = holy_falanxi.20.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.20.a
+		ai_chance = {
+		    factor = 10
+		}
+		FRA = { add_to_faction = PREV }
+	}
+	option = {
+		name = holy_falanxi.20.b
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+#法兰西索取上萨瓦
+country_event = {
+	id = holy_falanxi.21
+	title = holy_falanxi.21.t
+	desc = holy_falanxi.21.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.21.a
+		ai_chance = {
+		    factor = 10
+		}
+		FRA = { transfer_state = 928 }
+	}
+	option = {
+		name = holy_falanxi.21.b
+		ai_chance = {
+		    factor = 0
+		}
+		FRA = {
+		create_wargoal = {
+    type = annex_everything
+    target = RUI
+}
+}
+	}
+}
+#法兰西索取汝拉土地
+country_event = {
+	id = holy_falanxi.22
+	title = holy_falanxi.22.t
+	desc = holy_falanxi.22.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_falanxi.22.a
+		ai_chance = {
+		    factor = 10
+		}
+		FRA = { transfer_state = 845 }
+	}
+	option = {
+		name = holy_falanxi.22.b
+		ai_chance = {
+		    factor = 0
+		}
+		FRA = {
+		create_wargoal = {
+    type = annex_everything
+    target = RUI
+}
+}
+	}
+}

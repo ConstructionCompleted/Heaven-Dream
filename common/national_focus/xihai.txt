@@ -1,0 +1,600 @@
+focus_tree = {
+	id = XIH_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = XIH
+		}
+	}
+	
+	default = no
+ 
+	#西海残火
+	focus = {
+		id = XIH_xihai_canhuo
+		icon = GFX_goal_anti_comintern_pact
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 50
+		}
+	}
+	#直面刀锋
+	focus = {
+		id = XIH_zhimian_daofeng
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = XIH_xihai_canhuo}
+		relative_position_id = XIH_xihai_canhuo
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_zuihou_zhanshi_2
+			remove_idea = XIH_zuihou_zhanshi
+			}
+		}
+	}
+	#土质兵工厂
+	focus = {
+		id = XIH_tuzhi_binggongchang
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = XIH_xihai_canhuo}
+		relative_position_id = XIH_xihai_canhuo
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_xihai_luohou_2
+			remove_idea = XIH_xihai_luohou
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#宗教自由
+	focus = {
+		id = XIH_zongjiao_ziyou
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = XIH_xihai_canhuo}
+		relative_position_id = XIH_xihai_canhuo
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_hanhui_chongtu_2
+			remove_idea = XIH_hanhui_chongtu
+			}
+		}
+	}
+	#修修补补
+	focus = {
+		id = XIH_xiuxiu_bubu
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = XIH_tuzhi_binggongchang}
+		relative_position_id = XIH_tuzhi_binggongchang
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XIH_xiuxiu_bubu
+		}
+	}
+	#堑壕防御
+	focus = {
+		id = XIH_qianhao_fangyu
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = XIH_tuzhi_binggongchang}
+		prerequisite = { focus = XIH_zhimian_daofeng}
+		relative_position_id = XIH_zhimian_daofeng
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XIH_qianhao_fangyu
+		}
+	}
+	#革命意志
+	focus = {
+		id = XIH_geming_yizhi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = XIH_zongjiao_ziyou}
+		prerequisite = { focus = XIH_zhimian_daofeng}
+		relative_position_id = XIH_zhimian_daofeng
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_zuihou_zhanshi_3
+			remove_idea = XIH_zuihou_zhanshi_2
+			}
+		}
+	}
+	#团结各族
+	focus = {
+		id = XIH_tuanjie_gezu
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = XIH_zongjiao_ziyou}
+		relative_position_id = XIH_zongjiao_ziyou
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_hanhui_chongtu_3
+			remove_idea = XIH_hanhui_chongtu_2
+			}
+		}
+	}
+	#人民的支持
+	focus = {
+		id = XIH_peopal_zhichi
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = XIH_xiuxiu_bubu}
+		prerequisite = { focus = XIH_qianhao_fangyu}
+		prerequisite = { focus = XIH_geming_yizhi}
+		prerequisite = { focus = XIH_tuanjie_gezu}
+		relative_position_id = XIH_qianhao_fangyu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = XIH_renmin_wuzhuang
+		}
+	}
+	#赢得胜利
+	focus = {
+		id = XIH_yingde_vic
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = XIH_peopal_zhichi}
+		relative_position_id = XIH_peopal_zhichi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 604
+		controls_state = 754
+		controls_state = 755
+		controls_state = 1293
+		controls_state = 1294
+		controls_state = 1295
+		controls_state = 1297
+		controls_state = 1296
+		}
+		completion_reward = {
+			add_stability = 0.2
+			CCP = { puppet = XIH }
+		}
+	}
+	#审判马家军
+	focus = {
+		id = XIH_shenpan_majiajun
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = XIH_yingde_vic}
+		relative_position_id = XIH_yingde_vic
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.7
+    days = 1
+}
+		}
+	}
+	#西北宣传战
+	focus = {
+		id = XIH_xibei_xuanchuanwar
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = XIH_shenpan_majiajun}
+		relative_position_id = XIH_shenpan_majiajun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			NIN = {
+			add_timed_idea = {
+    idea = XIH_xibei_xuanchuanwar
+    days = 180
+}
+			}
+			QIN = {
+			add_timed_idea = {
+    idea = XIH_xibei_xuanchuanwar
+    days = 90
+}
+			}
+		}
+	}
+	#组建游击队
+	focus = {
+		id = XIH_zujian_youjidui
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = XIH_shenpan_majiajun}
+		relative_position_id = XIH_shenpan_majiajun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#对抗宁夏
+	focus = {
+		id = XIH_duikang_ningxia
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = XIH_xibei_xuanchuanwar}
+		prerequisite = { focus = XIH_zujian_youjidui}
+		relative_position_id = XIH_xibei_xuanchuanwar
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NIN = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = NIN
+    type = annex_everything
+}
+        load_oob = XIH_ningxia_youjidui
+		}
+	}
+	#东部备战
+	focus = {
+		id = XIH_dongbu_beizhan
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = XIH_duikang_ningxia}
+		relative_position_id = XIH_duikang_ningxia
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 604
+		controls_state = 754
+		controls_state = 755
+		controls_state = 1293
+		controls_state = 1294
+		controls_state = 1295
+		controls_state = 1297
+		controls_state = 1296
+		}
+		completion_reward = {
+			283 = {
+			add_building_construction = {
+				type = bunker
+				province = 7911
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 531
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1933
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1647
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 5025
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3745
+				level = 2
+				instant_build = yes
+			}
+		}
+		616 = {
+			add_building_construction = {
+				type = bunker
+				province = 8081
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#西海革命建设
+	focus = {
+		id = XIH_xihai_geming_build
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = XIH_yingde_vic}
+		relative_position_id = XIH_yingde_vic
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_xihai_luohou_3
+			remove_idea = XIH_xihai_luohou_2
+			}
+		}
+	}
+	#资源开发
+	focus = {
+		id = XIH_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = XIH_xihai_geming_build}
+		relative_position_id = XIH_xihai_geming_build
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_xihai_luohou_4
+			remove_idea = XIH_xihai_luohou_3
+			}
+			add_resource = {
+    type = steel
+    amount = 20
+    state = 754
+}
+		}
+	}
+	#加工计划
+	focus = {
+		id = XIH_jiagong_plan
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = XIH_ziyuan_kaifa}
+		relative_position_id = XIH_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_xihai_luohou_5
+			remove_idea = XIH_xihai_luohou_4
+			}
+		}
+	}
+	#西北联通
+	focus = {
+		id = XIH_xibei_liantong
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = XIH_ziyuan_kaifa}
+		relative_position_id = XIH_ziyuan_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			 754 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			755 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			604 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设军事工业
+	focus = {
+		id = XIH_jianshe_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = XIH_xibei_liantong}
+		prerequisite = { focus = XIH_jiagong_plan}
+		relative_position_id = XIH_jiagong_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = XIH_xihai_luohou_5
+			755 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+	}
+	}
+	#联合各族
+	focus = {
+		id = XIH_lianhe_gezu
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = XIH_xihai_geming_build}
+		relative_position_id = XIH_xihai_geming_build
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_hanhui_chongtu_4
+			remove_idea = XIH_hanhui_chongtu_3
+			}
+		}
+	}
+	#准许少民自由
+	focus = {
+		id = XIH_zhunxu_shaomin_ziyou
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = XIH_lianhe_gezu}
+		relative_position_id = XIH_lianhe_gezu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_hanhui_chongtu_5
+			remove_idea = XIH_hanhui_chongtu_4
+			}
+		}
+	}
+	#军事武装
+	focus = {
+		id = XIH_junshi_wuzhuang
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = XIH_xihai_geming_build}
+		relative_position_id = XIH_xihai_geming_build
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_zuihou_zhanshi_4
+			remove_idea = XIH_zuihou_zhanshi_3
+			}
+		}
+	}
+	#进口东方武装
+	focus = {
+		id = XIH_jinkou_dongfang_wuzhuang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = XIH_junshi_wuzhuang}
+		relative_position_id = XIH_junshi_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = NNJ
+}
+		}
+	}
+	#政治委员计划
+	focus = {
+		id = XIH_zhengzhiweiyuan_plan
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = XIH_junshi_wuzhuang}
+		relative_position_id = XIH_junshi_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XIH_zuihou_zhanshi_5
+			remove_idea = XIH_zuihou_zhanshi_4
+			}
+		}
+	}
+	#组建回民支队
+	focus = {
+		id = XIH_zujian_huimin_zhidui
+		icon = GFX_focus_ETH_peacekeeping_forces
+		prerequisite = { focus = XIH_zhengzhiweiyuan_plan}
+		prerequisite = { focus = XIH_zhunxu_shaomin_ziyou}
+		relative_position_id = XIH_zhengzhiweiyuan_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XIH_huimin_zhidui
+		}
+	}
+}

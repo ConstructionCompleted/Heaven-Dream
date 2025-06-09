@@ -1,0 +1,550 @@
+focus_tree = {
+	id = JAD_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = JAD
+		}
+	}
+	
+	default = no
+ 
+	#胶东呼声
+	focus = {
+		id = JAD_jiaodong_husheng
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.2
+		}
+	}
+	#武装反抗者
+	focus = {
+		id = JAD_wuzhuang_fankangzhe
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = JAD_jiaodong_husheng}
+		relative_position_id = JAD_jiaodong_husheng
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = JAD_wuzhuang_fankangzhe
+		}
+	}
+	#统合当地工业
+	focus = {
+		id = JAD_tonghe_dangdi_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = JAD_jiaodong_husheng}
+		relative_position_id = JAD_jiaodong_husheng
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#联合各部
+	focus = {
+		id = JAD_lianhe_gebu
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = JAD_jiaodong_husheng}
+		relative_position_id = JAD_jiaodong_husheng
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = JAD_sanluan_lianhe_2
+			remove_idea = JAD_sanluan_lianhe
+			}
+		}
+	}
+	#第一次青岛会议
+	focus = {
+		id = JAD_diyici_qingdao_huiyi
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = JAD_wuzhuang_fankangzhe}
+		prerequisite = { focus = JAD_tonghe_dangdi_gongye}
+		prerequisite = { focus = JAD_lianhe_gebu}
+		relative_position_id = JAD_tonghe_dangdi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_huabei.20
+	days = 5
+}
+		}
+	}
+	#南京狼犬
+	focus = {
+		id = JAD_nanjing_langquan
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		prerequisite = { focus = JAD_diyici_qingdao_huiyi}
+		relative_position_id = JAD_diyici_qingdao_huiyi
+		mutually_exclusive = { focus = JAD_xibei_guzhong }
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+		}
+	}
+	#和地主合作
+	focus = {
+		id = JAD_hedizhu_hezuo
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = JAD_nanjing_langquan}
+		relative_position_id = JAD_nanjing_langquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = JAD_dizhu_hezuo
+		}
+	}
+	#和资本合作
+	focus = {
+		id = JAD_heziben_hezuo
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = JAD_nanjing_langquan}
+		relative_position_id = JAD_nanjing_langquan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = JAD_hezuo_ziben
+		}
+	}
+	#整合反张军官
+	focus = {
+		id = JAD_zhenghe_fandui_junguan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = JAD_hedizhu_hezuo}
+		prerequisite = { focus = JAD_heziben_hezuo}
+		relative_position_id = JAD_hedizhu_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = JAD_zhenghe_fanzhang_junguan
+		}
+	}
+	#吸收南京武装
+	focus = {
+		id = JAD_xishou_nanjing_wuzhuang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = JAD_hedizhu_hezuo}
+		prerequisite = { focus = JAD_heziben_hezuo}
+		relative_position_id = JAD_hedizhu_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = NNJ
+}
+		}
+	}
+	#清剿反对者
+	focus = {
+		id = JAD_qingjiao_fanduizhe
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = JAD_hedizhu_hezuo}
+		prerequisite = { focus = JAD_heziben_hezuo}
+		relative_position_id = JAD_hedizhu_hezuo
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = -50
+		}
+	}
+	#反正超过了张宗昌
+	focus = {
+		id = JAD_fanzheng_chaoguole_zhangzongchang
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = JAD_zhenghe_fandui_junguan}
+		prerequisite = { focus = JAD_xishou_nanjing_wuzhuang}
+		prerequisite = { focus = JAD_qingjiao_fanduizhe}
+		relative_position_id = JAD_xishou_nanjing_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		}
+	}
+	#西北孤忠
+	focus = {
+		id = JAD_xibei_guzhong
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = JAD_diyici_qingdao_huiyi}
+		relative_position_id = JAD_diyici_qingdao_huiyi
+		mutually_exclusive = { focus = JAD_nanjing_langquan }
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_stability = 0.1
+		}
+	}
+	#一封电报
+	focus = {
+		id = JAD_yifeng_dianbao
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = JAD_xibei_guzhong}
+		relative_position_id = JAD_xibei_guzhong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_huabei.21
+	days = 5
+}
+		}
+	}
+	#天下人
+	focus = {
+		id = JAD_tianxiaren
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = JAD_yifeng_dianbao}
+		relative_position_id = JAD_yifeng_dianbao
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = JAD_tianxiaren
+			remove_idea = JAD_fankang_baozheng
+			}
+		}
+	}
+	#约束部队
+	focus = {
+		id = JAD_yueshu_budui
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = JAD_yifeng_dianbao}
+		relative_position_id = JAD_yifeng_dianbao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_stability = 0.1
+		}
+	}
+	#完成整合
+	focus = {
+		id = JAD_wancheng_zhenghe
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = JAD_yifeng_dianbao}
+		relative_position_id = JAD_yifeng_dianbao
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = JAD_sanluan_lianhe_3
+			remove_idea = JAD_sanluan_lianhe_2
+			}
+		}
+	}
+	#战争之殇
+	focus = {
+		id = JAD_zhanzheng_zhishang
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = JAD_tianxiaren}
+		prerequisite = { focus = JAD_yueshu_budui}
+		prerequisite = { focus = JAD_wancheng_zhenghe}
+		relative_position_id = JAD_yueshu_budui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = JAD_zhanzheng_zhishang
+		}
+	}
+	#山东光复
+	focus = {
+		id = JAD_shandong_guangfu
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = JAD_fanzheng_chaoguole_zhangzongchang focus = JAD_zhanzheng_zhishang}
+		relative_position_id = JAD_zhanzheng_zhishang
+		available = {
+		controls_state = 597
+		controls_state = 1115
+		controls_state = 1116
+		controls_state = 1114
+		controls_state = 743
+		controls_state = 1414
+		}
+		bypass = {
+		JAD = {
+		exists = no
+		}
+		date > 1936.3.1
+		NOT = {
+		controls_state = 597
+		controls_state = 1113
+		controls_state = 1115
+		controls_state = 1116
+		controls_state = 1114
+		controls_state = 713
+		controls_state = 1414
+		}
+		}
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 597
+		add_state_core = 1113
+		add_state_core = 1115
+		add_state_core = 1116
+		add_state_core = 1114
+		add_state_core = 713
+		add_state_core = 1415
+		add_state_core = 1414
+		}
+	}
+	#联络蒋介石
+	focus = {
+		id = JAD_lianluo_jiangjieshi
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = JAD_shandong_guangfu }
+		relative_position_id = JAD_shandong_guangfu
+		mutually_exclusive = { focus = JAD_lianluo_fengyuxiang }
+		available = {
+		has_completed_focus = JAD_nanjing_langquan
+		}
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    NNJ = {
+			country_event = {
+    id = holy_huabei.22
+	days = 5
+}
+}
+		}
+	}
+	#寻求工业支援
+	focus = {
+		id = JAD_xunqiu_gongye_zhiyuan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = JAD_lianluo_jiangjieshi }
+		relative_position_id = JAD_lianluo_jiangjieshi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    597 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#寻求军事支援
+	focus = {
+		id = JAD_xunqiu_junshi_zhiyuan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = JAD_lianluo_jiangjieshi }
+		relative_position_id = JAD_lianluo_jiangjieshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = NNJ
+}
+		}
+	}
+	#鲁系通电
+	focus = {
+		id = JAD_luxi_tongdian
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = JAD_xunqiu_gongye_zhiyuan }
+		prerequisite = { focus = JAD_xunqiu_junshi_zhiyuan }
+		relative_position_id = JAD_xunqiu_junshi_zhiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    NNJ = { puppet = JAD } 
+		}
+	}
+	#联络冯玉祥
+	focus = {
+		id = JAD_lianluo_fengyuxiang
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = JAD_shandong_guangfu }
+		relative_position_id = JAD_shandong_guangfu
+		mutually_exclusive = { focus = JAD_lianluo_jiangjieshi }
+		available = {
+		has_completed_focus = JAD_xibei_guzhong
+		}
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		QIN = {
+		    country_event = {
+    id = holy_huabei.23
+	days = 5
+}
+		}
+		}
+	}
+	#山东加入
+	focus = {
+		id = JAD_shandong_jiaru
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = JAD_lianluo_fengyuxiang }
+		relative_position_id = JAD_lianluo_fengyuxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		QIN = { puppet = JAD } 
+		}
+	}
+	#四面备战
+	focus = {
+		id = JAD_simian_beizhan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = JAD_lianluo_fengyuxiang }
+		relative_position_id = JAD_lianluo_fengyuxiang
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#我们的元帅
+	focus = {
+		id = JAD_us_yuanshuai
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = JAD_shandong_jiaru }
+		prerequisite = { focus = JAD_simian_beizhan }
+		relative_position_id = JAD_simian_beizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = JAD_us_yuanshuai
+		}
+	}
+}

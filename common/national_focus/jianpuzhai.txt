@@ -1,0 +1,408 @@
+focus_tree = {
+	id = CAM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CAM
+		}
+	}
+	
+	default = no
+ 
+    #柬埔寨战争
+	focus = {
+		id = CAM_jianpuzhai_war
+		icon = GFX_goal_generic_secret_weapon
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#组建民兵
+	focus = {
+		id = CAM_zujian_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CAM_jianpuzhai_war}
+		relative_position_id = CAM_jianpuzhai_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = CAM_minbing
+		}
+	}
+	#游击战争
+	focus = {
+		id = CAM_youjizhanzheng
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = CAM_zujian_minbing}
+		relative_position_id = CAM_zujian_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAM_youjizhan
+		}
+	}
+	#民族独立战争
+	focus = {
+		id = CAM_minzuduli_zhanzheng
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = CAM_jianpuzhai_war}
+		relative_position_id = CAM_jianpuzhai_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAM_minzu_duli
+		}
+	}
+	#清除法兰西痕迹
+	focus = {
+		id = CAM_qingchu_falanxi_henji
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = CAM_minzuduli_zhanzheng}
+		relative_position_id = CAM_minzuduli_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAM_qingchu_falanxi_henji
+			remove_idea = CAM_minzu_duli
+			}
+		}
+	}
+	#人民战争
+	focus = {
+		id = CAM_renmin_zhanzheng
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = CAM_qingchu_falanxi_henji}
+		prerequisite = { focus = CAM_youjizhanzheng}
+		relative_position_id = CAM_youjizhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAM_renmin_zhanzheng
+			remove_idea = CAM_youjizhan
+			}
+		}
+	}
+	#革命胜利
+	focus = {
+		id = CAM_geming_shengli
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = CAM_renmin_zhanzheng}
+		relative_position_id = CAM_renmin_zhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		IDC = {
+		OR = {
+		has_capitulated = yes
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+			white_peace = IDC
+			transfer_state = 741
+			transfer_state = 1191
+			transfer_state = 1192
+		}
+	}
+	#红色柬埔寨
+	focus = {
+		id = CAM_hongse_jianpuzhai
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = CAM_geming_shengli}
+		relative_position_id = CAM_geming_shengli
+		mutually_exclusive = { focus = CAM_duli_jianpzhai }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_idea = SIA_jieshou_xianluo_zhiyuan
+		}
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = communism
+    popularity = 0.2
+}
+		}
+	}
+	#没收贵族土地
+	focus = {
+		id = CAM_moshou_guizu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = CAM_hongse_jianpuzhai}
+		relative_position_id = CAM_hongse_jianpuzhai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = CAM_nongye_gaige
+		}
+	}
+	#农业改革
+	focus = {
+		id = CAM_nongye_gaige
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = CAM_moshou_guizu}
+		relative_position_id = CAM_moshou_guizu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAM_nongye_gaige_2
+			remove_idea = CAM_nongye_gaige
+			}
+		}
+	}
+	#寻求农业援助
+	focus = {
+		id = CAM_xunqiu_nongye_yuanzhu
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = CAM_nongye_gaige}
+		relative_position_id = CAM_nongye_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CAM_nongye_gaige_3
+			remove_idea = CAM_nongye_gaige_2
+			}
+		}
+	}
+	#工业建设
+	focus = {
+		id = CAM_gongye_jianshe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = CAM_hongse_jianpuzhai}
+		relative_position_id = CAM_hongse_jianpuzhai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			741 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#军事建设
+	focus = {
+		id = CAM_junshi_jianshe
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = CAM_gongye_jianshe}
+		relative_position_id = CAM_gongye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1191 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#面向大海
+	focus = {
+		id = CAM_mianxiang_dahai
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = CAM_junshi_jianshe}
+		relative_position_id = CAM_junshi_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1192 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+	add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#独立的柬埔寨
+	focus = {
+		id = CAM_duli_jianpzhai
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = CAM_geming_shengli}
+		relative_position_id = CAM_geming_shengli
+		mutually_exclusive = { focus = CAM_hongse_jianpuzhai }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = SIA_jieshou_xianluo_zhiyuan
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		}
+	}
+	#宣称占婆地区
+	focus = {
+		id = CAM_xuancheng_zhanpo
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CAM_duli_jianpzhai}
+		relative_position_id = CAM_duli_jianpzhai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_claim = 286
+			add_state_claim = 1200
+			add_state_claim = 1186
+		}
+	}
+	#靠拢西部
+	focus = {
+		id = CAM_kaolong_xibu
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = CAM_xuancheng_zhanpo}
+		relative_position_id = CAM_xuancheng_zhanpo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    SIA = {
+			give_guarantee = CAM
+			}
+			add_stability = 0.1
+		}
+	}
+	#东部冲突
+	focus = {
+		id = CAM_dongbu_chongtu
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CAM_xuancheng_zhanpo}
+		relative_position_id = CAM_xuancheng_zhanpo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = VIN
+    type = annex_everything
+}
+		}
+	}
+	#泰国合并
+	focus = {
+		id = CAM_taiguo_hebing
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = CAM_dongbu_chongtu}
+		prerequisite = { focus = CAM_kaolong_xibu}
+		relative_position_id = CAM_kaolong_xibu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SIA = {
+			annex_country = {
+    target = CAM
+    transfer_troops = yes
+}
+		}
+		SIA = { change_tag_from = CAM }
+		}
+	}
+}

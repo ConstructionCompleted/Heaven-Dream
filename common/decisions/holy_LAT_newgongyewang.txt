@@ -1,0 +1,36 @@
+holy_LAT_newgongyewang = {
+    #新工业网
+    holy_LAT_new_ic_wang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		BLD = {
+		exists = no
+		}
+	}
+		available = {
+		has_completed_focus = EST_jianli_difang_suweiai
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+		12 808 190 809 810
+		}
+		cost = 50
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+    modifier = {
+        local_building_slots_factor = 0.15
+		local_resources_factor = 0.1
+    }
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

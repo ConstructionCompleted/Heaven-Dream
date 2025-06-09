@@ -1,0 +1,257 @@
+focus_tree = {
+	id = OGU_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = OGU
+		}
+	}
+	
+	default = no
+ 
+	#旧日回归
+	focus = {
+		id = OGU_jiuri_huigui
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#动员南部民兵
+	focus = {
+		id = OGU_dongyuan_nanbu_minbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = OGU_jiuri_huigui}
+		relative_position_id = OGU_jiuri_huigui
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = OGU_minbing
+		}
+	}
+	#联合地方武装
+	focus = {
+		id = OGU_lianhe_difang_wuzhaung
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = OGU_dongyuan_nanbu_minbing}
+		relative_position_id = OGU_dongyuan_nanbu_minbing
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = OGU_difang_wuzhaung
+		}
+	}
+	#建立旧秩序
+	focus = {
+		id = OGU_jianli_old_zhixu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = OGU_jiuri_huigui}
+		relative_position_id = OGU_jiuri_huigui
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = OGU_guangxi_tixi_2
+			remove_idea = OGU_guangxi_tixi
+			}
+		}
+	}
+	#组织地方体系
+	focus = {
+		id = OGU_zuzhi_difang_tixi
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = OGU_jianli_old_zhixu}
+		relative_position_id = OGU_jianli_old_zhixu
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = OGU_guangxi_tixi_3
+			remove_idea = OGU_guangxi_tixi_2
+			}
+		}
+	}
+	#重建桂系
+	focus = {
+		id = OGU_chongjian_guixi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = OGU_jianli_old_zhixu}
+		prerequisite = { focus = OGU_dongyuan_nanbu_minbing}
+		relative_position_id = OGU_dongyuan_nanbu_minbing
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = OGU_our_army_2
+			remove_idea = OGU_our_army
+			}
+		}
+	}
+	#南宁军事工业
+	focus = {
+		id = OGU_nanning_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = OGU_lianhe_difang_wuzhaung}
+		prerequisite = { focus = OGU_zuzhi_difang_tixi}
+		prerequisite = { focus = OGU_chongjian_guixi}
+		relative_position_id = OGU_chongjian_guixi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    594 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#马济的桂系
+	focus = {
+		id = OGU_maji_guixi
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = OGU_nanning_junshi_gongye}
+		relative_position_id = OGU_nanning_junshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		GUI = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		     remove_ideas = OGU_guangxi_tixi_3
+		}
+	}
+	#重建军事工业
+	focus = {
+		id = OGU_chongjian_junshi_gongye
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = OGU_maji_guixi}
+		relative_position_id = OGU_maji_guixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_ideas = OGU_chongjian_junshi_gongye
+		}
+	}
+	#建立旧式军队
+	focus = {
+		id = OGU_build_old_army
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = OGU_maji_guixi}
+		relative_position_id = OGU_maji_guixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = OGU_our_army_3
+			 remove_idea = OGU_our_army_2
+			 }
+		}
+	}
+	#激励带来胜利
+	focus = {
+		id = OGU_jili_vic
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = OGU_chongjian_junshi_gongye}
+		prerequisite = { focus = OGU_build_old_army}
+		relative_position_id = OGU_build_old_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     add_ideas = OGU_jili_vic
+		}
+	}
+	#数量带来胜利
+	focus = {
+		id = OGU_shuliang_vic
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = OGU_chongjian_junshi_gongye}
+		prerequisite = { focus = OGU_build_old_army}
+		relative_position_id = OGU_build_old_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = OGU_shuliang_vic
+			 remove_idea = OGU_our_army_3
+			 }
+		}
+	}
+	#军火带来胜利
+	focus = {
+		id = OGU_junhuo_vic
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = OGU_chongjian_junshi_gongye}
+		prerequisite = { focus = OGU_build_old_army}
+		relative_position_id = OGU_build_old_army
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		     swap_ideas = {
+			 add_idea = OGU_junhuo_vic
+			 remove_idea = OGU_chongjian_junshi_gongye
+			 }
+		}
+	}
+}

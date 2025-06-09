@@ -1,0 +1,1889 @@
+﻿focus_tree = {
+	id = ROM_focus
+	
+	country = {
+		factor = 0
+	}
+	
+	default = no
+	
+    #达契亚社会主义
+	focus = {
+		id = ROM_luomaniya_shehuizhuyi
+		icon = GFX_focus_eng_crush_the_dream
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = communism
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_4
+		remove_idea = MOL_geming_qianjin_3
+		}
+		}
+	}
+	#解放人民
+	focus = {
+		id = ROM_jiefang_renmin
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = ROM_luomaniya_shehuizhuyi}
+		relative_position_id = ROM_luomaniya_shehuizhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_5
+		remove_idea = MOL_geming_qianjin_4
+		}
+		}
+	}
+	#接管资本经济
+	focus = {
+		id = ROM_jieguan_ziben_jingji
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = ROM_luomaniya_shehuizhuyi}
+		relative_position_id = ROM_luomaniya_shehuizhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_red_jingji
+		}
+	}
+	#团结革命
+	focus = {
+		id = ROM_tuanjie_geming
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = ROM_jiefang_renmin}
+		relative_position_id = ROM_jiefang_renmin
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_6
+		remove_idea = MOL_geming_qianjin_5
+		}
+		}
+	}
+	#人民文化革命
+	focus = {
+		id = ROM_renmin_wenhua_geming
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = ROM_tuanjie_geming}
+		relative_position_id = ROM_tuanjie_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_geming_qianjin_7
+		remove_idea = MOL_geming_qianjin_6
+		}
+		}
+	}
+	#分配土地
+	focus = {
+		id = ROM_fenpei_tudi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = ROM_jiefang_renmin}
+		prerequisite = { focus = ROM_jieguan_ziben_jingji}
+		relative_position_id = ROM_jieguan_ziben_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_fenpei_tudi
+		}
+	}
+	#消灭地主
+	focus = {
+		id = ROM_xiaomie_dizhu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ROM_fenpei_tudi}
+		relative_position_id = ROM_fenpei_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = -100
+		swap_ideas = {
+		add_idea = ROM_fenpei_tudi_2
+		remove_idea = ROM_fenpei_tudi
+		}
+		}
+	}
+	#布加勒斯特工业化
+	focus = {
+		id = ROM_bujialesite_gongyehua
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ROM_jieguan_ziben_jingji}
+		relative_position_id = ROM_jieguan_ziben_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#摩尔多瓦工业扩展
+	focus = {
+		id = ROM_moerduowa_gongye_kuozhan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ROM_bujialesite_gongyehua}
+		relative_position_id = ROM_bujialesite_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		79 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#王冠下的国家
+	focus = {
+		id = ROM_wangguan_guojia
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 25
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = neutrality
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAL_wangguan_zhiguo_3
+		remove_idea = WAL_wangguan_zhiguo_2
+		}
+		}
+	}
+	#卡罗尔政府
+	focus = {
+		id = ROM_kaluoer_zhengfu
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = ROM_wangguan_guojia}
+		relative_position_id = ROM_wangguan_guojia
+		mutually_exclusive = { focus = ROM_mihayi_zhengfu }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		retire_country_leader = yes
+		create_country_leader = {
+	name = "卡罗尔二世"
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = jiquan_junzhu_system
+	traits = {
+		
+	}
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = 0.3
+}
+set_politics = {
+	ruling_party = dictatorship
+}
+		}
+	}
+	#皇家宪法
+	focus = {
+		id = ROM_huangjia_xianfa
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = ROM_kaluoer_zhengfu}
+		relative_position_id = ROM_kaluoer_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_huangjia_xianfa
+		}
+	}
+	#斩断铁卫团
+	focus = {
+		id = ROM_zhanduan_tieweituan
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = ROM_huangjia_xianfa}
+		relative_position_id = ROM_huangjia_xianfa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = fascism
+    popularity = -0.5
+}
+		}
+	}
+	#民族复兴
+	focus = {
+		id = ROM_minzu_fuxing
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = ROM_zhanduan_tieweituan}
+		relative_position_id = ROM_zhanduan_tieweituan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_minzu_fuxing
+		}
+	}
+	#个人崇拜
+	focus = {
+		id = ROM_geren_chongbai
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = ROM_zhanduan_tieweituan}
+		relative_position_id = ROM_zhanduan_tieweituan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_huangjia_xianfa_2
+		remove_idea = ROM_huangjia_xianfa
+		}
+		}
+	}
+	#君主理想
+	focus = {
+		id = ROM_junzhu_lixiang
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = ROM_minzu_fuxing}
+		prerequisite = { focus = ROM_geren_chongbai}
+		relative_position_id = ROM_minzu_fuxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_huangjia_xianfa_3
+		remove_idea = ROM_huangjia_xianfa_2
+		}
+		}
+	}
+	#皇家财产
+	focus = {
+		id = ROM_huangjia_caichan
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = ROM_kaluoer_zhengfu}
+		relative_position_id = ROM_kaluoer_zhengfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#企业联盟
+	focus = {
+		id = ROM_qiye_lianmeng
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ROM_huangjia_caichan}
+		relative_position_id = ROM_huangjia_caichan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_qiye_lianmeng
+		}
+	}
+	#建立顾问团
+	focus = {
+		id = ROM_jianli_guwentuan
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = ROM_qiye_lianmeng}
+		relative_position_id = ROM_qiye_lianmeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_qiye_lianmeng_2
+		remove_idea = ROM_qiye_lianmeng
+		}
+		}
+	}
+	#米哈伊政府
+	focus = {
+		id = ROM_mihayi_zhengfu
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = ROM_wangguan_guojia}
+		relative_position_id = ROM_wangguan_guojia
+		mutually_exclusive = { focus = ROM_kaluoer_zhengfu }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#国家联合政府
+	focus = {
+		id = ROM_guojia_lianhe_zhengfu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = ROM_mihayi_zhengfu}
+		relative_position_id = ROM_mihayi_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#建设农民国度
+	focus = {
+		id = ROM_jianshe_nongmin_guodu
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = ROM_guojia_lianhe_zhengfu}
+		relative_position_id = ROM_guojia_lianhe_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_jianshe_nongmin_guodu
+		}
+	}
+	#地区发展
+	focus = {
+		id = ROM_diqu_fazhan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = ROM_jianshe_nongmin_guodu}
+		relative_position_id = ROM_jianshe_nongmin_guodu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jianshe_nongmin_guodu_2
+		remove_idea = ROM_jianshe_nongmin_guodu
+		}
+		}
+	}
+	#政府辅助农业
+	focus = {
+		id = ROM_zhengfu_fuzhu_nongye
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = ROM_diqu_fazhan}
+		relative_position_id = ROM_diqu_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jianshe_nongmin_guodu_3
+		remove_idea = ROM_jianshe_nongmin_guodu_2
+		}
+		}
+	}
+	#农业现代化
+	focus = {
+		id = ROM_nongye_xiandaihua
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = ROM_zhengfu_fuzhu_nongye}
+		relative_position_id = ROM_zhengfu_fuzhu_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jianshe_nongmin_guodu_4
+		remove_idea = ROM_jianshe_nongmin_guodu_3
+		}
+		}
+	}
+	#自力更生
+	focus = {
+		id = ROM_zili_gengsheng
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = ROM_guojia_lianhe_zhengfu}
+		relative_position_id = ROM_guojia_lianhe_zhengfu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#中央集权
+	focus = {
+		id = ROM_zhongyang_jiquan
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = ROM_zili_gengsheng}
+		relative_position_id = ROM_zili_gengsheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_zhongyang_jiquan
+		}
+	}
+	#铁路投资
+	focus = {
+		id = ROM_tielu_touzi
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ROM_zhongyang_jiquan}
+		relative_position_id = ROM_zhongyang_jiquan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_tielu_touzi
+		}
+	}
+	#巴尔干民主
+	focus = {
+		id = ROM_baergan_minzhu
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = ROM_zili_gengsheng}
+		relative_position_id = ROM_zili_gengsheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism 
+    popularity = 0.1
+}
+add_political_power = 100
+add_stability = 0.1
+		}
+	}
+	#达契亚民族复兴
+	focus = {
+		id = ROM_roman_fuxing
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = ROM_baergan_minzhu}
+		relative_position_id = ROM_baergan_minzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_minzu_fuxing
+		}
+	}
+	#经济一体化
+	focus = {
+		id = ROM_jingji_yitihua
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_tielu_touzi}
+		prerequisite = { focus = ROM_roman_fuxing}
+		relative_position_id = ROM_roman_fuxing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_jingji_yitihua
+		}
+	}
+	#铁卫团崛起
+	focus = {
+		id = ROM_tieweituan_jueqi
+		icon = GFX_goal_support_fascism
+		x = 35
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = fascism
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi_4
+		remove_idea = MOL_tieweituan_zhengzhi_3
+		}
+		}
+	}
+	#森严等级
+	focus = {
+		id = ROM_senyan_dengji
+		icon = GFX_focus_SWI_embrace_panoramaheim
+		prerequisite = { focus = ROM_tieweituan_jueqi}
+		relative_position_id = ROM_tieweituan_jueqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi_5
+		remove_idea = MOL_tieweituan_zhengzhi_4
+		}
+		}
+	}
+	#全国狂热
+	focus = {
+		id = ROM_quanguo_kuangre
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = ROM_senyan_dengji}
+		relative_position_id = ROM_senyan_dengji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = MOL_tieweituan_zhengzhi_6
+		remove_idea = MOL_tieweituan_zhengzhi_5
+		}
+		}
+	}
+	#绿衫军团
+	focus = {
+		id = ROM_lvshan_juntuan
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = ROM_senyan_dengji}
+		relative_position_id = ROM_senyan_dengji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_lvshan_juntuan
+		}
+	}
+	#接管银行
+	focus = {
+		id = ROM_jieguan_yinhang
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = ROM_quanguo_kuangre}
+		relative_position_id = ROM_quanguo_kuangre
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_jieguan_yinhang
+		}
+	}
+	#国有化民族资产
+	focus = {
+		id = ROM_guoyouhua_minzu_zichan
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_jieguan_yinhang}
+		relative_position_id = ROM_jieguan_yinhang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jieguan_yinhang_2
+		remove_idea = ROM_jieguan_yinhang
+		}
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#战争狂热
+	focus = {
+		id = ROM_war_kuangre
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ROM_quanguo_kuangre}
+		prerequisite = { focus = ROM_lvshan_juntuan}
+		relative_position_id = ROM_lvshan_juntuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_war_kuangre
+		}
+	}
+	#审判瓦拉几亚
+	focus = {
+		id = ROM_shenpan_walajiya
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = ROM_war_kuangre}
+		relative_position_id = ROM_war_kuangre
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#先锋队的力量
+	focus = {
+		id = ROM_xianfengdui_liliang
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = ROM_lvshan_juntuan}
+		relative_position_id = ROM_lvshan_juntuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_lvshan_juntuan_2
+		remove_idea = ROM_lvshan_juntuan
+		}
+		}
+	}
+	#强制劳役
+	focus = {
+		id = ROM_qiangzhi_laoyi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = ROM_xianfengdui_liliang}
+		relative_position_id = ROM_xianfengdui_liliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_lvshan_juntuan_3
+		remove_idea = ROM_lvshan_juntuan_2
+		}
+		}
+	}
+	#计划经济
+	focus = {
+		id = ROM_jihua_jingji
+		icon = GFX_goal_generic_soviet_construction
+		x = 15
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = communism
+		}
+		completion_reward = {
+		add_ideas = ROM_plan_jingji
+		}
+	}
+	#南北联通
+	focus = {
+		id = ROM_nanbei_liantong
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = ROM_jihua_jingji}
+		relative_position_id = ROM_jihua_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		79 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#完全国有化
+	focus = {
+		id = ROM_wanquan_guoyouhua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ROM_jihua_jingji}
+		relative_position_id = ROM_jihua_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#开发油田
+	focus = {
+		id = ROM_kaifa_youtian
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = ROM_nanbei_liantong}
+		relative_position_id = ROM_nanbei_liantong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 50
+    state = 46
+}
+		}
+	}
+	#资源出口
+	focus = {
+		id = ROM_ziyuan_chukou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = ROM_kaifa_youtian}
+		relative_position_id = ROM_kaifa_youtian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_ziyuan_chukou
+		}
+	}
+	#南方工业化
+	focus = {
+		id = ROM_nanfang_gongyehua
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = ROM_nanbei_liantong}
+		prerequisite = { focus = ROM_wanquan_guoyouhua}
+		relative_position_id = ROM_wanquan_guoyouhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		81 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#北方工业化
+	focus = {
+		id = ROM_beifang_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ROM_nanfang_gongyehua}
+		relative_position_id = ROM_nanfang_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		78 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		79 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#集体化农业
+	focus = {
+		id = ROM_jitihua_nongye
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = ROM_wanquan_guoyouhua}
+		relative_position_id = ROM_wanquan_guoyouhua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_jitihua_nongye
+		}
+	}
+	#人民公社
+	focus = {
+		id = ROM_renmin_gongshe
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = ROM_jitihua_nongye}
+		relative_position_id = ROM_jitihua_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jitihua_nongye_2
+		remove_idea = ROM_jitihua_nongye
+		}
+		}
+	}
+	#重工业扩张
+	focus = {
+		id = ROM_zhonggongye_kuozhang
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_ziyuan_chukou}
+		prerequisite = { focus = ROM_beifang_gongyehua}
+		relative_position_id = ROM_beifang_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		79 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = ROM_nongye_jixiehua
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = ROM_renmin_gongshe}
+		prerequisite = { focus = ROM_beifang_gongyehua}
+		relative_position_id = ROM_beifang_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_jitihua_nongye_3
+		remove_idea = ROM_jitihua_nongye_2
+		}
+		}
+	}
+	#特兰西瓦尼亚工业化
+	focus = {
+		id = ROM_tlanxiwaniya_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ROM_zhonggongye_kuozhang}
+		prerequisite = { focus = ROM_nongye_jixiehua}
+		relative_position_id = ROM_nongye_jixiehua
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 84
+		controls_state = 76
+		controls_state = 971
+		controls_state = 972
+		controls_state = 977
+		controls_state = 83
+		}
+		completion_reward = {
+		84 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		76 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#外资国有化
+	focus = {
+		id = ROM_waizi_guoyouhua
+		icon = GFX_goal_generic_military_sphere
+		x = 22
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_government = communism
+		}
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = ROM_waizi_guoyouhua
+    days = 180
+}
+add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#保障资金正常
+	focus = {
+		id = ROM_baozhang_zijin_zhengchang
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = ROM_waizi_guoyouhua}
+		relative_position_id = ROM_waizi_guoyouhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#开拓巴尔干市场
+	focus = {
+		id = ROM_kaituo_baergan_shichang
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = ROM_baozhang_zijin_zhengchang}
+		relative_position_id = ROM_baozhang_zijin_zhengchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_kaituo_baergan
+		}
+	}
+	#联合地主
+	focus = {
+		id = ROM_lianhe_dizhu
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = ROM_baozhang_zijin_zhengchang}
+		relative_position_id = ROM_baozhang_zijin_zhengchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_lianhe_dizhu
+		}
+	}
+	#农业繁荣
+	focus = {
+		id = ROM_nongye_fanrong
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = ROM_kaituo_baergan_shichang}
+		prerequisite = { focus = ROM_lianhe_dizhu}
+		relative_position_id = ROM_lianhe_dizhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_nongye_fanrong
+		}
+	}
+	#开发水利
+	focus = {
+		id = ROM_kaifa_shuili
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = ROM_nongye_fanrong}
+		relative_position_id = ROM_nongye_fanrong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+			if = {
+			limit = {
+			OR = {
+			AND = {
+			has_core_of = WAL
+			is_controlled_by = WAL
+			}
+			AND = {
+			has_core_of = MOL
+			is_controlled_by = MOL
+			}
+			}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		   }
+	      }
+		}
+	}
+	}
+	#建设工业
+	focus = {
+		id = ROM_jianshe_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = ROM_waizi_guoyouhua}
+		relative_position_id = ROM_waizi_guoyouhua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		78 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#联合民族资本
+	focus = {
+		id = ROM_lianhe_minzu_ziben
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = ROM_jianshe_gongye}
+		relative_position_id = ROM_jianshe_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_minzu_ziben
+		}
+	}
+	#小农贷款
+	focus = {
+		id = ROM_xiaonong_daikuan
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = ROM_lianhe_minzu_ziben}
+		relative_position_id = ROM_lianhe_minzu_ziben
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = ROM_nongye_fanrong
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_nongye_fanrong_2
+		remove_idea = ROM_nongye_fanrong
+		}
+		}
+	}
+	#工业开发
+	focus = {
+		id = ROM_gongye_kaifa
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = ROM_lianhe_minzu_ziben}
+		relative_position_id = ROM_lianhe_minzu_ziben
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		81 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = ROM_nongyejixiehua
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = ROM_lianhe_minzu_ziben}
+		prerequisite = { focus = ROM_xiaonong_daikuan}
+		relative_position_id = ROM_xiaonong_daikuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_nongye_jixiehua
+		}
+	}
+	#扩建炼油设施
+	focus = {
+		id = ROM_kuojian_lianyou_sheshi
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = ROM_gongye_kaifa}
+		relative_position_id = ROM_gongye_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#汽车工业化
+	focus = {
+		id = ROM_qiche_gongyehua
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = ROM_kuojian_lianyou_sheshi}
+		relative_position_id = ROM_kuojian_lianyou_sheshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		46 = {
+		add_building_construction = {
+		add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#城乡合作
+	focus = {
+		id = ROM_chengxiang_hezuo
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = ROM_xiaonong_daikuan}
+		prerequisite = { focus = ROM_nongye_fanrong}
+		relative_position_id = ROM_xiaonong_daikuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_nongye_fanrong_3
+		remove_idea = ROM_nongye_fanrong_2
+		}
+		}
+	}
+	#地区链接
+	focus = {
+		id = ROM_diqu_lianjie
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = ROM_kaifa_shuili}
+		prerequisite = { focus = ROM_chengxiang_hezuo}
+		relative_position_id = ROM_chengxiang_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_state = {
+			if = {
+			limit = {
+			OR = {
+			AND = {
+			has_core_of = WAL
+			is_controlled_by = WAL
+			}
+			AND = {
+			has_core_of = MOL
+			is_controlled_by = MOL
+			}
+			}
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		   }
+	      }
+		}
+	}
+	}
+	#扶持小型工业
+	focus = {
+		id = ROM_fuchu_xiaoxing_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = ROM_nongyejixiehua}
+		prerequisite = { focus = ROM_chengxiang_hezuo}
+		relative_position_id = ROM_chengxiang_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+	}
+	}
+	#眺望山外
+	focus = {
+		id = ROM_tiaowang_shanmai
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		x = 30
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		TRA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		add_state_claim = 76
+		add_state_claim = 84
+		add_state_claim = 83
+		add_state_claim = 82
+		add_state_claim = 764
+		add_state_claim = 971
+		add_state_claim = 972
+		add_state_claim = 977
+		}
+	}
+	#皇家行动
+	focus = {
+		id = ROM_huangjia_xingdong
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = ROM_tiaowang_shanmai}
+		relative_position_id = ROM_tiaowang_shanmai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_government = neutrality
+		has_government = dictatorship
+		}
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+		}
+	}
+	#祖国哨兵
+	focus = {
+		id = ROM_zuguo_shaobing
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = ROM_huangjia_xingdong}
+		relative_position_id = ROM_huangjia_xingdong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = ROM_zuguo_shaobing
+		}
+	}
+	#山区战争
+	focus = {
+		id = ROM_shanqu_war
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = ROM_zuguo_shaobing}
+		relative_position_id = ROM_zuguo_shaobing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = ROM_zuguo_shaobing_2
+		remove_idea = ROM_zuguo_shaobing
+		}
+		}
+	}
+	#皇家艺术协会
+	focus = {
+		id = ROM_huangjia_yishu_xiehui
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = ROM_huangjia_xingdong}
+		relative_position_id = ROM_huangjia_xingdong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		XYL = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#设立使馆
+	focus = {
+		id = ROM_sheli_shiguan
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = ROM_huangjia_yishu_xiehui}
+		relative_position_id = ROM_huangjia_yishu_xiehui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = ROM_tra_army
+		}
+	}
+	#预备北方行动
+	focus = {
+		id = ROM_yubei_beifang_xingdong
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ROM_tiaowang_shanmai}
+		relative_position_id = ROM_tiaowang_shanmai
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_government = neutrality
+		has_government = dictatorship
+		}
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.05
+		add_manpower = 200000
+		}
+	}
+	#利用民族情绪
+	focus = {
+		id = ROM_liyong_minzu_qingxu
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = ROM_yubei_beifang_xingdong}
+		relative_position_id = ROM_yubei_beifang_xingdong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		OR = {
+		has_government = neutrality
+		has_government = dictatorship
+		}
+		}
+		}
+		completion_reward = {
+		XYL = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#组建组织
+	focus = {
+		id = ROM_zujian_zuzhi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = ROM_liyong_minzu_qingxu}
+		relative_position_id = ROM_liyong_minzu_qingxu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_core = 76
+		add_state_core = 84
+		add_state_core = 83
+		add_state_core = 82
+		add_state_core = 971
+		add_state_core = 972
+		add_state_core = 977
+		}
+	}
+	#铁卫团结构
+	focus = {
+		id = ROM_tiweituan_jiegou
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = ROM_yubei_beifang_xingdong}
+		relative_position_id = ROM_yubei_beifang_xingdong
+		mutually_exclusive = { focus = ROM_shehuizhuyi_shentou }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = fascism
+		}
+		completion_reward = {
+		add_ideas = ROM_tiweituan_TRA
+		}
+	}
+	#袭击行动
+	focus = {
+		id = ROM_xiji_xingdong
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = ROM_tiweituan_jiegou}
+		relative_position_id = ROM_tiweituan_jiegou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		XYL = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#社会主义渗透
+	focus = {
+		id = ROM_shehuizhuyi_shentou
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = ROM_yubei_beifang_xingdong}
+		relative_position_id = ROM_yubei_beifang_xingdong
+		mutually_exclusive = { focus = ROM_tiweituan_jiegou }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = communism
+		}
+		completion_reward = {
+		add_ideas = ROM_shehuizhuyi_TRA
+		}
+	}
+	#地方民兵
+	focus = {
+		id = ROM_difang_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ROM_shehuizhuyi_shentou}
+		relative_position_id = ROM_shehuizhuyi_shentou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = communism
+		}
+		completion_reward = {
+		load_oob = ROM_difang_minbing
+		}
+	}
+	#最后通牒
+	focus = {
+		id = ROM_zuihou_tongdie
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = ROM_shanqu_war focus = ROM_zujian_zuzhi }
+		prerequisite = { focus = ROM_sheli_shiguan focus = ROM_xiji_xingdong focus = ROM_difang_minbing}
+		relative_position_id = ROM_zujian_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		XYL = {
+		country_event = {
+    id = holy_baergan.3
+    days = 3
+}
+		}
+		add_state_core = 76
+		add_state_core = 84
+		add_state_core = 83
+		add_state_core = 82
+		add_state_core = 971
+		add_state_core = 972
+		add_state_core = 977
+		}
+	}
+	#进军多布罗加
+	focus = {
+		id = ROM_jinjun_duobuluojia
+		icon = GFX_focus_generic_conspiracy
+		x = 37
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		add_state_core = 77
+		add_state_core = 970
+		if = {
+		limit = {
+		BUL = {
+		controls_state = 970
+		}
+		}
+		BUL = {
+		country_event = {
+    id = holy_baergan.4
+    days = 10
+}
+		}
+		}
+		if = {
+		limit = {
+		NWM = {
+		controls_state = 970
+		}
+		}
+		NWM = {
+		country_event = {
+    id = holy_baergan.4
+    days = 10
+}
+		}
+		}
+		}
+	}
+	#接纳特兰西瓦尼亚
+	focus = {
+		id = ROM_jiena_TRA
+		icon = GFX_focus_YUG_autonomous_transylvania
+		x = 40
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		TRA = {
+		exists = yes
+		controls_state = 76
+		controls_state = 84
+		controls_state = 83
+		controls_state = 971
+		controls_state = 972
+		controls_state = 977
+		}
+		}
+		completion_reward = {
+		puppet = TRA
+		}
+	}
+	#资源倾斜
+	focus = {
+		id = ROM_ziyuan_qingxie
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = ROM_jiena_TRA }
+		relative_position_id = ROM_jiena_TRA
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		TRA = {
+		random_owned_controlled_state = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+		}
+	}
+	#经济支持
+	focus = {
+		id = ROM_jingji_zhichi
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ROM_ziyuan_qingxie }
+		relative_position_id = ROM_ziyuan_qingxie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = ROM_zhichi
+    days = 180
+}
+TRA = {
+add_timed_idea = {
+    idea = ROM_zhichi_2
+    days = 360
+}
+}
+		}
+	}
+	#组织军队
+	focus = {
+		id = ROM_zuzhi_jundui
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ROM_jiena_TRA }
+		relative_position_id = ROM_jiena_TRA
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		TRA = {
+		load_oob = TRA_army
+		}
+		}
+	}
+	#利用山地
+	focus = {
+		id = ROM_liyong_shandi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = ROM_zuzhi_jundui }
+		relative_position_id = ROM_zuzhi_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		TRA = {
+		add_ideas = ROM_liyong_shandi
+		}
+		}
+	}
+	#完成合并
+	focus = {
+		id = ROM_wancheng_hebing
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = ROM_liyong_shandi }
+		prerequisite = { focus = ROM_jingji_zhichi }
+		relative_position_id = ROM_jingji_zhichi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = TRA
+    transfer_troops = yes
+}
+		}
+	}
+}

@@ -1,0 +1,337 @@
+focus_tree = {
+	id = RNE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RNE
+		}
+	}
+	
+	default = no
+ 
+    #东方战争
+	focus = {
+		id = RNE_dongfang_war
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#先下手为强
+	focus = {
+		id = RNE_xianxiashou_weiqiang
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = RNE_dongfang_war}
+		relative_position_id = RNE_dongfang_war
+		mutually_exclusive = { focus = RNE_zhuanzhu_dongbu_zhanzheng }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#彼得堡战斗
+	focus = {
+		id = RNE_bidebao_zhandou
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RNE_xianxiashou_weiqiang}
+		relative_position_id = RNE_xianxiashou_weiqiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		completion_reward = {
+		RUN = {
+			kill_country_leader = yes
+		}
+add_manpower = -5000
+		}
+	}
+	#帝国的末路
+	focus = {
+		id = RNE_diguo_moluo
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = RNE_bidebao_zhandou}
+		relative_position_id = RNE_bidebao_zhandou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = RUN
+    transfer_troops = no
+}
+		}
+	}
+	#崔可夫的支持
+	focus = {
+		id = RNE_cuikefu_zhichi
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = RNE_diguo_moluo}
+		relative_position_id = RNE_diguo_moluo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNN = {
+		has_country_leader = {
+    name = "瓦西里·伊万诺维奇·崔可夫"
+    ruling_only = yes
+}
+		}
+		}
+		bypass = {
+		RNN = {
+		has_country_leader = {
+    name = "弗拉基米尔"
+    ruling_only = yes
+}
+		}
+		}
+		completion_reward = {
+		RNN = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+    target = RNE
+}
+		}
+		}
+	}
+	#要求尤登尼奇表态
+	focus = {
+		id = RNE_yaoqiu_youdengniqi_biaotai
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = RNE_diguo_moluo}
+		relative_position_id = RNE_diguo_moluo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNW = {
+		exists = yes
+		}
+		}
+		bypass = {
+		RNW = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		RNW = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+    target = RNE
+}
+		}
+		}
+	}
+	#整合帝国
+	focus = {
+		id = RNE_zhenghe_diguo
+		icon = GFX_focus_POL_support_global_falangism
+		prerequisite = { focus = RNE_yaoqiu_youdengniqi_biaotai}
+		prerequisite = { focus = RNE_cuikefu_zhichi}
+		relative_position_id = RNE_yaoqiu_youdengniqi_biaotai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		RNW = {
+		exists = yes
+		NOT = {
+		has_war_with = NVG
+		}
+		}
+		RNW = {
+		exists = no
+		}
+		}
+		OR = {
+		RNN = {
+		exists = yes
+		NOT = {
+		has_war_with = NVG
+		}
+		}
+		RNN = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		if = {
+    limit = {
+        RNN = { 
+		has_country_leader = {
+    name = "瓦西里·伊万诺维奇·崔可夫"
+    ruling_only = yes
+}
+}
+    }
+	annex_country = {
+    target = RNN
+    transfer_troops = yes
+}
+	declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+	}
+	annex_country = {
+    target = RNW
+    transfer_troops = yes
+}
+		}
+	}
+	#专注东部战争
+	focus = {
+		id = RNE_zhuanzhu_dongbu_zhanzheng
+		icon = GFX_focus_ETH_expand_the_kebur_zabagna
+		prerequisite = { focus = RNE_dongfang_war}
+		relative_position_id = RNE_dongfang_war
+		mutually_exclusive = { focus = RNE_xianxiashou_weiqiang }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#沙皇的名号
+	focus = {
+		id = RNE_shahuang_minghao
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = RNE_zhuanzhu_dongbu_zhanzheng}
+		relative_position_id = RNE_zhuanzhu_dongbu_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#围困阿尔汉格尔斯克
+	focus = {
+		id = RNE_weikun_aerhangeersike
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = RNE_shahuang_minghao}
+		relative_position_id = RNE_shahuang_minghao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RNE_weikun_aerhan
+		}
+	}
+	#善待人民
+	focus = {
+		id = RNE_shandai_renmin
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = RNE_zhuanzhu_dongbu_zhanzheng}
+		relative_position_id = RNE_zhuanzhu_dongbu_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = RNE_shandairenmin
+			remove_idea = RNE_bingyuan_duanque
+			}
+		}
+	}
+	#招揽喀山反对者
+	focus = {
+		id = RNE_zhaolan_kashan_fanduizhe
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RNE_shandai_renmin}
+		relative_position_id = RNE_shandai_renmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KZN = {
+			add_ideas = RNE_fanduizhe
+			}
+		}
+	}
+	#与北方联络
+	focus = {
+		id = RNE_yubeifang_lianluo
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = RNE_weikun_aerhangeersike}
+		prerequisite = { focus = RNE_zhaolan_kashan_fanduizhe}
+		relative_position_id = RNE_zhaolan_kashan_fanduizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			KZN = {
+			add_ideas = RNE_fanduizhe
+			}
+		}
+	}
+	#战争号角
+	focus = {
+		id = RNE_war_haojiao
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = RNE_yubeifang_lianluo}
+		relative_position_id = RNE_yubeifang_lianluo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = RNE_zhanzheng_haojiao
+		}
+	}
+}

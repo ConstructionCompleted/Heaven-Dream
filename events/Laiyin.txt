@@ -1,0 +1,143 @@
+add_namespace = holy_laiyin
+#索要黑森
+country_event = {
+	id = holy_laiyin.1
+	title = holy_laiyin.1.t
+	desc = holy_laiyin.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	ai_chance = {
+		    factor = 30
+		}
+		name = holy_laiyin.1.a
+		remove_state_core = 55
+		BAF = { 
+		add_state_core = 55
+		transfer_state = 55
+		}
+	}
+	option = {
+	ai_chance = {
+		    factor = 0
+		}
+		name = holy_laiyin.1.b
+	BAF = {
+		create_wargoal = {
+        type = annex_everything
+        target = WFL
+            }
+		add_state_core = 55
+        }
+	}
+}
+#进军莱茵兰
+country_event = {
+	id = holy_laiyin.2
+	title = holy_laiyin.2.t
+	desc = holy_laiyin.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	ai_chance = {
+		    factor = 30
+			modifier = {
+				has_government = neutrality
+				factor = 0
+			}
+		}
+		name = holy_laiyin.1.a
+		HNW = {
+		annex_country = {
+    target = LAI
+    transfer_troops = yes
+}
+}
+        LUO = {
+		add_state_core = 8
+		add_state_core = 42
+		transfer_state = 8
+		transfer_state = 42
+	}
+	}
+	option = {
+	ai_chance = {
+		    factor = 0
+			modifier = {
+				has_government = neutrality
+				factor = 100
+			}
+		}
+		name = holy_laiyin.2.b
+		HNW = {
+		declare_war_on = {
+    target = LAI
+    type = annex_everything
+}
+		}
+		LAI = {
+		leave_faction = yes
+		}
+		DAZ = {
+		country_event = {
+    id = holy_laiyin.3
+    days = 10
+}
+}
+	}
+}
+#对莱茵兰情况的态度
+country_event = {
+	id = holy_laiyin.3
+	title = holy_laiyin.3.t
+	desc = holy_laiyin.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+	    day = 1
+	}
+	option = {
+		name = holy_laiyin.3.a
+		ai_chance = {
+		    factor = 10
+		}
+		DAZ = { add_to_faction = LAI }
+	}
+	option = {
+		name = holy_laiyin.3.b
+		ai_chance = {
+		    factor = 10
+		}
+	}
+}
+#法兰西的入侵
+country_event = {
+	id = holy_laiyin.4
+	title = holy_laiyin.4.t
+	desc = holy_laiyin.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_laiyin.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		FRA = { puppet = LAI }
+	}
+	option = {
+		name = holy_laiyin.4.b
+		ai_chance = {
+		    factor = 15
+		}
+		FRA = {
+		declare_war_on = {
+    target = LAI
+    type = annex_everything
+}
+		}
+	}
+}

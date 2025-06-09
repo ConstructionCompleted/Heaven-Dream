@@ -1,0 +1,4374 @@
+﻿focus_tree = {
+	id = PER_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PER
+		}
+	}
+	
+	default = no
+	
+    #大不里士的回归
+	focus = {
+		id = PER_dabulishi_huigui
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		mutually_exclusive = { focus = PER_zhengzhi_heping }
+		mutually_exclusive = { focus = PER_gaoyuan_zhuoshao_zhiri }
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = PER_dabulishi_huigui
+				remove_idea = PER_yaoyaoyuzhui_minzhu
+			}
+			add_popularity = {
+				ideology = dictatorship
+				popularity = 0.2
+			}
+			set_politics = {
+				ruling_party = dictatorship
+			}
+			add_state_claim = 229
+			add_state_claim = 1417
+			add_state_claim = 1421
+			add_state_claim = 1418
+			add_state_claim = 1422
+			add_state_claim = 230
+			add_state_claim = 291
+			add_state_claim = 616
+			add_state_claim = 1329
+			remove_state_claim = 1667
+			remove_state_claim = 587
+			every_state = {
+					limit = {
+					OR = {
+						region = 267
+						region = 162
+						}
+					}
+add_claim_by = PER
+		}
+			news_event = {
+				id = holy_news.86 days = 1
+			}
+		}
+	}
+	#肃清自由派
+	focus = {
+		id = PER_suqing_ziyoupai
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = PER_dabulishi_huigui}
+		relative_position_id = PER_dabulishi_huigui
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = PER_guojia_gongye
+				remove_idea = PER_luohou_guojia
+			}
+		}
+	}
+	#吞并英伊石油
+	focus = {
+		id = PER_tunbing_yingyi_shiyou
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = PER_suqing_ziyoupai}
+		relative_position_id = PER_suqing_ziyoupai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_guojia_gongye_2
+		remove_idea = PER_guojia_gongye
+		}
+		}
+	}
+	#资源开发
+	focus = {
+		id = PER_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = PER_tunbing_yingyi_shiyou}
+		relative_position_id = PER_tunbing_yingyi_shiyou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 25
+    state = 411
+}
+add_resource = {
+    type = oil
+    amount = 25
+    state = 412
+}
+		}
+	}
+	#波斯工业化
+	focus = {
+		id = PER_bosi_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PER_tunbing_yingyi_shiyou}
+		relative_position_id = PER_tunbing_yingyi_shiyou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		417 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		411 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#里海贸易
+	focus = {
+		id = PER_lihai_maoyi
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = PER_ziyuan_kaifa}
+		relative_position_id = PER_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_lihai_maoyi
+		}
+	}
+	#波斯湾开发
+	focus = {
+		id = PER_bosiwan_kaifa
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = PER_lihai_maoyi}
+		relative_position_id = PER_lihai_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		413 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#摩托化进程
+	focus = {
+		id = PER_motuohua_jincheng
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = PER_ziyuan_kaifa}
+		prerequisite = { focus = PER_bosi_gongyehua}
+		relative_position_id = PER_bosi_gongyehua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = motorized_equipment
+			}
+		}
+	}
+	#伊朗军事科研
+	focus = {
+		id = PER_yilang_junshi_keyan
+		icon = GFX_focus_research2
+		prerequisite = { focus = PER_motuohua_jincheng}
+		relative_position_id = PER_motuohua_jincheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#建设军事工业
+	focus = {
+		id = PER_jianshe_junshi_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PER_bosi_gongyehua}
+		relative_position_id = PER_bosi_gongyehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		266 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#中央工业计划
+	focus = {
+		id = PER_zhongyang_gongye_plan
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = PER_jianshe_junshi_gongye}
+		relative_position_id = PER_jianshe_junshi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		416 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		418 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#沿海工业化
+	focus = {
+		id = PER_yanhai_gongyehua
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = PER_bosiwan_kaifa}
+		prerequisite = { focus = PER_yilang_junshi_keyan}
+		relative_position_id = PER_yilang_junshi_keyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		412 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		410 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#东部开发
+	focus = {
+		id = PER_dongbu_kaifa
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PER_zhongyang_gongye_plan}
+		prerequisite = { focus = PER_yilang_junshi_keyan}
+		relative_position_id = PER_yilang_junshi_keyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		414 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		416 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#与宗教合作
+	focus = {
+		id = PER_yu_zongjiao_hezuo
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = PER_dabulishi_huigui}
+		relative_position_id = PER_dabulishi_huigui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#民粹联合
+	focus = {
+		id = PER_mincui_lianhe
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = PER_dabulishi_huigui}
+		relative_position_id = PER_dabulishi_huigui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#萨法维的旧日
+	focus = {
+		id = PER_safawei_jiuri
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = PER_mincui_lianhe}
+		prerequisite = { focus = PER_yu_zongjiao_hezuo}
+		relative_position_id = PER_yu_zongjiao_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_dabulishi_huigui_2
+		remove_idea = PER_dabulishi_huigui
+		}
+		}
+	}
+	#进军阿塞拜疆
+	focus = {
+		id = PER_jinjun_asaibaijiang
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = PER_safawei_jiuri}
+		relative_position_id = PER_safawei_jiuri
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		country_event = { id = holy_aosiman.10 days = 3 }
+		declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+declare_war_on = {
+    target = GEO
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+		}
+	}
+	#延续战争
+	focus = {
+		id = PER_yanxu_zhanzheng
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = PER_jinjun_asaibaijiang}
+		relative_position_id = PER_jinjun_asaibaijiang
+		mutually_exclusive = { focus = PER_tichu_tanpan }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		OR = {
+		AND = {
+		controls_state = 419
+		controls_state = 420
+		controls_state = 1420
+		controls_state = 1427
+		}
+		AZR = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#提出谈判
+	focus = {
+		id = PER_tichu_tanpan
+		icon = GFX_focus_ETH_empower_the_ras
+		prerequisite = { focus = PER_jinjun_asaibaijiang}
+		relative_position_id = PER_jinjun_asaibaijiang
+		mutually_exclusive = { focus = PER_yanxu_zhanzheng }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		OR = {
+		AND = {
+		controls_state = 419
+		controls_state = 420
+		controls_state = 1420
+		controls_state = 1427
+		}
+		AZR = {
+		exists = no
+		}
+		}
+		}
+		completion_reward = {
+		PER = {
+		transfer_state = 420
+		transfer_state = 419
+		transfer_state = 1420
+		transfer_state = 1427
+		transfer_state = 1417
+		}
+		GEO = {
+		transfer_state = 229
+		transfer_state = 1421
+		}
+	PER = {
+white_peace = EGY
+white_peace = OTF
+white_peace = ARM
+white_peace = KUR
+white_peace = IRQ
+white_peace = SYR
+white_peace = PAL
+white_peace = YEM
+white_peace = GEO
+white_peace = HAZ
+white_peace = SMS
+white_peace = DLB
+white_peace = OTT
+leave_faction = yes
+add_timed_idea = {
+    idea = PER_tingzhan
+    days = 360
+}
+	}
+	white_peace = OTF
+		}
+	}
+	#延续北方战争
+	focus = {
+		id = PER_yanxu_beifang_war
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = PER_yanxu_zhanzheng focus = PER_tichu_tanpan }
+		relative_position_id = PER_tichu_tanpan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		NOT = {
+		has_idea = PER_tingzhan
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = GEO
+    type = annex_everything
+}
+		}
+	}
+	#进军伊拉克
+	focus = {
+		id = PER_jinjun_yilake
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = PER_yanxu_beifang_war }
+		relative_position_id = PER_yanxu_beifang_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = IRQ
+    type = annex_everything
+}
+		}
+	}
+	#进军叙利亚
+	focus = {
+		id = PER_jinjun_xuliya
+		icon = GFX_focus_TUR_support_the_golden_square
+		prerequisite = { focus = PER_jinjun_yilake }
+		relative_position_id = PER_jinjun_yilake
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SYR
+    type = annex_everything
+}
+		}
+	}
+	#安纳托利亚战争
+	focus = {
+		id = PER_annatuoliya_war
+		icon = GFX_focus_generic_attack_turkey
+		prerequisite = { focus = PER_jinjun_xuliya }
+		relative_position_id = PER_jinjun_xuliya
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+		}
+	}
+	#中亚边境
+	focus = {
+		id = PER_zhongya_bianjing
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = PER_jinjun_yilake }
+		relative_position_id = PER_jinjun_yilake
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		has_war = no
+		}
+		bypass = {
+		SHV = { exists = no } 
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+		}
+	}
+	#阿富汗复仇
+	focus = {
+		id = PER_afuhan_fuchou
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = PER_zhongya_bianjing }
+		relative_position_id = PER_zhongya_bianjing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		has_war = no
+		}
+		bypass = {
+		AFG = { exists = no } 
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+	#爱琴海霸权
+	focus = {
+		id = PER_aiqinhai_baquan
+		icon = GFX_focus_GRE_a_long_and_proud_tradition
+		prerequisite = { focus = PER_annatuoliya_war }
+		prerequisite = { focus = PER_afuhan_fuchou }
+		relative_position_id = PER_afuhan_fuchou
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		OTT = {
+		exists = no
+		}
+		OTF = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+		}
+	}
+	#埃及征服
+	focus = {
+		id = PER_aiji_zhengfu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = PER_annatuoliya_war }
+		prerequisite = { focus = PER_afuhan_fuchou }
+		relative_position_id = PER_afuhan_fuchou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = EGY
+    type = annex_everything
+}
+		}
+	}
+	#夺取俾路支
+	focus = {
+		id = PER_duoqu_biluzhi
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = PER_annatuoliya_war }
+		prerequisite = { focus = PER_afuhan_fuchou }
+		relative_position_id = PER_afuhan_fuchou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		available = {
+		RJS = {
+		NOT = {
+		is_in_faction_with = UKM
+		}
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = RJS
+    type = annex_everything
+}
+		}
+	}
+	#复兴红头
+	focus = {
+		id = PER_fuxing_hongtou
+		icon = GFX_focus_ETH_expand_the_levy
+		prerequisite = { focus = PER_dabulishi_huigui}
+		relative_position_id = PER_dabulishi_huigui
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_fuxing_hongtou
+		}
+	}
+	#吸收中亚游牧
+	focus = {
+		id = PER_xishou_zhongya_youmu
+		icon = GFX_focus_ETH_expand_the_kebur_zabagna
+		prerequisite = { focus = PER_fuxing_hongtou}
+		relative_position_id = PER_fuxing_hongtou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_fuxing_hongtou_2
+		remove_idea = PER_fuxing_hongtou
+		}
+		}
+	}
+	#旧日失败的教训
+	focus = {
+		id = PER_jiuri_shibai_jiaoxun
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = PER_dabulishi_huigui}
+		relative_position_id = PER_dabulishi_huigui
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_wangguo_army
+		remove_idea = PER_luohou_army
+		}
+		}
+	}
+	#加强火炮
+	focus = {
+		id = PER_jiaqiang_huopao
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = PER_jiuri_shibai_jiaoxun}
+		relative_position_id = PER_jiuri_shibai_jiaoxun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_wangguo_army_2
+		remove_idea = PER_wangguo_army
+		}
+		}
+	}
+	#波斯军团
+	focus = {
+		id = PER_bosi_juntuan
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = PER_jiaqiang_huopao}
+		prerequisite = { focus = PER_xishou_zhongya_youmu}
+		relative_position_id = PER_jiaqiang_huopao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_wangguo_army_3
+		remove_idea = PER_wangguo_army_2
+		}
+		}
+	}
+	#接纳古拉姆
+	focus = {
+		id = PER_jiena_gulimu
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = PER_bosi_juntuan}
+		relative_position_id = PER_bosi_juntuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_kuoda_army
+		}
+	}
+	#扩大波斯军队
+	focus = {
+		id = PER_kuoda_bosi_army
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = PER_jiena_gulimu}
+		relative_position_id = PER_jiena_gulimu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_manpower = 250000
+		}
+	}
+	#接纳军事思想
+	focus = {
+		id = PER_jiena_junshi_sixiang
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = PER_jiena_gulimu}
+		prerequisite = { focus = PER_jianli_xinshi_army}
+		relative_position_id = PER_jianli_xinshi_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		army_experience = 50
+		}
+	}
+	#全国动员体系
+	focus = {
+		id = PER_quanguo_dongyuan_tixi
+		icon = GFX_goal_continuous_def_against_influence
+		prerequisite = { focus = PER_kuoda_bosi_army}
+		prerequisite = { focus = PER_jiena_junshi_sixiang}
+		relative_position_id = PER_jiena_junshi_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_kuoda_army_2
+		remove_idea = PER_kuoda_army
+		}
+		}
+	}
+	#建立新式军队
+	focus = {
+		id = PER_jianli_xinshi_army
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = PER_bosi_juntuan}
+		relative_position_id = PER_bosi_juntuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_wangguo_army_4
+		remove_idea = PER_wangguo_army_3
+		}
+		}
+	}
+	#军事参谋部
+	focus = {
+		id = PER_junshi_canmoubu
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = PER_yanfa_xinshi_wuzhuang}
+		prerequisite = { focus = PER_jiena_junshi_sixiang}
+		relative_position_id = PER_jiena_junshi_sixiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_wangguo_army_5
+		remove_idea = PER_wangguo_army_4
+		}
+		}
+	}
+	#研发新式武装
+	focus = {
+		id = PER_yanfa_xinshi_wuzhuang
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = PER_jianli_xinshi_army}
+		relative_position_id = PER_jianli_xinshi_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry
+			}
+		}
+	}
+	#政治和平的延续
+	focus = {
+		id = PER_zhengzhi_heping
+		icon = GFX_focus_generic_court
+		mutually_exclusive = { focus = PER_dabulishi_huigui }
+		mutually_exclusive = { focus = PER_gaoyuan_zhuoshao_zhiri }
+		x = 30
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu
+		remove_idea = PER_yaoyaoyuzhui_minzhu
+		}
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+		}
+	}
+	#阿塞拜疆谈判
+	focus = {
+		id = PER_asaibaijiang_tanpan
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = PER_zhengzhi_heping}
+		relative_position_id = PER_zhengzhi_heping
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		AZR = { country_event = { id = holy_aosiman.11 days = 3 } }
+		}
+	}
+	#开启白色革命
+	focus = {
+		id = PER_kaiqi_baise_geming
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = PER_zhengzhi_heping}
+		relative_position_id = PER_zhengzhi_heping
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#经济改革
+	focus = {
+		id = PER_jingji_gaige
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = { focus = PER_kaiqi_baise_geming}
+		relative_position_id = PER_kaiqi_baise_geming
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_gaige
+		remove_idea = PER_luohou_guojia
+		}
+		}
+	}
+	#工业发展计划
+	focus = {
+		id = PER_gongye_fazhan_plan
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = PER_jingji_gaige}
+		relative_position_id = PER_jingji_gaige
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_gongye_fazhan_plan
+		}
+	}
+	#投资南方
+	focus = {
+		id = PER_touzi_nanfang
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = PER_gongye_fazhan_plan}
+		relative_position_id = PER_gongye_fazhan_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		413 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		413 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#投资北方
+	focus = {
+		id = PER_touzi_beifang
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = PER_touzi_nanfang}
+		relative_position_id = PER_touzi_nanfang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		266 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		266 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#中央开发
+	focus = {
+		id = PER_zhongyang_kaifa
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = PER_touzi_beifang}
+		relative_position_id = PER_touzi_beifang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		411 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		418 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		417 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		414 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#石油支柱
+	focus = {
+		id = PER_shiyou_zhizhu
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = PER_jingji_gaige}
+		relative_position_id = PER_jingji_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_gaige_2
+		remove_idea = PER_jingji_gaige
+		}
+		add_resource = {
+    type = oil
+    amount = 50
+    state = 413
+}
+		}
+	}
+	#国营股份出售
+	focus = {
+		id = PER_guoying_gufen_chushou
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = PER_shiyou_zhizhu}
+		relative_position_id = PER_shiyou_zhizhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_gaige_3
+		remove_idea = PER_jingji_gaige_2
+		}
+		}
+	}
+	#分红法令
+	focus = {
+		id = PER_fenhong_faling
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = PER_guoying_gufen_chushou}
+		relative_position_id = PER_guoying_gufen_chushou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_gaige_4
+		remove_idea = PER_jingji_gaige_3
+		}
+		}
+	}
+	#工人权益保护法
+	focus = {
+		id = PER_gongren_quanyi_baohufa
+		icon = GFX_focus_hol_the_foundations_of_defense
+		prerequisite = { focus = PER_fenhong_faling}
+		relative_position_id = PER_fenhong_faling
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_gaige_5
+		remove_idea = PER_jingji_gaige_4
+		}
+		}
+	}
+	#保护妇女权利
+	focus = {
+		id = PER_baohu_funv
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = PER_kaiqi_baise_geming}
+		relative_position_id = PER_kaiqi_baise_geming
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu_2
+		remove_idea = PER_minzhu_yanxu
+		}
+		}
+	}
+	#加强行政管理
+	focus = {
+		id = PER_jiaqiang_xingzheng_guanli
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = PER_baohu_funv}
+		relative_position_id = PER_baohu_funv
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu_3
+		remove_idea = PER_minzhu_yanxu_2
+		}
+		}
+	}
+	#财产公开
+	focus = {
+		id = PER_caichan_gongkai
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = PER_jiaqiang_xingzheng_guanli}
+		relative_position_id = PER_jiaqiang_xingzheng_guanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu_4
+		remove_idea = PER_minzhu_yanxu_3
+		}
+		}
+	}
+	#反腐肃清
+	focus = {
+		id = PER_fanfu_suqing
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = PER_caichan_gongkai}
+		relative_position_id = PER_caichan_gongkai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_stability = -0.2
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu_5
+		remove_idea = PER_minzhu_yanxu_4
+		}
+		}
+	}
+	#公正法院
+	focus = {
+		id = PER_gongzheng_faan
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = PER_fanfu_suqing}
+		relative_position_id = PER_fanfu_suqing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_minzhu_yanxu_6
+		remove_idea = PER_minzhu_yanxu_5
+		}
+		}
+	}
+	#伊朗卫国军队
+	focus = {
+		id = PER_yilang_weiguo_army
+		icon = GFX_focus_ETH_peacekeeping_forces
+		prerequisite = { focus = PER_kaiqi_baise_geming}
+		relative_position_id = PER_kaiqi_baise_geming
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_yilang_army
+		remove_idea = PER_luohou_army
+		}
+		}
+	}
+	#反对军队宗教
+	focus = {
+		id = PER_fandui_jundui_zongjiao
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = PER_yilang_weiguo_army}
+		relative_position_id = PER_yilang_weiguo_army
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_yilang_army_2
+		remove_idea = PER_yilang_army
+		}
+		add_stability = -0.1
+		}
+	}
+	#进口西方武装
+	focus = {
+		id = PER_jinkou_xifang_wuzhuang
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = PER_fandui_jundui_zongjiao}
+		relative_position_id = PER_fandui_jundui_zongjiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_yilang_army_3
+		remove_idea = PER_yilang_army_2
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = UKM
+}
+		}
+	}
+	#先进军事理论
+	focus = {
+		id = PER_xianjin_junshi_lilun
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = PER_jinkou_xifang_wuzhuang}
+		relative_position_id = PER_jinkou_xifang_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_yilang_army_4
+		remove_idea = PER_yilang_army_3
+		}
+		}
+	}
+	#地方民兵
+	focus = {
+		id = PER_difang_minbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = PER_xianjin_junshi_lilun}
+		relative_position_id = PER_xianjin_junshi_lilun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		load_oob = PER_minbing
+		}
+	}
+	#土地改革法
+	focus = {
+		id = PER_tudi_gaigefa
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		prerequisite = { focus = PER_kaiqi_baise_geming}
+		relative_position_id = PER_kaiqi_baise_geming
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_tudi_gaigefa
+		}
+	}
+	#土地开发
+	focus = {
+		id = PER_tudi_kaifa
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = PER_tudi_gaigefa}
+		relative_position_id = PER_tudi_gaigefa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_tudi_gaigefa_2
+		remove_idea = PER_tudi_gaigefa
+		}
+		}
+	}
+	#农业贷款
+	focus = {
+		id = PER_nongye_daikuan
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = PER_tudi_kaifa}
+		relative_position_id = PER_tudi_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_tudi_gaigefa_3
+		remove_idea = PER_tudi_gaigefa_2
+		}
+		}
+	}
+	#村庄农业联合体
+	focus = {
+		id = PER_cunzhuang_nongye_lianheti
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = PER_nongye_daikuan}
+		relative_position_id = PER_nongye_daikuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_tudi_gaigefa_4
+		remove_idea = PER_tudi_gaigefa_3
+		}
+		}
+	}
+	#现代化农业
+	focus = {
+		id = PER_xiandaihua_nongye
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = PER_cunzhuang_nongye_lianheti}
+		relative_position_id = PER_cunzhuang_nongye_lianheti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_tudi_gaigefa_5
+		remove_idea = PER_tudi_gaigefa_4
+		}
+		}
+	}
+	#国有化林牧
+	focus = {
+		id = PER_guoyouhua_linmu
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = PER_tudi_gaigefa}
+		relative_position_id = PER_tudi_gaigefa
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_guoyouhua_linmu
+		}
+	}
+	#官僚权利下放
+	focus = {
+		id = PER_guanliao_quanli_xiafang
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = PER_guoyouhua_linmu}
+		relative_position_id = PER_guoyouhua_linmu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#农村扫盲
+	focus = {
+		id = PER_nongcun_saomang
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = PER_guanliao_quanli_xiafang}
+		relative_position_id = PER_guanliao_quanli_xiafang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_nongcun_saomang
+		}
+	}
+	#卫生改革
+	focus = {
+		id = PER_weisheng_gaige
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = PER_nongcun_saomang}
+		relative_position_id = PER_nongcun_saomang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_weisheng_gaige
+		}
+	}
+	#高原灼烧之日
+	focus = {
+		id = PER_gaoyuan_zhuoshao_zhiri
+		icon = GFX_focus_LAT_aizsargi
+		mutually_exclusive = { focus = PER_zhengzhi_heping }
+		mutually_exclusive = { focus = PER_dabulishi_huigui }
+		x = 45
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+hidden_effect = {
+news_event = {
+				id = holy_news.98 days = 1
+			} 
+			}
+	country_event = {
+    id = holy_aosiman.70
+}
+		}
+	}
+	#动员人民
+	focus = {
+		id = PER_dongyuan_renmin
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = PER_gaoyuan_zhuoshao_zhiri}
+		relative_position_id = PER_gaoyuan_zhuoshao_zhiri
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		load_oob = PER_dongyuan_renmin
+		}
+	}
+	#土地革命
+	focus = {
+		id = PER_tudi_geming
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = PER_gaoyuan_zhuoshao_zhiri}
+		relative_position_id = PER_gaoyuan_zhuoshao_zhiri
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_geming
+		remove_idea = PER_luohou_guojia
+		}
+		}
+	}
+	#反抗贵族
+	focus = {
+		id = PER_fankang_guizu
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		prerequisite = { focus = PER_gaoyuan_zhuoshao_zhiri}
+		relative_position_id = PER_gaoyuan_zhuoshao_zhiri
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy
+		remove_idea = PER_luohou_army
+		}
+		}
+	}
+	#团结库尔德
+	focus = {
+		id = PER_tuanjie_kuerde
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = PER_dongyuan_renmin}
+		relative_position_id = PER_dongyuan_renmin
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		load_oob = PER_tuanjie_kuerde
+		}
+	}
+	#城市革命
+	focus = {
+		id = PER_chengshi_geming
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = PER_dongyuan_renmin}
+		prerequisite = { focus = PER_tudi_geming}
+		relative_position_id = PER_tudi_geming
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_geming_2
+		remove_idea = PER_jingji_geming
+		}
+		}
+	}
+	#烧毁黑衣
+	focus = {
+		id = PER_shaohui_heiyi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = PER_fankang_guizu}
+		prerequisite = { focus = PER_tudi_geming}
+		relative_position_id = PER_tudi_geming
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_hongse_geming_2
+		remove_idea = PER_hongse_geming
+		}
+		}
+	}
+	#国有化工业
+	focus = {
+		id = PER_guoyouhua_gongye
+		icon = GFX_focus_spr_class_war
+		prerequisite = { focus = PER_fankang_guizu}
+		relative_position_id = PER_fankang_guizu
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#接纳俾路支
+	focus = {
+		id = PER_jiena_biluzhi
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = PER_tuanjie_kuerde}
+		prerequisite = { focus = PER_chengshi_geming}
+		relative_position_id = PER_chengshi_geming
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		load_oob = PER_biluzhi
+		}
+	}
+	#正规化红军
+	focus = {
+		id = PER_zhengguihua_hongjun
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = PER_shaohui_heiyi}
+		prerequisite = { focus = PER_chengshi_geming}
+		relative_position_id = PER_shaohui_heiyi
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_2
+		remove_idea = PER_redarmy
+		}
+		}
+	}
+	#终结宗教政治
+	focus = {
+		id = PER_zhongjie_zongjiao_zhengzhi
+		icon = GFX_focus_SOV_the_last_purge
+		prerequisite = { focus = PER_shaohui_heiyi}
+		prerequisite = { focus = PER_guoyouhua_gongye}
+		relative_position_id = PER_shaohui_heiyi
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_hongse_geming_3
+		remove_idea = PER_hongse_geming_2
+		}
+		}
+	}
+	#全国苏维埃政府
+	focus = {
+		id = PER_quanguo_suweiai_zhengfu
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = PER_jiena_biluzhi}
+		prerequisite = { focus = PER_zhengguihua_hongjun}
+		prerequisite = { focus = PER_zhongjie_zongjiao_zhengzhi}
+		relative_position_id = PER_zhengguihua_hongjun
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_hongse_geming_4
+		remove_idea = PER_hongse_geming_3
+		}
+		}
+	}
+	#建立革命军
+	focus = {
+		id = PER_jianli_gemingjun
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		prerequisite = { focus = PER_quanguo_suweiai_zhengfu}
+		relative_position_id = PER_quanguo_suweiai_zhengfu
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_3
+		remove_idea = PER_redarmy_2
+		}
+		}
+	}
+	#政治委员
+	focus = {
+		id = PER_zhengzhi_weiyuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = PER_jianli_gemingjun}
+		relative_position_id = PER_jianli_gemingjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_4
+		remove_idea = PER_redarmy_3
+		}
+		}
+	}
+	#扩建军事学院
+	focus = {
+		id = PER_kuojian_junshixueyuan
+		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
+		prerequisite = { focus = PER_zhengzhi_weiyuan}
+		relative_position_id = PER_zhengzhi_weiyuan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_kuojian_junshixueyuan
+		}
+	}
+	#沙漠骑兵
+	focus = {
+		id = PER_shamo_qibing
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = PER_kuojian_junshixueyuan}
+		relative_position_id = PER_kuojian_junshixueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_kuojian_junshixueyuan_2
+		remove_idea = PER_kuojian_junshixueyuan
+		}
+		}
+	}
+	#战胜大自然
+	focus = {
+		id = PER_zhansheng_daziran
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = PER_shamo_qibing}
+		relative_position_id = PER_shamo_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_kuojian_junshixueyuan_3
+		remove_idea = PER_kuojian_junshixueyuan_2
+		}
+		}
+	}
+	#军事民主
+	focus = {
+		id = PER_junshi_minzhu
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PER_zhengzhi_weiyuan}
+		relative_position_id = PER_zhengzhi_weiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_5
+		remove_idea = PER_redarmy_4
+		}
+		}
+	}
+	#扩张军事生产
+	focus = {
+		id = PER_kuozhang_junshishengchan
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = PER_junshi_minzhu}
+		prerequisite = { focus = PER_kuojian_junshixueyuan}
+		relative_position_id = PER_junshi_minzhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_kuozhang_shengchan
+		}
+	}
+	#火力主义
+	focus = {
+		id = PER_huoli_zhuyi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = PER_kuozhang_junshishengchan}
+		relative_position_id = PER_kuozhang_junshishengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_kuozhang_shengchan_2
+		remove_idea = PER_kuozhang_shengchan
+		}
+		}
+	}
+	#解放意志
+	focus = {
+		id = PER_jiefang_yizhi
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = PER_junshi_minzhu}
+		prerequisite = { focus = PER_yilang_youji_zhanzheng}
+		relative_position_id = PER_junshi_minzhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_6
+		remove_idea = PER_redarmy_5
+		}
+		}
+	}
+	#轻步兵革新
+	focus = {
+		id = PER_qingbubing_gexin
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = PER_jiefang_yizhi}
+		relative_position_id = PER_jiefang_yizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_redarmy_7
+		remove_idea = PER_redarmy_6
+		}
+		}
+	}
+	#党指挥枪
+	focus = {
+		id = PER_dangzhihuiqiang
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = PER_jianli_gemingjun}
+		relative_position_id = PER_jianli_gemingjun
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_renmin_war
+		}
+	}
+	#伊朗游击战争
+	focus = {
+		id = PER_yilang_youji_zhanzheng
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = PER_dangzhihuiqiang}
+		relative_position_id = PER_dangzhihuiqiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_renmin_war_2
+		remove_idea = PER_renmin_war
+		}
+		}
+	}
+	#工人劳动法
+	focus = {
+		id = PER_gongren_laodongfa
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = PER_quanguo_suweiai_zhengfu}
+		relative_position_id = PER_quanguo_suweiai_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_worker_laodongfa
+		}
+	}
+	#妇女选举权
+	focus = {
+		id = PER_funv_xuanjuquan
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		prerequisite = { focus = PER_gongren_laodongfa}
+		relative_position_id = PER_gongren_laodongfa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_funv_xuanjuquan
+		}
+	}
+	#民族平等
+	focus = {
+		id = PER_minzu_pingdeng
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = PER_funv_xuanjuquan}
+		relative_position_id = PER_funv_xuanjuquan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_minzu_pingdeng
+		}
+	}
+	#扩大地区民兵
+	focus = {
+		id = PER_kuoda_diqu_minbing
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = PER_yilang_youji_zhanzheng }
+		prerequisite = { focus = PER_minzu_pingdeng }
+		relative_position_id = PER_minzu_pingdeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_renmin_war_3
+		remove_idea = PER_renmin_war_2
+		}
+		}
+	}
+	#人民战争
+	focus = {
+		id = PER_renmin_war
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = PER_kuoda_diqu_minbing }
+		relative_position_id = PER_kuoda_diqu_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_renmin_war_4
+		remove_idea = PER_renmin_war_3
+		}
+		}
+	}
+	#地区苏维埃
+	focus = {
+		id = PER_diqu_suweiai
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = PER_quanguo_suweiai_zhengfu}
+		relative_position_id = PER_quanguo_suweiai_zhengfu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_hongse_geming_5
+		remove_idea = PER_hongse_geming_4
+		}
+		}
+	}
+	#中东联合
+	focus = {
+		id = PER_zhongdong_lianhe
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		prerequisite = { focus = PER_diqu_suweiai}
+		prerequisite = { focus = PER_gongren_laodongfa}
+		relative_position_id = PER_diqu_suweiai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		country_event = {
+		id = holy_aosiman.37
+		}
+		}
+	}
+	#阿塞拜疆攻势
+	focus = {
+		id = PER_asaibaijiang_gongshi
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = PER_zhongdong_lianhe}
+		relative_position_id = PER_zhongdong_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+		}
+	}
+	#解放阿富汗
+	focus = {
+		id = PER_jiefang_afuhan
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = PER_asaibaijiang_gongshi}
+		relative_position_id = PER_asaibaijiang_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+	#西方火焰
+	focus = {
+		id = PER_xifang_huoyan
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = PER_jiefang_afuhan}
+		relative_position_id = PER_jiefang_afuhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRQ
+    type = annex_everything
+}
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = PER_jiaru_gongchanguoji
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = PER_diqu_suweiai}
+		prerequisite = { focus = PER_gongren_laodongfa}
+		relative_position_id = PER_diqu_suweiai
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OTT = {
+		exists = no
+		}
+		OTF = {
+		exists = no
+		}
+		EGY = {
+		exists = no
+		}
+		GEO = {
+		has_war = no
+		}
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = PER
+			}
+		}
+	}
+	#工业革命
+	focus = {
+		id = PER_gongye_geming
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = PER_quanguo_suweiai_zhengfu}
+		relative_position_id = PER_quanguo_suweiai_zhengfu
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_geming_3
+		remove_idea = PER_jingji_geming_2
+		}
+		}
+	}
+	#计划经济
+	focus = {
+		id = PER_plan_jingji
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = PER_gongye_geming}
+		relative_position_id = PER_gongye_geming
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_jingji_geming_4
+		remove_idea = PER_jingji_geming_3
+		}
+		}
+	}
+	#进入乡村
+	focus = {
+		id = PER_jinru_xiangcun
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = PER_diqu_suweiai}
+		relative_position_id = PER_diqu_suweiai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_nongye_shengchan
+		}
+	}
+	#农业合作
+	focus = {
+		id = PER_nongye_hezuo
+		icon = GFX_focus_generic_population_growth
+		prerequisite = { focus = PER_jinru_xiangcun}
+		prerequisite = { focus = PER_plan_jingji}
+		relative_position_id = PER_jinru_xiangcun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_nongye_shengchan_2
+		remove_idea = PER_nongye_shengchan
+		}
+		}
+	}
+	#扩大重工业
+	focus = {
+		id = PER_kuoda_zhonggongye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = PER_plan_jingji}
+		relative_position_id = PER_plan_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#现代建造技术
+	focus = {
+		id = PER_xiandai_jianzaojishu
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = PER_plan_jingji}
+		relative_position_id = PER_plan_jingji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_xiandai_jianzaojishu
+		}
+	}
+	#开发沿海
+	focus = {
+		id = PER_kaifa_yanhai
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { focus = PER_plan_jingji}
+		relative_position_id = PER_plan_jingji
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		413 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#灌溉伊朗
+	focus = {
+		id = PER_guaigai_yilang
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		prerequisite = { focus = PER_nongye_hezuo}
+		relative_position_id = PER_nongye_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_nongye_shengchan_3
+		remove_idea = PER_nongye_shengchan_2
+		}
+		}
+	}
+	#改良种植
+	focus = {
+		id = PER_gailiang_zhongzhi
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = PER_guaigai_yilang}
+		relative_position_id = PER_guaigai_yilang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = PER_nongye_shengchan_4
+		remove_idea = PER_nongye_shengchan_3
+		}
+		}
+	}
+	#开发小型工业
+	focus = {
+		id = PER_kaifa_xiaoxing_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = PER_nongye_hezuo}
+		prerequisite = { focus = PER_kuoda_zhonggongye}
+		relative_position_id = PER_kuoda_zhonggongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#建设边疆军工
+	focus = {
+		id = PER_jianshe_bianjiang_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PER_kaifa_xiaoxing_gongye}
+		relative_position_id = PER_kaifa_xiaoxing_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		416 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		421 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#高原工业化
+	focus = {
+		id = PER_gaoyuan_gongyehua
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PER_xiandai_jianzaojishu}
+		prerequisite = { focus = PER_kuoda_zhonggongye}
+		relative_position_id = PER_xiandai_jianzaojishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		414 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		411 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#建设塔巴里
+	focus = {
+		id = PER_jianshe_tabali
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PER_gaoyuan_gongyehua}
+		relative_position_id = PER_gaoyuan_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		266 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		420 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#扩大石油产业
+	focus = {
+		id = PER_kuoda_shiyou_chanye
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = PER_xiandai_jianzaojishu}
+		prerequisite = { focus = PER_kaifa_yanhai}
+		relative_position_id = PER_kaifa_yanhai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 20
+    state = 411
+}
+add_resource = {
+    type = oil
+    amount = 20
+    state = 413
+}
+		}
+	}
+	#现代化采集
+	focus = {
+		id = PER_xiandaihua_caiji
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = PER_kuoda_shiyou_chanye}
+		relative_position_id = PER_kuoda_shiyou_chanye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_ideas = PER_xiandaihua_caiji
+		}
+	}
+	#获取国际援助
+	focus = {
+		id = PER_huoqu_guoji_yuanzhu
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = PER_kaifa_yanhai}
+		relative_position_id = PER_kaifa_yanhai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#扩大法尔斯园区
+	focus = {
+		id = PER_kuoda_faersi_yuanqu
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = PER_huoqu_guoji_yuanzhu}
+		relative_position_id = PER_huoqu_guoji_yuanzhu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		NOT = {
+		has_country_flag = PER_xianjiao
+		}
+		}
+		completion_reward = {
+		412 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+	}
+	#组成临时联盟
+	focus = {
+		id = PER_zucheng_linshi_tongmeng
+		icon = GFX_focus_BRA_repeale_national_security_law
+		x = 25
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#接管旧体制
+	focus = {
+		id = PER_jieguan_jiutizhi
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		prerequisite = { focus = PER_zucheng_linshi_tongmeng }
+		relative_position_id = PER_zucheng_linshi_tongmeng
+		x = -3
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = PER_kongxuan_weilou_2
+				remove_idea = PER_kongxuan_weilou
+			}
+		}
+	}
+	#打击伊斯兰教会
+	focus = {
+		id = PER_daji_yisilan_jiaohui
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = PER_zucheng_linshi_tongmeng }
+		relative_position_id = PER_zucheng_linshi_tongmeng
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = PER_dianran_huoyan_2
+				remove_idea = PER_dianran_huoyan
+			}
+		}
+	}
+	#动员民兵
+	focus = {
+		id = PER_dongyuan_minbing
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = PER_jieguan_jiutizhi }
+		prerequisite = { focus = PER_daji_yisilan_jiaohui }
+		relative_position_id = PER_daji_yisilan_jiaohui
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			load_oob = PER_xianjiao_minbing
+		}
+	}
+	#反共宣传
+	focus = {
+		id = PER_fangong_xuanchuan
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		prerequisite = { focus = PER_zucheng_linshi_tongmeng }
+		relative_position_id = PER_zucheng_linshi_tongmeng
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = PER_fangong_zhanzheng
+    days = 180
+}
+		}
+	}
+	#强调旧日荣耀
+	focus = {
+		id = PER_qiangdiao_jiuri_rongyao
+		icon = GFX_focus_ETH_continuous_strengthen_the_black_lions
+		prerequisite = { focus = PER_daji_yisilan_jiaohui }
+		prerequisite = { focus = PER_fangong_xuanchuan }
+		relative_position_id = PER_fangong_xuanchuan
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = PER_dianran_huoyan_3
+				remove_idea = PER_dianran_huoyan_2
+			}
+		}
+	}
+	#强化指挥链
+	focus = {
+		id = PER_qianghua_zhihuilian
+		icon = GFX_focus_FIN_expand_air_force_academy
+		prerequisite = { focus = PER_zucheng_linshi_tongmeng }
+		relative_position_id = PER_zucheng_linshi_tongmeng
+		x = 3
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_qianghua_zhihuilian
+		}
+	}
+	#接管军工体制
+	focus = {
+		id = PER_jieguan_jungong_tizhi
+		icon = GFX_focus_FIN_oy_alkoholiliike
+		prerequisite = { focus = PER_fangong_xuanchuan }
+		prerequisite = { focus = PER_qianghua_zhihuilian }
+		relative_position_id = PER_qianghua_zhihuilian
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#波斯帝国的胜利
+	focus = {
+		id = PER_bosidiguo_vic
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = PER_dongyuan_minbing }
+		prerequisite = { focus = PER_qiangdiao_jiuri_rongyao }
+		prerequisite = { focus = PER_jieguan_jungong_tizhi }
+		relative_position_id = PER_qiangdiao_jiuri_rongyao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		available = {
+		has_civil_war = no
+		}
+		completion_reward = {
+			add_political_power = 100
+			swap_ideas = {
+			add_idea = PER_bosidiguo_vic
+			remove_idea = PER_kongxuan_weilou_2
+			}
+		}
+	}
+	#构筑地方社群
+	focus = {
+		id = PER_gouzhu_difang_shequn
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = PER_bosidiguo_vic }
+		relative_position_id = PER_bosidiguo_vic
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_dianran_huoyan_4
+			remove_idea = PER_dianran_huoyan_3
+			}
+		}
+	}
+	#利用石油资源
+	focus = {
+		id = PER_liyong_shiyou_ziyuan
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = PER_gouzhu_difang_shequn }
+		relative_position_id = PER_gouzhu_difang_shequn
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_resource = {
+    type = oil
+    amount = 50
+    state = 413
+}
+add_resource = {
+    type = oil
+    amount = 30
+    state = 1428
+}
+		}
+	}
+	#吸引投资
+	focus = {
+		id = PER_xiyin_touzi
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = PER_liyong_shiyou_ziyuan }
+		relative_position_id = PER_liyong_shiyou_ziyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_xiyin_touzi
+			add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	}
+	#发展化工产业
+	focus = {
+		id = PER_fazhan_huagong_chanye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = PER_xiyin_touzi }
+		relative_position_id = PER_xiyin_touzi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			413 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			1428 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#扩大工业建设
+	focus = {
+		id = PER_kuoda_gongye_jianshe
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = PER_liyong_shiyou_ziyuan }
+		relative_position_id = PER_liyong_shiyou_ziyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_kuoda_jianshe
+		}
+	}
+	#改革生产技术
+	focus = {
+		id = PER_gaige_shengchan_jishu
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = PER_kuoda_gongye_jianshe }
+		relative_position_id = PER_kuoda_gongye_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_kuoda_jianshe_2
+			remove_idea = PER_kuoda_jianshe
+			}
+		}
+	}
+	#扩建海湾港
+	focus = {
+		id = PER_kuojian_haiwangang
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = PER_fazhan_huagong_chanye }
+		prerequisite = { focus = PER_gaige_shengchan_jishu }
+		relative_position_id = PER_gaige_shengchan_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			413 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+			1428 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#地区军事化
+	focus = {
+		id = PER_diqu_junshihua
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = PER_gouzhu_difang_shequn }
+		relative_position_id = PER_gouzhu_difang_shequn
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			411 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+			266 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#伊朗复兴运动
+	focus = {
+		id = PER_yilang_fuxing_yundong
+		icon = GFX_focus_ETH_re-convene_the_parliament
+		prerequisite = { focus = PER_diqu_junshihua }
+		relative_position_id = PER_diqu_junshihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_dianran_huoyan_4
+			remove_idea = PER_dianran_huoyan_3
+			}
+		}
+	}
+	#挂钩民族主义
+	focus = {
+		id = PER_guagou_minzuzhuyi
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = PER_gouzhu_difang_shequn }
+		relative_position_id = PER_gouzhu_difang_shequn
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_ailan_minzuzhuyi
+		}
+	}
+	#确立宗教权威
+	focus = {
+		id = PER_queli_zongjiao_quanwei
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = PER_guagou_minzuzhuyi }
+		relative_position_id = PER_guagou_minzuzhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_ailan_minzuzhuyi_2
+			remove_idea = PER_ailan_minzuzhuyi
+			}
+		}
+	}
+	#重燃圣火
+	focus = {
+		id = PER_chongran_shenghuo
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = PER_queli_zongjiao_quanwei }
+		prerequisite = { focus = PER_yilang_fuxing_yundong }
+		relative_position_id = PER_yilang_fuxing_yundong
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_stability = 0.1
+			custom_effect_tooltip = PER_shenghuo_tt
+		}
+	}
+	#神权帝国
+	focus = {
+		id = PER_shenquan_diguo
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = PER_chongran_shenghuo }
+		relative_position_id = PER_chongran_shenghuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		available = {
+		controls_state = 676
+		controls_state = 1770
+		controls_state = 1241
+		controls_state = 419
+		controls_state = 229
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_ailan_minzuzhuyi_3
+			remove_idea = PER_ailan_minzuzhuyi_2
+			}
+		}
+	}
+	#重建伊朗荣光
+	focus = {
+		id = PER_chongjian_yilang_rongguang
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = PER_bosidiguo_vic }
+		relative_position_id = PER_bosidiguo_vic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_bosidiguo_vic_2
+			remove_idea = PER_bosidiguo_vic
+			}
+		}
+	}
+	#号召收复失地
+	focus = {
+		id = PER_haozhao_shoufu_shidi
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = PER_chongjian_yilang_rongguang }
+		relative_position_id = PER_chongjian_yilang_rongguang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_bosidiguo_vic_3
+			remove_idea = PER_bosidiguo_vic_2
+			}
+		}
+	}
+	#介入阿塞拜疆
+	focus = {
+		id = PER_jieru_asaibaijiang
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = PER_haozhao_shoufu_shidi }
+		relative_position_id = PER_haozhao_shoufu_shidi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUR
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+		}
+	}
+	#构筑中亚屏障
+	focus = {
+		id = PER_gouzhu_zhongya_pinzhang
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = PER_haozhao_shoufu_shidi }
+		relative_position_id = PER_haozhao_shoufu_shidi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		TKS = {
+		is_puppet = no
+		}
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = MCR
+    type = annex_everything
+}
+		}
+	}
+	#北眺高加索
+	focus = {
+		id = PER_beitiao_gaojiasuo
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = PER_jieru_asaibaijiang }
+		relative_position_id = PER_jieru_asaibaijiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = ARM
+    type = annex_everything
+}
+declare_war_on = {
+    target = GEO
+    type = annex_everything
+}
+		}
+	}
+	#收复泰西封
+	focus = {
+		id = PER_shoufu_taixifeng
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = PER_jieru_asaibaijiang }
+		relative_position_id = PER_jieru_asaibaijiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		available = {
+		date > 1937.7.1
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = IRQ
+    type = annex_everything
+}
+declare_war_on = {
+    target = OTF
+    type = annex_everything
+}
+		}
+	}
+	#进军群山
+	focus = {
+		id = PER_jinjun_qunshan
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = PER_haozhao_shoufu_shidi }
+		relative_position_id = PER_haozhao_shoufu_shidi
+		x = 2
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+		}
+	}
+	#重建都城
+	focus = {
+		id = PER_chongjian_ducheng
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = PER_shoufu_taixifeng }
+		relative_position_id = PER_shoufu_taixifeng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		available = {
+		controls_state = 291
+		}
+		completion_reward = {
+			add_victory_points = {
+    province = 12046
+    value = 30  
+}
+set_capital = { state = 291 }
+swap_ideas = {
+add_idea = PER_bosidiguo_vic_4
+remove_idea = PER_bosidiguo_vic_3
+}
+291 = {
+		set_state_name = 泰西封
+		}
+		set_province_name = {
+    id = 12046
+    name = "泰西封"
+}
+		}
+	}
+	#重抵日出之所
+	focus = {
+		id = PER_chongdi_richuzhisuo
+		icon = GFX_focus_TUR_misak_i_milli
+		prerequisite = { focus = PER_chongjian_ducheng }
+		relative_position_id = PER_chongjian_ducheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+		}
+	}
+	#沙姆与密斯儿
+	focus = {
+		id = PER_shamu_misier
+		icon = GFX_focus_generic_the_suez
+		prerequisite = { focus = PER_chongjian_ducheng }
+		relative_position_id = PER_chongjian_ducheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = SYR
+    type = annex_everything
+}
+declare_war_on = {
+    target = PAL
+    type = annex_everything
+}
+declare_war_on = {
+    target = EGY
+    type = annex_everything
+}
+		}
+	}
+	#收复阿拉伯海岸
+	focus = {
+		id = PER_shoufu_alabo_haian
+		icon = GFX_focus_ETH_an_arabic_base
+		prerequisite = { focus = PER_chongjian_ducheng }
+		relative_position_id = PER_chongjian_ducheng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = YEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = OMA
+    type = annex_everything
+}
+declare_war_on = {
+    target = QAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = KUW
+    type = annex_everything
+}
+		}
+	}
+	#而至色雷斯
+	focus = {
+		id = PER_erzhi_seleisi
+		icon = GFX_focus_TUR_the_montreux_convention
+		prerequisite = { focus = PER_chongdi_richuzhisuo }
+		relative_position_id = PER_chongdi_richuzhisuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		available = {
+		controls_state = 347
+		controls_state = 340
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = BYT
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+		}
+	}
+	#重建帝国军队
+	focus = {
+		id = PER_chongjian_diguo_jundui
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = PER_bosidiguo_vic }
+		relative_position_id = PER_bosidiguo_vic
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			army_experience = 100
+		}
+	}
+	#强化宗教影响
+	focus = {
+		id = PER_qianghua_zongjiao_yingxiang
+		icon = GFX_focus_ETH_expand_the_kebur_zabagna
+		prerequisite = { focus = PER_chongjian_diguo_jundui }
+		relative_position_id = PER_chongjian_diguo_jundui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_shengzhan_zhuyi
+		}
+	}
+	#圣战主义
+	focus = {
+		id = PER_shengzhan_zhuyi
+		icon = GFX_focus_generic_spread_fascism
+		prerequisite = { focus = PER_qianghua_zongjiao_yingxiang }
+		relative_position_id = PER_qianghua_zongjiao_yingxiang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_shengzhan_zhuyi_2
+			remove_idea = PER_shengzhan_zhuyi
+			}
+		}
+	}
+	#确保快速动员
+	focus = {
+		id = PER_quebao_kuaisu_dongyuan
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = PER_chongjian_diguo_jundui }
+		relative_position_id = PER_chongjian_diguo_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_kuaisu_dongyuan
+		}
+	}
+	#扩大征兵
+	focus = {
+		id = PER_kuoda_zhengbing
+		icon = GFX_focus_FIN_weapon_caches
+		prerequisite = { focus = PER_quebao_kuaisu_dongyuan }
+		relative_position_id = PER_quebao_kuaisu_dongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_kuaisu_dongyuan_2
+			remove_idea = PER_kuaisu_dongyuan
+			}
+		}
+	}
+	#群山之景
+	focus = {
+		id = PER_qunshan_zhijing
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = PER_kuoda_zhengbing }
+		prerequisite = { focus = PER_shengzhan_zhuyi }
+		relative_position_id = PER_shengzhan_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_shengzhan_zhuyi_3
+			remove_idea = PER_shengzhan_zhuyi_2
+			}
+		}
+	}
+	#改善军事战术
+	focus = {
+		id = PER_gaishan_junshiu_zhanshu
+		icon = GFX_focus_FIN_the_lone_wolf
+		prerequisite = { focus = PER_chongjian_diguo_jundui }
+		relative_position_id = PER_chongjian_diguo_jundui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_gaishan_junshiu_zhanshu
+		}
+	}
+	#装备现代化
+	focus = {
+		id = PER_zhuangbei_xiandaihua
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = PER_gaishan_junshiu_zhanshu }
+		relative_position_id = PER_gaishan_junshiu_zhanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			add_ideas = PER_zhuangbei_xiandaihua
+		}
+	}
+	#伊朗之火
+	focus = {
+		id = PER_yilang_zhihuo
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = PER_kuoda_zhengbing }
+		prerequisite = { focus = PER_zhuangbei_xiandaihua }
+		relative_position_id = PER_zhuangbei_xiandaihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_yilang_zhihuo
+			remove_idea = PER_kuaisu_dongyuan_2
+			}
+		}
+	}
+	#埃兰不死
+	focus = {
+		id = PER_ailan_busi
+		icon = GFX_focus_ICE_hrafninn_flygur
+		prerequisite = { focus = PER_qunshan_zhijing }
+		prerequisite = { focus = PER_yilang_zhihuo }
+		relative_position_id = PER_yilang_zhihuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		allow_branch = {
+		has_country_flag = PER_xianjiao
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = PER_ailan_busi
+			remove_idea = PER_zhuangbei_xiandaihua
+			}
+		}
+	}
+}

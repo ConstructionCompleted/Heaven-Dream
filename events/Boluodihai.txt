@@ -1,0 +1,363 @@
+add_namespace = holy_boluodihai
+#波罗的海的未来
+country_event = {
+	id = holy_boluodihai.1
+	title = holy_boluodihai.1.t
+	desc = holy_boluodihai.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.1.a
+		ai_chance = {
+		    factor = 10
+		}
+	}
+	option = {
+		name = holy_boluodihai.1.b
+		ai_chance = {
+		    factor = 0
+		}
+		EST = { change_tag_from = BLD }
+	}
+	option = {
+		name = holy_boluodihai.1.c
+		ai_chance = {
+		    factor = 0
+		}
+		LAT = { change_tag_from = BLD }
+	}
+}
+#爱沙尼亚大会
+country_event = {
+	id = holy_boluodihai.2
+	title = holy_boluodihai.2.t
+	desc = holy_boluodihai.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.2.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = socialism
+}
+complete_national_focus = EST_hongsehuoyan
+	}
+	option = {
+		name = holy_boluodihai.1.b
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = democratic
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = democratic
+}
+complete_national_focus = EST_qicao_xinxianfa
+	}
+	option = {
+		name = holy_boluodihai.1.c
+		ai_chance = {
+		    factor = 10
+		}
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+complete_national_focus = EST_wapusi_zhanshi
+	}
+}
+#铁十字之心
+country_event = {
+	id = holy_boluodihai.3
+	title = holy_boluodihai.3.t
+	desc = holy_boluodihai.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.3.a
+		ai_chance = {
+		    factor = 10
+		}
+		add_political_power = 50
+		add_war_support = 0.05
+		set_country_flag = BLD_diyijieduan
+		custom_effect_tooltip = BLDtieshizi_tt
+	}
+}
+#波罗的海求援
+country_event = {
+	id = holy_boluodihai.4
+	title = holy_boluodihai.4.t
+	desc = holy_boluodihai.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.4.a
+		ai_chance = {
+		    factor = 10
+		}
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = BLD
+}
+	}
+	option = {
+		name = holy_boluodihai.4.b
+		ai_chance = {
+		    factor = 10
+		}
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = BLD
+}
+BLD = {
+load_oob = BLD_pulushi_yuanjun
+add_manpower = 20000
+}
+add_political_power = 50
+add_manpower = -20000
+	}
+	option = {
+		name = holy_boluodihai.4.c
+		ai_chance = {
+		    factor = 10
+		}
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 2000
+    target = BLD
+}
+BLD = {
+load_oob = BLD_pulushi_yuanjun
+add_offsite_building = { type = arms_factory level = 1 }
+add_manpower = 20000
+}
+random = {
+limit = {
+arms_factory > 1
+}
+remove_building = {
+    type = arms_factory
+    level = 1
+}
+}
+add_political_power = 100
+add_manpower = -20000
+	}
+}
+#波罗的海骑士团的劫掠
+country_event = {
+	id = holy_boluodihai.5
+	title = holy_boluodihai.5.t
+	desc = holy_boluodihai.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.5.a
+		ai_chance = {
+		    factor = 10
+		}
+		BLD = {
+		random_neighbor_state = {
+		limit = {
+		is_controlled_by = ROOT
+		}
+		add_manpower = -20000
+		}
+		damage_building = {
+    type = industrial_complex
+    damage = 1
+}
+damage_building = {
+    type = arms_factory
+    damage = 1
+}
+damage_building = {
+    type = infrastructure
+    damage = 1
+}
+create_wargoal = {
+    type = annex_everything
+    target = BLD
+}
+		}
+	}
+}
+#普鲁士投资
+country_event = {
+	id = holy_boluodihai.6
+	title = holy_boluodihai.6.t
+	desc = holy_boluodihai.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.6.a
+		ai_chance = {
+		    factor = 10
+		}
+		BLD = {
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+	}
+}
+#爱沙尼亚的未来
+country_event = {
+	id = holy_boluodihai.7
+	title = holy_boluodihai.7.t
+	desc = holy_boluodihai.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.7.a
+		ai_chance = {
+		    factor = 10
+		}
+		SOV = { add_to_faction = EST }
+	}
+	option = {
+		name = holy_boluodihai.7.b
+		trigger = { FIN = { has_government = communism } KEM = { exists = no }}
+		ai_chance = {
+		    factor = 10
+		}
+		FIN = {
+		annex_country = {
+    target = EST
+    transfer_troops = yes
+}
+add_state_core = 13
+add_state_core = 191
+add_state_core = 811
+add_state_core = 812
+add_state_core = 813
+		}
+	}
+}
+#爱沙尼亚的未来
+country_event = {
+	id = holy_boluodihai.8
+	title = holy_boluodihai.8.t
+	desc = holy_boluodihai.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.8.a
+		trigger = { UKM = { is_faction_leader = yes } }
+		ai_chance = {
+		    factor = 20
+		}
+		UKM = { add_to_faction = EST }
+	}
+	option = {
+		name = holy_boluodihai.8.b
+		trigger = { FRA = { is_faction_leader = yes } }
+		ai_chance = {
+		    factor = 20
+		}
+		FRA = { add_to_faction = EST }
+	}
+	option = {
+		name = holy_boluodihai.8.c
+		ai_chance = {
+		    factor = 0
+		}
+	}
+	option = {
+		name = holy_boluodihai.8.d
+		trigger = { CAN = { is_faction_leader = yes } }
+		ai_chance = {
+		    factor = 10
+		}
+		CAN = { add_to_faction = EST }
+	}
+}
+#拉脱维亚的消息
+country_event = {
+	id = holy_boluodihai.9
+	title = holy_boluodihai.9.t
+	desc = holy_boluodihai.9.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.9.a
+		ai_chance = {
+		    factor = 20
+		}
+		LAT = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = KEM
+}
+	}
+	}
+	option = {
+		name = holy_boluodihai.9.b
+		ai_chance = {
+		    factor = 20
+		}
+		LAT = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+	}
+	}
+}
+#接触西欧世界
+country_event = {
+	id = holy_boluodihai.10
+	title = holy_boluodihai.10.t
+	desc = holy_boluodihai.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_boluodihai.10.a
+		trigger = { UKM = { is_faction_leader = yes } }
+		ai_chance = {
+		    factor = 20
+		}
+		UKM = { add_to_faction = LIT }
+	}
+	option = {
+		name = holy_boluodihai.10.b
+		trigger = { FRA = { is_faction_leader = yes } OR = { has_government = conservatism	has_government = progressism }}
+		ai_chance = {
+		    factor = 20
+		}
+		FRA = { add_to_faction = LIT }
+	}
+	option = {
+		name = holy_boluodihai.10.c
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}

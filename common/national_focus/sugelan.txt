@@ -1,0 +1,560 @@
+focus_tree = {
+	id = SCO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SCO
+		}
+	}
+	
+	default = no
+ 
+	#高举反叛之旗
+	focus = {
+		id = SCO_gaoju_fanpanzhiqi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SCO_fankang_buliedian
+			add_ideas = SCO_lianhe_fankangjun
+			add_ideas = SCO_sugelan_civilwar
+		}
+	}
+	#低地工业重启
+	focus = {
+		id = SCO_didi_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SCO_gaoju_fanpanzhiqi}
+		relative_position_id = SCO_gaoju_fanpanzhiqi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			133 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#组建低地民兵
+	focus = {
+		id = SCO_zujian_didi_minbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = SCO_didi_gongye}
+		relative_position_id = SCO_didi_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SCO_didi_minbing
+		}
+	}
+	#新的国王
+	focus = {
+		id = SCO_new_king
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = SCO_gaoju_fanpanzhiqi}
+		relative_position_id = SCO_gaoju_fanpanzhiqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+    swap_ideas = {
+	add_idea = SCO_lianhe_fankangjun_2
+	remove_idea = SCO_lianhe_fankangjun
+	}
+		}
+	}
+	#藓花王冠
+	focus = {
+		id = SCO_xianhua_zhiguan
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = SCO_new_king}
+		relative_position_id = SCO_new_king
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+	add_idea = SCO_lianhe_fankangjun_3
+	remove_idea = SCO_lianhe_fankangjun_2
+	}
+		}
+	}
+	#动员高地战士
+	focus = {
+		id = SCO_dongyuan_gaodi_zhanshi
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SCO_gaoju_fanpanzhiqi}
+		relative_position_id = SCO_gaoju_fanpanzhiqi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = SCO_gaodi_zhanshi
+		}
+	}
+	#吹响风笛
+	focus = {
+		id = SCO_chuixiang_fengdi
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = SCO_dongyuan_gaodi_zhanshi}
+		relative_position_id = SCO_dongyuan_gaodi_zhanshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = SCO_chuixiang_fengdi
+		}
+	}
+	#凯尔特先锋
+	focus = {
+		id = SCO_kaierte_xianfeng
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = SCO_zujian_didi_minbing}
+		prerequisite = { focus = SCO_xianhua_zhiguan}
+		prerequisite = { focus = SCO_chuixiang_fengdi}
+		relative_position_id = SCO_xianhua_zhiguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			remove_ideas = SCO_lianhe_fankangjun_3
+			add_ideas = SCO_xianfeng
+			add_ideas = SCO_king
+		}
+	}
+	#先锋主义
+	focus = {
+		id = SCO_xianfeng_zhuyi
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = SCO_kaierte_xianfeng}
+		relative_position_id = SCO_kaierte_xianfeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+	add_idea = SCO_xianfeng_2
+	remove_idea = SCO_xianfeng
+	}
+		}
+	}
+	#苏格兰矛头
+	focus = {
+		id = SCO_sugelan_maotou
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SCO_xianfeng_zhuyi}
+		relative_position_id = SCO_xianfeng_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+	add_idea = SCO_xianfeng_3
+	remove_idea = SCO_xianfeng_2
+	}
+		}
+	}
+	#武装苏格兰
+	focus = {
+		id = SCO_wuzhaung_sugelan
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = SCO_sugelan_maotou}
+		relative_position_id = SCO_sugelan_maotou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#国王的旗帜
+	focus = {
+		id = SCO_guowang_qizhi
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = SCO_kaierte_xianfeng}
+		relative_position_id = SCO_kaierte_xianfeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+	add_idea = SCO_king_2
+	remove_idea = SCO_king
+	}
+		}
+	}
+	#王室的权威
+	focus = {
+		id = SCO_wangshi_quanwei
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = SCO_guowang_qizhi}
+		relative_position_id = SCO_guowang_qizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+	add_idea = SCO_king_3
+	remove_idea = SCO_king_2
+	}
+		}
+	}
+	#王室产业
+	focus = {
+		id = SCO_wangshi_chanye
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = SCO_wangshi_quanwei}
+		relative_position_id = SCO_wangshi_quanwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+	add_idea = SCO_king_4
+	remove_idea = SCO_king_3
+	}
+		}
+	}
+	#击溃不列颠
+	focus = {
+		id = SCO_jikui_buliedian
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = SCO_wuzhaung_sugelan}
+		prerequisite = { focus = SCO_wangshi_chanye}
+		relative_position_id = SCO_wuzhaung_sugelan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SCO = {
+		controls_state = 121
+		controls_state = 133
+		controls_state = 136
+		controls_state = 122
+		controls_state = 1357
+		controls_state = 1385
+		controls_state = 917
+		}
+		OR = {
+		WLS = {
+		controls_state = 122
+		controls_state = 918
+		controls_state = 1816
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		controls_state = 1815
+		controls_state = 1814
+		controls_state = 1813
+		controls_state = 1812
+		controls_state = 1811
+		}
+		SCO = {
+		controls_state = 123
+		controls_state = 132
+		controls_state = 130
+		controls_state = 131
+		controls_state = 128
+		controls_state = 127
+		controls_state = 129
+		controls_state = 125
+		controls_state = 126
+		controls_state = 338
+		controls_state = 1815
+		controls_state = 1814
+		controls_state = 1813
+		controls_state = 1812
+		controls_state = 1811
+		controls_state = 122
+		controls_state = 918
+		controls_state = 1816
+		}
+		}
+		}
+		completion_reward = {
+		annex_country = {
+    target = SCL
+    transfer_troops = no
+}
+WLS = {
+annex_country = {
+    target = EGL
+    transfer_troops = no
+}
+annex_country = {
+    target = ELB
+    transfer_troops = no
+}
+annex_country = {
+    target = UKM
+    transfer_troops = no
+}
+		}
+	}
+	}
+	#北海之魂
+	focus = {
+		id = SCO_beihai_zhihun
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = SCO_jikui_buliedian}
+		relative_position_id = SCO_jikui_buliedian
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = dockyard level = 1 }
+	}
+	}
+	#完善军事缺陷
+	focus = {
+		id = SCO_wanshan_junshi_quefa
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SCO_beihai_zhihun}
+		relative_position_id = SCO_beihai_zhihun
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+	add_idea = SCO_xianfeng_2
+	remove_idea = SCO_xianfeng_3
+	}
+	}
+	}
+	#港口发展
+	focus = {
+		id = SCO_gangkou_fazhan
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = SCO_beihai_zhihun}
+		relative_position_id = SCO_beihai_zhihun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		133 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+	}
+	}
+	#挑战海洋
+	focus = {
+		id = SCO_tiaozhan_haiyang
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = SCO_wanshan_junshi_quefa}
+		prerequisite = { focus = SCO_gangkou_fazhan}
+		relative_position_id = SCO_gangkou_fazhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SCO_tiaozhan_haiyang
+	}
+	}
+	#高地开发
+	focus = {
+		id = SCO_gaodi_kaifa
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = SCO_jikui_buliedian}
+		relative_position_id = SCO_jikui_buliedian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		121 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+	}
+	}
+	#低地工业
+	focus = {
+		id = SCO_didi_gongye
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = SCO_gaodi_kaifa}
+		relative_position_id = SCO_gaodi_kaifa
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		917 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+	}
+	}
+	#苏格兰特色法西斯
+	focus = {
+		id = SCO_sugelan_tese_fxs
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = SCO_jikui_buliedian}
+		relative_position_id = SCO_jikui_buliedian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCO_king_5
+		remove_idea = SCO_king_4
+		}
+	}
+	}
+	#政治先锋
+	focus = {
+		id = SCO_zhengzhi_xianfeng
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = SCO_sugelan_tese_fxs}
+		relative_position_id = SCO_sugelan_tese_fxs
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCO_king_6
+		remove_idea = SCO_king_5
+		}
+	}
+	}
+	#外交中立
+	focus = {
+		id = SCO_waijiao_zhongli
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = SCO_sugelan_tese_fxs}
+		relative_position_id = SCO_sugelan_tese_fxs
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCO_waijiao_zhongli
+		remove_idea = SCO_fankang_buliedian
+		}
+	}
+	}
+	#内部统合
+	focus = {
+		id = SCO_neibu_tonghe
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SCO_waijiao_zhongli}
+		prerequisite = { focus = SCO_zhengzhi_xianfeng}
+		relative_position_id = SCO_waijiao_zhongli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SCO_king_7
+		remove_idea = SCO_king_6
+		}
+	}
+	}
+}

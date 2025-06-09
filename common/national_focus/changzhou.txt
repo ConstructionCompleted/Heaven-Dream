@@ -1,0 +1,1406 @@
+focus_tree = {
+	id = CEU_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CEU
+		}
+	}
+	
+	default = no
+ 
+    #对抗日本叛徒
+	focus = {
+		id = CEU_duikang_riben_pantu
+		icon = GFX_goal_generic_political_pressure
+		x = 30
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = CEU_minzu_war
+			add_ideas = CEU_dangpai_zhengzhi
+		}
+	}
+	#武装日本民兵
+	focus = {
+		id = CEU_wuzhuang_riben_minbing
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = CEU_duikang_riben_pantu}
+		relative_position_id = CEU_duikang_riben_pantu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = CEU_wuzhuang_minbing
+		}
+	}
+	#武士先锋队
+	focus = {
+		id = CEU_wushi_xianfengdui
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = CEU_duikang_riben_pantu}
+		relative_position_id = CEU_duikang_riben_pantu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEU_dangpai_zhengzhi_2
+			remove_idea = CEU_dangpai_zhengzhi
+			}
+		}
+	}
+	#吸收民间武装
+	focus = {
+		id = CEU_xishou_minjian_wuzhuang
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = CEU_wuzhuang_riben_minbing}
+		relative_position_id = CEU_wuzhuang_riben_minbing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+}
+		}
+	}
+	#民族战争
+	focus = {
+		id = CEU_minzu_zhanzheng
+		icon = GFX_focus_AST_war_japan
+		prerequisite = { focus = CEU_wuzhuang_riben_minbing}
+		prerequisite = { focus = CEU_wushi_xianfengdui}
+		relative_position_id = CEU_wushi_xianfengdui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEU_minzu_war_2
+			remove_idea = CEU_minzu_war
+			}
+		}
+	}
+	#武士突击队
+	focus = {
+		id = CEU_wushi_tujidui
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = CEU_wushi_xianfengdui}
+		relative_position_id = CEU_wushi_xianfengdui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEU_dangpai_zhengzhi_3
+			remove_idea = CEU_dangpai_zhengzhi_2
+			}
+		}
+	}
+	#接受汉诺威思想
+	focus = {
+		id = CEU_jieshou_hannuowei_sixiang
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = CEU_xishou_minjian_wuzhuang}
+		relative_position_id = CEU_xishou_minjian_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = fascism
+    popularity = 0.2
+}
+		}
+	}
+	#民族主义整合
+	focus = {
+		id = CEU_minzu_zhuyi_zhenghe
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = CEU_xishou_minjian_wuzhuang}
+		prerequisite = { focus = CEU_minzu_zhanzheng}
+		relative_position_id = CEU_minzu_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEU_minzu_war_3
+			remove_idea = CEU_minzu_war_2
+			}
+		}
+	}
+	#肃清软弱者
+	focus = {
+		id = CEU_suqing_ruanruozhe
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = CEU_wushi_tujidui}
+		prerequisite = { focus = CEU_minzu_zhanzheng}
+		relative_position_id = CEU_wushi_tujidui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.1
+		}
+	}
+	#党派卫队
+	focus = {
+		id = CEU_dangpai_weidui
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = CEU_wushi_tujidui}
+		relative_position_id = CEU_wushi_tujidui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = CEU_dangpai_zhengzhi_4
+			remove_idea = CEU_dangpai_zhengzhi_3
+			}
+		}
+	}
+	#北方征服
+	focus = {
+		id = CEU_beifang_zhengfu
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = CEU_jieshou_hannuowei_sixiang}
+		prerequisite = { focus = CEU_minzu_zhuyi_zhenghe}
+		prerequisite = { focus = CEU_suqing_ruanruozhe}
+		prerequisite = { focus = CEU_dangpai_weidui}
+		relative_position_id = CEU_minzu_zhuyi_zhenghe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = AIU
+    type = annex_everything
+}
+		}
+	}
+	#南方征服
+	focus = {
+		id = CEU_nanfang_zhengfu
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = CEU_jieshou_hannuowei_sixiang}
+		prerequisite = { focus = CEU_minzu_zhuyi_zhenghe}
+		prerequisite = { focus = CEU_suqing_ruanruozhe}
+		prerequisite = { focus = CEU_dangpai_weidui}
+		relative_position_id = CEU_suqing_ruanruozhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = LIU
+    type = annex_everything
+}
+		}
+	}
+	#统一日本
+	focus = {
+		id = CEU_tongyi_riben
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = CEU_beifang_zhengfu}
+		prerequisite = { focus = CEU_nanfang_zhengfu}
+		relative_position_id = CEU_nanfang_zhengfu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		EDO = {
+		OR = {
+		exists = no
+		is_puppet_of = CEU
+		}
+		}
+		DYD = {
+		OR = {
+		exists = no
+		is_puppet_of = CEU
+		}
+		}
+		SHN = {
+		OR = {
+		exists = no
+		is_puppet_of = CEU
+		}
+		}
+		SAO = {
+		OR = {
+		exists = no
+		is_puppet_of = CEU
+		}
+		}
+		}
+		completion_reward = {
+		news_event = {
+				id = holy_news.54 days = 1
+			}
+			annex_country = {
+    target = DYD
+    transfer_troops = yes
+}
+annex_country = {
+    target = CEU
+    transfer_troops = yes
+}
+annex_country = {
+    target = EDO
+    transfer_troops = yes
+}
+annex_country = {
+    target = SHN
+    transfer_troops = yes
+}
+		}
+	}
+	#军事化国家
+	focus = {
+		id = CEU_junshiihua_guojia
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = CEU_tongyi_riben}
+		relative_position_id = CEU_tongyi_riben
+		x = -9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+    533 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+	528 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+530 = {
+		clr_state_flag = 
+			remove_province_modifier = {
+				static_modifiers = { fanzhen_kongzhi }
+				province = {
+					all_provinces = yes
+				    }
+				}
+			}
+		}
+	}
+	#黑色恐怖
+	focus = {
+		id = CEU_heise_kongbu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CEU_junshiihua_guojia}
+		relative_position_id = CEU_junshiihua_guojia
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_heise_kongbu
+		}
+	}
+	#军事工业满舵
+	focus = {
+		id = CEU_junshi_gongye_manduo
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_heise_kongbu}
+		relative_position_id = CEU_heise_kongbu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#禁止工人诉求
+	focus = {
+		id = CEU_jinzhi_gongren_suqiu
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = CEU_junshi_gongye_manduo}
+		relative_position_id = CEU_junshi_gongye_manduo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.1
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#忍耐精神
+	focus = {
+		id = CEU_rennai_jingshen
+		icon = GFX_goal_continuous_restrict_freedom
+		prerequisite = { focus = CEU_heise_kongbu}
+		relative_position_id = CEU_heise_kongbu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_heise_kongbu_2
+		remove_idea = CEU_heise_kongbu
+		}
+		}
+	}
+	#配给物资
+	focus = {
+		id = CEU_peiji_wuzi
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = CEU_rennai_jingshen}
+		relative_position_id = CEU_rennai_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_heise_kongbu_3
+		remove_idea = CEU_heise_kongbu_2
+		}
+		}
+	}
+	#民族主义教育
+	focus = {
+		id = CEU_minzu_zhuyi_jingshen
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = CEU_heise_kongbu}
+		relative_position_id = CEU_heise_kongbu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_minzu_zhuyi_jiaoyu
+		}
+	}
+	#培育少年
+	focus = {
+		id = CEU_peiyu_shaonian
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = CEU_minzu_zhuyi_jingshen}
+		relative_position_id = CEU_minzu_zhuyi_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_minzu_zhuyi_jiaoyu_2
+		remove_idea = CEU_minzu_zhuyi_jiaoyu
+		}
+		}
+	}
+	#军国组织系统
+	focus = {
+		id = CEU_junguo_zuzhi_xitong
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = CEU_jinzhi_gongren_suqiu}
+		prerequisite = { focus = CEU_peiji_wuzi}
+		prerequisite = { focus = CEU_peiyu_shaonian}
+		relative_position_id = CEU_peiji_wuzi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_heise_kongbu_4
+		remove_idea = CEU_heise_kongbu_3
+		}
+		}
+	}
+	#军政合一
+	focus = {
+		id = CEU_junzheng_heyi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = CEU_junguo_zuzhi_xitong}
+		relative_position_id = CEU_junguo_zuzhi_xitong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_heise_kongbu_5
+		remove_idea = CEU_heise_kongbu_4
+		}
+		}
+	}
+	#禁止妇女权利
+	focus = {
+		id = CEU_jinzhi_funv_quanli
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = CEU_jinzhi_gongren_suqiu}
+		prerequisite = { focus = CEU_peiji_wuzi}
+		prerequisite = { focus = CEU_peiyu_shaonian}
+		relative_position_id = CEU_peiji_wuzi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_jinzhi_funv_quanli
+		}
+	}
+	#扫清左派阴谋
+	focus = {
+		id = CEU_saoqing_zuopai
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		prerequisite = { focus = CEU_jinzhi_funv_quanli}
+		relative_position_id = CEU_jinzhi_funv_quanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_popularity = {
+    ideology = fascism
+    popularity = 1
+}
+add_stability = -0.1
+		}
+	}
+	#帝国武装扩充
+	focus = {
+		id = CEU_diguo_wuzhuang_kuochong
+		icon = GFX_focus_ETH_expand_the_kebur_zabagna
+		prerequisite = { focus = CEU_junshiihua_guojia}
+		relative_position_id = CEU_junshiihua_guojia
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_diguo_wuzhuang_kuochong
+		}
+	}
+	#武士精神
+	focus = {
+		id = CEU_wushi_jingshen
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = CEU_diguo_wuzhuang_kuochong}
+		relative_position_id = CEU_diguo_wuzhuang_kuochong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_diguo_wuzhuang_kuochong_2
+		remove_idea = CEU_diguo_wuzhuang_kuochong
+		}
+		}
+	}
+	#进攻万岁
+	focus = {
+		id = CEU_jingong_wansui
+		icon = GFX_focus_generic_armored_air_support
+		prerequisite = { focus = CEU_wushi_jingshen}
+		relative_position_id = CEU_wushi_jingshen
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_diguo_wuzhuang_kuochong_3
+		remove_idea = CEU_diguo_wuzhuang_kuochong_2
+		}
+		}
+	}
+	#意志的胜利
+	focus = {
+		id = CEU_yizhi_shengli
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = CEU_jingong_wansui}
+		relative_position_id = CEU_jingong_wansui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_diguo_wuzhuang_kuochong_4
+		remove_idea = CEU_diguo_wuzhuang_kuochong_3
+		}
+		}
+	}
+	#步兵攻势
+	focus = {
+		id = CEU_bubing_gongshi
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = CEU_yizhi_shengli}
+		relative_position_id = CEU_yizhi_shengli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_bubing_gongshi
+		}
+	}
+	#火力突破
+	focus = {
+		id = CEU_huoli_tupo
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = CEU_bubing_gongshi}
+		relative_position_id = CEU_bubing_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_huoli_tupo
+		}
+	}
+	#征服自然
+	focus = {
+		id = CEU_zhengfu_ziran
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = CEU_yizhi_shengli}
+		relative_position_id = CEU_yizhi_shengli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_zhengfu_ziran
+		}
+	}
+	#适应性训练
+	focus = {
+		id = CEU_shiyingxing_xunlian
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = CEU_zhengfu_ziran}
+		relative_position_id = CEU_zhengfu_ziran
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_zhengfu_ziran_2
+		remove_idea = CEU_zhengfu_ziran
+		}
+		}
+	}
+	#航空进攻
+	focus = {
+		id = CEU_hangkong_jingong
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = CEU_diguo_wuzhuang_kuochong}
+		relative_position_id = CEU_diguo_wuzhuang_kuochong
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_hangkong_jingong
+		}
+	}
+	#零式战斗机
+	focus = {
+		id = CEU_lingshi_zhandouji
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = CEU_hangkong_jingong}
+		relative_position_id = CEU_hangkong_jingong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = air_techs
+			}
+		}
+	}
+	#装甲突破
+	focus = {
+		id = CEU_zhuangjia_tupo
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = CEU_diguo_wuzhuang_kuochong}
+		relative_position_id = CEU_diguo_wuzhuang_kuochong
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_zhuangjia_tupo
+		}
+	}
+	#轻型化量产
+	focus = {
+		id = CEU_qingxinghua_liangchan
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = CEU_zhuangjia_tupo}
+		relative_position_id = CEU_zhuangjia_tupo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_zhuangjia_tupo_2
+		remove_idea = CEU_zhuangjia_tupo
+		}
+		}
+	}
+	#重建海军
+	focus = {
+		id = CEU_chongjian_haijun
+		icon = GFX_focus_GRE_a_long_and_proud_tradition
+		prerequisite = { focus = CEU_diguo_wuzhuang_kuochong}
+		relative_position_id = CEU_diguo_wuzhuang_kuochong
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        navy_experience = 50
+		}
+	}
+	#登录协助
+	focus = {
+		id = CEU_denglu_xiezhu
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = CEU_chongjian_haijun}
+		relative_position_id = CEU_chongjian_haijun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_denglu_xiezhu
+		}
+	}
+	#非自然进攻
+	focus = {
+		id = CEU_feiziran_jingong
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = CEU_diguo_wuzhuang_kuochong}
+		relative_position_id = CEU_diguo_wuzhuang_kuochong
+		x = 8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_feiziran_jingong
+		}
+	}
+	#势如破竹
+	focus = {
+		id = CEU_shiru_pozhu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CEU_feiziran_jingong}
+		relative_position_id = CEU_feiziran_jingong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        swap_ideas = {
+		add_idea = CEU_feiziran_jingong_2
+		remove_idea = CEU_feiziran_jingong
+		}
+		}
+	}
+	#大东亚战争
+	focus = {
+		id = CEU_dadongya_war
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = CEU_tongyi_riben}
+		relative_position_id = CEU_tongyi_riben
+		x = 9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_war_support = 0.1
+		}
+	}
+	#建立总督区
+	focus = {
+		id = CEU_jianli_zongduqu
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = CEU_dadongya_war}
+		relative_position_id = CEU_dadongya_war
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+        add_political_power = 100
+		}
+	}
+	#登录朝鲜
+	focus = {
+		id = CEU_denglu_chaoxian
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = CEU_dadongya_war}
+		relative_position_id = CEU_dadongya_war
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+		}
+	}
+	#侵华战争
+	focus = {
+		id = CEU_qinhua_zhanzheng
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { focus = CEU_denglu_chaoxian}
+		relative_position_id = CEU_denglu_chaoxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = NWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = WAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZHI
+    type = annex_everything
+}
+declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAD
+    type = annex_everything
+}
+declare_war_on = {
+    target = FEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = MJJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = NNJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = KMT
+    type = annex_everything
+}
+declare_war_on = {
+    target = CCP
+    type = annex_everything
+}
+declare_war_on = {
+    target = CGH
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUE
+    type = annex_everything
+}
+declare_war_on = {
+    target = OGU
+    type = annex_everything
+}
+declare_war_on = {
+    target = GUI
+    type = annex_everything
+}
+declare_war_on = {
+    target = QYZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = DIA
+    type = annex_everything
+}
+declare_war_on = {
+    target = QAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUX
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHU
+    type = annex_everything
+}
+declare_war_on = {
+    target = XKA
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZAG
+    type = annex_everything
+}
+declare_war_on = {
+    target = JIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = QIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = HAM
+    type = annex_everything
+}
+declare_war_on = {
+    target = ETK
+    type = annex_everything
+}
+declare_war_on = {
+    target = XQJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKD
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHR
+    type = annex_everything
+}
+declare_war_on = {
+    target = MOG
+    type = annex_everything
+}
+declare_war_on = {
+    target = SUY
+    type = annex_everything
+}
+declare_war_on = {
+    target = TWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = NKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SAH
+    type = annex_everything
+}
+		}
+	}
+	#粉碎北方敌军
+	focus = {
+		id = CEU_fensui_beifang_dijun
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_qinhua_zhanzheng}
+		relative_position_id = CEU_qinhua_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		limit = {
+		region = 186
+		}
+		is_controlled_by = CEU
+		}
+		}
+		completion_reward = {
+        add_timed_idea = {
+    idea = CEU_fensui_beifang_dijun
+    days = 360
+}
+		}
+	}
+	#发动海上登录
+	focus = {
+		id = CEU_fadong_haishang_denglu
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = CEU_qinhua_zhanzheng}
+		relative_position_id = CEU_qinhua_zhanzheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 524
+		controls_state = 526
+		controls_state = 1460
+		controls_state = 1486
+		controls_state = 1487
+		}
+		completion_reward = {
+        add_timed_idea = {
+    idea = CEU_fadong_haishang_denglu
+    days = 360
+}
+		}
+	}
+	#皇协军计划
+	focus = {
+		id = CEU_haungxiejun_plan
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = CEU_fadong_haishang_denglu}
+		prerequisite = { focus = CEU_fensui_beifang_dijun}
+		relative_position_id = CEU_fadong_haishang_denglu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        add_ideas = CEU_huangxiejun
+		}
+	}
+	#加入轴心国
+	focus = {
+		id = CEU_jiaru_zhouxinguo
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		prerequisite = { focus = CEU_dadongya_war}
+		relative_position_id = CEU_dadongya_war
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        HNW = { add_to_faction = CEU }
+		}
+	}
+	#台湾计划
+	focus = {
+		id = CEU_taiwan_plan
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = CEU_dadongya_war}
+		relative_position_id = CEU_dadongya_war
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = TWA
+    type = annex_everything
+}
+		}
+	}
+	#接管印度支那
+	focus = {
+		id = CEU_jieguan_yindu_china
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CEU_taiwan_plan}
+		relative_position_id = CEU_taiwan_plan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 524
+		controls_state = 1486
+		controls_state = 1487
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = IDC
+    type = annex_everything
+}
+		}
+	}
+	#暹罗攻势
+	focus = {
+		id = CEU_xianluo_gongshi
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CEU_jieguan_yindu_china}
+		relative_position_id = CEU_jieguan_yindu_china
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		any_neighbor_country = {
+		tag = SIA
+		}
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = SIA
+    type = annex_everything
+}
+		}
+	}
+	#马来亚战争
+	focus = {
+		id = CEU_malaiya_zhazheng
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CEU_xianluo_gongshi}
+		relative_position_id = CEU_xianluo_gongshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		any_neighbor_country = {
+		tag = MAL
+		}
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = MAL
+    type = annex_everything
+}
+		}
+	}
+	#进军缅甸
+	focus = {
+		id = CEU_jinjun_miandian
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = CEU_xianluo_gongshi}
+		relative_position_id = CEU_xianluo_gongshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		any_neighbor_country = {
+		tag = BRM
+		}
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = BRM
+    type = annex_everything
+}
+		}
+	}
+	#菲律宾跳板
+	focus = {
+		id = CEU_feilvbing_tiaoban
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_taiwan_plan}
+		relative_position_id = CEU_taiwan_plan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 524
+		controls_state = 1486
+		controls_state = 1487
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = PHI
+    type = annex_everything
+}
+		}
+	}
+	#粉碎亚齐——万丹
+	focus = {
+		id = CEU_fensui_yaqi_wandan
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_feilvbing_tiaoban}
+		relative_position_id = CEU_feilvbing_tiaoban
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = YAW
+    type = annex_everything
+}
+		}
+	}
+	#粉碎马兰达
+	focus = {
+		id = CEU_fensui_madalan
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_fensui_yaqi_wandan}
+		relative_position_id = CEU_fensui_yaqi_wandan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = MDL
+    type = annex_everything
+}
+		}
+	}
+	#对准文莱岛
+	focus = {
+		id = CEU_duizhun_wenlaidao
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_feilvbing_tiaoban}
+		relative_position_id = CEU_feilvbing_tiaoban
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = WEN
+    type = annex_everything
+}
+declare_war_on = {
+    target = TEE
+    type = annex_everything
+}
+		}
+	}
+	#美拉尼西亚战争
+	focus = {
+		id = CEU_meilanixiya_war
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = CEU_duizhun_wenlaidao}
+		relative_position_id = CEU_duizhun_wenlaidao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = MNY
+    type = annex_everything
+}
+		}
+	}
+	#征服新世界
+	focus = {
+		id = CEU_zhengfu_xinshijie
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = CEU_meilanixiya_war}
+		prerequisite = { focus = CEU_fensui_madalan}
+		relative_position_id = CEU_meilanixiya_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+        declare_war_on = {
+    target = HWA
+    type = annex_everything
+}
+declare_war_on = {
+    target = AST
+    type = annex_everything
+}
+declare_war_on = {
+    target = NZL
+    type = annex_everything
+}
+		}
+	}
+}

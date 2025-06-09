@@ -1,0 +1,866 @@
+focus_tree = {
+	id = MJJ_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = MJJ
+		}
+	}
+	
+	default = no
+ 
+	#对抗赤匪
+	focus = {
+		id = MJJ_duikang_chifei
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 50
+		}
+	}
+	#子侄联合
+	focus = {
+		id = MJJ_zizhi_lianhe
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = MJJ_duikang_chifei}
+		relative_position_id = MJJ_duikang_chifei
+		mutually_exclusive = { focus = MJJ_malin_fangan }
+		mutually_exclusive = { focus = MJJ_mabufang_plan }
+		x = -4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = neutrality
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = neutrality
+}
+		create_country_leader = {
+	name = "马鸿逵"
+	desc = ""
+	picture = "GFX173"
+	expire = "1965.1.1"
+	ideology = junzheng_system
+	traits = {
+		
+	}
+}
+		}
+	}
+	#吸收北方残部
+	focus = {
+		id = MJJ_xishou_beifang_canbu
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = MJJ_zizhi_lianhe}
+		relative_position_id = MJJ_zizhi_lianhe
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = MJJ_beifang_canbu
+		}
+	}
+	#利用汉民
+	focus = {
+		id = MJJ_liyong_hanmin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = MJJ_zizhi_lianhe}
+		relative_position_id = MJJ_zizhi_lianhe
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_hanmin
+		}
+	}
+	#新建工业
+	focus = {
+		id = MJJ_new_ic
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = MJJ_liyong_hanmin}
+		relative_position_id = MJJ_liyong_hanmin
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#组建汉族部队
+	focus = {
+		id = MJJ_zujian_hanzu_budui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = MJJ_liyong_hanmin}
+		relative_position_id = MJJ_liyong_hanmin
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_hanmin_2
+			remove_idea = MJJ_hanmin
+			}
+			load_oob = MJJ_hanzu_budui
+		}
+	}
+	#依靠汉族商路
+	focus = {
+		id = MJJ_yikao_hanzu_shanglu
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = MJJ_zujian_hanzu_budui}
+		prerequisite = { focus = MJJ_new_ic}
+		relative_position_id = MJJ_new_ic
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_hanmin_3
+			remove_idea = MJJ_hanmin_2
+			}
+		}
+	}
+	#马麟方案
+	focus = {
+		id = MJJ_malin_fangan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MJJ_duikang_chifei}
+		relative_position_id = MJJ_duikang_chifei
+		mutually_exclusive = { focus = MJJ_zizhi_lianhe }
+		mutually_exclusive = { focus = MJJ_mabufang_plan }
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#回民伊斯兰传承
+	focus = {
+		id = MJJ_huimin_yisilan_chuancheng
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		prerequisite = { focus = MJJ_malin_fangan}
+		relative_position_id = MJJ_malin_fangan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MMJ_huimin_yisilan
+		}
+	}
+	#宗教冲锋
+	focus = {
+		id = MJJ_zongjiao_chongfeng
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = MJJ_huimin_yisilan_chuancheng}
+		relative_position_id = MJJ_huimin_yisilan_chuancheng
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MMJ_huimin_yisilan_2
+			remove_idea = MMJ_huimin_yisilan
+			}
+		}
+	}
+	#汉民经济
+	focus = {
+		id = MJJ_hanmin_jingji
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		prerequisite = { focus = MJJ_malin_fangan}
+		relative_position_id = MJJ_malin_fangan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_hanmin_jingji
+		}
+	}
+	#地方政治放缓
+	focus = {
+		id = MJJ_difang_zhengzhi_fanghuan
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = MJJ_hanmin_jingji}
+		relative_position_id = MJJ_hanmin_jingji
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_hanmin_jingji_2
+			remove_idea = MJJ_hanmin_jingji
+			}
+		}
+	}
+	#重建青海贸易
+	focus = {
+		id = MJJ_chongjian_qinghai_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = MJJ_difang_zhengzhi_fanghuan}
+		prerequisite = { focus = MJJ_zongjiao_chongfeng}
+		relative_position_id = MJJ_difang_zhengzhi_fanghuan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_hanmin_jingji_3
+			remove_idea = MJJ_hanmin_jingji_2
+			}
+		}
+	}
+	#马步芳计划
+	focus = {
+		id = MJJ_mabufang_plan
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = MJJ_duikang_chifei}
+		relative_position_id = MJJ_duikang_chifei
+		mutually_exclusive = { focus = MJJ_malin_fangan }
+		mutually_exclusive = { focus = MJJ_zizhi_lianhe }
+		x = 4
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			retire_country_leader = yes
+		create_country_leader = {
+	name = "马步芳"
+	desc = ""
+	picture = "GFX174"
+	expire = "1965.1.1"
+	ideology = warlord
+	traits = {
+		
+	}
+}
+		}
+	}
+	#利用藏族
+	focus = {
+		id = MJJ_liyong_zangzu
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = MJJ_mabufang_plan}
+		relative_position_id = MJJ_mabufang_plan
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_liyong_xizang
+		}
+	}
+	#伊斯兰教育
+	focus = {
+		id = MJJ_yisilan_jiaoyu
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = MJJ_liyong_zangzu}
+		relative_position_id = MJJ_liyong_zangzu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_liyong_xizang_2
+			remove_idea = MJJ_liyong_xizang
+			}
+		}
+	}
+	#马家骑兵
+	focus = {
+		id = MJJ_majiajun
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = MJJ_mabufang_plan}
+		relative_position_id = MJJ_mabufang_plan
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_majiajun
+		}
+	}
+	#宗教狂热
+	focus = {
+		id = MJJ_zongjiao_kuangre
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = MJJ_majiajun}
+		relative_position_id = MJJ_majiajun
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_majiajun_2
+			remove_idea = MJJ_majiajun
+			}
+		}
+	}
+	#劫掠者
+	focus = {
+		id = MJJ_jieluezhe
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = MJJ_yisilan_jiaoyu}
+		prerequisite = { focus = MJJ_zongjiao_kuangre}
+		relative_position_id = MJJ_zongjiao_kuangre
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_majiajun_3
+			remove_idea = MJJ_majiajun_2
+			} 
+		}
+	}
+	#统一青海
+	focus = {
+		id = MJJ_tongyi_qinghai
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = MJJ_yikao_hanzu_shanglu focus = MJJ_chongjian_qinghai_maoyi focus = MJJ_jieluezhe }
+		relative_position_id = MJJ_chongjian_qinghai_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 283
+		controls_state = 616
+		controls_state = 756
+		controls_state = 1293
+		controls_state = 1295
+		controls_state = 1296
+		controls_state = 1294
+		controls_state = 1297
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#构建政府
+	focus = {
+		id = MJJ_goujian_zhengfu
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = MJJ_tongyi_qinghai}
+		relative_position_id = MJJ_tongyi_qinghai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_posui_xingzheng_2
+			remove_idea = MJJ_posui_xingzheng
+			} 
+		}
+	}
+	#军事化政府
+	focus = {
+		id = MJJ_junshihua_zhengfu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = MJJ_goujian_zhengfu}
+		relative_position_id = MJJ_goujian_zhengfu
+		mutually_exclusive = { focus = MJJ_zhengzhi_zhengchanghua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = MJJ_mabufang_plan
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_junshihua_zhengfu
+			remove_idea = MJJ_posui_xingzheng_2
+			} 
+		}
+	}
+	#榨干汉族
+	focus = {
+		id = MJJ_zhagan_hanzu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = MJJ_junshihua_zhengfu}
+		relative_position_id = MJJ_junshihua_zhengfu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_junshihua_zhengfu_2
+			remove_idea = MJJ_junshihua_zhengfu
+			} 
+		}
+	}
+	#军事工业化
+	focus = {
+		id = MJJ_junshi_gongye
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = MJJ_zhagan_hanzu}
+		relative_position_id = MJJ_zhagan_hanzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#政治正常化
+	focus = {
+		id = MJJ_zhengzhi_zhengchanghua
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = MJJ_goujian_zhengfu}
+		relative_position_id = MJJ_goujian_zhengfu
+		mutually_exclusive = { focus = MJJ_junshihua_zhengfu }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = MJJ_malin_fangan
+		has_completed_focus = MJJ_zizhi_lianhe
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zhengzhi_zhengchanghua
+			remove_idea = MJJ_posui_xingzheng_2
+			} 
+		}
+	}
+	#农业计划
+	focus = {
+		id = MJJ_nongye_plan
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = MJJ_zhengzhi_zhengchanghua}
+		relative_position_id = MJJ_zhengzhi_zhengchanghua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zhengzhi_zhengchanghua_2
+			remove_idea = MJJ_zhengzhi_zhengchanghua
+			} 
+		}
+	}
+	#人民的统治者
+	focus = {
+		id = MJJ_renmin_tongzhizhe
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = MJJ_nongye_plan}
+		relative_position_id = MJJ_nongye_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zhengzhi_zhengchanghua_3
+			remove_idea = MJJ_zhengzhi_zhengchanghua_2
+			} 
+		}
+	}
+	#青海重建
+	focus = {
+		id = MJJ_qinghai_chongjian
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = MJJ_tongyi_qinghai}
+		relative_position_id = MJJ_tongyi_qinghai
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_qinghai_gongye_2
+			remove_idea = MJJ_qinghai_gongye
+			} 
+		}
+	}
+	#新开发计划
+	focus = {
+		id = MJJ_xin_kaifa_plan
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = MJJ_qinghai_chongjian}
+		relative_position_id = MJJ_qinghai_chongjian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_qinghai_gongye_3
+			remove_idea = MJJ_qinghai_gongye_2
+			} 
+		}
+	}
+	#鸦片计划
+	focus = {
+		id = MJJ_yapian_plan
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = MJJ_xin_kaifa_plan}
+		relative_position_id = MJJ_xin_kaifa_plan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = MJJ_mabufang_plan
+		}
+		completion_reward = {
+			add_ideas = MJJ_yapian_plan
+		}
+	}
+	#财源滚滚
+	focus = {
+		id = MJJ_caiyuan_gungun
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = MJJ_yapian_plan}
+		relative_position_id = MJJ_yapian_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_caiyuan_gungun
+			remove_idea = MJJ_yapian_plan
+			} 
+		}
+	}
+	#扩建天水军工
+	focus = {
+		id = MJJ_kuojian_shuiping_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = MJJ_xin_kaifa_plan}
+		relative_position_id = MJJ_xin_kaifa_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			755 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#格尔木军事工业
+	focus = {
+		id = MJJ_geermu_junshigongye
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = MJJ_kuojian_shuiping_jungong}
+		relative_position_id = MJJ_kuojian_shuiping_jungong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			604 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#重修道路
+	focus = {
+		id = MJJ_chongxiu_daolu
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = MJJ_xin_kaifa_plan}
+		relative_position_id = MJJ_xin_kaifa_plan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = MJJ_malin_fangan
+		has_completed_focus = MJJ_zizhi_lianhe
+		}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#生存之本
+	focus = {
+		id = MJJ_shengcun_zhiben
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = MJJ_chongxiu_daolu}
+		relative_position_id = MJJ_chongxiu_daolu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_shengcun_zhiben
+		}
+	}
+	#组建马家武装
+	focus = {
+		id = MJJ_zujian_majia_wuzhuang
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = MJJ_tongyi_qinghai}
+		relative_position_id = MJJ_tongyi_qinghai
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_zujian_majia_wuzhuang
+		}
+	}
+	#保甲征兵
+	focus = {
+		id = MJJ_baojia_zhengbing
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = MJJ_zujian_majia_wuzhuang}
+		relative_position_id = MJJ_zujian_majia_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = MJJ_baojia_zhengbing
+		}
+	}
+	#稳定军队财政
+	focus = {
+		id = MJJ_wending_jundui_caizheng
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = MJJ_baojia_zhengbing}
+		relative_position_id = MJJ_baojia_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_baojia_zhengbing_2
+			remove_idea = MJJ_baojia_zhengbing
+			} 
+		}
+	}
+	#苦难行军
+	focus = {
+		id = MJJ_kunan_xingjun
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = MJJ_wending_jundui_caizheng}
+		relative_position_id = MJJ_wending_jundui_caizheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_baojia_zhengbing_3
+			remove_idea = MJJ_baojia_zhengbing_2
+			} 
+		}
+	}
+	#动员人民
+	focus = {
+		id = MJJ_dongyuan_renmin
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = MJJ_zujian_majia_wuzhuang}
+		relative_position_id = MJJ_zujian_majia_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zujian_majia_wuzhuang_2
+			remove_idea = MJJ_zujian_majia_wuzhuang
+			} 
+		}
+	}
+	#加强骑兵训练
+	focus = {
+		id = MJJ_jiaqiang_qibing_xunlian
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = MJJ_dongyuan_renmin}
+		relative_position_id = MJJ_dongyuan_renmin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zujian_majia_wuzhuang_3
+			remove_idea = MJJ_zujian_majia_wuzhuang_2
+			} 
+		}
+	}
+	#带头冲锋
+	focus = {
+		id = MJJ_daitou_chongfeng
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = MJJ_jiaqiang_qibing_xunlian}
+		relative_position_id = MJJ_jiaqiang_qibing_xunlian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = MJJ_zujian_majia_wuzhuang_4
+			remove_idea = MJJ_zujian_majia_wuzhuang_3
+			} 
+		}
+	}
+}

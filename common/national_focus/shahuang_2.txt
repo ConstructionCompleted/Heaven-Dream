@@ -1,0 +1,1638 @@
+focus_tree = {
+	id = RUN_2_focus
+    
+	country = {
+		factor = 0
+	}
+	
+	default = no
+ 
+    #帝国重归
+	focus = {
+		id = RUN_diguo_chonggui
+		icon = GFX_focus_SOV_zemsky_sobor
+		x = 30
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_diguo_huigui
+		}
+	}
+	#人民的父亲
+	focus = {
+		id = RUN_renmin_fuqin
+		icon = GFX_focus_SOV_the_true_tsars
+		prerequisite = { focus = RUN_diguo_chonggui}
+		relative_position_id = RUN_diguo_chonggui
+		mutually_exclusive = { focus = RUN_chongjian_canyiyuan }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_renmin_fuqin
+		remove_idea = RUN_diguo_huigui
+		}
+		add_popularity = {
+    ideology = dictatorship
+    popularity = 0.1
+}
+		}
+	}
+	#凯撒之声
+	focus = {
+		id = RUN_kaisa_zhisheng
+		icon = GFX_focus_SOV_transcaucasian_republic
+		prerequisite = { focus = RUN_renmin_fuqin}
+		relative_position_id = RUN_renmin_fuqin
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_kaisa_zhisheng
+		}
+	}
+	#重建地区管理
+	focus = {
+		id = RUN_chongjian_diqu_guanli
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = RUN_kaisa_zhisheng}
+		prerequisite = { focus = RUN_diguo_rongyao}
+		relative_position_id = RUN_diguo_rongyao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_chongjian_diqu_guanli
+		}
+	}
+	#改革地方制度
+	focus = {
+		id = RUN_gaige_difang_zhidu
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = RUN_chongjian_diqu_guanli}
+		relative_position_id = RUN_chongjian_diqu_guanli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_chongjian_diqu_guanli_2
+		remove_idea = RUN_chongjian_diqu_guanli
+		}
+		}
+	}
+	#帝国的荣耀
+	focus = {
+		id = RUN_diguo_rongyao
+		icon = GFX_focus_SOV_panslavic_nationalism
+		prerequisite = { focus = RUN_renmin_fuqin}
+		relative_position_id = RUN_renmin_fuqin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_renmin_fuqin_2
+		remove_idea = RUN_renmin_fuqin
+		}
+		}
+	}
+	#加冕仪式
+	focus = {
+		id = RUN_jiamian_yishi
+		icon = GFX_focus_SOV_patriarch_of_all_russia
+		prerequisite = { focus = RUN_chongjian_diguo_jiaohui}
+		prerequisite = { focus = RUN_diguo_rongyao}
+		relative_position_id = RUN_diguo_rongyao
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_shahuang.1
+    days = 5
+}
+		}
+	}
+	#神圣的血液
+	focus = {
+		id = RUN_shensheng_xueye
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = RUN_jiamian_yishi}
+		relative_position_id = RUN_jiamian_yishi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_renmin_fuqin_3
+		remove_idea = RUN_renmin_fuqin_2
+		}
+		}
+	}
+	#重建帝国教会
+	focus = {
+		id = RUN_chongjian_diguo_jiaohui
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		prerequisite = { focus = RUN_renmin_fuqin}
+		relative_position_id = RUN_renmin_fuqin
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_zongjiao_jiahu_2
+		remove_idea = RUN_zongjiao_jiahu
+		}
+		}
+	}
+	#俄罗斯复仇主义
+	focus = {
+		id = RUN_eluosi_fuchou_zhuyi
+		icon = GFX_focus_SOV_free_Rutenia
+		prerequisite = { focus = RUN_gaige_difang_zhidu}
+		prerequisite = { focus = RUN_shensheng_xueye}
+		relative_position_id = RUN_shensheng_xueye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_eluosi_fuchou_zhuyi
+		}
+	}
+	#重建参议院
+	focus = {
+		id = RUN_chongjian_canyiyuan
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = RUN_diguo_chonggui}
+		relative_position_id = RUN_diguo_chonggui
+		mutually_exclusive = { focus = RUN_renmin_fuqin }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_lixian_junzhu
+		remove_idea = RUN_diguo_huigui
+		}
+		add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+set_politics = {
+	ruling_party = neutrality
+}
+retire_country_leader = yes
+create_country_leader = {
+	name = "阿列克谢"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = eryuan_junzhu_system
+	traits = {
+	}
+}
+		}
+	}
+	#自由之声
+	focus = {
+		id = RUN_free_zhisheng
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = RUN_chongjian_canyiyuan}
+		relative_position_id = RUN_chongjian_canyiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_lixian_junzhu_2
+		remove_idea = RUN_lixian_junzhu
+		}
+		}
+	}
+	#上下议院
+	focus = {
+		id = RUN_shangxia_yiyuan
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = RUN_chongjian_canyiyuan}
+		relative_position_id = RUN_chongjian_canyiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_shangxia_yiyuan
+		}
+	}
+	#人民的忠诚
+	focus = {
+		id = RUN_renmin_zhongchen
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = RUN_free_zhisheng}
+		relative_position_id = RUN_free_zhisheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_lixian_junzhu_3
+		remove_idea = RUN_lixian_junzhu_2
+		}
+		}
+	}
+	#新宪法
+	focus = {
+		id = RUN_new_xianfa
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = RUN_free_zhisheng}
+		prerequisite = { focus = RUN_shangxia_yiyuan}
+		relative_position_id = RUN_free_zhisheng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 200
+		}
+	}
+	#地区议会
+	focus = {
+		id = RUN_diqu_yihui
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = RUN_shangxia_yiyuan}
+		relative_position_id = RUN_shangxia_yiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_shangxia_yiyuan_2
+		remove_idea = RUN_shangxia_yiyuan
+		}
+		}
+	}
+	#吸收世界投资
+	focus = {
+		id = RUN_xishou_shijie_touzi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = RUN_new_xianfa}
+		prerequisite = { focus = RUN_renmin_zhongchen}
+		relative_position_id = RUN_new_xianfa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_xishou_shijie_touzi
+		}
+	}
+	#地区自治
+	focus = {
+		id = RUN_diqu_zizhi
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = RUN_new_xianfa}
+		prerequisite = { focus = RUN_diqu_yihui}
+		relative_position_id = RUN_new_xianfa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_shangxia_yiyuan_3
+		remove_idea = RUN_shangxia_yiyuan_2
+		}
+		}
+	}
+	#仁慈的帝国
+	focus = {
+		id = RUN_renci_diguo
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = RUN_diqu_zizhi}
+		prerequisite = { focus = RUN_xishou_shijie_touzi}
+		relative_position_id = RUN_diqu_zizhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_lixian_junzhu_4
+		remove_idea = RUN_lixian_junzhu_3
+		}
+		}
+	}
+	#国家开发计划
+	focus = {
+		id = RUN_guojia_kaifa_plan
+		icon = GFX_focus_POL_warsaw_main_station
+		x = 30
+		y = 6
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 3
+				category = industry
+			}
+		}
+	}
+	#官僚工业
+	focus = {
+		id = RUN_guanliao_gongye
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = RUN_guojia_kaifa_plan}
+		relative_position_id = RUN_guojia_kaifa_plan
+		mutually_exclusive = { focus = RUN_diqu_zizhi_jingji }
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = RUN_renmin_fuqin
+		}
+		completion_reward = {
+		add_ideas = RUN_guanliao_gongye
+		}
+	}
+	#工业部
+	focus = {
+		id = RUN_gongye_bu
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = RUN_guanliao_gongye}
+		relative_position_id = RUN_guanliao_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_guanliao_gongye_2
+		remove_idea = RUN_guanliao_gongye
+		}
+		}
+	}
+	#乌拉尔拖拉机厂
+	focus = {
+		id = RUN_wulaer_tuolajichang
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = RUN_gongye_bu}
+		relative_position_id = RUN_gongye_bu
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		652 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		651 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#铁路国有化
+	focus = {
+		id = RUN_tielu_guoyouhua
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = RUN_gongye_bu}
+		relative_position_id = RUN_gongye_bu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_tielu_guoyouhua
+		}
+	}
+	#经济效率改革
+	focus = {
+		id = RUN_jingji_xiaolv_gaige
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = RUN_gongye_bu}
+		relative_position_id = RUN_gongye_bu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_guanliao_gongye_3
+		remove_idea = RUN_guanliao_gongye_2
+		}
+		}
+	}
+	#军事生产法案
+	focus = {
+		id = RUN_junshi_shengchan
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = RUN_gongye_bu}
+		relative_position_id = RUN_gongye_bu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_junshi_shengchan
+		}
+	}
+	#农业机械化
+	focus = {
+		id = RUN_nongye_jixiehua
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = RUN_wulaer_tuolajichang}
+		relative_position_id = RUN_wulaer_tuolajichang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_nongye_jixiehua
+		}
+	}
+	#扩建圣彼得堡
+	focus = {
+		id = RUN_kuojian_shengbidebao
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = RUN_wulaer_tuolajichang}
+		prerequisite = { focus = RUN_tielu_guoyouhua}
+		relative_position_id = RUN_tielu_guoyouhua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		195 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#投资国家教育
+	focus = {
+		id = RUN_touzi_guojia_jiaoyu
+		icon = GFX_focus_research2
+		prerequisite = { focus = RUN_jingji_xiaolv_gaige }
+		prerequisite = { focus = RUN_tielu_guoyouhua}
+		relative_position_id = RUN_tielu_guoyouhua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#行政官僚学院
+	focus = {
+		id = RUN_xingzheng_guanliao_xueyuan
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = RUN_jingji_xiaolv_gaige}
+		relative_position_id = RUN_jingji_xiaolv_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_guanliao_gongye_4
+		remove_idea = RUN_guanliao_gongye_3
+		}
+		}
+	}
+	#备战计划
+	focus = {
+		id = RUN_beizhan_plan
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = RUN_junshi_shengchan focus = RUN_minzu_ziben_zengzhi}
+		relative_position_id = RUN_minzu_ziben_zengzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 5 }
+		}
+	}
+	#莫斯科军事化
+	focus = {
+		id = RUN_mosike_junshihua
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = RUN_beizhan_plan }
+		relative_position_id = RUN_beizhan_plan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		219 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		254 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#察里津军事化
+	focus = {
+		id = RUN_chalijin_junshihua
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = RUN_beizhan_plan }
+		relative_position_id = RUN_beizhan_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		217 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		1071 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		1072 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#东方军事化
+	focus = {
+		id = RUN_dongfang_junshihua
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = RUN_beizhan_plan }
+		relative_position_id = RUN_beizhan_plan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		403 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		572 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 3
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#地区自治经济
+	focus = {
+		id = RUN_diqu_zizhi_jingji
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = RUN_guojia_kaifa_plan}
+		relative_position_id = RUN_guojia_kaifa_plan
+		mutually_exclusive = { focus = RUN_guanliao_gongye }
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = RUN_chongjian_canyiyuan
+		}
+		completion_reward = {
+		add_ideas = RUN_diqu_zizhi_jingji
+		}
+	}
+	#国家银行
+	focus = {
+		id = RUN_guojia_yinhang
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = RUN_diqu_zizhi_jingji}
+		relative_position_id = RUN_diqu_zizhi_jingji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_guojia_yinhang
+		add_stability = -0.1
+		}
+	}
+	#民族资本增殖
+	focus = {
+		id = RUN_minzu_ziben_zengzhi
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = RUN_guojia_yinhang}
+		relative_position_id = RUN_guojia_yinhang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_guojia_yinhang_2
+		remove_idea = RUN_guojia_yinhang
+		}
+		}
+	}
+	#支援地方开发
+	focus = {
+		id = RUN_zhiyuan_difang_kaifa
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = RUN_guojia_yinhang}
+		relative_position_id = RUN_guojia_yinhang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_zhiyuan_difang_kaifa
+		}
+	}
+	#资本主义合作
+	focus = {
+		id = RUN_zibenzhuyi_hezuo
+		icon = GFX_focus_POL_warsaw_main_station
+		prerequisite = { focus = RUN_diqu_zizhi_jingji}
+		relative_position_id = RUN_diqu_zizhi_jingji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_zibenzhuyi_hezuo
+		}
+	}
+	#沿海繁荣
+	focus = {
+		id = RUN_yanhai_fanrong
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = RUN_zibenzhuyi_hezuo}
+		relative_position_id = RUN_zibenzhuyi_hezuo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		218 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+}
+		208 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+}
+		}
+	}
+	#教育改革
+	focus = {
+		id = RUN_jiaoyu_gaige
+		icon = GFX_focus_research
+		prerequisite = { focus = RUN_yanhai_fanrong focus = RUN_zhiyuan_difang_kaifa }
+		relative_position_id = RUN_yanhai_fanrong
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#去中心化建设
+	focus = {
+		id = RUN_quzhongxinhua_jianshe
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = RUN_zibenzhuyi_hezuo}
+		relative_position_id = RUN_zibenzhuyi_hezuo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		220 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+}
+		246 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+}
+		}
+	}
+	#乌拉尔工业
+	focus = {
+		id = RUN_wulaer_gongye
+		icon = GFX_focus_NZL_bob_semple_tank
+		prerequisite = { focus = RUN_quzhongxinhua_jianshe}
+		relative_position_id = RUN_quzhongxinhua_jianshe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		1351 = {
+			add_extra_state_shared_building_slots = 3
+add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+}
+		582 = {
+			add_extra_state_shared_building_slots = 3
+add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+}
+		}
+	}
+	#西伯利亚财富
+	focus = {
+		id = RUN_xiboliya_caifu
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = RUN_quzhongxinhua_jianshe}
+		relative_position_id = RUN_quzhongxinhua_jianshe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_xiboliya_caifu
+		}
+	}
+	#军队现代化
+	focus = {
+		id = RUN_jundui_xiandaihua
+		icon = GFX_focus_chi_army_reform
+		x = 27
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		army_experience = 100
+		}
+	}
+	#重建哥萨克骑兵
+	focus = {
+		id = RUN_chongjian_gesake_qibing
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = RUN_jundui_xiandaihua}
+		relative_position_id = RUN_jundui_xiandaihua
+		x = -8
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_chongjian_gesake_qibing
+		}
+	}
+	#东线机动
+	focus = {
+		id = RUN_dongxian_jidong
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = RUN_chongjian_gesake_qibing}
+		relative_position_id = RUN_chongjian_gesake_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_dongxian_jidong
+		}
+	}
+	#接纳少数民族
+	focus = {
+		id = RUN_jiena_shaoshu_minzu
+		icon = GFX_focus_generic_military_academy
+		prerequisite = { focus = RUN_dongxian_jidong}
+		relative_position_id = RUN_dongxian_jidong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_jiena_shaoshu_minzu
+		}
+	}
+	#重建警卫部
+	focus = {
+		id = RUN_chongjian_jingweibu
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = RUN_jundui_xiandaihua}
+		relative_position_id = RUN_jundui_xiandaihua
+		x = -6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_jingweibu
+		create_intelligence_agency = yes
+		}
+	}
+	#陆军改革
+	focus = {
+		id = RUN_lujun_gaige
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = RUN_jundui_xiandaihua}
+		relative_position_id = RUN_jundui_xiandaihua
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_diguo_army
+		}
+	}
+	#监管军队
+	focus = {
+		id = RUN_jianguan_jundui
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = RUN_chongjian_jingweibu}
+		relative_position_id = RUN_chongjian_jingweibu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_jingweibu_2
+		remove_idea = RUN_jingweibu
+		}
+		}
+	}
+	#无线电联络
+	focus = {
+		id = RUN_wuxiandian_lianluo
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = RUN_jianguan_jundui}
+		relative_position_id = RUN_jianguan_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_jingweibu_3
+		remove_idea = RUN_jingweibu_2
+		}
+		}
+	}
+	#扩大军校
+	focus = {
+		id = RUN_kuoda_junxiao
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = RUN_lujun_gaige}
+		relative_position_id = RUN_lujun_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_diguo_army_2
+		remove_idea = RUN_diguo_army
+		}
+		}
+	}
+	#军队摩托化
+	focus = {
+		id = RUN_jundui_motuohua
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = RUN_lujun_gaige}
+		relative_position_id = RUN_lujun_gaige
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_jundui_motuohua
+		}
+	}
+	#基层培训
+	focus = {
+		id = RUN_jiceng_peixun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = RUN_kuoda_junxiao}
+		prerequisite = { focus = RUN_jianguan_jundui}
+		relative_position_id = RUN_kuoda_junxiao
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_diguo_army_3
+		remove_idea = RUN_diguo_army_2
+		}
+		}
+	}
+	#完善军队组织
+	focus = {
+		id = RUN_wanshan_jundui_zuzhi
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = RUN_wuxiandian_lianluo}
+		prerequisite = { focus = RUN_jiceng_peixun}
+		relative_position_id = RUN_jiceng_peixun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_diguo_army_4
+		remove_idea = RUN_diguo_army_3
+		}
+		}
+	}
+	#战地医疗
+	focus = {
+		id = RUN_zhandi_yiliao
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RUN_jundui_motuohua}
+		prerequisite = { focus = RUN_kuoda_junxiao}
+		relative_position_id = RUN_jundui_motuohua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_zhandi_yiliao
+		}
+	}
+	#冬季适应
+	focus = {
+		id = RUN_dongji_shiying
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = RUN_zhandi_yiliao }
+		relative_position_id = RUN_zhandi_yiliao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_dongji_shiying
+		}
+	}
+	#总参谋部
+	focus = {
+		id = RUN_zongcanmoubu
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = RUN_jundui_xiandaihua}
+		relative_position_id = RUN_jundui_xiandaihua
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_zongcanmoubu
+		}
+	}
+	#国家计划部
+	focus = {
+		id = RUN_guojia_jihuabu
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = RUN_zongcanmoubu}
+		relative_position_id = RUN_zongcanmoubu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_zongcanmoubu_2
+		remove_idea = RUN_zongcanmoubu
+		}
+		}
+	}
+	#后勤机械化
+	focus = {
+		id = RUN_houqin_jixiehua
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = RUN_guojia_jihuabu}
+		prerequisite = { focus = RUN_jundui_motuohua}
+		relative_position_id = RUN_guojia_jihuabu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_jundui_motuohua_2
+		remove_idea = RUN_jundui_motuohua
+		}
+		}
+	}
+	#军官主动权
+	focus = {
+		id = RUN_junguan_zhudongquan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = RUN_zongcanmoubu}
+		relative_position_id = RUN_zongcanmoubu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_junguan_zhudongquan
+		}
+	}
+	#前线规划
+	focus = {
+		id = RUN_qianxian_guihua
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = RUN_guojia_jihuabu}
+		prerequisite = { focus = RUN_junguan_zhudongquan}
+		relative_position_id = RUN_junguan_zhudongquan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_zongcanmoubu_3
+		remove_idea = RUN_zongcanmoubu_2
+		}
+		}
+	}
+	#机动作战
+	focus = {
+		id = RUN_jidong_zuozhan
+		icon = GFX_focus_generic_self_propelled_gun
+		prerequisite = { focus = RUN_qianxian_guihua}
+		prerequisite = { focus = RUN_houqin_jixiehua}
+		relative_position_id = RUN_houqin_jixiehua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_jundui_motuohua_3
+		remove_idea = RUN_jundui_motuohua_2
+		}
+		}
+	}
+	#全面战争
+	focus = {
+		id = RUN_quanmianwar
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = RUN_jundui_xiandaihua}
+		relative_position_id = RUN_jundui_xiandaihua
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_quanmianwar
+		}
+	}
+	#完善军队编制
+	focus = {
+		id = RUN_wanshan_jundui_bianzhi
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = RUN_quanmianwar}
+		relative_position_id = RUN_quanmianwar
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_wanshan_jundui_bianzhi
+		}
+	}
+	#战争之神
+	focus = {
+		id = RUN_war_god
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = RUN_junguan_zhudongquan}
+		prerequisite = { focus = RUN_wanshan_jundui_bianzhi}
+		relative_position_id = RUN_wanshan_jundui_bianzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_war_god
+		}
+	}
+	#优势火力
+	focus = {
+		id = RUN_youshi_huoli
+		icon = GFX_goal_generic_occypy_start_war
+		prerequisite = { focus = RUN_qianxian_guihua}
+		prerequisite = { focus = RUN_war_god}
+		relative_position_id = RUN_war_god
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_war_god_2
+		remove_idea = RUN_war_god
+		}
+		}
+	}
+	#扩大化生产
+	focus = {
+		id = RUN_kuodahua_shengchan
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = RUN_quanmianwar}
+		relative_position_id = RUN_quanmianwar
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_quanmianwar_2
+		remove_idea = RUN_quanmianwar
+		}
+		}
+	}
+	#大规模扩军
+	focus = {
+		id = RUN_daguimo_kuojun
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = RUN_wanshan_jundui_bianzhi}
+		prerequisite = { focus = RUN_kuodahua_shengchan}
+		relative_position_id = RUN_wanshan_jundui_bianzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_quanmianwar_3
+		remove_idea = RUN_quanmianwar_2
+		}
+		}
+	}
+	#人海突击
+	focus = {
+		id = RUN_renhai_tuji
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = RUN_war_god}
+		prerequisite = { focus = RUN_daguimo_kuojun}
+		relative_position_id = RUN_daguimo_kuojun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = RUN_quanmianwar_4
+		remove_idea = RUN_quanmianwar_3
+		}
+		}
+	}
+	#雄鹰的羽翼
+	focus = {
+		id = RUN_xiongying_yuyi
+		icon = GFX_focus_SOV_my_brothers_keeper
+		x = 38
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		dismantle_faction = yes
+		create_faction = shensheng_tongmeng
+		}
+	}
+	#接管中亚
+	focus = {
+		id = RUN_jieguan_zhongya
+		icon = GFX_focus_SOV_patriarch_of_all_russia
+		prerequisite = { focus = RUN_xiongying_yuyi}
+		relative_position_id = RUN_xiongying_yuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		URL = { is_puppet_of = RUN }
+		}
+		annex_country = {
+    target = URL
+    transfer_troops = yes
+}
+		}
+		if = {
+		limit = {
+		ARS = { is_puppet_of = RUN }
+		}
+		annex_country = {
+    target = ARS
+    transfer_troops = yes
+}
+		}
+		declare_war_on = {
+    target = MCR
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+		}
+	}
+	#泛斯拉夫主义
+	focus = {
+		id = RUN_fansilafu_zhuyi
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = RUN_xiongying_yuyi}
+		relative_position_id = RUN_xiongying_yuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+		add_political_power = 100
+		}
+	}
+	#向西方前进
+	focus = {
+		id = RUN_xiangxifang_qianjin
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = RUN_fansilafu_zhuyi}
+		prerequisite = { focus = RUN_jieguan_zhongya}
+		relative_position_id = RUN_fansilafu_zhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#进入巴尔干
+	focus = {
+		id = RUN_jinru_baergan
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = RUN_xiangxifang_qianjin}
+		relative_position_id = RUN_xiangxifang_qianjin
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#进入南高加索
+	focus = {
+		id = RUN_jinru_nangaojiasuo
+		icon = GFX_focus_TUR_crowning_ourselves_with_the_fin_ugor
+		prerequisite = { focus = RUN_fansilafu_zhuyi}
+		prerequisite = { focus = RUN_jieguan_zhongya}
+		relative_position_id = RUN_fansilafu_zhuyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#撑开海峡
+	focus = {
+		id = RUN_chengkai_haixia
+		icon = GFX_focus_TUR_misak_i_milli
+		prerequisite = { focus = RUN_jinru_nangaojiasuo}
+		relative_position_id = RUN_jinru_nangaojiasuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#西亚进军
+	focus = {
+		id = RUN_xiya_jinjun
+		icon = GFX_focus_generic_attack_iran
+		prerequisite = { focus = RUN_fansilafu_zhuyi}
+		prerequisite = { focus = RUN_jieguan_zhongya}
+		relative_position_id = RUN_fansilafu_zhuyi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+	#东方扩张主义
+	focus = {
+		id = RUN_dongfang_kuozhang_zhuyi
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = RUN_xiya_jinjun}
+		relative_position_id = RUN_xiya_jinjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		add_political_power = 50
+		}
+	}
+}

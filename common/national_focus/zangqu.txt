@@ -1,0 +1,795 @@
+focus_tree = {
+	id = ZAG_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ZAG
+		}
+	}
+	
+	default = no
+ 
+	#神圣的脊梁
+	focus = {
+		id = ZAG_shensheng_jiliang
+		icon = GFX_focus_generic_spread_fascism
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#确立佛教统治
+	focus = {
+		id = ZAG_queli_zongjiao_tongzhi
+		icon = GFX_focus_smiling_buddha
+		prerequisite = { focus = ZAG_shensheng_jiliang}
+		relative_position_id = ZAG_shensheng_jiliang
+		mutually_exclusive = { focus = ZAG_qingnian_gaigepai }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 30
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_zhidu_2
+			remove_idea = ZAG_nuli_zhidu
+			}
+		}
+	}
+	#取缔青年组织
+	focus = {
+		id = ZAG_qudi_qingnian_zuzhi
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = ZAG_queli_zongjiao_tongzhi}
+		relative_position_id = ZAG_queli_zongjiao_tongzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism
+    popularity = -0.15
+}
+		}
+	}
+	#佛教祭祀
+	focus = {
+		id = ZAG_fojiao_jisi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = ZAG_qudi_qingnian_zuzhi}
+		relative_position_id = ZAG_qudi_qingnian_zuzhi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_fojiao_tongzhi_2
+			remove_idea = ZAG_fojiao_tongzhi
+			}
+		}
+	}
+	#缩减地主权利
+	focus = {
+		id = ZAG_suojian_dizhu_quanli
+		icon = GFX_focus_ITA_liberation_or_death
+		prerequisite = { focus = ZAG_qudi_qingnian_zuzhi}
+		relative_position_id = ZAG_qudi_qingnian_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_zhidu_3
+			remove_idea = ZAG_nuli_zhidu_2
+			}
+		}
+	}
+	#构建宗教政治
+	focus = {
+		id = ZAG_goujian_zongjiao_zhengzhi
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = ZAG_fojiao_jisi}
+		prerequisite = { focus = ZAG_suojian_dizhu_quanli}
+		relative_position_id = ZAG_suojian_dizhu_quanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_fojiao_tongzhi_3
+			remove_idea = ZAG_fojiao_tongzhi_2
+			}
+			swap_ideas = {
+			add_idea = ZAG_nuli_zhidu_4
+			remove_idea = ZAG_nuli_zhidu_3
+			}
+		}
+	}
+	#掌控地方
+	focus = {
+		id = ZAG_zhangkong_difang
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = ZAG_goujian_zongjiao_zhengzhi}
+		relative_position_id = ZAG_goujian_zongjiao_zhengzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_zhidu_5
+			remove_idea = ZAG_nuli_zhidu_4
+			}
+		}
+	}
+	#吐蕃方略
+	focus = {
+		id = ZAG_tubo_fanglue
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = ZAG_zhangkong_difang}
+		relative_position_id = ZAG_zhangkong_difang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_claim = 604
+			add_state_claim = 1294
+			add_state_claim = 752
+			add_state_claim = 1278
+			add_state_claim = 1279
+			add_state_claim = 1266
+			add_state_claim = 1086
+			add_state_claim = 1089
+			add_state_claim = 324
+			add_state_claim = 323
+			add_state_claim = 754
+			add_state_claim = 1293
+			add_state_claim = 1295
+			add_state_claim = 1296
+			add_state_claim = 1297
+			add_state_claim = 755
+		}
+	}
+	#夺取西康
+	focus = {
+		id = ZAG_duoqu_xikang
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ZAG_tubo_fanglue}
+		relative_position_id = ZAG_tubo_fanglue
+		available = {
+		has_war = no
+		}
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = XKA
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHU
+    type = annex_everything
+}
+declare_war_on = {
+    target = YUX
+    type = annex_everything
+}
+		}
+	}
+	#进军南部山区
+	focus = {
+		id = ZAG_jinjun_nanbu_shanqu
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ZAG_tubo_fanglue}
+		relative_position_id = ZAG_tubo_fanglue
+		available = {
+		has_war = no
+		}
+		x = 1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = NEP
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SKM
+    type = annex_everything
+}
+		}
+	}
+	#克什米尔战争
+	focus = {
+		id = ZAG_keshenmier_war
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ZAG_tubo_fanglue}
+		relative_position_id = ZAG_tubo_fanglue
+		available = {
+		has_war = no
+		}
+		x = -1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		KSM = {
+		NOT = {
+		is_in_faction_with = RAJ
+		}
+		}
+		has_war = no
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = KSM
+    type = annex_everything
+}
+		}
+	}
+	#参与西北战争
+	focus = {
+		id = ZAG_canyu_xibei_war
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = ZAG_tubo_fanglue}
+		relative_position_id = ZAG_tubo_fanglue
+		available = {
+		has_war = no
+		}
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = NIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = MJJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIH
+    type = annex_everything
+}
+		}
+	}
+	#青年改革派
+	focus = {
+		id = ZAG_qingnian_gaigepai
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = ZAG_shensheng_jiliang}
+		relative_position_id = ZAG_shensheng_jiliang
+		mutually_exclusive = { focus = ZAG_queli_zongjiao_tongzhi }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism
+    popularity = 0.15
+}
+		}
+	}
+	#联合藏区汉族
+	focus = {
+		id = ZAG_lianhe_zangqu_hanzu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = ZAG_qingnian_gaigepai}
+		relative_position_id = ZAG_qingnian_gaigepai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = -0.1
+		}
+	}
+	#宣传反宗教思想
+	focus = {
+		id = ZAG_xuanchuan_fanzongjiao_sixiang
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		prerequisite = { focus = ZAG_qingnian_gaigepai}
+		relative_position_id = ZAG_qingnian_gaigepai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = -0.1
+		}
+	}
+	#承诺废除奴隶制
+	focus = {
+		id = ZAG_chengnuo_feichu_nulizhi
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = ZAG_xuanchuan_fanzongjiao_sixiang}
+		prerequisite = { focus = ZAG_lianhe_zangqu_hanzu}
+		relative_position_id = ZAG_xuanchuan_fanzongjiao_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#殊死一搏
+	focus = {
+		id = ZAG_shusi_yibo
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = ZAG_chengnuo_feichu_nulizhi}
+		relative_position_id = ZAG_chengnuo_feichu_nulizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			start_civil_war = {
+    ruling_party = progressism
+    ideology = dictatorship
+    size = 0.6
+    only_own_territory = yes
+    capital = 758
+    states = { 
+        758 757 1292
+    }
+}
+load_oob = ZAG_dulijun
+add_ideas = ZAG_shusi_yibo
+            remove_ideas = ZAG_fojiao_tongzhi
+			remove_ideas = ZAG_nuli_zhidu
+			remove_state_core = 758
+		}
+	}
+	#组织自由军
+	focus = {
+		id = ZAG_zuzhi_free_jun
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = ZAG_shusi_yibo}
+		relative_position_id = ZAG_shusi_yibo
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = ZAG_zuzhi_free_jun
+		}
+	}
+	#整合现有资源
+	focus = {
+		id = ZAG_zhenghe_xianyou_ziyuan
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = ZAG_shusi_yibo}
+		relative_position_id = ZAG_shusi_yibo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#进军西部
+	focus = {
+		id = ZAG_jinjun_xibu
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = ZAG_zhenghe_xianyou_ziyuan}
+		prerequisite = { focus = ZAG_zuzhi_free_jun}
+		relative_position_id = ZAG_zuzhi_free_jun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 758
+		}
+		completion_reward = {
+			add_state_core = 758
+		}
+	}
+	#支持湖北
+	focus = {
+		id = ZAG_zhichi_hubei
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = ZAG_jinjun_xibu}
+		relative_position_id = ZAG_jinjun_xibu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		KMT = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			KMT = { puppet = ZAG }
+		}
+	}
+	#奴隶兵改革
+	focus = {
+		id = ZAG_nulibing_gaige
+		icon = GFX_focus_ETH_peacekeeping_forces
+		x = 20
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = ZAG_queli_zongjiao_tongzhi
+		has_completed_focus = ZAG_jinjun_xibu
+		}
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_army_2
+			remove_idea = ZAG_nuli_army
+			}
+		}
+	}
+	#僧兵计划
+	focus = {
+		id = ZAG_sengbing_plan
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = ZAG_nulibing_gaige}
+		relative_position_id = ZAG_nulibing_gaige
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = ZAG_queli_zongjiao_tongzhi
+		}
+		completion_reward = {
+			add_ideas = ZAG_sengbing_plan
+		}
+	}
+	#随军僧侣
+	focus = {
+		id = ZAG_suijun_senglv
+		icon = GFX_focus_smiling_buddha
+		prerequisite = { focus = ZAG_sengbing_plan}
+		relative_position_id = ZAG_sengbing_plan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ZAG_suijun_senglv
+		}
+	}
+	#扩大规模
+	focus = {
+		id = ZAG_kuoda_guimo
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = ZAG_sengbing_plan}
+		relative_position_id = ZAG_sengbing_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_sengbing_plan_2
+			remove_idea = ZAG_sengbing_plan
+			}
+		}
+	}
+	#苦修
+	focus = {
+		id = ZAG_kuxiu
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = ZAG_kuoda_guimo}
+		prerequisite = { focus = ZAG_suijun_senglv}
+		relative_position_id = ZAG_suijun_senglv
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_sengbing_plan_3
+			remove_idea = ZAG_sengbing_plan_2
+			}
+		}
+	}
+	#组建新藏军
+	focus = {
+		id = ZAG_zujian_newzangjun
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = ZAG_nulibing_gaige}
+		relative_position_id = ZAG_nulibing_gaige
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_army_3
+			remove_idea = ZAG_nuli_army_2
+			}
+		}
+	}
+	#自由民军队
+	focus = {
+		id = ZAG_free_army
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = ZAG_zujian_newzangjun}
+		relative_position_id = ZAG_zujian_newzangjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_nuli_army_4
+			remove_idea = ZAG_nuli_army_3
+			}
+		}
+	}
+	#研究各国武装
+	focus = {
+		id = ZAG_yanjiu_geguo_wuzhuang
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = ZAG_free_army}
+		relative_position_id = ZAG_free_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#对抗环境
+	focus = {
+		id = ZAG_duikang_huanjing
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = ZAG_free_army}
+		relative_position_id = ZAG_free_army
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ZAG_duikang_huanjing
+		}
+	}
+	#西藏工业
+	focus = {
+		id = ZAG_xizang_gongye
+		icon = GFX_focus_generic_industry_1
+		x = 20
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		OR = {
+		has_completed_focus = ZAG_queli_zongjiao_tongzhi
+		has_completed_focus = ZAG_jinjun_xibu
+		}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	#和印度的交易
+	focus = {
+		id = ZAG_heyindu_jiaoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = ZAG_xizang_gongye}
+		relative_position_id = ZAG_xizang_gongye
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = ZAG_maoyi
+		}
+	}
+	#拉萨兵工厂
+	focus = {
+		id = ZAG_lasa_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = ZAG_heyindu_jiaoyi}
+		relative_position_id = ZAG_heyindu_jiaoyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			322 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#资源贸易
+	focus = {
+		id = ZAG_ziyuan_maoyi
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = ZAG_heyindu_jiaoyi}
+		relative_position_id = ZAG_heyindu_jiaoyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = ZAG_maoyi_2
+			remove_idea = ZAG_maoyi
+			}
+		}
+	}
+	#扩建民用工业
+	focus = {
+		id = ZAG_kuojian_minyong_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = ZAG_xizang_gongye}
+		relative_position_id = ZAG_xizang_gongye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#加大工业建设
+	focus = {
+		id = ZAG_jiadagongye_jianshe
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = ZAG_kuojian_minyong_gongye}
+		relative_position_id = ZAG_kuojian_minyong_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

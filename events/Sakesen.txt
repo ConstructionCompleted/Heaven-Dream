@@ -1,0 +1,209 @@
+add_namespace = holy_sakesen
+#选边站
+country_event = {
+	id = holy_sakesen.1
+	title = holy_sakesen.1.t
+	desc = holy_sakesen.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.1.a
+		ai_chance = {
+		    factor = 20
+		}
+		add_opinion_modifier = { target = PLS modifier = PLS_zhichizhe}
+		add_ideas = PLS_supporter
+		PLS = { complete_national_focus = PLS_sakesen_qiqiang }
+		PLS = { add_ideas = SKS_zhichi }
+		complete_national_focus = SKS_pulushi_zhichizhe
+	}
+	option = {
+		name = holy_sakesen.1.b
+		ai_chance = {
+		    factor = 20
+		}
+		add_opinion_modifier = { target = AUS modifier = AUS_zhichizhe}
+		add_ideas = AUS_supporter
+		AUS = { complete_national_focus = AUS_sakesen_gaoling }
+		AUS = { add_ideas = SKS_zhichi }
+		complete_national_focus = SKS_aodili_zhichizhe
+		PLS = { end_puppet = SKS }
+	}
+	option = {
+		name = holy_boximiya.1.c
+		ai_chance = {
+		    factor = 0
+		}
+		complete_national_focus = SKS_zili
+		PLS = { end_puppet = SKS }
+		leave_faction = yes
+		complete_national_focus = SKS_ziqiang
+    }
+}
+#盛大的见面会
+country_event = {
+	id = holy_sakesen.2
+	title = holy_sakesen.2.t
+	desc = holy_sakesen.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.2.a
+	}
+}
+#团结一心
+country_event = {
+	id = holy_sakesen.3
+	title = holy_sakesen.3.t
+	desc = holy_sakesen.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.3.a
+		    swap_ideas = {
+				remove_idea = PLS_supporter
+				add_idea = PLS_supporter 2
+	    }
+    }
+}
+#远离军国主义疯子
+country_event = {
+	id = holy_sakesen.4
+	title = holy_sakesen.4.t
+	desc = holy_sakesen.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.4.a
+	}
+}
+#骑枪易手
+country_event = {
+	id = holy_sakesen.5
+	title = holy_sakesen.5.t
+	desc = holy_sakesen.5.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.5.a
+		    swap_ideas = {
+				remove_idea = AUS_supporter
+				add_idea = AUS_supporter 2
+	    }
+    }
+}
+#血统论
+country_event = {
+	id = holy_sakesen.6
+	title = holy_sakesen.6.t
+	desc = holy_sakesen.6.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.6.a
+		    swap_ideas = {
+				remove_idea = guizu_yu_gongjue_2
+				add_idea = guizu_yu_gongjue_4
+	        }
+	    }
+    }
+#德累斯顿之宴
+country_event = {
+	id = holy_sakesen.7
+	title = holy_sakesen.7.t
+	desc = holy_sakesen.7.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.7.a
+		    swap_ideas = {
+				remove_idea = guizu_yu_gongjue_3
+				add_idea = guizu_yu_gongjue_5
+	        }
+	    }
+    }
+#狐狐万岁
+country_event = {
+	id = holy_sakesen.8
+	title = holy_sakesen.8.t
+	desc = holy_sakesen.8.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.8.a
+	    }
+    }
+#柏林城下
+country_event = {
+	id = holy_sakesen.10
+	title = holy_sakesen.10.t
+	desc = holy_sakesen.10.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.10.a
+	    }
+    }
+#联络反对派
+country_event = {
+	id = holy_sakesen.11
+	title = holy_sakesen.11.t
+	desc = holy_sakesen.11.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.11.a
+	    }
+    }
+#联络反对派
+country_event = {
+	id = holy_sakesen.12
+	title = holy_sakesen.12.t
+	desc = holy_sakesen.12.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = holy_sakesen.12.a
+	    }
+    }
+#法兰西帝国的入侵
+country_event = {
+	id = holy_sakesen.13
+	title = holy_sakesen.13
+	desc = holy_sakesen.13.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_sakesen.13.a
+	    ai_chance = {
+		    factor = 10
+		}
+		FRA = {
+		puppet = SKS
+		}
+	}
+	option = {
+	    name = holy_sakesen.13.b
+	    ai_chance = {
+		    factor = 30
+		}
+		FRA = {
+		declare_war_on = {
+    target = SKS
+    type = annex_everything
+}
+		}
+	}
+}

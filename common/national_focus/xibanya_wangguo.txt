@@ -1,0 +1,396 @@
+focus_tree = {
+	id = XBY_focus
+    
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = XBY
+		}
+	}
+	
+	default = no
+ 
+	#垂死之所
+	focus = {
+		id = XBY_chuisi_zhisuo
+		icon = GFX_untitl_focus_spa_unify_the_nationalist_front
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#利用政治惯性
+	focus = {
+		id = XBY_liyong_zhengzhi_guanxing
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = XBY_chuisi_zhisuo }
+		relative_position_id = XBY_chuisi_zhisuo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XBY_zhenzhi_gailiang
+			remove_idea = XBY_zhenzhi_weiji
+			}
+		}
+	}
+	#稳定政局
+	focus = {
+		id = XBY_wending_zhengju
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = XBY_liyong_zhengzhi_guanxing }
+		relative_position_id = XBY_liyong_zhengzhi_guanxing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = XBY_zhenzhi_gailiang_2
+			remove_idea = XBY_zhenzhi_gailiang
+			}
+		}
+	}
+	#动员乡村
+	focus = {
+		id = XBY_dongyuan_xiangcun
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = XBY_chuisi_zhisuo }
+		relative_position_id = XBY_chuisi_zhisuo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = XBY_dongyuan_xiangcun
+		}
+	}
+	#寻求葡萄牙志愿军
+	focus = {
+		id = XBY_xunqiu_putaoya_zhiyuanjun
+		icon = GFX_focus_por_estado_novo
+		prerequisite = { focus = XBY_wending_zhengju }
+		prerequisite = { focus = XBY_dongyuan_xiangcun }
+		relative_position_id = XBY_dongyuan_xiangcun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = XBY_putaoya_zhiyuanjun
+		}
+	}
+	#接受武装援助
+	focus = {
+		id = XBY_jieshou_wuzhuang_yuanzhu
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = XBY_chuisi_zhisuo }
+		relative_position_id = XBY_chuisi_zhisuo
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = POR
+}
+}
+	}
+	#向穆斯林妥协
+	focus = {
+		id = XBY_xiang_musilin_tuoxie
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = XBY_jieshou_wuzhuang_yuanzhu }
+		prerequisite = { focus = XBY_dongyuan_xiangcun }
+		relative_position_id = XBY_jieshou_wuzhuang_yuanzhu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#组建自身军工
+	focus = {
+		id = XBY_zujian_zishen_jungong
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = XBY_jieshou_wuzhuang_yuanzhu }
+		relative_position_id = XBY_jieshou_wuzhuang_yuanzhu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			715 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = arms_factory
+	level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设贸易
+	focus = {
+		id = XBY_jianshe_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = XBY_wending_zhengju }
+		prerequisite = { focus = XBY_xunqiu_putaoya_zhiyuanjun }
+		relative_position_id = XBY_wending_zhengju
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XBY_jianshe_maoyi
+		}
+	}
+	#避难所
+	focus = {
+		id = XBY_binansuo
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = XBY_xiang_musilin_tuoxie }
+		prerequisite = { focus = XBY_xunqiu_putaoya_zhiyuanjun }
+		relative_position_id = XBY_xunqiu_putaoya_zhiyuanjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 150000
+		}
+	}
+	#“副王”
+	focus = {
+		id = XBY_fuwang
+		icon = GFX_focus_por_iberian_summit
+		prerequisite = { focus = XBY_jianshe_maoyi }
+		prerequisite = { focus = XBY_binansuo }
+		relative_position_id = XBY_jianshe_maoyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = XBY_wuzhuang_bengkui
+		}
+	}
+	#粮食自给
+	focus = {
+		id = XBY_liangshi_ziji
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = XBY_xiang_musilin_tuoxie }
+		prerequisite = { focus = XBY_zujian_zishen_jungong }
+		relative_position_id = XBY_xiang_musilin_tuoxie
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = XBY_liangshi_ziji
+		}
+	}
+	#巴达霍斯开发
+	focus = {
+		id = XBY_budahuosi_kaifa
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = XBY_liangshi_ziji }
+		prerequisite = { focus = XBY_binansuo }
+		relative_position_id = XBY_liangshi_ziji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			715 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = arms_factory
+	level = 2
+    instant_build = yes
+}
+			}
+			715 = {
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+    type = industrial_complex
+	level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#直达彼岸
+	focus = {
+		id = XBY_zhida_bian
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = XBY_fuwang }
+		prerequisite = { focus = XBY_budahuosi_kaifa }
+		relative_position_id = XBY_budahuosi_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		is_puppet_of = POR
+		}
+		POR = { country_event = { id = holy_yibiliya.2 days = 0 } }
+		}
+		if = {
+		limit = {
+		NOT = {
+		is_puppet_of = POR
+		}
+		}
+		declare_war_on = {
+    target = CAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = CSP
+    type = annex_everything
+}
+declare_war_on = {
+    target = NAV
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKH
+    type = annex_everything
+}
+declare_war_on = {
+    target = XTZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = GLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUO
+    type = annex_everything
+}
+		}
+remove_ideas = XBY_zhenzhi_gailiang_2
+		}
+	}
+	#重整社会
+	focus = {
+		id = XBY_chongzheng_shehui
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = XBY_zhida_bian }
+		relative_position_id = XBY_zhida_bian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		CAT = {
+		exists = no
+		}
+		UKH = {
+		exists = no
+		}
+		CSP = {
+		exists = no
+		}
+		XTZ = {
+		exists = no
+		}
+		GLD = {
+		NOT = {
+		controls_state = 173
+		}
+		}
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			region = 41
+			region = 209
+			region = 210
+			}
+			}
+			add_core_of = XBY
+			}
+			remove_state_core = 179
+			remove_state_core = 1563
+			remove_state_core = 181
+			remove_state_core = 795
+			remove_state_core = 180
+			remove_state_core = 112
+		}
+	}
+	#联邦新生
+	focus = {
+		id = XBY_lianbang_xinsheng
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = XBY_chongzheng_shehui }
+		relative_position_id = XBY_chongzheng_shehui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			annex_country = {
+    target = POR
+    transfer_troops = yes
+}
+            set_cosmetic_tag = IBR
+		POR = { change_tag_from = XBY }
+		news_event = {
+				id = holy_news.137 days = 1
+			}
+		}
+	}
+}

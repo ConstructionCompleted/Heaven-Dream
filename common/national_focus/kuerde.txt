@@ -1,0 +1,276 @@
+focus_tree = {
+	id = KUR_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KUR
+		}
+	}
+	
+	default = no
+	
+	#库尔德之声
+	focus = {
+		id = KUR_kuerde_zhisheng
+		icon = GFX_focus_generic_befriend_kurdistan
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KUR_kuerde_zhisheng
+		}
+	}
+	#代尔祖尔边疆区
+	focus = {
+		id = KUR_daierzuer_bianjiangqu
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = KUR_kuerde_zhisheng}
+		relative_position_id = KUR_kuerde_zhisheng
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KUR_daierzuer_army
+		swap_ideas = {
+		add_idea = KUR_kuerde_lianheti_2
+		remove_idea = KUR_kuerde_lianheti
+		}
+		}
+	}
+	#摩苏尔统合
+	focus = {
+		id = KUR_mosuer_tonghe
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = KUR_daierzuer_bianjiangqu}
+		relative_position_id = KUR_daierzuer_bianjiangqu
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = KUR_mosuer_tonghe
+		swap_ideas = {
+		add_idea = KUR_kuerde_lianheti_3
+		remove_idea = KUR_kuerde_lianheti_2
+		}
+		}
+	}
+	#统合人民
+	focus = {
+		id = KUR_tonghe_renmin
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = KUR_kuerde_zhisheng}
+		relative_position_id = KUR_kuerde_zhisheng
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = KUR_kuerde_qiyi_2
+		remove_idea = KUR_kuerde_qiyi
+		}
+		}
+	}
+	#扩大中央参军
+	focus = {
+		id = KUR_kuoda_zhongyang_canjun
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = KUR_daierzuer_bianjiangqu}
+		prerequisite = { focus = KUR_tonghe_renmin}
+		relative_position_id = KUR_tonghe_renmin
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = KUR_kuerde_qiyi_3
+		remove_idea = KUR_kuerde_qiyi_2
+		}
+		}
+	}
+	#地下兵工厂
+	focus = {
+		id = KUR_dixia_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = KUR_kuerde_zhisheng}
+		relative_position_id = KUR_kuerde_zhisheng
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#人民游击战
+	focus = {
+		id = KUR_renmin_youjizhan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = KUR_dixia_binggongchang }
+		prerequisite = { focus = KUR_tonghe_renmin }
+		relative_position_id = KUR_tonghe_renmin
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KUR_renmin_youjizhan
+		}
+	}
+	#山区工业链
+	focus = {
+		id = KUR_shanqu_gongyelian
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = KUR_dixia_binggongchang }
+		relative_position_id = KUR_dixia_binggongchang
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = KUR_shanqu_gongyelian
+		}
+	}
+	#凡城条约
+	focus = {
+		id = KUR_fancheng_tiaoyue
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = KUR_mosuer_tonghe }
+		prerequisite = { focus = KUR_kuoda_zhongyang_canjun }
+		prerequisite = { focus = KUR_renmin_youjizhan }
+		prerequisite = { focus = KUR_shanqu_gongyelian }
+		relative_position_id = KUR_kuoda_zhongyang_canjun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1057
+		controls_state = 800
+		controls_state = 352
+		controls_state = 353
+		controls_state = 350
+		controls_state = 1056
+		controls_state = 1329
+		controls_state = 1425
+		controls_state = 1426
+		}
+		completion_reward = {
+		dismantle_faction = yes
+		OTF = {
+		country_event = {
+		id = holy_aosiman.41
+		}
+		}
+		OTT = {
+		country_event = {
+		id = holy_aosiman.42
+		}
+		}
+		ARM = {
+		country_event = {
+		id = holy_aosiman.43
+		}
+		}
+		}
+	}
+	#自治协定
+	focus = {
+		id = KUR_zizhi_xieding
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = KUR_fancheng_tiaoyue }
+		relative_position_id = KUR_fancheng_tiaoyue
+		mutually_exclusive = { focus = KUR_kuerde_zhongli }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		is_puppet = yes
+		}
+		completion_reward = {
+		OTT = {
+		country_event = {
+		id = holy_aosiman.45
+		days = 3
+		}
+		}
+		}
+	}
+	#库尔德中立
+	focus = {
+		id = KUR_kuerde_zhongli
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = KUR_fancheng_tiaoyue }
+		relative_position_id = KUR_fancheng_tiaoyue
+		mutually_exclusive = { focus = KUR_zizhi_xieding }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = KUR_kuerde_zhongli
+		remove_idea = KUR_kuerde_qiyi_3
+		}
+		}
+	}
+	#东部进军
+	focus = {
+		id = KUR_dongbu_jinjun
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = KUR_zizhi_xieding focus = KUR_kuerde_zhongli }
+		relative_position_id = KUR_zizhi_xieding
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+		transfer_state = 421
+		transfer_state = 1427
+		declare_war_on = {
+    target = AZR
+    type = annex_everything
+}
+declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+load_oob = KUR_dongbu_army
+		}
+	}
+}

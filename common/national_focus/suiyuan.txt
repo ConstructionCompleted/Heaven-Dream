@@ -1,0 +1,578 @@
+focus_tree = {
+	id = SUY_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SUY
+		}
+	}
+	
+	default = no
+ 
+	#绥远危局
+	focus = {
+		id = SUY_suiyuan_weiju
+		icon = GFX_goal_generic_forceful_treaty
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#查封汉族学社
+	focus = {
+		id = SUY_chafeng_hanzu_xueshe
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = SUY_suiyuan_weiju}
+		relative_position_id = SUY_suiyuan_weiju
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = conservatism
+	    }
+		completion_reward = {
+		    add_stability = -0.05
+			remove_mission = holy_hanzu_jiaoyu_xuanchaun
+		}
+	}
+	#组建警察武装
+	focus = {
+		id = SUY_zujian_jingcha_wuzhuang
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = SUY_suiyuan_weiju}
+		relative_position_id = SUY_suiyuan_weiju
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = conservatism
+	    }
+		completion_reward = {
+		    add_stability = -0.05
+			remove_mission = holy_hanzu_youxing_kangyi
+		}
+	}
+	#宣传反汉情绪
+	focus = {
+		id = SUY_xuanchuan_fanhan_qingxu
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SUY_chafeng_hanzu_xueshe}
+		prerequisite = { focus = SUY_zujian_jingcha_wuzhuang}
+		relative_position_id = SUY_zujian_jingcha_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = conservatism
+	    }
+		completion_reward = {
+		    add_political_power = -100
+			add_stability = 0.1
+		}
+	}
+	#扫荡汉族支持者
+	focus = {
+		id = SUY_saodang_hanzu_zhichizhe
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = SUY_suiyuan_weiju}
+		relative_position_id = SUY_suiyuan_weiju
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_government = conservatism
+	    }
+		completion_reward = {
+		    add_stability = -0.05
+			remove_mission = holy_eerduosi_youjidui
+		}
+	}
+	#接纳佛教组织
+	focus = {
+		id = SUY_jiena_fojiao_zuzhi
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = SUY_saodang_hanzu_zhichizhe}
+		prerequisite = { focus = SUY_zujian_jingcha_wuzhuang}
+		relative_position_id = SUY_zujian_jingcha_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    remove_mission = holy_fojiao_saoluan
+			add_political_power = -50
+		}
+	}
+	#转危为安
+	focus = {
+		id = SUY_zhuanwei_weian
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = SUY_jiena_fojiao_zuzhi}
+		prerequisite = { focus = SUY_xuanchuan_fanhan_qingxu}
+		relative_position_id = SUY_xuanchuan_fanhan_qingxu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_leader = {
+    name = "德王"
+    ruling_only = yes
+}
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			remove_ideas = SUY_suiyuan_weiju
+		}
+	}
+	#清除汉族权利
+	focus = {
+		id = SUY_qingchu_hanzu_quanli
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = SUY_zhuanwei_weian}
+		relative_position_id = SUY_zhuanwei_weian
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = SUY_menghan_wenti_2
+			remove_idea = SUY_menghan_wenti
+			}
+		}
+	}
+	#加大骑兵规模
+	focus = {
+		id = SUY_jiada_qibing_guimo
+		icon = GFX_focus_ITA_comandante_diavolo
+		prerequisite = { focus = SUY_qingchu_hanzu_quanli}
+		relative_position_id = SUY_qingchu_hanzu_quanli
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    load_oob = SUY_qibing
+			swap_ideas = {
+			add_idea = SUY_menghan_wenti_3
+			remove_idea = SUY_menghan_wenti_2
+			}
+		}
+	}
+	#防备南部敌军
+	focus = {
+		id = SUY_fangbei_nanbu_dijun
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = SUY_zhuanwei_weian}
+		relative_position_id = SUY_zhuanwei_weian
+		x = 1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    621 = {
+			add_building_construction = {
+				type = bunker
+				province = 7158
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10424
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7032
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#扩建防线
+	focus = {
+		id = SUY_kuojian_fangxian
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = SUY_fangbei_nanbu_dijun}
+		relative_position_id = SUY_fangbei_nanbu_dijun
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    746 = {
+			add_building_construction = {
+				type = bunker
+				province = 10451
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3427
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 4986
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#维持蒙疆联盟
+	focus = {
+		id = SUY_weichi_mengjiang_lianmeng
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = SUY_jiada_qibing_guimo}
+		prerequisite = { focus = SUY_kuojian_fangxian}
+		relative_position_id = SUY_kuojian_fangxian
+		x = -1
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_political_power = 40
+		}
+	}
+	#忽里台大会
+	focus = {
+	    id = SUY_hulitai_dahui
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = SUY_weichi_mengjiang_lianmeng}
+		relative_position_id = SUY_weichi_mengjiang_lianmeng
+		x = 0
+		y = 1
+		cost = 20
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SUY = {
+		has_government = neutrality
+		}
+		CHR = {
+		has_government = neutrality
+		}
+		BKD = {
+		has_government = neutrality
+		has_civil_war = no
+		}
+		}
+		completion_reward = {
+		    country_event = {
+    id = holy_fujia.8
+	days = 2
+}
+		}
+	}
+	#傅作义胜利
+	focus = {
+		id = SUY_fuzuoyi_vic
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = SUY_jiena_fojiao_zuzhi}
+		prerequisite = { focus = SUY_xuanchuan_fanhan_qingxu}
+		relative_position_id = SUY_jiena_fojiao_zuzhi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_leader = {
+    name = "傅作义"
+    ruling_only = yes
+}
+		}
+		completion_reward = {
+		    add_stability = 0.1
+			remove_ideas = SUY_suiyuan_weiju
+		}
+	}
+	#回馈山西
+	focus = {
+		id = SUY_huikui_shanxi
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = SUY_fuzuoyi_vic}
+		relative_position_id = SUY_fuzuoyi_vic
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    JIN = { puppet = SUY }
+		}
+	}
+	#经济建设
+	focus = {
+		id = SUY_jingji_jianshe
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = SUY_huikui_shanxi}
+		relative_position_id = SUY_huikui_shanxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    621 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			746 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#接纳蒙古族
+	focus = {
+		id = SUY_jiena_mengguzu
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SUY_fuzuoyi_vic}
+		relative_position_id = SUY_fuzuoyi_vic
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = SUY_menghan_wenti_4
+			remove_idea = SUY_menghan_wenti
+			}
+		}
+	}
+	#协作骑兵
+	focus = {
+		id = SUY_xiezuo_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = SUY_jiena_mengguzu}
+		relative_position_id = SUY_jiena_mengguzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = SUY_menghan_wenti_5
+			remove_idea = SUY_menghan_wenti_4
+			}
+		}
+	}
+	#民用工业建设
+	focus = {
+		id = SUY_minyong_jianshe
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SUY_jingji_jianshe}
+		prerequisite = { focus = SUY_xiezuo_qibing}
+		relative_position_id = SUY_xiezuo_qibing
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    621 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			1098 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#东方备战
+	focus = {
+		id = SUY_dongfang_beizhan
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = SUY_minyong_jianshe}
+		relative_position_id = SUY_minyong_jianshe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    army_experience = 50
+			add_manpower = 50000
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = SUY_jungong_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SUY_dongfang_beizhan}
+		relative_position_id = SUY_dongfang_beizhan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#进口山西武器
+	focus = {
+		id = SUY_jinkou_shanxi_wuqi
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SUY_jungong_kuozhan}
+		relative_position_id = SUY_jungong_kuozhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		JIN = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		    add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = JIN
+}
+		}
+	}
+	#边境要塞化
+	focus = {
+		id = SUY_bianjing_yaosaihua
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = SUY_dongfang_beizhan}
+		relative_position_id = SUY_dongfang_beizhan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    621 = {
+			add_building_construction = {
+				type = bunker
+				province = 12331
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1048
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12403
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 7158
+				level = 2
+				instant_build = yes
+			}
+			}
+		}
+	}
+	#军事基础建设
+	focus = {
+		id = SUY_junshi_jichu_build
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SUY_bianjing_yaosaihua}
+		relative_position_id = SUY_bianjing_yaosaihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    621 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		746 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+}

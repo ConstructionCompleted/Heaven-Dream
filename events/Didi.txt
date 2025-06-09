@@ -1,0 +1,149 @@
+add_namespace = holy_didi
+#汉诺威的要求
+country_event = {
+	id = holy_didi.1
+	title = holy_didi.1.t
+	desc = holy_didi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_didi.1.a
+	    ai_chance = {
+		    factor = 0
+		}
+		LUO = {
+		transfer_state = 6
+		transfer_state = 34
+		transfer_state = 935
+		transfer_state = 936
+		add_state_core = 936
+		add_state_core = 935
+		add_state_core = 6
+		add_state_core = 34
+		}
+		if = {
+		limit = {
+		controls_state = 8
+		LAI = {
+		has_government = fascism
+		}
+		}
+		LAI = {
+		transfer_state = 8
+		}
+		}
+		if = {
+		limit = {
+		controls_state = 936
+		LAI = {
+		has_government = fascism
+		}
+		}
+		LAI = {
+		transfer_state = 936
+		}
+		}
+	}
+	option = {
+	    name = holy_didi.1.b
+	    ai_chance = {
+		    factor = 10
+		}
+		HNW = {
+		declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+}
+DED = {
+leave_faction = yes
+		}
+	}
+}
+#低地谈判
+country_event = {
+	id = holy_didi.2
+	title = holy_didi.2.t
+	desc = holy_didi.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_didi.2.a
+	    ai_chance = {
+		    factor = 5
+		}
+		HNW = {
+		puppet = DED
+		}
+	}
+	option = {
+	    name = holy_didi.2.b
+	    ai_chance = {
+		    factor = 20
+		}
+		HNW = {
+		declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+		}
+	}
+}
+#法兰西帝国的入侵
+country_event = {
+	id = holy_didi.3
+	title = holy_didi.3.t
+	desc = holy_didi.3.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	    name = holy_didi.3.a
+	    ai_chance = {
+		    factor = 10
+		}
+		FRA = {
+		puppet = DED
+		}
+	}
+	option = {
+	    name = holy_didi.3.b
+	    ai_chance = {
+		    factor = 30
+		}
+		FRA = {
+		declare_war_on = {
+    target = DED
+    type = annex_everything
+}
+		}
+	}
+}
+#对低地情况的态度
+country_event = {
+	id = holy_didi.4
+	title = holy_didi.4.t
+	desc = holy_didi.4.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	trigger = {
+	    date > 1937.2.1
+		tag = DAZ
+		DED = { has_war_with = HNW }
+	}
+	option = {
+		name = holy_didi.4.a
+		ai_chance = {
+		    factor = 20
+		}
+		DAZ = { add_to_faction = DED }
+	}
+	option = {
+		name = holy_didi.4.b
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}

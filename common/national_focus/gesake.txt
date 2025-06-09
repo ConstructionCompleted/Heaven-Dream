@@ -1,0 +1,546 @@
+focus_tree = {
+	id = GSK_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GSK
+		}
+	}
+	
+	default = no
+ 
+    #哥萨克帝国
+	focus = {
+		id = GSK_gesake_diguo
+		icon = GFX_goal_generic_cavalry
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#扩张哥萨克军团
+	focus = {
+		id = GSK_kuozhang_gesake_juntuan
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = GSK_gesake_diguo }
+		relative_position_id = GSK_gesake_diguo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_xiandaihua_gesake_2
+		remove_idea = GSK_xiandaihua_gesake
+		}
+		}
+	}
+	#团结纽带
+	focus = {
+		id = GSK_tuanjie_niudai
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		prerequisite = { focus = GSK_kuozhang_gesake_juntuan }
+		prerequisite = { focus = GSK_qianghua_minzu_lianxi }
+		relative_position_id = GSK_qianghua_minzu_lianxi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_chubu_lianxi_3
+		remove_idea = GSK_chubu_lianxi_2
+		}
+		}
+	}
+	#强化民族联系
+	focus = {
+		id = GSK_qianghua_minzu_lianxi
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = GSK_gesake_diguo }
+		relative_position_id = GSK_gesake_diguo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_chubu_lianxi_2
+		remove_idea = GSK_chubu_lianxi
+		}
+		}
+	}
+	#征服冻原
+	focus = {
+		id = GSK_zhengfu_dongyuan
+		icon = GFX_focus_ETH_expand_the_levy
+		prerequisite = { focus = GSK_gesake_diguo }
+		relative_position_id = GSK_gesake_diguo
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = GSK_zhengfu_dongyuan
+		}
+	}
+	#建设大后方
+	focus = {
+		id = GSK_jianshe_dahoufang
+		icon = GFX_focus_NORDIC_com_capstone_civilian
+		prerequisite = { focus = GSK_zhengfu_dongyuan }
+		prerequisite = { focus = GSK_qianghua_minzu_lianxi }
+		relative_position_id = GSK_zhengfu_dongyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_difang_guanli_wenti_2
+		remove_idea = GSK_difang_guanli_wenti
+		}
+		}
+	}
+	#反攻大地
+	focus = {
+		id = GSK_fangong_dadi
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = GSK_tuanjie_niudai }
+		prerequisite = { focus = GSK_jianshe_dahoufang }
+		relative_position_id = GSK_jianshe_dahoufang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+		declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = DRG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+annex_country = {
+    target = MGD
+    transfer_troops = yes
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = NCC
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+declare_war_on = {
+    target = KRL
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = TRS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBP
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAK
+    type = annex_everything
+}
+		}
+	}
+	#自由主义情节
+	focus = {
+		id = GSK_ziyou_zhuyi_qingjie
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = GSK_fangong_dadi }
+		relative_position_id = GSK_fangong_dadi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_shanhe_zongma_2
+		remove_idea = GSK_shanhe_zongma
+		}
+		}
+	}
+	#反俄罗斯宣传
+	focus = {
+		id = GSK_faneluosi_xuanchuan
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = GSK_fangong_dadi }
+		relative_position_id = GSK_fangong_dadi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = GSK_faneluosi_xuanchuan
+		}
+	}
+	#打倒沙皇俄罗斯
+	focus = {
+		id = GSK_dadao_shahuang_eluosi
+		icon = GFX_focus_NOR_send_the_king_back_to_denmark
+		prerequisite = { focus = GSK_ziyou_zhuyi_qingjie }
+		prerequisite = { focus = GSK_faneluosi_xuanchuan }
+		relative_position_id = GSK_faneluosi_xuanchuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_faneluosi_xuanchuan_2
+		remove_idea = GSK_faneluosi_xuanchuan
+		}
+		}
+	}
+	#建设国度自治
+	focus = {
+		id = GSK_jianshe_guodu_zizhi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = GSK_fangong_dadi }
+		relative_position_id = GSK_fangong_dadi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_guodu_zizhi
+		remove_idea = GSK_difang_guanli_wenti_2
+		}
+		}
+	}
+	#强化联合思想
+	focus = {
+		id = GSK_qianghua_lianhe_sixiang
+		icon = GFX_focus_NORDIC_com_institution_1
+		prerequisite = { focus = GSK_fangong_dadi }
+		relative_position_id = GSK_fangong_dadi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_lianhe_zhuyi
+		remove_idea = GSK_chubu_lianxi_3
+		}
+		}
+	}
+	#城镇与部落
+	focus = {
+		id = GSK_chengzhen_buluo
+		icon = GFX_focus_ARG_defense_and_democracy
+		prerequisite = { focus = GSK_jianshe_guodu_zizhi }
+		prerequisite = { focus = GSK_qianghua_lianhe_sixiang }
+		relative_position_id = GSK_qianghua_lianhe_sixiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_lianhe_zhuyi_2
+		remove_idea = GSK_lianhe_zhuyi
+		}
+		}
+	}
+	#完成哥萨克联合
+	focus = {
+		id = GSK_wancheng_gesake_lianhe
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = GSK_dadao_shahuang_eluosi }
+		prerequisite = { focus = GSK_chengzhen_buluo }
+		relative_position_id = GSK_chengzhen_buluo
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_core_state = {
+    is_controlled_by = ROOT
+}
+		}
+		completion_reward = {
+		add_state_core = 245
+		add_state_core = 218
+		add_state_core = 1070
+		add_state_core = 1416
+		add_state_core = 238
+		add_state_core = 237
+		add_state_core = 236
+		add_state_core = 1351
+		add_state_core = 582
+		add_state_core = 652
+		add_state_core = 651
+		add_state_core = 1347
+		add_state_core = 1338
+		news_event = {
+				id = holy_news.145 days = 1
+			}
+		swap_ideas = {
+		add_idea = GSK_xiandaihua_gesake_3
+		remove_idea = GSK_xiandaihua_gesake_2
+		}
+		}
+	}
+	#一生的战马
+	focus = {
+		id = GSK_yisheng_zhanma
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = GSK_wancheng_gesake_lianhe }
+		relative_position_id = GSK_wancheng_gesake_lianhe
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_shanhe_zongma_3
+		remove_idea = GSK_shanhe_zongma_2
+		}
+		}
+	}
+	#光复东欧家园
+	focus = {
+		id = GSK_guangfu_dongou_jiayuan
+		icon = GFX_focus_SOV_free_Rutenia
+		prerequisite = { focus = GSK_wancheng_gesake_lianhe }
+		relative_position_id = GSK_wancheng_gesake_lianhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLA
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = WAL
+    type = annex_everything
+}
+declare_war_on = {
+    target = EST
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = LIT
+    type = annex_everything
+}
+		}
+	}
+	#兵抵磐壁
+	focus = {
+		id = GSK_bingdi_panbi
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = GSK_wancheng_gesake_lianhe }
+		relative_position_id = GSK_wancheng_gesake_lianhe
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = AFG
+    type = annex_everything
+}
+declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+		}
+	}
+	#驻足停歇
+	focus = {
+		id = GSK_zhuzu_tingxie
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = GSK_yisheng_zhanma }
+		prerequisite = { focus = GSK_guangfu_dongou_jiayuan }
+		prerequisite = { focus = GSK_bingdi_panbi }
+		relative_position_id = GSK_guangfu_dongou_jiayuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = GSK_lianhe_zhuyi_3
+		remove_idea = GSK_lianhe_zhuyi_2
+		}
+		}
+	}
+}

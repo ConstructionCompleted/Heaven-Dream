@@ -1,0 +1,1236 @@
+focus_tree = {
+	id = GRE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GRE
+		}
+	}
+	
+	default = no
+ 
+	#山河一片红
+	focus = {
+		id = GRE_shanhe_yipianhong
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		x = 20
+		y = 1
+		cost = 0.2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#动员解放区
+	focus = {
+		id = GRE_dongyuan_jiefangqu
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = GRE_shanhe_yipianhong}
+		relative_position_id = GRE_shanhe_yipianhong
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = GRE_jiefang_renmin
+		}
+	}
+	#地下兵工厂
+	focus = {
+		id = GRE_dixia_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = GRE_shanhe_yipianhong}
+		relative_position_id = GRE_shanhe_yipianhong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#获取合法性
+	focus = {
+		id = GRE_huoqu_hefaxing
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = GRE_shanhe_yipianhong}
+		relative_position_id = GRE_shanhe_yipianhong
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_quanli_fengbo_2
+			remove_idea = GRE_quanli_fengbo
+			}
+		}
+	}
+	#接纳国际志愿者
+	focus = {
+		id = GRE_jiena_guoji_zhiyuanzhe
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = GRE_dongyuan_jiefangqu}
+		relative_position_id = GRE_dongyuan_jiefangqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = GRE_guoji_zhiyuanzhe
+		}
+	}
+	#接收流亡者
+	focus = {
+		id = GRE_jieshou_liuwangzhe
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = GRE_dongyuan_jiefangqu}
+		prerequisite = { focus = GRE_dixia_binggongchang}
+		relative_position_id = GRE_dixia_binggongchang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_manpower = 200000
+		}
+	}
+	#反对暴政
+	focus = {
+		id = GRE_fandui_baozheng
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = GRE_huoqu_hefaxing}
+		prerequisite = { focus = GRE_dixia_binggongchang}
+		relative_position_id = GRE_dixia_binggongchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_renmin_zhanzheng_2
+			remove_idea = GRE_renmin_zhanzheng
+			}
+		}
+	}
+	#吸收变节者
+	focus = {
+		id = GRE_xishou_bianjiezhe
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = GRE_huoqu_hefaxing}
+		relative_position_id = GRE_huoqu_hefaxing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_quanli_fengbo_3
+			remove_idea = GRE_quanli_fengbo_2
+			}
+		}
+	}
+	#解放起义
+	focus = {
+		id = GRE_jiefang_qiyi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = GRE_fandui_baozheng}
+		prerequisite = { focus = GRE_xishou_bianjiezhe}
+		relative_position_id = GRE_xishou_bianjiezhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = GRE_jiefangqiyi
+		}
+	}
+	#正义之声
+	focus = {
+		id = GRE_zhengyi_zhisheng
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = GRE_fandui_baozheng}
+		prerequisite = { focus = GRE_jieshou_liuwangzhe}
+		relative_position_id = GRE_jieshou_liuwangzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#人民联合体
+	focus = {
+		id = GRE_renmin_lianhe_ti
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = GRE_jiena_guoji_zhiyuanzhe}
+		prerequisite = { focus = GRE_jieshou_liuwangzhe}
+		relative_position_id = GRE_jieshou_liuwangzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_renmin_zhanzheng_3
+			remove_idea = GRE_renmin_zhanzheng_2
+			}
+		}
+	}
+	#革命的胜利
+	focus = {
+		id = GRE_geming_vic
+		icon = GFX_focus_eng_crush_the_dream
+		prerequisite = { focus = GRE_jiefang_qiyi}
+		prerequisite = { focus = GRE_zhengyi_zhisheng}
+		prerequisite = { focus = GRE_renmin_lianhe_ti}
+		relative_position_id = GRE_zhengyi_zhisheng
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+			swap_ideas = {
+			add_idea = GRE_jingji_bengkui_2
+			remove_idea = GRE_jingji_bengkui
+			}
+			country_event = {
+			id = holy_xila.1
+			days = 3
+			}
+		}
+	}
+	#斯巴达克阵线
+	focus = {
+		id = GRE_sibadake_zhenxian
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = GRE_geming_vic}
+		relative_position_id = GRE_geming_vic
+		mutually_exclusive = { focus = GRE_xila_guozu_lianheti }
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.2
+}
+set_country_leader_ideology = zizhi_jiquann_zhuyi_ism
+        swap_ideas = {
+			add_idea = GRE_sibadake_zhenxian
+			remove_idea = GRE_quanli_fengbo_3
+			}
+		}
+	}
+	#人民先锋队
+	focus = {
+		id = GRE_renmin_xianfengdui
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = GRE_sibadake_zhenxian}
+		relative_position_id = GRE_sibadake_zhenxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_renmin_xianfengdui
+			remove_idea = GRE_renmin_zhanzheng_3
+			}
+		}
+	}
+	#社会主义经济
+	focus = {
+		id = GRE_shehuizhuyi_jingji
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = GRE_sibadake_zhenxian}
+		relative_position_id = GRE_sibadake_zhenxian
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GRE_shehuizhuyi_jingji
+		}
+	}
+	#肃清民族派
+	focus = {
+		id = GRE_suqing_minzupai
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = GRE_renmin_xianfengdui}
+		prerequisite = { focus = GRE_shehuizhuyi_jingji}
+		relative_position_id = GRE_shehuizhuyi_jingji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = reconcilism
+    popularity = -0.1
+}
+add_stability = 0.05
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = GRE_jiaru_gongchan_guoji
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		prerequisite = { focus = GRE_suqing_minzupai}
+		relative_position_id = GRE_suqing_minzupai
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = GRE
+			}
+		}
+	}
+	#东方再宣称
+	focus = {
+		id = GRE_dongfang_zaixuancheng
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = GRE_suqing_minzupai}
+		relative_position_id = GRE_suqing_minzupai
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 341
+			add_state_core = 797
+			add_state_core = 969
+			add_state_core = 1583
+			add_state_core = 1584
+		}
+	}
+	#保加利亚外交
+	focus = {
+		id = GRE_baojialiya_waijiao
+		icon = GFX_focus_BUL_the_fatherland_front
+		prerequisite = { focus = GRE_dongfang_zaixuancheng}
+		relative_position_id = GRE_dongfang_zaixuancheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			if = {
+			limit = {
+			NWM = {
+			controls_state = 731
+			controls_state = 184
+			controls_state = 1387
+			controls_state = 1386
+			}
+			}
+			NWM = {
+			country_event = {
+			id = holy_xila.2
+			days = 3
+			}
+			}
+			}
+			declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+		}
+	}
+	#君士坦丁行动
+	focus = {
+		id = GRE_junshitanding_xingdong
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = GRE_baojialiya_waijiao}
+		relative_position_id = GRE_baojialiya_waijiao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1387
+		}
+		completion_reward = {
+		start_border_war = {
+    change_state_after_war = no
+    attacker = {
+        state = 1387
+        num_provinces = 20
+        on_win = holy_xila.3
+    }
+    defender = {
+        state = 341
+        num_provinces = 20
+    }
+}
+		}
+	}
+	#希腊国族联合体
+	focus = {
+		id = GRE_xila_guozu_lianheti
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = GRE_geming_vic}
+		relative_position_id = GRE_geming_vic
+		mutually_exclusive = { focus = GRE_sibadake_zhenxian }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = reconcilism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+create_country_leader = {
+	name = "亚历山大·帕帕戈斯"
+	desc = ""
+	picture = ""
+	expire = "1965.1.1"
+	ideology = minzu_gongchanzhuyi_ism
+	traits = {
+	}
+}
+swap_ideas = {
+add_idea = GRE_guozu_lianheti
+remove_idea = GRE_renmin_zhanzheng_3
+}
+		}
+	}
+	#联合失败者
+	focus = {
+		id = GRE_lianhe_shibaizhe
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = GRE_xila_guozu_lianheti}
+		relative_position_id = GRE_xila_guozu_lianheti
+		x = -1
+		y = 1
+		cost = 2.5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = reconcilism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = fascism
+    popularity = 0.1
+}
+		}
+	}
+	#接纳战败者
+	focus = {
+		id = GRE_jiena_zhanbaizhe
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GRE_xila_guozu_lianheti}
+		relative_position_id = GRE_xila_guozu_lianheti
+		x = 1
+		y = 1
+		cost = 2.5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+add_popularity = {
+    ideology = reconcilism
+    popularity = 0.1
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = 0.1
+}
+		}
+	}
+	#大希腊主义
+	focus = {
+		id = GRE_daxila_zhuyi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = GRE_lianhe_shibaizhe }
+		prerequisite = { focus = GRE_jiena_zhanbaizhe }
+		relative_position_id = GRE_jiena_zhanbaizhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_claim = 341
+			add_state_claim = 797
+			add_state_claim = 340
+			add_state_claim = 339
+			add_state_claim = 342
+			add_state_claim = 164
+			add_state_claim = 1573
+		add_state_claim = 1572
+		add_state_claim = 1571
+		add_state_claim = 1583
+		add_state_claim = 1584
+		}
+	}
+	#希腊复仇战争
+	focus = {
+		id = GRE_xila_fuchou_zhanzheng
+		icon = GFX_focus_GRE_byzantine_themata
+		prerequisite = { focus = GRE_daxila_zhuyi }
+		relative_position_id = GRE_daxila_zhuyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#拒绝债务
+	focus = {
+		id = GRE_jujue_zhaiwu
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = GRE_sibadake_zhenxian focus = GRE_xila_guozu_lianheti }
+		relative_position_id = GRE_sibadake_zhenxian
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GRE_jingji_bengkui_2
+		}
+	}
+	#国有化工业
+	focus = {
+		id = GRE_guoyouhua_gongye
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = GRE_jujue_zhaiwu }
+		relative_position_id = GRE_jujue_zhaiwu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			185 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+			47 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#确立劳动法
+	focus = {
+		id = GRE_queli_laodongfa
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = GRE_jujue_zhaiwu }
+		relative_position_id = GRE_jujue_zhaiwu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GRE_laodongfa
+		}
+	}
+	#希腊一五计划
+	focus = {
+		id = GRE_xila_yiwu_plan
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = GRE_guoyouhua_gongye }
+		prerequisite = { focus = GRE_queli_laodongfa }
+		relative_position_id = GRE_queli_laodongfa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GRE_xila_yiwujihua
+		}
+	}
+	#改革农业
+	focus = {
+		id = GRE_gaige_nongye
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = GRE_xila_yiwu_plan }
+		relative_position_id = GRE_xila_yiwu_plan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GRE_gaige_nongye
+		}
+	}
+	#调整农业结构
+	focus = {
+		id = GRE_tiaozheng_nongye_jiegou
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = GRE_gaige_nongye }
+		relative_position_id = GRE_gaige_nongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_gaige_nongye_2
+			remove_idea = GRE_gaige_nongye
+			}
+			add_stability = -0.1
+		}
+	}
+	#建设雅典
+	focus = {
+		id = GRE_jianshe_yadian
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = GRE_xila_yiwu_plan }
+		relative_position_id = GRE_xila_yiwu_plan
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1388 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			add_extra_state_shared_building_slots = 1
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设伊庇鲁斯
+	focus = {
+		id = GRE_jianshe_yibilusi
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = GRE_jianshe_yadian }
+		relative_position_id = GRE_jianshe_yadian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			185 = {
+add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设半岛
+	focus = {
+		id = GRE_jianshe_bandao
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = GRE_xila_yiwu_plan }
+		relative_position_id = GRE_xila_yiwu_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 186
+		}
+		completion_reward = {
+			186 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设克里特
+	focus = {
+		id = GRE_jianshe_kelite
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = GRE_jianshe_bandao }
+		relative_position_id = GRE_jianshe_bandao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 182
+		}
+		completion_reward = {
+			182 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			182 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#重建东方土地
+	focus = {
+		id = GRE_chongjian_dongfang_tudi
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = GRE_jianshe_bandao }
+		relative_position_id = GRE_jianshe_bandao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 731
+		controls_state = 184
+		}
+		completion_reward = {
+			731 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+			}
+			184 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#希腊文化复兴
+	focus = {
+		id = GRE_xila_wenhua_fuchou
+		icon = GFX_focus_GRE_resurrecting_the_megali_idea
+		x = 15
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = GRE_geming_vic
+		}
+		completion_reward = {
+			add_ideas = GRE_xila_wenhua_fuxin
+		}
+	}
+	#光荣的劳动者
+	focus = {
+		id = GRE_guangrong_laodongzhe
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = GRE_xila_wenhua_fuchou }
+		relative_position_id = GRE_xila_wenhua_fuchou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_idea = GRE_laodongfa
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_laodongfa_2
+			remove_idea = GRE_laodongfa
+			}
+		}
+	}
+	#创新现代艺术
+	focus = {
+		id = GRE_chuangxin_xiandai_yishu
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = GRE_guangrong_laodongzhe focus = GRE_jinian_sibadakesi }
+		relative_position_id = GRE_guangrong_laodongzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = communism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_xiandai_yishu
+			remove_idea = GRE_xila_wenhua_fuxin_2
+			}
+		}
+	}
+	#建立革命学院
+	focus = {
+		id = GRE_jianli_geming_xueyuan
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = GRE_chuangxin_xiandai_yishu focus = GRE_renmin_yihui }
+		relative_position_id = GRE_renmin_yihui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = socialism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_xiandai_yishu_2
+			remove_idea = GRE_xiandai_yishu
+			}
+		}
+	}
+	#人民的议会
+	focus = {
+		id = GRE_renmin_yihui
+		icon = GFX_focus_SOV_the_supreme_soviet
+		prerequisite = { focus = GRE_guangrong_laodongzhe focus = GRE_jinian_sibadakesi }
+		relative_position_id = GRE_jinian_sibadakesi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GRE_renmin_yihui
+		}
+	}
+	#纪念斯巴达克斯
+	focus = {
+		id = GRE_jinian_sibadakesi
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		prerequisite = { focus = GRE_xila_wenhua_fuchou }
+		relative_position_id = GRE_xila_wenhua_fuchou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_xila_wenhua_fuxin_2
+			remove_idea = GRE_xila_wenhua_fuxin
+			}
+		}
+	}
+	#追忆多神教
+	focus = {
+		id = GRE_zhuiyi_duoshenjiao
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = GRE_guangrong_laodongzhe focus = GRE_jinian_sibadakesi }
+		relative_position_id = GRE_jinian_sibadakesi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_zhuiyi_duoshenjiao
+			remove_idea = GRE_xila_wenhua_fuxin_2
+			}
+		}
+	}
+	#斯巴达之声
+	focus = {
+		id = GRE_sibada_zhisheng
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = GRE_zhuiyi_duoshenjiao focus = GRE_renmin_yihui }
+		relative_position_id = GRE_renmin_yihui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = reconcilism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_zhuiyi_duoshenjiao_2
+			remove_idea = GRE_zhuiyi_duoshenjiao
+			}
+		}
+	}
+	#人民的武装
+	focus = {
+		id = GRE_renmin_wuzhuang
+		icon = GFX_focus_generic_combined_arms
+		x = 25
+		y = 12
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = GRE_geming_vic
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#社会主义军队
+	focus = {
+		id = GRE_shehuizhuyi_army
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = GRE_renmin_wuzhuang }
+		relative_position_id = GRE_renmin_wuzhuang
+		mutually_exclusive = { focus = GRE_fuchouzhuyi_jundui }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = socialism
+		}
+		completion_reward = {
+			add_ideas = GRE_shehuuizhuyi_army
+		}
+	}
+	#政治委员
+	focus = {
+		id = GRE_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = GRE_shehuizhuyi_army }
+		relative_position_id = GRE_shehuizhuyi_army
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = socialism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_shehuuizhuyi_army_2
+			remove_idea = GRE_shehuuizhuyi_army
+			}
+		}
+	}
+	#票选军官
+	focus = {
+		id = GRE_piaoxuan_junguan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = GRE_zhengzhi_weiyuan }
+		relative_position_id = GRE_zhengzhi_weiyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = socialism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_shehuuizhuyi_army_3
+			remove_idea = GRE_shehuuizhuyi_army_2
+			}
+		}
+	}
+	#军队思想教育
+	focus = {
+		id = GRE_jundui_sixiang_jiaoyu
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = GRE_piaoxuan_junguan }
+		relative_position_id = GRE_piaoxuan_junguan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = socialism
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_shehuuizhuyi_army_4
+			remove_idea = GRE_shehuuizhuyi_army_3
+			}
+		}
+	}
+	#复仇主义军队
+	focus = {
+		id = GRE_fuchouzhuyi_jundui
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = GRE_renmin_wuzhuang }
+		relative_position_id = GRE_renmin_wuzhuang
+		mutually_exclusive = { focus = GRE_shehuizhuyi_army }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_government = reconcilism
+		}
+		completion_reward = {
+			add_ideas = GRE_fuchouzhuyi_jundui
+		}
+	}
+	#民族主义灌输
+	focus = {
+		id = GRE_minzuzhuyi_guanshu
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = GRE_fuchouzhuyi_jundui }
+		relative_position_id = GRE_fuchouzhuyi_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_fuchouzhuyi_jundui_2
+			remove_idea = GRE_fuchouzhuyi_jundui
+			}
+		}
+	}
+	#法西斯惩戒
+	focus = {
+		id = GRE_faxisi_chengjie
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = GRE_minzuzhuyi_guanshu }
+		relative_position_id = GRE_minzuzhuyi_guanshu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_fuchouzhuyi_jundui_3
+			remove_idea = GRE_fuchouzhuyi_jundui_2
+			}
+		}
+	}
+	#焦土战争
+	focus = {
+		id = GRE_jiaotu_zhanzheng
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = GRE_faxisi_chengjie }
+		relative_position_id = GRE_faxisi_chengjie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GRE_fuchouzhuyi_jundui_4
+			remove_idea = GRE_fuchouzhuyi_jundui_3
+			}
+		}
+	}
+	#重建军事科研
+	focus = {
+		id = GRE_chongjian_junshi_keyan
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = GRE_shehuizhuyi_army focus = GRE_shehuizhuyi_army }
+		relative_position_id = GRE_shehuizhuyi_army
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#人民化武装
+	focus = {
+		id = GRE_renminhua_wuzhaung
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = GRE_chongjian_junshi_keyan }
+		relative_position_id = GRE_chongjian_junshi_keyan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = infantry
+			}
+		}
+	}
+	#征服天空
+	focus = {
+		id = GRE_zhengfu_tiankong
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = GRE_chongjian_junshi_keyan }
+		relative_position_id = GRE_chongjian_junshi_keyan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				category = air_techs
+				category = air_doctrine
+			}
+		}
+	}
+	#装甲思想
+	focus = {
+		id = GRE_zhuangjia_sixiang
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = GRE_renminhua_wuzhaung }
+		prerequisite = { focus = GRE_zhengfu_tiankong }
+		relative_position_id = GRE_renminhua_wuzhaung
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = mechanised_infantry
+			}
+		}
+	}
+}

@@ -1,0 +1,1252 @@
+holy_luomaniya_tanpan = {
+    #特兰西瓦尼亚谈判
+    holy_telanxiwaniya_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = ROM_zuihou_tongdie
+		has_war_with = XYL
+	}	
+		available = {
+		controls_state = 76
+		controls_state = 84
+		controls_state = 83
+		controls_state = 82
+		controls_state = 764
+		controls_state = 971
+		controls_state = 972
+		controls_state = 977
+		}
+        fire_only_once = yes
+		complete_effect = {
+		    TRA = {
+			transfer_state = 76
+		transfer_state = 84
+		transfer_state = 83
+		transfer_state = 82
+		transfer_state = 764
+		transfer_state = 971
+		transfer_state = 972
+		transfer_state = 977
+			}
+			white_peace = XYL
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#多布罗加谈判
+    holy_duobuluojia_tanpan_1 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = ROM_jinjun_duobuluojia
+		OR = {
+		has_war_with = NWM
+		has_war_with = BUL
+		}
+	}	
+		available = {
+		controls_state = 970
+		}
+        fire_only_once = yes
+		complete_effect = {
+			transfer_state = 970
+			white_peace = BUL
+			white_peace = NWM
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#多布罗加谈判
+    holy_duobuluojia_tanpan_2 = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = ROM_jinjun_duobuluojia
+		OR = {
+		has_war_with = NWM
+		has_war_with = BUL
+		}
+	}	
+		available = {
+		controls_state = 77
+		controls_state = 970
+		}
+        fire_only_once = yes
+		complete_effect = {
+			transfer_state = 77
+			transfer_state = 970
+			white_peace = BUL
+			white_peace = NWM
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_jion_faction = {
+    #加入世界革命
+    holy_faction_gm_MOL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		OR = {
+		has_government = communism
+		has_government = socialism
+		}
+		tag = MOL
+	}	
+		available = {
+		MOL = {
+		OR = {
+		has_completed_focus = ROM_renmin_wenhua_geming
+		has_completed_focus = ROM_xiaomie_dizhu
+		has_completed_focus = ROM_moerduowa_gongye_kuozhan
+		}
+		is_in_faction = no
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		every_country = {
+		limit = {
+		has_country_flag = gongchanguoji
+		}
+		add_to_faction = MOL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_wangguo_xinsheng
+		has_completed_focus = SER_dasaierweiya_plan
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = PLS }
+		DKL = { is_in_faction_with = PLS }
+		ALB = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = SER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+		BUL = {
+		has_completed_focus = BUL_xiongying_qianfang
+		has_completed_focus = BUL_wangquan_yongheng
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = PLS }
+		WAL = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = BUL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_DKL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DKL
+	}	
+		available = {
+		DKL = {
+		has_completed_focus = DKL_kaiming_junzhuzhi
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = PLS }
+		XYL = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = DKL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_ALB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = ALB
+	}	
+		available = {
+		ALB = {
+		OR = {
+		has_completed_focus = ALB_mouqiu_daerbaniya
+		has_completed_focus = ALB_shanzhong_guodu
+		}
+		has_completed_focus = ALB_wangguo_fubi
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = PLS }
+		BUL = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = ALB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入普鲁士
+    holy_faction_PLS_WAL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = WAL
+	}	
+		available = {
+		WAL = {
+		OR = {
+		has_completed_focus = ROM_huangjia_xianfa
+		has_completed_focus = ROM_guojia_lianhe_zhengfu
+		}
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = PLS }
+		XYL = { is_in_faction_with = PLS }
+		}
+		}
+		AUS = {
+		OR = {
+		exists = no
+		is_puppet_of = PLS
+		}
+		}
+		PLS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		PLS = {
+		add_to_faction = WAL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入奥地利
+    holy_faction_AUS_WAL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = WAL
+	}	
+		available = {
+		WAL = {
+		OR = {
+		has_completed_focus = ROM_huangjia_xianfa
+		has_completed_focus = ROM_guojia_lianhe_zhengfu
+		}
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = AUS }
+		XYL = { is_in_faction_with = AUS }
+		}
+		}
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = WAL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入奥地利
+    holy_faction_AUS_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_wangguo_xinsheng
+		has_completed_focus = SER_dasaierweiya_plan
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = AUS }
+		DKL = { is_in_faction_with = AUS }
+		ALB = { is_in_faction_with = AUS }
+		}
+		}
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = SER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入奥地利
+    holy_faction_AUS_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+		BUL = {
+		has_completed_focus = BUL_xiongying_qianfang
+		has_completed_focus = BUL_wangquan_yongheng
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = AUS }
+		WAL = { is_in_faction_with = AUS }
+		ALB = { is_in_faction_with = AUS }
+		}
+		}
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = BUL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入奥地利
+    holy_faction_AUS_ALB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = ALB
+	}	
+		available = {
+		ALB = {
+		OR = {
+		has_completed_focus = ALB_mouqiu_daerbaniya
+		has_completed_focus = ALB_shanzhong_guodu
+		}
+		has_completed_focus = ALB_wangguo_fubi
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = AUS }
+		BUL = { is_in_faction_with = AUS }
+		}
+		}
+		PLS = {
+		OR = {
+		exists = no
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		AUS = {
+		add_to_faction = ALB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_waijiao_zhonglihua
+		has_completed_focus = SER_gonghehua_shehui
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = SER
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = SER
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_WAL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = WAL
+	}	
+		available = {
+		WAL = {
+		has_completed_focus = ROM_guojia_lianhe_zhengfu
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = UKM }
+		XYL = { is_in_faction_with = UKM }
+		}
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = WAL
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = WAL
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_DKL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DKL
+	}	
+		available = {
+		DKL = {
+		has_completed_focus = DKL_shehui_gaizao
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = DKL
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = DKL
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+		BUL = {
+		has_completed_focus = BUL_baojialiya_heping
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = BUL
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = BUL
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持伦敦同盟
+    holy_faction_UKM_ALB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = ALB
+	}	
+		available = {
+		ALB = {
+		has_completed_focus = ALB_shanzhong_guodu
+		is_in_faction = no
+		}
+		OR = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		if = {
+		limit = {
+		UKM = {
+		is_faction_leader = yes
+		}
+		}
+		UKM = {
+		add_to_faction = ALB
+		}
+		}
+		if = {
+		limit = {
+		CAN = {
+		is_faction_leader = yes
+		}
+		}
+		CAN = {
+		add_to_faction = ALB
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_WAL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = WAL
+	}	
+		available = {
+		WAL = {
+		has_completed_focus = ROM_guojia_lianhe_zhengfu
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = FRA }
+		XYL = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = WAL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_waijiao_zhonglihua
+		has_completed_focus = SER_gonghehua_shehui
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = SER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_DKL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DKL
+	}	
+		available = {
+		DKL = {
+		has_completed_focus = DKL_shehui_gaizao
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = DKL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+		BUL = {
+		has_completed_focus = BUL_baojialiya_heping
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = BUL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#支持小协约国
+    holy_faction_FRA_ALB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = ALB
+	}	
+		available = {
+		ALB = {
+		has_completed_focus = ALB_shanzhong_guodu
+		is_in_faction = no
+		}
+		FRA = {
+		is_faction_leader = yes
+		OR = {
+		has_government = conservatism
+		has_government = progressism
+		}
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = ALB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入中央轴心
+    holy_faction_HNW_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+		BUL = {
+		has_completed_focus = BUL_xiongying_qianfang
+		has_completed_focus = BUL_youyi_dalianmeng
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = HNW }
+		WAL = { is_in_faction_with = HNW }
+		ALB = { is_in_faction_with = HNW }
+		}
+		}
+		PLS = {
+		exists = no
+		}
+		AUS = {
+		exists = no
+		}
+		HSA = {
+		exists = no
+		}
+		HNW = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		HNW = {
+		add_to_faction = BUL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入中央轴心
+    holy_faction_HNW_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_qiekenite_zhengzhi
+		has_completed_focus = SER_dasaierweiya_plan
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = HNW }
+		DKL = { is_in_faction_with = HNW }
+		ALB = { is_in_faction_with = HNW }
+		}
+		}
+		PLS = {
+		exists = no
+		}
+		AUS = {
+		exists = no
+		}
+		HSA = {
+		exists = no
+		}
+		HNW = {
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		HNW = {
+		add_to_faction = SER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入中央轴心
+    holy_faction_HNW_MOL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = MOL
+	}	
+		available = {
+		MOL = {
+		has_completed_focus = ROM_war_kuangre
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = HNW }
+		XYL = { is_in_faction_with = HNW }
+		}
+		}
+		HNW = {
+		is_faction_leader = yes
+		}
+		PLS = {
+		exists = no
+		}
+		AUS = {
+		exists = no
+		}
+		HSA = {
+		exists = no
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		HNW = {
+		add_to_faction = MOL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_SER = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = SER
+	}	
+		available = {
+		SER = {
+		has_completed_focus = SER_wangguo_xinsheng
+		has_completed_focus = SER_dasaierweiya_plan
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = FRA }
+		DKL = { is_in_faction_with = FRA }
+		ALB = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = SER
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_BUL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = BUL
+	}	
+		available = {
+	    BUL = {
+		has_completed_focus = BUL_xiongying_qianfang
+		has_completed_focus = BUL_wangquan_yongheng
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = FRA }
+		WAL = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = BUL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_DKL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = DKL
+	}	
+		available = {
+	    DKL = {
+		has_completed_focus = DKL_kaiming_junzhuzhi
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = FRA }
+		XYL = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = DKL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_ALB = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = ALB
+	}	
+		available = {
+	    ALB = {
+		OR = {
+		has_completed_focus = ALB_mouqiu_daerbaniya
+		has_completed_focus = ALB_shanzhong_guodu
+		}
+		has_completed_focus = ALB_wangguo_fubi
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		SER = { is_in_faction_with = FRA }
+		BUL = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = ALB
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#加入法兰西帝国
+    holy_faction_FRA2_WAL = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = WAL
+	}	
+		available = {
+	    WAL = {
+		OR = {
+		has_completed_focus = ROM_huangjia_xianfa
+		has_completed_focus = ROM_guojia_lianhe_zhengfu
+		}
+		is_in_faction = no
+		}
+		NOT = {
+		OR = {
+		BUL = { is_in_faction_with = FRA }
+		XYL = { is_in_faction_with = FRA }
+		}
+		}
+		FRA = {
+		has_government = neutrality
+		is_faction_leader = yes
+		}
+		}
+        fire_only_once = yes
+		cost = 10
+		complete_effect = {
+		FRA = {
+		add_to_faction = WAL
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

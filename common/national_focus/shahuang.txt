@@ -1,0 +1,905 @@
+focus_tree = {
+	id = RUN_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = RUN
+		}
+	}
+	
+	default = no
+ 
+    #帝国的首都
+	focus = {
+		id = RUN_diguo_shoudu
+		icon = GFX_focus_generic_home_defense
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+	#收拾余光
+	focus = {
+		id = RUN_shoushi_yuguang
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = RUN_diguo_shoudu}
+		relative_position_id = RUN_diguo_shoudu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_beieluosi.2
+    days = 1
+	}
+		}
+	}
+	#聊以自慰
+	focus = {
+		id = RUN_liaoyi_ziwei
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = RUN_diguo_shoudu}
+		relative_position_id = RUN_diguo_shoudu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = {
+    id = holy_beieluosi.3
+    days = 1
+	}
+		}
+	}
+	#机会来到
+	focus = {
+		id = RUN_jihui_laidao
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = RUN_liaoyi_ziwei}
+		prerequisite = { focus = RUN_shoushi_yuguang}
+		relative_position_id = RUN_liaoyi_ziwei
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		always = no
+		}
+		completion_reward = {
+		remove_ideas = RUN_kuilei_huangdi
+		}
+	}
+	#和科尔尼洛夫和解
+	focus = {
+		id = RUN_he_keerniluofu_hejie
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = RUN_jihui_laidao}
+		relative_position_id = RUN_jihui_laidao
+		mutually_exclusive = { focus = RUN_maizang_chiru }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_opinion_modifier = { target = RNE modifier = RUN_hejie }
+		}
+	}
+	#提供武器
+	focus = {
+		id = RUN_tigong_wuqi
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = RUN_he_keerniluofu_hejie}
+		relative_position_id = RUN_he_keerniluofu_hejie
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 1000
+    target = RNE
+}
+		}
+	}
+	#提供工业
+	focus = {
+		id = RUN_tigong_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = RUN_he_keerniluofu_hejie}
+		relative_position_id = RUN_he_keerniluofu_hejie
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		RNE = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+		}
+	}
+	#参与东部战争
+	focus = {
+		id = RUN_canyu_dongbu_zhanzheng
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RUN_tigong_wuqi}
+		prerequisite = { focus = RUN_tigong_gongye}
+		relative_position_id = RUN_tigong_wuqi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		puppet = RNE
+		declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+remove_ideas = RUN_kuilei_huangdi
+       every_state = {
+	   limit = {
+	   is_core_of = RNE
+		}
+		add_core_of = RUN
+		}
+		}
+	}
+	#埋葬耻辱
+	focus = {
+		id = RUN_maizang_chiru
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = RUN_jihui_laidao}
+		relative_position_id = RUN_jihui_laidao
+		mutually_exclusive = { focus = RUN_he_keerniluofu_hejie }
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#联络尤登尼奇
+	focus = {
+		id = RUN_lianluo_youdengniqi
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = RUN_maizang_chiru}
+		relative_position_id = RUN_maizang_chiru
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNW = {
+		exists = yes
+		}
+		}
+		bypass = {
+		RNW = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		RNW = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 500
+    target = RUN
+}
+		}
+		add_political_power = 50
+		}
+	}
+	#联络弗拉基米尔
+	focus = {
+		id = RUN_lianluo_fulajimier
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = RUN_maizang_chiru}
+		relative_position_id = RUN_maizang_chiru
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNN = {
+		has_country_leader = {
+    name = "弗拉基米尔"
+    ruling_only = yes
+}
+		}
+		}
+		bypass = {
+		RNN = {
+		has_country_leader = {
+    name = "瓦西里·伊万诺维奇·崔可夫"
+    ruling_only = yes
+}
+		}
+		}
+		completion_reward = {
+		RNN = {
+		send_equipment = {
+    equipment = infantry_equipment
+    amount = 500
+    target = RUN
+}
+		}
+		add_political_power = 50
+		}
+	}
+	#接管东部战区
+	focus = {
+		id = RUN_jieguan_dongbu_zhanqu
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = RUN_lianluo_youdengniqi}
+		prerequisite = { focus = RUN_lianluo_fulajimier}
+		relative_position_id = RUN_lianluo_youdengniqi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = RNE
+    transfer_troops = yes
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+remove_ideas = RUN_kuilei_huangdi
+        every_state = {
+	   limit = {
+	   is_core_of = RNE
+		}
+		add_core_of = RUN
+		}
+		}
+	}
+	#反布民兵武装
+	focus = {
+		id = RUN_fanbu_minbing_wuzhuang
+		icon = GFX_focus_RAJ_indian_gurkhas
+		prerequisite = { focus = RUN_jieguan_dongbu_zhanqu focus = RUN_canyu_dongbu_zhanzheng}
+		relative_position_id = RUN_canyu_dongbu_zhanzheng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RUN_fanbu_minbing
+		}
+	}
+	#东方总动员
+	focus = {
+		id = RUN_dongfang_zongdongyuan
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = RUN_fanbu_minbing_wuzhuang}
+		relative_position_id = RUN_fanbu_minbing_wuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_dongfang_zongdongyuan
+		}
+	}
+	#召集土匪
+	focus = {
+		id = RUN_zhaoji_tufei
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = RUN_dongfang_zongdongyuan}
+		relative_position_id = RUN_dongfang_zongdongyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RUN_tufei
+		}
+	}
+	#国际反共武装
+	focus = {
+		id = RUN_guoji_fangong_wuzhuang
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = RUN_zhaoji_tufei}
+		relative_position_id = RUN_zhaoji_tufei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = RUN_fangong_wuzhuang
+		}
+	}
+	#扫平游击队
+	focus = {
+		id = RUN_saoping_youjidui
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = RUN_guoji_fangong_wuzhuang}
+		relative_position_id = RUN_guoji_fangong_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.1
+		}
+	}
+	#联络弗拉索夫
+	focus = {
+		id = RUN_lianluo_fulasuofu
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RUN_fanbu_minbing_wuzhuang}
+		relative_position_id = RUN_fanbu_minbing_wuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		POA = {
+		exists = yes
+		}
+		}
+		bypass = {
+		POA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		POA = {
+		country_event = {
+    id = holy_beieluosi.5
+    days = 3
+	}
+		}
+		}
+	}
+	#联络奥伦堡
+	focus = {
+		id = RUN_lianluo_aolunbao
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = RUN_lianluo_fulasuofu}
+		relative_position_id = RUN_lianluo_fulasuofu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		URL = {
+		exists = yes
+		}
+		}
+		bypass = {
+		URL = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		URL = {
+		country_event = {
+    id = holy_beieluosi.6
+    days = 3
+	}
+		}
+		}
+	}
+	#联络科穆奇
+	focus = {
+		id = RUN_lianluo_kemuqi
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = RUN_lianluo_aolunbao}
+		relative_position_id = RUN_lianluo_aolunbao
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		PRM = {
+		exists = yes
+		}
+		}
+		bypass = {
+		PRM = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		PRM = {
+		country_event = {
+    id = holy_beieluosi.7
+    days = 3
+	}
+		}
+		}
+	}
+	#联络大牧首
+	focus = {
+		id = RUN_lianluo_damushou
+		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
+		prerequisite = { focus = RUN_lianluo_kemuqi}
+		relative_position_id = RUN_lianluo_kemuqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = RUN_zongjiao_jiahu
+		}
+	}
+	#东方攻势
+	focus = {
+		id = RUN_dongfang_gongshi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = RUN_lianluo_damushou}
+		prerequisite = { focus = RUN_saoping_youjidui}
+		relative_position_id = RUN_lianluo_damushou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = RUN_dongfang_gongshi
+    days = 180
+}
+		}
+	}
+	#俯瞰俄罗斯
+	focus = {
+		id = RUN_fukan_eluosi
+		icon = GFX_focus_SOV_panslavic_nationalism
+		prerequisite = { focus = RUN_dongfang_gongshi}
+		relative_position_id = RUN_dongfang_gongshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = RNE
+    transfer_troops = yes
+}
+swap_ideas = {
+remove_idea = RUN_posui_diguo
+add_idea = RUN_posui_diguo_2
+}
+		}
+	}
+	#接管北海
+	focus = {
+		id = RUN_jieguan_beihai
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = RUN_fanbu_minbing_wuzhuang}
+		relative_position_id = RUN_fanbu_minbing_wuzhuang
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		navy_experience = 10
+		}
+	}
+	#封锁北俄
+	focus = {
+		id = RUN_fengsuo_beihai
+		icon = GFX_focus_generic_mine_warfare
+		prerequisite = { focus = RUN_jieguan_beihai}
+		relative_position_id = RUN_jieguan_beihai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SVN = {
+		add_ideas = RUN_fengsuo_beihai
+		}
+		}
+	}
+	#接管北方
+	focus = {
+		id = RUN_jieguan_beifang
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RUN_fukan_eluosi}
+		relative_position_id = RUN_fukan_eluosi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = RNN
+    transfer_troops = yes
+}
+declare_war_on = {
+    target = KRL
+    type = annex_everything
+}
+		}
+	}
+	#接管西方
+	focus = {
+		id = RUN_jieguan_xifang
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = RUN_fukan_eluosi}
+		relative_position_id = RUN_fukan_eluosi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		annex_country = {
+    target = RNW
+    transfer_troops = yes
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+		}
+	}
+	#发出统一之声
+	focus = {
+		id = RUN_fachu_tongyi_zhisheng
+		icon = GFX_focus_SOV_transcaucasian_republic
+		prerequisite = { focus = RUN_jieguan_xifang}
+		prerequisite = { focus = RUN_jieguan_beifang}
+		relative_position_id = RUN_jieguan_beifang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KRL = {
+		OR = {
+		exists = no
+		is_puppet_of = SOV
+		}
+		}
+		NVG = {
+		OR = {
+		exists = no
+		is_puppet_of = SOV
+		}
+		}
+		POA = {
+		exists = no
+		}
+		PRM = {
+		OR = {
+		exists = no
+		is_puppet_of = RUD
+		}
+		}
+		KZN = {
+		OR = {
+		exists = no
+		is_puppet_of = SOV
+		}
+		}
+		SVN = {
+		OR = {
+		exists = no
+		is_puppet_of = SOV
+		}
+		}
+		}
+		completion_reward = {
+		every_state = {
+					limit = {
+					OR = {
+						region = 265
+						region = 132
+						region = 150
+						region = 133
+						region = 264
+						region = 40
+						region = 137
+						region = 135
+						region = 138
+						region = 14
+						region = 263
+						region = 151
+						region = 261
+						region = 262
+						region = 147
+						region = 149
+						region = 260
+						region = 259
+						region = 257
+						region = 258
+						region = 256
+						}
+					}
+add_core_of = RUN
+		}
+		add_state_core = 146
+		add_state_core = 1356
+		add_state_core = 213
+		add_state_core = 1854
+		add_state_core = 1398
+		add_state_core = 224
+		add_state_core = 205
+		add_state_core = 242
+		add_state_core = 243
+		remove_state_core = 1347
+		remove_state_core = 654
+		remove_state_core = 1123
+		remove_state_core = 407
+		remove_state_core = 406
+		remove_state_core = 1073
+		remove_state_core = 1074
+		remove_state_core = 1550
+		remove_state_core = 206
+		remove_state_core = 204
+		remove_state_core = 1543
+		remove_state_core = 194
+		remove_state_core = 201
+		remove_state_core = 199
+		remove_state_core = 1431
+		remove_state_core = 198
+		remove_state_core = 1430
+		remove_state_core = 1859
+		remove_state_core = 232
+		remove_state_core = 1075
+		remove_state_core = 233
+		remove_state_core = 234
+		remove_state_core = 235
+		remove_state_core = 875
+		remove_state_core = 1351
+		remove_state_core = 582
+		remove_state_core = 651
+		remove_state_core = 652
+		every_state = {
+					limit = {
+					OR = {
+						region = 136
+						region = 270
+						region = 267
+						region = 268
+						region = 269
+						region = 1300
+						region = 131
+						region = 130
+						region = 37
+						region = 39
+						region = 38
+						}
+					}
+add_claim_by = RUN
+		}
+		add_state_claim = 234
+		add_state_claim = 235
+		add_state_claim = 233
+		add_state_claim = 1075
+		add_state_claim = 232
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 407
+		add_state_claim = 406
+		add_state_claim = 1073
+		add_state_claim = 1074
+		add_state_claim = 1351
+		add_state_claim = 582
+		add_state_claim = 651
+		add_state_claim = 652
+		declare_war_on = {
+    target = GSK
+    type = annex_everything
+}
+declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = NCC
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BMO
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBP
+    type = annex_everything
+}
+declare_war_on = {
+    target = MGD
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAK
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+DRG = {
+country_event = {
+    id = holy_beieluosi.9
+    days = 10
+}
+}
+SBG = {
+country_event = {
+    id = holy_beieluosi.11
+    days = 10
+}
+}
+CRM = {
+country_event = {
+    id = holy_beieluosi.12
+    days = 10
+}
+}
+ARS = {
+country_event = {
+    id = holy_beieluosi.10
+    days = 10
+}
+}
+URL = {
+country_event = {
+    id = holy_beieluosi.8
+    days = 10
+}
+}
+every_country = {
+limit = {
+NOT = {
+tag = BLA
+tag = UNR
+tag = MCR
+}
+OR = {
+has_war_with = SOV
+tag = SOV
+}
+}
+add_timed_idea = {
+    idea = SOV_touxiang_daojishi
+    days = 360
+}
+}
+news_event = {
+				id = holy_news.50 days = 1
+			}
+		}
+	}
+}

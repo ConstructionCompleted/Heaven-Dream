@@ -1,0 +1,256 @@
+focus_tree = {
+	id = WAL_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = WAL
+		}
+	}
+	
+	default = no
+
+	#公国的未来
+	focus = {
+		id = WAL_gongguo_weilai
+		icon = GFX_focus_generic_home_defense
+		x = 15
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		}
+	}
+	#独立思想
+	focus = {
+		id = WAL_duli_sixiang
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = WAL_gongguo_weilai}
+		relative_position_id = WAL_gongguo_weilai
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_autonomy_ratio = {
+    value = 0.2
+}
+		}
+	}
+	#废除扩军限制
+	focus = {
+		id = WAL_feichu_kuojun_xianzhi
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = WAL_duli_sixiang}
+		relative_position_id = WAL_duli_sixiang
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_puppet = no
+		}
+		completion_reward = {
+		remove_ideas = WAL_jinzhi_kuojun
+		}
+	}
+	#斩断极端思想
+	focus = {
+		id = WAL_zhanduan_jiduan_sixiang
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = WAL_feichu_kuojun_xianzhi}
+		relative_position_id = WAL_feichu_kuojun_xianzhi
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = fascism
+    popularity = -0.1
+}
+add_popularity = {
+    ideology = communism
+    popularity = -0.1
+}
+		}
+	}
+	#君主议会
+	focus = {
+		id = WAL_junzhu_yihui
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = WAL_zhanduan_jiduan_sixiang}
+		prerequisite = { focus = WAL_tuanjie_gonghe_sixiang}
+		relative_position_id = WAL_tuanjie_gonghe_sixiang
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = WAL_wangguan_zhiguo_2
+		remove_idea = WAL_wangguan_zhiguo
+		}
+		}
+	}
+	#引进工业
+	focus = {
+		id = WAL_yinjin_gongye
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = WAL_duli_sixiang}
+		relative_position_id = WAL_duli_sixiang
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		81 = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+		}
+		}
+	}
+	#团结共和思想
+	focus = {
+		id = WAL_tuanjie_gonghe_sixiang
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = WAL_feichu_kuojun_xianzhi}
+		prerequisite = { focus = WAL_yinjin_gongye}
+		relative_position_id = WAL_yinjin_gongye
+		x = -1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.1
+}
+add_stability = 0.1
+		}
+	}
+	#达契亚军团
+	focus = {
+		id = WAL_daqiya_juntuan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = WAL_yinjin_gongye}
+		relative_position_id = WAL_yinjin_gongye
+		x = 1
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+		load_oob = WAL_daqiya_army
+		}
+	}
+	#军事工业扩展
+	focus = {
+		id = WAL_junshi_gongye_kuozhan
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = WAL_yinjin_gongye}
+		relative_position_id = WAL_yinjin_gongye
+		x = 0
+		y = 2
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#瓦拉几亚的穿刺
+	focus = {
+		id = WAL_walajiya_chuanci
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = WAL_junzhu_yihui}
+		prerequisite = { focus = WAL_daqiya_juntuan}
+		prerequisite = { focus = WAL_junshi_gongye_kuozhan}
+		relative_position_id = WAL_daqiya_juntuan
+		x = -2
+		y = 2
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		has_war_with = MOL
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = MOL
+    type = annex_everything
+}
+		add_state_claim = 79
+		add_state_claim = 78
+		add_state_claim = 766
+		add_state_claim = 80
+		add_state_claim = 1564
+		add_state_claim = 1565
+		add_state_claim = 1566
+news_event = {
+				id = holy_news.29 days = 1
+			}
+		}
+	}
+	#成立达契亚
+	focus = {
+		id = WAL_chengli_luomaniya
+		icon = GFX_focus_invite_romania
+		prerequisite = { focus = WAL_walajiya_chuanci}
+		relative_position_id = WAL_walajiya_chuanci
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 79
+		controls_state = 78
+		controls_state = 766
+		controls_state = 80
+		controls_state = 1564
+		controls_state = 1565
+		controls_state = 1566
+		}
+		completion_reward = {
+		load_focus_tree = { tree = ROM_focus keep_completed = no }
+		set_cosmetic_tag = ROM
+		    hidden_effect = { ROM = { set_cosmetic_tag = ROM } }
+		news_event = {
+				id = holy_news.53 days = 1
+			}
+		add_state_core = 79
+		add_state_core = 78
+		add_state_core = 766
+		add_state_core = 80
+		add_state_core = 1564
+		add_state_core = 1565
+		add_state_core = 1566
+		}
+	}
+}

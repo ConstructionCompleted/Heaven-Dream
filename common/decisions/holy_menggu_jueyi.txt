@@ -1,0 +1,204 @@
+holy_suiyuan_luanju = {
+	#汉族教育宣传
+    holy_hanzu_jiaoyu_xuanchaun = {
+        visible = { 
+		tag = SUY 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+           OR = {        
+           has_government = conservatism
+		   has_completed_focus = SUY_chafeng_hanzu_xueshe
+		   }
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 20             
+        timeout_effect = {   
+            add_popularity = {
+    ideology = conservatism
+    popularity = 0.03
+}
+add_political_power = -20
+        }
+    }
+	#汉族游行抗议
+    holy_hanzu_youxing_kangyi = {                          
+        visible = { 
+		tag = SUY 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+           OR = {        
+           has_government = conservatism
+		   has_completed_focus = SUY_zujian_jingcha_wuzhuang
+		   }
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 10             
+        timeout_effect = {   
+        add_political_power = -20
+		add_stability = -0.01
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.01
+}
+        }
+    }
+	#鄂尔多斯游击队
+    holy_eerduosi_youjidui = {                          
+        visible = { 
+		tag = SUY 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+           OR = {        
+           has_government = conservatism
+		   has_completed_focus = SUY_saodang_hanzu_zhichizhe
+		   }
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 10             
+        timeout_effect = {   
+		add_stability = -0.01
+		add_war_support = -0.01
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.02
+}
+        }
+    }
+	#佛教骚乱
+    holy_fojiao_saoluan = {                          
+        visible = { 
+		tag = SUY 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+		   has_completed_focus = SUY_jiena_fojiao_zuzhi
+        }
+        is_good = no     
+        fire_only_once = no		
+        selectable_mission = no               
+        days_mission_timeout = 30             
+        timeout_effect = {   
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_political_power = -50
+        }
+    }
+}
+holy_weichi_mengjiang_lianmeng = {
+    #保卫喀尔喀
+    holy_baowei_BKD = {                          
+        visible = { 
+		OR = {
+		tag = SUY 
+		tag = CHR 
+        }
+        }		
+		icon = generic_army_support
+		
+		available = {
+		NOT = {
+			BKD = {
+			has_government = neutrality
+			}
+			has_war_with = BKD
+			}
+			OR = {
+			has_completed_focus = CHR_baowei_mengjiang_lianmeng
+			has_completed_focus = SUY_weichi_mengjiang_lianmeng
+			}
+		}
+		cost = 20
+		complete_effect = {
+		declare_war_on = {
+    target = BKD
+    type = puppet_wargoal_focus
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#保卫察哈尔
+    holy_baowei_CHR = {                          
+        visible = { 
+		OR = {
+		tag = SUY 
+		tag = BKD 		
+        }
+        }		
+		icon = generic_army_support
+		
+		available = {
+		NOT = {
+			CHR = {
+			has_government = neutrality
+			}
+			has_war_with = CHR
+			}
+			OR = {
+			has_completed_focus = SUY_weichi_mengjiang_lianmeng
+			has_completed_focus = BKD_ganshe_neimenggu_shiwu
+			}
+		}
+		cost = 20
+		complete_effect = {
+		declare_war_on = {
+    target = CHR
+    type = puppet_wargoal_focus
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#保卫绥远
+    holy_baowei_SUY = {                          
+        visible = { 
+		OR = {
+		tag = CHR 
+		tag = BKD 
+		}		
+        }		
+		icon = generic_army_support
+		
+		available = {
+		NOT = {
+			SUY = {
+			has_government = neutrality
+			}
+			has_war_with = SUY
+			}
+			OR = {
+			has_completed_focus = CHR_baowei_mengjiang_lianmeng
+			has_completed_focus = BKD_ganshe_neimenggu_shiwu
+			}
+		}
+		cost = 20
+		complete_effect = {
+		declare_war_on = {
+    target = SUY
+    type = puppet_wargoal_focus
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

@@ -1,0 +1,247 @@
+holy_kelike = {
+    #奖赏乔克托人
+    holy_jiangshang_qiaoketuo = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_budui_beizhan_jihua
+			controls_state = 367
+			NOT = { has_idea = KLK_nuli_zhengbing }
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_ideas = KLK_jiangshang_qiaoketuo
+		add_timed_idea = {
+    idea = KLK_xiaofeiping
+    days = 90
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩大奴隶征兵
+    holy_kuoda_nuli_zhengbing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_budui_beizhan_jihua
+			controls_state = 367
+			controls_state = 1671
+			controls_state = 1673
+			controls_state = 1670
+			controls_state = 1668
+			NOT = { has_idea = KLK_jiangshang_qiaoketuo }
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_ideas = KLK_nuli_zhengbing
+		add_manpower = 50000
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#奖赏正规军
+    holy_jiangshang_zhengguijun = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_budui_beizhan_jihua
+			controls_state = 370
+			controls_state = 1676
+			controls_state = 1675
+			controls_state = 371
+			controls_state = 1701
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_ideas = KLK_jiangshang_zhengguijun
+		add_timed_idea = {
+    idea = KLK_xiaofeiping
+    days = 90
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#鼓励大规模参军
+    holy_guli_daguimo_canjun = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_budui_beizhan_jihua
+			controls_state = 370
+			controls_state = 1676
+			controls_state = 1675
+			controls_state = 371
+			controls_state = 1701
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_ideas = KLK_guli_daguimo_canjun
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#要求工业贡献
+    holy_yaoqiu_gongye_gongxian = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_baozheng_wuqi_shuliang
+		}
+		cost = 50
+		days_re_enable = 180
+		complete_effect = {
+		add_timed_idea = {
+    idea = KLK_xiaofeiping
+    days = 90
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = KLK
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#进口加勒比军工
+    holy_jinkou_jialebi_jungong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_baozheng_wuqi_shuliang
+			CRB = {
+			has_government = neutrality
+			}
+		}
+		cost = 50
+		days_re_enable = 360
+		complete_effect = {
+		add_timed_idea = {
+    idea = KLK_xiaofeiping
+    days = 60
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = CRB
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#接触阿兹特克人
+    holy_jiechu_aziteke = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_baozheng_wuqi_shuliang
+			AZT = {
+			has_government = neutrality
+			}
+		}
+		cost = 50
+		days_re_enable = 360
+		complete_effect = {
+		add_timed_idea = {
+    idea = KLK_xiaofeiping
+    days = 60
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = AZT
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#搜集民间武器
+    holy_souji_minjian_wuqi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		    tag = KLK
+	}	
+		available = {
+			has_completed_focus = KLK_baozheng_wuqi_shuliang
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+		add_stability = -0.05
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 5000
+    producer = KLK
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_bowatan = {
+    #决斗之日
+    holy_juedouzhiri = {    
+        visible = { 
+		tag = PWT 
+		}                
+        activation = {                          
+            always = yes	
+        }
+		available = {                   
+           always = no
+        }
+        is_good = no     
+        fire_only_once = yes		
+        selectable_mission = no               
+        days_mission_timeout = 180             
+        timeout_effect = {
+		country_event = {
+		id = holy_jiamiya.2
+		}
+		}
+    }
+}

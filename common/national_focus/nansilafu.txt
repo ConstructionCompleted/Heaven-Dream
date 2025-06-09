@@ -1,0 +1,3246 @@
+focus_tree = {
+	id = YUM_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YUM
+		}
+	}
+	
+	default = no
+
+	#联盟的挽歌
+	focus = {
+		id = YUM_lianmeng_wange
+		icon = GFX_focus_BUL_free_balkan_states
+		x = 30
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		country_event = { id = holy_baergan.6 }
+		}
+	}
+	#重申尼什条约
+	focus = {
+		id = YUM_chongshen_nishen_tiaoyue
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = YUM_lianmeng_wange}
+		relative_position_id = YUM_lianmeng_wange
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_lianmeng_wange
+		remove_idea = YUM_binlinbengkui_lianmeng
+		}
+		}
+	}
+	#扩大议会席位
+	focus = {
+		id = YUM_kuoda_yihui_xiwei
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = YUM_chongshen_nishen_tiaoyue}
+		relative_position_id = YUM_chongshen_nishen_tiaoyue
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 10
+	tooltip = YUM_lianbang_liliang_1_tt
+}
+		}
+	}
+	#提前写好的剧本
+	focus = {
+		id = YUM_tiqian_xiehao_dejuben
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = YUM_kuoda_yihui_xiwei}
+		relative_position_id = YUM_kuoda_yihui_xiwei
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+		add_stability = 0.05
+		}
+	}
+	#不对称辩论
+	focus = {
+		id = YUM_buduicheng_bianlun
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = YUM_tiqian_xiehao_dejuben}
+		relative_position_id = YUM_tiqian_xiehao_dejuben
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+		add_political_power = 50
+		}
+	}
+	#调节宣传口径
+	focus = {
+		id = YUM_tiaojie_xuanchuan_koujing
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = YUM_kuoda_yihui_xiwei}
+		relative_position_id = YUM_kuoda_yihui_xiwei
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 5
+	tooltip = YUM_lianbang_liliang_2_tt
+}
+		}
+	}
+	#利与权
+	focus = {
+		id = YUM_liyuquan
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = YUM_tiaojie_xuanchuan_koujing}
+		relative_position_id = YUM_tiaojie_xuanchuan_koujing
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_to_variable = {
+    var = YUM.lianbang_liliang
+    value = 10
+	tooltip = YUM_lianbang_liliang_1_tt
+}
+		}
+	}
+	#抹除路线分歧
+	focus = {
+		id = YUM_mochu_luxian_fenqi
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = YUM_liyuquan}
+		prerequisite = { focus = YUM_buduicheng_bianlun}
+		relative_position_id = YUM_liyuquan
+		x = -1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_country_flag = YUM_zhengzhi_heping
+		}
+		completion_reward = {
+		remove_ideas = YUM_zhengzhi_chongtu
+		}
+	}
+	#接纳自治区代表
+	focus = {
+		id = YUM_jiena_zizhiqu_daibiao
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = YUM_chongshen_nishen_tiaoyue}
+		relative_position_id = YUM_chongshen_nishen_tiaoyue
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_to_variable = {
+    var = YUM.beizhan
+    value = 10
+	tooltip = YUM_beizhan_1_tt
+}
+		}
+	}
+	#团结力量
+	focus = {
+		id = YUM_tuanjie_liliang
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = YUM_jiena_zizhiqu_daibiao }
+		relative_position_id = YUM_jiena_zizhiqu_daibiao
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_lianmeng_tuanjie
+		remove_idea = YUM_zizhiqu_leiqi_lianmeng
+		}
+		add_to_variable = {
+    var = YUM.beizhan
+    value = 10
+	tooltip = YUM_beizhan_1_tt
+}
+		}
+	}
+	#联合地方
+	focus = {
+		id = YUM_lianhe_difang
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = YUM_tuanjie_liliang }
+		relative_position_id = YUM_tuanjie_liliang
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+	    DMT = {
+		exists = yes
+		is_puppet_of = YUM
+		}
+		KOS = {
+		exists = yes
+		is_puppet_of = YUM
+		}
+		MNT = {
+		exists = yes
+		is_puppet_of = YUM
+		}
+		MAC = {
+		exists = yes
+		is_puppet_of = YUM
+		}
+		}
+		completion_reward = {
+		every_country = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		add_ideas = YUM_tuanjie_difang
+		}
+		add_to_variable = {
+    var = YUM.beizhan
+    value = 10
+	tooltip = YUM_beizhan_1_tt
+}
+		}
+	}
+	#最后的命令
+	focus = {
+		id = YUM_zuihou_mingling
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = YUM_lianhe_difang }
+		relative_position_id = YUM_lianhe_difang
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+	    has_completed_focus = YUM_mochu_luxian_fenqi
+		has_completed_focus = YUM_jingji_daji
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = YUM_zuihou_mingling
+    days = 360
+}
+		swap_ideas = {
+		add_idea = YUM_lianmeng_tuanjie_2
+		remove_idea = YUM_lianmeng_tuanjie
+		}
+		swap_ideas = {
+		add_idea = YUM_xueyuxingfeng_lianmeng
+		remove_idea = YUM_lianmeng_wange
+		}
+		add_ideas = YUM_junshiwuzhaung_bengkui
+		declare_war_on = {
+    target = BUL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SER
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ALB
+    type = annex_everything
+}
+country_event = { id = holy_baergan.10 days = 3 }
+news_event = {
+				id = holy_news.112 days = 1
+			}
+AUS = {
+puppet = SLV
+}
+		}
+	}
+	#最后的经济调控
+	focus = {
+		id = YUM_zuihou_jinbgji_tiaokong
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = YUM_chongshen_nishen_tiaoyue }
+		relative_position_id = YUM_chongshen_nishen_tiaoyue
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_last_jingji_tiaokong
+		remove_idea = YUM_xiaotiao_yubo
+		}
+		}
+	}
+	#调整关税
+	focus = {
+		id = YUM_tiaozheng_guanshui
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = YUM_zuihou_jinbgji_tiaokong }
+		relative_position_id = YUM_zuihou_jinbgji_tiaokong
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_last_jingji_tiaokong_2
+		remove_idea = YUM_last_jingji_tiaokong
+		}
+		}
+	}
+	#向世界举债
+	focus = {
+		id = YUM_xiangshijie_juzhai
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YUM_tiaozheng_guanshui }
+		relative_position_id = YUM_tiaozheng_guanshui
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = YUM_last_jingji_tiaokong_2
+		}
+	}
+	#搬迁工业
+	focus = {
+		id = YUM_banqiangongye
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = YUM_zuihou_jinbgji_tiaokong }
+		relative_position_id = YUM_zuihou_jinbgji_tiaokong
+		x = 1
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 100
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+	}
+	#尼什壁垒
+	focus = {
+		id = YUM_nishen_bilei
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = YUM_banqiangongye }
+		relative_position_id = YUM_banqiangongye
+		x = 0
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		964 = {
+			add_building_construction = {
+				type = bunker
+				province = 9602
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 630
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6634
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9756
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11887
+				level = 2
+				instant_build = yes
+			}
+		}
+		}
+	}
+	#经济打击
+	focus = {
+		id = YUM_jingji_daji
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = YUM_xiangshijie_juzhai }
+		prerequisite = { focus = YUM_nishen_bilei }
+		relative_position_id = YUM_nishen_bilei
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ALB = {
+		exists = yes
+		}
+		BUL = {
+		exists = yes
+		}
+		SER = {
+		exists = yes
+		}
+		DKL = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		ALB = {
+		add_timed_idea = {
+    idea = YUM_jingji_daji
+    days = 180
+}
+		}
+		BUL = {
+		add_timed_idea = {
+    idea = YUM_jingji_daji
+    days = 180
+}
+		}
+		SER = {
+		add_timed_idea = {
+    idea = YUM_jingji_daji
+    days = 180
+}
+		}
+		DKL = {
+		add_timed_idea = {
+    idea = YUM_jingji_daji
+    days = 180
+}
+		}
+		}
+	}
+	#联邦之翼
+	focus = {
+		id = YUM_lianbang_zhiyi
+		icon = GFX_focus_YUG_rogozarski
+		x = 23
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		check_variable = { YUM.lianbang_vic > 2 }
+		has_completed_focus = YUM_zuihou_mingling
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = progressism
+}
+add_stability = 0.1
+		}
+	}
+	#国家民主委员会
+	focus = {
+		id = YUM_guojia_minzhu_weiyuanhui
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = YUM_lianbang_zhiyi }
+		relative_position_id = YUM_lianbang_zhiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_minzhu_weiyuanhui
+		}
+	}
+	#号召自由世界
+	focus = {
+		id = YUM_haozhao_ziyou_shijie
+		icon = GFX_focus_eng_the_sun_never_sets
+		prerequisite = { focus = YUM_guojia_minzhu_weiyuanhui }
+		relative_position_id = YUM_guojia_minzhu_weiyuanhui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FRA
+}
+		}
+	}
+	#政治支援
+	focus = {
+		id = YUM_zhengzhi_zhiyuan
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = YUM_haozhao_ziyou_shijie }
+		relative_position_id = YUM_haozhao_ziyou_shijie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = progressism
+    popularity = 0.1
+}
+add_political_power = 100
+load_oob = YUM_zhiyuanjun
+		}
+	}
+	#吞并军部
+	focus = {
+		id = YUM_tunbing_junbu
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = YUM_lianbang_zhiyi }
+		relative_position_id = YUM_lianbang_zhiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_gonghe_junshi
+		}
+	}
+	#地方治理改革
+	focus = {
+		id = YUM_difang_zhili_gaige
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = YUM_guojia_minzhu_weiyuanhui }
+		prerequisite = { focus = YUM_tunbing_junbu }
+		relative_position_id = YUM_tunbing_junbu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzhu_weiyuanhui_2
+		remove_idea = YUM_minzhu_weiyuanhui
+		}
+		}
+	}
+	#加强总统权力
+	focus = {
+		id = YUM_jiaqiang_zongtong_quanli
+		icon = GFX_focus_generic_strike_at_democracy2
+		prerequisite = { focus = YUM_difang_zhili_gaige }
+		relative_position_id = YUM_difang_zhili_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzhu_weiyuanhui_3
+		remove_idea = YUM_minzhu_weiyuanhui_2
+		}
+		}
+	}
+	#地方军事民主联合体
+	focus = {
+		id = YUM_difang_junshi_minzhu_lianheti
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = YUM_zhengzhi_zhiyuan }
+		prerequisite = { focus = YUM_jiaqiang_zongtong_quanli }
+		relative_position_id = YUM_jiaqiang_zongtong_quanli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzhu_weiyuanhui_4
+		remove_idea = YUM_minzhu_weiyuanhui_3
+		}
+		}
+	}
+	#建立社会秩序
+	focus = {
+		id = YUM_build_shehui_zhixu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = YUM_difang_junshi_minzhu_lianheti }
+		relative_position_id = YUM_difang_junshi_minzhu_lianheti
+		x = -0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_shehui_zhixu
+		}
+	}
+	#共和卫队
+	focus = {
+		id = YUM_gonghe_weidui
+		icon = GFX_focus_generic_women_in_military
+		prerequisite = { focus = YUM_tunbing_junbu }
+		relative_position_id = YUM_tunbing_junbu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gonghe_junshi_2
+		remove_idea = YUM_gonghe_junshi
+		}
+		}
+	}
+	#扩大卫队
+	focus = {
+		id = YUM_kuoda_weidui
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		prerequisite = { focus = YUM_gonghe_weidui }
+		relative_position_id = YUM_gonghe_weidui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gonghe_junshi_3
+		remove_idea = YUM_gonghe_junshi_2
+		}
+		}
+	}
+	#自由与胜利万岁
+	focus = {
+		id = YUM_freeandvic
+		icon = GFX_focus_POL_riot_of_37
+		prerequisite = { focus = YUM_jiaqiang_zongtong_quanli }
+		prerequisite = { focus = YUM_kuoda_weidui }
+		relative_position_id = YUM_jiaqiang_zongtong_quanli
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_freeandvic
+		}
+	}
+	#人权再解放
+	focus = {
+		id = YUM_renquan_zaijiefang
+		icon = GFX_focus_POL_end_the_regency
+		prerequisite = { focus = YUM_freeandvic }
+		relative_position_id = YUM_freeandvic
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_freeandvic_2
+		remove_idea = YUM_freeandvic
+		}
+		}
+	}
+	#民族之骑
+	focus = {
+		id = YUM_minzu_zhiji
+		icon = GFX_focus_generic_horse_studs
+		x = 37
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		check_variable = { YUM.lianbang_vic < 3 }
+		has_completed_focus = YUM_zuihou_mingling
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = reconcilism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = reconcilism
+}
+		add_war_support = 0.1
+		}
+	}
+	#链接大地
+	focus = {
+		id = YUM_lianjie_dadi
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = YUM_minzu_zhiji }
+		relative_position_id = YUM_minzu_zhiji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_lianjie_dadi
+		}
+	}
+	#右翼大联盟
+	focus = {
+		id = YUM_youyi_dalianmeng
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = YUM_minzu_zhiji }
+		relative_position_id = YUM_minzu_zhiji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_youyi_lianmeng
+		}
+	}
+	#团结民兵
+	focus = {
+		id = YUM_tuanjie_minbing
+		icon = GFX_focus_ETH_keep_the_chitet
+		prerequisite = { focus = YUM_lianjie_dadi }
+		prerequisite = { focus = YUM_youyi_dalianmeng }
+		relative_position_id = YUM_youyi_dalianmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_lianjie_dadi_2
+		remove_idea = YUM_lianjie_dadi
+		}
+		}
+	}
+	#提拔青年军官
+	focus = {
+		id = YUM_tiba_qingnian_junguan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = YUM_minzu_zhiji }
+		relative_position_id = YUM_minzu_zhiji
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_junshi_gaizao
+		}
+	}
+	#地区军事化
+	focus = {
+		id = YUM_diqujunshihua
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = YUM_tiba_qingnian_junguan }
+		prerequisite = { focus = YUM_youyi_dalianmeng }
+		relative_position_id = YUM_youyi_dalianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_junshi_gaizao_2
+		remove_idea = YUM_junshi_gaizao
+		}
+		}
+	}
+	#民族团结状态
+	focus = {
+		id = YUM_minzu_tuanjie_zhuangtai
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = YUM_tuanjie_minbing }
+		prerequisite = { focus = YUM_diqujunshihua }
+		relative_position_id = YUM_tuanjie_minbing
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_youyi_lianmeng_2
+		remove_idea = YUM_youyi_lianmeng
+		}
+		}
+	}
+	#土地增值税
+	focus = {
+		id = YUM_tudi_zengzhi_shui
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = YUM_minzu_tuanjie_zhuangtai }
+		relative_position_id = YUM_minzu_tuanjie_zhuangtai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_xiangcun_gaige
+		}
+	}
+	#建设乡村
+	focus = {
+		id = YUM_jianshe_xiangcun
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = YUM_tudi_zengzhi_shui }
+		relative_position_id = YUM_tudi_zengzhi_shui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_xiangcun_gaige_2
+		remove_idea = YUM_xiangcun_gaige
+		}
+		}
+	}
+	#经济与战争委员会
+	focus = {
+		id = YUM_jingji_zhanzheng_weiyuanhui
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = YUM_minzu_tuanjie_zhuangtai }
+		relative_position_id = YUM_minzu_tuanjie_zhuangtai
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_jingji_tonghe
+		}
+	}
+	#指导经济体制
+	focus = {
+		id = YUM_zhidao_jingji_tizizhi
+		icon = GFX_focus_spa_the_phalanx_ascendant
+		prerequisite = { focus = YUM_jingji_zhanzheng_weiyuanhui }
+		relative_position_id = YUM_jingji_zhanzheng_weiyuanhui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_jingji_tonghe_2
+		remove_idea = YUM_jingji_tonghe
+		}
+		}
+	}
+	#言论管控
+	focus = {
+		id = YUM_yanlun_guankong
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = YUM_jingji_zhanzheng_weiyuanhui }
+		relative_position_id = YUM_jingji_zhanzheng_weiyuanhui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = socialism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = neutrality
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = dictatorship
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = conservatism
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = democratic
+    popularity = -0.2
+}
+add_popularity = {
+    ideology = progressism
+    popularity = -0.2
+}
+		}
+	}
+	#组织黑色冲锋队
+	focus = {
+		id = YUM_zuzhi_heise_chongfengdui
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = YUM_jingji_zhanzheng_weiyuanhui }
+		relative_position_id = YUM_jingji_zhanzheng_weiyuanhui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_junshi_gaizao_3
+		remove_idea = YUM_junshi_gaizao_2
+		}
+		}
+	}
+	#永恒的联盟
+	focus = {
+		id = YUM_yongheng_lianmeng
+		icon = GFX_focus_BUL_the_unification_of_the_balkans
+		prerequisite = { focus = YUM_lianbang_zhiyi focus = YUM_minzu_zhiji }
+		relative_position_id = YUM_lianbang_zhiyi
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_xueyuxingfeng_lianmeng_2
+		remove_idea = YUM_xueyuxingfeng_lianmeng
+		}
+		}
+	}
+	#联络敌境支持者
+	focus = {
+		id = YUM_lianluo_dijing_zizhzhe
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = YUM_yongheng_lianmeng }
+		relative_position_id = YUM_yongheng_lianmeng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		ALB = {
+		add_timed_idea = {
+    idea = YUM_lianmeng_zhichizhe
+    days = 90
+}
+		}
+		BUL = {
+		add_timed_idea = {
+    idea = YUM_lianmeng_zhichizhe
+    days = 180
+}
+		}
+		SER = {
+		add_timed_idea = {
+    idea = YUM_lianmeng_zhichizhe
+    days = 180
+}
+		}
+		DKL = {
+		add_timed_idea = {
+    idea = YUM_lianmeng_zhichizhe
+    days = 180
+}
+		}
+		}
+	}
+	#联盟团结战争
+	focus = {
+		id = YUM_lianmeng_tuanjie_zhanzheng
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = YUM_lianluo_dijing_zizhzhe }
+		relative_position_id = YUM_lianluo_dijing_zizhzhe
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzu_lianhe
+		remove_idea = YUM_minzu_fenqi
+	    }
+		}
+	}
+	#扩建尼什防线
+	focus = {
+		id = YUM_kuojian_nishen_fangxian
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = YUM_yongheng_lianmeng }
+		relative_position_id = YUM_yongheng_lianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		964 = {
+			add_building_construction = {
+				type = bunker
+				province = 9602
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 630
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 6634
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9756
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11887
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_war_support = 0.05
+		}
+	}
+	#中央大动员
+	focus = {
+		id = YUM_zhongyang_dadongyuan
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = YUM_kuojian_nishen_fangxian }
+		relative_position_id = YUM_kuojian_nishen_fangxian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = YUM_zhongyang_dongyuan
+		}
+	}
+	#联合自治区
+	focus = {
+		id = YUM_lianhe_zizhiqu
+		icon = GFX_focus_invite_yugoslavia
+		prerequisite = { focus = YUM_lianbang_zhiyi focus = YUM_minzu_zhiji }
+		relative_position_id = YUM_lianbang_zhiyi
+		x = 9
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_country = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		swap_ideas = {
+		add_idea = YUM_tuanjie_difang_2
+		remove_idea = YUM_tuanjie_difang
+		}
+		}
+		add_political_power = 50
+		}
+	}
+	#黑山军团
+	focus = {
+		id = YUM_heishanjuntuan
+		icon = GFX_focus_YUG_zmaj
+		prerequisite = { focus = YUM_lianhe_zizhiqu }
+		relative_position_id = YUM_lianhe_zizhiqu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		MNT = {
+		is_puppet_of = YUM
+		}
+		}
+		bypass = {
+		MNT = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		}
+		completion_reward = {
+		MNT = {
+		load_oob = MNT_juntuan
+		}
+		}
+	}
+	#组织达尔马提亚
+	focus = {
+		id = YUM_zuzhi_daermatiya
+		icon = GFX_focus_YUG_banovina_of_croatia
+		prerequisite = { focus = YUM_heishanjuntuan }
+		relative_position_id = YUM_heishanjuntuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DMT = {
+		is_puppet_of = YUM
+		}
+		}
+		bypass = {
+		DMT = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		}
+		completion_reward = {
+		DMT = {
+		load_oob = DMT_zuzhijundui
+		}
+		}
+	}
+	#协助科索沃
+	focus = {
+		id = YUM_xiezhu_kesuowo
+		icon = GFX_focus_YUG_dissolve_serbia
+		prerequisite = { focus = YUM_lianhe_zizhiqu }
+		relative_position_id = YUM_lianhe_zizhiqu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KOS = {
+		is_puppet_of = YUM
+		}
+		}
+		bypass = {
+		KOS = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		}
+		completion_reward = {
+		KOS = {
+		load_oob = KOS_xiezhujun
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -1000
+}
+		}
+	}
+	#马其顿战略
+	focus = {
+		id = YUM_maqidun_zhanlue
+		icon = GFX_focus_YUG_ikarus
+		prerequisite = { focus = YUM_xiezhu_kesuowo }
+		relative_position_id = YUM_xiezhu_kesuowo
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		MAC = {
+		is_puppet_of = YUM
+		}
+		}
+		bypass = {
+		MAC = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		}
+		completion_reward = {
+		MAC = {
+		load_oob = MAC_zhanlueyuanjun
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -1000
+}
+		}
+	}
+	#大联盟重生
+	focus = {
+		id = YUM_dalianmeng_chongsheng
+		icon = GFX_focus_BUL_free_balkan_states
+		prerequisite = { focus = YUM_lianmeng_tuanjie_zhanzheng }
+		prerequisite = { focus = YUM_zhongyang_dadongyuan }
+		prerequisite = { focus = YUM_zuzhi_daermatiya }
+		prerequisite = { focus = YUM_maqidun_zhanlue }
+		relative_position_id = YUM_maqidun_zhanlue
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ALB = {
+		exists = no
+		}
+		BUL = {
+		exists = no
+		}
+		DKL = {
+		exists = no
+		}
+		SER = {
+		exists = no
+		}
+		NWM = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_yuhuochongsheng
+		remove_idea = YUM_xueyuxingfeng_lianmeng_2
+		}
+		news_event = {
+				id = holy_news.107 days = 1
+			}
+		}
+	}
+	#整合联盟
+	focus = {
+		id = YUM_zhenghe_lianmeng
+		icon = GFX_focus_BUL_balkan_federation_of_socialist_republics
+		prerequisite = { focus = YUM_dalianmeng_chongsheng }
+		relative_position_id = YUM_dalianmeng_chongsheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_political_power = 50
+		add_stability = 0.1
+		add_war_support = 0.05
+		}
+	}
+	#抚平民族问题
+	focus = {
+		id = YUM_fuping_minzuwenti
+		icon = GFX_focus_ETH_sway_the_warlords
+		prerequisite = { focus = YUM_zhenghe_lianmeng }
+		relative_position_id = YUM_zhenghe_lianmeng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzu_lianhe_2
+		remove_idea = YUM_minzu_lianhe
+		}
+		}
+	}
+	#维护平等
+	focus = {
+		id = YUM_weihu_pingdeng
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = YUM_fuping_minzuwenti }
+		relative_position_id = YUM_fuping_minzuwenti
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzu_lianhe_3
+		remove_idea = YUM_minzu_lianhe_2
+		}
+		}
+	}
+	#斩除反对派
+	focus = {
+		id = YUM_zhanchu_fanduipai
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = YUM_fuping_minzuwenti }
+		relative_position_id = YUM_fuping_minzuwenti
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_yuhuochongsheng_2
+		remove_idea = YUM_yuhuochongsheng
+		}
+		}
+	}
+	#重建誓约
+	focus = {
+		id = YUM_chongjian_qiyue
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = YUM_weihu_pingdeng }
+		prerequisite = { focus = YUM_zhanchu_fanduipai }
+		relative_position_id = YUM_weihu_pingdeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_minzu_lianhe_4
+		remove_idea = YUM_minzu_lianhe_3
+		}
+		}
+	}
+	#接管自治区
+	focus = {
+		id = YUM_jieguan_zizhiqu
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = YUM_zhenghe_lianmeng }
+		relative_position_id = YUM_zhenghe_lianmeng
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		KOS = {
+		if = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		YUM = {
+		annex_country = {
+    target = KOS
+    transfer_troops = yes
+}
+}
+}
+if = {
+		limit = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		YUM = {
+		declare_war_on = {
+    target = KOS
+    type = annex_everything
+}
+		}
+		}
+		}
+		DMT = {
+		if = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		YUM = {
+		annex_country = {
+    target = DMT
+    transfer_troops = yes
+}
+}
+}
+if = {
+		limit = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		YUM = {
+		declare_war_on = {
+    target = DMT
+    type = annex_everything
+}
+		}
+		}
+		}
+		MNT = {
+		if = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		YUM = {
+		annex_country = {
+    target = MNT
+    transfer_troops = yes
+}
+}
+}
+if = {
+		limit = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		YUM = {
+		declare_war_on = {
+    target = MNT
+    type = annex_everything
+}
+		}
+		}
+		}
+		MAC = {
+		if = {
+		limit = {
+		is_puppet_of = YUM
+		}
+		YUM = {
+		annex_country = {
+    target = MAC
+    transfer_troops = yes
+}
+}
+}
+if = {
+		limit = {
+		NOT = {
+		is_puppet_of = YUM
+		}
+		}
+		YUM = {
+		declare_war_on = {
+    target = MAC
+    type = annex_everything
+}
+		}
+		}
+		}
+		}
+	}
+	#多布罗加统合
+	focus = {
+		id = YUM_duobuluojia_tonghe
+		icon = GFX_focus_YUG_autonomous_transylvania
+		prerequisite = { focus = YUM_jieguan_zizhiqu }
+		relative_position_id = YUM_jieguan_zizhiqu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 970
+		}
+		completion_reward = {
+		add_state_core = 970
+		}
+	}
+	#阿尔巴尼亚统合
+	focus = {
+		id = YUM_aerbaniya_tonghe
+		icon = GFX_focus_ITA_albanian_fascist_militia
+		prerequisite = { focus = YUM_duobuluojia_tonghe }
+		relative_position_id = YUM_duobuluojia_tonghe
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1049
+		controls_state = 44
+		controls_state = 805
+		}
+		completion_reward = {
+		add_state_core = 1049
+		add_state_core = 44
+		add_state_core = 805
+		}
+	}
+	#重回世界
+	focus = {
+		id = YUM_chonghui_shijie
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = YUM_dalianmeng_chongsheng }
+		relative_position_id = YUM_dalianmeng_chongsheng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#泛斯拉夫梦想
+	focus = {
+		id = YUM_fansialfu_mengxiang
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = YUM_chonghui_shijie }
+		relative_position_id = YUM_chonghui_shijie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_state_claim = 967
+		add_state_claim = 1397
+		add_state_claim = 1386
+		add_state_claim = 731
+		add_state_claim = 184
+		add_state_claim = 1387
+		add_state_claim = 341
+		add_state_claim = 1584
+		add_state_claim = 1583
+		add_state_claim = 797
+		}
+	}
+	#向希腊前进
+	focus = {
+		id = YUM_xiangxila_qianjin
+		icon = GFX_focus_generic_attack_greece
+		prerequisite = { focus = YUM_fansialfu_mengxiang }
+		relative_position_id = YUM_fansialfu_mengxiang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BYZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = GRE
+    type = annex_everything
+}
+if = {
+limit = {
+OTT = {
+controls_state = 797
+}
+}
+declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+}
+if = {
+limit = {
+OTF = {
+controls_state = 797
+}
+}
+declare_war_on = {
+    target = OTT
+    type = annex_everything
+}
+}
+		}
+	}
+	#收复北部领土
+	focus = {
+		id = YUM_shoufu_beibu_lingtu
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = YUM_fansialfu_mengxiang }
+		relative_position_id = YUM_fansialfu_mengxiang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BNT
+    type = annex_everything
+}
+declare_war_on = {
+    target = XYL
+    type = annex_everything
+}
+declare_war_on = {
+    target = TRA
+    type = annex_everything
+}
+		}
+	}
+	#斯洛文尼亚问题
+	focus = {
+		id = YUM_siluowenniya_wenti
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = YUM_fansialfu_mengxiang }
+		relative_position_id = YUM_fansialfu_mengxiang
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = SLV
+    type = annex_everything
+}
+declare_war_on = {
+    target = AUS
+    type = annex_everything
+}
+		}
+	}
+	#整编军队
+	focus = {
+		id = YUM_zhengbian_jundui
+		icon = GFX_focus_generic_air_defense
+		x = 15
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		has_completed_focus = YUM_zuihou_mingling
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zhengbian_jundui
+		remove_idea = YUM_junshiwuzhaung_bengkui
+		}
+		}
+	}
+	#解决指挥问题
+	focus = {
+		id = YUM_jiejue_zhihui_wenti
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = YUM_zhengbian_jundui }
+		relative_position_id = YUM_zhengbian_jundui
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_zhanzheng_zhihui
+		}
+	}
+	#建立战争协调
+	focus = {
+		id = YUM_jianli_zhanzheng_xietiao
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = YUM_jiejue_zhihui_wenti }
+		relative_position_id = YUM_jiejue_zhihui_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zhanzheng_zhihui_2
+		remove_idea = YUM_zhanzheng_zhihui
+		}
+		}
+	}
+	#重建战争体制
+	focus = {
+		id = YUM_chongjian_zhanzheng_tizhi
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = YUM_zhengbian_jundui }
+		relative_position_id = YUM_zhengbian_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_zhanzheng_tizhi
+		}
+	}
+	#紧急大动员
+	focus = {
+		id = YUM_jinji_dadongyuan
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = YUM_chongjian_zhanzheng_tizhi }
+		relative_position_id = YUM_chongjian_zhanzheng_tizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = YUM_dadongyuan
+		}
+	}
+	#秩序化军队
+	focus = {
+		id = YUM_zhixuhua_jundui
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = YUM_zhengbian_jundui }
+		relative_position_id = YUM_zhengbian_jundui
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_zhixuhua_jundui
+		}
+	}
+	#守卫者之心
+	focus = {
+		id = YUM_shouweizhe_zhixin
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = YUM_zhixuhua_jundui }
+		relative_position_id = YUM_zhixuhua_jundui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zhixuhua_jundui_2
+		remove_idea = YUM_zhixuhua_jundui
+		}
+		}
+	}
+	#战争统合总部
+	focus = {
+		id = YUM_zhanzheng_tonghe_zongbu
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = YUM_jianli_zhanzheng_xietiao }
+		prerequisite = { focus = YUM_chongjian_zhanzheng_tizhi }
+		prerequisite = { focus = YUM_shouweizhe_zhixin }
+		relative_position_id = YUM_chongjian_zhanzheng_tizhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = YUM_zhanzheng_tonghe
+		}
+	}
+	#总参谋部
+	focus = {
+		id = YUM_zongcanmoubu
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = YUM_zhanzheng_tonghe_zongbu }
+		relative_position_id = YUM_zhanzheng_tonghe_zongbu
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zongcanmoubu
+		remove_idea = YUM_zhanzheng_zhihui_2
+		}
+		}
+	}
+	#大规模动员体系
+	focus = {
+		id = YUM_daguimo_dongyuantixi
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = YUM_zongcanmoubu }
+		relative_position_id = YUM_zongcanmoubu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_daguimo_dongyuan
+		}
+	}
+	#武装民兵
+	focus = {
+		id = YUM_wuzhuang_minbing
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = YUM_daguimo_dongyuantixi }
+		relative_position_id = YUM_daguimo_dongyuantixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		every_owned_controlled_state = {
+		create_unit = {
+    division = "name = \"南斯拉夫动员民兵\" division_template = \"南斯拉夫动员军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = YUM
+}
+		}
+		}
+	}
+	#联盟动员
+	focus = {
+		id = YUM_lianmeng_dongyuan
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = YUM_wuzhuang_minbing }
+		relative_position_id = YUM_wuzhuang_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_daguimo_dongyuan_2
+		remove_idea = YUM_daguimo_dongyuan
+		}
+		}
+	}
+	#高速战争策划
+	focus = {
+		id = YUM_gaosu_zhanzheng_cehua
+		icon = GFX_focus_generic_league_of_nations
+		prerequisite = { focus = YUM_zongcanmoubu }
+		prerequisite = { focus = YUM_gexin_zhanzheng_jishu }
+		relative_position_id = YUM_gexin_zhanzheng_jishu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zongcanmoubu_2
+		remove_idea = YUM_zongcanmoubu
+		}
+		}
+	}
+	#革新战争技术
+	focus = {
+		id = YUM_gexin_zhanzheng_jishu
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = YUM_zhanzheng_tonghe_zongbu }
+		relative_position_id = YUM_zhanzheng_tonghe_zongbu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_gexin_zhanzheng_jishu
+		}
+	}
+	#现代化战争
+	focus = {
+		id = YUM_xiandaihua_zhanzheng
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = YUM_gexin_zhanzheng_jishu }
+		relative_position_id = YUM_gexin_zhanzheng_jishu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gexin_zhanzheng_jishu_2
+		remove_idea = YUM_gexin_zhanzheng_jishu
+		}
+		}
+	}
+	#联合后勤体系
+	focus = {
+		id = YUM_lianhe_houqin_tixi
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = YUM_gaosu_zhanzheng_cehua }
+		prerequisite = { focus = YUM_xiandaihua_zhanzheng }
+		relative_position_id = YUM_xiandaihua_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zongcanmoubu_3
+		remove_idea = YUM_zongcanmoubu_2
+		}
+		}
+	}
+	#骑兵摩托化
+	focus = {
+		id = YUM_qibing_motuohua
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = YUM_lianhe_houqin_tixi }
+		relative_position_id = YUM_lianhe_houqin_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_qibing_motuohua
+		}
+	}
+	#战争源泉
+	focus = {
+		id = YUM_zhanzheng_yuanquan
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = YUM_lianmeng_dongyuan }
+		prerequisite = { focus = YUM_qibing_motuohua }
+		relative_position_id = YUM_qibing_motuohua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_daguimo_dongyuan_3
+		remove_idea = YUM_daguimo_dongyuan_2
+		}
+		}
+	}
+	#完善军队组织
+	focus = {
+		id = YUM_wanshan_jundui_zuzhi
+		icon = GFX_focus_generic_tankette
+		prerequisite = { focus = YUM_zhanzheng_tonghe_zongbu }
+		relative_position_id = YUM_zhanzheng_tonghe_zongbu
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_wanshan_jundui
+		remove_idea = YUM_zhixuhua_jundui_2
+		}
+		}
+	}
+	#各民族各军
+	focus = {
+		id = YUM_geminzu_gejun
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = YUM_wanshan_jundui_zuzhi }
+		relative_position_id = YUM_wanshan_jundui_zuzhi
+		mutually_exclusive = { focus = YUM_hunbian_budui }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_geminzu_gejun
+		}
+	}
+	#混编部队
+	focus = {
+		id = YUM_hunbian_budui
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = YUM_wanshan_jundui_zuzhi }
+		relative_position_id = YUM_wanshan_jundui_zuzhi
+		mutually_exclusive = { focus = YUM_geminzu_gejun }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_hunbian_budui
+		}
+	}
+	#确立火力支援
+	focus = {
+		id = YUM_queli_huoli_zhiyuan
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = YUM_geminzu_gejun focus = YUM_hunbian_budui }
+		prerequisite = { focus = YUM_xiandaihua_zhanzheng }
+		relative_position_id = YUM_geminzu_gejun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_huoli_zhiyuan
+		}
+	}
+	#装甲研究
+	focus = {
+		id = YUM_zhuangjia_yanjiu
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = YUM_queli_huoli_zhiyuan }
+		prerequisite = { focus = YUM_lianhe_houqin_tixi }
+		relative_position_id = YUM_queli_huoli_zhiyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+    bonus = 0.5
+    uses = 3
+    category = armor
+}
+		}
+	}
+	#职业化士官
+	focus = {
+		id = YUM_zhiyehua_shiguan
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = YUM_geminzu_gejun focus = YUM_hunbian_budui }
+		relative_position_id = YUM_geminzu_gejun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_wanshan_jundui_2
+		remove_idea = YUM_wanshan_jundui
+		}
+		}
+	}
+	#层叠部队
+	focus = {
+		id = YUM_cengdiebudui
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = YUM_zhiyehua_shiguan }
+		relative_position_id = YUM_zhiyehua_shiguan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_wanshan_jundui_3
+		remove_idea = YUM_wanshan_jundui_2
+		}
+		}
+	}
+	#弹性防御
+	focus = {
+		id = YUM_tanxing_fangyu
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = YUM_cengdiebudui }
+		relative_position_id = YUM_cengdiebudui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_wanshan_jundui_
+		remove_idea = YUM_wanshan_jundui_3
+		}
+		}
+	}
+	#进攻战术革新
+	focus = {
+		id = YUM_jingong_zhanshu_gexin
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = YUM_zhiyehua_shiguan }
+		prerequisite = { focus = YUM_queli_huoli_zhiyuan }
+		relative_position_id = YUM_queli_huoli_zhiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_huoli_zhiyuan_2
+		remove_idea = YUM_huoli_zhiyuan
+		}
+		}
+	}
+	#闪电突破
+	focus = {
+		id = YUM_shandian_tupo
+		icon = GFX_focus_generic_armored_air_support
+		prerequisite = { focus = YUM_jingong_zhanshu_gexin }
+		prerequisite = { focus = YUM_zhuangjia_yanjiu }
+		relative_position_id = YUM_zhuangjia_yanjiu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_ture_attack
+		remove_idea = YUM_huoli_zhiyuan_2
+		}
+		}
+	}
+	#三海征服者
+	focus = {
+		id = YUM_sanhai_zhengfuzhe
+		icon = GFX_focus_generic_navy_battleship2
+		x = 13
+		y = 19
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		has_completed_focus = YUM_dalianmeng_chongsheng
+		}
+		completion_reward = {
+		navy_experience = 50
+		}
+	}
+	#潜艇战术研究
+	focus = {
+		id = YUM_qianting_zhanshu_yanjiu
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = YUM_sanhai_zhengfuzhe }
+		relative_position_id = YUM_sanhai_zhengfuzhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_naval_research
+		}
+	}
+	#海军研究
+	focus = {
+		id = YUM_haijun_yanjiu
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = YUM_qianting_zhanshu_yanjiu }
+		relative_position_id = YUM_qianting_zhanshu_yanjiu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_naval_research_2
+		remove_idea = YUM_naval_research
+		}
+		}
+	}
+	#建设瓦尔纳
+	focus = {
+		id = YUM_jianshe_waerna
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = YUM_sanhai_zhengfuzhe }
+		relative_position_id = YUM_sanhai_zhengfuzhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		211 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设达尔马提亚
+	focus = {
+		id = YUM_jianshe_daermatiya
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = YUM_jianshe_waerna }
+		relative_position_id = YUM_jianshe_waerna
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		962 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#摇曳海洋
+	focus = {
+		id = YUM_yaoye_haiyang
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = YUM_haijun_yanjiu }
+		prerequisite = { focus = YUM_jianshe_daermatiya }
+		relative_position_id = YUM_jianshe_daermatiya
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_naval_research_3
+		remove_idea = YUM_naval_research_2
+		}
+		}
+	}
+	#天空之翼
+	focus = {
+		id = YUM_tiankong_zhiyi
+		icon = GFX_focus_YUG_rogozarski
+		x = 17
+		y = 19
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		has_completed_focus = YUM_dalianmeng_chongsheng
+		}
+		completion_reward = {
+		air_experience = 50
+		}
+	}
+	#扩建空军工坊
+	focus = {
+		id = YUM_kuojian_kongjun_gongfang
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = YUM_tiankong_zhiyi }
+		relative_position_id = YUM_tiankong_zhiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		107 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		104 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#建设联盟机场
+	focus = {
+		id = YUM_jianshe_lianmeng_jichang
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = YUM_tiankong_zhiyi }
+		relative_position_id = YUM_tiankong_zhiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		109 = {
+			add_building_construction = {
+    type = air_base
+    level = 2
+    instant_build = yes
+}
+			}
+		801 = {
+			add_building_construction = {
+    type = air_base
+    level = 2
+    instant_build = yes
+}
+			}
+	    106 = {
+			add_building_construction = {
+    type = air_base
+    level = 2
+    instant_build = yes
+}
+			}
+		}
+	}
+	#天空战争
+	focus = {
+		id = YUM_sky_war
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = YUM_kuojian_kongjun_gongfang }
+		prerequisite = { focus = YUM_jianshe_lianmeng_jichang }
+		relative_position_id = YUM_kuojian_kongjun_gongfang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+    bonus = 0.5
+    uses = 4
+    category = air_tech
+}
+		}
+	}
+	#前线支援
+	focus = {
+		id = YUM_qianxian_zhiyuan
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = YUM_sky_war }
+		relative_position_id = YUM_sky_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_qianxian_zhiyuan
+	    }
+	}
+	#狂轰滥炸
+	focus = {
+		id = YUM_kuanghong_lanzha
+		icon = GFX_focus_chi_flying_tigers
+		prerequisite = { focus = YUM_sky_war }
+		relative_position_id = YUM_sky_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_kuanghong_lanzha
+		}
+	}
+	#战时经济调整
+	focus = {
+		id = YUM_zhanshi_jingji_tiaozheng
+		icon = GFX_goal_generic_production2
+		x = 48
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+		has_completed_focus = YUM_zuihou_mingling
+		}
+		completion_reward = {
+		add_ideas = extensive_conscription
+		add_ideas = war_economy
+		}
+	}
+	#地底工业
+	focus = {
+		id = YUM_didi_gongye
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = YUM_zhanshi_jingji_tiaozheng }
+		relative_position_id = YUM_zhanshi_jingji_tiaozheng
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	#整体战计划
+	focus = {
+		id = YUM_zhengtizhan_jihua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = YUM_zhanshi_jingji_tiaozheng }
+		relative_position_id = YUM_zhanshi_jingji_tiaozheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_zhengtizhan_jihua
+		}
+	}
+	#扩大补给数量
+	focus = {
+		id = YUM_kuoida_buji_shuliang
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = YUM_didi_gongye }
+		prerequisite = { focus = YUM_zhengtizhan_jihua }
+		relative_position_id = YUM_zhengtizhan_jihua
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zhengtizhan_jihua_2
+		remove_idea = YUM_zhengtizhan_jihua
+		}
+		}
+	}
+	#改进生产线
+	focus = {
+		id = YUM_gaijin_shengchanxian
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = YUM_zhanshi_jingji_tiaozheng }
+		relative_position_id = YUM_zhanshi_jingji_tiaozheng
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_gaijin_shengchanxian
+		}
+	}
+	#扩大武装质量
+	focus = {
+		id = YUM_kuoida_wuzhuang_zhiliang
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = YUM_gaijin_shengchanxian }
+		prerequisite = { focus = YUM_zhengtizhan_jihua }
+		relative_position_id = YUM_zhengtizhan_jihua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gaijin_shengchanxian_2
+		remove_idea = YUM_gaijin_shengchanxian
+		}
+		}
+	}
+	#建立联盟铁路组织
+	focus = {
+		id = YUM_jianli_lianmeng_tielu_zuzhi
+		icon = GFX_focus_SOV_the_road_of_life
+		prerequisite = { focus = YUM_kuoida_buji_shuliang }
+		prerequisite = { focus = YUM_kuoida_wuzhuang_zhiliang }
+		relative_position_id = YUM_kuoida_wuzhuang_zhiliang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_zhengtizhan_jihua_3
+		remove_idea = YUM_zhengtizhan_jihua_2
+		}
+		}
+	}
+	#调整经济结构
+	focus = {
+		id = YUM_tiaozheng_jingji_jiegou
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = YUM_jianli_lianmeng_tielu_zuzhi }
+		relative_position_id = YUM_jianli_lianmeng_tielu_zuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = YUM_dalianmeng_chongsheng
+		}
+		completion_reward = {
+		add_timed_idea = {
+    idea = YUM_chongjian_guojia
+    days = 180
+}
+		}
+	}
+	#国有化军事工业
+	focus = {
+		id = YUM_guoyouhua_junshigongye
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 4 }
+		}
+	}
+	#重建三大军事区
+	focus = {
+		id = YUM_chongjian_sanda_junshiqu
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YUM_guoyouhua_junshigongye }
+		relative_position_id = YUM_guoyouhua_junshigongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gaijin_shengchanxian_3
+		remove_idea = YUM_gaijin_shengchanxian_2
+		}
+		}
+	}
+	#保加利亚再军事
+	focus = {
+		id = YUM_baojialiya_zaijunshi
+		icon = GFX_focus_BUL_promote_bulgarian_nationalism
+		prerequisite = { focus = YUM_chongjian_sanda_junshiqu }
+		relative_position_id = YUM_chongjian_sanda_junshiqu
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		48 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		212 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#克罗地亚再军事
+	focus = {
+		id = YUM_keluodiya_zaijunshi
+		icon = GFX_focus_YUG_banovina_of_croatia
+		prerequisite = { focus = YUM_chongjian_sanda_junshiqu }
+		relative_position_id = YUM_chongjian_sanda_junshiqu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		109 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		103 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#塞尔维亚再军事
+	focus = {
+		id = YUM_saierweiya_zaijunshi
+		icon = GFX_focus_YUG_dissolve_serbia
+		prerequisite = { focus = YUM_chongjian_sanda_junshiqu }
+		relative_position_id = YUM_chongjian_sanda_junshiqu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		107 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		108 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#建立金属加工
+	focus = {
+		id = YUM_jianli_jinshu_jiagong
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_jinshu_jiagong
+		}
+	}
+	#扩大金属体系
+	focus = {
+		id = YUM_kuoda_jinshu_tixi
+		icon = GFX_goal_continuous_non_factory_construct
+		prerequisite = { focus = YUM_jianli_jinshu_jiagong }
+		relative_position_id = YUM_jianli_jinshu_jiagong
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_jinshu_jiagong_2
+		remove_idea = YUM_jinshu_jiagong
+		}
+		}
+	}
+	#扩大资源开发
+	focus = {
+		id = YUM_kuoda_ziyuan_kaifa
+		icon = GFX_goal_generic_construction2
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_kuoda_ziyuan_kaifa
+		}
+	}
+	#波斯尼亚煤矿
+	focus = {
+		id = YUM_bosiniya_meikuang
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = YUM_kuoda_ziyuan_kaifa }
+		relative_position_id = YUM_kuoda_ziyuan_kaifa
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = oil
+    amount = 20
+    state = 984
+}
+add_resource = {
+    type = oil
+    amount = 20
+    state = 104
+}
+		}
+	}
+	#耶利卡铬矿
+	focus = {
+		id = YUM_yelika_gekuang
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = YUM_bosiniya_meikuang }
+		relative_position_id = YUM_bosiniya_meikuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_resource = {
+    type = chromium
+    amount = 30
+    state = 962
+}
+		}
+	}
+	#伊利里亚铜矿
+	focus = {
+		id = YUM_yililiya_tongkuang
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = YUM_kuoda_ziyuan_kaifa }
+		relative_position_id = YUM_kuoda_ziyuan_kaifa
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_yililiya_fazhan
+		}
+	}
+	#伊利里亚林业
+	focus = {
+		id = YUM_yililiya_linye
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = YUM_yililiya_tongkuang }
+		relative_position_id = YUM_yililiya_tongkuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_yililiya_fazhan_2
+		remove_idea = YUM_yililiya_fazhan
+		}
+		}
+	}
+	#重建轻工业
+	focus = {
+		id = YUM_chongjian_qinggongye
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 4 }
+		}
+	}
+	#山上纺织
+	focus = {
+		id = YUM_shanshang_fangzhi
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = YUM_chongjian_qinggongye }
+		relative_position_id = YUM_chongjian_qinggongye
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		104 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = industrial_complex
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#玫瑰之气
+	focus = {
+		id = YUM_meigui_zhiqi
+		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
+		prerequisite = { focus = YUM_chongjian_qinggongye }
+		relative_position_id = YUM_chongjian_qinggongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		211 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+			1390 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 3
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#重启对外贸易
+	focus = {
+		id = YUM_chongqi_duiwai_maoyi
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = YUM_chongjian_qinggongye }
+		relative_position_id = YUM_chongjian_qinggongye
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		103 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = dockyard
+    level = 3
+    instant_build = yes
+}
+			}
+		}
+	}
+	#滚滚财富
+	focus = {
+		id = YUM_gungun_caifu
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = YUM_shanshang_fangzhi }
+		prerequisite = { focus = YUM_meigui_zhiqi }
+		prerequisite = { focus = YUM_chongjian_qinggongye }
+		relative_position_id = YUM_meigui_zhiqi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_gungun_caifu
+		}
+	}
+	#全民教育体系
+	focus = {
+		id = YUM_quanmin_jiaoyu_tixi
+		icon = GFX_focus_research2
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = -3
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_quanmin_jiaoyu_tixi
+		}
+	}
+	#扩大地方教育
+	focus = {
+		id = YUM_kuoda_difang_jiaoyu
+		icon = GFX_focus_research2
+		prerequisite = { focus = YUM_quanmin_jiaoyu_tixi }
+		relative_position_id = YUM_quanmin_jiaoyu_tixi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_quanmin_jiaoyu_tixi_2
+		remove_idea = YUM_quanmin_jiaoyu_tixi
+		}
+		}
+	}
+	#团结的诞生
+	focus = {
+		id = YUM_tuanjie_dansheng
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = YUM_kuoda_difang_jiaoyu }
+		relative_position_id = YUM_kuoda_difang_jiaoyu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_quanmin_jiaoyu_tixi_3
+		remove_idea = YUM_quanmin_jiaoyu_tixi_2
+		}
+		}
+	}
+	#建设大学
+	focus = {
+		id = YUM_jianshe_daxue
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = YUM_quanmin_jiaoyu_tixi }
+		relative_position_id = YUM_quanmin_jiaoyu_tixi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#南斯拉夫科学院
+	focus = {
+		id = YUM_nansilafu_kexueyuan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = YUM_jianshe_daxue }
+		relative_position_id = YUM_jianshe_daxue
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		num_of_factories > 150
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#拆分农村势力
+	focus = {
+		id = YUM_chaifen_nongcun_shili
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YUM_tiaozheng_jingji_jiegou }
+		relative_position_id = YUM_tiaozheng_jingji_jiegou
+		x = 3
+		y = 4
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = -0.1
+		add_ideas = YUM_kaifa_nongcun
+		}
+	}
+	#城乡铁路
+	focus = {
+		id = YUM_chengxiang_tielu
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = YUM_chaifen_nongcun_shili }
+		relative_position_id = YUM_chaifen_nongcun_shili
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		801 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		108 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		984 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		983 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#集体化农业
+	focus = {
+		id = YUM_jitihua_nongye
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = YUM_chaifen_nongcun_shili }
+		relative_position_id = YUM_chaifen_nongcun_shili
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_kaifa_nongcun_2
+		remove_idea = YUM_kaifa_nongcun
+		}
+		}
+	}
+	#改革农业技术
+	focus = {
+		id = YUM_gaige_nongye_jishu
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = YUM_chaifen_nongcun_shili }
+		relative_position_id = YUM_chaifen_nongcun_shili
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = YUM_gaige_nongye_jishu
+		}
+	}
+	#繁荣之业
+	focus = {
+		id = YUM_fanrong_zhiye
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YUM_chengxiang_tielu }
+		prerequisite = { focus = YUM_jitihua_nongye }
+		relative_position_id = YUM_jitihua_nongye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_kaifa_nongcun_3
+		remove_idea = YUM_kaifa_nongcun_2
+		}
+		}
+	}
+	#拥抱大地
+	focus = {
+		id = YUM_yongbao_dadi
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = YUM_gaige_nongye_jishu }
+		prerequisite = { focus = YUM_jitihua_nongye }
+		relative_position_id = YUM_gaige_nongye_jishu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = YUM_gaige_nongye_jishu_2
+		remove_idea = YUM_gaige_nongye_jishu
+		}
+		}
+	}
+}

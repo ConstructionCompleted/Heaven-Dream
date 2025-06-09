@@ -1,0 +1,64 @@
+add_namespace = holy_ruishi
+#南德意志的威胁
+country_event = {
+	id = holy_ruishi.1
+	title = holy_ruishi.1.t
+	desc = holy_ruishi.1.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	ai_chance = {
+		    factor = 30
+		}
+		name = holy_ruishi.1.a
+		BAF = { puppet = RUI }
+	}
+	option = {
+	ai_chance = {
+		    factor = 30
+		}
+		name = holy_ruishi.1.b
+	    BAF = { annex_country = { target = RUI transfer_troops = no } }
+	}
+	option = {
+	ai_chance = {
+		    factor = 30
+		}
+		name = holy_ruishi.1.c
+	    BAF = {
+		create_wargoal = {
+        type = annex_everything
+        target = RUI
+        }
+	}
+	}
+}
+#法兰西帝国的要求
+country_event = {
+	id = holy_ruishi.2
+	title = holy_ruishi.2.t
+	desc = holy_ruishi.2.d
+	picture = GFX_report_event_german_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	ai_chance = {
+		    factor = 10
+		}
+		name = holy_ruishi.2.a
+		FRA = { puppet = RUI }
+	}
+	option = {
+	ai_chance = {
+		    factor = 10
+		}
+		name = holy_ruishi.2.a
+		FRA = {
+		declare_war_on = {
+    target = RUI
+    type = annex_everything
+}
+		}
+	}
+}

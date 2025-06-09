@@ -1,0 +1,267 @@
+holy_jieer_jihua = {
+    #农业改革
+    XYL_nongye_gaige = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_1
+	    }	
+		available = {
+			has_completed_focus = XYL_jieer_plan_1
+		}
+		target_trigger = {
+		FROM = {
+		is_core_of = XYL
+		is_controlled_by = XYL
+		}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 20
+        fire_only_once = yes
+		complete_effect = {
+			FROM = {
+			add_state_modifier = {
+        modifier = {
+			local_manpower = 0.15
+			local_building_slots_factor = 0.15
+			}
+			}
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#开启资源贸易
+    XYL_kaiqi_ziyuan_maoyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_1
+	    }	
+		available = {
+			has_completed_focus = XYL_liangshi_waimaohua
+			is_in_faction = yes
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+			add_ideas = XYL_ziyuan_maoyi
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#地方工业建设
+    XYL_difang_gongye_jianshe = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_2
+	    }	
+		available = {
+			has_completed_focus = XYL_jieer_plan_2
+		}
+		target_trigger = {
+		FROM = {
+		is_core_of = XYL
+		is_controlled_by = XYL
+		}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 20
+        fire_only_once = yes
+		complete_effect = {
+			FROM = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#产业升级
+    XYL_chanye_shengji = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_2
+	    }	
+		available = {
+			has_completed_focus = XYL_jiaqiang_jianshe
+			is_in_faction = yes
+			num_of_civilian_factories > 75
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+			add_ideas = XYL_chanye_shengji
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#农业机械化
+    XYL_nongye_jixiehua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_2
+	    }	
+		available = {
+			has_completed_focus = XYL_guifanhua_fangmu
+			has_completed_focus = XYL_wangguo_shuili_jianshe
+			is_in_faction = yes
+			num_of_civilian_factories > 100
+		}
+		cost = 50
+        fire_only_once = yes
+		complete_effect = {
+			add_ideas = XYL_nongye_jixiehua
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩建科学院
+    XYL_kuojian_kexueyuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_3
+	    }
+		available = {
+			num_of_factories > 300
+			has_completed_focus = XYL_kuda_keyan_touru
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+			add_research_slot = 1
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#投资地方军事
+    XYL_touzi_difang_junshi = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XYL
+		has_completed_focus = XYL_guojia_junshi_chanye
+	    }
+		available = {
+			has_completed_focus = XYL_jieer_plan_3
+		}
+		target_trigger = {
+		FROM = {
+		is_core_of = XYL
+		is_controlled_by = XYL
+		}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		cost = 15
+        fire_only_once = yes
+		complete_effect = {
+			FROM = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#特兰西瓦尼亚军团
+    XYL_TRA_juntuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_3
+	    }
+		available = {
+			num_of_military_factories > 100
+			has_completed_focus = XYL_jieer_plan_3
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+			load_oob = XYL_TRA_juntuan
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#斯洛伐克军团
+    XYL_SLO_juntuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_3
+	    }
+		available = {
+			num_of_military_factories > 100
+			has_completed_focus = XYL_jieer_plan_3
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+			load_oob = XYL_SLO_juntuan
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#匈牙利军团
+    XYL_juntuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		tag = XYL
+		has_completed_focus = XYL_jieer_plan_3
+	    }
+		available = {
+			num_of_military_factories > 100
+			has_completed_focus = XYL_jieer_plan_3
+		}
+		cost = 25
+        fire_only_once = yes
+		complete_effect = {
+			load_oob = XYL_juntuan
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

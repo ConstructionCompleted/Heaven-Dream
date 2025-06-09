@@ -1,0 +1,390 @@
+focus_tree = {
+	id = PRM_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PRM
+		}
+	}
+	
+	default = no
+ 
+    #科穆奇卫兵
+	focus = {
+		id = PRM_kemuqi_weibing
+		icon = GFX_focus_ETH_keep_the_chitet
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#整顿部队
+	focus = {
+		id = PRM_zhengdun_budui
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = PRM_kemuqi_weibing}
+		relative_position_id = PRM_kemuqi_weibing
+	    x = -3
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = PRM_zhengdunbudui
+		}
+	}
+	#解放民族
+	focus = {
+		id = PRM_jiefang_minzu
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = PRM_kemuqi_weibing}
+		relative_position_id = PRM_kemuqi_weibing
+	    x = -1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = PRM_jiefang_minzu
+		}
+	}
+	#行政体系重构
+	focus = {
+		id = PRM_xingzheng_tixi_chonggou
+		icon = GFX_focus_generic_improve_the_administration
+		prerequisite = { focus = PRM_kemuqi_weibing}
+		relative_position_id = PRM_kemuqi_weibing
+	    x = 1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = PRM_zhengfu_tixi_wajie
+			add_idea = PRM_xingzhengtixi_chonggou
+			}
+		}
+	}
+	#收拢民心
+	focus = {
+		id = PRM_shoulong_minxin
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = PRM_kemuqi_weibing}
+		relative_position_id = PRM_kemuqi_weibing
+	    x = 3
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			remove_idea = PRM_houyuan_duanjue
+			add_idea = PRM_houyuan_duanjue_2
+			}
+		}
+	}
+	#建立科穆奇人民军
+	focus = {
+		id = PRM_build_kemuqi_renminjun
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = PRM_zhengdun_budui}
+		prerequisite = { focus = PRM_jiefang_minzu}
+		prerequisite = { focus = PRM_xingzheng_tixi_chonggou}
+		prerequisite = { focus = PRM_shoulong_minxin}
+		relative_position_id = PRM_xingzheng_tixi_chonggou
+	    x = -1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = PRM_kemuqi_renminjun
+		}
+	}
+	#联络东部
+	focus = {
+		id = PRM_lianluo_dongbu
+		icon = GFX_goal_continuous_increase_nu
+		prerequisite = { focus = PRM_build_kemuqi_renminjun}
+		relative_position_id = PRM_build_kemuqi_renminjun
+	    x = -3
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUD = {
+		exists = yes
+		}
+		}
+		bypass = {
+		RUD = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			RUD = {
+			country_event = {
+    id = holy_dongeluosi.1
+    days = 5
+	}
+			}
+		}
+	}
+	#接纳社会革命党
+	focus = {
+		id = PRM_jiena_shehui_gmdang
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		prerequisite = { focus = PRM_build_kemuqi_renminjun}
+		relative_position_id = PRM_build_kemuqi_renminjun
+	    x = -1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = progressism 
+    popularity = 0.15
+	}
+	    swap_ideas = {
+			remove_idea = PRM_houyuan_duanjue_2
+			add_idea = PRM_houyuan_duanjue_3
+			}
+		}
+	}
+	#联合孟什维克
+	focus = {
+		id = PRM_lianhe_mengshiweike
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = PRM_jiena_shehui_gmdang}
+		relative_position_id = PRM_jiena_shehui_gmdang
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_popularity = {
+    ideology = socialism
+    popularity = 0.15
+	}
+	   swap_ideas = {
+			remove_idea = PRM_houyuan_duanjue_4
+			add_idea = PRM_houyuan_duanjue_3
+			}
+		}
+	}
+	#组建政治力量
+	focus = {
+		id = PRM_zujian_zhengzhi_liliang
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = PRM_lianhe_mengshiweike}
+		relative_position_id = PRM_lianhe_mengshiweike
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		swap_ideas = {
+			remove_idea = PRM_houyuan_duanjue_5
+			add_idea = PRM_houyuan_duanjue_4
+			}
+		}
+	}
+	#构建军队
+	focus = {
+		id = PRM_goujian_jundui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = PRM_zujian_zhengzhi_liliang}
+		relative_position_id = PRM_zujian_zhengzhi_liliang
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = PRM_goujian_jundui
+		}
+	}
+	#重整工业体系
+	focus = {
+		id = PRM_chongjian_gongye_tixi
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = PRM_build_kemuqi_renminjun}
+		relative_position_id = PRM_build_kemuqi_renminjun
+	    x = 1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = PRM_xingzhengtixi_chonggou
+		}
+	}
+	#走私军火
+	focus = {
+		id = PRM_zousi_junhuo
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = PRM_chongjian_gongye_tixi}
+		relative_position_id = PRM_chongjian_gongye_tixi
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+}
+		}
+	}
+	#动员农民
+	focus = {
+		id = PRM_dongyuan_nongming
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = PRM_zousi_junhuo}
+		relative_position_id = PRM_zousi_junhuo
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = PRM_dongyuan_nongming
+		}
+	}
+	#联络反对派
+	focus = {
+		id = PRM_lianluo_fandui
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = PRM_dongyuan_nongming}
+		relative_position_id = PRM_dongyuan_nongming
+	    x = 0
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		SVN = {
+		add_stability = -0.1
+		}
+		KZN = {
+		add_stability = -0.1
+		}
+		}
+	}
+	#北俄罗斯和平
+	focus = {
+		id = PRM_beieluosi_wp
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = PRM_lianluo_fandui}
+		prerequisite = { focus = PRM_goujian_jundui}
+		relative_position_id = PRM_lianluo_fandui
+	    x = -1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RNE = {
+		exists = no
+		}
+		KZN = {
+		exists = no
+		}
+		SVN = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		POA = {
+			country_event = {
+    id = holy_dongeluosi.2
+    days = 5
+	}
+		}
+		}
+	}
+	#我们的梦想
+	focus = {
+		id = PRM_women_dream
+		icon = GFX_focus_SOV_patriarch_of_all_russia
+		prerequisite = { focus = PRM_beieluosi_wp}
+		relative_position_id = PRM_beieluosi_wp
+	    x = -1
+	    y = 1
+		cost = 5
+		available = {
+		POA = {
+		exists = no
+		}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		set_country_leader_ideology = shehui_minzhu_zhuyi
+		set_politics = {
+	ruling_party = progressism
+}
+add_popularity = {
+    ideology = progressism
+    popularity = 0.15
+}
+		}
+	}
+	#靠拢高尔查克
+	focus = {
+		id = PRM_kaolong_gaoerchake
+		icon = GFX_focus_SOV_the_true_tsars
+		prerequisite = { focus = PRM_beieluosi_wp}
+		relative_position_id = PRM_beieluosi_wp
+	    x = 1
+	    y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		RUD = {
+		exists = yes
+		}
+		POA = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		RUD = {
+		puppet = PRM
+		}
+		}
+	}
+}

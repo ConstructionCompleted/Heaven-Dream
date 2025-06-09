@@ -1,0 +1,522 @@
+focus_tree = {
+	id = DKS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = DKS
+		}
+	}
+	
+	default = no
+ 
+    #钢铁在这里炼成
+	focus = {
+		id = DKS_gangtie_zaizheli_liancheng
+		icon = GFX_focus_generic_steel
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#工业化加速
+	focus = {
+		id = DKS_gongyehua_jiasu
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = DKS_gangtie_zaizheli_liancheng}
+		relative_position_id = DKS_gangtie_zaizheli_liancheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_gongye_jiasu
+		remove_idea = DKS_jiduan_gongyehua
+		}
+		}
+	}
+	#加大钢产量
+	focus = {
+		id = DKS_jiada_gangchanliang
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = DKS_gongyehua_jiasu}
+		relative_position_id = DKS_gongyehua_jiasu
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_jiada_gangchanliang
+		remove_idea = DKS_gongye_jiasu
+		}
+		}
+	}
+	#进口工业
+	focus = {
+		id = DKS_jinkou_gongye
+		icon = GFX_goal_generic_positive_trade_relations
+		prerequisite = { focus = DKS_jiada_gangchanliang}
+		relative_position_id = DKS_jiada_gangchanliang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_jinkou_gongye
+		remove_idea = DKS_jiada_gangchanliang
+		}
+		}
+	}
+	#军事化工业
+	focus = {
+		id = DKS_junshihua_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = DKS_jinkou_gongye}
+		relative_position_id = DKS_jinkou_gongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+	#农业收集
+	focus = {
+		id = DKS_nongye_shouji
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = DKS_jiada_gangchanliang}
+		relative_position_id = DKS_jiada_gangchanliang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_nongye_shouji
+		remove_idea = DKS_nongye_weiji
+		}
+		}
+	}
+	#推行玉米
+	focus = {
+		id = DKS_tuixing_yumi
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = DKS_nongye_shouji}
+		relative_position_id = DKS_nongye_shouji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_tuixing_yumi
+		remove_idea = DKS_nongye_shouji
+		}
+		}
+	}
+	#农业机械化
+	focus = {
+		id = DKS_nongye_jixiehua
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = DKS_junshihua_gongye}
+		prerequisite = { focus = DKS_tuixing_yumi}
+		relative_position_id = DKS_tuixing_yumi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_nongye_jixiehua
+		remove_idea = DKS_nongye_shouji
+		}
+		}
+	}
+	#偏向乌克兰
+	focus = {
+		id = DKS_pianxiang_wukelan
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = DKS_gongyehua_jiasu}
+		relative_position_id = DKS_gongyehua_jiasu
+		mutually_exclusive = { focus = DKS_pianxiang_eluosi }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_pianxiang_ukr
+		remove_idea = DKS_ewuchongtu
+		}
+		}
+	}
+	#分割种族
+	focus = {
+		id = DKS_fenge_zhongzu
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = DKS_pianxiang_wukelan}
+		relative_position_id = DKS_pianxiang_wukelan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_fenge_zhongzu
+		remove_idea = DKS_pianxiang_ukr
+		}
+		}
+	}
+	#本土化政策
+	focus = {
+		id = DKS_bentuhua_zhengce
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = DKS_fenge_zhongzu}
+		relative_position_id = DKS_fenge_zhongzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_bentuhua_zhengce
+		remove_idea = DKS_fenge_zhongzu
+		}
+		}
+	}
+	#和乌克兰合并
+	focus = {
+		id = DKS_hewukelan_hebing
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = DKS_fenge_zhongzu}
+		relative_position_id = DKS_fenge_zhongzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		UNR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		UKR = {
+		annex_country = {
+    target = DKS
+    transfer_troops = yes
+}
+		}
+		UKR = { change_tag_from = DKS }
+		}
+	}
+	#偏向俄罗斯
+	focus = {
+		id = DKS_pianxiang_eluosi
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = DKS_gongyehua_jiasu}
+		relative_position_id = DKS_gongyehua_jiasu
+		mutually_exclusive = { focus = DKS_pianxiang_wukelan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_pianxiang_rus
+		remove_idea = DKS_ewuchongtu
+		}
+		}
+	}
+	#与乌克兰分割
+	focus = {
+		id = DKS_yuwukelan_fenge
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = DKS_pianxiang_eluosi}
+		relative_position_id = DKS_pianxiang_eluosi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_wukelan_fenge
+		remove_idea = DKS_pianxiang_rus
+		}
+		}
+	}
+	#混合政策
+	focus = {
+		id = DKS_hunhe_zhengce
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = DKS_yuwukelan_fenge}
+		relative_position_id = DKS_yuwukelan_fenge
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = DKS_hunhe_zhengce
+		remove_idea = DKS_wukelan_fenge
+		}
+		}
+	}
+	#黑军问题
+	focus = {
+		id = DKS_heijun_wenti
+		icon = GFX_focus_generic_annex_country_2
+		prerequisite = { focus = DKS_hunhe_zhengce}
+		relative_position_id = DKS_hunhe_zhengce
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		CRM = {
+		NOT = {
+		controls_state = 196
+		}
+		}
+		UNR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+		}
+	}
+	#解决争端
+	focus = {
+		id = DKS_jiejue_zhengduan
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = DKS_heijun_wenti}
+		relative_position_id = DKS_heijun_wenti
+		mutually_exclusive = { focus = DKS_weichi_fenge }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		   controls_state = 259
+		   controls_state = 225
+		   controls_state = 193
+		   controls_state = 202
+		   controls_state = 203
+		   controls_state = 1068
+		   controls_state = 1067
+		}
+		completion_reward = {
+		UKR = {
+		   transfer_state = 259
+		   transfer_state = 225
+		   transfer_state = 193
+		   transfer_state = 202
+		   transfer_state = 203
+		   transfer_state = 1068
+		   transfer_state = 1067
+		   }
+		   if = {
+		   limit = {
+		   controls_state = 201
+		   }
+		   UKR = {
+		   transfer_state = 201
+		   }
+		   }
+		   if = {
+		   limit = {
+		   controls_state = 199
+		   }
+		   UKR = {
+		   transfer_state = 199
+		   }
+		   }
+		   if = {
+		   limit = {
+		   controls_state = 1431
+		   }
+		   UKR = {
+		   transfer_state = 1431
+		   }
+		   }
+		   if = {
+		   limit = {
+		   controls_state = 1430
+		   }
+		   UKR = {
+		   transfer_state = 1430
+		   }
+		   }
+		   if = {
+		   limit = {
+		   controls_state = 1859
+		   }
+		   UKR = {
+		   transfer_state = 1859
+		   }
+		   }
+		   BLR = {
+		add_to_faction = DKS
+		}
+		}
+	}
+	#维持分割
+	focus = {
+		id = DKS_weichi_fenge
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = DKS_heijun_wenti}
+		relative_position_id = DKS_heijun_wenti
+		mutually_exclusive = { focus = DKS_jiejue_zhengduan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		   controls_state = 259
+		   controls_state = 225
+		   controls_state = 193
+		   controls_state = 202
+		   controls_state = 203
+		   controls_state = 1068
+		   controls_state = 1067
+		   has_war_with = UKR
+		}
+		UKR = {
+		OR = {
+		   has_completed_focus = UKR_chengren_dongxi_chayi
+		   exists = no
+		   }
+		   }
+		}
+		completion_reward = {
+		BLR = {
+		add_to_faction = DKS
+		}
+		}
+	}
+	#回归苏维埃
+	focus = {
+		id = DKS_huigui_suweiai
+		icon = GFX_focus_ETH_callout_to_the_world
+		prerequisite = { focus = DKS_jiejue_zhengduan focus = DKS_weichi_fenge }
+		relative_position_id = DKS_jiejue_zhengduan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = BLA
+		has_war_with = LIT
+		}
+		}
+		completion_reward = {
+		leave_faction = yes
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = DKS
+			}
+		}
+	}
+	#东部军事发展
+	focus = {
+		id = DKS_dongbu_junshi_fazhan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = DKS_pianxiang_eluosi}
+		relative_position_id = DKS_pianxiang_eluosi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = DKS_dongbujunshi
+		}
+	}
+	#动员工人
+	focus = {
+		id = DKS_dongyuan_gongren
+		icon = GFX_focus_YUG_rogozarski
+		prerequisite = { focus = DKS_dongbu_junshi_fazhan}
+		relative_position_id = DKS_dongbu_junshi_fazhan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = DKS_dongyuan_gongren
+		}
+	}
+	#组建政治委员
+	focus = {
+		id = DKS_zujian_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = DKS_dongyuan_gongren}
+		relative_position_id = DKS_dongyuan_gongren
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = DKS_zujian_zhengwei
+		}
+	}
+}

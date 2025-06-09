@@ -1,0 +1,503 @@
+focus_tree = {
+	id = SAD_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SAD
+		}
+	}
+	
+	default = no
+	
+	#萨伏伊的王冠
+	focus = {
+		id = SAD_safuyi_wangguan
+		icon = GFX_focus_ITA_italian_irredentism
+		x = 20
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_war_support = 0.1
+		}
+	}
+	#建设自主军队
+	focus = {
+		id = SAD_jianshe_zizhu_army
+		icon = GFX_focus_ITA_bersaglieri
+		prerequisite = { focus = SAD_safuyi_wangguan}
+		relative_position_id = SAD_safuyi_wangguan
+		x = -3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_jianshe_zizhu_army
+		remove_idea = SAD_canpo_army
+		}
+		}
+	}
+	#扩建王国军队
+	focus = {
+		id = SAD_kuojian_wangguo_army
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = SAD_jianshe_zizhu_army}
+		relative_position_id = SAD_jianshe_zizhu_army
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_jianshe_zizhu_army_2
+		remove_idea = SAD_jianshe_zizhu_army
+		}
+		load_oob = SAD_kuojian_army
+		}
+	}
+	#君主的战士
+	focus = {
+		id = SAD_junzhu_zhanshi
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = SAD_kuojian_wangguo_army}
+		relative_position_id = SAD_kuojian_wangguo_army
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_jianshe_zizhu_army_3
+		remove_idea = SAD_jianshe_zizhu_army_2
+		}
+		}
+	}
+	#职业化军团
+	focus = {
+		id = SAD_zhiyehua_juntuan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SAD_junzhu_zhanshi}
+		relative_position_id = SAD_junzhu_zhanshi
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_jianshe_zizhu_army_4
+		remove_idea = SAD_jianshe_zizhu_army_3
+		}
+		}
+	}
+	#接管法国装备
+	focus = {
+		id = SAD_jieguan_faguo_zhuangbei
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = { focus = SAD_jianshe_zizhu_army}
+		relative_position_id = SAD_jianshe_zizhu_army
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 3000
+    producer = FRA
+}
+		}
+	}
+	#联合科研组织
+	focus = {
+		id = SAD_lianhe_keyan_zuzhi
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = SAD_jieguan_faguo_zhuangbei}
+		relative_position_id = SAD_jieguan_faguo_zhuangbei
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SAD_lianhe_keyan
+		}
+	}
+	#先进化战术
+	focus = {
+		id = SAD_xianjinhua_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SAD_lianhe_keyan_zuzhi}
+		relative_position_id = SAD_lianhe_keyan_zuzhi
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SAD_xianjinhua_zhanshu
+		}
+	}
+	#王国下的工业
+	focus = {
+		id = SAD_wangguo_gongye
+		icon = GFX_focus_generic_home_defense
+		prerequisite = { focus = SAD_safuyi_wangguan}
+		relative_position_id = SAD_safuyi_wangguan
+		x = 3
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = SAD_wangguo_gongye
+		}
+	}
+	#萨伏伊工业化
+	focus = {
+		id = SAD_safuyi_gongyehua
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = SAD_wangguo_gongye}
+		relative_position_id = SAD_wangguo_gongye
+		x = -1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		158 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#都灵兵工厂
+	focus = {
+		id = SAD_duling_binggongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SAD_safuyi_gongyehua}
+		relative_position_id = SAD_safuyi_gongyehua
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		158 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#热那亚海港
+	focus = {
+		id = SAD_renaya_haigang
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SAD_duling_binggongchang}
+		relative_position_id = SAD_duling_binggongchang
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		158 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#萨丁工业化
+	focus = {
+		id = SAD_sading_gongyehua
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = SAD_wangguo_gongye}
+		relative_position_id = SAD_wangguo_gongye
+		x = 1
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		114 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			add_extra_state_shared_building_slots = 1
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#发展岛屿海港
+	focus = {
+		id = SAD_fazhan_daoyu_haigang
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = SAD_sading_gongyehua}
+		relative_position_id = SAD_sading_gongyehua
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		114 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = dockyard
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#扩建轻工业
+	focus = {
+		id = SAD_kuojian_qinggongye
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = SAD_fazhan_daoyu_haigang}
+		relative_position_id = SAD_fazhan_daoyu_haigang
+		x = 0
+		y = 1
+		cost = 4
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		114 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#稳定萨伏伊
+	focus = {
+		id = SAD_wending_safuyi
+		icon = GFX_focus_generic_monarchy_1
+		prerequisite = { focus = SAD_safuyi_wangguan}
+		relative_position_id = SAD_safuyi_wangguan
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_safuyi_dongdang_2
+		remove_idea = SAD_safuyi_dongdang
+		}
+		load_oob = SAD_safuyi_minbing
+		}
+	}
+	#接纳民主
+	focus = {
+		id = SAD_jiena_minzhu
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = SAD_wending_safuyi}
+		relative_position_id = SAD_wending_safuyi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_safuyi_dongdang_3
+		remove_idea = SAD_safuyi_dongdang_2
+		}
+		}
+	}
+	#扩建议会
+	focus = {
+		id = SAD_kuojian_yihui
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = SAD_jiena_minzhu}
+		relative_position_id = SAD_jiena_minzhu
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_safuyi_dongdang_4
+		remove_idea = SAD_safuyi_dongdang_3
+		}
+		}
+	}
+	#联通地区
+	focus = {
+		id = SAD_liantong_diqu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SAD_kuojian_yihui}
+		relative_position_id = SAD_kuojian_yihui
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_safuyi_dongdang_5
+		remove_idea = SAD_safuyi_dongdang_4
+		}
+		}
+	}
+	#统合意大利
+	focus = {
+		id = SAD_tonghe_yidali
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SAD_liantong_diqu}
+		relative_position_id = SAD_liantong_diqu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 161
+		controls_state = 162
+		controls_state = 157
+		controls_state = 2
+		controls_state = 156
+		controls_state = 117
+		controls_state = 115
+		controls_state = 954
+		controls_state = 955
+		controls_state = 1393
+		controls_state = 956
+		controls_state = 1391
+		controls_state = 1392
+		controls_state = 1043
+		controls_state = 957
+		controls_state = 958
+		controls_state = 960
+		controls_state = 959
+		controls_state = 1304
+		controls_state = 1825
+		controls_state = 1826
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = SAD_tonghe_yidali
+		remove_idea = SAD_safuyi_dongdang_5
+		}
+		set_cosmetic_tag = ITA
+		hidden_effect = { ITA = { set_cosmetic_tag = ITA } }
+		news_event = {
+				id = holy_news.73 days = 1
+			}
+		}
+	}
+	#进入世界
+	focus = {
+		id = SAD_jinru_shijie
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = SAD_tonghe_yidali}
+		relative_position_id = SAD_tonghe_yidali
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_war = no
+		}
+		completion_reward = {
+		country_event = { id = holy_yidali.16 days = 4 }	
+		}
+	}
+	#北方战争
+	focus = {
+		id = SAD_beifang_zhanzheng
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SAD_jinru_shijie}
+		relative_position_id = SAD_jinru_shijie
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		if = {
+		limit = {
+		MLA = {
+		is_puppet_of = AUS
+		}
+		VNC = {
+		is_puppet_of = AUS
+		}
+		}
+		AUS = {
+        country_event = { id = holy_yidali.15 days = 4 }	
+		}
+		declare_war_on = {
+    target = MLA
+    type = annex_everything
+}
+declare_war_on = {
+    target = VNC
+    type = annex_everything
+}
+declare_war_on = {
+    target = ITB
+    type = annex_everything
+}
+transfer_state = 850
+		}
+		hidden_effect = { news_event = { id = holy_news.75 hours = 6 } }
+		}
+	}
+}

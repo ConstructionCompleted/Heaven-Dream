@@ -1,0 +1,44 @@
+holy_beiyang_war = {
+    #进驻山东
+    holy_jinzhu_shandong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			OR = {
+		tag = ZHI
+		tag = WAN
+		}
+		OR = {
+		has_war_with = ZHI
+		has_war_with = WAN
+		}
+		LUJ = {
+		exists = yes
+		}
+		JAD = {
+		exists = yes
+		}
+	}	
+		available = {
+		dtae > 1936.6.1
+		LUJ = {
+		has_war_with = JAD
+		}
+		}
+		cost = 0
+		complete_effect = {
+		declare_war_on = {
+    target = LUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = JAD
+    type = annex_everything
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

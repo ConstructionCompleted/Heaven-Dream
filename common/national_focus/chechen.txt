@@ -1,0 +1,251 @@
+focus_tree = {
+	id = CHE_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CHE
+		}
+	}
+	
+	default = no
+ 
+    #车臣之义
+	focus = {
+		id = CHE_chechen_zhiyi
+		icon = GFX_focus_generic_strike_at_democracy2
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#伊玛目国归来
+	focus = {
+		id = CHE_yimamuguo_guilai
+		icon = GFX_focus_SOV_bukharan_republic
+		prerequisite = { focus = CHE_chechen_zhiyi}
+		relative_position_id = CHE_chechen_zhiyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHE_yimamuguo_guilai
+		remove_idea = CHE_musilin_guodu
+		}
+		}
+	}
+	#清廉国度
+	focus = {
+		id = CHE_qinglian_guodu
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = CHE_yimamuguo_guilai}
+		relative_position_id = CHE_yimamuguo_guilai
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHE_qinglian_guodu
+		remove_idea = CHE_quefa_wuzi
+		}
+		}
+	}
+	#收集伊斯兰武装
+	focus = {
+		id = CHE_shouji_yisilan_wuzhuang
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = CHE_qinglian_guodu}
+		relative_position_id = CHE_qinglian_guodu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = CHE
+}
+		}
+	}
+	#正义事业
+	focus = {
+		id = CHE_zhengyi_shiye
+		icon = GFX_focus_generic_annex_country
+		prerequisite = { focus = CHE_yimamuguo_guilai}
+		relative_position_id = CHE_yimamuguo_guilai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = CHE_zhengyi_shiye
+		remove_idea = CHE_shengzhanzhe_kuangre
+		}
+		}
+	}
+	#圣战之军
+	focus = {
+		id = CHE_shengzhan_jundui
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = CHE_yimamuguo_guilai}
+		relative_position_id = CHE_yimamuguo_guilai
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = CHE_shengzhan_zhijun
+		}
+	}
+	#神圣恐怖主义
+	focus = {
+		id = CHE_shensheng_kongbu
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = CHE_zhengyi_shiye}
+		prerequisite = { focus = CHE_shengzhan_jundui}
+		relative_position_id = CHE_zhengyi_shiye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		NCC = {
+		add_ideas = CHE_shensheng_kongbu
+		}
+		DRG = {
+		add_ideas = CHE_shensheng_kongbu
+		}
+		KLM = {
+		add_ideas = CHE_shensheng_kongbu
+		}
+		}
+	}
+	#八地联合
+	focus = {
+		id = CHE_badi_lianhe
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = CHE_shensheng_kongbu}
+		prerequisite = { focus = CHE_shouji_yisilan_wuzhuang}
+		relative_position_id = CHE_shensheng_kongbu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = CHE_badi_lianhe
+		}
+	}
+	#驯服佛教徒
+	focus = {
+		id = CHE_xunfu_fojiaotu
+		icon = GFX_focus_smiling_buddha
+		prerequisite = { focus = CHE_badi_lianhe}
+		relative_position_id = CHE_badi_lianhe
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 236
+		controls_state = 237
+		controls_state = 1416
+		}
+		completion_reward = {
+		add_state_core = 236
+		add_state_core = 237
+		add_state_core = 1416
+		}
+	}
+	#征服东正教徒
+	focus = {
+		id = CHE_zhengfu_dongzheng_jiaotu
+		icon = GFX_focus_CZE_german_puppet
+		prerequisite = { focus = CHE_badi_lianhe}
+		relative_position_id = CHE_badi_lianhe
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 234
+		controls_state = 235
+		controls_state = 233
+		}
+		completion_reward = {
+		add_state_core = 233
+		add_state_core = 234
+		add_state_core = 235
+		}
+	}
+	#哥萨克之主
+	focus = {
+		id = CHE_gesale_king
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = CHE_xunfu_fojiaotu}
+		prerequisite = { focus = CHE_zhengfu_dongzheng_jiaotu}
+		relative_position_id = CHE_xunfu_fojiaotu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 238
+		controls_state = 245
+		controls_state = 218
+		controls_state = 1070
+		}
+		completion_reward = {
+		add_state_core = 218
+		add_state_core = 245
+		add_state_core = 238
+		add_state_core = 1070
+		}
+	}
+	#北高加索统一
+	focus = {
+		id = CHE_beigaojiasuo_tongyi
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = { focus = CHE_gesale_king}
+		relative_position_id = CHE_gesale_king
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		}
+	}
+}

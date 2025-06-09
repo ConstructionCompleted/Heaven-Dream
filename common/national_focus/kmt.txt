@@ -1,0 +1,1035 @@
+focus_tree = {
+	id = KMT_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = KMT
+		}
+	}
+	
+	default = no
+ 
+	#武汉三义
+	focus = {
+		id = KMT_wuhan_sanyi
+		icon = GFX_focus_generic_self_management
+		x = 20
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#中游贸易
+	focus = {
+		id = KMT_zhongyou_maoyi
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = KMT_wuhan_sanyi}
+		relative_position_id = KMT_wuhan_sanyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KMT_zhongyou_maoyi
+		}
+	}
+	#汉阳兵工扩编
+	focus = {
+		id = KMT_hanyang_binggong_kuobian
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = KMT_zhongyou_maoyi}
+		relative_position_id = KMT_zhongyou_maoyi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			620 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#民族企业
+	focus = {
+		id = KMT_minzu_qiye
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = KMT_zhongyou_maoyi}
+		relative_position_id = KMT_zhongyou_maoyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_zhongyou_maoyi_2
+			remove_idea = KMT_zhongyou_maoyi
+			}
+		}
+	}
+	#武汉新军工
+	focus = {
+		id = KMT_wuhan_new_arms
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = KMT_hanyang_binggong_kuobian}
+		prerequisite = { focus = KMT_minzu_qiye}
+		relative_position_id = KMT_minzu_qiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_zhongyou_maoyi_3
+			remove_idea = KMT_zhongyou_maoyi_2
+			}
+		}
+	}
+	#国民革命军扩编
+	focus = {
+		id = KMT_guomin_gemingjun_kuobian
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KMT_wuhan_sanyi}
+		relative_position_id = KMT_wuhan_sanyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_junguohua_2
+			remove_idea = KMT_chubu_junguohua
+			}
+		}
+	}
+	#江南起义
+	focus = {
+		id = KMT_jiangnan_qiyi
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = KMT_guomin_gemingjun_kuobian}
+		relative_position_id = KMT_guomin_gemingjun_kuobian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = KMT_jiangnan_qiyi
+		}
+	}
+	#最终进军
+	focus = {
+		id = KMT_last_jinjun
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = KMT_jiangnan_qiyi}
+		relative_position_id = KMT_jiangnan_qiyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = KMT_last_jinjun
+    days = 180
+}
+		}
+	}
+	#二五减租
+	focus = {
+		id = KMT_erwu_jianzu
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = KMT_wuhan_sanyi}
+		relative_position_id = KMT_wuhan_sanyi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KMT_erwu_jianzu
+		}
+	}
+	#组建民团
+	focus = {
+		id = KMT_zujian_mintuan
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = KMT_erwu_jianzu}
+		relative_position_id = KMT_erwu_jianzu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = KMT_zujian_mintuan
+		}
+	}
+	#农业重建
+	focus = {
+		id = KMT_nongye_chongjian
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = KMT_erwu_jianzu}
+		relative_position_id = KMT_erwu_jianzu
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_erwu_jianzu_2
+			remove_idea = KMT_erwu_jianzu
+			}
+		}
+	}
+	#政治下乡
+	focus = {
+		id = KMT_zhengzhi_xiaxiang
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = KMT_zujian_mintuan}
+		prerequisite = { focus = KMT_nongye_chongjian}
+		relative_position_id = KMT_nongye_chongjian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_erwu_jianzu_3
+			remove_idea = KMT_erwu_jianzu_2
+			}
+		}
+	}
+	#长江会议
+	focus = {
+		id = KMT_changjiang_huiyi
+		icon = GFX_focus_prc_social_democracy
+		prerequisite = { focus = KMT_last_jinjun }
+		prerequisite = { focus = KMT_wuhan_new_arms }
+		prerequisite = { focus = KMT_zhengzhi_xiaxiang }
+		relative_position_id = KMT_last_jinjun
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NNJ = {
+		exists = no
+		}
+		}
+		bypass = {
+		CCP = {
+		has_completed_focus = CCP_changjiang_huiyi
+		}
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_huanan.6
+    days = 3
+}
+		}
+	}
+	#区域性战争
+	focus = {
+		id = KMT_quyuxing_war
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = KMT_changjiang_huiyi }
+		relative_position_id = KMT_changjiang_huiyi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+	#西南战争
+	focus = {
+		id = KMT_xinan_zhanzheng
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = KMT_quyuxing_war }
+		relative_position_id = KMT_quyuxing_war
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#反攻两广
+	focus = {
+		id = KMT_fangong_liangguang
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = KMT_quyuxing_war }
+		relative_position_id = KMT_quyuxing_war
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#北伐
+	focus = {
+		id = KMT_beifa
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = KMT_changjiang_huiyi }
+		relative_position_id = KMT_changjiang_huiyi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	#联络奉天
+	focus = {
+		id = KMT_lianluo_fengtian
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = KMT_beifa }
+		relative_position_id = KMT_beifa
+		mutually_exclusive = { focus = KMT_jinjun_daihe }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		FEN = {
+		has_completed_focus = FEN_jinjun_beifang
+		}
+		NNJ = {
+		exists = no
+		}
+		ZHI = {
+		exists = no
+		}
+		WAN = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			FEN = {
+			country_event = {
+    id = holy_tanpan.1
+	days = 5
+}
+			}
+		}
+	}
+	#进军戴河
+	focus = {
+		id = KMT_jinjun_daihe
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = KMT_beifa }
+		relative_position_id = KMT_beifa
+		mutually_exclusive = { focus = KMT_lianluo_fengtian }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = FEN_chengfu_yiyuan
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#进军西北
+	focus = {
+		id = KMT_jinjun_xibei
+		icon = GFX_goal_demand_sudetenland
+		prerequisite = { focus = KMT_changjiang_huiyi }
+		relative_position_id = KMT_changjiang_huiyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#联络各地国民党
+	focus = {
+		id = KMT_lianluo_gedi_guomindang
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = KMT_changjiang_huiyi }
+		relative_position_id = KMT_changjiang_huiyi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#处理分裂势力
+	focus = {
+		id = KMT_chuli_fenlie_shili
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = KMT_lianluo_gedi_guomindang }
+		prerequisite = { focus = KMT_jinjun_xibei }
+		relative_position_id = KMT_jinjun_xibei
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#核心化
+	focus = {
+		id = KMT_hexinhua
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = KMT_chuli_fenlie_shili }
+		relative_position_id = KMT_chuli_fenlie_shili
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#武汉会议
+	focus = {
+		id = KMT_wuhan_huiyi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = KMT_hexinhua }
+		relative_position_id = KMT_hexinhua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = CCP
+		}
+		}
+		completion_reward = {
+		CCP = {
+			country_event = {
+    id = holy_tanpan.9
+	days = 2
+}
+		}
+		}
+	}
+	#中华民国
+	focus = {
+		id = KMT_zhonghua_minguo
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = KMT_wuhan_huiyi }
+		relative_position_id = KMT_wuhan_huiyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		DHJ = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		HEI = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		WAN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		HHA = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		JAN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		NWA = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		JAD = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		LUJ	= {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		QIN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		JIN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		FEN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		NIN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		HAM = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		XQJ = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		XIJ = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		ETK = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		XIH = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		MJJ = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		ZAG = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		XKA = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		SHU = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		YUX = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		DIA = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		QAN = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		XIG = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		CCP = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		ZHI = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		NNJ = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		CGH = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		GUI = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		OGU = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		YUE = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		QIO = {
+		OR = {
+		exists = no
+		is_puppet_of = KMT
+		}
+		}
+		}
+		completion_reward = {
+			load_focus_tree = { tree = MIN_focus keep_completed = yes }
+			set_cosmetic_tag = CHI
+			every_country = {
+		limit = {
+		is_puppet_of = KMT
+		}
+		KMT = {
+		annex_country = {
+    target = PREV
+    transfer_troops = yes
+}
+		}
+		}
+			news_event = {
+				id = holy_news.38 days = 1
+			}
+		}
+	}
+	#国民革命军
+	focus = {
+		id = KMT_guomingemingjun
+		icon = GFX_goal_generic_construction
+		x = 30
+		y = 3
+		available = {
+		has_completed_focus = KMT_changjiang_huiyi
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_junguohua_3
+			remove_idea = KMT_junguohua_2
+			}
+		}
+	}
+	#军事优先
+	focus = {
+		id = KMT_junshi_youxian
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = KMT_guomingemingjun }
+		relative_position_id = KMT_guomingemingjun
+		mutually_exclusive = { focus = KMT_tingzhi_junguohua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_junguohua_4
+			remove_idea = KMT_junguohua_3
+			}
+		}
+	}
+	#停止军国化
+	focus = {
+		id = KMT_tingzhi_junguohua
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = KMT_guomingemingjun }
+		relative_position_id = KMT_guomingemingjun
+		mutually_exclusive = { focus = KMT_junshi_youxian }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = KMT_junguohua_3
+		}
+	}
+	#扩大化
+	focus = {
+		id = KMT_kuodahua
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = KMT_junshi_youxian focus = KMT_tingzhi_junguohua }
+		relative_position_id = KMT_junshi_youxian
+		mutually_exclusive = { focus = KMT_jingruihua }
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KMT_kuodahua_army
+		}
+	}
+	#大规模民兵
+	focus = {
+		id = KMT_daguimo_minbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = KMT_kuodahua }
+		relative_position_id = KMT_kuodahua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = KMT_daguimo_minbing
+		}
+	}
+	#基础素养
+	focus = {
+		id = KMT_jichu_suyang
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = KMT_daguimo_minbing }
+		relative_position_id = KMT_daguimo_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_kuodahua_army_2
+			remove_idea = KMT_kuodahua_army
+			}
+		}
+	}
+	#职业部队
+	focus = {
+		id = KMT_zhiye_budui
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = KMT_jichu_suyang }
+		relative_position_id = KMT_jichu_suyang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_kuodahua_army_3
+			remove_idea = KMT_kuodahua_army_2
+			}
+		}
+	}
+	#精锐化
+	focus = {
+		id = KMT_jingruihua
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		prerequisite = { focus = KMT_junshi_youxian focus = KMT_tingzhi_junguohua }
+		relative_position_id = KMT_junshi_youxian
+		mutually_exclusive = { focus = KMT_kuodahua }
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KMT_jingruihua_army
+		}
+	}
+	#总参谋部
+	focus = {
+		id = KMT_zongcanmoubu
+		icon = GFX_focus_usa_honor_the_confederacy
+		prerequisite = { focus = KMT_jingruihua }
+		relative_position_id = KMT_jingruihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_jingruihua_army_2
+			remove_idea = KMT_jingruihua_army
+			}
+		}
+	}
+	#扩建军校
+	focus = {
+		id = KMT_kuojian_junxiao
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = KMT_zongcanmoubu }
+		relative_position_id = KMT_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_jingruihua_army_3
+			remove_idea = KMT_jingruihua_army_2
+			}
+		}
+	}
+	#职业军官
+	focus = {
+		id = KMT_zhiyehua_junguan
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = KMT_kuojian_junxiao }
+		relative_position_id = KMT_zongcanmoubu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_jingruihua_army_4
+			remove_idea = KMT_jingruihua_army_3
+			}
+		}
+	}
+	#政治化
+	focus = {
+		id = KMT_zhengzhihua
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = KMT_tingzhi_junguohua }
+		relative_position_id = KMT_junshi_youxian
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = KMT_zhengzhihua
+		}
+	}
+	#军事组织
+	focus = {
+		id = KMT_junshi_zuzhi
+		icon = GFX_focus_por_luso_tropicalism
+		prerequisite = { focus = KMT_zhengzhihua }
+		relative_position_id = KMT_zhengzhihua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_zhengzhihua_2
+			remove_idea = KMT_zhengzhihua
+			}
+		}
+	}
+	#培养革命将领
+	focus = {
+		id = KMT_peiyang_geming_jiangling
+		icon = GFX_focus_chi_whampoa_military_academy
+		prerequisite = { focus = KMT_junshi_zuzhi }
+		relative_position_id = KMT_junshi_zuzhi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = KMT_zhengzhihua_3
+			remove_idea = KMT_zhengzhihua_2
+			}
+		}
+	}
+	#军事科研
+	focus = {
+		id = KMT_junshi_keyan
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = KMT_tingzhi_junguohua }
+		relative_position_id = KMT_junshi_youxian
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#先进武装
+	focus = {
+		id = KMT_xianjin_wuzhuang
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = KMT_junshi_keyan }
+		relative_position_id = KMT_junshi_keyan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = KMT_xianjin_wuzhuang
+		}
+	}
+	#火炮优先
+	focus = {
+		id = KMT_huopao_youxian
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = KMT_xianjin_wuzhuang }
+		relative_position_id = KMT_xianjin_wuzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_ideas = KMT_huopao_youxian
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	#军事科学院
+	focus = {
+		id = KMT_junshi_kexueyuan
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = KMT_peiyang_geming_jiangling }
+		prerequisite = { focus = KMT_huopao_youxian }
+		relative_position_id = KMT_huopao_youxian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    add_research_slot = 1
+		}
+	}
+}

@@ -1,0 +1,1480 @@
+holy_BLD_lianhegongguo = {
+    #镇压地区独立
+    holy_zhenya_duli = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_diyijieduan
+	}
+		available = {
+		has_country_flag = BLD_diyijieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 15
+        }
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			190 809 808 810 12 13 813 191 812 811
+		}
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		set_state_flag = BLD_dikang_jieshu
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -15
+	tooltip = BLD_qishituan_liliang_6_tt
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#森林兄弟起义
+	BLD_senlinxiongdi_qiyi = {
+		icon = 
+        visible = {
+        tag = BLD
+        }          
+        activation = {                          
+            always = yes
+        }
+		available = {
+           always = no
+        }
+        is_good = no
+        fire_only_once = yes
+        days_mission_timeout = 80
+        timeout_effect = {
+            if = {
+			limit = {
+			811 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			EST = {
+			transfer_state = 811
+			load_oob = EST_1936
+			}
+			811 = {
+			create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+			}
+			}
+			if = {
+			limit = {
+			13 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			EST = {
+			transfer_state = 13
+			load_oob = EST_1936
+			}
+			13 = {
+			create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+			}
+			}
+			if = {
+			limit = {
+			812 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			EST = {
+			transfer_state = 812
+			load_oob = EST_1936
+			}
+			812 = {
+			create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+			}
+			}
+			if = {
+			limit = {
+			813 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			EST = {
+			transfer_state = 813
+			load_oob = EST_1936
+			}
+			813 = {
+			create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+			}
+			}
+			if = {
+			limit = {
+			191 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			EST = {
+			transfer_state = 191
+			load_oob = EST_1936
+			}
+			191 = {
+			create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+create_unit = {
+    division = "name = \"爱沙尼亚起义军\" division_template = \"爱沙尼亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = EST
+}
+			}
+			}
+			if = {
+			limit = {
+			190 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			LAT = {
+			transfer_state = 190
+			load_oob = LAT_1936
+			}
+			190 = {
+			create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+			}
+			}
+			if = {
+			limit = {
+			810 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			LAT = {
+			transfer_state = 810
+			load_oob = LAT_1936
+			}
+			810 = {
+			create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+			}
+			}
+			if = {
+			limit = {
+			809 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			LAT = {
+			transfer_state = 809
+			load_oob = LAT_1936
+			}
+			809 = {
+			create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+			}
+			}
+			if = {
+			limit = {
+			808 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			LAT = {
+			transfer_state = 808
+			load_oob = LAT_1936
+			}
+			808 = {
+			create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+			}
+			}
+			if = {
+			limit = {
+			12 = {
+			NOT = { has_state_flag = BLD_dikang_jieshu }
+			}
+			}
+			LAT = {
+			transfer_state = 12
+			load_oob = LAT_1936
+			}
+			12 = {
+			create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+create_unit = {
+    division = "name = \"拉脱维亚起义军\" division_template = \"拉脱维亚起义军\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = LAT
+}
+			}
+			}
+			EST = {
+			create_faction = senlin_xiongdi
+			add_to_faction = LAT
+			}
+			declare_war_on = {
+    target = LAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = EST
+    type = annex_everything
+}
+			news_event = {
+				id = holy_news.70 days = 1
+			}
+			country_event = { id = holy_boluodihai.1 hours = 1 }
+        }
+		ai_will_do = {
+			factor = 10
+		}  
+    }
+	#森林兄弟起义
+	BLD_senlinxiongdi_qiyi = {
+		icon = 
+        visible = {
+        tag = BLD
+        }          
+        activation = {                          
+            EST = {
+			exists = yes
+			}
+			LAT = {
+			exists = yes
+			}
+        }
+		available = {
+            EST = {
+			exists = no
+			}
+			LAT = {
+			exists = no
+			}
+        }
+        is_good = no
+        fire_only_once = yes
+        days_mission_timeout = 300
+        timeout_effect = {
+            LAT = {
+			annex_country = {
+    target = BLD
+    transfer_troops = no
+}
+			}
+			EST = {
+			transfer_state = 813
+			transfer_state = 812
+			transfer_state = 811
+			transfer_state = 13
+			transfer_state = 191
+			}
+        }
+		ai_will_do = {
+			factor = 10
+		}  
+    }
+	#动员地区民兵
+    holy_dongyuan_diquminbing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		has_manpower > 3000
+		has_completed_focus = BLD_zuzhi_qishi_shicong
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		days_re_enable = 15
+		targets = {
+			190 809 808 810 12 13 813 191 812 811
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			}
+		}
+		state_target = yes
+		complete_effect = {
+		add_manpower = -3000
+		FROM = {
+		create_unit = {
+    division = "name = \"波罗的海民兵\" division_template = \"波罗的海民兵\" start_experience_factor = 0.1 start_equipment_factor = 1"
+    owner = BLD
+}
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+    #临时征用工业.爱沙尼亚
+    holy_linshi_zhengyong_gongye_aishaniya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		OR = {
+		controls_state = 813
+		controls_state = 812
+		controls_state = 13
+		}
+		has_completed_focus = BLD_jieguan_difang_gongye
+		}
+		days_remove = 120
+		complete_effect = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		remove_effect = {
+			add_offsite_building = { type = arms_factory level = -1 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#临时征用工业.库尔兰
+    holy_linshi_zhengyong_gongye_kuerlan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		OR = {
+		controls_state = 190
+		controls_state = 809
+		}
+		has_completed_focus = BLD_jieguan_difang_gongye
+		}
+		days_remove = 120
+		complete_effect = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		remove_effect = {
+			add_offsite_building = { type = arms_factory level = -1 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#临时征用工业.里加
+    holy_linshi_zhengyong_gongye_lijia = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		controls_state = 808
+		has_completed_focus = BLD_jieguan_difang_gongye
+		}
+		days_remove = 120
+		complete_effect = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		remove_effect = {
+			add_offsite_building = { type = arms_factory level = -1 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+    #临时征用工业.利沃尼亚
+    holy_linshi_zhengyong_gongye_liwoniya = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		OR = {
+		controls_state = 810
+		controls_state = 191
+		controls_state = 12
+		}
+		has_completed_focus = BLD_jieguan_difang_gongye
+		}
+		days_remove = 120
+		complete_effect = {
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		remove_effect = {
+			add_offsite_building = { type = arms_factory level = -1 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#向普鲁士求援
+    holy_xiangpulushi_qiuyuan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+		PLS = {
+		country_event = {
+    id = holy_boluodihai.4
+    days = 3
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#民族圣战
+    holy_minzu_shengzhan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_dierjieduan
+	}
+		available = {
+		has_country_flag = BLD_dierjieduan
+		}
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+		add_timed_idea = {
+    idea = BLD_minzu_shengzhan
+    days = 180
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济开拓
+    holy_jingji_kaituo = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_jingji_fenquan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 20
+        }
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			190 809 808 810 12 13 813 191 812 811
+		}
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_building_slots = 2
+		local_resources_factor = 0.2
+    }
+}
+set_state_flag = BLD_kaituo
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -20
+	tooltip = BLD_qishituan_liliang_8_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济开发
+    holy_jingji_kaifa = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_jingji_fenquan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 10
+        }
+		any_owned_controlled_state = {
+		has_state_flag = BLD_kaituo
+		}
+		}
+		complete_effect = {
+		FROM = {
+		random_owned_controlled_state = {
+		limit = {
+		has_state_flag = BLD_kaituo
+		}
+		clr_state_flag = BLD_kaituo
+		random_list = {
+		add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+		}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -10
+	tooltip = BLD_qishituan_liliang_7_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#文化改革
+    holy_wenhua_gaige = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_wenhua_fenquan
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 15
+        }
+		}
+		fire_only_once = yes
+		on_map_mode = map_only
+		targets = {
+			190 809 808 810 12 13 813 191 812 811
+		}
+		state_target = yes
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_supplies_for_controller = 0.25
+		local_manpower = 0.1
+    }
+}
+if = {
+		limit = {
+		state = 190
+		}
+		set_state_name = "库尔兰"
+		}
+		if = {
+		limit = {
+		state = 809
+		}
+		set_state_name = "尤特加列"
+		}
+		if = {
+		limit = {
+		state = 810
+		}
+		set_state_name = "瑟米加利亚"
+		}
+		if = {
+		limit = {
+		state = 12
+		}
+		set_state_name = "宝剑之地"
+		}
+		if = {
+		limit = {
+		state = 13
+		}
+		set_state_name = "德意志堡"
+		}
+		if = {
+		limit = {
+		state = 191
+		}
+		set_state_name = "东方前线"
+		}
+		if = {
+		limit = {
+		state = 813
+		}
+		set_state_name = "新冰湖区"
+		}
+		if = {
+		limit = {
+		state = 812
+		}
+		set_state_name = "艾斯特"
+		}
+		if = {
+		limit = {
+		state = 811
+		}
+		set_state_name = "波罗的岛"
+		}
+		set_country_flag = BLD_wenhua_gaige
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -15
+	tooltip = BLD_qishituan_liliang_6_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#东方劫掠
+	BLD_dongfang_jielue = {
+
+		icon = generic_army_support
+
+		available = {
+			has_completed_focus = BLD_dongfangjielue_plan
+		}
+
+		visible = {
+			has_country_flag = BLD_gongguo_build
+		}
+		target_array = neighbors
+		
+		target_trigger = {
+		FROM = {
+			NOT = {
+			OR = {
+			tag = PLS
+			is_puppet_of = BLD
+			has_war_with = BLD
+			is_in_faction_with = BLD
+			is_puppet_of = PLS
+			is_in_faction_with = PLS
+			}
+			}
+		}
+		}
+
+		cost = 50
+		days_re_enable = 30
+		complete_effect = {
+			FROM = {
+			country_event = {
+    id = holy_boluodihai.5
+    days = 3
+}
+random_neighbor_state = {
+		limit = {
+		is_controlled_by = BLD
+		}
+		add_manpower = 10000
+			}
+		}
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FROM
+}
+		add_manpower = 5000
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 5
+	tooltip = BLD_qishituan_liliang_2_tt
+}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+}
+holy_BLD_yaosai_fanrong = {
+    #寻求普鲁士投资
+    holy_xunqiu_pulushi_touzi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_completed_focus = BLD_xunqiu_diguo_ziben
+		has_variable = BLD.qishituan_liliang
+		PLS = {
+		exists = yes
+		}
+		}
+		fire_only_once = yes
+		complete_effect = {
+		PLS = {
+		country_event = {
+    id = holy_boluodihai.6
+    days = 3
+}
+}
+set_country_flag = BLD_pulushitouzi
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#建设里加特区
+    holy_jianshe_lijia_tequ = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 20
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			808
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_wenhua_gaige
+		}
+		}
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_building_slots_factor = 0.2
+		local_manpower = -0.3
+		state_production_speed_buildings_factor = 0.1
+    }
+	}
+	set_state_flag = BLD_lijia
+	}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -20
+	tooltip = BLD_qishituan_liliang_8_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩大里加投资
+    holy_kuoda_lijia_touzi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 20
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			808
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_lijia
+		}
+		}
+		complete_effect = {
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -20
+	tooltip = BLD_qishituan_liliang_8_tt
+}
+		random_list = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_offsite_building = { type = dockyard level = 1 }
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#瑟米加利亚军工厂
+    holy_semijialiya_jungongchang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 25
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			809
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_wenhua_gaige
+		}
+		}
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_building_slots_factor = 0.2
+		state_production_arms_factory_factor = 0.15
+    }
+	}
+	add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -25
+	tooltip = BLD_qishituan_liliang_9_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#库尔兰征兵体系
+    holy_kuerlan_zhengbingtixi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 25
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			190
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_wenhua_gaige
+		}
+		}
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_manpower = 0.25
+		mobilization_speed = 0.3
+		recruitable_population = 0.02
+    }
+	}
+	add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -25
+	tooltip = BLD_qishituan_liliang_9_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#页岩油电气化厂
+    holy_yeyanyou_dianqihua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 25
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			813
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_wenhua_gaige
+			}
+		}
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+        local_resources_factor = 0.3
+		state_production_speed_industrial_complex_factor = 0.1
+    }
+	}
+	add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+state_resource_oil = 20
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -25
+	tooltip = BLD_qishituan_liliang_9_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩建北岸港口
+    holy_kuojian_beian_gangkou = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_country_flag = BLD_gongguo_build
+	}
+		available = {
+		has_country_flag = BLD_pulushitouzi
+		has_variable = BLD.qishituan_liliang
+		check_variable = {
+        BLD.qishituan_liliang > 25
+        }
+		}
+		state_target = yes
+		fire_only_once = yes
+		targets = {
+			812
+		}
+		target_trigger = {
+		FROM = {
+			is_controlled_by = BLD
+			has_state_flag = BLD_wenhua_gaige
+			}
+		}
+		complete_effect = {
+		FROM = {
+		add_state_modifier = {
+        modifier = {
+		state_production_speed_dockyard_factor = 0.1
+		local_building_slots_factor = 0.2
+    }
+	}
+	add_building_construction = {
+    type = dockyard
+    level = 2
+    instant_build = yes
+}
+}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = -25
+	tooltip = BLD_qishituan_liliang_9_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海补给系统
+    holy_boluodihai_bujixitong = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_equipment = {
+    infantry_equipment > 3000
+}
+		}
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+		add_ideas = BLD_bujixitong
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -3000
+}
+add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海东墙一阶段
+    holy_boluodihai_dongqiang_yijieduan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_completed_focus = BLD_jiaqiang_dongbu_fangyu
+		has_equipment = {
+    infantry_equipment > 5000
+}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -5000
+}
+set_country_flag = BLD_dongqiang_1
+191 = {
+			add_building_construction = {
+				type = bunker
+				province = 592
+				level = 2
+				instant_build = yes
+			}
+		}
+		810 = {
+			add_building_construction = {
+				type = bunker
+				province = 6459
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9279
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 222
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 319
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海东墙二阶段
+    holy_boluodihai_dongqiang_erjieduan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_completed_focus = BLD_jiaqiang_dongbu_fangyu
+		has_equipment = {
+    infantry_equipment > 7000
+}
+has_country_flag = BLD_dongqiang_1
+		}
+		fire_only_once = yes
+		cost = 80
+		complete_effect = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -7000
+}
+191 = {
+			add_building_construction = {
+				type = bunker
+				province = 592
+				level = 3
+				instant_build = yes
+			}
+		}
+		810 = {
+			add_building_construction = {
+				type = bunker
+				province = 6459
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 9279
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 222
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 319
+				level = 3
+				instant_build = yes
+			}
+		}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海东北据点
+    holy_boluodihai_dongbei_judian = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_completed_focus = BLD_jiaqiang_dongbu_fangyu
+		has_equipment = {
+    infantry_equipment > 2000
+}
+has_country_flag = BLD_dongqiang_1
+		}
+		fire_only_once = yes
+		cost = 25
+		complete_effect = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -2000
+}
+       813 = {
+			add_building_construction = {
+				type = bunker
+				province = 4640
+				level = 5
+				instant_build = yes
+			}
+		}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 5
+	tooltip = BLD_qishituan_liliang_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海南墙一阶段
+    holy_boluodihai_nanqiang_yijieduan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_completed_focus = BLD_jiaqiang_dongbu_fangyu
+		has_equipment = {
+    infantry_equipment > 6000
+}
+		}
+		fire_only_once = yes
+		cost = 50
+		complete_effect = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -6000
+}
+       190 = {
+			add_building_construction = {
+				type = bunker
+				province = 9262
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11246
+				level = 2
+				instant_build = yes
+			}
+		}
+		809 = {
+			add_building_construction = {
+				type = bunker
+				province = 6342
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 265
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3255
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11358
+				level = 2
+				instant_build = yes
+			}
+		}
+		set_country_flag = BLD_nanqiang_1
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#波罗的海南墙二阶段
+    holy_boluodihai_nanqiang_erjieduan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = BLD_yaosaihua_guojia
+	}
+		available = {
+		has_completed_focus = BLD_jiaqiang_dongbu_fangyu
+		has_equipment = {
+    infantry_equipment > 8000
+}
+has_country_flag = BLD_nanqiang_1
+		}
+		fire_only_once = yes
+		cost = 80
+		complete_effect = {
+		add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = -8000
+}
+       190 = {
+			add_building_construction = {
+				type = bunker
+				province = 9262
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11246
+				level = 3
+				instant_build = yes
+			}
+		}
+		809 = {
+			add_building_construction = {
+				type = bunker
+				province = 6342
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 265
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 3255
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 11358
+				level = 3
+				instant_build = yes
+			}
+		}
+		add_to_variable = {
+    var = BLD.qishituan_liliang
+    value = 10
+	tooltip = BLD_qishituan_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

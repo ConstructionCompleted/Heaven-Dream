@@ -1,0 +1,1982 @@
+holy_HDS_zhongyanggaige_andwar = {
+     #印度大战争
+     HDS_yindu_greatwar = {
+
+		icon = generic_army_support
+        visible = {
+            UKM = {
+			has_idea = UKM_dabuliedian_bengkui
+			}
+        }          
+        available = { 
+            has_war_with = RAJ
+        }
+        activation = {
+            UKM = {
+			has_idea = UKM_dabuliedian_bengkui
+			}
+        }
+        is_good = no
+        fire_only_once = yes
+        days_re_enable = 2
+        days_mission_timeout = 90
+        timeout_effect = {
+            declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+set_global_flag = HDS_greatwar
+complete_national_focus = HDS_diwuci_daayindu_war
+        }
+        complete_effect = {
+            add_war_support = 0.1
+			set_global_flag = HDS_greatwar
+			complete_national_focus = HDS_diwuci_daayindu_war
+        }
+		ai_will_do = {
+			factor = 10
+		}  
+    }
+	#印度统一
+    HDS_yindu_tongyi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		always = yes
+	}	
+		available = {
+		KSM = {
+		exists = no
+		}
+		RAJ = {
+		exists = no
+		}
+		MLM = {
+		exists = no
+		}
+		BAN = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		KND = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		RJS = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		TML = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		HYD = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		MSR = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		MDS = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		BHP = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		NGP = {
+		OR = {
+		exists = no
+		is_puppet_of = HDS
+		}
+		}
+		}
+        fire_only_once = yes
+		complete_effect = {
+		set_global_flag = HDS_yindutongyi
+		complete_national_focus = HDS_yindu_zhanzheng_vic
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+    #提出陆军改革
+    HDS_tichu_lujun_gaige = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		always = yes
+	}	
+		available = {
+		OR = {
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		has_completed_focus = HDS_xiang_junfa_tuoxie
+		}
+		OR = {
+		has_completed_focus = HDS_bianjing_fangyu
+		has_completed_focus = HDS_fangqi_shanqu
+		has_completed_focus = HDS_yunxu_beibu_tequ
+		}
+		}
+        fire_only_once = yes
+		cost = 0
+		days_remove = 50
+		remove_effect = {
+		country_event = { id = holy_yindusitan.3 days = 0 }
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_dongbu_bianqu = {
+    #放弃乡村控制
+    HDS_fangqi_xiangcun_kongzhi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_fenquan
+		has_completed_focus = HDS_zhunxu_diqu_zizhi
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		1608 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.2
+local_resources_factor = -0.2
+}
+}
+}
+1611 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.2
+local_resources_factor = -0.2
+}
+}
+}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 5
+	tooltip = HDS_jiqaun_du_1_tt
+}
+add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -5
+	tooltip = HDS_fandui_liliang_1_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#准许军阀扩军
+    HDS_zhunxu_junfa_kuozhang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_fenquan
+		has_completed_focus = HDS_zhunxu_diqu_zizhi
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		1608 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = -0.1
+}
+}
+}
+1611 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = -0.1
+}
+}
+}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+		set_country_flag = HDS_junfakuojun
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#战时征集
+    HDS_zhanshi_zhengji = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_fenquan
+		has_completed_focus = HDS_zhunxu_diqu_zizhi
+		has_country_flag = HDS_junfakuojun
+		has_war = yes
+		}
+        fire_only_once = yes
+		complete_effect = {
+		load_oob = HDS_zhanshi_zhengji
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#接管前线营地
+    HDS_jieguan_qianxian_yingdi = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_jiquan
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		1611 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.1
+army_speed_factor_for_controller = 0.1
+}
+}
+}
+1608 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.1
+army_speed_factor_for_controller = 0.1
+}
+}
+}
+add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 4
+	tooltip = HDS_jiqaun_du_3_tt
+}
+set_country_flag = HDS_jieguan_yingdi
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩建军营
+    HDS_kuojian_junying = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_jiquan
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		has_country_flag = HDS_jieguan_yingdi
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		1611 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.1
+army_speed_factor_for_controller = 0.1
+}
+}
+}
+1608 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_supplies = 0.1
+army_speed_factor_for_controller = 0.1
+}
+}
+}
+add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 4
+	tooltip = HDS_jiqaun_du_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#收编残军
+    HDS_shoubian_canjun = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		has_country_flag = HDS_dongbu_jiquan
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		has_country_flag = HDS_jieguan_yingdi
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		load_oob = HDS_shoubian_canjun
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#建立东方补给线
+    HDS_jianli_dongfang_bujixian = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		OR = {
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		has_completed_focus = HDS_zhunxu_diqu_zizhi
+		}
+		}
+		days_remove = 50
+        fire_only_once = yes
+		cost = 25
+		remove_effect = {
+		add_ideas = HDS_jianli_bujixian
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#东方要塞
+    HDS_dongfang_yaosai = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_dongbubeizhan_yinhuan
+	}	
+		available = {
+		OR = {
+		has_completed_focus = HDS_kuoda_dongbu_zhujun
+		has_completed_focus = HDS_zhunxu_diqu_zizhi
+		}
+		has_idea = HDS_jianli_bujixian
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 50
+		modifier = {
+           civilian_factory_use = 3
+        }
+		remove_effect = {
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 3
+	tooltip = HDS_jiqaun_du_4_tt
+}
+		1611 = {
+			add_building_construction = {
+				type = bunker
+				province = 4573
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 12375
+				level = 2
+				instant_build = yes
+			}
+		}
+		1608 = {
+			add_building_construction = {
+				type = bunker
+				province = 12307
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10358
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1444
+				level = 2
+				instant_build = yes
+			}
+		}
+		set_country_flag = HDS_dongfang_yaosai
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_beibu_shanqu = {
+    #协助民间传教
+    HDS_xiezhu_mingjian_chuanjiao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		has_completed_focus = HDS_jiemeng_fojiaotu
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -5
+	tooltip = HDS_fandui_liliang_2_tt
+}
+		1591 = {
+add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+}
+}
+}
+1332 = {
+add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+}
+}
+}
+set_country_flag = HDS_xiezhu_chaunjiao
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#组建僧兵
+    HDS_zujian_sengbing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		has_completed_focus = HDS_jiemeng_fojiaotu
+		has_country_flag = {
+    flag = HDS_xiezhu_chaunjiao
+    days > 90
+}
+		}
+		cost = 20
+		days_remove = 90
+		days_re_enable = 180
+		remove_effect = {
+		load_oob = HDS_sengbing
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩建边境墙
+    HDS_kuojian_bingjingqiang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		has_completed_focus = HDS_bianjing_fangyu
+		}
+        fire_only_once = yes
+		cost = 20
+		days_remove = 80
+		modifier = {
+		civilian_factory_use = 2
+		}
+		remove_effect = {
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 5
+	tooltip = HDS_jiqaun_du_1_tt
+}
+		1591 = {
+			add_building_construction = {
+				type = bunker
+				province = 1898
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10021
+				level = 2
+				instant_build = yes
+			}
+		}
+		1332 = {
+			add_building_construction = {
+				type = bunker
+				province = 7106
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 1129
+				level = 2
+				instant_build = yes
+			}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#建立山地部队
+    HDS_jianli_shandi_budui = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		has_completed_focus = HDS_kuozhang_beibu_zhujun
+		}
+        fire_only_once = yes
+		cost = 20
+		days_remove = 60
+		modifier = {
+		weekly_manpower = -1000
+		}
+		remove_effect = {
+		load_oob = HDS_shandi_army
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#打击锡克教
+    HDS_daji_xikejiao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		OR = {
+		has_country_flag = HDS_junshi_beibu
+		has_country_flag = HDS_fojiao_kongzhi
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		days_remove = 60
+		complete_effect = {
+		add_stability = -0.1
+		}
+		remove_effect = {
+		add_stability = 0.05
+		1591 = {
+add_state_modifier = {
+modifier = {
+recruitable_population = 0.01
+}
+}
+}
+1332 = {
+add_state_modifier = {
+modifier = {
+recruitable_population = 0.01
+}
+}
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#建立山区补给
+    HDS_jianli_shanqu_buji = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_bianjingzhan_over
+	}	
+		available = {
+		OR = {
+		has_country_flag = HDS_junshi_beibu
+		has_country_flag = HDS_fojiao_kongzhi
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		days_remove = 60
+		modifier = {
+		civilian_factory_use = 2
+		}
+		remove_effect = {
+		1591 = {
+add_state_modifier = {
+modifier = {
+army_speed_factor_for_controller = 0.1
+local_supplies = 0.1
+}
+}
+}
+1332 = {
+add_state_modifier = {
+modifier = {
+army_speed_factor_for_controller = 0.1
+local_supplies = 0.1
+}
+}
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_nagepuer_wenti = {
+    #协助王公革新
+    HDS_xiezhu_wanggong_gexin = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_jiyu_wanggong_zizhi
+		NGP = {
+		is_puppet_of = HDS
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		NGP = {
+		swap_ideas = {
+		add_idea = HDS_wanggong_zizhi_2
+		remove_idea = HDS_wanggong_zizhi
+		}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#民兵精锐化
+    HDS_minbing_jingruihua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_jiyu_wanggong_zizhi
+		NGP = {
+		is_puppet_of = HDS
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		NGP = {
+		add_ideas = HDS_minbing_jingruihua
+		}
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -2
+	tooltip = HDS_fandui_liliang_3_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#那格普尔工业化
+    HDS_nagepuer_gongyehua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_lianhe_nagepuer
+		NGP = {
+		is_puppet_of = HDS
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		NGP = {
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#接管当地行政
+    HDS_jieguan_dangdi_xingzheng = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_jiyu_wanggong_zizhi
+		NGP = {
+		is_puppet_of = HDS
+		}
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		NGP = {
+		swap_ideas = {
+		add_idea = HDS_wanggong_zizhi_2
+		remove_idea = HDS_wanggong_zizhi
+		}
+		}
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -3
+	tooltip = HDS_fandui_liliang_4_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#接管当地行政
+    HDS_jieguan_dangdi_xingzheng = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_zhenya_wanggong_canyu
+		controls_state = 1626
+		controls_state = 1603
+		controls_state = 436
+		}
+        fire_only_once = yes
+		cost = 20
+		days_remove = 50
+		remove_effect = {
+		1626 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+disable_strategic_redeployment = 0
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		1603 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+disable_strategic_redeployment = 0
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		436 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+disable_strategic_redeployment = 0
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		set_country_flag = HDS_zhenyacanyu
+		add_to_variable = {
+    var = HDS.jiquan_du
+    value = -3
+	tooltip = HDS_fandui_liliang_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#收编地方民兵
+    HDS_shoubian_difang_minbing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_zhenya_wanggong_canyu
+		controls_state = 1626
+		controls_state = 1603
+		controls_state = 436
+		has_country_flag = HDS_zhenyacanyu
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		load_oob = HDS_nagepuer_minbing
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 2
+	tooltip = HDS_jiqaun_du_5_tt
+}
+		1626 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+}
+}
+		}
+		1603 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+}
+}
+		}
+		436 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+}
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#平息匪盗
+    HDS_pingxi_feidao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_jiejue_nagepuer_wenti
+	}	
+		available = {
+		has_completed_focus = HDS_zhenya_wanggong_canyu
+		controls_state = 1626
+		controls_state = 1603
+		controls_state = 436
+		has_country_flag = HDS_zhenyacanyu
+		}
+        fire_only_once = yes
+		cost = 20
+		complete_effect = {
+		add_stability = 0.05
+		1626 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		1603 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		436 = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_lujun_gaige = {
+	#装甲实验
+    HDS_zhuangjia_shiyan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_zhongyang_lujun_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_zongtizhan_tixi
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 90
+		remove_effect = {
+		add_tech_bonus = {
+				bonus = 3
+				uses = 3
+				technology = armor
+			}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#扩大中央武装
+    HDS_kuoda_zhongyangwuzhuang = {
+
+		icon = generic_army_support
+		
+		visible = {
+		has_completed_focus = HDS_zhongyang_lujun_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_zongtizhan_tixi
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 90
+		modifier = {
+		consumer_goods_factor = 0.1
+		weekly_manpower = -5000
+		}
+		remove_effect = {
+		load_oob = HDS_kuoda_zhongyang_wuzhuang
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#设立准军事民兵
+	HDS_sheli_zhunjunshi_minbing = {
+
+		icon = generic_army_support
+        cost = 10
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_eryuan_junshi_gaige
+		}
+		available = {
+            has_completed_focus = HDS_jianli_jiceng_zhunjunshi
+		}
+        target_trigger = {
+            FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+			}
+        }
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 1
+	tooltip = HDS_jiqaun_du_6_tt
+}
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -3
+	tooltip = HDS_fandui_liliang_4_tt
+}
+		FROM = {
+		set_state_flag = HDS_zhunjunshi_minbing
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+			check_variable = { HDS.fandui_liliang > 80 }
+			factor = 0
+			}
+		}
+	}
+	#动员准军事民兵
+	HDS_sheli_zhunjunshi_minbing = {
+
+		icon = generic_army_support
+        state_target = yes
+		on_map_mode = map_only
+		cost = 10
+        visible = {
+			has_completed_focus = HDS_jianli_jiceng_zhunjunshi
+		}
+		available = {
+            has_completed_focus = HDS_war_army_dongyuan
+		}
+        target_trigger = {
+            FROM = {
+			has_state_flag = HDS_zhunjunshi_minbing
+			}
+        }
+		fire_only_once = yes
+        complete_effect = {
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 1
+	tooltip = HDS_jiqaun_du_6_tt
+}
+		FROM = {
+		create_unit = {
+    division = "name = \"印度斯坦民兵\" division_template = \"印度斯坦民兵\" start_experience_factor = 0.1 start_equipment_factor = 0.8"
+    owner = HDS
+}
+		}
+        }
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#扩大中央征兵
+	HDS_kuoda_zhongyang_zhengbing = {
+
+		icon = generic_army_support
+        cost = 25
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_kuoda_zhongyangjun
+		}
+		available = {
+            has_completed_focus = HDS_hejian_junshihua
+		}
+        target_trigger = {
+		FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+        }
+		}
+		targets = {
+		1641 1593 1594 435 1589 1590 438 1610 439
+		}
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 2
+	tooltip = HDS_jiqaun_du_5_tt
+}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 2
+	tooltip = HDS_fandui_liliang_3_tt
+}
+		FROM = {
+		set_state_flag = HDS_zhongyang_zhengbing
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.2
+recruitable_population = 0.02
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+			check_variable = { HDS.fandui_liliang > 80 }
+			factor = 0
+			}
+		}
+	}
+	#动员河谷军
+	HDS_kuoda_zhongyang_zhengbing = {
+
+		icon = generic_army_support
+        cost = 20
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_hejian_junshihua
+		}
+		available = {
+            has_completed_focus = HDS_war_army_dongyuan
+		}
+        target_trigger = {
+            FROM = {
+			has_state_flag = HDS_zhongyang_zhengbing
+			}
+        }
+		targets = {
+		1641 1593 1594 435 1589 1590 438 1610 439
+		}
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = HDS.jiqaun_du
+    value = 1
+	tooltip = HDS_jiqaun_du_6_tt
+}
+		FROM = {
+		create_unit = {
+    division = "name = \"河谷军团\" division_template = \"河谷军团\" start_experience_factor = 0.2 start_equipment_factor = 0.9"
+    owner = HDS
+}
+create_unit = {
+    division = "name = \"河谷军团\" division_template = \"河谷军团\" start_experience_factor = 0.2 start_equipment_factor = 0.9"
+    owner = HDS
+}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#加强陆军训练
+    HDS_kuoda_zhongyangwuzhuang = {
+
+		icon = generic_army_support
+		
+		visible = {
+		has_completed_focus = HDS_zhongyang_lujun_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_gaige_jiceng
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 90
+		remove_effect = {
+		swap_ideas = {
+		add_idea = HDS_sheli_canmoubu_3
+		remove_idea = HDS_sheli_canmoubu_2
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#改良军事学院
+    HDS_gailiang_junshixueyuan = {
+
+		icon = generic_army_support
+		
+		visible = {
+		has_completed_focus = HDS_zhongyang_lujun_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_lujun_keyan_tixi
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 90
+		remove_effect = {
+		swap_ideas = {
+		add_idea = HDS_junshi_xueyuan_4
+		remove_idea = HDS_junshi_xueyuan_3
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#步枪改良
+    HDS_buqiang_gailiang = {
+
+		icon = generic_army_support
+		
+		visible = {
+		has_completed_focus = HDS_zhongyang_lujun_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_lujun_keyan_tixi
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 120
+		modifier = {
+	    research_speed_factor = -0.1
+		}
+		remove_effect = {
+		swap_ideas = {
+		add_idea = HDS_luohou_army_2
+		remove_idea = HDS_luohou_army
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#改革完成
+    HDS_gaige_wancheng = {
+
+		icon = generic_army_support
+		
+		visible = {
+		has_completed_focus = HDS_lujun_keyan_tixi
+	}	
+		available = {
+		has_idea = HDS_luohou_army_2
+		has_idea = HDS_junshi_xueyuan_4
+		has_idea = HDS_sheli_canmoubu_3
+		}
+        fire_only_once = yes
+		complete_effect = {
+		remove_ideas = HDS_sheli_canmoubu_3
+		remove_ideas = HDS_junshi_xueyuan_4
+		swap_ideas = {
+		add_idea = HDS_xiandaihua_army
+		remove_idea = HDS_luohou_army_2
+		}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_yanxu_huangshi_ic = {
+    #建设皇室工业
+    HDS_jianshe_huangjia_gongchang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_gongchang_linli
+	}	
+		available = {
+		has_completed_focus = HDS_gongchang_linli
+		check_variable = {
+	HDS.jiqaun_du > 25
+}
+		}
+		on_map_mode = map_only
+		state_target = yes
+		target_trigger = {
+            FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+			}
+        }
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		random_list = {
+		add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -2
+	tooltip = HDS_jiqaun_du_7_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#塔塔汽车
+    HDS_tataqiche = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinhuangshi_qiye
+	}	
+		available = {
+		has_completed_focus = HDS_xinhuangshi_qiye
+		check_variable = {
+	HDS.jiqaun_du > 30
+}
+controls_state = 1596
+		}
+		target = {
+		1596
+		}
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		1596 = {
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+local_factories = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#印度石油
+    HDS_yindushiyou = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinhuangshi_qiye
+	}	
+		available = {
+		has_completed_focus = HDS_xinhuangshi_qiye
+		check_variable = {
+	HDS.jiqaun_du > 30
+}
+controls_state = 438
+		}
+		target = {
+		438
+		}
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		438 = {
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+state_resource_oil = 20
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#皇家鸟
+    HDS_huangjianiao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinhuangshi_qiye
+	}	
+		available = {
+		has_completed_focus = HDS_xinhuangshi_qiye
+		check_variable = {
+	HDS.jiqaun_du > 30
+}
+controls_state = 1589
+		}
+		target = {
+		1589
+		}
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		1589 = {
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+local_factories = 0.2
+state_production_speed_buildings_factor = 0.1
+}
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#德里银行
+    HDS_deliyinhang = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinhuangshi_qiye
+	}	
+		available = {
+		has_completed_focus = HDS_xinhuangshi_qiye
+		check_variable = {
+	HDS.jiqaun_du > 30
+}
+controls_state = 439
+		}
+		target = {
+		439
+		}
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		439 = {
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+state_production_speed_buildings_factor = 0.2
+}
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#拉贾皇金
+    HDS_lajiahuangjin = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinhuangshi_qiye
+	}	
+		available = {
+		has_completed_focus = HDS_xinhuangshi_qiye
+		check_variable = {
+	HDS.jiqaun_du > 30
+}
+controls_state = 1333
+		}
+		target = {
+		1333
+		}
+        fire_only_once = yes
+		cost = 10
+		days_remove = 90
+		remove_effect = {
+		1333 = {
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+add_state_modifier = {
+modifier = {
+state_production_speed_buildings_factor = 0.1
+local_supplies = 0.2
+local_manpower = 0.2
+}
+}
+		}
+		add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -3
+	tooltip = HDS_jiqaun_du_2_tt
+}
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_HDS_freehua_ic = {
+     #私有化投资
+     HDS_siyouhua_touzi = {
+
+		icon = generic_army_support
+        visible = {
+            has_completed_focus = HDS_siyou_gaige
+        }          
+        available = { 
+            always = no
+        }
+        activation = {
+            has_completed_focus = HDS_siyou_gaige
+        }
+        is_good = yes
+        complete_effect = {
+            random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 2
+    instant_build = yes
+}
+		}
+        }
+		ai_will_do = {
+			factor = 10
+		}  
+    }
+	#私有化投资2
+     HDS_siyouhua_touzi2 = {
+
+		icon = generic_army_support
+        visible = {
+            has_completed_focus = HDS_siyou_gaige
+        }          
+        available = { 
+            always = no
+        }
+        activation = {
+            has_completed_focus = HDS_chengshi_fanrong
+        }
+        is_good = yes
+        complete_effect = {
+            random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+        }
+		ai_will_do = {
+			factor = 10
+		}  
+    }
+}
+holy_HDS_difangguanli = {
+	#设立地区法院
+	HDS_sheli_diqu_fayuan = {
+
+		icon = generic_army_support
+        cost = 10
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_jingjian_guanliao_tixi
+		}
+		available = {
+            has_completed_focus = HDS_jianli_difang_fayuan
+		}
+        target_trigger = {
+            FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+			}
+        }
+		cost = 10
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -1
+	tooltip = HDS_jiqaun_du_8_tt
+}
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -1
+	tooltip = HDS_fandui_liliang_5_tt
+}
+		FROM = {
+		set_state_flag = HDS_difang_fayuan
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.1
+local_building_slots_factor = 0.2
+local_supplies = 0.1
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#控制地区行政
+	HDS_kongzhi_diqu_xingzheng = {
+
+		icon = generic_army_support
+        cost = 20
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_jingjian_guanliao_tixi
+		}
+		available = {
+            has_completed_focus = HDS_jianli_difang_fayuan
+		}
+        target_trigger = {
+            FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+			has_state_flag = HDS_difang_fayuan
+			}
+        }
+		cost = 10
+		fire_only_once = yes
+        complete_effect = {
+        add_to_variable = {
+    var = HDS.jiqaun_du
+    value = -1
+	tooltip = HDS_jiqaun_du_8_tt
+}
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -1
+	tooltip = HDS_fandui_liliang_5_tt
+}
+		FROM = {
+		add_state_modifier = {
+modifier = {
+local_manpower = 0.05
+local_factories = 0.1
+local_resources = 0.15
+}
+		}
+		}
+        }
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	#建立地方联合体
+	HDS_jianli_difang_lianheti = {
+
+		icon = generic_army_support
+        cost = 20
+        state_target = yes
+		on_map_mode = map_only
+        visible = {
+			has_completed_focus = HDS_jiceng_hezuo
+		}
+		available = {
+            has_completed_focus = HDS_difang_lianheti
+		}
+        target_trigger = {
+            FROM = {
+			is_core_of = HDS
+			is_owned_and_controlled_by = HDS
+			}
+        }
+		cost = 0
+		fire_only_once = yes
+        complete_effect = {
+		add_to_variable = {
+    var = HDS.fandui_liliang
+    value = -3
+	tooltip = HDS_fandui_liliang_4_tt
+}
+        }
+		ai_will_do = {
+			factor = 0
+			modifier = {
+			has_political_power < 50
+			has_stability < 0.25
+			check_variable = {
+			HDS.fandui_liliang < 80
+	}
+	factor = 50
+			}
+		}
+	}
+}
+holy_HDS_degan_zhengfuzhe = {
+    #接管比哈普尔
+    HDS_jieguan_bihapuer = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 321
+		controls_state = 1631
+		controls_state = 1637
+		controls_state = 1634
+		controls_state = 1636
+		}
+        fire_only_once = yes
+		cost = 50
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 321
+		add_state_core = 1631
+		add_state_core = 1637
+		add_state_core = 1634
+		add_state_core = 1636
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#泰米尔合并
+    HDS_taimier_hebing = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 1640
+		controls_state = 423
+		}
+        fire_only_once = yes
+		cost = 50
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 1640
+		add_state_core = 423
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#海得拉巴中央化
+    HDS_haidelaba_zhongyanghua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 1629
+		controls_state = 1618
+		controls_state = 1619
+		controls_state = 1620
+		controls_state = 427
+		}
+        fire_only_once = yes
+		cost = 50
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 1629
+		add_state_core = 1618
+		add_state_core = 1619
+		add_state_core = 1620
+		add_state_core = 427
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#迈索尔中央化
+    HDS_maisuoer_zhongyanghua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 1633
+		controls_state = 1638
+		controls_state = 425
+		}
+        fire_only_once = yes
+		cost = 50
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 1633
+		add_state_core = 1638
+		add_state_core = 425
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#马德拉斯中央化
+    HDS_madelasi_zhongyanghua = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 1621
+		controls_state = 424
+		controls_state = 1639
+		controls_state = 320
+		}
+        fire_only_once = yes
+		cost = 50
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 1621
+		add_state_core = 424
+		add_state_core = 1639
+		add_state_core = 320
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#接管锡兰岛
+    HDS_jieguan_xilandao = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 1630
+		controls_state = 422
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 1630
+		add_state_core = 422
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#移民马尔代夫
+    HDS_yimin_maerdaifu = {
+
+		icon = generic_army_support
+		
+		visible = { 
+		has_completed_focus = HDS_xinyindu_gaige
+	}	
+		available = {
+		has_completed_focus = HDS_degan_zhengfuzhe
+		controls_state = 281
+		}
+        fire_only_once = yes
+		cost = 25
+		days_remove = 180
+		remove_effect = {
+		add_state_core = 281
+        }
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

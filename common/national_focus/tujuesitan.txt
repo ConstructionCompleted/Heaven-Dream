@@ -1,0 +1,320 @@
+focus_tree = {
+	id = TKS_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = TKS
+		}
+	}
+	
+	default = no
+ 
+    #突厥斯坦困境
+	focus = {
+		id = TKS_tujuesitan_kunjing
+		icon = GFX_focus_spr_crush_the_revolution
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#集体化农庄
+	focus = {
+		id = TKS_jitihua_nongzhuang
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = TKS_tujuesitan_kunjing}
+		relative_position_id = TKS_tujuesitan_kunjing
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_jitihua_weiji_2
+		remove_idea = TKS_jitihua_weiji
+		}
+		}
+	}
+	#吸收失业牧民
+	focus = {
+		id = TKS_xishou_shiye_mumin
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = TKS_jitihua_nongzhuang}
+		relative_position_id = TKS_jitihua_nongzhuang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_jitihua_weiji_3
+		remove_idea = TKS_jitihua_weiji_2
+		}
+		}
+	}
+	#建立政治体系
+	focus = {
+		id = TKS_jianli_zhengzhi_tixi
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = TKS_tujuesitan_kunjing}
+		relative_position_id = TKS_tujuesitan_kunjing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_guli_wuyuan_2
+		remove_idea = TKS_guli_wuyuan
+		}
+		}
+	}
+	#走出孤立困境
+	focus = {
+		id = TKS_zouchu_guli_weijing
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = TKS_jianli_zhengzhi_tixi}
+		relative_position_id = TKS_jianli_zhengzhi_tixi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_zouchu_kunjing
+		remove_idea = TKS_guli_wuyuan_2
+		}
+		}
+	}
+	#工业化
+	focus = {
+		id = TKS_gongyehua
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = TKS_tujuesitan_kunjing}
+		relative_position_id = TKS_tujuesitan_kunjing
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = TKS_xishou_shiye_mumin
+		}
+		completion_reward = {
+		add_ideas = TKS_gongyehua
+		}
+	}
+	#军工武装
+	focus = {
+		id = TKS_jungong_wuzhuang
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = TKS_gongyehua}
+		relative_position_id = TKS_gongyehua
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_jungong_wuzhuang
+		remove_idea = TKS_gongyehua
+		}
+		}
+	}
+	#草原骑兵
+	focus = {
+		id = TKS_caoyuan_qibing
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = TKS_jungong_wuzhuang}
+		prerequisite = { focus = TKS_xishou_shiye_mumin}
+		prerequisite = { focus = TKS_zouchu_guli_weijing}
+		relative_position_id = TKS_zouchu_guli_weijing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = TKS_caoyuan_qibing
+		}
+	}
+	#组建政治委员
+	focus = {
+		id = TKS_zujian_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = TKS_caoyuan_qibing}
+		relative_position_id = TKS_caoyuan_qibing
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = TKS_zujian_zhengzhi_weiyuan
+		remove_idea = TKS_caoyuan_qibing
+		}
+		}
+	}
+	#吸收东方牧民
+	focus = {
+		id = TKS_xishou_dongfang_mumin
+		icon = GFX_focus_TUR_the_sun_language_theory
+		prerequisite = { focus = TKS_caoyuan_qibing}
+		relative_position_id = TKS_caoyuan_qibing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = TKS_xishou_mumin
+		}
+	}
+	#向北扩展
+	focus = {
+		id = TKS_xiangbei_kuozhan
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = TKS_xishou_dongfang_mumin}
+		prerequisite = { focus = TKS_zujian_zhengzhi_weiyuan}
+		relative_position_id = TKS_zujian_zhengzhi_weiyuan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = SHV
+		}
+		}
+		bypass = {
+		KAZ = {
+		OR = {
+		NOT = {
+		has_war_with = ARS
+		}
+		NOT = {
+		has_war_with = URL
+		}
+		has_completed_focus = KAZ_jinjun_nanfang
+		}
+		}
+		}
+		completion_reward = {
+		create_faction = zhongya_zhenying
+		TKS = { add_to_faction = KAZ }
+		declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+		}
+	}
+	#军事科研进步
+	focus = {
+		id = TKS_junshikeyan_jinbu
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = TKS_caoyuan_qibing}
+		relative_position_id = TKS_caoyuan_qibing
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_research_slot = 1
+		}
+	}
+	#整合南部
+	focus = {
+		id = TKS_zhenghe_nanbu
+		icon = GFX_focus_ITA_il_sol_dell_avvenire
+		prerequisite = { focus = TKS_xishou_dongfang_mumin}
+		prerequisite = { focus = TKS_junshikeyan_jinbu}
+		relative_position_id = TKS_junshikeyan_jinbu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SHV = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_state_core = 584
+		add_state_core = 832
+		add_state_core = 1355
+		add_state_core = 1588
+		add_state_core = 1769
+		add_state_core = 1770
+		add_state_core = 1772
+		add_state_core = 742
+		add_state_core = 1354
+		add_state_core = 1771
+		add_state_core = 405
+		add_state_core = 732
+		}
+	}
+	#解放草原
+	focus = {
+		id = TKS_jiefang_caoyuan
+		icon = GFX_focus_ITA_peasants_rise
+		prerequisite = { focus = TKS_zhenghe_nanbu}
+		prerequisite = { focus = TKS_xiangbei_kuozhan}
+		relative_position_id = TKS_zhenghe_nanbu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ARS = {
+		exists = no
+		}
+		URL = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		dismantle_faction = yes
+		every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = TKS
+			}
+		}
+	}
+}

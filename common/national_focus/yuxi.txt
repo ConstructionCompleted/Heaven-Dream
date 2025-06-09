@@ -1,0 +1,820 @@
+focus_tree = {
+	id = YUX_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = YUX
+		}
+	}
+	
+	default = no
+ 
+	#重庆城内
+	focus = {
+		id = YUX_chongqing_chengnei
+		icon = GFX_goal_generic_construct_military
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			country_event = {
+    id = holy_xibu.6
+	days = 1
+}
+		}
+	}
+	#应对饥荒
+	focus = {
+		id = YUX_yingdui_jihuang
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = YUX_chongqing_chengnei }
+		relative_position_id = YUX_chongqing_chengnei
+		x = -2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#配给制度
+	focus = {
+		id = YUX_peji_zhidu
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = YUX_yingdui_jihuang }
+		relative_position_id = YUX_yingdui_jihuang
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_peiji_zhidu
+		}
+	}
+	#开垦农田
+	focus = {
+		id = YUX_kaiken_nongtian
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = YUX_peji_zhidu }
+		relative_position_id = YUX_peji_zhidu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_nongtian
+		}
+	}
+	#生产农具
+	focus = {
+		id = YUX_shengchan_nongju
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = YUX_kaiken_nongtian }
+		relative_position_id = YUX_kaiken_nongtian
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		    swap_ideas = {
+			add_idea = YUX_nongtian_2
+			remove_idea = YUX_nongtian
+		    }
+		}
+	}
+	#肃清腐败
+	focus = {
+		id = YUX_suqing_fubai
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = YUX_peji_zhidu }
+		relative_position_id = YUX_peji_zhidu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_peiji_zhidu_2
+			remove_idea = YUX_peiji_zhidu
+		    }
+		}
+	}
+	#停止鸦片生产
+	focus = {
+		id = YUX_tingzhi_yapian_shengchan
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = YUX_suqing_fubai }
+		relative_position_id = YUX_suqing_fubai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_peiji_zhidu_3
+			remove_idea = YUX_peiji_zhidu_2
+		    }
+		}
+	}
+	#联络开明人士
+	focus = {
+		id = YUX_lianluo_kaiming_renshi
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = YUX_yingdui_jihuang }
+		relative_position_id = YUX_yingdui_jihuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_lianluo
+		}
+	}
+	#吸收救济粮
+	focus = {
+		id = YUX_xishou_jiaojiliang
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = YUX_lianluo_kaiming_renshi }
+		relative_position_id = YUX_lianluo_kaiming_renshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_lianluo_2
+			remove_idea = YUX_lianluo
+		    }
+		}
+	}
+	#国际求援
+	focus = {
+		id = YUX_guoji_qiuyuan
+		icon = GFX_focus_generic_energy
+		prerequisite = { focus = YUX_xishou_jiaojiliang }
+		relative_position_id = YUX_xishou_jiaojiliang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_lianluo_3
+			remove_idea = YUX_lianluo_2
+		    }
+		}
+	}
+	#应对战争
+	focus = {
+		id = YUX_yingdui_zhanzheng
+		icon = GFX_focus_generic_air_defense
+		prerequisite = { focus = YUX_chongqing_chengnei }
+		relative_position_id = YUX_chongqing_chengnei
+		x = 2
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#斩断亲戚联系
+	focus = {
+		id = YUX_zhanduan_qinqi_lianxi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = YUX_yingdui_zhanzheng }
+		relative_position_id = YUX_yingdui_zhanzheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_chuanjun_2
+			remove_idea = YUX_chuanjun
+		    }
+		}
+	}
+	#纠察队计划
+	focus = {
+		id = YUX_jiuchadui_plan
+		icon = GFX_focus_SOV_womens_fascist_movement
+		prerequisite = { focus = YUX_zhanduan_qinqi_lianxi }
+		relative_position_id = YUX_zhanduan_qinqi_lianxi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_chuanjun_3
+			remove_idea = YUX_chuanjun_2
+		    }
+		}
+	}
+	#冲锋意志
+	focus = {
+		id = YUX_chongfeng_yizhi
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = YUX_jiuchadui_plan }
+		relative_position_id = YUX_jiuchadui_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_chuanjun_4
+			remove_idea = YUX_chuanjun_3
+		    }
+		}
+	}
+	#造不如买
+	focus = {
+		id = YUX_zaobu_rumai
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = YUX_yingdui_zhanzheng }
+		relative_position_id = YUX_yingdui_zhanzheng
+		mutually_exclusive = { focus = YUX_wuqi_shengchan }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_maiburuzao
+			remove_idea = YUX_maihaishizao
+		    }
+		}
+	}
+	#长江源泉
+	focus = {
+		id = YUX_changjiang_yuanquan
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = YUX_zaobu_rumai }
+		relative_position_id = YUX_zaobu_rumai
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_maiburuzao_2
+			remove_idea = YUX_maiburuzao
+		    }
+		}
+	}
+	#加大进口
+	focus = {
+		id = YUX_jiada_jinkou
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = YUX_changjiang_yuanquan }
+		relative_position_id = YUX_changjiang_yuanquan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_maiburuzao_3
+			remove_idea = YUX_maiburuzao_2
+		    }
+		}
+	}
+	#武器生产
+	focus = {
+		id = YUX_wuqi_shengchan
+		icon = GFX_goal_continuous_armor_production
+		prerequisite = { focus = YUX_yingdui_zhanzheng }
+		relative_position_id = YUX_yingdui_zhanzheng
+		mutually_exclusive = { focus = YUX_zaobu_rumai }
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_wuqi_shengchan
+			remove_idea = YUX_maihaishizao
+		    }
+		}
+	}
+	#川军征兵
+	focus = {
+		id = YUX_chuanjun_zhengbing
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = YUX_wuqi_shengchan }
+		relative_position_id = YUX_wuqi_shengchan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_wuqi_shengchan_2
+			remove_idea = YUX_wuqi_shengchan
+		    }
+		}
+	}
+	#秩序井然
+	focus = {
+		id = YUX_zhixu_jingran
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = YUX_chuanjun_zhengbing }
+		relative_position_id = YUX_chuanjun_zhengbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_wuqi_shengchan_3
+			remove_idea = YUX_wuqi_shengchan_2
+		    }
+		}
+	}
+	#四川统一
+	focus = {
+		id = YUX_sichuan_tongyi
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = YUX_chongqing_chengnei }
+		relative_position_id = YUX_chongqing_chengnei
+		x = 0
+		y = 5
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 751
+			controls_state = 1267
+			controls_state = 753
+			controls_state = 1086
+			controls_state = 1266
+			controls_state = 1082
+			controls_state = 1088
+			controls_state = 1087
+			controls_state = 605
+			controls_state = 1268
+			controls_state = 1083
+			controls_state = 1270
+			controls_state = 1271
+			controls_state = 1112
+			controls_state = 752
+			controls_state = 1278
+			controls_state = 1279
+		}
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+	#支援蒋介石
+	focus = {
+		id = YUX_zhiyuan_jiangjieshi
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = YUX_sichuan_tongyi }
+		relative_position_id = YUX_sichuan_tongyi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NNJ = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+			NNJ = { puppet = YUX }
+		}
+	}
+	#四川军事
+	focus = {
+		id = YUX_sichuan_junshi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = YUX_sichuan_tongyi }
+		relative_position_id = YUX_sichuan_tongyi
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = YUX_chongfeng_yizhi
+		OR = {
+		has_completed_focus = YUX_jiada_jinkou
+		has_completed_focus = YUX_zhixu_jingran
+		}
+		}
+		completion_reward = {
+			army_experience = 50
+		}
+	}
+	#四川人力
+	focus = {
+		id = YUX_sichuan_renli
+		icon = GFX_goal_rhineland
+		prerequisite = { focus = YUX_sichuan_junshi }
+		relative_position_id = YUX_sichuan_junshi
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_sichuan_renli
+		}
+	}
+	#后勤体系
+	focus = {
+		id = YUX_houqin_tixi
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = YUX_sichuan_renli }
+		relative_position_id = YUX_sichuan_renli
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_sichuan_renli_2
+			remove_idea = YUX_sichuan_renli
+			}
+		}
+	}
+	#建立军事学院
+	focus = {
+		id = YUX_jianli_junshi_xueyuan
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = YUX_sichuan_junshi }
+		relative_position_id = YUX_sichuan_junshi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_chuanjun_5
+			remove_idea = YUX_chuanjun_4
+			}
+		}
+	}
+	#农民部队现代化
+	focus = {
+		id = YUX_nongminbudui_xiandaihua
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		prerequisite = { focus = YUX_jianli_junshi_xueyuan }
+		prerequisite = { focus = YUX_sichuan_renli }
+		relative_position_id = YUX_jianli_junshi_xueyuan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_chuanjun_6
+			remove_idea = YUX_chuanjun_5
+			}
+		}
+	}
+	#进口现代化武器
+	focus = {
+		id = YUX_jinkou_xiandaihua_wuqi
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = YUX_sichuan_junshi }
+		relative_position_id = YUX_sichuan_junshi
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = UKM
+}
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 1000
+    producer = FRA
+}
+		}
+	}
+	#模仿西方工业
+	focus = {
+		id = YUX_mofang_xifang_gongye
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = YUX_jinkou_xiandaihua_wuqi }
+		relative_position_id = YUX_jinkou_xiandaihua_wuqi
+		mutually_exclusive = { focus = YUX_chuanxi_jungong }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = YUX_zaobu_rumai
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_maiburuzao_4
+			remove_idea = YUX_maiburuzao_3
+			}
+		}
+	}
+	#川系军工
+	focus = {
+		id = YUX_chuanxi_jungong
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YUX_jinkou_xiandaihua_wuqi }
+		relative_position_id = YUX_jinkou_xiandaihua_wuqi
+		mutually_exclusive = { focus = YUX_mofang_xifang_gongye }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = YUX_zhixu_jingran
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_wuqi_shengchan_4
+			remove_idea = YUX_wuqi_shengchan_3
+			}
+		}
+	}
+	#经济改革
+	focus = {
+		id = YUX_jingji_gaige
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = YUX_sichuan_tongyi }
+		relative_position_id = YUX_sichuan_tongyi
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_jingji_gaige
+		}
+	}
+	#货币改革
+	focus = {
+		id = YUX_huobi_gaige
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = YUX_jingji_gaige }
+		relative_position_id = YUX_jingji_gaige
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_jingji_gaige_2
+			remove_idea = YUX_jingji_gaige
+			}
+		}
+	}
+	#城镇改革
+	focus = {
+		id = YUX_chengzhen_gaige
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		prerequisite = { focus = YUX_jingji_gaige }
+		relative_position_id = YUX_jingji_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_controlled_state = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#标准化税收
+	focus = {
+		id = YUX_biaozhunhua_shuishou
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = YUX_huobi_gaige }
+		prerequisite = { focus = YUX_chengzhen_gaige }
+		relative_position_id = YUX_huobi_gaige
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_jingji_gaige_3
+			remove_idea = YUX_jingji_gaige_2
+			}
+		}
+	}
+	#扫盲运动
+	focus = {
+		id = YUX_saomang_yundong
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = YUX_biaozhunhua_shuishou }
+		relative_position_id = YUX_biaozhunhua_shuishou
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = YUX_saomang_yundong
+		}
+	}
+	#小工厂计划
+	focus = {
+		id = YUX_xiaogongchang_plan
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = YUX_biaozhunhua_shuishou }
+		relative_position_id = YUX_biaozhunhua_shuishou
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = YUX_jingji_gaige_4
+			remove_idea = YUX_jingji_gaige_3
+			}
+			751 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+			752 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#武装工业
+	focus = {
+		id = YUX_wuzhaung_gongye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = YUX_xiaogongchang_plan }
+		relative_position_id = YUX_xiaogongchang_plan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			1268 = {
+			add_building_construction = {
+			add_extra_state_shared_building_slots = 2
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#成渝铁路
+	focus = {
+		id = YUX_chengyu_tielu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = YUX_biaozhunhua_shuishou }
+		relative_position_id = YUX_biaozhunhua_shuishou
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			605 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			1082 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+	#联通西部
+	focus = {
+		id = YUX_liantong_xibu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = YUX_chengyu_tielu }
+		relative_position_id = YUX_chengyu_tielu
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			751 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			752 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+			753 = {
+			add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+			}
+		}
+	}
+}

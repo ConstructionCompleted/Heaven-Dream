@@ -1,0 +1,1987 @@
+holy_wenlai_tanpan = {
+    #马来亚谈判
+    holy_MAL_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = WEN
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_jinru_malaiya
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		MAL = {
+		country_event = {
+    id = holy_dongnanya.13
+	days = 2
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#暹罗谈判
+    holy_xianluo_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = WEN
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_xianluo_jiaoshe
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		SIA = {
+		country_event = {
+    id = holy_dongnanya.14
+	days = 3
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#缅甸谈判
+    holy_miandian_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = WEN
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_miandui_miandian_wenti
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		BRM = {
+		country_event = {
+    id = holy_dongnanya.15
+	days = 3
+}
+        }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#印度支那战争
+    holy_yinduzhina_zhanzheng = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			    tag = WEN
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_duikang_yindu_zhina
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		declare_war_on = {
+    target = IDC
+    type = annex_everything
+}
+declare_war_on = {
+    target = CAM
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAO
+    type = annex_everything
+}
+declare_war_on = {
+    target = VIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVI
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_zhiminzhe_tanpan = {
+	#印度支那战争
+    holy_yinduzhina_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_war_with = FRA
+			has_war_with = IDC
+	}	
+		available = {
+			controls_state = 741
+		controls_state = 1191
+		controls_state = 1192
+		controls_state = 286
+		controls_state = 1186
+		controls_state = 1199
+		controls_state = 1190
+		controls_state = 1196
+		controls_state = 670
+		controls_state = 1185
+		controls_state = 1189
+		controls_state = 671
+		controls_state = 1197
+		controls_state = 1194
+		controls_state = 1200
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		white_peace = FRA
+		puppet = IDC
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#马来亚战争
+    holy_malaiya_tanpan = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_war_with = UKM
+			has_war_with = MAL
+	}	
+		available = {
+			controls_state = 336
+			controls_state = 1226
+			controls_state = 1222
+			controls_state = 1223
+			controls_state = 1224
+			controls_state = 1225
+			controls_state = 1227
+		}
+		cost = 40
+        fire_only_once = yes
+		complete_effect = {
+		white_peace = UKM
+		puppet = MAL
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+holy_wenlai_jinjun = {
+	#经济封锁.亚齐万丹
+    holy_jingji_fengsuo_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = YAW
+			has_completed_focus = WEN_jingji_fengsuo
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_jingji_fengsuo
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		YAW = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济封锁.特尔纳特
+    holy_jingji_fengsuo_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jingji_fengsuo
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}
+		available = {
+			tag = WEN
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_jingji_fengsuo
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		TEE = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济封锁.美拉尼西亚
+    holy_jingji_fengsuo_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jingji_fengsuo
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}
+		available = {
+			tag = WEN
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_jingji_fengsuo
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MNY = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济封锁.马达兰
+    holy_jingji_fengsuo_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jingji_fengsuo
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}
+		available = {
+			tag = WEN
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_jingji_fengsuo
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MDL = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#经济封锁.吕宋
+    holy_jingji_fengsuo_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jingji_fengsuo
+			PHI = {
+			has_government = communism 
+			}
+			NOT = {
+			PHI = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+			}
+	    }
+		available = {
+			tag = WEN
+			PHI = {
+			has_government = communism 
+			}
+			NOT = {
+			PHI = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+			}
+		}
+		cost = 40
+		complete_effect = {
+		PHI = {
+		add_ideas = WEN_jingji_fengsuo
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#利用反对者.亚齐万丹
+    holy_liyong_fanduizhe_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_liyong_fanduizhe
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_liyong_fanduizhe
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		YAW = {
+		add_ideas = WEN_liyong_fanduizhe
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#利用反对者.特尔纳特
+    holy_liyong_fanduizhe_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_liyong_fanduizhe
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_liyong_fanduizhe
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		TEE = {
+		add_ideas = WEN_liyong_fanduizhe
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#利用反对者.马达兰
+    holy_liyong_fanduizhe_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_liyong_fanduizhe
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_liyong_fanduizhe
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MDL = {
+		add_ideas = WEN_liyong_fanduizhe
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#利用反对者.美拉尼西亚
+    holy_liyong_fanduizhe_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_liyong_fanduizhe
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_liyong_fanduizhe
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MNY = {
+		add_ideas = WEN_liyong_fanduizhe
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#利用反对者.吕宋
+    holy_liyong_fanduizhe_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_liyong_fanduizhe
+			PHI = {
+			has_government = communism
+			}
+	}	
+		available = {
+			tag = WEN
+			PHI = {
+			has_government = communism
+			NOT = {
+			has_idea = WEN_liyong_fanduizhe
+			}
+			}
+		}
+		cost = 40
+		complete_effect = {
+		PHI = {
+		add_ideas = WEN_liyong_fanduizhe
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#推翻政府.亚齐万丹
+    holy_tuifan_zhengfu_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		YAW = {
+		country_event = {
+    id = holy_dongnanya.16
+	days = 2
+}
+		}
+		puppet = YAW
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#推翻政府.特尔纳特
+    holy_tuifan_zhengfu_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		TEE = {
+		country_event = {
+    id = holy_dongnanya.16
+	days = 2
+}
+		}
+		puppet = TEE
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#推翻政府.美拉尼西亚
+    holy_tuifan_zhengfu_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MNY = {
+		country_event = {
+    id = holy_dongnanya.16
+	days = 2
+}
+		}
+		puppet = MNY
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#推翻政府.马达兰
+    holy_tuifan_zhengfu_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+		    is_in_faction_with = WEN
+			}
+			has_stability < 0.01
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MDL = {
+		country_event = {
+    id = holy_dongnanya.16
+	days = 2
+}
+		}
+		puppet = MDL 
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#推翻政府.吕宋
+    holy_tuifan_zhengfu_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			PHI = {
+			NOT = {
+			OR = {
+		    is_in_faction_with = WEN
+			has_government = communism
+			}
+			}
+			has_stability < 0.01
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_tuifan_zhengfu
+			PHI = {
+			NOT = {
+			OR = {
+		    is_in_faction_with = WEN
+			has_government = communism
+			}
+			}
+			has_stability < 0.01
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		PHI = {
+		country_event = {
+    id = holy_dongnanya.16
+	days = 2
+}
+		}
+		puppet = PHI
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#沿海炮击.亚齐万丹
+    holy_yanhai_paoji_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_yanhai_paoji
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		YAW = {
+		add_ideas = WEN_yanhai_paoji
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#沿海炮击.特尔纳特
+    holy_yanhai_paoji_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_yanhai_paoji
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		TEE = {
+		add_ideas = WEN_yanhai_paoji
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#沿海炮击.美拉尼西亚
+    holy_yanhai_paoji_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_yanhai_paoji
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MNY = {
+		add_ideas = WEN_yanhai_paoji
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#沿海炮击.马达兰
+    holy_yanhai_paoji_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_yanhai_paoji
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			has_idea = WEN_yanhai_paoji
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MDL = {
+		add_ideas = WEN_yanhai_paoji
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#沿海炮击.吕宋
+    holy_yanhai_paoji_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			PHI = {
+			OR = {
+			NOT = {
+		    is_in_faction_with = WEN
+			}
+			has_government = communism
+			}
+		}
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yanhai_paoji
+			PHI = {
+			OR = {
+			NOT = {
+		    is_in_faction_with = WEN
+			}
+			has_government = communism
+			}
+		}
+		}
+		cost = 40
+		complete_effect = {
+		PHI = {
+		add_ideas = WEN_yanhai_paoji
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#空军轰炸.亚齐万丹
+    holy_kongjun_hongzha_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			YAW = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		YAW = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#空军轰炸.特尔纳特
+    holy_kongjun_hongzha_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			TEE = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		TEE = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#空军轰炸.美拉尼西亚
+    holy_kongjun_hongzha_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			MNY = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MNY = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#空军轰炸.马达兰
+    holy_kongjun_hongzha_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			MDL = {
+			NOT = {
+			OR = {
+	has_idea = WEN_maoyi_kongzhi
+	has_idea = WEN_maoyi_kongzhi_2
+	has_idea = WEN_maoyi_kongzhi_3
+	        }
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		MDL = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#空军轰炸.吕宋
+    holy_kongjun_hongzha_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			PHI = {
+			OR = {
+			NOT = {
+		    is_in_faction_with = WEN
+			}
+			has_government = communism
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_kongjun_hongzha
+			PHI = {
+			OR = {
+			NOT = {
+		    is_in_faction_with = WEN
+			}
+			has_government = communism
+			}
+		}
+		cost = 40
+		complete_effect = {
+		PHI = {
+		random_owned_controlled_state = {
+			damage_building = {
+				type = industrial_complex
+				damage = 0.5
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 0.5
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 0.5
+			}
+		}
+		}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#亚齐万丹战争
+    holy_war_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			YAW = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			YAW = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		declare_war_on = {
+    target = YAW
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+			has_war = yes
+			factor = 0
+			}
+		}
+	}
+	#特尔纳特战争
+    holy_war_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			TEE = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			TEE = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		declare_war_on = {
+    target = TEE
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+			has_war = yes
+			factor = 0
+			}
+		}
+	}
+	#美拉尼西亚战争
+    holy_war_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			MNY = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			MNY = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		declare_war_on = {
+    target = MNY
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+			has_war = yes
+			factor = 0
+			}
+		}
+	}
+	#马达兰战争
+    holy_war_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			MDL = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			MDL = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		declare_war_on = {
+    target = MDL
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+			has_war = yes
+			factor = 0
+			}
+		}
+	}
+	#吕宋战争
+    holy_war_PHI = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			PHI = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+	}	
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_fadong_zhanzheng
+			PHI = {
+			NOT = {
+			is_in_faction_with = WEN
+			}
+	    }
+		}
+		cost = 40
+		complete_effect = {
+		declare_war_on = {
+    target = PHI
+    type = annex_everything
+}
+		}
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+			has_war = yes
+			factor = 0
+			}
+		}
+	}
+}
+holy_wenlai_lianhe = { 
+    #操纵经济.亚齐万丹
+    holy_caozongjingji_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+			YAW = {
+			has_idea = WEN_maoyi_kongzhi_3
+	}
+		}
+		complete_effect = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#操纵经济.特尔纳特
+    holy_caozongjingji_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+			TEE = {
+			has_idea = WEN_maoyi_kongzhi_3
+	}
+		}
+		complete_effect = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#操纵经济.美拉尼西亚
+    holy_caozongjingji_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+			MNY = {
+			has_idea = WEN_maoyi_kongzhi_3
+	}
+		}
+		complete_effect = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#操纵经济.马达兰
+    holy_caozongjingji_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_caozong_jingji
+			MDL = {
+			has_idea = WEN_maoyi_kongzhi_3
+	}
+		}
+		complete_effect = {
+		add_offsite_building = { type = industrial_complex level = 3 }
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#渗透殖民.亚齐万丹
+    holy_shentou_xuanchuan_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+			YAW = {
+			has_idea = WEN_maoyi_kongzhi
+	}
+		}
+		complete_effect = {
+		YAW = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_2
+		remove_idea = WEN_maoyi_kongzhi
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#渗透殖民.特尔纳特
+    holy_shentou_xuanchuan_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+			TEE = {
+			has_idea = WEN_maoyi_kongzhi
+	}
+		}
+		complete_effect = {
+		TEE = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_2
+		remove_idea = WEN_maoyi_kongzhi
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#渗透殖民.美拉尼西亚
+    holy_shentou_xuanchuan_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+			MNY = {
+			has_idea = WEN_maoyi_kongzhi
+	}
+		}
+		complete_effect = {
+		MNY = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_2
+		remove_idea = WEN_maoyi_kongzhi
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#渗透殖民.马达兰
+    holy_shentou_xuanchuan_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_shentou_sixiang
+			MDL = {
+			has_idea = WEN_maoyi_kongzhi
+	}
+		}
+		complete_effect = {
+		MDL = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_2
+		remove_idea = WEN_maoyi_kongzhi
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#压榨开发.亚齐万丹
+    holy_shentou_xuanchuan_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+			YAW = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		YAW = {
+		add_opinion_modifier = { target = WEN modifier = WEN_yazha_kaifa }
+		random_owned_controlled_state = {
+		remove_building = {
+    type = arms_factory
+    level = 1
+}
+remove_building = {
+    type = industrial_complex
+    level = 1
+}
+		}
+		}
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#压榨开发.特尔纳特
+    holy_shentou_xuanchuan_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+			YAW = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		TEE = {
+		add_opinion_modifier = { target = WEN modifier = WEN_yazha_kaifa }
+		random_owned_controlled_state = {
+		remove_building = {
+    type = arms_factory
+    level = 1
+}
+remove_building = {
+    type = industrial_complex
+    level = 1
+}
+		}
+		}
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#压榨开发.美拉尼西亚
+    holy_shentou_xuanchuan_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+			MNY = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		MNY = {
+		add_opinion_modifier = { target = WEN modifier = WEN_yazha_kaifa }
+		random_owned_controlled_state = {
+		remove_building = {
+    type = arms_factory
+    level = 1
+}
+remove_building = {
+    type = industrial_complex
+    level = 1
+}
+		}
+		}
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#压榨开发.马达兰
+    holy_shentou_xuanchuan_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_yazha_kaifa
+			MDL = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		MDL = {
+		add_opinion_modifier = { target = WEN modifier = WEN_yazha_kaifa }
+		random_owned_controlled_state = {
+		remove_building = {
+    type = arms_factory
+    level = 1
+}
+remove_building = {
+    type = industrial_complex
+    level = 1
+}
+		}
+		}
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#紧锁亚齐万丹
+    WEN_jinsuo_YAW = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+			YAW  = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		YAW  = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_3
+		remove_idea = WEN_maoyi_kongzhi_2
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#紧锁特尔纳特
+    WEN_jinsuo_TEE = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+			TEE = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		TEE = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_3
+		remove_idea = WEN_maoyi_kongzhi_2
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#紧锁美拉尼西亚
+    WEN_jinsuo_MNY = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+			MNY = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		MNY = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_3
+		remove_idea = WEN_maoyi_kongzhi_2
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	#紧锁马达兰
+    WEN_jinsuo_MDL = {
+
+		icon = generic_army_support
+		
+		visible = { 
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+	    }
+		available = {
+			tag = WEN
+			has_completed_focus = WEN_jinsuo_zhengce
+			MDL = {
+			has_idea = WEN_maoyi_kongzhi_2
+	}
+		}
+		complete_effect = {
+		MDL = {
+		swap_ideas = {
+		add_idea = WEN_maoyi_kongzhi_3
+		remove_idea = WEN_maoyi_kongzhi_2
+		}
+		}
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}

@@ -1,0 +1,1009 @@
+focus_tree = {
+	id = BMO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BMO
+		}
+	}
+	
+	default = no
+ 
+    #血染草原
+	focus = {
+		id = BMO_xueran_caoyuan
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		x = 15
+		y = 0
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#联络古米廖夫
+	focus = {
+		id = BMO_lianluo_gumimiufu
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = BMO_xueran_caoyuan}
+		relative_position_id = BMO_xueran_caoyuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BMO_lilun_quexian_2
+			remove_idea = BMO_lilun_quexian
+			}
+		}
+	}
+	#完善理论
+	focus = {
+		id = BMO_wanshan_lilun
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = BMO_lianluo_gumimiufu}
+		relative_position_id = BMO_lianluo_gumimiufu
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BMO_lilun_quexian_3
+			remove_idea = BMO_lilun_quexian_2
+			}
+		}
+	}
+	#组织军队
+	focus = {
+		id = BMO_zuzhi_jundui
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		prerequisite = { focus = BMO_lianluo_gumimiufu}
+		relative_position_id = BMO_lianluo_gumimiufu
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BMO_zuzhi_jundui
+		}
+	}
+	#新欧亚计划
+	focus = {
+		id = BMO_newouya_plan
+		icon = GFX_goal_continuous_suppression
+		prerequisite = { focus = BMO_wanshan_lilun}
+		prerequisite = { focus = BMO_zuzhi_jundui}
+		relative_position_id = BMO_wanshan_lilun
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BMO_newouya_plan
+			remove_idea = BMO_lilun_quexian_3
+			}
+		}
+	}
+	#扩大欧亚范畴
+	focus = {
+		id = BMO_kuoda_ouya_fanchou
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = BMO_newouya_plan}
+		relative_position_id = BMO_newouya_plan
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BMO_kuoda_ouya_fanchou
+			remove_idea = BMO_newouya_plan
+			}
+		}
+	}
+	#扩张骑兵部队
+	focus = {
+		id = BMO_kuozhang_qibing_budui
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = BMO_wanshan_lilun}
+		prerequisite = { focus = BMO_zuzhi_jundui}
+		relative_position_id = BMO_wanshan_lilun
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = BMO_kuozhang_qibing_budui
+		}
+	}
+	#组建督战队
+	focus = {
+		id = BMO_zujian_duzhandui
+		icon = GFX_focus_generic_conspiracy
+		prerequisite = { focus = BMO_wanshan_lilun}
+		prerequisite = { focus = BMO_zuzhi_jundui}
+		relative_position_id = BMO_wanshan_lilun
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = BMO_mashang_guodu_2
+			remove_idea = BMO_mashang_guodu
+			}
+		}
+	}
+	#吸收东方遗产
+	focus = {
+		id = BMO_xishou_dongfang_yichan
+		icon = GFX_focus_generic_monarchy_2
+		prerequisite = { focus = BMO_zujian_duzhandui}
+		prerequisite = { focus = BMO_kuozhang_qibing_budui}
+		relative_position_id = BMO_zujian_duzhandui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SBC = {
+		exists = no
+		}
+		SRU = {
+		exists = no
+		}
+		SBG = {
+		exists = no
+		}
+		RUD = {
+		exists = no
+		}
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#建立帝国
+	focus = {
+		id = BMO_jianli_diguo
+		icon = GFX_focus_generic_spread_fascism
+		prerequisite = { focus = BMO_xishou_dongfang_yichan}
+		prerequisite = { focus = BMO_kuoda_ouya_fanchou}
+		relative_position_id = BMO_xishou_dongfang_yichan
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_state = {
+					limit = {
+					OR = {
+						region = 265
+						region = 132
+						region = 150
+						region = 133
+						region = 264
+						region = 40
+						region = 137
+						region = 135
+						region = 138
+						region = 14
+						region = 263
+						region = 151
+						region = 261
+						region = 262
+						region = 147
+						region = 149
+						region = 260
+						region = 259
+						region = 257
+						region = 258
+						region = 256
+						}
+					}
+add_core_of = BMO
+		}
+		add_state_core = 146
+		add_state_core = 1356
+		add_state_core = 213
+		add_state_core = 1854
+		add_state_core = 1398
+		add_state_core = 224
+		add_state_core = 205
+		add_state_core = 242
+		add_state_core = 243
+		add_state_claim = 582
+		add_state_claim = 1351
+		add_state_claim = 651
+		add_state_claim = 652
+		add_state_claim = 218
+		add_state_claim = 245
+		add_state_claim = 1070
+		add_state_claim = 238
+		add_state_claim = 237
+		add_state_claim = 1416
+		add_state_claim = 236
+		remove_state_core = 1347
+		remove_state_core = 654
+		remove_state_core = 1123
+		remove_state_core = 407
+		remove_state_core = 406
+		remove_state_core = 1073
+		remove_state_core = 1074
+		remove_state_core = 1550
+		remove_state_core = 206
+		remove_state_core = 204
+		remove_state_core = 1543
+		remove_state_core = 194
+		remove_state_core = 201
+		remove_state_core = 199
+		remove_state_core = 1431
+		remove_state_core = 198
+		remove_state_core = 1430
+		remove_state_core = 1859
+		remove_state_core = 232
+		remove_state_core = 1075
+		remove_state_core = 233
+		remove_state_core = 234
+		remove_state_core = 235
+		remove_state_core = 875
+		remove_state_core = 245
+		remove_state_core = 218
+		remove_state_core = 1070
+		remove_state_core = 1416
+		remove_state_core = 238
+		remove_state_core = 237
+		remove_state_core = 236
+	    remove_state_core = 652
+		remove_state_core = 651
+		remove_state_core = 582
+		remove_state_core = 1351
+		every_state = {
+					limit = {
+					OR = {
+						region = 136
+						region = 270
+						region = 267
+						region = 268
+						region = 269
+						region = 1300
+						}
+					}
+add_claim_by = BMO
+		}
+		add_state_claim = 234
+		add_state_claim = 235
+		add_state_claim = 233
+		add_state_claim = 1075
+		add_state_claim = 232
+		add_state_claim = 821
+		add_state_claim = 827
+		add_state_claim = 828
+		add_state_claim = 407
+		add_state_claim = 406
+		add_state_claim = 1073
+		add_state_claim = 1074
+		declare_war_on = {
+    target = GSK
+    type = annex_everything
+}
+		declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+		declare_war_on = {
+    target = RNW
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = DRG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHE
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNE
+    type = annex_everything
+}
+declare_war_on = {
+    target = POA
+    type = annex_everything
+}
+declare_war_on = {
+    target = RNN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUN
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUD
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = SOV
+    type = annex_everything
+}
+declare_war_on = {
+    target = RUS
+    type = annex_everything
+}
+declare_war_on = {
+    target = TRS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBG
+    type = annex_everything
+}
+declare_war_on = {
+    target = BRY
+    type = annex_everything
+}
+declare_war_on = {
+    target = URL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBR
+    type = annex_everything
+}
+annex_country = {
+    target = MGD
+    transfer_troops = yes
+}
+declare_war_on = {
+    target = PRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = NCC
+    type = annex_everything
+}
+declare_war_on = {
+    target = NVG
+    type = annex_everything
+}
+declare_war_on = {
+    target = KZN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SVN
+    type = annex_everything
+}
+declare_war_on = {
+    target = KRL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRU
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBC
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SBP
+    type = annex_everything
+}
+declare_war_on = {
+    target = YAK
+    type = annex_everything
+}
+		}
+	}
+	#工业军事化
+	focus = {
+		id = BMO_gongye_junshihua
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BMO_jianli_diguo}
+		relative_position_id = BMO_jianli_diguo
+		x = -4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_gongye_junshihua
+		}
+	}
+	#光复俄罗斯
+	focus = {
+		id = BMO_guangfu_eluosi
+		icon = GFX_focus_ETH_the-italo_ethiopian_empire
+		prerequisite = { focus = BMO_jianli_diguo}
+		relative_position_id = BMO_jianli_diguo
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_core_state = {
+    is_controlled_by = ROOT
+}
+		}
+		completion_reward = {
+			every_state = {
+			limit = {
+			OR = {
+			area = 1
+			area = 7
+			area = 6
+			}
+			}
+			add_claim_by = BMO
+			}
+		news_event = {
+				id = holy_news.144 days = 1
+			}
+		}
+	}
+	#高强度训练
+	focus = {
+		id = BMO_gaoqiangdu_xunlian
+		icon = GFX_focus_BRA_deal_with_the_cangaco
+		prerequisite = { focus = BMO_jianli_diguo}
+		relative_position_id = BMO_jianli_diguo
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_gaoqiangdu_xunlian
+		}
+	}
+	#军团化国家
+	focus = {
+		id = BMO_junguohua_guojia
+		icon = GFX_focus_FIN_patriotic_peoples_movement
+		prerequisite = { focus = BMO_gongye_junshihua}
+		relative_position_id = BMO_gongye_junshihua
+		x = -1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_junguohua_guojia
+		}
+	}
+	#巩固草原
+	focus = {
+		id = BMO_gonggu_caoyuan
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = BMO_junguohua_guojia}
+		relative_position_id = BMO_junguohua_guojia
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = XKA
+    type = annex_everything
+}
+declare_war_on = {
+    target = ZAG
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHU
+    type = annex_everything
+}
+			declare_war_on = {
+    target = NEP
+    type = annex_everything
+}
+declare_war_on = {
+    target = SKM
+    type = annex_everything
+}
+declare_war_on = {
+    target = CHR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SUY
+    type = annex_everything
+}
+declare_war_on = {
+    target = BKO
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = HEI
+    type = annex_everything
+}
+declare_war_on = {
+    target = DHJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIH
+    type = annex_everything
+}
+declare_war_on = {
+    target = MJJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = QIN
+    type = annex_everything
+}
+		}
+	}
+	#呈上长船
+	focus = {
+		id = BMO_chengshang_changchuan
+		icon = GFX_focus_ICE_the_viking_spirit
+		prerequisite = { focus = BMO_junguohua_guojia}
+		relative_position_id = BMO_junguohua_guojia
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = KEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = FIN
+    type = annex_everything
+}
+declare_war_on = {
+    target = NOR
+    type = annex_everything
+}
+declare_war_on = {
+    target = SWE
+    type = annex_everything
+}
+declare_war_on = {
+    target = EGL
+    type = annex_everything
+}
+declare_war_on = {
+    target = ELB
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+declare_war_on = {
+    target = WLS
+    type = annex_everything
+}
+declare_war_on = {
+    target = NIR
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRE
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRP
+    type = annex_everything
+}
+declare_war_on = {
+    target = CAN
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCL
+    type = annex_everything
+}
+declare_war_on = {
+    target = SCO
+    type = annex_everything
+}
+		}
+	}
+	#敌基督
+	focus = {
+		id = BMO_dijidu
+		icon = GFX_focus_ARG_state_atheism
+		prerequisite = { focus = BMO_shimengwuer}
+		relative_position_id = BMO_shimengwuer
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			every_country = {
+			BMO = {
+declare_war_on = {
+    target = PREV
+    type = annex_everything
+}
+}
+		}
+	}
+	}
+	#是蒙兀儿
+	focus = {
+		id = BMO_shimengwuer
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		prerequisite = { focus = BMO_chengshang_changchuan}
+		relative_position_id = BMO_chengshang_changchuan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = HDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RJS
+    type = annex_everything
+}
+declare_war_on = {
+    target = HYD
+    type = annex_everything
+}
+declare_war_on = {
+    target = MSR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BHP
+    type = annex_everything
+}
+declare_war_on = {
+    target = TML
+    type = annex_everything
+}
+declare_war_on = {
+    target = SRL
+    type = annex_everything
+}
+declare_war_on = {
+    target = MDS
+    type = annex_everything
+}
+declare_war_on = {
+    target = RAJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = MLM
+    type = annex_everything
+}
+declare_war_on = {
+    target = NGP
+    type = annex_everything
+}
+declare_war_on = {
+    target = BAN
+    type = annex_everything
+}
+		}
+	}
+	#恩琴至上
+	focus = {
+		id = BMO_enqin_zhishang
+		icon = GFX_focus_BRA_restore_brazilian_honor
+		prerequisite = { focus = BMO_guangfu_eluosi}
+		relative_position_id = BMO_guangfu_eluosi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_enqin_zhishang
+		}
+	}
+	#确立理论自信
+	focus = {
+		id = BMO_queli_lilun_zixin
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = BMO_gaoqiangdu_xunlian}
+		relative_position_id = BMO_gaoqiangdu_xunlian
+		x = -1
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_queli_lilun_zixin
+		}
+	}
+	#扫荡中亚
+	focus = {
+		id = BMO_saodang_zhongya
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = BMO_enqin_zhishang}
+		relative_position_id = BMO_enqin_zhishang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = MCR
+    type = annex_everything
+}
+declare_war_on = {
+    target = XQJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = XIJ
+    type = annex_everything
+}
+declare_war_on = {
+    target = ETK
+    type = annex_everything
+}
+declare_war_on = {
+    target = HAM
+    type = annex_everything
+}
+declare_war_on = {
+    target = ARS
+    type = annex_everything
+}
+declare_war_on = {
+    target = TKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = SHV
+    type = annex_everything
+}
+declare_war_on = {
+    target = KAZ
+    type = annex_everything
+}
+		}
+	}
+	#干涉东欧
+	focus = {
+		id = BMO_ganshe_dongou
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = BMO_enqin_zhishang}
+		relative_position_id = BMO_enqin_zhishang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = BLR
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLA
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLC
+    type = annex_everything
+}
+declare_war_on = {
+    target = UNR
+    type = annex_everything
+}
+declare_war_on = {
+    target = UKR
+    type = annex_everything
+}
+declare_war_on = {
+    target = DKS
+    type = annex_everything
+}
+declare_war_on = {
+    target = CRM
+    type = annex_everything
+}
+declare_war_on = {
+    target = BUK
+    type = annex_everything
+}
+declare_war_on = {
+    target = EST
+    type = annex_everything
+}
+declare_war_on = {
+    target = BLD
+    type = annex_everything
+}
+declare_war_on = {
+    target = LAT
+    type = annex_everything
+}
+declare_war_on = {
+    target = LIT
+    type = annex_everything
+}
+		}
+	}
+	#吃口沙子
+	focus = {
+		id = BMO_chikoushazi
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = BMO_jianli_diguo}
+		relative_position_id = BMO_jianli_diguo
+		x = -3
+		y = 3
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_chikoushazi
+		}
+	}
+	#军队理论化
+	focus = {
+		id = BMO_jundui_lilunhua
+		icon = GFX_focus_ARG_no_gods_no_masters
+		prerequisite = { focus = BMO_jianli_diguo}
+		relative_position_id = BMO_jianli_diguo
+		x = 2
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_jundui_lilunhua
+		}
+	}
+	#欧欧亚亚亚
+	focus = {
+		id = BMO_ououyayaya
+		icon = GFX_focus_ARG_defense_and_democracy
+		prerequisite = { focus = BMO_jundui_lilunhua}
+		relative_position_id = BMO_jundui_lilunhua
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_ououyayaya
+		}
+	}
+	#上帝之鞭
+	focus = {
+		id = BMO_shangdi_zhibian
+		icon = GFX_focus_NORDIC_mon_form_alliance
+		prerequisite = { focus = BMO_ououyayaya}
+		relative_position_id = BMO_ououyayaya
+		x = 2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_shangdi_zhibian
+		}
+	}
+	#探索神学
+	focus = {
+		id = BMO_tansuo_shenxue
+		icon = GFX_focus_GRE_an_orthodox_state
+		prerequisite = { focus = BMO_chikoushazi}
+		relative_position_id = BMO_chikoushazi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_tansuo_shenxue
+		}
+	}
+	#加冕皇帝
+	focus = {
+		id = BMO_jiamian_huangdi
+		icon = GFX_focus_BRA_restore_brazilian_honor
+		prerequisite = { focus = BMO_tansuo_shenxue}
+		relative_position_id = BMO_tansuo_shenxue
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = BMO_jiamian_huangdi
+		}
+	}
+	#一梦千年
+	focus = {
+		id = BMO_yimeng_qiannian
+		icon = GFX_focus_FIN_expand_air_force_academy
+		prerequisite = { focus = BMO_jiamian_huangdi}
+		relative_position_id = BMO_jiamian_huangdi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 2000
+		}
+	}
+}

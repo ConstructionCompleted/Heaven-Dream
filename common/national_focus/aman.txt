@@ -1,0 +1,389 @@
+﻿focus_tree = {
+	id = OMA_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = OMA
+		}
+	}
+	
+	default = no
+	
+    #马斯喀特——阿曼之苏丹
+	focus = {
+		id = OMA_masikate_amansudan
+		icon = GFX_focus_ETH_an_arabic_base
+		x = 15
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 100
+		}
+	}
+	#重组阿曼军事
+	focus = {
+		id = OMA_chongzu_aman_junshi
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = OMA_masikate_amansudan }
+		relative_position_id = OMA_masikate_amansudan
+		x = -3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = OMA_aman_army_2
+		remove_idea = OMA_aman_army
+		}
+		}
+	}
+	#建设海岸防卫
+	focus = {
+		id = OMA_jianshe_haian_fangwei
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = OMA_chongzu_aman_junshi }
+		relative_position_id = OMA_chongzu_aman_junshi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = OMA_jianshe_haian_fangwei
+		}
+	}
+	#革新军事技术
+	focus = {
+		id = OMA_gexin_junshi_jishu
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = OMA_jianshe_haian_fangwei }
+		relative_position_id = OMA_jianshe_haian_fangwei
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = OMA_aman_army_3
+		remove_idea = OMA_aman_army_2
+		}
+		}
+	}
+	#增加部落民兵
+	focus = {
+		id = OMA_zengjia_buluo_minbing
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = OMA_chongzu_aman_junshi }
+		relative_position_id = OMA_chongzu_aman_junshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = OMA_buluo_minbing
+		add_ideas = OMA_junshi_gaige
+		}
+	}
+	#苏丹禁卫军
+	focus = {
+		id = OMA_sudan_jinweijun
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = OMA_zengjia_buluo_minbing }
+		relative_position_id = OMA_zengjia_buluo_minbing
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = OMA_buluo_minbing
+		swap_ideas = {
+		add_idea = OMA_junshi_gaige_2
+		remove_idea = OMA_junshi_gaige
+		}
+		}
+	}
+	#建立国家议会
+	focus = {
+		id = OMA_jianli_guojia_yihui
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = OMA_masikate_amansudan }
+		relative_position_id = OMA_masikate_amansudan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = OMA_tongyi_guojia_2
+		remove_idea = OMA_tongyi_guojia
+		}
+		}
+	}
+	#亲吻我们的土地
+	focus = {
+		id = OMA_qinwen_we_tudi
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = OMA_jianli_guojia_yihui }
+		relative_position_id = OMA_jianli_guojia_yihui
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = OMA_tongyi_guojia_2
+		}
+	}
+	#拥抱自由
+	focus = {
+		id = OMA_yongbao_ziyou
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = OMA_qinwen_we_tudi }
+		relative_position_id = OMA_qinwen_we_tudi
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_popularity = {
+    ideology = conservatism
+    popularity = 0.2
+}
+set_politics = {
+	ruling_party = conservatism
+}
+add_ideas = OMA_yongbao_ziyou
+		}
+	}
+	#扩建马斯喀特
+	focus = {
+		id = OMA_kuojian_masikate
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = OMA_masikate_amansudan }
+		relative_position_id = OMA_masikate_amansudan
+		x = 3
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		294 = {
+			add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = dockyard
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#建设手工业
+	focus = {
+		id = OMA_jianshe_shougongye
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = OMA_kuojian_masikate }
+		relative_position_id = OMA_kuojian_masikate
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+	#强化军事产业
+	focus = {
+		id = OMA_qianghua_junshi_chanye
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = OMA_jianshe_shougongye }
+		relative_position_id = OMA_jianshe_shougongye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		294 = {
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = arms_factory
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#扩大乳香出口
+	focus = {
+		id = OMA_kuoda_ruxiang_chukou
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = OMA_kuojian_masikate }
+		relative_position_id = OMA_kuojian_masikate
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = OMA_kuoda_ruxiang_chukou
+		}
+	}
+	#扩建公路
+	focus = {
+		id = OMA_kuojian_gonglu
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = OMA_kuoda_ruxiang_chukou }
+		relative_position_id = OMA_kuoda_ruxiang_chukou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		294 = {
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#介入不列颠战争
+	focus = {
+		id = OMA_jieru_buliezhanzheng
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { focus = OMA_masikate_amansudan }
+		relative_position_id = OMA_masikate_amansudan
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		EGY = { has_war_with = UKM }
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = UKM
+    type = annex_everything
+}
+		}
+	}
+	#解决北部问题
+	focus = {
+		id = OMA_jiejue_beibu_wenti
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = OMA_jieru_buliezhanzheng }
+		relative_position_id = OMA_jieru_buliezhanzheng
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		UKM = {
+		NOT = {
+		controls_state = 658
+		}
+		}
+		}
+		completion_reward = {
+		every_country = {
+		if = {
+		limit = {
+		controls_state = 658
+		}
+		country_event = {
+		id = holy_aosiman.55
+		days = 3
+		}
+		}
+		if = {
+		limit = {
+		is_in_faction_with = UKM
+		}
+		white_peace = OMA
+		}
+		white_peace = UKM
+		}
+		}
+	}
+	#联络塞浦路斯政府
+	focus = {
+		id = OMA_lianluo_saipulusi_zhengfu
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = OMA_jiejue_beibu_wenti }
+		relative_position_id = OMA_jiejue_beibu_wenti
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		OTF = {
+		exists = yes
+		}
+		}
+		completion_reward = {
+		OTF = { add_to_faction = OMA }
+		}
+	}
+	#万岁，我们的阿曼
+	focus = {
+		id = OMA_wansui_weaman
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = OMA_gexin_junshi_jishu }
+		prerequisite = { focus = OMA_sudan_jinweijun }
+		prerequisite = { focus = OMA_yongbao_ziyou }
+		prerequisite = { focus = OMA_qianghua_junshi_chanye }
+		prerequisite = { focus = OMA_kuojian_gonglu }
+		relative_position_id = OMA_yongbao_ziyou
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1000
+		}
+		available = {
+		controls_state = 658
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = OMA_yongbao_ziyou_2
+		remove_idea = OMA_yongbao_ziyou
+		}
+		}
+	}
+}

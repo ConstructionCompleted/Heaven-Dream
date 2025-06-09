@@ -1,0 +1,2181 @@
+focus_tree = {
+	id = GEO_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GEO
+		}
+	}
+	
+	default = no
+	#建立战时体系
+	focus = {
+		id = GEO_jianli_zhanshi_tixi
+		icon = GFX_focus_ITA_liberation_or_death
+		x = 30
+		y = 0
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhanshi_tixi
+		}
+	}
+	#配给制度
+	focus = {
+		id = GEO_peiji_zhi
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = GEO_jianli_zhanshi_tixi}
+		relative_position_id = GEO_jianli_zhanshi_tixi
+		x = -2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_peijizhi
+		}
+	}
+	#高加索之力
+	focus = {
+		id = GEO_gaojiasuo_zhili
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = GEO_jianli_zhanshi_tixi}
+		relative_position_id = GEO_jianli_zhanshi_tixi
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_state_core = 229
+			add_state_core = 230
+		}
+	}
+	#工业周转
+	focus = {
+		id = GEO_gongye_zhouzhuan
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = GEO_jianli_zhanshi_tixi}
+		relative_position_id = GEO_jianli_zhanshi_tixi
+		x = 2
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_gongyezhouzhuan
+			remove_idea = GEO_iron_man
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+	}
+	#建立红色武装
+	focus = {
+		id = GEO_jianli_hongse_wuzhuang
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = GEO_gongye_zhouzhuan}
+		prerequisite = { focus = GEO_gaojiasuo_zhili}
+		prerequisite = { focus = GEO_peiji_zhi}
+		relative_position_id = GEO_gaojiasuo_zhili
+		x = 0
+		y = 1
+		cost = 2
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	#政治委员
+	focus = {
+		id = GEO_zhengzhi_weiyuan
+		icon = GFX_focus_SOV_penal_battalions
+		prerequisite = { focus = GEO_jianli_hongse_wuzhuang}
+		relative_position_id = GEO_jianli_hongse_wuzhuang
+		x = -3
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhengzhiweiyuan
+		}
+	}
+	#整编游击队
+	focus = {
+		id = GEO_zhengbian_youjidui
+		icon = GFX_focus_prc_infiltration
+		prerequisite = { focus = GEO_jianli_hongse_wuzhuang}
+		relative_position_id = GEO_jianli_hongse_wuzhuang
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_zhengbianyoujidui
+			remove_idea = GEO_red_youjidui
+			}
+		}
+	}
+	#《红星报》
+	focus = {
+		id = GEO_red_star_bao
+		icon = GFX_focus_por_workers_of_iberia
+		prerequisite = { focus = GEO_jianli_hongse_wuzhuang}
+		relative_position_id = GEO_jianli_hongse_wuzhuang
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_hongxing_bao
+		}
+	}
+	#维持地区稳定
+	focus = {
+		id = GEO_weichi_diqu_wending
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = GEO_jianli_hongse_wuzhuang}
+		relative_position_id = GEO_jianli_hongse_wuzhuang
+		x = 3
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	#输出革命
+	focus = {
+		id = GEO_shuchu_geming
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = GEO_zhengzhi_weiyuan}
+		prerequisite = { focus = GEO_zhengbian_youjidui}
+		prerequisite = { focus = GEO_red_star_bao}
+		prerequisite = { focus = GEO_weichi_diqu_wending}
+		relative_position_id = GEO_jianli_hongse_wuzhuang
+		x = 0
+		y = 2
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			every_state = {
+			limit = {
+			OR = {
+			region = 28
+			region = 232
+			region = 237
+			region = 238
+			region = 236
+			region = 196
+			}
+			}
+			add_claim_by = GEO
+			}
+		}
+	}
+	#伊拉克罢工
+	focus = {
+		id = GEO_yilake_bagong
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = GEO_shuchu_geming}
+		relative_position_id = GEO_shuchu_geming
+		x = -4
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			IRQ = { 
+			add_timed_idea = {
+    idea = GEO_bagong
+    days = 120
+}
+			}
+		}
+	}
+	#叙利亚罢工
+	focus = {
+		id = GEO_xuliya_bagong
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = GEO_shuchu_geming}
+		relative_position_id = GEO_shuchu_geming
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			SYR = { 
+			add_timed_idea = {
+    idea = GEO_bagong
+    days = 120
+}
+			}
+		}
+	}
+	#小亚细亚动乱
+	focus = {
+		id = GEO_xiaoyaxiya_dongluan
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		prerequisite = { focus = GEO_shuchu_geming}
+		relative_position_id = GEO_shuchu_geming
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			OTT = { 
+			add_timed_idea = {
+    idea = GEO_bagong
+    days = 120
+}
+			}
+		}
+	}
+	#新月战争
+	focus = {
+		id = GEO_xinyue_zhanzheng
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = GEO_yilake_bagong}
+		prerequisite = { focus = GEO_xuliya_bagong}
+		relative_position_id = GEO_xuliya_bagong
+		x = -1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = GEO_xinyue_war
+		}
+	}
+	#西征起义
+	focus = {
+		id = GEO_xizheng_qiyi
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = GEO_xiaoyaxiya_dongluan}
+		relative_position_id = GEO_xiaoyaxiya_dongluan
+		x = 0
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			load_oob = GEO_xizheng_qiyi
+		}
+	}
+	#接纳库尔德
+	focus = {
+		id = GEO_jiena_kuerde
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = GEO_shuchu_geming}
+		relative_position_id = GEO_shuchu_geming
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		KUR = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_state_core = 352
+		add_state_core = 353
+		add_state_core = 1057
+		add_state_core = 800
+		add_state_core = 350
+		add_state_core = 676
+		add_state_core = 1329
+		add_state_core = 1056
+		add_state_core = 421
+		add_state_core = 1427
+		add_state_core = 1425
+		add_state_core = 1426
+		}
+	}
+	#奇里乞亚人民
+	focus = {
+		id = GEO_qiliqiya_renmin
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = GEO_shuchu_geming}
+		relative_position_id = GEO_shuchu_geming
+		x = 4
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		ARM = {
+		exists = no
+		}
+		}
+		completion_reward = {
+		add_state_core = 344
+		add_state_core = 1581
+		add_state_core = 1580
+		}
+	}
+	#解放南方
+	focus = {
+		id = GEO_jiefang_nanfang
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = GEO_qiliqiya_renmin}
+		prerequisite = { focus = GEO_jiena_kuerde}
+		relative_position_id = GEO_jiena_kuerde
+		x = 1
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		load_oob = GEO_jiefang_nanfang
+		declare_war_on = {
+    target = SYR
+    type = annex_everything
+}
+declare_war_on = {
+    target = IRQ
+    type = annex_everything
+}
+		}
+	}
+	#巴勒斯坦攻势
+	focus = {
+		id = GEO_balesitan_gongshi
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = GEO_xizheng_qiyi}
+		prerequisite = { focus = GEO_xinyue_zhanzheng}
+		relative_position_id = GEO_xinyue_zhanzheng
+		x = 2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		SYR = {
+			OR = {
+			exists = no
+			has_capitulated = yes
+			}
+			}
+		controls_state = 677
+		controls_state = 554
+		}
+		completion_reward = {
+		load_oob = GEO_balesitan_gongshi
+		declare_war_on = {
+    target = PAL
+    type = annex_everything
+}
+		}
+	}
+	#穿越沙漠
+	focus = {
+		id = GEO_chuanyue_shamo
+		icon = GFX_focus_generic_camel_corps
+		prerequisite = { focus = GEO_xizheng_qiyi}
+		prerequisite = { focus = GEO_jiefang_nanfang}
+		relative_position_id = GEO_jiefang_nanfang
+		x = -2
+		y = 1
+		cost = 3
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		IRQ = {
+			OR = {
+			exists = no
+			has_capitulated = yes
+			}
+			}
+		controls_state = 1395
+		controls_state = 1396
+		}
+		completion_reward = {
+		declare_war_on = {
+    target = HAZ
+    type = annex_everything
+}
+declare_war_on = {
+    target = NJD
+    type = annex_everything
+}
+declare_war_on = {
+    target = SML
+    type = annex_everything
+}
+declare_war_on = {
+    target = YEM
+    type = annex_everything
+}
+declare_war_on = {
+    target = OMA
+    type = annex_everything
+}
+		}
+	}
+    #保卫东方安全
+	focus = {
+		id = GEO_baowei_dongfang_anquan
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = GEO_chuanyue_shamo}
+		prerequisite = { focus = GEO_balesitan_gongshi}
+		relative_position_id = GEO_balesitan_gongshi
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		NOT = {
+		has_war_with = OTF
+		has_war_with = OTT
+		has_war_with = DLB
+		has_war_with = SAU
+		}
+		}
+		bypass = {
+		PER = {
+		OR = {
+		has_government = socialism
+		has_government = communism
+		}
+		}
+		}
+		completion_reward = {
+			declare_war_on = {
+    target = PER
+    type = annex_everything
+}
+		}
+	}
+	#革命胜利
+	focus = {
+		id = GEO_geming_shengli
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = GEO_baowei_dongfang_anquan}
+		relative_position_id = GEO_baowei_dongfang_anquan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 49
+		controls_state = 448
+		controls_state = 183
+		controls_state = 446
+		controls_state = 291
+		OR = {
+		controls_state = 266
+		PER = {
+		has_government = socialism
+		}
+		PER = {
+		has_government = communism
+		}
+		}
+		}
+		completion_reward = {
+			add_political_power = 200
+			news_event = {
+				id = holy_news.33 days = 1
+			}
+		}
+	}
+	#加入共产国际
+	focus = {
+		id = GEO_join_gc_guoji
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = GEO_geming_shengli}
+		relative_position_id = GEO_geming_shengli
+		x = 5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = GEO_geming_shengli 
+		}
+		completion_reward = {
+			every_country = {
+			limit = {
+            has_country_flag = gongchanguoji
+            }			
+			add_to_faction = GEO
+			}
+		}
+	}
+	#成立社会主义中东
+	focus = {
+		id = GEO_chengli_shehuizhuyi_zhongdong
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = GEO_geming_shengli}
+		relative_position_id = GEO_geming_shengli
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		has_completed_focus = GEO_geming_shengli 
+		}
+		completion_reward = {
+			set_cosmetic_tag = ZDR
+		    hidden_effect = { ZDR = { set_cosmetic_tag = ZDR } }
+			add_ideas = GEO_zongjiao_maodun
+			add_ideas = GEO_minzu_chongtu
+		}
+	}
+	#农业合作社
+	focus = {
+		id = GEO_nongye_hezuoshe
+		icon = GFX_focus_ITA_liberation_or_death
+		x = -2
+		y = 1
+		prerequisite = { focus = GEO_chengli_shehuizhuyi_zhongdong}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_nongye_hezuo_she
+		}
+	}
+	#计划经济
+	focus = {
+		id = GEO_plan_jingji
+		icon = GFX_goal_generic_soviet_construction
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_chengli_shehuizhuyi_zhongdong}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_jihua_jingji
+		}
+	}
+	#劳动义务与七小时工作制
+	focus = {
+		id = GEO_laodongyiwu_qixiaoshi_gongzuozhi
+		icon = GFX_focus_generic_treaty
+		x = 2
+		y = 1
+		prerequisite = { focus = GEO_chengli_shehuizhuyi_zhongdong}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_laodongyiwu_qixiaoshigongzuozhi
+		}
+	}
+	#苏维埃艺术
+	focus = {
+		id = GEO_suweiai_yishu
+		icon = GFX_focus_SOV_breadbasket_of_the_union
+		x = -3
+		y = 1
+		prerequisite = { focus = GEO_nongye_hezuoshe}
+		prerequisite = { focus = GEO_plan_jingji}
+		prerequisite = { focus = GEO_laodongyiwu_qixiaoshi_gongzuozhi}
+		relative_position_id = GEO_plan_jingji
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_suweiai_yishu
+		}
+	}
+	#剪刀差
+	focus = {
+		id = GEO_jiandao_cha
+		icon = GFX_goal_generic_position_armies
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_nongye_hezuoshe}
+		prerequisite = { focus = GEO_plan_jingji}
+		prerequisite = { focus = GEO_laodongyiwu_qixiaoshi_gongzuozhi}
+		relative_position_id = GEO_plan_jingji
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_ideas = GEO_gongnong_jiandao_cha
+			remove_idea = GEO_jihua_jingji
+			}
+		}
+	}
+	#扫盲运动
+	focus = {
+		id = GEO_saomang_yundong
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_nongye_hezuoshe}
+		prerequisite = { focus = GEO_plan_jingji}
+		prerequisite = { focus = GEO_laodongyiwu_qixiaoshi_gongzuozhi}
+		relative_position_id = GEO_plan_jingji
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_ideas = GEO_saomang_yun_dong
+			remove_idea = GEO_laodongyiwu_qixiaoshigongzuozhi
+			}
+		}
+	}
+	#科研投入
+	focus = {
+		id = GEO_keyan_touru
+		icon = GFX_goal_generic_scientific_exchange
+		x = 3
+		y = 1
+		prerequisite = { focus = GEO_nongye_hezuoshe}
+		prerequisite = { focus = GEO_plan_jingji}
+		prerequisite = { focus = GEO_laodongyiwu_qixiaoshi_gongzuozhi}
+		relative_position_id = GEO_plan_jingji
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	#五年计划
+	focus = {
+		id = GEO_five_plan
+		icon = GFX_focus_SOV_organize_wreckers
+		x = 0
+		y = 2
+		prerequisite = { focus = GEO_jiandao_cha }
+		prerequisite = { focus = GEO_saomang_yundong focus = GEO_suweiai_yishu focus = GEO_keyan_touru}
+		relative_position_id = GEO_plan_jingji
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+    idea = GEO_five_jihua
+    days = 1800
+}
+		}
+	}
+	#建立工会
+	focus = {
+		id = GEO_jianli_gonghui
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_five_plan }
+		relative_position_id = GEO_five_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_ideas = GEO_gonghui
+			remove_idea = GEO_gongnong_jiandao_cha
+			}
+		}
+	}
+	#轻工业计划
+	focus = {
+		id = GEO_qing_ic_plan
+		icon = GFX_goal_generic_consumer_goods
+		x = -3
+		y = 1
+		prerequisite = { focus = GEO_jianli_gonghui }
+		relative_position_id = GEO_jianli_gonghui
+		available = {
+		NOT = { has_idea = GEO_zhonggongye_plan }
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_qinggongye_plan
+		}
+	}
+	#食品行业改良
+	focus = {
+		id = GEO_shiping_hangye_gailiang
+		icon = GFX_focus_ETH_adopt_the_lira
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_qing_ic_plan }
+		relative_position_id = GEO_qing_ic_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_shiping_hangye
+		}
+	}
+	#饮品改善
+	focus = {
+		id = GEO_yinping_gaishan
+		icon = GFX_focus_generic_hydroelectric_energy
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_shiping_hangye_gailiang }
+		relative_position_id = GEO_shiping_hangye_gailiang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_yinpinggaishan
+			remove_idea = GEO_shiping_hangye
+			}
+		}
+	}
+	#中东纺织业
+	focus = {
+		id = GEO_zhongdong_fangzhiye
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = -2
+		y = 1
+		prerequisite = { focus = GEO_qing_ic_plan }
+		relative_position_id = GEO_qing_ic_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhongdong_fangzhi
+		}
+	}
+	#电气化
+	focus = {
+		id = GEO_dianqihua
+		icon = GFX_goal_generic_radar
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_zhongdong_fangzhiye }
+		relative_position_id = GEO_zhongdong_fangzhiye
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_dianqihua
+			remove_idea = GEO_zhongdong_fangzhi
+			}
+		}
+	}
+	#日常用品改善
+	focus = {
+		id = GEO_richangyongping_gaishan
+		icon = GFX_goal_generic_production2
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_dianqihua }
+		prerequisite = { focus = GEO_yinping_gaishan }
+		relative_position_id = GEO_yinping_gaishan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GEO_dianqihua
+			remove_ideas = GEO_yinpinggaishan
+			add_ideas = GEO_richang_yongping_gaishan
+		}
+	}
+	#专业器具制造
+	focus = {
+		id = GEO_zhuanye_qiju_zhizao
+		icon = GFX_focus_SOV_organize_wreckers
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_richangyongping_gaishan }
+		relative_position_id = GEO_richangyongping_gaishan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_zhuanye_qijuzhizao
+			remove_idea = GEO_richang_yongping_gaishan
+			}
+		}
+	}
+	#出口轻工业
+	focus = {
+		id = GEO_chukou_qinggongye
+		icon = GFX_goal_generic_trade
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_zhuanye_qiju_zhizao }
+		relative_position_id = GEO_zhuanye_qiju_zhizao
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_chukou_qingic
+			remove_idea = GEO_zhuanye_qijuzhizao
+			}
+		}
+	}
+	#黎凡特西海岸农业
+	focus = {
+		id = GEO_lifante_xihaian_nongye
+		icon = GFX_focus_generic_land_reclamation
+		x = 2
+		y = 1
+		prerequisite = { focus = GEO_qing_ic_plan }
+		relative_position_id = GEO_qing_ic_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			799 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 100000 
+		    }
+			677 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000
+		    }
+			553 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000
+		    }
+			454 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 300000
+		    }
+			453 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 10000
+		    }
+			446 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 10000
+		    }
+		}
+	}
+	#三角洲开发
+	focus = {
+		id = GEO_sanjiaozhou_kaifa
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_lifante_xihaian_nongye }
+		relative_position_id = GEO_lifante_xihaian_nongye
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			447 = {
+			add_extra_state_shared_building_slots = 5
+			add_manpower = 800000 
+		    }
+			446 = {
+			add_extra_state_shared_building_slots = 5
+			add_manpower = 1000000 
+		    }
+		}
+	}
+	#两河复兴
+	focus = {
+		id = GEO_lianghe_fuxing
+		icon = GFX_focus_generic_hydroelectric_energy
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_sanjiaozhou_kaifa }
+		relative_position_id = GEO_sanjiaozhou_kaifa
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			291 = {
+			add_extra_state_shared_building_slots = 4
+			add_manpower = 700000 
+		    }
+			675 = {
+			add_extra_state_shared_building_slots = 2
+			add_manpower = 50000 
+		    }
+			676 = {
+			add_extra_state_shared_building_slots = 4
+			add_manpower = 400000 
+		    }
+		}
+	}
+	#小亚细亚产粮
+	focus = {
+		id = GEO_xiaoyaxiya_chanliang
+		icon = GFX_focus_generic_coffee
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_lianghe_fuxing }
+		relative_position_id = GEO_lianghe_fuxing
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			49 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000 
+		    }
+			355 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000 
+		    }
+			344 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000 
+		    }
+			356 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000 
+		    }
+			346 = {
+			add_extra_state_shared_building_slots = 3
+			add_manpower = 500000 
+		    }
+		}
+	}
+	#沙漠开发
+	focus = {
+		id = GEO_shamo_kaifa
+		icon = GFX_focus_generic_coastal_fort
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_xiaoyaxiya_chanliang }
+		relative_position_id = GEO_xiaoyaxiya_chanliang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			292 = {
+			add_extra_state_shared_building_slots = 4
+			add_manpower = 800000 
+		    }
+			679 = {
+			add_extra_state_shared_building_slots = 4
+			add_manpower = 700000 
+		    }
+		}
+	}
+	#计划完成
+	focus = {
+		id = GEO_jihua_wancheng_qing
+		icon = GFX_goal_support_communism
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_shamo_kaifa }
+		prerequisite = { focus = GEO_chukou_qinggongye }
+		relative_position_id = GEO_chukou_qinggongye
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GEO_qing_ic_plan
+		}
+	}
+	#重工业计划
+	focus = {
+		id = GEO_zhong_ic_plan
+		icon = GFX_goal_generic_soviet_construction
+		x = 3
+		y = 1
+		prerequisite = { focus = GEO_jianli_gonghui }
+		relative_position_id = GEO_jianli_gonghui
+		available = {
+		NOT = { has_idea = GEO_qinggongye_plan }
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhonggongye_plan
+		}
+	}
+	#叙利亚工业化
+	focus = {
+		id = GEO_xuliya_gongye
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -2
+		y = 1
+		prerequisite = { focus = GEO_zhong_ic_plan }
+		relative_position_id = GEO_zhong_ic_plan
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			799 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		    }
+			553 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			554 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			677 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		    }
+			680 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#伊拉克工业化
+	focus = {
+		id = GEO_yilake_gongyehua
+		icon = GFX_goal_generic_construct_civilian
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_xuliya_gongye }
+		relative_position_id = GEO_xuliya_gongye
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			656 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		    }
+			291 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			675 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			676 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#巴勒斯坦复兴
+	focus = {
+		id = GEO_balesitan_fuxing
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_yilake_gongyehua }
+		relative_position_id = GEO_yilake_gongyehua
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			454 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		    }
+			455 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			453 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#埃及再开发
+	focus = {
+		id = GEO_aiji_zaikaifa
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_balesitan_fuxing }
+		relative_position_id = GEO_balesitan_fuxing
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			456 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			457 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			446 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		    }
+			447 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+			452 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#土耳其工业化
+	focus = {
+		id = GEO_tuerqi_gongyehua
+		icon = GFX_focus_generic_industry_2
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_aiji_zaikaifa }
+		relative_position_id = GEO_aiji_zaikaifa
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			349 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			353 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			350 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		    }
+			49 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		    }
+			343 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+			346 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		    }
+			345 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#铁路建设计划
+	focus = {
+		id = GEO_tielu_jianshe_jihua
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_zhong_ic_plan }
+		relative_position_id = GEO_zhong_ic_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_tielu_jianshe_plan
+		}
+	}
+	#中东资源开发
+	focus = {
+		id = GEO_zhongdong_ziyuan_kiafa
+		icon = GFX_goal_generic_construction2
+		x = 2
+		y = 1
+		prerequisite = { focus = GEO_zhong_ic_plan }
+		relative_position_id = GEO_zhong_ic_plan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhongdong_ziyuankiafa
+		}
+	}
+	#资源出口计划
+	focus = {
+		id = GEO_ziyuan_chukou
+		icon = GFX_goal_generic_trade
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_tielu_jianshe_jihua }
+		prerequisite = { focus = GEO_zhongdong_ziyuan_kiafa }
+		relative_position_id = GEO_zhongdong_ziyuan_kiafa
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_ziyuan_chukou_plan
+		}
+	}
+	#西部高速铁路
+	focus = {
+		id = GEO_xibu_gaosu_tielu
+		icon = GFX_focus_generic_railroad
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_ziyuan_chukou }
+		relative_position_id = GEO_ziyuan_chukou
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			49 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			798 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			348 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			344 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+			}
+		    677 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			554 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			454 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			453 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			446 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			447 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#东部战略建设
+	focus = {
+		id = GEO_dongbu_zhanlue_build
+		icon = GFX_goal_generic_construct_civilian
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_ziyuan_chukou }
+		relative_position_id = GEO_ziyuan_chukou
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			231 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			229 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			419 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+			}
+		    421 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			291 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			413 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			414 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			410 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			418 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+			416 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		    }
+		}
+	}
+	#国际工业国
+	focus = {
+		id = GEO_guoji_ic_guo
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_dongbu_zhanlue_build }
+		prerequisite = { focus = GEO_xibu_gaosu_tielu }
+		relative_position_id = GEO_dongbu_zhanlue_build
+		available = {
+			num_of_factories > 180
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_guoji_gongyeguo
+		}
+	}
+	#小亚细亚天然气
+	focus = {
+		id = GEO_xiaoyaxiya_tianranqi
+		icon = GFX_goal_generic_oil_refinery
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_guoji_ic_guo }
+		relative_position_id = GEO_guoji_ic_guo
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_resource = {
+                type = oil
+                amount = 150
+                state = 49
+            }
+		}
+	}
+	#计划完成
+	focus = {
+		id = GEO_jihua_wancheng_zhong
+		icon = GFX_focus_SOV_father_of_nations
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_xiaoyaxiya_tianranqi }
+		prerequisite = { focus = GEO_tuerqi_gongyehua }
+		relative_position_id = GEO_xiaoyaxiya_tianranqi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GEO_zhonggongye_plan
+		}
+	}
+	#社会主义政府
+	focus = {
+		id = GEO_shehuizhuyi_zhengfu
+		icon = GFX_focus_SOV_the_supreme_soviet
+		x = -10
+		y = 1
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		available = {
+		has_completed_focus = GEO_five_plan
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_new_zhengfu
+		}
+	}
+	#先锋队
+	focus = {
+		id = GEO_xianfneg_dui
+		icon = GFX_focus_por_workers_of_iberia
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_shehuizhuyi_zhengfu}
+		relative_position_id = GEO_shehuizhuyi_zhengfu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_xianfengdui
+			remove_idea = GEO_new_zhengfu
+			}
+		}
+	}
+	#政治教育
+	focus = {
+		id = GEO_zhengzhi_jiaoyu
+		icon = GFX_goal_support_communism
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_xianfneg_dui}
+		relative_position_id = GEO_xianfneg_dui
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_zhengzhijiaoyu
+			remove_idea = GEO_xianfengdui
+			}
+		}
+	}
+	#地方体系重构
+	focus = {
+		id = GEO_difang_tixi_chonggou
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_zhengzhi_jiaoyu}
+		relative_position_id = GEO_zhengzhi_jiaoyu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_difangtixi_chonggou
+			remove_idea = GEO_zhengzhijiaoyu
+			}
+		}
+	}
+	#革命热情
+	focus = {
+		id = GEO_geming_reqing
+		icon = GFX_goal_generic_attack_allies
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_shehuizhuyi_zhengfu}
+		relative_position_id = GEO_shehuizhuyi_zhengfu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_gemingreqing
+		}
+	}
+	#构建宣传阵地
+	focus = {
+		id = GEO_goujian_xuanchuan_zhendi
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_geming_reqing}
+		relative_position_id = GEO_geming_reqing
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_goujian_xuanchuanzhendi
+		}
+	}
+	#祖国的新生
+	focus = {
+		id = GEO_zuguo_de_xinsheng
+		icon = GFX_goal_generic_war_with_comintern
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_goujian_xuanchuan_zhendi}
+		relative_position_id = GEO_goujian_xuanchuan_zhendi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			set_major = yes
+			add_political_power = 100
+		}
+	}
+	#解决纠纷
+	focus = {
+		id = GEO_jiejue_jiufen
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = -6
+		y = 1
+		available = {
+		has_completed_focus = GEO_five_plan
+		}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#反对民族主义
+	focus = {
+		id = GEO_fandui_minzuzhuyi
+		icon = GFX_focus_generic_conspiracy
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_jiejue_jiufen}
+		relative_position_id = GEO_jiejue_jiufen
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_fandui_minzu_zhuyi
+			remove_idea = GEO_minzu_chongtu
+			}
+		}
+	}
+	#局部自治
+	focus = {
+		id = GEO_jubu_zizhi
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_fandui_minzuzhuyi}
+		relative_position_id = GEO_fandui_minzuzhuyi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_jubuzizhi
+			remove_idea = GEO_fandui_minzu_zhuyi
+			}
+		}
+	}
+	#教育去民族化
+	focus = {
+		id = GEO_jiaoyu_qu_minzuhua
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_jubu_zizhi}
+		relative_position_id = GEO_jubu_zizhi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GEO_jubuzizhi
+		}
+	}
+	#调节宗教问题
+	focus = {
+		id = GEO_tiaojie_zongjiao_wenti
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_jiejue_jiufen}
+		relative_position_id = GEO_jiejue_jiufen
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_tiaojie_zongjiao
+			remove_idea = GEO_zongjiao_maodun
+			}
+		}
+	}
+	#穆斯林去政治化
+	focus = {
+		id = GEO_musilin_quzhengzhihua
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_tiaojie_zongjiao_wenti}
+		relative_position_id = GEO_tiaojie_zongjiao_wenti
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_musilin_qu_zhengzhihua
+			remove_idea = GEO_tiaojie_zongjiao
+			}
+		}
+	}
+	#摧毁清真寺
+	focus = {
+		id = GEO_cuihui_qingzhensi
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_musilin_quzhengzhihua}
+		relative_position_id = GEO_musilin_quzhengzhihua
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			remove_ideas = GEO_musilin_qu_zhengzhihua
+		}
+	}
+	#中东和谐
+	focus = {
+		id = GEO_zhongdong_hexie
+		icon = GFX_focus_generic_treaty
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_cuihui_qingzhensi}
+		prerequisite = { focus = GEO_jiaoyu_qu_minzuhua}
+		relative_position_id = GEO_cuihui_qingzhensi
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhongdong_hexie
+		}
+	}
+	#中东外交
+	focus = {
+		id = GEO_zhongdong_waijiao
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 6
+		y = 1
+		available = {
+		has_completed_focus = GEO_five_plan
+		}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	#西海岸问题
+	focus = {
+		id = GEO_xihaian_wenti
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_zhongdong_waijiao}
+		relative_position_id = GEO_zhongdong_waijiao
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		bypass = {
+		controls_state = 347
+controls_state = 340
+controls_state = 342
+controls_state = 339
+controls_state = 813
+controls_state = 164
+		}
+		completion_reward = {
+			BYT = { country_event = { id = holy_aosiman.6 } }
+		}
+	}
+	#巴尔干宣传
+	focus = {
+		id = GEO_baergan_xuanchuan
+		icon = GFX_goal_generic_alliance
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_xihaian_wenti}
+		relative_position_id = GEO_xihaian_wenti
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			SER = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			BUL = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			ROM = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			BYT = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			DKL = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+YUM = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+		}
+	}
+	#东方宣传
+	focus = {
+		id = GEO_dongfang_xuanchuan
+		icon = GFX_goal_generic_alliance
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_xihaian_wenti}
+		relative_position_id = GEO_xihaian_wenti
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			RAJ = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			PAK = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			AFG = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			BAN = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+			NEP = { 
+			add_timed_idea = {
+    idea = GEO_redxuanchuan
+    days = 180
+	}
+}
+		}
+	}
+	#红色武装
+	focus = {
+		id = GEO_hongse_wuzhuang
+		icon = GFX_focus_SOV_mobilization_plan
+		x = 10
+		y = 1
+		available = {
+		has_completed_focus = GEO_five_plan
+		}
+		relative_position_id = GEO_chengli_shehuizhuyi_zhongdong
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_red_wuzhuang
+		}
+	}
+	#人民红军
+	focus = {
+		id = GEO_people_redarmy
+		icon = GFX_focus_generic_self_propelled_gun
+		x = -1
+		y = 1
+		prerequisite = { focus = GEO_hongse_wuzhuang}
+		relative_position_id = GEO_hongse_wuzhuang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_red_wuzhuang
+			remove_idea = GEO_people_army
+			}
+		}
+	}
+	#系统性训练
+	focus = {
+		id = GEO_xitongxing_xunlian
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_people_redarmy}
+		relative_position_id = GEO_people_redarmy
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_xitong_xing_xunlian
+			remove_idea = GEO_red_wuzhuang
+			}
+		}
+	}
+	#穿插战术
+	focus = {
+		id = GEO_chuancha_zhanshu
+		icon = GFX_goal_generic_army_doctrines
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_xitongxing_xunlian}
+		relative_position_id = GEO_xitongxing_xunlian
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			swap_ideas = {
+			add_idea = GEO_chuancha
+			remove_idea = GEO_xitong_xing_xunlian
+			}
+		}
+	}
+	#装甲洪流
+	focus = {
+		id = GEO_zhuangjiahongliu
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_chuancha_zhanshu}
+		relative_position_id = GEO_chuancha_zhanshu
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_zhuangjia_hongliu
+		}
+	}
+	#武器科研
+	focus = {
+		id = GEO_wuqi_research
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 1
+		y = 1
+		prerequisite = { focus = GEO_hongse_wuzhuang}
+		relative_position_id = GEO_hongse_wuzhuang
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			    name = PLS_junshiyouxian
+				bonus = 1.5
+				uses = 3
+				category = land_doctrine
+				category = artillery
+			}
+		}
+	}
+	#生产线更新
+	focus = {
+		id = GEO_shengchanxian_gengxin
+		icon = GFX_focus_SOV_organize_wreckers
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_wuqi_research}
+		relative_position_id = GEO_wuqi_research
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_shengch_anxian_gengxin
+		}
+	}
+	#军事学院
+	focus = {
+		id = GEO_junshi_xueyuan
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_shengchanxian_gengxin}
+		relative_position_id = GEO_shengchanxian_gengxin
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_ideas = GEO_army_xueyuan
+		}
+	}
+	#联合军演
+	focus = {
+		id = GEO_lianhe_junyan
+		icon = GFX_focus_generic_combined_arms
+		x = 0
+		y = 1
+		prerequisite = { focus = GEO_junshi_xueyuan}
+		relative_position_id = GEO_junshi_xueyuan
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		is_in_faction_with = SOV
+		}
+		completion_reward = {
+			army_experience = 30
+			navy_experience = 30
+			air_experience = 30
+			SOV = {
+			army_experience = 30
+			navy_experience = 30
+			air_experience = 30
+			}
+		}
+	}
+}

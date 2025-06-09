@@ -1,0 +1,688 @@
+focus_tree = {
+	id = XKA_focus
+    
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = XKA
+		}
+	}
+	
+	default = no
+ 
+	#川人守川地
+	focus = {
+		id = XKA_chuanren_shouchuan
+		icon = GFX_goal_generic_military_sphere
+		x = 20
+		y = 1
+		cost = 1
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	#防备藏区入侵者
+	focus = {
+		id = XKA_fangbei_zangqu_ruqin
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = XKA_chuanren_shouchuan }
+		relative_position_id = XKA_chuanren_shouchuan
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		601 = {
+			add_building_construction = {
+				type = bunker
+				province = 5080
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 10741
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				province = 5018
+				level = 3
+				instant_build = yes
+			}
+		  } 
+		}
+	}
+	#川地民族主义
+	focus = {
+		id = XKA_chuandi_minzuzhuyi
+		icon = GFX_focus_POL_beck_ribbentrop
+		prerequisite = { focus = XKA_chuanren_shouchuan }
+		relative_position_id = XKA_chuanren_shouchuan
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_chuandi_chuanjun_2
+		remove_idea = XKA_chuandi_chuanjun
+		}
+		}
+	}
+	#扩大化军队
+	focus = {
+		id = XKA_kuodahua_jundui
+		icon = GFX_focus_generic_military_dictatorship
+		prerequisite = { focus = XKA_chuandi_minzuzhuyi }
+		relative_position_id = XKA_chuandi_minzuzhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_kuodahua_army
+		}
+	}
+	#四川组织体系
+	focus = {
+		id = XKA_sichuan_zuzhitixi
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = XKA_kuodahua_jundui }
+		relative_position_id = XKA_kuodahua_jundui
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_kuodahua_army_2
+		remove_idea = XKA_kuodahua_army
+		}
+		}
+	}
+	#新式陆军武装
+	focus = {
+		id = XKA_new_armywuzhuang
+		icon = GFX_focus_research2
+		prerequisite = { focus = XKA_kuodahua_jundui }
+		prerequisite = { focus = XKA_jundui_gexin }
+		relative_position_id = XKA_kuodahua_jundui
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry
+			}
+		}
+	}
+	#军队革新
+	focus = {
+		id = XKA_jundui_gexin
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = XKA_chuandi_minzuzhuyi }
+		relative_position_id = XKA_chuandi_minzuzhuyi
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_jundui_gexin
+		}
+	}
+	#集中火力
+	focus = {
+		id = XKA_jizhong_huoli
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = XKA_jundui_gexin }
+		relative_position_id = XKA_jundui_gexin
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_jundui_gexin_2
+		remove_idea = XKA_jundui_gexin
+		}
+		}
+	}
+	#扩建兵工厂
+	focus = {
+		id = XKA_kuojian_binggongchang
+		icon = GFX_focus_generic_improve_roads
+		prerequisite = { focus = XKA_sichuan_zuzhitixi }
+		prerequisite = { focus = XKA_new_armywuzhuang }
+		relative_position_id = XKA_new_armywuzhuang
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		601 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+	}
+			}
+		}
+	}
+	#后勤职业化
+	focus = {
+		id = XKA_houqin_zhiyehua
+		icon = GFX_focus_generic_stockpile_fuel
+		prerequisite = { focus = XKA_jizhong_huoli }
+		prerequisite = { focus = XKA_new_armywuzhuang }
+		relative_position_id = XKA_new_armywuzhuang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_jundui_gexin_3
+		remove_idea = XKA_jundui_gexin_2
+		}
+		}
+	}
+	#民族模范军
+	focus = {
+		id = XKA_minzu_mofan_jun
+		icon = GFX_focus_chi_legislative_yuan
+		prerequisite = { focus = XKA_houqin_zhiyehua }
+		prerequisite = { focus = XKA_kuojian_binggongchang }
+		relative_position_id = XKA_kuojian_binggongchang
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_chuandi_chuanjun_3
+		remove_idea = XKA_chuandi_chuanjun_2
+		}
+		}
+	}
+	#整合民政
+	focus = {
+		id = XKA_zhenghe_minzheng
+		icon = GFX_focus_chi_examination_yuan
+		prerequisite = { focus = XKA_chuandi_minzuzhuyi }
+		relative_position_id = XKA_chuandi_minzuzhuyi
+		x = -5
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_xibu_jingji_2
+		remove_idea = XKA_xibu_jingji
+		}
+		}
+	}
+	#抵制鸦片
+	focus = {
+		id = XKA_dizhi_yapian
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = XKA_zhenghe_minzheng }
+		relative_position_id = XKA_zhenghe_minzheng
+		mutually_exclusive = { focus = XKA_yapian_kuodahua }
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_dizhi_yapian
+		}
+	}
+	#模范省工程
+	focus = {
+		id = XKA_mofansheng_gongcheng
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = XKA_dizhi_yapian }
+		relative_position_id = XKA_dizhi_yapian
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_xibu_jingji_3
+		remove_idea = XKA_xibu_jingji_2
+		}
+		}
+	}
+	#财政改革
+	focus = {
+		id = XKA_caizheng_gaige
+		icon = GFX_focus_ITA_devaluate_the_lire
+		prerequisite = { focus = XKA_mofansheng_gongcheng }
+		relative_position_id = XKA_mofansheng_gongcheng
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_xibu_jingji_4
+		remove_idea = XKA_xibu_jingji_3
+		}
+		}
+	}
+	#支持民用商业
+	focus = {
+		id = XKA_zhichi_minyong_shangye
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = XKA_caizheng_gaige }
+		relative_position_id = XKA_caizheng_gaige
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_xibu_jingji_5
+		remove_idea = XKA_xibu_jingji_4
+		}
+		}
+	}
+	#自由化财政
+	focus = {
+		id = XKA_ziyouhua_caizheng
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = XKA_zhichi_minyong_shangye }
+		relative_position_id = XKA_zhichi_minyong_shangye
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		remove_ideas = XKA_xibu_jingji_5
+		}
+	}
+	#完善铁路网
+	focus = {
+		id = XKA_wanshan_tieluwang
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = XKA_caizheng_gaige }
+		relative_position_id = XKA_caizheng_gaige
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		all_state = {
+		limit = {
+		region = 129
+		}
+		is_controlled_by = XKA
+		}
+		controls_state = 601
+		controls_state = 1278
+		controls_state = 1279
+		}
+		completion_reward = {
+		605 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+751 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+752 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+753 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+		}
+	}
+	#边境铁路
+	focus = {
+		id = XKA_bianjing_tielu
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = XKA_wanshan_tieluwang }
+		relative_position_id = XKA_wanshan_tieluwang
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 601
+		}
+		completion_reward = {
+		601 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+434 = {
+		add_building_construction = {
+    type = infrastructure
+    level = 1
+    instant_build = yes
+}
+}
+		}
+	}
+	#鸦片扩大化
+	focus = {
+		id = XKA_yapian_kuodahua
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = XKA_zhenghe_minzheng }
+		relative_position_id = XKA_zhenghe_minzheng
+		mutually_exclusive = { focus = XKA_dizhi_yapian }
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_yapian_kuodahua
+		}
+	}
+	#扩大科研
+	focus = {
+		id = XKA_kuoda_keyan_touru
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = XKA_zhidao_jingji focus = XKA_mofansheng_gongcheng}
+		relative_position_id = XKA_zhidao_jingji
+		x = -2
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_kuoda_keyan
+		}
+	}
+	#吸引投资
+	focus = {
+		id = XKA_xiyin_touzi
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = XKA_kuoda_keyan_touru }
+		relative_position_id = XKA_kuoda_keyan_touru
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		random_owned_controlled_state = { 
+		add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+add_building_construction = {
+			add_extra_state_shared_building_slots = 1
+    type = industrial_complex
+    level = 1
+    instant_build = yes
+}
+		}
+		}
+	}
+	#指导经济
+	focus = {
+		id = XKA_zhidao_jingji
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = XKA_yapian_kuodahua }
+		relative_position_id = XKA_yapian_kuodahua
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_zhidao_jingji
+		remove_idea = XKA_xibu_jingji_2
+		}
+		}
+	}
+	#四川中央经济
+	focus = {
+		id = XKA_chuan_zhongyang_jingji
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = XKA_zhidao_jingji }
+		relative_position_id = XKA_zhidao_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_zhidao_jingji_2
+		remove_idea = XKA_zhidao_jingji
+		}
+		}
+	}
+	#国营企业
+	focus = {
+		id = XKA_guoying_qiye
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = XKA_chuan_zhongyang_jingji }
+		relative_position_id = XKA_chuan_zhongyang_jingji
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_zhidao_jingji_3
+		remove_idea = XKA_zhidao_jingji_2
+		}
+		}
+	}
+	#合营民工
+	focus = {
+		id = XKA_heying_mingong
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = XKA_guoying_qiye }
+		prerequisite = { focus = XKA_xiyin_touzi }
+		relative_position_id = XKA_guoying_qiye
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		add_idea = XKA_zhidao_jingji_4
+		remove_idea = XKA_zhidao_jingji_3
+		}
+		}
+	}
+	#四川军事工业
+	focus = {
+		id = XKA_sichuan_junshi_gongye
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = XKA_guoying_qiye }
+		relative_position_id = XKA_guoying_qiye
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		available = {
+		controls_state = 1082
+		}
+		completion_reward = {
+		1082 = {
+			add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+    type = arms_factory
+    level = 2
+    instant_build = yes
+}
+		}
+		}
+	}
+	#打击腐败
+	focus = {
+		id = XKA_daji_fubai
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		prerequisite = { focus = XKA_chuandi_minzuzhuyi }
+		relative_position_id = XKA_chuandi_minzuzhuyi
+		x = 4
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_daji_fubai
+		}
+	}
+	#援助饥荒民众
+	focus = {
+		id = XKA_yuanzhu_jihuang_minzhong
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		prerequisite = { focus = XKA_chuandi_minzuzhuyi }
+		relative_position_id = XKA_chuandi_minzuzhuyi
+		x = 6
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		add_ideas = XKA_yuanzhu_minzhong
+		}
+	}
+	#劳动救济
+	focus = {
+		id = XKA_laodong_jiuji
+		icon = GFX_focus_YUG_pan_slavic_congress
+		prerequisite = { focus = XKA_daji_fubai }
+		prerequisite = { focus = XKA_yuanzhu_jihuang_minzhong }
+		relative_position_id = XKA_daji_fubai
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = XKA_yuanzhu_minzhong
+		add_idea = XKA_yuanzhu_minzhong_2
+		}
+		}
+	}
+	#进口农物
+	focus = {
+		id = XKA_jinkou_nongwu
+		icon = GFX_focus_ETH_adopt_the_lira
+		prerequisite = { focus = XKA_laodong_jiuji }
+		relative_position_id = XKA_laodong_jiuji
+		x = 1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = XKA_yuanzhu_minzhong_2
+		add_idea = XKA_yuanzhu_minzhong_3
+		}
+		}
+	}
+	#价格管控
+	focus = {
+		id = XKA_jiage_guankong
+		icon = GFX_focus_fra_devalue_the_franc
+		prerequisite = { focus = XKA_laodong_jiuji }
+		relative_position_id = XKA_laodong_jiuji
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+		swap_ideas = {
+		remove_idea = XKA_daji_fubai
+		add_idea = XKA_daji_fubai_2
+		}
+		}
+	}
+}
