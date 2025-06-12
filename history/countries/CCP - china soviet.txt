@@ -1,244 +1,244 @@
-﻿capital = 602
-create_country_leader = {
-	name = 毛泽东
-	desc = ""
-	picture = GFX116
-	expire = "1965.1.1"
-	ideology = gongnong_xianfeng_zhuyi_ism
-	traits = {
-	}
-}
-create_field_marshal = {
-	name = 毛泽东
-	picture = GFX116
-	traits = { infantry_officer adaptable brilliant_strategist  }
-	skill = 5
-	attack_skill = 7
-	defense_skill = 5
-	planning_skill = 7
-	logistics_skill = 7
-}
-create_field_marshal = {
-	name = 林彪
-	picture = ".jpg"
-	traits = { brilliant_strategist war_hero  }
-	skill = 5
-	attack_skill = 6
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-create_corps_commander = {
-	name = 贺龙
-	picture = ".jpg"
-	traits = { cavalry_officer media_personality cavalry_expert  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 5
-}
-create_corps_commander = {
-	name = 肖克
-	picture = ".jpg"
-	traits = { infantry_officer infantry_expert  }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 罗荣桓
-	picture = ".jpg"
-	traits = { brilliant_strategist bearer_of_artillery  }
-	skill = 4
-	attack_skill = 5
-	defense_skill = 3
-	planning_skill = 4
-	logistics_skill = 4
-}
-create_corps_commander = {
-	name = 罗瑞卿
-	picture = ".jpg"
-	traits = { infantry_officer trait_reckless  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 粟裕
-	picture = ".jpg"
-	traits = { infantry_officer commando  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-create_corps_commander = {
-	name = 聂荣臻
-	picture = ".jpg"
-	traits = { trait_engineer adaptable war_hero  }
-	skill = 4
-	attack_skill = 5
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-create_corps_commander = {
-	name = 陈毅
-	picture = ".jpg"
-	traits = { trickster infantry_leader  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-create_corps_commander = {
-	name = 刘亚楼
-	picture = ".jpg"
-	traits = { infantry_leader war_hero  }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 彭德怀
-	picture = ".jpg"
-	traits = { brilliant_strategist infantry_officer war_hero  }
-	skill = 4
-	attack_skill = 5
-	defense_skill = 4
-	planning_skill = 4
-	logistics_skill = 4
-}
-set_oob = CCP_1936
-set_naval_oob = CCP_naval_1936
-set_air_oob = CCP_1936_air_legacy
-set_research_slots = 4
-set_stability = 0.5
-set_war_support = 0.5
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	motorised_infantry = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	#improved_light_tank = 1  # PLACEHOLDER
-	#basic_train = 1  # PLACEHOLDER
-	#basic_medium_tank = 1 # PLACEHOLDER
-	early_fighter = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	naval_bomber1 = 1
-	early_bomber = 1
-	CAS1 = 1
-	trench_warfare = 1
-	fleet_in_being = 1
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	fuel_silos = 1
-	fuel_refining = 1
-}
-if = {
-	limit = {
-		has_dlc = "Battle for the Bosporus"
-	}
-	set_technology = {
-		camelry = 1
-	}
-}
-if = {
-	limit = {
-		not = {
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_technology = {
-		early_submarine = 1
-		early_destroyer = 1
-		basic_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		early_battlecruiser = 1
-		early_carrier = 1
-		transport = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_submarine = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-		basic_ship_hull_carrier = 1
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_torpedo = 1
-		sonar = 1
-		smoke_generator = 1
-		basic_depth_charges = 1
-		basic_secondary_battery = 1
-		basic_cruiser_armor_scheme = 1
-		basic_heavy_armor_scheme = 1
-		mtg_transport = 1
-		improved_secondary_battery = 1
-		basic_fire_control_system = 1
-	}
-}
-diplomatic_relation = {
-	country = CGH
-	relation = military_access
-	active = yes
-}
-diplomatic_relation = {
-	country = KMT
-	relation = military_access
-	active = yes
-}
-create_faction = gongchandang_lianmeng
-add_to_faction = CCP
-add_ideas = { CCP_peopal_power CCP_youji_zhanshu CCP_renmin_jiefangjun CCP_nonghui_zuzhi CCP_sixiang_wenti  }
-set_variable = {
-	china_hefa = 20
-}
-set_politics = {
-	ruling_party = totalism
-	last_election = "1935.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	totalism = 45
-	socialism = 15
-	progressivism = 0
-	liberalism = 0
-	conservatism = 20
-	authoritarianism = 10
-	paternalism = 0
-	suprematism = 0
-	mysticism = 10
-}
+﻿capital = 602
+create_country_leader = {
+	name = 毛泽东
+	desc = ""
+	picture = GFX116
+	expire = "1965.1.1"
+	ideology = gongnong_xianfeng_zhuyi_ism
+	traits = {
+	}
+}
+create_field_marshal = {
+	name = 毛泽东
+	picture = GFX116
+	traits = { infantry_officer adaptable brilliant_strategist  }
+	skill = 5
+	attack_skill = 7
+	defense_skill = 5
+	planning_skill = 7
+	logistics_skill = 7
+}
+create_field_marshal = {
+	name = 林彪
+	picture = ".jpg"
+	traits = { brilliant_strategist war_hero  }
+	skill = 5
+	attack_skill = 6
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 贺龙
+	picture = ".jpg"
+	traits = { cavalry_officer media_personality cavalry_expert  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 5
+}
+create_corps_commander = {
+	name = 肖克
+	picture = ".jpg"
+	traits = { infantry_officer infantry_expert  }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 罗荣桓
+	picture = ".jpg"
+	traits = { brilliant_strategist bearer_of_artillery  }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 3
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 罗瑞卿
+	picture = ".jpg"
+	traits = { infantry_officer trait_reckless  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 4
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 粟裕
+	picture = ".jpg"
+	traits = { infantry_officer commando  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 聂荣臻
+	picture = ".jpg"
+	traits = { trait_engineer adaptable war_hero  }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 陈毅
+	picture = ".jpg"
+	traits = { trickster infantry_leader  }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 刘亚楼
+	picture = ".jpg"
+	traits = { infantry_leader war_hero  }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 彭德怀
+	picture = ".jpg"
+	traits = { brilliant_strategist infantry_officer war_hero  }
+	skill = 4
+	attack_skill = 5
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 4
+}
+set_oob = CCP_1936
+set_naval_oob = CCP_naval_1936
+set_air_oob = CCP_1936_air_legacy
+set_research_slots = 4
+set_stability = 0.5
+set_war_support = 0.5
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	#improved_light_tank = 1  # PLACEHOLDER
+	#basic_train = 1  # PLACEHOLDER
+	#basic_medium_tank = 1 # PLACEHOLDER
+	early_fighter = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	fuel_silos = 1
+	fuel_refining = 1
+}
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = {
+		camelry = 1
+	}
+}
+if = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		basic_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_secondary_battery = 1
+		basic_fire_control_system = 1
+	}
+}
+diplomatic_relation = {
+	country = CGH
+	relation = military_access
+	active = yes
+}
+diplomatic_relation = {
+	country = KMT
+	relation = military_access
+	active = yes
+}
+create_faction = gongchandang_lianmeng
+add_to_faction = CCP
+add_ideas = { CCP_peopal_power CCP_youji_zhanshu CCP_renmin_jiefangjun CCP_nonghui_zuzhi CCP_sixiang_wenti  }
+set_variable = {
+	china_hefa = 20
+}
+set_politics = {
+	ruling_party = totalism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 45
+	socialism = 15
+	progressivism = 0
+	liberalism = 0
+	conservatism = 20
+	authoritarianism = 10
+	paternalism = 0
+	suprematism = 0
+	mysticism = 10
+}
