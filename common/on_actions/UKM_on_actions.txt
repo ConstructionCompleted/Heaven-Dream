@@ -1,0 +1,32 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			UKM = {
+				HV_progressivism_party_join_ruling_coalition = yes
+				remove_ideas = UKM_overseas_defense_fake
+				clear_variable = UKM_OD_political_power_cost_var
+				clear_variable = UKM_OD_consumer_goods_factor_var
+				clear_variable = UKM_OD_resistance_activity_var
+				clear_variable = UKM_OD_required_garrison_factor_var
+				every_other_country = {
+					limit = { is_subject_of = PREV }
+					PREV = {
+						if = {
+							limit = { check_variable = { UKM_OD_political_power_cost_var < 0.50 } }
+							add_to_variable = { UKM_OD_political_power_cost_var = 0.05 }
+							add_to_variable = { UKM_OD_consumer_goods_factor_var = -0.025 }
+						}
+						else = {
+							add_to_variable = { UKM_OD_consumer_goods_factor_var = 0.01 }
+							add_to_variable = { UKM_OD_resistance_activity_var = 0.005 }
+							add_to_variable = { UKM_OD_required_garrison_factor_var = 0.005 }
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = UKM_overseas_defense_dynamic_modifier
+				}
+			}
+		}
+	}
+}

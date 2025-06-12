@@ -1,0 +1,37 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#       attacker_modifier = no  # if yes this modifier will also be read in combat for 
+#                               # people engaging in the combat even if not in the state
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states, unit leaders or special projects
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+UKM_overseas_defense_dynamic_modifier = {
+	
+	icon = GFX_idea_por_colonial_army
+	
+	political_power_cost = UKM_OD_political_power_cost_var
+	consumer_goods_factor = UKM_OD_consumer_goods_factor_var
+	resistance_activity = UKM_OD_resistance_activity_var
+	required_garrison_factor = UKM_OD_required_garrison_factor_var
+}
