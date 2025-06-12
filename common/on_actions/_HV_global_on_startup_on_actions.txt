@@ -6,45 +6,6 @@ on_actions = {
 				HV_lighten_ruling_party = yes
 			}
 			UKM = { HV_progressivism_party_join_ruling_coalition = yes }
-			every_possible_country = {
-				limit = {
-					NOT = {
-						tag = PLS
-						tag = FRA
-						tag = UKM
-						tag = AUS
-						has_country_flag = ROOT_has_country_leader_role_flag
-					}
-				}
-				for_each_loop = {
-					array = global.ideology_groups
-					value = v
-					
-					if = {
-						limit = {
-							meta_trigger = {
-								text = {
-									NOT = {
-										has_country_flag = ROOT_has_[IDEOLOGY_GROUP]_leader_but_not_role_flag
-									}
-								}
-								IDEOLOGY_GROUP = "[?v.GetTokenKey]"
-							}
-						}
-						meta_effect = {
-							text = {
-								create_country_leader = {
-									name = "Placeholder"
-									picture = GFX40
-									expire = "1965.1.1"
-									ideology = [IDEOLOGY_GROUP]_subtype
-								}
-							}
-							IDEOLOGY_GROUP = "[?v.GetTokenKey]"
-						}
-					}
-				}
-			}
 		}
 	}
 }

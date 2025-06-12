@@ -165,3 +165,45 @@ HV_mysticism_party_join_ruling_coalition = {
 		set_variable = { coalitions_array^8 = 2 }
 	}
 }
+
+HV_init_party_leader = {
+	every_possible_country = {
+		limit = {
+			NOT = {
+				tag = PLS
+				tag = FRA
+				tag = UKM
+				tag = AUS
+				has_country_flag = ROOT_has_country_leader_role_flag
+			}
+		}
+		for_each_loop = {
+			array = global.ideology_groups
+			value = v
+			
+			if = {
+				limit = {
+					meta_trigger = {
+						text = {
+							NOT = {
+								has_country_flag = ROOT_has_[IDEOLOGY_GROUP]_leader_but_not_role_flag
+							}
+						}
+						IDEOLOGY_GROUP = "[?v.GetTokenKey]"
+					}
+				}
+				meta_effect = {
+					text = {
+						create_country_leader = {
+							name = "Placeholder"
+							picture = GFX_Portrait_PLS_Heinrich_II
+							expire = "1965.1.1"
+							ideology = [IDEOLOGY_GROUP]_subtype
+						}
+					}
+					IDEOLOGY_GROUP = "[?v.GetTokenKey]"
+				}
+			}
+		}
+	}
+}
