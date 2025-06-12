@@ -73,7 +73,13 @@ scripted_gui = {
 		}
 
 		properties = {
-			
+			faction_pol_icon = { image = GFX_faction_icon_[?THIS.faction_icon_var] }
+		}
+		
+		triggers = {
+			faction_pol_button_visible = {
+				NOT = { check_variable = { faction_icon_var = 0 } }
+			}
 		}
 	}
 

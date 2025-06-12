@@ -6,6 +6,56 @@ on_actions = {
 				HV_lighten_ruling_party = yes
 			}
 			UKM = { HV_progressivism_party_join_ruling_coalition = yes }
+			HV_init_party_leader = yes
+			every_possible_country = {
+				if = {
+					limit = {
+						OR = {
+							tag = UKM
+							is_in_faction_with = UKM
+						}
+					}
+					set_variable = { faction_icon_var = 1 }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = PLS
+							is_in_faction_with = PLS
+						}
+					}
+					set_variable = { faction_icon_var = 2 }
+				}
+			}
+			126 = {
+				add_dynamic_modifier = {
+					modifier = SOV_defend_moscow
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_invaders_must_die
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_seraya_loshad_battery
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_krasnaya_gorka_battery
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_armored_battery_35
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_factory_worker_militias_raised
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_civilian_labor_in_defense_mod
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_soviet_military_offensive
+				}
+				add_dynamic_modifier = {
+					modifier = SOV_soviet_imports
+				}
+			}
 		}
 	}
 }

@@ -1,187 +1,189 @@
-﻿capital = 602
-create_country_leader = {
-	name = 何健
-	desc = ""
-	picture = GFX152
-	expire = "1965.1.1"
-	ideology = warlord
-	traits = {
-	}
-}
-create_country_leader = {
-	name = 唐生智
-	desc = ""
-	picture = GFX153
-	expire = "1965.1.1"
-	ideology = baoshou_minzhu_zhuyi
-	traits = {
-	}
-}
-create_corps_commander = {
-	name = 何健
-	picture = GFX152
-	traits = { infantry_leader  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 唐生智
-	picture = GFX153
-	traits = { infantry_leader  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 赵恒锡
-	picture = GFX6
-	traits = { infantry_leader  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 汤芗铭
-	picture = ".jpg"
-	traits = {
-	}
-	skill = 2
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 2
-}
-set_oob = XIG_1936
-set_naval_oob = XIG_naval_1936
-set_air_oob = XIG_1936_air_legacy
-set_research_slots = 4
-set_stability = 0.5
-set_war_support = 0.5
-XIG = {
-	country_event = {
-		id = "holy_huanan.10"
-		days = 3
-	}
-}
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	motorised_infantry = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	#improved_light_tank = 1  # PLACEHOLDER
-	#basic_train = 1  # PLACEHOLDER
-	#basic_medium_tank = 1 # PLACEHOLDER
-	early_fighter = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	naval_bomber1 = 1
-	early_bomber = 1
-	CAS1 = 1
-	trench_warfare = 1
-	fleet_in_being = 1
-	electronic_mechanical_engineering = 1
-	radio = 1
-	radio_detection = 1
-	fuel_silos = 1
-	fuel_refining = 1
-}
-if = {
-	limit = {
-		has_dlc = "Battle for the Bosporus"
-	}
-	set_technology = {
-		camelry = 1
-	}
-}
-if = {
-	limit = {
-		not = {
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_technology = {
-		early_submarine = 1
-		early_destroyer = 1
-		basic_destroyer = 1
-		early_light_cruiser = 1
-		early_heavy_cruiser = 1
-		early_battleship = 1
-		early_battlecruiser = 1
-		early_carrier = 1
-		transport = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	set_technology = {
-		basic_naval_mines = 1
-		submarine_mine_laying = 1
-		early_ship_hull_light = 1
-		basic_ship_hull_light = 1
-		early_ship_hull_submarine = 1
-		early_ship_hull_cruiser = 1
-		basic_ship_hull_cruiser = 1
-		early_ship_hull_heavy = 1
-		early_ship_hull_carrier = 1
-		basic_ship_hull_carrier = 1
-		basic_battery = 1
-		basic_light_battery = 1
-		basic_medium_battery = 1
-		basic_heavy_battery = 1
-		basic_torpedo = 1
-		sonar = 1
-		smoke_generator = 1
-		basic_depth_charges = 1
-		basic_secondary_battery = 1
-		basic_cruiser_armor_scheme = 1
-		basic_heavy_armor_scheme = 1
-		mtg_transport = 1
-		improved_secondary_battery = 1
-		basic_fire_control_system = 1
-	}
-}
-add_ideas = { XIG_mimang_jundui XIG_nongye_bengkui XIG_nanjing_pai  }
-declare_war_on = {
-	target = CGH
-	type = annex_everything
-}
-declare_war_on = {
-	target = CCP
-	type = annex_everything
-}
-declare_war_on = {
-	target = KMT
-	type = annex_everything
-}
-set_politics = {
-	ruling_party = paternalism
-	last_election = "1935.1.1"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	totalism = 20
-	socialism = 0
-	progressivism = 30
-	liberalism = 0
-	conservatism = 0
-	authoritarianism = 0
-	paternalism = 50
-	suprematism = 0
-	mysticism = 0
-}
+﻿capital = 602
+create_country_leader = {
+	name = 何健
+	desc = ""
+	picture = GFX152
+	expire = "1965.1.1"
+	ideology = authoritarianism_subtype
+	traits = {
+	}
+}
+create_country_leader = {
+	name = 唐生智
+	desc = ""
+	picture = GFX153
+	expire = "1965.1.1"
+	ideology = conservatism_subtype
+	traits = {
+	}
+}
+create_corps_commander = {
+	name = 何健
+	picture = GFX152
+	traits = { infantry_leader  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 唐生智
+	picture = GFX153
+	traits = { infantry_leader  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 赵恒锡
+	picture = GFX6
+	traits = { infantry_leader  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {
+	name = 汤芗铭
+	picture = ".jpg"
+	traits = {
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+}
+set_oob = XIG_1936
+set_naval_oob = XIG_naval_1936
+set_air_oob = XIG_1936_air_legacy
+set_research_slots = 4
+set_stability = 0.5
+set_war_support = 0.5
+XIG = {
+	country_event = {
+		id = "holy_huanan.10"
+		days = 3
+	}
+}
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	gwtank = 1
+	basic_light_tank = 1
+	#improved_light_tank = 1  # PLACEHOLDER
+	#basic_train = 1  # PLACEHOLDER
+	#basic_medium_tank = 1 # PLACEHOLDER
+	early_fighter = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	naval_bomber1 = 1
+	early_bomber = 1
+	CAS1 = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	fuel_silos = 1
+	fuel_refining = 1
+}
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = {
+		camelry = 1
+	}
+}
+if = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_submarine = 1
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		transport = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		basic_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_secondary_battery = 1
+		basic_fire_control_system = 1
+	}
+}
+add_ideas = { XIG_mimang_jundui XIG_nongye_bengkui XIG_nanjing_pai  }
+declare_war_on = {
+	target = CGH
+	type = annex_everything
+}
+declare_war_on = {
+	target = CCP
+	type = annex_everything
+}
+declare_war_on = {
+	target = KMT
+	type = annex_everything
+}
+set_politics = {
+	ruling_party = paternalism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 20
+	socialism = 0
+	progressivism = 30
+	liberalism = 0
+	conservatism = 0
+	authoritarianism = 0
+	paternalism = 50
+	suprematism = 0
+	mysticism = 0
+}
+set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
+set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag

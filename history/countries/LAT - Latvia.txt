@@ -1,76 +1,79 @@
-﻿capital = 808
-set_oob = LAT_1936
-add_ideas = { senlin_xiongdi boluodihai_deyizhi LAT_nongye_weiji LAT_linshi_lianmeng  }
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	gw_artillery = 1
-	tech_support = 1
-	basic_train = 1
-}
-if = {
-	limit = {
-		not = {
-			has_dlc = "Man the Guns"
-		}
-	}
-	set_technology = {
-		early_submarine = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	set_technology = {
-		basic_torpedo = 1
-		submarine_mine_laying = 1
-		early_ship_hull_submarine = 1
-	}
-}
-set_research_slots = 4
-set_convoys = 10
-set_politics = {
-	ruling_party = conservatism
-	last_election = "1935.10.3"
-	election_frequency = 10
-	elections_allowed = no
-}
-set_popularities = {
-	totalism = 30
-	socialism = 13
-	progressivism = 0
-	liberalism = 0
-	conservatism = 5
-	authoritarianism = 14
-	paternalism = 30
-	suprematism = 8
-	mysticism = 0
-}
-create_country_leader = {
-	name = 拉脱维亚联盟
-	desc = ""
-	picture = ".jpg"
-	expire = "1965.1.1"
-	ideology = zhengzhi_lianmeng
-	traits = {
-	}
-}
-create_country_leader = {
-	name = 彼得斯
-	desc = ""
-	picture = ".jpg"
-	expire = "1965.1.1"
-	ideology = xianfeng_gemingzhuyi_ism
-	traits = {
-	}
-}
-create_country_leader = {
-	name = 库雷利斯
-	desc = ""
-	picture = ".jpg"
-	expire = "1965.1.1"
-	ideology = jiazhangzhi_ducai_system
-	traits = {
-	}
-}
+﻿capital = 808
+set_oob = LAT_1936
+add_ideas = { senlin_xiongdi boluodihai_deyizhi LAT_nongye_weiji LAT_linshi_lianmeng  }
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	tech_support = 1
+	basic_train = 1
+}
+if = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_submarine = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_torpedo = 1
+		submarine_mine_laying = 1
+		early_ship_hull_submarine = 1
+	}
+}
+set_research_slots = 4
+set_convoys = 10
+set_politics = {
+	ruling_party = conservatism
+	last_election = "1935.10.3"
+	election_frequency = 10
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 30
+	socialism = 13
+	progressivism = 0
+	liberalism = 0
+	conservatism = 5
+	authoritarianism = 14
+	paternalism = 30
+	suprematism = 8
+	mysticism = 0
+}
+create_country_leader = {
+	name = 拉脱维亚联盟
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = conservatism_subtype
+	traits = {
+	}
+}
+create_country_leader = {
+	name = 彼得斯
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = totalism_subtype
+	traits = {
+	}
+}
+create_country_leader = {
+	name = 库雷利斯
+	desc = ""
+	picture = ".jpg"
+	expire = "1965.1.1"
+	ideology = authoritarianism_subtype
+	traits = {
+	}
+}
+set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag
+set_country_flag = ROOT_has_totalism_leader_but_not_role_flag
+set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
