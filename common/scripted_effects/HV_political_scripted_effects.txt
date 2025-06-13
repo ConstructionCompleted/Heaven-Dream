@@ -1,3 +1,11 @@
+hv_debug = {
+	set_power_balance = {
+		id = _test_balance
+		left_side = default_left_side
+		right_side = default_right_side
+	}
+}
+
 HV_init_party_entry = {
 	clear_array = coalitions_array
 	for_loop_effect = {
@@ -7,14 +15,6 @@ HV_init_party_entry = {
 		value = v
 		
 		add_to_array = { coalitions_array = 1 }
-	}
-}
-
-hv_debug = {
-	set_power_balance = {
-		id = _test_balance
-		left_side = default_left_side
-		right_side = default_right_side
 	}
 }
 
@@ -206,4 +206,64 @@ HV_init_party_leader = {
 			}
 		}
 	}
+}
+
+
+HV_welcome_container_tab_1_choose = {
+	for_each_loop = {
+		array = HV_welcome_container_tab_array
+		index = i
+		value = v
+		
+		set_variable = { HV_welcome_container_tab_array^i = 1 }
+	}
+	set_variable = { HV_welcome_container_tab_array^0 = 2 }
+}
+
+
+HV_welcome_container_tab_2_choose = {
+	for_each_loop = {
+		array = HV_welcome_container_tab_array
+		index = i
+		value = v
+		
+		set_variable = { HV_welcome_container_tab_array^i = 1 }
+	}
+	set_variable = { HV_welcome_container_tab_array^1 = 2 }
+}
+
+
+HV_welcome_container_tab_3_choose = {
+	for_each_loop = {
+		array = HV_welcome_container_tab_array
+		index = i
+		value = v
+		
+		set_variable = { HV_welcome_container_tab_array^i = 1 }
+	}
+	set_variable = { HV_welcome_container_tab_array^2 = 2 }
+}
+
+
+HV_welcome_container_tab_4_choose = {
+	for_each_loop = {
+		array = HV_welcome_container_tab_array
+		index = i
+		value = v
+		
+		set_variable = { HV_welcome_container_tab_array^i = 1 }
+	}
+	set_variable = { HV_welcome_container_tab_array^3 = 2 }
+}
+
+HV_welcome_container_left_part_tab_choose = {
+	set_variable = { left_tab_i = tabx }
+	for_each_loop = {
+		array = HV_welcome_tab_array
+		index = i
+		value = v
+		
+		set_variable = { HV_welcome_tab_array^i = 1 }
+	}
+	set_variable = { HV_welcome_tab_array^tabx = 2 }
 }

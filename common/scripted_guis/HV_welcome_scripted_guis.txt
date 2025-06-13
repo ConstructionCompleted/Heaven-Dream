@@ -1,0 +1,65 @@
+scripted_gui = {
+
+	HV_welcome_container_gui = {
+		context_type = player_context
+		window_name = "HV_welcome_container"
+		
+		visible = {
+			has_country_flag = ROOT_HV_welcome_gui_show_flag
+		}
+
+		ai_enabled = {
+			always = no
+		}
+		
+		dynamic_lists = {
+			HV_welcome_container_main_left_part_tab_grid = {
+				array = HV_welcome_tab_array
+				change_scope = no
+				entry_container = HV_welcome_container_main_left_part_tab_entry
+				index = tabx
+				value = tabv
+			}
+		}
+
+		properties = {
+			HV_welcome_container_tab_1 = { frame = HV_welcome_container_tab_array^0 }
+			HV_welcome_container_tab_2 = { frame = HV_welcome_container_tab_array^1 }
+			HV_welcome_container_tab_3 = { frame = HV_welcome_container_tab_array^2 }
+			HV_welcome_container_tab_4 = { frame = HV_welcome_container_tab_array^3 }
+			HV_welcome_container_main_left_part_tab_button = { frame = HV_welcome_tab_array^tabx }
+			flag = { image = "[?ROOT.GetFlag]" }
+			welcome_screen = { image = "GFX_welcome_screen_[?ROOT.GetTag]" }
+		}
+		
+		triggers = {
+			HV_welcome_container_main_left_part_tab_button_visible = {
+				check_variable = { HV_welcome_container_tab_array^0 = 2 }
+			}
+		}
+		
+		effects = {
+			HV_welcome_container_tab_1_click = {
+				HV_welcome_container_tab_1_choose = yes
+			}
+			HV_welcome_container_tab_2_click = {
+				HV_welcome_container_tab_2_choose = yes
+			}
+			HV_welcome_container_tab_3_click = {
+				HV_welcome_container_tab_3_choose = yes	
+			}
+			HV_welcome_container_tab_4_click = {
+				HV_welcome_container_tab_4_choose = yes
+			}
+			close_button_click = {
+				clr_country_flag = ROOT_HV_welcome_gui_show_flag
+			}
+			HV_welcome_container_main_left_part_tab_button_click = {
+				HV_welcome_container_left_part_tab_choose = yes
+			}
+		}
+	}
+}
+
+
+
