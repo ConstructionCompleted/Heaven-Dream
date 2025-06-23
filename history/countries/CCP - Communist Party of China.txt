@@ -1,0 +1,147 @@
+﻿capital = 602
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_stability = 0.5
+set_war_support = 0.5
+set_research_slots = 3
+set_convoys = 80
+starting_train_buffer = 2.0
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_trucks = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+set_oob = CCP_1936
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+	}
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+	}
+}
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+diplomatic_relation = {
+	country = CGH
+	relation = military_access
+	active = yes
+}
+diplomatic_relation = {
+	country = KMT
+	relation = military_access
+	active = yes
+}
+### - Faction - ###
+create_faction = gongchandang_lianmeng
+add_to_faction = CCP
+
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	CCP_peopal_power
+	CCP_youji_zhanshu
+	CCP_renmin_jiefangjun
+	CCP_nonghui_zuzhi
+	CCP_sixiang_wenti
+}
+### - Character - ###
+recruit_character = CCP_Chen_Yi
+recruit_character = CCP_He_Long
+recruit_character = CCP_Lin_Biao
+recruit_character = CCP_Liu_Yalou
+recruit_character = CCP_Luo_Ronghuan
+recruit_character = CCP_Luo_Ruiqing
+recruit_character = CCP_Mao_Zedong
+recruit_character = CCP_Nie_Rongzhen
+recruit_character = CCP_Peng_Dehuai
+recruit_character = CCP_Su_Yu
+recruit_character = CCP_Xiao_Ke
+recruit_character = CCP_Zhu_De
+recruit_character = CCP_Zhou_Fohai
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
+set_politics = {
+	ruling_party = socialism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 15
+	socialism = 45
+	progressivism = 20
+	liberalism = 10
+	conservatism = 0
+	authoritarianism = 10
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
+}
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
+set_country_flag = ROOT_has_socialism_leader_but_not_role_flag
+set_variable = { china_hefa = 20 }

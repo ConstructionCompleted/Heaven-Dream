@@ -1,0 +1,132 @@
+﻿capital = 1132
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_stability = 0.5
+set_war_support = 0.5
+set_research_slots = 3
+set_convoys = 80
+starting_train_buffer = 2.0
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_trucks = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+set_oob = KMT_1936
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+	}
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+	}
+}
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+
+diplomatic_relation = {
+	country = CCP
+	relation = military_access
+	active = yes
+}
+### - Faction - ###
+create_faction = newyihui
+add_to_faction = CGH
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	KMT_shouyi_zhidi
+	KMT_buqu_zhiguo
+	KMT_chubu_junguohua
+}
+### - Character - ###
+recruit_character = KMT_Song_Qingling
+recruit_character = KMT_Ye_Ting
+recruit_character = KMT_Zhang_Fakui
+recruit_character = KMT_Cai_Tingkai
+recruit_character = KMT_Chen_Duxiu
+recruit_character = KMT_Zhou_Enlai
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
+set_politics = {
+	ruling_party = progressivism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 0
+	socialism = 10
+	progressivism = 40
+	liberalism = 20
+	conservatism = 20
+	authoritarianism = 0
+	paternalism = 10
+	suprematism = 0
+	mysticism = 0
+}
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
+set_country_flag = ROOT_has_progressivism_leader_but_not_role_flag

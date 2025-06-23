@@ -1,0 +1,121 @@
+﻿capital = 1518
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_stability = 0.5
+set_war_support = 0.5
+set_research_slots = 2
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_trucks = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+set_oob = HEI_1936
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+	}
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+			early_light_cruiser = 1
+		}
+	}
+}
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	HEI_tufei_jingji
+	HEI_hunlun_army
+}
+### - Character - ###
+recruit_character = HEI_Yang_Yuting
+recruit_character = HEI_Ma_Zhanshan
+recruit_character = HEI_Zang_Shiyi
+recruit_character = HEI_Zhang_Jinghui
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
+set_politics = {
+	ruling_party = paternalism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 10
+	socialism = 5
+	progressivism = 0
+	liberalism = 0
+	conservatism = 0
+	authoritarianism = 25
+	paternalism = 60
+	suprematism = 0
+	mysticism = 0
+}
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
+set_country_flag = ROOT_has_paternalism_leader_but_not_role_flag

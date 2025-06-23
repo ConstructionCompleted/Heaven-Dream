@@ -1,8 +1,117 @@
 ﻿capital = 1522
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_stability = 0.5
+set_war_support = 0.5
+set_research_slots = 3
+set_convoys = 80
+starting_train_buffer = 2.0
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_trucks = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
 set_oob = FEN_1936
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+	}
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+	}
+}
 set_naval_oob = FEN_naval_1936
-set_air_oob = FEN_1936_air_legacy
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+### - Subject - ###
+set_autonomy = {
+	target = HEI
+	autonomous_state = autonomy_dominion
+	freedom_level = 0.35
+}
+set_autonomy = {
+	target = DHJ
+	autonomous_state = autonomy_dominion
+	freedom_level = 0.45
+}
+### - Faction - ###
+create_faction = anguojun
+add_to_faction = FEN
+add_to_faction = HEI
+add_to_faction = DHJ
+
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	FEN_poker_face
+	FEN_powerful_localism
+	FEN_shenyang_arsenal_idea
+	FEN_bandit
+	FEN_economic_recession
+}
+### - Character - ###
+recruit_character = FEN_Han_Linchun
 recruit_character = FEN_Zhang_Xueliang
+recruit_character = FEN_Zhang_Zuoxiang
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
 set_politics = {
 	ruling_party = authoritarianism
 	last_election = "1935.1.1"
@@ -20,103 +129,10 @@ set_popularities = {
 	suprematism = 0
 	mysticism = 0
 }
-set_research_slots = 4
-set_stability = 0.5
-set_war_support = 0.5
-set_technology = {
-	iw_small_airframe = 1
-	basic_small_airframe = 1
-	iw_medium_airframe = 1
-	basic_medium_airframe = 1
-	engines_1 = 1
-	engines_2 = 1
-	aa_lmg = 1
-	early_bombs = 1
-	aircraft_construction = 1
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_recon = 1
-	tech_support = 1
-	tech_engineers = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	superior_firepower = 1
-	base_strike = 1
-	motorised_infantry = 1
-	fuel_silos = 1
-	fuel_refining = 1
-	marines = 1
-	basic_train = 1
-	gwtank_chassis = 1
-	basic_light_tank_chassis = 1
-	basic_naval_mines = 1
-	submarine_mine_laying = 1
-	early_ship_hull_light = 1
-	basic_ship_hull_light = 1
-	early_ship_hull_submarine = 1
-	basic_ship_hull_submarine = 1
-	early_ship_hull_cruiser = 1
-	basic_ship_hull_cruiser = 1
-	early_ship_hull_heavy = 1
-	early_ship_hull_carrier = 1
-	basic_ship_hull_carrier = 1
-	basic_battery = 1
-	basic_light_battery = 1
-	basic_medium_battery = 1
-	basic_heavy_battery = 1
-	basic_torpedo = 1
-	sonar = 1
-	basic_depth_charges = 1
-	basic_cruiser_armor_scheme = 1
-	basic_heavy_armor_scheme = 1
-	mtg_transport = 1
-	improved_airplane_launcher = 1
-	basic_dp_light_battery = 1
-	camelry = 1
-}
-add_ideas = { FEN_shenyang_binggongchang FEN_difang_zhuyi FEN_yiti_liamian FEN_tufei_wenti FEN_jingji_shuaitui  }
-create_field_marshal = {
-	name = 张学良
-	picture = GFX143
-	traits = { career_officer trait_reckless  }
-	skill = 4
-	attack_skill = 4
-	defense_skill = 4
-	planning_skill = 5
-	logistics_skill = 3
-}
-create_corps_commander = {
-	name = 张作相
-	picture = ".jpg"
-	traits = { infantry_officer infantry_leader  }
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 2
-}
-create_corps_commander = {
-	name = 韩麟春
-	picture = ".jpg"
-	traits = { trait_engineer  }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 5
-	logistics_skill = 5
-}
-set_autonomy = {
-	target = HEI
-	autonomous_state = autonomy_reichskommissariat
-}
-set_autonomy = {
-	target = DHJ
-	autonomous_state = autonomy_reichskommissariat
-}
-create_faction = anguojun
-add_to_faction = FEN
-add_to_faction = HEI
-add_to_faction = DHJ
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
 create_equipment_variant = {
 	name = qianting_1
 	type = ship_hull_submarine_1
@@ -210,5 +226,9 @@ create_equipment_variant = {
 		mid_1_custom_slot = ship_deck_space
 	}
 }
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
 set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
 set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag
