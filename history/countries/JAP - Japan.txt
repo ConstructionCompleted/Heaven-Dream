@@ -5,8 +5,7 @@ set_air_oob = JAP_1936_air_legacy
 set_stability = 0
 set_war_support = 0.8
 set_research_slots = 5
-set_fuel_ratio = 1.
-add_ideas = { JAP_lianhe_bengpan  }
+set_fuel_ratio = 1
 JAP = {
 	country_event = {
 		id = "holy_riben.1"
@@ -148,6 +147,21 @@ set_autonomy = {
 	target = LIU
 	autonomous_state = autonomy_puppet
 }
+
+recruit_character = JAP_Hirohito
+recruit_character = JAP_Tsuyoshi_Inukai
+recruit_character = JAP_Wakatsuki_Reijiro
+recruit_character = JAP_Mouri_Motohiro
+recruit_character = JAP_Shimazu_Shigetada
+recruit_character = JAP_Tokugawa_Iesato
+recruit_character = JAP_Uesugi_Norishige
+
+add_ideas = {
+	JAP_lianhe_bengpan
+
+	hog_JAP_Wakatsuki_Reijiro
+}
+
 set_politics = {
 	ruling_party = conservatism
 	last_election = "1936.1.1"
@@ -159,19 +173,10 @@ set_popularities = {
 	socialism = 10
 	progressivism = 10
 	liberalism = 10
-	conservatism = 10
+	conservatism = 20
 	authoritarianism = 10
 	paternalism = 10
 	suprematism = 20
-	mysticism = 10
+	mysticism = 0
 }
-create_country_leader = {
-	name = ""
-	desc = ""
-	picture = ""
-	expire = "1965.1.1"
-	ideology = conservatism_subtype
-	traits = {
-	}
-}
-set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag
+set_country_flag = ROOT_has_country_leader_role_flag
