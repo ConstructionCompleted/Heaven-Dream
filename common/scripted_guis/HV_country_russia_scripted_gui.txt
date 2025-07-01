@@ -1,0 +1,95 @@
+scripted_gui = {
+	### Russia Alignment Button ###
+	russia_alignment_button_gui = {
+		context_type = decision_category
+		window_name = "russia_alignment_gui_button_window"
+		parent_window_token = decision_tab
+		dirty = russia_alignment_gui_update
+
+		ai_enabled = { always = no }
+
+		visible = {
+			NOT = { has_global_flag = russia_united }
+			is_ai = no
+		}
+
+		effects = {
+			russia_alignment_gui_button_click = {
+				if = {
+					limit = { has_country_flag = russia_alignment_gui_visibility }
+					clr_country_flag = russia_alignment_gui_visibility
+					#RSS_clear_russia_alignment_gui = yes
+				}
+				else = {
+					set_country_flag = russia_alignment_gui_visibility
+					#RSS_calculate_russia_alignment_gui_effect = yes
+				}
+				RSS_update_russia_alignment_gui = yes
+			}
+		}
+		
+		triggers = {
+			russia_alignment_icon_visible = {
+				always = no
+				#OR = {
+				#	HV_is_totalism_government = yes
+				#	HV_is_socialism_government = yes
+				#}
+			}
+			russia_alignment_icon2_visible = {
+				always = no
+				#NOT = {
+				#	HV_is_totalism_government = yes
+				#	HV_is_socialism_government = yes
+				#}
+			}
+		}
+	}
+
+	### russia Alignment Window ###
+	russia_alignment_gui = {
+		context_type = player_context
+		window_name = "russia_alignment_gui_window"
+		dirty = russia_alignment_gui_update
+
+		ai_enabled = { always = no }
+
+		visible = {
+			has_country_flag = russia_alignment_gui_visibility
+		}
+
+		effects = {
+			russia_alignment_button_close_click = {
+				clr_country_flag = russia_alignment_gui_visibility
+				RSS_update_russia_alignment_gui = yes
+			}
+		}
+
+		dynamic_lists = {
+			russia_alignment_leaders_grid = {
+				array = russia_alignment_leaders
+				entry_container = russia_alignment_leaders_entry
+				value = russia_alignment_leader
+				index = alignment_i
+				change_scope = yes
+			}
+			russia_alignment_members = {
+				array = russia_alignment_leader:russia_alignment_members
+				entry_container = russia_alignment_members_entry
+				change_scope = yes
+			}
+		}
+
+		properties = {
+			russia_alignment_leaders_flag = {
+				image = "[THIS.GetFlag]"
+			}
+			russia_alignment_flag = {
+				image = "[THIS.GetFlag]"
+			}
+		}
+	}
+}
+
+
+

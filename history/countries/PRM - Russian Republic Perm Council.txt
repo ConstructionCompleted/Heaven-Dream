@@ -1,0 +1,126 @@
+﻿capital = 398
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_stability = 0.4
+set_war_support = 0.3
+set_research_slots = 3
+set_convoys = 80
+starting_train_buffer = 2.0
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
+set_technology = {
+	### Infantry ###
+	infantry_weapons = 1
+	tech_trucks = 1
+
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
+	gw_artillery = 1
+
+	### Trains ###
+	basic_train = 1
+}
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+set_oob = PRM_1936
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+	}
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+	}
+}
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+	}
+}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+### - War - ###
+declare_war_on = {
+	target = POA
+	type = annex_everything
+}
+
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	PRM_zhengfu_tixi_wajie
+	PRM_kapuer_qiji
+	PRM_houyuan_duanjue
+}
+### - Character - ###
+recruit_character = RUS_Vladimir_Oskarovich_Kappel
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
+set_politics = {
+	ruling_party = authoritarianism
+	last_election = "1930.11.9"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 0
+	socialism = 0
+	progressivism = 20
+	liberalism = 15
+	conservatism = 15
+	authoritarianism = 50
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
+}
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
+set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
+
+

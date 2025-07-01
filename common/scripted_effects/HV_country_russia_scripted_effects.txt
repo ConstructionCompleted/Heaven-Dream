@@ -1,0 +1,49 @@
+### Russia Alignment Scripted GUI Calculation Effects ###
+
+RSS_build_faction_alignment_array = {
+	add_to_array = { PREV.russia_alignment_leaders = THIS }
+	set_temp_variable = { aligned_@THIS = 1 }
+	every_subject_country = {
+		#limit = {
+		#	OR = {
+		#		russia_is_governorate = yes
+		#		original_tag = KUM
+		#	}
+		#}
+		add_to_array = { PREV.russia_alignment_members = THIS }
+		set_temp_variable = { aligned_@THIS = 1 }
+	}
+}
+
+RSS_calculate_russia_alignment_gui_effect = {
+	RSS_clear_russia_alignment_gui = yes
+
+	### Check which factions exist add them to the leader array as well as their alignment token
+	#RSS_build_faction_alignment_array = yes
+	### Build non-aligned tag array ###
+	#for_each_scope_loop = {
+	#	array = global.russia_tags_array
+	#	if = {
+	#		limit = {
+	#			exists = yes
+	#			check_variable = { aligned_@THIS < 1 }
+	#		}
+	#		add_to_array = { event_target:system.russia_alignment_members = THIS } #Independent Cliques
+	#	}
+	#}
+
+}
+
+RSS_clear_russia_alignment_gui = {
+	### Clear all alignment arrays ###
+	for_each_scope_loop = {
+		array = russia_alignment_leaders
+		clear_array = russia_alignment_members
+	}
+	clear_array = russia_alignment_leaders
+}
+
+RSS_update_russia_alignment_gui = {
+	### Use to update the GUI ###
+	set_variable_to_random = russia_alignment_gui_update
+}
