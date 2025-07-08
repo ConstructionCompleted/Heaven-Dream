@@ -1,0 +1,817 @@
+# For minor countries where advisors are not defined
+# Generate them from a generic template
+
+every_possible_country = {
+	limit = { is_dynamic_country = no }
+	# generic political advisors
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+			NOT = {
+				has_allowed_idea_with_traits = { idea = head_of_intelligence characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_head_of_intelligence # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { head_of_intelligence }
+				available = {
+					has_intelligence_agency = yes
+				}
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						has_intelligence_agency = no
+						factor = 0
+					}
+				}
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_head_of_intelligence }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = captain_of_industry characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_captain_of_industry # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { captain_of_industry }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_captain_of_industry }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = fortification_engineer characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_fortification_engineer # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { fortification_engineer }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_fortification_engineer }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = war_industrialist characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_war_industrialist # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { war_industrialist }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = ideological_crusader characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_ideological_crusader # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { ideological_crusader }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = popular_figurehead characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_popular_figurehead # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { popular_figurehead }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = silent_workhorse characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_silent_workhorse # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { silent_workhorse }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = compassionate_gentleman characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_compassionate_gentleman # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { compassionate_gentleman }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = technocrat characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_technocrat # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { technocrat }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = financial_expert characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_financial_expert # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { financial_expert }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = armaments_organizer characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_armaments_organizer # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { armaments_organizer }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = quartermaster_general characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_quartermaster_general # token will be TAG_token_base
+			advisor = {
+				slot = political_advisor
+				traits = { quartermaster_general }
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_war_industrialist }
+			}
+		}
+	}
+	# generic army chiefs
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_chief_offensive_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_offensive_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_offensive_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_chief_off # token will be TAG_token_base
+			advisor = {
+				slot = army_chief
+				traits = { army_chief_offensive_1 }
+				cost = 50
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_chief_off }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_chief_defensive_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_defensive_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_defensive_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_chief_def # token will be TAG_token_base
+			advisor = {
+				slot = army_chief
+				traits = { army_chief_defensive_1 }
+				cost = 50
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_chief_def }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_chief_organizational_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_organizational_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_organizational_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_chief_org # token will be TAG_token_base
+			advisor = {
+				slot = army_chief
+				traits = { army_chief_organizational_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_chief_def }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_chief_planning_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_planning_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_chief_planning_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_chief_pal # token will be TAG_token_base
+			advisor = {
+				slot = army_chief
+				traits = { army_chief_planning_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_chief_def }
+			}
+		}
+	}
+	# generic navy chiefs
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_chief_decisive_battle_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_decisive_battle_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_decisive_battle_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_chief_decisive_bat # token will be TAG_token_base
+			advisor = {
+				slot = navy_chief
+				traits = { navy_chief_decisive_battle_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_chief_decisive_bat }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_chief_commerce_raiding_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_commerce_raiding_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_commerce_raiding_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_commerce_raiding # token will be TAG_token_base
+			advisor = {
+				slot = navy_chief
+				traits = { navy_chief_commerce_raiding_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_anti_submarine }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_chief_reform_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_reform_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_chief_reform_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_chief_reform # token will be TAG_token_base
+			advisor = {
+				slot = navy_chief
+				traits = { navy_chief_reform_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_anti_submarine }
+			}
+		}
+	}
+	# generic air chiefs
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_chief_ground_support_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_chief_ground_support_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_chief_ground_support_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_close_air_sup # token will be TAG_token_base
+			advisor = {
+				slot = air_chief
+				traits = { air_chief_ground_support_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_close_air_sup }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_chief_all_weather_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_chief_all_weather_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_chief_all_weather_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_chief_all_weather # token will be TAG_token_base
+			advisor = {
+				slot = air_chief
+				traits = { air_chief_all_weather_2 }
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_chief_all_weather }
+			}
+		}
+	}
+	# generic high command
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_artillery_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_artillery_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_artillery_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_art # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_artillery_1 }
+				ledger = army
+				cost = 50
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_art }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_logistics_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_logistics_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_logistics_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_log # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_logistics_2 }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_infantry_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_infantry_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_infantry_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_inf # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_infantry_2 }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_cavalry_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_cavalry_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_cavalry_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_cav # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_cavalry_2 }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_armored_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_armored_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_armored_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_arm # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_armored_2 }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = army_entrenchment_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_entrenchment_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = army_entrenchment_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_army_ent # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { army_entrenchment_2 }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_army_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_fleet_logistics_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_fleet_logistics_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_fleet_logistics_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_fleet_log # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { navy_fleet_logistics_1 }
+				ledger = navy
+				cost = 50
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_fleet_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_submarine_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_submarine_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_submarine_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_submarine # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { navy_submarine_2 }
+				ledger = navy
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_fleet_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_screen_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_screen_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_screen_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_screen # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { navy_screen_2 }
+				ledger = navy
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_fleet_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_capital_ship_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_capital_ship_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_capital_ship_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_capital_ship # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { navy_capital_ship_2 }
+				ledger = navy
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_fleet_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = navy_amphibious_assault_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_amphibious_assault_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = navy_amphibious_assault_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_navy_amphibious_assault # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { navy_amphibious_assault_2 }
+				ledger = navy
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_navy_fleet_log }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_logistics_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_logistics_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_logistics_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_air_logistics # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { air_logistics_2 }
+				ledger = air
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_air_combat_trainer }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_distant_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_distant_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_distant_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_air_distant # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { air_distant_1 }
+				ledger = air
+				cost = 50
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_air_combat_trainer }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_air_combat_training_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_air_combat_training_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_air_combat_training_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_air_combat_trainer # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { air_air_combat_training_2 }
+				ledger = air
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_air_combat_trainer }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_bomber_interception_1 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_bomber_interception_2 characters = yes }
+				has_allowed_idea_with_traits = { idea = air_bomber_interception_3 characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_air_bomber_interception # token will be TAG_token_base
+			advisor = {
+				slot = high_command
+				traits = { air_bomber_interception_2 }
+				ledger = air
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_air_combat_trainer }
+			}
+		}
+	}
+	# generic theorists
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = military_theorist characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_military_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { military_theorist }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_military_theorist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = naval_theorist characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_naval_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { naval_theorist }
+				ledger = navy
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_naval_theorist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = air_warfare_theorist characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_air_warfare_theorist # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { air_warfare_theorist }
+				ledger = air
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_air_warfare_theorist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = military_representatives characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_military_representatives # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { military_representatives }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_military_theorist }
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_allowed_idea_with_traits = { idea = advance_equipment_engineer characters = yes }
+			}
+		}
+		generate_character = {
+			token_base = generic_advance_equipment_engineer # token will be TAG_token_base
+			advisor = {
+				slot = theorist
+				traits = { advance_equipment_engineer }
+				ledger = army
+				cost = 100
+			}
+			portraits = { 
+				army = { small = GFX_idea_generic_military_theorist }
+			}
+		}
+	}
+}
