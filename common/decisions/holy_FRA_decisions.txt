@@ -1,13 +1,46 @@
+FRA_1936_election_decision_category = {
+	FRA_1936_election_mission = {
+		icon = SWI_elect_confederation_president
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 100
+		is_good = yes
+		fire_only_once = yes
+		activation = { always = no }
+		timeout_effect = {
+			set_variable = {
+				FRA_1936_election_party_highest = 0
+			}
+			for_each_loop = {
+				array = FRA_1936_election_party_support_array
+				index = i
+				
+				if = {
+					limit = {
+						check_variable = {
+							FRA_1936_election_party_highest < FRA_1936_election_party_support_array^i
+						}
+					}
+					set_variable = { FRA_1936_election_party_highest = FRA_1936_election_party_support_array^i }
+				}
+			}
+			country_event = { id = holy_falanxi.13 hours = 3 }
+		}
+		ai_will_do = {
+			factor = 200
+		}
+	}
+}
+
 holy_falanxi_geming = {
-    #动员巴黎人民
-    holy_dongyuan_bali_renmin = {
+	#动员巴黎人民
+	holy_dongyuan_bali_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -18,20 +51,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_payi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员普瓦图人民
-    holy_dongyuan_puwatu_renmin = {
+	holy_dongyuan_puwatu_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -42,20 +75,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_puwatu
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员奥尔良人民
-    holy_dongyuan_aoerliang_renmin = {
+	holy_dongyuan_aoerliang_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -67,20 +100,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_aoerliang
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员诺曼底人民
-    holy_dongyuan_aoerliang_renmin = {
+	holy_dongyuan_aoerliang_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -91,20 +124,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_nuomandi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员布列塔尼人民
-    holy_dongyuan_bulietani_renmin = {
+	holy_dongyuan_bulietani_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -116,20 +149,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_bulietani
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员香槟人民
-    holy_dongyuan_xiangbin_renmin = {
+	holy_dongyuan_xiangbin_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -139,20 +172,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_xiangbin
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员皮卡第人民
-    holy_dongyuan_pikadi_renmin = {
+	holy_dongyuan_pikadi_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -164,20 +197,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_pikadi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员勃艮第人民
-    holy_dongyuan_bogendi_renmin = {
+	holy_dongyuan_bogendi_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -188,20 +221,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_bogendi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员里昂人民
-    holy_dongyuan_liang_renmin = {
+	holy_dongyuan_liang_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -211,20 +244,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_liang
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员维西人民
-    holy_dongyuan_weixi_renmin = {
+	holy_dongyuan_weixi_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -235,20 +268,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_weixi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员马赛人民
-    holy_dongyuan_masai_renmin = {
+	holy_dongyuan_masai_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -259,20 +292,20 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_masai
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#动员波尔多人民
-    holy_dongyuan_boerduo_renmin = {
+	holy_dongyuan_boerduo_renmin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = socialism
-		    has_completed_focus = FRA_ranshao_falanxi
+			has_completed_focus = FRA_ranshao_falanxi
 	}	
 		available = {
 			has_war = yes
@@ -282,36 +315,36 @@ holy_falanxi_geming = {
 		cost = 50
 		complete_effect = {
 		load_oob = FRA_boerduo
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 }
 holy_maqidun_fangxian = {
-    #比利时边境线
-    holy_bilishi_bianjingxian = {
+	#比利时边境线
+	holy_bilishi_bianjingxian = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 1032
 			has_equipment = {
-        infantry_equipment > 5000
-        }
+		infantry_equipment > 5000
+		}
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 100
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -5000
+	type = infantry_equipment
+	amount = -5000
 }
 		}
 		remove_effect = {
@@ -335,36 +368,36 @@ holy_maqidun_fangxian = {
 				instant_build = yes
 			}
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#香槟边境线
-    holy_xiangbin_bianjingxian = {
+	holy_xiangbin_bianjingxian = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 18
 			controls_state = 924
 			controls_state = 921
 			has_equipment = {
-        infantry_equipment > 7500
-        }
+		infantry_equipment > 7500
+		}
 		}
 		fire_only_once = yes
 		days_remove = 540
 		cost = 150
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -7500
+	type = infantry_equipment
+	amount = -7500
 }
 		}
 		remove_effect = {
@@ -394,35 +427,35 @@ holy_maqidun_fangxian = {
 				instant_build = yes
 			}
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#勃艮第边境线
-    holy_bogendi_bianjingxian = {
+	holy_bogendi_bianjingxian = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 929
 			controls_state = 1037
 			has_equipment = {
-        infantry_equipment > 5000
-        }
+		infantry_equipment > 5000
+		}
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 100
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -5000
+	type = infantry_equipment
+	amount = -5000
 }
 		}
 		remove_effect = {
@@ -446,35 +479,35 @@ holy_maqidun_fangxian = {
 				instant_build = yes
 			}
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#萨伏伊边境线
-    holy_safuyi_bianjingxian = {
+	holy_safuyi_bianjingxian = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 32
 			controls_state = 735
 			has_equipment = {
-        infantry_equipment > 7500
-        }
+		infantry_equipment > 7500
+		}
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 150
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -7500
+	type = infantry_equipment
+	amount = -7500
 }
 		}
 		remove_effect = {
@@ -506,142 +539,142 @@ holy_maqidun_fangxian = {
 				instant_build = yes
 			}
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#北部防空矩阵
-    holy_beibu_fangkong_juzhen = {
+	holy_beibu_fangkong_juzhen = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 785
 			controls_state = 16
 			controls_state = 27
 			has_equipment = {
-        infantry_equipment > 5000
-        }
+		infantry_equipment > 5000
+		}
 		}
 		fire_only_once = yes
 		days_remove = 180
 		cost = 100
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -5000
+	type = infantry_equipment
+	amount = -5000
 }
 		}
 		remove_effect = {
 		785 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
 16 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
 27 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#南部防空矩阵
-    holy_nanbu_fangkong_juzhen = {
+	holy_nanbu_fangkong_juzhen = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 32
 			controls_state = 26
 			controls_state = 20
 			has_equipment = {
-        infantry_equipment > 5000
-        }
+		infantry_equipment > 5000
+		}
 		}
 		fire_only_once = yes
 		days_remove = 180
 		cost = 100
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -5000
+	type = infantry_equipment
+	amount = -5000
 }
 		}
 		remove_effect = {
 		32 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
 26 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
 20 = {
 		add_building_construction = {
-    type = anti_air_building
-    level = 2
-    instant_build = yes
+	type = anti_air_building
+	level = 2
+	instant_build = yes
 }
 }
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#平原反装甲结构
-    holy_pingyuan_fanzhuangjia_jiegou = {
+	holy_pingyuan_fanzhuangjia_jiegou = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 			has_government = conservatism
-		    has_completed_focus = FRA_minzhu_shijie
+			has_completed_focus = FRA_minzhu_shijie
 	}	
 		available = {
 			controls_state = 29
 			has_equipment = {
-        infantry_equipment > 10000
-        }
+		infantry_equipment > 10000
+		}
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 100
 		complete_effect = {
 		add_equipment_to_stockpile = {
-    type = infantry_equipment
-    amount = -10000
+	type = infantry_equipment
+	amount = -10000
 }
 		}
 		remove_effect = {
@@ -691,7 +724,7 @@ holy_maqidun_fangxian = {
 				instant_build = yes
 			}
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
@@ -699,12 +732,12 @@ holy_maqidun_fangxian = {
 }
 holy_ganyu_german = {
 	#进军洛林
-    holy_jinjun_luolin = {
+	holy_jinjun_luolin = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			LUO = { 
@@ -719,32 +752,32 @@ holy_ganyu_german = {
 				id = holy_news.122 days = 1
 			}
 		declare_war_on = {
-    target = LUO
-    type = annex_everything
+	target = LUO
+	type = annex_everything
 }
 add_timed_idea = {
-    idea = FRA_attack
-    days = 360
+	idea = FRA_attack
+	days = 360
 }
 set_country_flag = FRA_jinjun_luolin
 HNW = {
 country_event = {
-    id = holy_hannuowei.7
-    days = 2
+	id = holy_hannuowei.7
+	days = 2
 }
 }
-        }
+		}
 		ai_will_do = {
 			factor = 100
 		}
 	}
 	#进军比利时
-    holy_jinjun_bilishi = {
+	holy_jinjun_bilishi = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			DED = { 
@@ -765,22 +798,22 @@ country_event = {
 			add_state_claim = 923
 			add_state_claim = 925
 		declare_war_on = {
-    target = DED
-    type = annex_everything
+	target = DED
+	type = annex_everything
 }
 set_country_flag = FRA_jinjun_bilishi
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#进军莱茵兰
-    holy_jinjun_laiyinlan = {
+	holy_jinjun_laiyinlan = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 		has_war = no
@@ -801,30 +834,30 @@ set_country_flag = FRA_jinjun_bilishi
 			add_state_claim = 923
 			add_state_claim = 925
 		declare_war_on = {
-    target = LAI
-    type = annex_everything
+	target = LAI
+	type = annex_everything
 }
 declare_war_on = {
-    target = HNW
-    type = annex_everything
+	target = HNW
+	type = annex_everything
 }
 declare_war_on = {
-    target = LUO
-    type = annex_everything
+	target = LUO
+	type = annex_everything
 }
 set_country_flag = FRA_jinjun_laiyinlan
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#索取上萨瓦
-    holy_fra_suoqu_shangsawa = {
+	holy_fra_suoqu_shangsawa = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			has_war = no
@@ -837,22 +870,22 @@ set_country_flag = FRA_jinjun_laiyinlan
 		complete_effect = {
 		RUI = {
 		country_event = {
-    id = holy_falanxi.21
-    days = 10
+	id = holy_falanxi.21
+	days = 10
 }
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#索取瑞士法语区
-    holy_fra_suoqu_ruishifayuqu = {
+	holy_fra_suoqu_ruishifayuqu = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			has_war = no
@@ -871,22 +904,22 @@ set_country_flag = FRA_jinjun_laiyinlan
 		complete_effect = {
 		RUI = {
 		country_event = {
-    id = holy_falanxi.22
-    days = 10
+	id = holy_falanxi.22
+	days = 10
 }
 		}
-        }
+		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#洛林协定
-    holy_luolin_xieding = {
+	holy_luolin_xieding = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			controls_state = 17
@@ -907,19 +940,19 @@ set_country_flag = FRA_jinjun_laiyinlan
 		}
 		white_peace = FRA
 		}
-        }
+		}
 		}
 		ai_will_do = {
 			factor = 1000
 		}
 	}
 	#比利时协定
-    holy_bilishi_xieding = {
+	holy_bilishi_xieding = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			controls_state = 6
@@ -938,7 +971,7 @@ set_country_flag = FRA_jinjun_laiyinlan
 		is_in_faction_with = DED
 		}
 		white_peace = FRA
-        }
+		}
 		FRA = {
 		transfer_state = 6
 		transfer_state = 34
@@ -952,12 +985,12 @@ set_country_flag = FRA_jinjun_laiyinlan
 		}
 	}
 	#莱茵兰协定
-    holy_laiyinlan_xieding = {
+	holy_laiyinlan_xieding = {
 
 		icon = generic_army_support
 		
 		visible = { 
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			controls_state = 42
@@ -977,7 +1010,7 @@ set_country_flag = FRA_jinjun_laiyinlan
 		}
 		white_peace = FRA
 		}
-        }
+		}
 		every_country = {
 		if = {
 		limit = {
@@ -985,7 +1018,7 @@ set_country_flag = FRA_jinjun_laiyinlan
 		}
 		white_peace = FRA
 		}
-        }
+		}
 		HNW = { white_peace = FRA }
 		FRA = {
 		transfer_state = 42
@@ -999,12 +1032,12 @@ set_country_flag = FRA_jinjun_laiyinlan
 		}
 	}
 	#整合外部领土
-    holy_zhenghe_waibu_lingtu = {
+	holy_zhenghe_waibu_lingtu = {
 
 		icon = generic_army_support
 		
 		visible = {
-		    tag = FRA
+			tag = FRA
 	}	
 		available = {
 			always = yes

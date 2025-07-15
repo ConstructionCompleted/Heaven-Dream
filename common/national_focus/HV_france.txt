@@ -1866,6 +1866,7 @@ focus_tree = {
 			HV_set_ruling_party_progressivism = yes
 			HV_socialism_party_join_ruling_coalition = yes
 			HV_liberalism_party_join_ruling_coalition = yes
+			promote_character = FRA_Paul_Faure
 		}
 	}
 	#粉碎反对者
@@ -3031,14 +3032,13 @@ focus_tree = {
 			set_politics = {
 				ruling_party = progressivism
 			}
-			create_country_leader = {
-				name = "虚无"
-				desc = ""
-				picture = "GFX41"
-				expire = "1965.1.1"
-				ideology = social_democracy_subtype
-				traits = { 
-				}
+			effect_tooltip = {
+				deactivate_advisor = FRA_Albert_Lebrun
+				activate_advisor = FRA_Leon_Jouhaux
+			}
+			hidden_effect = {
+				remove_ideas = hog_FRA_Albert_Lebrun
+				add_ideas = hog_FRA_Albert_Lebrun
 			}
 		}
 	}

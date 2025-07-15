@@ -814,4 +814,79 @@ every_possible_country = {
 			}
 		}
 	}
+	# unit leader
+	every_character = {
+		if = {
+			limit = { is_corps_commander = yes }
+			PREV = { add_to_variable = { ROOT_num_of_corps_commander_var = 1 } }
+		}
+		if = {
+			limit = { is_field_marshal = yes }
+			PREV = { add_to_variable = { ROOT_num_of_field_marshal_var = 1 } }
+		}
+	}
+	set_variable = { ROOT_create_num_of_corps_commander_var = 5 }
+	set_variable = { ROOT_create_num_of_field_marshal_var = 1 }
+	subtract_from_variable = { ROOT_create_num_of_corps_commander_var = ROOT_num_of_corps_commander_var }
+	subtract_from_variable = { ROOT_create_num_of_field_marshal_var = ROOT_num_of_field_marshal_var }
+	for_loop_effect = {
+		end = ROOT_create_num_of_corps_commander_var
+		value = id
+
+		meta_effect = {
+			text = {
+				generate_character = {
+					token_base = generic_corps_commander_[ID] # token will be TAG_token_base
+					
+					corps_commander = {
+						traits = {  }
+						skill = 1
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 1
+					}
+					portraits = { 
+						army = {
+							large = GFX_Portrait_Europe_Generic_[ID]
+							small = GFX_Portrait_Europe_Generic_[ID]_small
+						}
+					}
+				}
+			}
+			ID = "[?id]"
+		}
+	}
+	for_loop_effect = {
+		end = ROOT_create_num_of_field_marshal_var
+		value = id
+
+		meta_effect = {
+			text = {
+				generate_character = {
+					token_base = generic_field_marshal_[ID] # token will be TAG_token_base
+					
+					field_marshal = {
+						traits = {  }
+						skill = 1
+						attack_skill = 1
+						defense_skill = 1
+						planning_skill = 1
+						logistics_skill = 1
+					}
+					portraits = { 
+						army = {
+							large = GFX_Portrait_Europe_Generic_[ID]
+							small = GFX_Portrait_Europe_Generic_[ID]_small
+						}
+					}
+				}
+			}
+			ID = "[?id]"
+		}
+	}
+	clear_variable = ROOT_num_of_corps_commander_var
+	clear_variable = ROOT_num_of_field_marshal_var
+	clear_variable = ROOT_create_num_of_corps_commander_var
+	clear_variable = ROOT_create_num_of_field_marshal_var
 }

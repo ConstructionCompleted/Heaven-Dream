@@ -1,20 +1,5 @@
 ﻿capital = 43
-create_country_leader = {
-	name = "霍尔蒂.匈雅提"
-	desc = huoerdi_xiongtila_miaoshu
-	picture = GFX47
-	expire = "1965.1.1"
-	ideology = paternalism_subtype
-	traits = { arkhigos professional_crisis_solver }
-}
-create_country_leader = {
-	name = "霍尔蒂.匈雅提"
-	desc = huoerdi_xiongtila_miaoshu
-	picture = GFX47
-	expire = "1965.1.1"
-	ideology = paternalism_subtype
-	traits = { arkhigos professional_crisis_solver }
-}
+recruit_character = XYL_Hunyadi_Horthy
 create_country_leader = {
 	name = "库恩·贝拉"
 	desc = ""
@@ -118,8 +103,27 @@ set_autonomy = {
 	target = MOL
 	autonomous_state = autonomy_integrated_puppet
 }
+MOL = {
 set_politics = {
-	ruling_party = authoritarianism
+	ruling_party = paternalism
+	last_election = "1935.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	totalism = 0
+	socialism = 0
+	progressivism = 0
+	liberalism = 0
+	conservatism = 30
+	authoritarianism = 50
+	paternalism = 10
+	suprematism = 10
+	mysticism = 0
+}
+}
+set_politics = {
+	ruling_party = paternalism
 	last_election = "1932.10.30"
 	election_frequency = 72
 	elections_allowed = no
@@ -130,8 +134,8 @@ set_popularities = {
 	progressivism = 5
 	liberalism = 5
 	conservatism = 30
-	authoritarianism = 35
-	paternalism = 10
+	authoritarianism = 10
+	paternalism = 35
 	suprematism = 0
 	mysticism = 0
 }
@@ -150,6 +154,5 @@ XYL = {
 	}
 }
 add_ideas = { XYL_minzu_chongtu XYL_gongye_luohou XYL_chauntong_nongye XYL_jiushi_jundui XYL_zhengzhi_kunjing limited_conscription  }
-set_country_flag = ROOT_has_paternalism_leader_but_not_role_flag
 set_country_flag = ROOT_has_paternalism_leader_but_not_role_flag
 set_country_flag = ROOT_has_socialism_leader_but_not_role_flag

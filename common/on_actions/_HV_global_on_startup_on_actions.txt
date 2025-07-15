@@ -1,6 +1,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			### initiate ruling coalition ###
 			every_possible_country = {
 				HV_init_party_entry = yes
 				HV_lighten_ruling_party = yes
@@ -9,6 +10,7 @@ on_actions = {
 				HV_init_party_leader = yes
 				HV_global_init_countries_ruling_coalition = yes
 			} # only need a country scope to trigger its effect, which tag is not important.
+			### initiate faction icon ###
 			every_possible_country = {
 				if = {
 					limit = {
@@ -29,82 +31,38 @@ on_actions = {
 					set_variable = { faction_icon_var = 2 }
 				}
 			}
-			126 = {
-				add_resource = {
-					type = oil
-					amount = 100
-				}
-				add_resource = {
-					type = rubber
-					amount = 100
-				}
-				add_resource = {
-					type = tungsten
-					amount = 100
-				}
-				add_resource = {
-					type = tungsten
-					amount = 100
-				}
-				add_resource = {
-					type = steel
-					amount = 100
-				}
-				add_resource = {
-					type = chromium
-					amount = 100
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_defend_moscow
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_invaders_must_die
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_seraya_loshad_battery
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_krasnaya_gorka_battery
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_armored_battery_35
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_factory_worker_militias_raised
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_civilian_labor_in_defense_mod
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_soviet_military_offensive
-				}
-				add_dynamic_modifier = {
-					modifier = SOV_soviet_imports
-				}
-			}
+			### initiate welcome gui ###
+			PLS = { set_variable = { HV_welcome_page = 3 } }
+			UKM = { set_variable = { HV_welcome_page = 1 } }
+			FRA = { set_variable = { HV_welcome_page = 1 } }
 			every_possible_country = {
-				if = {
-					limit = {
-						is_ai = no
-						tag = PLS
-					}
-					set_country_flag = ROOT_HV_welcome_gui_show_flag
-				}
 				add_to_array = { HV_welcome_container_tab_array = 1 }
 				add_to_array = { HV_welcome_container_tab_array = 2 }
 				add_to_array = { HV_welcome_container_tab_array = 1 }
 				add_to_array = { HV_welcome_container_tab_array = 1 }
-			}
-			PLS = {
-				add_to_array = { HV_welcome_tab_array = 2 }
-				add_to_array = { HV_welcome_tab_array = 1 }
-				add_to_array = { HV_welcome_tab_array = 1 }
-			}
-			UKM = {
-				add_to_array = { HV_welcome_tab_array = 2 }
-			}
-			FRA = {
-				add_to_array = { HV_welcome_tab_array = 2 }
+				if = {
+					limit = { check_variable = { HV_welcome_page > 0 } }
+					for_loop_effect = {
+						end = HV_welcome_page
+						value = v
+
+						if = {
+							limit = {
+								check_variable = {
+									v = 0
+								}
+							}
+							add_to_array = { HV_welcome_tab_array = 2 }
+						}
+						else = {
+							add_to_array = { HV_welcome_tab_array = 1 }
+						}
+					}
+				}
+				if = {
+					limit = { is_ai = no }
+					set_country_flag = ROOT_HV_welcome_gui_show_flag
+				}
 			}
 		}
 	}
