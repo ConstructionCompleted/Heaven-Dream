@@ -2,7 +2,7 @@ FRA_1936_election_decision_category = {
 	FRA_1936_election_mission = {
 		icon = SWI_elect_confederation_president
 		available = { hidden_trigger = { always = no } }
-		days_mission_timeout = 100
+		days_mission_timeout = 85
 		is_good = yes
 		fire_only_once = yes
 		activation = { always = no }
@@ -10,20 +10,12 @@ FRA_1936_election_decision_category = {
 			set_variable = {
 				FRA_1936_election_party_highest = 0
 			}
-			for_each_loop = {
+			find_highest_in_array = {
 				array = FRA_1936_election_party_support_array
-				index = i
-				
-				if = {
-					limit = {
-						check_variable = {
-							FRA_1936_election_party_highest < FRA_1936_election_party_support_array^i
-						}
-					}
-					set_variable = { FRA_1936_election_party_highest = FRA_1936_election_party_support_array^i }
-				}
+				index = temp_country_election_party
 			}
-			country_event = { id = holy_falanxi.13 hours = 3 }
+			set_variable = { FRA_1936_election_party_highest = temp_country_election_party }
+			country_event = { id = holy_falanxi.13 days = 1 }
 		}
 		ai_will_do = {
 			factor = 200

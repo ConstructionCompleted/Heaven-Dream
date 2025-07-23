@@ -612,16 +612,36 @@ country_event = {
 		}
 		add_popularity = {
 			ideology = authoritarianism
-			popularity = 0.4
+			popularity = 0.04
 		}
-		create_country_leader = {
-			name = "阿尔贝吕克.波拿巴"
-			desc = ""
-			picture = GFX11
-			expire = "1965.1.1"
-			ideology = despotism
-			traits = {
+		hidden_effect = {
+			retire_ideology_leader = paternalism
+			#remove_country_leader_role = {
+			#	character = FRA_Francois_de_La_Rocque
+			#	ideology = paternalism_subtype
+			#}
+		}
+		add_country_leader_role = {
+			character = FRA_Louis_Bonaparte
+			country_leader = {
+				ideology = paternalism_subtype
+				traits = { AFG_influential_spiritual_leader_trait }
+				desc = PORTRAIT_FRA_LOUIS_BONAPARTE_DESC
+				expire = "1965.1.1.1"
+				id = -1
 			}
+			promote_leader = yes
+		}
+		add_country_leader_role = {
+			character = FRA_Francois_de_La_Rocque
+			country_leader = {
+				ideology = authoritarianism_subtype
+				traits = { ideological_crusader }
+				desc = PORTRAIT_FRA_FRANCOIS_DE_LA_ROCQUE_DESC
+				expire = "1965.1.1.1"
+				id = -1
+			}
+			promote_leader = yes
 		}
 		custom_effect_tooltip = {
 			localization_key = FRA_update_1936_election_party_popularity_tt
@@ -699,12 +719,15 @@ country_event = {
 		}
 		set_politics = {
 			ruling_party = suprematism
+			elections_allowed = yes
 		}
 		remove_ideas = FRA_zhengzhi_war
-		complete_national_focus = FRA_duoqu_zhengquan
-		news_event = {
-			id = "holy_news.5"
-			days = 1
+		hidden_effect = {
+			complete_national_focus = FRA_duoqu_zhengquan
+			news_event = {
+				id = "holy_news.5"
+				days = 1
+			}
 		}
 	}
 	option = {
@@ -718,20 +741,24 @@ country_event = {
 			factor = 30
 		}
 		set_politics = {
-			ruling_party = socialism
+			ruling_party = progressivism
+			elections_allowed = yes
 		}
+		effect_tooltip = { promote_character = FRA_Andre_Leon_Blum }
 		remove_ideas = FRA_zhengzhi_war
-		complete_national_focus = FRA_socialist_united_front
-		news_event = {
-			id = "holy_news.6"
-			days = 1
+		hidden_effect = {
+			complete_national_focus = FRA_socialist_united_front
+			news_event = {
+				id = "holy_news.6"
+				days = 1
+			}
 		}
 	}
 	option = {
 		name = "holy_falanxi.13.c"
 		trigger = {
 			check_variable = {
-				FRA_1936_election_party_highest = 2
+				FRA_1936_election_party_highest = 1
 			}
 		}
 		ai_chance = {
@@ -739,12 +766,15 @@ country_event = {
 		}
 		set_politics = {
 			ruling_party = conservatism
+			elections_allowed = yes
 		}
 		remove_ideas = FRA_zhengzhi_war
-		complete_national_focus = FRA_minzhu_shijie
-		news_event = {
-			id = "holy_news.7"
-			days = 1
+		hidden_effect = {
+			complete_national_focus = FRA_minzhu_shijie
+			news_event = {
+				id = "holy_news.7"
+				days = 1
+			}
 		}
 	}
 	option = {
@@ -759,12 +789,15 @@ country_event = {
 		}
 		set_politics = {
 			ruling_party = authoritarianism
+			elections_allowed = yes
 		}
 		remove_ideas = FRA_zhengzhi_war
-		complete_national_focus = FRA_disanci_huigui
-		news_event = {
-			id = "holy_news.8"
-			days = 1
+		hidden_effect = {
+			complete_national_focus = FRA_disanci_huigui
+			news_event = {
+				id = "holy_news.8"
+				days = 1
+			}
 		}
 	}
 }

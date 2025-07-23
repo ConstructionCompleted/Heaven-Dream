@@ -1860,13 +1860,12 @@ focus_tree = {
 				popularity = 0.07
 			}
 			add_popularity = {
-				ideology = liberalism 
+				ideology = totalism 
 				popularity = 0.03
 			}
-			HV_set_ruling_party_progressivism = yes
+			event_option_tooltip = holy_falanxi.13.b
+			HV_reset_ruling_party = yes
 			HV_socialism_party_join_ruling_coalition = yes
-			HV_liberalism_party_join_ruling_coalition = yes
-			promote_character = FRA_Paul_Faure
 		}
 	}
 	#粉碎反对者
@@ -1883,6 +1882,7 @@ focus_tree = {
 			factor = 12
 		}
 		completion_reward = {
+			HV_totalism_party_join_ruling_coalition = yes
 			add_popularity = {
 				ideology = socialism 
 				popularity = 0.05
@@ -3025,12 +3025,16 @@ focus_tree = {
 			factor = 12
 		}
 		completion_reward = {
-			add_popularity = {
-				ideology = socialism
-				popularity = -1
-			}
-			set_politics = {
-				ruling_party = progressivism
+			add_country_leader_role = {
+				character = FRA_Paul_Faure
+				country_leader = {
+					ideology = social_democracy_subtype
+					traits = { veteran_trade_unionist }
+					desc = PORTRAIT_FRA_PAUL_FAURE_DESC
+					expire = "1965.1.1.1"
+					id = -1
+				}
+				promote_leader = yes
 			}
 			effect_tooltip = {
 				deactivate_advisor = FRA_Albert_Lebrun
@@ -3038,7 +3042,7 @@ focus_tree = {
 			}
 			hidden_effect = {
 				remove_ideas = hog_FRA_Albert_Lebrun
-				add_ideas = hog_FRA_Albert_Lebrun
+				add_ideas = hog_FRA_Leon_Jouhaux
 			}
 		}
 	}

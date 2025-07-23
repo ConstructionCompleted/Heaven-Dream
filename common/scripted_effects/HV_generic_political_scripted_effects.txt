@@ -50,6 +50,19 @@ HV_init_party_entry = {
 	}
 }
 
+HV_reset_ruling_party = {
+	for_each_loop = {
+		array = coalitions_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { v = 2 } }
+			set_variable = { coalitions_array^i = 1 }
+		}
+	}
+}
+
 HV_lighten_ruling_party = {
 	for_each_loop = {
 		array = coalitions_array

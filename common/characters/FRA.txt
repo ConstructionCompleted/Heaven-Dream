@@ -195,7 +195,7 @@ characters = {
 		}
 		country_leader = {
 			ideology = paternalism_subtype
-			traits = {  }
+			traits = { ideological_crusader }
 			desc = PORTRAIT_FRA_FRANCOIS_DE_LA_ROCQUE_DESC
 			expire = "1965.1.1.1"
 			id = -1
@@ -317,12 +317,28 @@ characters = {
 		portraits = {
 			civilian = {
 				large = GFX_Portrait_FRA_Alfred-Georges_Gressen
-				#small = GFX_idea_advisor_FRA_Alfred-Georges_Gressen
+				small = GFX_idea_advisor_FRA_Alfred-Georges_Gressen
 			}
 			army = {
-				large = GFX_Portrait_FRA_Alfred-Georges_Gressen
-				#small = GFX_idea_advisor_FRA_Alfred-Georges_Gressen
+				large = GFX_Portrait_FRA_Alfred-Georges_Gressen_army
+				small = GFX_idea_advisor_FRA_Alfred-Georges_Gressen_army
 			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = FRA_Alfred-Georges_Gressen
+			allowed = { original_tag = FRA }
+			visible = { always = no }
+			cost = 2001
+			traits = { labor_defense_organizer }
+		}
+		corps_commander = {
+			traits = {  }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
 		}
 	}
 	
