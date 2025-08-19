@@ -12,16 +12,79 @@ characters = {
 			}
 		}
 		country_leader = {
+			ideology = pr_binary_constitutional_monarchy_subtype
+			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
+			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
+			expire = "1965.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = li_binary_constitutional_monarchy_subtype
+			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
+			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
+			expire = "1965.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = co_binary_constitutional_monarchy_subtype
+			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
+			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
+			expire = "1965.1.1.1"
+			id = -1
+		}
+		country_leader = {
 			ideology = au_binary_constitutional_monarchy_subtype
 			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
 			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
 			expire = "1965.1.1.1"
 			id = -1
 		}
+		country_leader = {
+			ideology = paternalism_subtype
+			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
+			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
+			expire = "1965.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = suprematism_subtype
+			traits = { romisch_deutscher_kaiser GER_supreme_commander_armed_forces }
+			desc = PORTRAIT_PLS_FRIEDRICH_IV_DESC
+			expire = "1965.1.1.1"
+			id = -1
+		}
+	}
+	
+	PLS_Erich_von_Ludendorff = {
+		name = Erich_von_Ludendorff
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_PLS_Erich_von_Ludendorff
+				small = GFX_idea_advisor_PLS_Erich_von_Ludendorff
+			}
+			army = {
+				large = GFX_Portrait_PLS_Erich_von_Ludendorff
+				small = GFX_idea_advisor_PLS_Erich_von_Ludendorff
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			#ledger = army
+			idea_token = PLS_Erich_von_Ludendorff
+			available = {
+				
+			}
+			cost = 150
+			can_be_fired = no
+			traits = { forsvarsminister }
+			ai_will_do = {
+				base = 1.000
+			}
+		}
 	}
 
 	PLS_Werner_von_Blomberg = {
-		name = Werner_Eduard_Fritz_von_Blomberg
+		name = Werner_von_Blomberg
 		portraits = {
 			civilian = {
 				large = GFX_Portrait_PLS_Werner_von_Blomberg
@@ -36,8 +99,18 @@ characters = {
 			slot = political_advisor
 			#ledger = army
 			idea_token = PLS_Werner_von_Blomberg
-			available = {
+			visible = {
 				
+			}
+			available = {
+				if = {
+					limit = {
+						PLS_Erich_von_Ludendorff = {
+							has_idea_with_trait = forsvarsminister
+						}
+					}
+					NOT = { has_idea = PLS_Erich_von_Ludendorff }
+				}
 			}
 			cost = 150
 			traits = { forsvarsminister }
@@ -84,7 +157,7 @@ characters = {
 	}
 
 	PLS_Gerd_von_Rundstedt = {
-		name = Karl_Rudolf_Gerd_von_Rundstedt
+		name = Gerd_von_Rundstedt
 		portraits = {
 			civilian = {
 				large = GFX_Portrait_PLS_Gerd_von_Rundstedt
@@ -143,7 +216,7 @@ characters = {
 	}
 
 	PLS_Gunther_von_Kluge = {
-		name = Gunther_Adolf_Ferdinand_von_Kluge
+		name = Gunther_von_Kluge
 		portraits = {
 			civilian = {
 				large = GFX_Portrait_PLS_Gunther_von_Kluge
