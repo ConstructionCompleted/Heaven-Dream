@@ -1,0 +1,257 @@
+PLS_holy_meeting_gui_update_effect = {
+	if = {
+		limit = { check_variable = { holy_meeting_gui_update > 10 } }
+		subtract_from_variable = { holy_meeting_gui_update = 1 }
+	}
+	else = { add_to_variable = { holy_meeting_gui_update = 1 } }
+}
+
+PLS_holy_meeting_init_select_country = {
+	clear_array = PLS_holy_meeting_select_country_array
+	for_loop_effect = {
+		end = 16
+		
+		add_to_array = { PLS_holy_meeting_select_country_array = 1 }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_AUS_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 0 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+			add_political_power = 22
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+PLS_holy_meeting_country_select_BAF_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 1 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_BXM_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 2 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_DAZ_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 3 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_DED_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 4 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_HNW_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 5 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_HSA_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 6 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_LAI_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 7 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_LUO_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 8 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_MLA_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 9 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_RUI_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 10 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_SKS_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 11 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_VNC_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 12 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_FTB_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 13 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_PLS_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 14 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
+
+PLS_holy_meeting_country_select_WFL_effect = {
+	for_each_loop = {
+		array = PLS_holy_meeting_select_country_array
+		index = i
+		value = v
+		
+		if = {
+			limit = { check_variable = { i = 15 } }
+			set_variable = { PLS_holy_meeting_select_country_array^i = 2 }
+		}
+		else = { set_variable = { PLS_holy_meeting_select_country_array^i = 1 } }
+	}
+	PLS_holy_meeting_gui_update_effect = yes
+}
