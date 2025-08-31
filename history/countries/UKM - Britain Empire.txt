@@ -1,172 +1,179 @@
 ﻿capital = 126
-set_oob = UKM_1936
-set_naval_oob = UKM_naval_1936
-set_air_oob = UKM_1936_air_legacy
-set_research_slots = 5
+
+########################################
+######### - Section 01: Base - #########
+########################################
+set_research_slots = 2
 set_stability = 0.6
 set_war_support = 0.5
+set_convoys = 800
+starting_train_buffer = 2.0
+
+#########################################
+#### - Section 02: Technology&Unit - ####
+#########################################
+### - Base - ###
 set_technology = {
-	iw_small_airframe = 1
-	basic_small_airframe = 1
-	iw_medium_airframe = 1
-	basic_medium_airframe = 1
-	engines_1 = 1
-	engines_2 = 1
-	aa_lmg = 1
-	early_bombs = 1
-	aircraft_construction = 1
+	### Infantry ###
 	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_recon = 1
+	tech_trucks = 1
+
+	### Support ###
 	tech_support = 1
 	tech_engineers = 1
+	tech_recon = 1
+
+	### Artillery ###
 	gw_artillery = 1
-	interwar_antiair = 1
-	superior_firepower = 1
-	base_strike = 1
-	motorised_infantry = 1
-	fuel_silos = 1
-	fuel_refining = 1
-	marines = 1
+
+	### Trains ###
 	basic_train = 1
-	gwtank_chassis = 1
-	basic_light_tank_chassis = 1
-	basic_naval_mines = 1
-	submarine_mine_laying = 1
-	early_ship_hull_light = 1
-	basic_ship_hull_light = 1
-	early_ship_hull_submarine = 1
-	basic_ship_hull_submarine = 1
-	early_ship_hull_cruiser = 1
-	basic_ship_hull_cruiser = 1
-	early_ship_hull_heavy = 1
-	early_ship_hull_carrier = 1
-	basic_ship_hull_carrier = 1
-	basic_battery = 1
-	basic_light_battery = 1
-	basic_medium_battery = 1
-	basic_heavy_battery = 1
-	basic_torpedo = 1
-	sonar = 1
-	basic_depth_charges = 1
-	basic_cruiser_armor_scheme = 1
-	basic_heavy_armor_scheme = 1
-	mtg_transport = 1
-	improved_airplane_launcher = 1
-	basic_dp_light_battery = 1
-	camelry = 1
 }
-set_variable = {
-	var = eng_gateway_to_europe_influence
-	value = 0
+### - Armor(NSB) - ###
+if = {
+	limit = { HV_has_dlc_nsb = yes }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	#set_oob = "UKM_1936_nsb"
+	### - Armor(non-NSB) - ###
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+		#set_oob = "UKM_1936"
+	}
 }
-set_convoys = 800
-set_autonomy = {
-	target = MAL
-	autonomous_state = autonomy_puppet
+### - Warship(MTG) - ###
+if = {
+	limit = { HV_has_dlc_mtg = yes }
+	set_technology = {
+		early_ship_hull_light = 1
+	}
+	#set_naval_oob = "UKM_1936_naval_mtg"
+	### - Warship(non-MTG) - ###
+	else = {
+		set_technology = {
+			early_destroyer = 1
+		}
+		#set_naval_oob = "UKM_1936_naval_legacy"
+	}
 }
-set_autonomy = {
-	target = MLT
-	autonomous_state = autonomy_puppet
+### - Plane(BBA) - ###
+if = {
+	limit = { HV_has_dlc_bba = yes }
+	set_technology = {
+		iw_small_airframe = 1
+		aa_lmg = 1
+		engines_1 = 1
+	}
+	#set_air_oob = "UKM_1936_air_bba"
+	### - Plane(non-BBA) - ###
+	else = {
+		set_technology = {
+			early_fighter = 1
+		}
+		#set_air_oob = "UKM_1936_air_legacy"
+	}
 }
-set_autonomy = {
-	target = BRM
-	autonomous_state = autonomy_puppet
-}
-set_autonomy = {
-	target = CAN
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.4
-}
-set_autonomy = {
-	target = SAF
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.4
-}
-set_autonomy = {
-	target = USU
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = UEF
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = BGD
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = SJB
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = MMP
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = MBL
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = BOO
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = KYL
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = AWB
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = ZUR
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = MHD
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = UWF
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = BTU
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = HWI
-	autonomous_state = autonomy_puppet
-	freedom_level = 0.2
-}
+
+#########################################
+#### - Section 03: Foreign Affairs - ####
+#########################################
+### - Subject - ###
+#When setting the autonomy level in the country's history file,
+#it is possible that it will overwrite the party popularities and the ruling party of the subject.
+#In order to prevent that to happening,
+#it is recommended to scope into the overlord as
 if = {
 	limit = {
-		has_dlc = "Together for Victory"
+		OR = {
+			HV_has_dlc_tfv = yes
+			HV_has_dlc_mtg = yes
+		}
 	}
-	add_to_tech_sharing_group = commonwealth_research
+	set_autonomy = { target = USA autonomous_state = autonomy_colony freedom_level = 0.2 }
+	set_autonomy = { target = MAL autonomous_state = autonomy_puppet }
+	set_autonomy = { target = MLT autonomous_state = autonomy_puppet }
+	set_autonomy = { target = BRM autonomous_state = autonomy_puppet }
+	set_autonomy = { target = CAN autonomous_state = autonomy_puppet freedom_level = 0.4 }
+	set_autonomy = { target = SAF autonomous_state = autonomy_puppet freedom_level = 0.4 }
+	set_autonomy = { target = USU autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = UEF autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = BGD autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = SJB autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = MMP autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = MBL autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = BOO autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = KYL autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = AWB autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = ZUR autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = MHD autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = UWF autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = BTU autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	set_autonomy = { target = HWI autonomous_state = autonomy_puppet freedom_level = 0.2 }
+	else = {
+		puppet = USA
+		puppet = MAL
+		puppet = MLT
+		puppet = BRM
+		puppet = CAN
+		puppet = SAF
+		puppet = USU
+		puppet = UEF
+		puppet = BGD
+		puppet = SJB
+		puppet = MMP
+		puppet = MBL
+		puppet = BOO
+		puppet = KYL
+		puppet = AWB
+		puppet = ZUR
+		puppet = MHD
+		puppet = UWF
+		puppet = BTU
+		puppet = HWI 
+	}
 }
+### - Faction - ###
 create_faction = new_tongmengguo
 add_to_faction = CAN
 add_to_faction = SAF
 add_to_faction = RAJ
 add_to_faction = MAL
-add_ideas = { UKM_recover_from_great_depression UKM_across_the_strait UKM_overseas_defense_fake hog_UKM_Alfred_Wessex  }
+every_other_country = {
+	limit = {
+		is_in_faction = no
+		NOT = { is_in_faction_with = ROOT }
+		is_subject_of = ROOT
+	}
+	ROOT = { add_to_faction = PREV }
+}
+### - Technology Share - ###
+add_to_tech_sharing_group = commonwealth_research
+every_other_country = {
+	limit = { is_in_faction_with = ROOT }
+	add_to_tech_sharing_group = commonwealth_research
+}
+
+#########################################
+## - Section 04: Ideas and Characters - #
+#########################################
+### - Idea - ###
+add_ideas = {
+	UKM_recover_from_great_depression
+	UKM_across_the_strait
+	UKM_overseas_defense_fake
+	
+	hog_UKM_Alfred_Wessex
+	#name = "“雾岛”阿尔弗雷德·威塞克斯"
+}
+### - Character - ###
 recruit_character = UKM_George_V
-#name = "“雾岛”阿尔弗雷德·威塞克斯"
+
+#########################################
+######## - Section 05: Politics - #######
+#########################################
 set_politics = {
 	ruling_party = liberalism
 	last_election = "1935.11.14"
@@ -184,6 +191,10 @@ set_popularities = {
 	suprematism = 6
 	mysticism = 0
 }
+
+#########################################
+####### - Section 06: Equipments - ######
+#########################################
 create_equipment_variant = {
 	name = qianting_1
 	type = ship_hull_submarine_1
@@ -277,3 +288,11 @@ create_equipment_variant = {
 		mid_1_custom_slot = ship_deck_space
 	}
 }
+
+#########################################
+######### - Section 07: Others - ########
+#########################################
+set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
+set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag
+set_country_flag = ROOT_has_liberalism_leader_but_not_role_flag
+

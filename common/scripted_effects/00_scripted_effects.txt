@@ -774,383 +774,383 @@ remove_democratic_spirits_effect = {
 #Adds current ruling popularity to a new ideology - useful to represent ideological shifts within the same party
 add_ruling_to_dem = {
 	custom_effect_tooltip = add_ruling_to_dem_tt
-	hidden_effect = {
-		if = {
-			limit = {
-				has_government = neutrality
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				democratic_support_var = neutrality_support_var
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = communism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				democratic_support_var = communism_support_var
-			}
-			set_variable = {
-				var = communism_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = fascism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				democratic_support_var = fascism_support_var
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = 0
-			}
-		}
-		set_popularities = {
-			democratic = democratic_support_var
-			neutrality = neutrality_support_var
-			fascism = fascism_support_var
-			communism = communism_support_var
-		}
-	}
+#	hidden_effect = {
+#		if = {
+#			limit = {
+#				has_government = neutrality
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				democratic_support_var = neutrality_support_var
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = communism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				democratic_support_var = communism_support_var
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = fascism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				democratic_support_var = fascism_support_var
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = 0
+#			}
+#		}
+#		set_popularities = {
+#			democratic = democratic_support_var
+#			neutrality = neutrality_support_var
+#			fascism = fascism_support_var
+#			communism = communism_support_var
+#		}
+#	}
 }
 add_ruling_to_fas = {
 	custom_effect_tooltip = add_ruling_to_fas_tt
-	hidden_effect = {
-		if = {
-			limit = {
-				has_government = neutrality
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				fascism_support_var = neutrality_support_var
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = communism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				fascism_support_var = communism_support_var
-			}
-			set_variable = {
-				var = communism_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = democratic
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				fascism_support_var = democratic_support_var
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = 0
-			}
-		}
-		set_popularities = {
-			democratic = democratic_support_var
-			neutrality = neutrality_support_var
-			fascism = fascism_support_var
-			communism = communism_support_var
-		}
-	}
+#	hidden_effect = {
+#		if = {
+#			limit = {
+#				has_government = neutrality
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				fascism_support_var = neutrality_support_var
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = communism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				fascism_support_var = communism_support_var
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = democratic
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				fascism_support_var = democratic_support_var
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = 0
+#			}
+#		}
+#		set_popularities = {
+#			democratic = democratic_support_var
+#			neutrality = neutrality_support_var
+#			fascism = fascism_support_var
+#			communism = communism_support_var
+#		}
+#	}
 }
 add_ruling_to_com = {
 	custom_effect_tooltip = add_ruling_to_com_tt
-	hidden_effect = {
-		if = {
-			limit = {
-				has_government = neutrality
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				communism_support_var = neutrality_support_var
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = fascism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				communism_support_var = fascism_support_var
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = democratic
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				communism_support_var = democratic_support_var
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = 0
-			}
-		}
-		set_popularities = {
-			democratic = democratic_support_var
-			neutrality = neutrality_support_var
-			fascism = fascism_support_var
-			communism = communism_support_var
-		}
-	}
+#	hidden_effect = {
+#		if = {
+#			limit = {
+#				has_government = neutrality
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				communism_support_var = neutrality_support_var
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = fascism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				communism_support_var = fascism_support_var
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = democratic
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				communism_support_var = democratic_support_var
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = 0
+#			}
+#		}
+#		set_popularities = {
+#			democratic = democratic_support_var
+#			neutrality = neutrality_support_var
+#			fascism = fascism_support_var
+#			communism = communism_support_var
+#		}
+#	}
 }
 add_ruling_to_neu = {
 	custom_effect_tooltip = add_ruling_to_neu_tt
-	hidden_effect = {
-		if = {
-			limit = {
-				has_government = communism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				neutrality_support_var = communism_support_var
-			}
-			set_variable = {
-				var = communism_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = fascism
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				neutrality_support_var = fascism_support_var
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = 0
-			}
-		}
-		if = {
-			limit = {
-				has_government = democratic
-			}
-			set_variable = {
-				var = neutrality_support_var
-				value = party_popularity_100@neutrality
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = party_popularity_100@democratic
-			}
-			set_variable = {
-				var = communism_support_var
-				value = party_popularity_100@communism
-			}
-			set_variable = {
-				var = fascism_support_var
-				value = party_popularity_100@fascism
-			}
-			add_to_variable = {
-				neutrality_support_var = democratic_support_var
-			}
-			set_variable = {
-				var = democratic_support_var
-				value = 0
-			}
-		}
-		set_popularities = {
-			democratic = democratic_support_var
-			neutrality = neutrality_support_var
-			fascism = fascism_support_var
-			communism = communism_support_var
-		}
-	}
+#	hidden_effect = {
+#		if = {
+#			limit = {
+#				has_government = communism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				neutrality_support_var = communism_support_var
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = fascism
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				neutrality_support_var = fascism_support_var
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = 0
+#			}
+#		}
+#		if = {
+#			limit = {
+#				has_government = democratic
+#			}
+#			set_variable = {
+#				var = neutrality_support_var
+#				value = party_popularity_100@neutrality
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = party_popularity_100@democratic
+#			}
+#			set_variable = {
+#				var = communism_support_var
+#				value = party_popularity_100@communism
+#			}
+#			set_variable = {
+#				var = fascism_support_var
+#				value = party_popularity_100@fascism
+#			}
+#			add_to_variable = {
+#				neutrality_support_var = democratic_support_var
+#			}
+#			set_variable = {
+#				var = democratic_support_var
+#				value = 0
+#			}
+#		}
+#		set_popularities = {
+#			democratic = democratic_support_var
+#			neutrality = neutrality_support_var
+#			fascism = fascism_support_var
+#			communism = communism_support_var
+#		}
+#	}
 }
 
 bba_create_cas_license_effect = { #this assumes that the corresponding get_cas_effect has run already to generate a design template if necessary
@@ -1502,10 +1502,15 @@ find_local_dangerous_fascist = {
 
 # The idea is that you can use these effects to store the party popularities (and, if desired, the ruling party) when puppeting or possibly when starting civil wars, and then use the "restore" effects to reset it after the puppeting has happened, so that you don't have to use the overlord's ideology if you don't want to. 
 get_current_ideology_popularities = {
-	set_variable = { ROOT.communist_support_before_change = ROOT.party_popularity_100@communism }
-	set_variable = { ROOT.democratic_support_before_change = ROOT.party_popularity_100@democratic }
-	set_variable = { ROOT.fascist_support_before_change = ROOT.party_popularity_100@fascism }
-	set_variable = { ROOT.neutrality_support_before_change = ROOT.party_popularity_100@neutrality }
+	set_variable = { ROOT.totalism_support_before_change = ROOT.party_popularity_100@totalism }
+	set_variable = { ROOT.socialism_support_before_change = ROOT.party_popularity_100@socialism }
+	set_variable = { ROOT.progressivism_support_before_change = ROOT.party_popularity_100@progressivism }
+	set_variable = { ROOT.liberalism_support_before_change = ROOT.party_popularity_100@liberalism }
+	set_variable = { ROOT.conservatism_support_before_change = ROOT.party_popularity_100@conservatism }
+	set_variable = { ROOT.authoritarianism_support_before_change = ROOT.party_popularity_100@authoritarianism }
+	set_variable = { ROOT.paternalism_support_before_change = ROOT.party_popularity_100@paternalism }
+	set_variable = { ROOT.suprematism_support_before_change = ROOT.party_popularity_100@suprematism }
+	set_variable = { ROOT.mysticism_support_before_change = ROOT.party_popularity_100@mysticism }
 }
 get_current_ruling_party = {
 	set_variable = { ROOT.ruling_ideology_before_change = ROOT.current_party_ideology_group }
@@ -1514,15 +1519,37 @@ restore_ideology_popularities = {
 	hidden_effect = {
 		# Reset popluarities to what they were before puppeting 
 		set_popularities = {
-			communism = ROOT.communist_support_before_change
-			democratic = ROOT.democratic_support_before_change
-			fascism = ROOT.fascist_support_before_change
-			neutrality = ROOT.neutrality_support_before_change
+			totalism = ROOT.totalism_support_before_change
+			socialism = ROOT.socialism_support_before_change
+			progressivism = ROOT.progressivism_support_before_change
+			liberalism = ROOT.liberalism_support_before_change
+			conservatism = ROOT.conservatism_support_before_change
+			authoritarianism = ROOT.authoritarianism_support_before_change
+			paternalism = ROOT.paternalism_support_before_change
+			suprematism = ROOT.suprematism_support_before_change
+			mysticism = ROOT.mysticism_support_before_change
 		}
-		clear_variable = ROOT.communist_support_before_change
-		clear_variable = ROOT.democratic_support_before_change
-		clear_variable = ROOT.fascist_support_before_change
-		clear_variable = ROOT.neutrality_support_before_change
+		clear_variable = ROOT.totalism_support_before_change
+		clear_variable = ROOT.socialism_support_before_change
+		clear_variable = ROOT.progressivism_support_before_change
+		clear_variable = ROOT.liberalism_support_before_change
+		clear_variable = ROOT.conservatism_support_before_change
+		clear_variable = ROOT.authoritarianism_support_before_change
+		clear_variable = ROOT.paternalism_support_before_change
+		clear_variable = ROOT.suprematism_support_before_change
+		clear_variable = ROOT.mysticism_support_before_change
+		
+		
+		
+		#ROOT.totalism_support_before_change
+		#ROOT.socialism_support_before_change
+		#ROOT.progressivism_support_before_change
+		#ROOT.liberalism_support_before_change
+		#ROOT.conservatism_support_before_change
+		#ROOT.authoritarianism_support_before_change
+		#ROOT.paternalism_support_before_change
+		#ROOT.suprematism_support_before_change
+		#ROOT.mysticism_support_before_change
 	}
 }
 restore_ruling_party = {

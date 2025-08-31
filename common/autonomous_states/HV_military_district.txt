@@ -4,7 +4,7 @@ autonomy_state = {
 	default = no
 	is_puppet = yes
 
-	min_freedom_level = 0.6
+	min_freedom_level = 0.65
 	use_overlord_color = yes
 
 	rule = {
@@ -42,7 +42,10 @@ autonomy_state = {
 	}
 
 	allowed = {
-		always = yes
+		OR = {
+			is_subject = no
+			has_autonomy_state = autonomy_military_district
+		}
 	}
 
 	can_take_level = {
