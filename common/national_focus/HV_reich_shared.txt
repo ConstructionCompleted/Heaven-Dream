@@ -7,10 +7,8 @@
 ### search_filters = {FOCUS_FILTER_ANNEXATION}
 shared_focus = {
 	id = REICH_congress_start_shared
-
 	text_icon = NORDIC_focus_style
-	dynamic = yes 
-	
+	dynamic = yes
 	icon = {
 		trigger = {
 			#NORDIC_democratic_alliance_viable = yes  
@@ -20,18 +18,14 @@ shared_focus = {
 	icon = {
 		value = GFX_focus_NORDIC_com_form_alliance
 	}
-	
 	#prerequisite = { focus = NORDIC_strengthen_ties }
 	#prerequisite = { focus = NORDIC_mutual_guarantees }
 	#relative_position_id = NORDIC_mutual_guarantees
-
 	allow_branch = {
-		
+		always = yes
 	}
-
-	x = 100
-	y = 0
-
+	x = 40
+	y = 5
 	offset = {
 		x = 2
 		y = 0
@@ -39,58 +33,37 @@ shared_focus = {
 			always = yes
 		}
 	}
-	cost = 10
-
-	available = {
-		is_faction_leader = yes 
-	}
+	cost = 35
 	ai_will_do = {
-		base = 1
-		modifier = {
-			factor = 0
-			is_historical_focus_on = yes 
+		base = 0
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	bypass = {
+		any_other_country = {
+			has_completed_focus = REICH_congress_start_shared
 		}
 	}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
 	completion_reward = {
-		add_stability = 1
+		custom_effect_tooltip = REICH_congress_start_shared_tt
 	}
 }
 
 joint_focus = {
 	id = REICH_prime_minister_shared
 	text_icon = NORDIC_focus_style
-	
 	icon = GFX_goal_generic_army_doctrines
-	
 	prerequisite = { focus = REICH_congress_start_shared }
-	
+	relative_position_id = REICH_congress_start_shared
 	x = -6
 	y = 1
-	relative_position_id = REICH_congress_start_shared
 	cost = 5
-
-
 	available = {
-		has_stability > 0.5
-		has_war_support > 0.25
-  		OR = {
-			tag = PLS
-			tag = AUS
-		}
+		original_tag = PLS
 	}
-
-	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
-
 	joint_trigger = {
-  		OR = {
-			tag = PLS
-			tag = AUS
-		}
+  		HV_is_heiliges_romisches_reich_tag_trigger = yes
 	}
-
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
 	completion_reward_joint_originator = {
 		add_doctrine_cost_reduction = {
 			name = FGU_joint_joint_command
@@ -113,8 +86,53 @@ joint_focus = {
 			category = special_forces_doctrine
 		}
 	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
 
-
+joint_focus = {
+	id = REICH_live_light_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_congress_start_shared }
+	relative_position_id = REICH_congress_start_shared
+	x = 6
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+  		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
 	completion_reward = {
 		air_experience = 25
 		navy_experience = 25
