@@ -49,19 +49,69 @@ shared_focus = {
 }
 
 joint_focus = {
-	id = REICH_prime_minister_shared
+	id = REICH_checkmate_shared
 	text_icon = NORDIC_focus_style
 	icon = GFX_goal_generic_army_doctrines
 	prerequisite = { focus = REICH_congress_start_shared }
 	relative_position_id = REICH_congress_start_shared
-	x = -6
+	x = -1
 	y = 1
 	cost = 5
 	available = {
 		original_tag = PLS
 	}
 	joint_trigger = {
-  		HV_is_heiliges_romisches_reich_tag_trigger = yes
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_last_chance_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_congress_start_shared }
+	relative_position_id = REICH_congress_start_shared
+	x = 1
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_prime_minister_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_congress_start_shared }
+	relative_position_id = REICH_congress_start_shared
+	x = -3
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
 	}
 	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
 	completion_reward_joint_originator = {
@@ -101,14 +151,14 @@ joint_focus = {
 	icon = GFX_goal_generic_army_doctrines
 	prerequisite = { focus = REICH_congress_start_shared }
 	relative_position_id = REICH_congress_start_shared
-	x = 6
+	x = 3
 	y = 1
 	cost = 5
 	available = {
 		original_tag = AUS
 	}
 	joint_trigger = {
-  		HV_is_heiliges_romisches_reich_tag_trigger = yes
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
 	}
 	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
 	completion_reward_joint_originator = {
@@ -139,5 +189,676 @@ joint_focus = {
 		army_experience = 25
 		add_command_power = 25		
 		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_expand_intel_network_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_prime_minister_shared }
+	relative_position_id = REICH_prime_minister_shared
+	x = -4
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_ask_kaiser_for_help_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_prime_minister_shared }
+	relative_position_id = REICH_prime_minister_shared
+	x = -2
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_send_good_to_state_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_prime_minister_shared }
+	relative_position_id = REICH_prime_minister_shared
+	x = -1
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_unite_railway_network_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_expand_intel_network_shared }
+	prerequisite = { focus = REICH_ask_kaiser_for_help_shared }
+	relative_position_id = REICH_expand_intel_network_shared
+	x = 1
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_basement_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_expand_intel_network_shared }
+	prerequisite = { focus = REICH_ask_kaiser_for_help_shared }
+	relative_position_id = REICH_ask_kaiser_for_help_shared
+	x = 1
+	y = 1
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_position_of_state_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_prime_minister_shared }
+	relative_position_id = REICH_prime_minister_shared
+	x = 1
+	y = 2
+	cost = 5
+	available = {
+		original_tag = PLS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_security_statement_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_live_light_shared }
+	relative_position_id = REICH_live_light_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_industry_support_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_security_statement_shared }
+	relative_position_id = REICH_security_statement_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_peaceful_diplo_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_live_light_shared }
+	relative_position_id = REICH_live_light_shared
+	x = 2
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_southern_economy_unity_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_peaceful_diplo_shared }
+	relative_position_id = REICH_peaceful_diplo_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_silent_supporter_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_live_light_shared }
+	relative_position_id = REICH_live_light_shared
+	x = 4
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_quiet_act_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = { focus = REICH_silent_supporter_shared }
+	relative_position_id = REICH_silent_supporter_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		original_tag = AUS
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward_joint_member = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.50
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25		
+		add_ideas = { NORDIC_command_ns }
+	}
+}
+
+joint_focus = {
+	id = REICH_use_nation_spirit_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = {
+		focus = REICH_prime_minister_shared
+		focus = REICH_live_light_shared
+	}
+	relative_position_id = REICH_checkmate_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		OR = {
+			original_tag = PLS
+			original_tag = AUS
+		}
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+}
+
+joint_focus = {
+	id = REICH_use_shadow_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = {
+		focus = REICH_prime_minister_shared
+		focus = REICH_live_light_shared
+	}
+	relative_position_id = REICH_last_chance_shared
+	x = 0
+	y = 1
+	cost = 5
+	available = {
+		OR = {
+			original_tag = PLS
+			original_tag = AUS
+		}
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
+	}
+}
+
+joint_focus = {
+	id = REICH_protect_king_shared
+	text_icon = NORDIC_focus_style
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = {
+		focus = REICH_use_nation_spirit_shared
+		focus = REICH_use_shadow_shared
+	}
+	relative_position_id = REICH_use_nation_spirit_shared
+	x = 1
+	y = 1
+	cost = 5
+	available = {
+		OR = {
+			original_tag = PLS
+			original_tag = AUS
+		}
+	}
+	joint_trigger = {
+		HV_is_heiliges_romisches_reich_tag_trigger = yes
+	}
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = FGU_joint_joint_command
+			cost_reduction = 0.75
+			uses = 1
+			category = land_doctrine
+			category = naval_doctrine
+			category = air_doctrine
+			category = special_forces_doctrine
+		}
 	}
 }
