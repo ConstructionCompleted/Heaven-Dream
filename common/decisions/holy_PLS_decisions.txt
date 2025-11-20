@@ -1,17 +1,98 @@
-holy_PLS_last_days_of_holy_decision_category = {
+holy_debug_PLS_decision_category = {
 
-    holy_PLS_1 = {
-		icon = generic_army_support
+	holy_debug_PLS_form_holy_roman_empire = {
+		available = {
+			is_debug = yes
+			any_state = {
+				has_state_flag = HV_is_heiliges_romisches_reich_state_flag
+				NOT = { is_owned_by = PLS }
+			}
+		}
+		fire_only_once = no
+		complete_effect = {
+			every_state = {
+				limit = { 
+					has_state_flag = HV_is_heiliges_romisches_reich_state_flag
+					NOT = { is_owned_by = PLS }
+				}
+				if = {
+					limit = { NOT = { is_core_of = PLS } }
+					add_core_of = PLS
+				}
+				transfer_state_to = PLS
+			}
+			PLS = {
+				set_cosmetic_tag = PLS_reich
+			}
+		}
+	}
+}
+
+holy_PLS_last_days_of_holy_decision_category = {
+	
+	holy_PLS_help_their_industry = {
+		#icon = 
+		target_trigger = {
+			FROM = {
+				NOT = { TAG = ROOT }
+				has_country_flag = HV_is_heiliges_romisches_reich_flag
+				check_variable = { PLS_LDH_industry_var = 1 }
+			}
+		}
+		visible = {
+			
+		}
 		available = {
 			
 		}
+		cost = var:holy_PLS_last_days_of_holy_cost_var
 		fire_only_once = no
-		cost = 50
 		complete_effect = {
-		    
+			FROM = { add_political_power = 30 }
 		}
-		ai_will_do = {
-			factor = 1000
+	}
+	
+	holy_PLS_joint_military_exercise = {
+		#icon = 
+		target_trigger = {
+			FROM = {
+				NOT = { TAG = ROOT }
+				has_country_flag = HV_is_heiliges_romisches_reich_flag
+				check_variable = { PLS_LDH_military_var = 1 }
+			}
+		}
+		visible = {
+			
+		}
+		available = {
+			
+		}
+		cost = var:holy_PLS_last_days_of_holy_cost_var
+		fire_only_once = no
+		complete_effect = {
+			FROM = { add_command_power = 10 }
+		}
+	}
+	
+	holy_PLS_joint_research = {
+		#icon = 
+		target_trigger = {
+			FROM = {
+				NOT = { TAG = ROOT }
+				has_country_flag = HV_is_heiliges_romisches_reich_flag
+				check_variable = { PLS_LDH_research_var = 1 }
+			}
+		}
+		visible = {
+			
+		}
+		available = {
+			
+		}
+		cost = var:holy_PLS_last_days_of_holy_cost_var
+		fire_only_once = no
+		complete_effect = {
+			add_stability = 0.01
 		}
 	}
 }
