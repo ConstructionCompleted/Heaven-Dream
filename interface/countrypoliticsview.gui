@@ -1,8 +1,3 @@
-@faction_name_pos_x = 7
-@faction_name_pos_y = 161
-@faction_name_max_width = 150
-@faction_name_max_height = 30
-
 guiTypes = {
 
 	containerWindowType = {
@@ -145,168 +140,291 @@ guiTypes = {
 				maxHeight = 30
 				format = centre
 				vertical_alignment = center
-				fixedsize = yes
 			}
 
 			containerWindowType = {
-				name = "faction_bg_container" #HV
-				position = { x = -133 y = 102 }
-				size = { width = 100% height = 100% }
+				name = "faction"
+				position = { x = 25 y = 193}
+				size = { width = 175 height = 20 }
+				clipping = no
+
+				containerWindowType = {
+					name = "no_faction"
+					size = { width = 100%% height = 100% }
+
+					buttonType = {
+						name = "new_faction_button"
+						quadTextureSprite = "GFX_factions_button"
+						position = { x = -8 y = -12 }
+						buttonFont = "hoi_16mbs"
+						buttonText = ""
+						frame = 2
+					}
+
+					instantTextboxType = {
+						name = "view_factions_text"
+						position = { x = 45 y = 5 }
+						font = "hoi_18mbs"
+						text = "CREATE_FACTION"
+						maxWidth = 143
+						maxHeight = 20
+						fixedsize = yes
+						format = left
+						alwaystransparent = yes
+					}
+
+					iconType = {
+						name = "create_faction_icon"
+						spriteType = "GFX_tension_war_list_major"
+						position = { x = 4 y = -1}
+						alwaystransparent = yes
+					}														
+				}
+
+				buttonType = {
+					name = "view_factions_button"
+					quadTextureSprite = "GFX_icon_button_32x32"
+					position = { x = 180 y = -1}
+					pdx_tooltip = "VIEW_FACTION"
+				}
+
+				iconType = {
+					name = "view_faction_icon"
+					spriteType = "GFX_relation_faction"
+					position = { x = 181 y = 1}
+					alwaystransparent = yes
+				}	
+
+				containerWindowType = {
+					name = "original_in_faction"
+					size = { width = 100%% height = 100% }
+
+					instantTextboxType = {
+						name = "faction_name"
+						#position = { x = 105 y = -45 }
+						position = { x = 2 y = 5 }
+						font = "hoi_18mbs"
+						text = "faction"
+						maxWidth = 195
+						maxHeight = 20
+						multiline = no
+						format = left
+					}
+
+					buttonType = {
+						name = "dismantle_faction"
+						#position = { x = 302 y = -50 }
+						position = { x = 199 y = 0 }
+						quadTextureSprite = "GFX_dismantle_faction_button"
+						#buttonFont = "hoi_16mbs"
+						#buttonText = "DIPLOMACY_DISMANTLE_FACTION_TITLE"
+					}
+				}
+
+				containerWindowType = {
+					name = "in_faction"
+					size = { width = 100%% height = 100% }
+
+					buttonType = {
+						name = "open_faction_button"
+						quadTextureSprite = "GFX_factions_button"
+						position = { x = -9 y = -13 }
+						buttonFont = "hoi_16mbs"
+						Orientation = "UPPER_LEFT"
+						frame = 1
+					}
+
+					iconType = {
+						name = "faction_icon"
+						spriteType = "GFX_faction_logo_generic_democratic"
+						position = { x = 3 y = -1}
+						alwaystransparent = yes
+					}
+
+					positionType = {
+						name = "faction_name_position" #position y will be - half the height to keep it centered
+						position = { x = 40 y = 14  }
+					}
+
+					instantTextboxType = {
+						name = "faction_name" 
+						font = "hoi_18mbs"
+						text = ""
+						maxWidth = 138
+						maxHeight = 40
+						fixedsize = yes
+						format = left
+						alwaystransparent = yes
+					}
+				}
 			}
 
-			instantTextboxType = {
-				name = "faction_name"
-				position = { x = -156 y = 202 }
-				font = "hoi_16mbs"
-				text = "faction"
-				maxWidth = 150
-				maxHeight = 30
-				format = centre
-				vertical_alignment = center
-				fixedsize = yes
-			}
+			containerWindowType = {
+				name = "power_balance_button"
+				position = { x = 424 y = 396 }
+				clipping = no
 
-			buttonType = {
-				name = "dismantle_faction"
-				position = { x = -25 y = 0 } #KR: disabled by moving it off-screen
-				quadTextureSprite = "GFX_dismantle_faction_button"
-				#buttonFont = "hoi_16mbs"
-				#buttonText = "DIPLOMACY_DISMANTLE_FACTION_TITLE"
-			}
-		}
+				buttonType = {
+					name = "show_power_balance"
+					position = { x = 0 y = 0 }
+					quadTextureSprite = "GFX_power_balance_button_hv"
+				}
 
-		containerWindowType = {
-			name = "power_balance_button"
-			position = { x = 424 y = 391 }
-			clipping = no
+				iconType = {
+					name = "show_power_balance_glow"
+					position = { x = 0 y = 0 }
+					quadTextureSprite = "GFX_bop_glow_effect"
+					#alwaystransparent = yes
+				}
 
-			buttonType = {
-				name = "show_power_balance"
-				position = { x = 0 y = 0 }
-				quadTextureSprite = "GFX_power_balance_button_hv"
-			}
+				instantTextboxType = {
+					name = "power_balance_percentage"
+					format = center
+					position = { x = 20 y = 10 }
+					font = "hoi_16mbs"
+					text = "90%"
+					fixedsize = yes
+					maxWidth = 100
+					maxHeight = 20
+					#alwaystransparent = yes
+				}
 
-			iconType = {
-				name = "show_power_balance_glow"
-				position = { x = 0 y = 0 }
-				quadTextureSprite = "GFX_bop_glow_effect"
-				#alwaystransparent = yes
-			}
+				instantTextboxType = {
+					name = "power_balance_levels"
+					format = center
+					position = { x = 20 y = 25 }
+					font = "hoi_16mbs"
+					text = "3/5"
+					fixedsize = yes
+					maxWidth = 100
+					maxHeight = 20
+					#alwaystransparent = yes
+				}
 
-			instantTextboxType = {
-				name = "power_balance_percentage"
-				format = center
-				position = { x = 20 y = 10 }
-				font = "hoi_16mbs"
-				text = "90%"
-				fixedsize = yes
-				maxWidth = 100
-				maxHeight = 20
-				#alwaystransparent = yes
-			}
-
-			instantTextboxType = {
-				name = "power_balance_levels"
-				format = center
-				position = { x = 20 y = 25 }
-				font = "hoi_16mbs"
-				text = "3/5"
-				fixedsize = yes
-				maxWidth = 100
-				maxHeight = 20
-				#alwaystransparent = yes
-			}
-
-			iconType = {
-				name = "power_balance_ICON"
+				iconType = {
+					name = "power_balance_ICON"
 				position = { x = 8 y = 4 }
-				quadTextureSprite = "GFX_placeholder_bordered"
-				#alwaystransparent = yes
-				scale = 0.7
+						quadTextureSprite = "GFX_placeholder_bordered"
+					#alwaystransparent = yes
+					scale = 0.7
+				}
 			}
 		}
 
 		containerWindowType = {
 			name = "autonomy_progress_view"
-			position = { x = 182 y = 391 }
-			size = { width = 245 height = 55 }
+			position = { x = 0 y = 515 }
+			size = { width = 100%% height = 75 }
 			clipping = no
 
 			background = {
-				name = "Background"
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_1b_border"
+			}
+			containerWindowType = {
+				name = "backgroundwrapper"
+				position = { x = 280 y = 12 }
+				size = { width = 230 height = 50 }
+			background = {
+				name = "Background"		
 				quadTextureSprite ="GFX_mini_bg"
 			}
+		}
+
+			instantTextboxType = {
+			name = "overlord_name"	
+			font = "hoi_16mbs"
+			position = { x = 80 y = 20 }
+			maxWidth = 180
+			maxHeight = 40
+			fixedsize = yes
+			}	
+
+			buttonType = {
+			name = "autonomy_country_flag"
+			quadTextureSprite ="GFX_flag_small2"
+			position = { x= 20 y = 21 }
+			Orientation = "UPPER_LEFT"
+			}
+
+			iconType ={
+			name ="country_flag_frame"
+			spriteType = "GFX_small_flag_frame_thin2"
+			position = { x= 15 y = 17 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+			}		
 
 			instantTextboxType = {
 				name = "current_autonomy_name"
-				position = { x = 92 y = 8 }
+				position = { x = 362 y = 17 }
 				font = "hoi_16mbs"
 				text = "autonomy"
 				fixedsize = yes
 				maxWidth = 100
-				maxHeight = 20
+				maxHeight = 20		
 				format = center
 			}
 
 			buttonType = {
 				name = "prev_autonomy_level"
-				position = { x = 75 y = 9 }
+				position = { x = 345 y = 18}
 				quadTextureSprite = "GFX_autonomy_level_button"
 			}
 
 			iconType = {
 				name = "prev_level_glow"
-				position = { x = 63 y = 2 }
+				position = { x = 333 y = 11 }
 				quadTextureSprite = "GFX_ongoing_focus_goal_polview"
-				alwaystransparent = yes
+				alwaystransparent = yes				
 				scale = 0.5
 			}
 
 			iconType = {
 				name = "prev_autonomy_level_icon"
-				position = { x = 60 y = 9 }
+				position = { x = 330 y = 18 }
 				quadTextureSprite = "GFX_autonomy_unknown_icon"
 			}
 
 			iconType = {
 				name = "autonomy_progress"
 				spriteType = "GFX_subject_progressbar"
-				position = { x = 95 y = 29 }
+				position = { x = 365 y = 38 }
 				frame = 100
 			}
 
 			buttonType = {
 				name = "next_autonomy_level"
-				position = { x = 190 y = 5 }
+				position = { x = 460 y = 14 }
 				quadTextureSprite = "GFX_occupation_policy_button_selected"
 			}
 
 			iconType = {
 				name = "next_level_glow"
-				position = { x = 179 y = -2 }
+				position = { x = 449 y = 7 }
 				quadTextureSprite = "GFX_ongoing_focus_goal_polview"
-				alwaystransparent = yes
+				alwaystransparent = yes				
 				scale = 0.5
 			}
 
 			iconType = {
 				name = "next_autonomy_level_icon"
-				position = { x = 195 y = 9 }
+				position = { x = 465 y = 18 }
 				quadTextureSprite = "GFX_autonomy_unknown_icon"
 				alwaystransparent = yes
 			}
 
 			iconType = {
 				name = "continuous_glow"
-				position = { x = 4 y = -2 }
+				position = { x = 274 y = 12 }
 				quadTextureSprite = "GFX_ongoing_generic_glow_yellow"
-				alwaystransparent = yes
+				alwaystransparent = yes				
 				scale = 0.5
 			}
 
 			iconType = {
 				name = "current_autonomy_level_icon"
-				position = { x = 20 y = 10 }
+				position = { x = 290 y = 19 }
 				quadTextureSprite = "GFX_autonomy_unknown_icon"
 			}
 		}
@@ -440,7 +558,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "national_spirit_container"
 				position = { x = -9 y = 20 }
-				size = { width = 513 height = 74 }
+				size = { width = 363 height = 70` }
 				verticalScrollbar = "right_vertical_slider"
 
 				background = {
@@ -460,8 +578,8 @@ guiTypes = {
 					name = "spirit_grid_over_defined"
 					position = { x = 10 y = 1 }
 					size = { width = 330 height = 68 }
-					slotsize = { width = 33 height = 34 }
-					max_slots_horizontal = 15
+					slotsize = { width = 33 height = 36 }
+					max_slots_horizontal = 10
 					format = "UPPER_LEFT"
 				}
 			}
@@ -492,7 +610,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "ideas"
-			position = { x = 0 y = 513 } #KR: shifted 105px downwards from vanilla y
+			position = { x = 0 y = 510 } #KR: shifted 105px downwards from vanilla y
 			size = { width=100%% height=100%% }
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 40
@@ -1134,6 +1252,7 @@ guiTypes = {
 			maxHeight = 20
 			format = left
 		}
+
 	}
 
 	containerWindowType = {
@@ -1787,6 +1906,7 @@ guiTypes = {
 			frame = 1
 			alwaystransparent = yes
 		}
+
 	}
 
 	### KR-added elements ###
@@ -1812,7 +1932,7 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "power_balance_button_disabled_window"
-		position = { x = 424 y = 391 }
+		position = { x = 424 y = 394 }
 		clipping = no
 
 		iconType = {
@@ -1836,8 +1956,8 @@ guiTypes = {
 		size = { width = 200 height = 200 }
 		clipping = no
 		moveable = no
-		
-          
+
+
 		instantTextboxType = {
 			name = "subideo"
 			position = { x = 37 y = -12 } 
@@ -1849,7 +1969,7 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 	}
-	
+
 	containerWindowType = {
 		name = "coalition_pol_party_bg"
 		position = { x = 0 y = 0 }
@@ -1919,24 +2039,24 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 	}
-	
-	containerWindowType = {
-		name = "faction_pol_bg"
-		position = { x = 0 y = 0 }
-		size = { width = 150 height = 100 }
-		clipping = no
 
-		buttonType = {
-			name = "faction_pol_button"
-			position = { x = -16 y = 0 }
-			quadTextureSprite = "GFX_faction_click_button"
-		}
-
-		iconType = {
-			name = "faction_pol_icon"
-			position = { x = -16 y = 0 }
-			quadTextureSprite = "GFX_faction_icon_1"
-			alwaystransparent = yes
-		}
-	}
+#	containerWindowType = {
+#		name = "faction_pol_bg"
+#		position = { x = 0 y = 0 }
+#		size = { width = 150 height = 100 }
+#		clipping = no
+#
+#		buttonType = {
+#			name = "faction_pol_button"
+#			position = { x = -16 y = 0 }
+#			quadTextureSprite = "GFX_faction_click_button"
+#		}
+#
+#		iconType = {
+#			name = "faction_pol_icon"
+#			position = { x = -16 y = 0 }
+#			quadTextureSprite = "GFX_faction_icon_1"
+#			alwaystransparent = yes
+#		}
+#	}
 }
