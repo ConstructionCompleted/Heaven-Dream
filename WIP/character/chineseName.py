@@ -79,8 +79,8 @@ def main():
                     character_info_add_navy_leader.append("maneuvering_skill", f"{character_value[kv]['maneuvering_skill']}")
                     character_info_add_navy_leader.append("coordination_skill", f"{character_value[kv]['coordination_skill']}")
         with open(f"{tags[i]}.txt", "w+" ,encoding="utf-8") as f:
+            print(str(tags[i]))
             for j in range(len(character_list)):
-                print(str(character_list[j]))
                 f.write(str(character_list[j]))
 
 def readFiles():
