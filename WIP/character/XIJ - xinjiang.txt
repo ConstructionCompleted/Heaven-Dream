@@ -1,10 +1,78 @@
-﻿capital = 757
-set_oob = ZAG_1936
-set_naval_oob = ZAG_naval_1936
-set_air_oob = ZAG_1936_air_legacy
+﻿capital = 1123
+create_country_leader = {
+	name = 金树仁
+	desc = ""
+	picture = GFX160
+	expire = "1965.1.1"
+	ideology = authoritarianism_subtype
+	traits = {
+	}
+}
+create_country_leader = {
+	name = 盛世才
+	desc = ""
+	picture = GFX161
+	expire = "1965.1.1"
+	ideology = conservatism_subtype
+	traits = {
+	}
+}
+create_field_marshal = {
+	name = 金树仁
+	picture = GFX160
+	traits = { brilliant_strategist trait_cautious trait_cautious  }
+	skill = 3
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = 盛世才
+	picture = GFX161
+	traits = { infantry_officer war_hero  }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 4
+}
+create_corps_commander = {
+	name = 马绍武
+	picture = ".jpg"
+	traits = { cavalry_officer  }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {
+	name = 马福明
+	picture = ".jpg"
+	traits = { ranger  }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+set_oob = XIJ_1936
+set_naval_oob = XIJ_naval_1936
+set_air_oob = XIJ_1936_air_legacy
 set_research_slots = 4
 set_stability = 0.5
 set_war_support = 0.5
+XIJ = {
+	country_event = {
+		id = "holy_fujia.2"
+		days = 3
+	}
+	country_event = {
+		id = "holy_fujia.3"
+		days = 5
+	}
+}
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -90,9 +158,19 @@ if = {
 		basic_fire_control_system = 1
 	}
 }
-recruit_character = ZAG_Long_Sha
-recruit_character = ZAG_The_Ninth_Panchen_Lama
-add_ideas = { ZAG_nuli_army ZAG_nuli_zhidu ZAG_fojiao_tongzhi  }
+declare_war_on = {
+	target = ETK
+	type = annex_everything
+}
+declare_war_on = {
+	target = XQJ
+	type = annex_everything
+}
+declare_war_on = {
+	target = HAM
+	type = annex_everything
+}
+add_ideas = { XIJ_zhengzhi_douzheng XIJ_hasake_fankang XIJ_gongye_mingmai XIJ_jundui_liliang  }
 set_politics = {
 	ruling_party = paternalism
 	last_election = "1935.1.1"
@@ -101,14 +179,14 @@ set_politics = {
 }
 set_popularities = {
 	totalism = 0
-	socialism = 0
-	progressivism = 30
-	liberalism = 0
-	conservatism = 0
-	authoritarianism = 30
-	paternalism = 40
-	suprematism = 0
-	mysticism = 0
+	socialism = 10
+	progressivism = 2
+	liberalism = 3
+	conservatism = 25
+	authoritarianism = 10
+	paternalism = 30
+	suprematism = 5
+	mysticism = 15
 }
-set_country_flag = ROOT_has_paternalism_leader_but_not_role_flag
-set_country_flag = ROOT_has_progressivism_leader_but_not_role_flag
+set_country_flag = ROOT_has_authoritarianism_leader_but_not_role_flag
+set_country_flag = ROOT_has_conservatism_leader_but_not_role_flag
