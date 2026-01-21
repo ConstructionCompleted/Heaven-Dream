@@ -78,10 +78,15 @@ def main():
                     character_info_add_navy_leader.append("defense_skill", f"{character_value[kv]['defense_skill']}")
                     character_info_add_navy_leader.append("maneuvering_skill", f"{character_value[kv]['maneuvering_skill']}")
                     character_info_add_navy_leader.append("coordination_skill", f"{character_value[kv]['coordination_skill']}")
+        print(str(tags[i]))
         with open(f"{tags[i]}.txt", "w+" ,encoding="utf-8") as f:
-            print(str(tags[i]))
             for j in range(len(character_list)):
                 f.write(str(character_list[j]))
+        with open(f"{tags[i]}.txt", "r+" ,encoding="utf-8") as f:
+            content = f.read()
+            content = content.replace("\"\" ", "").replace("# = \"#\"", "").replace("    ", "\t")
+        with open(f"{tags[i]}.txt", "w+" ,encoding="utf-8") as f:
+            f.write(content)
 
 def readFiles():
     current_dir = os.path.dirname(os.path.abspath(__file__))
