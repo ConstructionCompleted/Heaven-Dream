@@ -13,7 +13,36 @@ on_actions = {
 					set_state_flag = HV_is_heiliges_romisches_reich_state_flag
 				}
 			}
-			PLS = { set_variable = { PLS_LDH_industry_var = 1 } }
+			PLS = {
+				set_variable = { holy_PLS_last_days_of_holy_cost_var = 30 }
+				set_variable = { HRR_meeting_progress_frame = 36 }
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = PLS
+					NOT = {
+						 tag = PLS
+						 tag = AUS
+					}
+				}
+				set_variable_to_random = {
+					var = HRR_meeting_attitude_var
+					min = -3
+					max = 3
+					integer = yes
+				}
+				LUO = {
+					set_country_flag = HRR_will_independent_country_flag 
+				}
+				HNW = {
+					set_country_flag = HRR_will_independent_country_flag 
+				}
+				capital_scope = {
+					PLS = {
+						add_to_array = { PLS_heiliges_romisches_reich_meeting_capital_array = PREV }
+					}
+				}
+			}
 		}
 	}
 }

@@ -29,70 +29,269 @@ holy_debug_PLS_decision_category = {
 }
 
 holy_PLS_last_days_of_holy_decision_category = {
-	
-	holy_PLS_help_their_industry = {
-		#icon = 
-		target_trigger = {
-			FROM = {
-				NOT = { TAG = ROOT }
-				has_country_flag = HV_is_heiliges_romisches_reich_flag
-				check_variable = { PLS_LDH_industry_var = 1 }
-			}
-		}
-		visible = {
+
+	holy_PLS_last_days_of_holy_mission = {
+		icon = generic_train
+		allowed = { HV_is_heiliges_romisches_reich_tag_trigger = yes }
+		visible = { HV_is_heiliges_romisches_reich_tag_trigger = yes }
+		available = { hidden_trigger = { always = no } }
+		days_mission_timeout = 270
+		is_good = yes
+		fire_only_once = yes
+		activation = { always = no }
+		timeout_effect = {
 			
 		}
-		available = {
-			
-		}
-		cost = var:holy_PLS_last_days_of_holy_cost_var
-		fire_only_once = no
-		complete_effect = {
-			FROM = { add_political_power = 30 }
+		ai_will_do = {
+			factor = 200
 		}
 	}
 	
-	holy_PLS_joint_military_exercise = {
-		#icon = 
+	holy_PLS_win_over_potential_allies = {
+		state_target = yes
+		icon = {
+			key = pls_loyalty_austria
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -3 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = pls_support_austria
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -2 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = pls_respond_austria
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -1 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = pls_respond_prussia
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 1 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = pls_support_prussia
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 2 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = pls_loyalty_prussia
+			trigger = {
+				ROOT = { tag = PLS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 3 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_loyalty_austria
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -3 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_support_austria
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -2 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_respond_austria
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = -1 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_respond_prussia
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 1 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_support_prussia
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 2 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = aus_loyalty_prussia
+			trigger = {
+				ROOT = { tag = AUS }
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 3 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = hrr_keep_neutrality
+			trigger = {
+				FROM = {
+					OWNER = {
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+						check_variable = { HRR_meeting_attitude_var = 0 }
+					}
+				}
+			}
+		}
+		icon = {
+			key = generic_independence
+			trigger = {
+				FROM = {
+					OWNER = {
+						has_country_flag = HRR_will_independent_country_flag
+					}
+				}
+			}
+		}
+		icon = hrr_keep_neutrality
+		on_map_mode = map_only
+		target_root_trigger = {
+			OR = {
+				tag = PLS
+				tag = AUS
+			}
+		}
+		target_array = PLS.PLS_heiliges_romisches_reich_meeting_capital_array
 		target_trigger = {
 			FROM = {
-				NOT = { TAG = ROOT }
-				has_country_flag = HV_is_heiliges_romisches_reich_flag
-				check_variable = { PLS_LDH_military_var = 1 }
+				OWNER = {
+					NOT = { TAG = ROOT }
+					has_country_flag = HV_is_heiliges_romisches_reich_flag
+				}
 			}
 		}
 		visible = {
 			
 		}
 		available = {
-			
+			FROM = {
+				OWNER = {
+					if = {
+						limit = { has_country_flag = HRR_will_independent_country_flag }
+						NOT = { has_country_flag = HRR_will_independent_country_flag }
+					}
+					else = {
+						custom_trigger_tooltip = {
+							tooltip = holy_PLS_win_over_potential_allies_ttt
+							always = yes
+						}
+					}
+				}
+			}
 		}
 		cost = var:holy_PLS_last_days_of_holy_cost_var
 		fire_only_once = no
 		complete_effect = {
-			FROM = { add_command_power = 10 }
+			FROM = {
+				OWNER = {
+					add_political_power = 30
+					if = {
+						limit = { ROOT = { tag = PLS } }
+						add_to_variable = { HRR_meeting_attitude_var = 1 tooltip = holy_PLS_win_over_potential_allies_add }
+					}
+					else_if = {
+						limit = { ROOT = { tag = AUS } }
+						subtract_from_variable = { HRR_meeting_attitude_var = 1 tooltip = holy_PLS_win_over_potential_allies_sub }
+					}
+				}
+			}
 		}
 	}
 	
-	holy_PLS_joint_research = {
-		#icon = 
-		target_trigger = {
-			FROM = {
-				NOT = { TAG = ROOT }
-				has_country_flag = HV_is_heiliges_romisches_reich_flag
-				check_variable = { PLS_LDH_research_var = 1 }
+	holy_PLS_form_holy_roman_empire = {
+		available = {
+			any_state = {
+				has_state_flag = HV_is_heiliges_romisches_reich_state_flag
+				NOT = { is_owned_by = PLS }
 			}
 		}
-		visible = {
-			
-		}
-		available = {
-			
-		}
-		cost = var:holy_PLS_last_days_of_holy_cost_var
 		fire_only_once = no
 		complete_effect = {
-			add_stability = 0.01
+			every_state = {
+				limit = { 
+					has_state_flag = HV_is_heiliges_romisches_reich_state_flag
+					NOT = { is_owned_by = PLS }
+				}
+				if = {
+					limit = { NOT = { is_core_of = PLS } }
+					add_core_of = PLS
+				}
+				transfer_state_to = PLS
+			}
+			PLS = {
+				set_cosmetic_tag = PLS_reich
+			}
 		}
 	}
 }

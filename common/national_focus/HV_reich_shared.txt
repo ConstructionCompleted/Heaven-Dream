@@ -33,6 +33,31 @@ shared_focus = {
 			always = yes
 		}
 	}
+	available = {
+		if = {
+			limit = {
+				has_country_flag = HRR_meeting_progress_shine_focus_flag
+			}
+			set_temp_variable = { temp_focus_days = 35 } #For tooltip purposes
+			multiply_temp_variable = { temp_focus_days = 7 } #The constant uses focus cost which is in weeks, so convert to days
+			custom_override_tooltip = {
+				tooltip = {
+					localization_key = REICH_congress_start_shared_ttt_1
+					FLAG_DAYS = [?HRR_meeting_progress_shine_focus_flag:days]
+				}
+				always = yes
+			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+		else = {
+			custom_trigger_tooltip = {
+				tooltip = REICH_congress_start_shared_ttt_2
+				always = no
+			}
+		}
+	}
 	cost = 35
 	ai_will_do = {
 		base = 0

@@ -1,5 +1,3 @@
-@holy_map_x = 45
-@holy_map_y = 15
 
 guiTypes = {
 	
@@ -7,143 +5,483 @@ guiTypes = {
 	containerWindowType = {
 		name = "holy_meeting"
 		position = { x = 0 y = 10 }
-		size = { width = 96%% height = 300 }
+		size = { width = 100%% height = 600 }
 
 		background = {
 			name = "Background"
 			quadTextureSprite = "GFX_tiled_paper_bg"
 		}
-
-		iconType = {
-			name = "holy_meeting_map"
-			position = { x = @holy_map_x y = @holy_map_y }
-			spriteType = "GFX_holy_meeting_map"
-			#alwaystransparent = yes
-		}
+		
+		@holy_map_x = 45
+		@holy_map_y = 15
 		
 		containerWindowType = {
-			name = "holy_meeting_select_country"
-			position = { x = @holy_map_x y = @holy_map_y }
+			name = "holy_meeting_map_container"
+			position = { x = 0 y = 0 }
 			size = { width = 100%% height = 100%% }
 
-			buttonType = {
-				name = "country_select_AUS"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_AUS"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_AUS_text
+			iconType = {
+				name = "holy_meeting_map"
+				position = { x = @holy_map_x y = @holy_map_y }
+				spriteType = "GFX_holy_meeting_map"
+				#alwaystransparent = yes
+			}
+			
+			containerWindowType = {
+				name = "holy_meeting_select_country"
+				position = { x = @holy_map_x y = @holy_map_y }
+				size = { width = 100%% height = 100%% }
+
+				buttonType = {
+					name = "country_select_AUS"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_AUS"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_AUS_text
+				}
+
+				buttonType = {
+					name = "country_select_BAF"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_BAF"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_BAF_text
+				}
+
+				buttonType = {
+					name = "country_select_BXM"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_BXM"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_BXM_text
+				}
+
+				buttonType = {
+					name = "country_select_DAZ"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_DAZ"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_DAZ_text
+				}
+
+				buttonType = {
+					name = "country_select_DED"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_DED"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_DED_text
+				}
+
+				buttonType = {
+					name = "country_select_HNW"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_HNW"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_HNW_text
+				}
+
+				buttonType = {
+					name = "country_select_HSA"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_HSA"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_HSA_text
+				}
+
+				buttonType = {
+					name = "country_select_LAI"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_LAI"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_LAI_text
+				}
+
+				buttonType = {
+					name = "country_select_LUO"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_LUO"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_LUO_text
+				}
+
+				buttonType = {
+					name = "country_select_MLA"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_MLA"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_MLA_text
+				}
+
+				buttonType = {
+					name = "country_select_RUI"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_RUI"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_RUI_text
+				}
+
+				buttonType = {
+					name = "country_select_SKS"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_SKS"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_SKS_text
+				}
+
+				buttonType = {
+					name = "country_select_VNC"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_VNC"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_VNC_text
+				}
+
+				buttonType = {
+					name = "country_select_FTB"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_FTB"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_FTB_text
+				}
+
+				buttonType = {
+					name = "country_select_PLS"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_PLS"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_PLS_text
+				}
+
+				buttonType = {
+					name = "country_select_WFL"
+					quadTextureSprite = "GFX_holy_meeting_map_country_select_WFL"
+					position = { x = 0	y = 0 }
+					pdx_tooltip = country_select_WFL_text
+				}
 			}
 
-			buttonType = {
-				name = "country_select_BAF"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_BAF"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_BAF_text
-			}
-
-			buttonType = {
-				name = "country_select_BXM"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_BXM"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_BXM_text
-			}
-
-			buttonType = {
-				name = "country_select_DAZ"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_DAZ"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_DAZ_text
-			}
-
-			buttonType = {
-				name = "country_select_DED"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_DED"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_DED_text
-			}
-
-			buttonType = {
-				name = "country_select_HNW"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_HNW"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_HNW_text
-			}
-
-			buttonType = {
-				name = "country_select_HSA"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_HSA"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_HSA_text
-			}
-
-			buttonType = {
-				name = "country_select_LAI"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_LAI"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_LAI_text
-			}
-
-			buttonType = {
-				name = "country_select_LUO"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_LUO"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_LUO_text
-			}
-
-			buttonType = {
-				name = "country_select_MLA"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_MLA"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_MLA_text
-			}
-
-			buttonType = {
-				name = "country_select_RUI"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_RUI"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_RUI_text
-			}
-
-			buttonType = {
-				name = "country_select_SKS"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_SKS"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_SKS_text
-			}
-
-			buttonType = {
-				name = "country_select_VNC"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_VNC"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_VNC_text
-			}
-
-			buttonType = {
-				name = "country_select_FTB"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_FTB"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_FTB_text
-			}
-
-			buttonType = {
-				name = "country_select_PLS"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_PLS"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_PLS_text
-			}
-
-			buttonType = {
-				name = "country_select_WFL"
-				quadTextureSprite = "GFX_holy_meeting_map_country_select_WFL"
-				position = { x = 0	y = 0 }
-				pdx_tooltip = country_select_WFL_text
+			iconType = {
+				name = "holy_meeting_map_overlay"
+				position = { x = @holy_map_x y = @holy_map_y }
+				spriteType = "GFX_holy_meeting_map_overlay"
+				alwaystransparent = yes
 			}
 		}
+		
+		@holy_flag_line_1_x = 0
+		@holy_flag_line_2_x = 60
+		@holy_flag_line_3_x = 120
+		@holy_flag_line_4_x = 180
+		@holy_flag_row_1_y = 0
+		@holy_flag_row_2_y = 50
+		@holy_flag_row_3_y = 100
+		@holy_flag_row_4_y = 150
+		
+		containerWindowType = {
+			name = "holy_meeting_country_flag"
+			position = { x = 0 y = 315 }
+			size = { width = 100%% height = 100%% }
 
-		iconType = {
-			name = "holy_meeting_map_overlay"
-			position = { x = @holy_map_x y = @holy_map_y }
-			spriteType = "GFX_holy_meeting_map_overlay"
-			alwaystransparent = yes
+			containerWindowType = {
+				name = "holy_meeting_mini_country_flag"
+				position = { x = 130 y = 0 }
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_DED"
+					position = { x = @holy_flag_line_1_x y = @holy_flag_row_1_y }
+					
+					iconType = {
+						name = "country_flag_DED"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_DED_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_HSA"
+					position = { x = @holy_flag_line_2_x y = @holy_flag_row_1_y }
+					
+					iconType = {
+						name = "country_flag_HSA"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_HSA_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_DAZ"
+					position = { x = @holy_flag_line_3_x y = @holy_flag_row_1_y }
+					
+					iconType = {
+						name = "country_flag_DAZ"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_DAZ_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_LAI"
+					position = { x = @holy_flag_line_4_x y = @holy_flag_row_1_y }
+					
+					iconType = {
+						name = "country_flag_LAI"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_LAI_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_WFL"
+					position = { x = @holy_flag_line_1_x y = @holy_flag_row_2_y }
+					
+					iconType = {
+						name = "country_flag_WFL"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_WFL_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_SKS"
+					position = { x = @holy_flag_line_2_x y = @holy_flag_row_2_y }
+					
+					iconType = {
+						name = "country_flag_SKS"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_SKS_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_BAF"
+					position = { x = @holy_flag_line_3_x y = @holy_flag_row_2_y }
+					
+					iconType = {
+						name = "country_flag_BAF"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_BAF_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_BXM"
+					position = { x = @holy_flag_line_4_x y = @holy_flag_row_2_y }
+					
+					iconType = {
+						name = "country_flag_BXM"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_BXM_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_RUI"
+					position = { x = @holy_flag_line_1_x y = @holy_flag_row_3_y }
+					
+					iconType = {
+						name = "country_flag_RUI"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_RUI_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_MLA"
+					position = { x = @holy_flag_line_2_x y = @holy_flag_row_3_y }
+					
+					iconType = {
+						name = "country_flag_MLA"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_MLA_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_VNC"
+					position = { x = @holy_flag_line_3_x y = @holy_flag_row_3_y }
+					
+					iconType = {
+						name = "country_flag_VNC"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_VNC_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_FTB"
+					position = { x = @holy_flag_line_4_x y = @holy_flag_row_3_y }
+					
+					iconType = {
+						name = "country_flag_FTB"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_FTB_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_LUO"
+					position = { x = @holy_flag_line_2_x y = @holy_flag_row_4_y }
+					
+					iconType = {
+						name = "country_flag_LUO"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_LUO_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_HNW"
+					position = { x = @holy_flag_line_3_x y = @holy_flag_row_4_y }
+					
+					iconType = {
+						name = "country_flag_HNW"
+						position = { x = 5 y = 5 }
+						spriteType = "GFX_flag_small2"
+					}
+					
+					iconType = {
+						name = "country_flag_HNW_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_diplo_countrylist_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+			}
+			
+			containerWindowType = {
+				name = "holy_meeting_large_country_flag"
+				position = { x = 0 y = 130 }
+				
+				containerWindowType = {
+					name = "holy_meeting_large_country_flag_PLS"
+					position = { x = 20 y = 0 }
+					
+					iconType = {
+						name = "country_flag_PLS"
+						position = { x = 5 y = 3 }
+						spriteType = "GFX_player_flag"
+					}
+					
+					iconType = {
+						name = "country_flag_PLS_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_large_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+				
+				containerWindowType = {
+					name = "holy_meeting_mini_country_flag_AUS"
+					position = { x = 382 y = 0 }
+					
+					iconType = {
+						name = "country_flag_AUS"
+						position = { x = 5 y = 3 }
+						spriteType = "GFX_player_flag"
+					}
+					
+					iconType = {
+						name = "country_flag_AUS_frame"
+						position = { x = 0 y = 0 }
+						spriteType = "GFX_large_flag_frame"
+						alwaystransparent = yes
+					}
+				}
+			
+				containerWindowType = {
+					name = "holy_meeting_progress_container"
+					position = { x = 0 y = 50 }
+					
+					iconType = {
+						name = "progress_bar"
+						quadTextureSprite = "GFX_holy_meeting_progress_bar"
+						position = { x = 24 y = 28 }
+						pdx_tooltip = HRR_will_independent_country_flag
+					}
+					
+					iconType = {
+						name = "progress_frame"
+						spriteType = "GFX_holy_meeting_bar_frame"
+						position = { x = 20 y = 25 }
+					}
+				}
+			}
 		}
 	}
 }
