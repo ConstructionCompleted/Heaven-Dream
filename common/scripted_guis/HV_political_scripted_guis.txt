@@ -21,9 +21,23 @@ scripted_gui = {
 	#	visible = {
 	#		always = yes
 	#		#triggered by any effect entries u prefer
-	#	}	
+	#	}
 	#	
 	#}
+	
+	party_union_popularity_view_container_gui = { 
+		window_name = party_union_popularity_view_container	
+		context_type = player_context
+
+		parent_window_token = politics_tab
+		visible = {
+			always = yes	
+		}	
+
+		properties = {
+			party_union_icon = { image = GFX_ideology_[?ROOT.current_party_ideology_group.GetTokenKey]_small }
+		}
+	}
 
 	coalition_indicator = {
 		context_type = player_context

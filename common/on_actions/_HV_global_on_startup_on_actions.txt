@@ -6,10 +6,24 @@ on_actions = {
 				HV_init_party_entry = yes
 				HV_lighten_ruling_party = yes
 			}
-			UKM = {
+			every_possible_country = {
+				limit = {
+					NOT = {
+						tag = PLS
+						tag = FRA
+						tag = UKM
+						tag = AUS
+						has_country_flag = ROOT_has_country_leader_role_flag
+					}
+				}
 				HV_init_party_leader = yes
+			}
+			UKM = {
 				HV_global_init_countries_ruling_coalition = yes
 			} # This is global setting, only need a country scope to trigger its effect, which tag is not important.
+			every_possible_country = {
+				HV_calc_ruling_coalition_popularity = yes
+			}
 			### initiate faction icon ###
 			every_possible_country = {
 				if = {

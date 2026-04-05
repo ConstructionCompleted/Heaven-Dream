@@ -1,0 +1,64 @@
+defined_text = {
+	name = GETRulingCoalitionRulingParty
+	text = {
+		trigger = { HV_is_totalism_government = yes }
+		localization_key = totalism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_socialism_government = yes }
+		localization_key = socialism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_progressivism_government = yes }
+		localization_key = progressivism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_liberalism_government = yes }
+		localization_key = liberalism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_conservatism_government = yes }
+		localization_key = conservatism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_authoritarianism_government = yes }
+		localization_key = authoritarianism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_paternalism_government = yes }
+		localization_key = paternalism_name_with_icon_tt
+	}
+	text = {
+		trigger = { HV_is_suprematism_government = yes }
+		localization_key = suprematism_name_with_icon_tt
+	}
+	text = { localization_key = generic_null }
+}
+
+defined_text = {
+	name = GETRulingCoalitionOtherPartyNum
+	text = {
+		trigger = {
+			check_variable = { ROOT_ruling_coalition_other_party_num > 0 }
+		}
+		localization_key = ruling_coalition_other_party_0
+	}
+	text = {
+		localization_key = generic_null
+	}
+}
+
+defined_text = {
+	name = GETRulingCoalitionOtherParty
+	text = {
+		trigger = {
+			meta_trigger = {
+				text = {
+					set_temp_variable = { ROOT_ruling_coalition_other_party_num_temp = [TEMP] }
+				}
+				TEMP = "[?ROOT_ruling_coalition_other_party_num]"
+			}
+		}
+		localization_key = "ruling_coalition_other_party_[?ROOT_ruling_coalition_other_party_num_temp]"
+	}
+}

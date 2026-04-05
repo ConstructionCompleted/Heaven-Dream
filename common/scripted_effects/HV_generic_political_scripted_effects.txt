@@ -52,6 +52,7 @@ HV_init_party_entry = {
 		
 		add_to_array = { coalitions_array = 1 }
 	}
+	HV_calc_ruling_coalition_popularity = yes
 }
 
 HV_reset_ruling_party = {
@@ -65,6 +66,7 @@ HV_reset_ruling_party = {
 			set_variable = { coalitions_array^i = 1 }
 		}
 	}
+	HV_calc_ruling_coalition_popularity = yes
 }
 
 HV_lighten_ruling_party = {
@@ -81,38 +83,47 @@ HV_lighten_ruling_party = {
 	if = {
 		limit = { HV_is_totalism_government = yes }
 		set_variable = { coalitions_array^0 = 3 }
+		set_variable = { HV_ruling_party_value = 0 }
 	}
 	else_if = {
 		limit = { HV_is_socialism_government = yes }
 		set_variable = { coalitions_array^1 = 3 }
+		set_variable = { HV_ruling_party_value = 1 }
 	}
 	else_if = {
 		limit = { HV_is_progressivism_government = yes }
 		set_variable = { coalitions_array^2 = 3 }
+		set_variable = { HV_ruling_party_value = 2 }
 	}
 	else_if = {
 		limit = { HV_is_liberalism_government = yes }
 		set_variable = { coalitions_array^3 = 3 }
+		set_variable = { HV_ruling_party_value = 3 }
 	}
 	else_if = {
 		limit = { HV_is_conservatism_government = yes }
 		set_variable = { coalitions_array^4 = 3 }
+		set_variable = { HV_ruling_party_value = 4 }
 	}
 	else_if = {
 		limit = { HV_is_authoritarianism_government = yes }
 		set_variable = { coalitions_array^5 = 3 }
+		set_variable = { HV_ruling_party_value = 5 }
 	}
 	else_if = {
 		limit = { HV_is_paternalism_government = yes }
 		set_variable = { coalitions_array^6 = 3 }
+		set_variable = { HV_ruling_party_value = 6 }
 	}
 	else_if = {
 		limit = { HV_is_suprematism_government = yes }
 		set_variable = { coalitions_array^7 = 3 }
+		set_variable = { HV_ruling_party_value = 7 }
 	}
 	else_if = {
 		limit = { HV_is_mysticism_government = yes }
 		set_variable = { coalitions_array^8 = 3 }
+		set_variable = { HV_ruling_party_value = 8 }
 	}
 }
 
@@ -127,6 +138,7 @@ HV_totalism_party_join_ruling_coalition = {
 			PARTY = totalism
 		}
 		set_variable = { coalitions_array^0 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -141,6 +153,7 @@ HV_socialism_party_join_ruling_coalition = {
 			PARTY = socialism
 		}
 		set_variable = { coalitions_array^1 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -155,6 +168,7 @@ HV_progressivism_party_join_ruling_coalition = {
 			PARTY = progressivism
 		}
 		set_variable = { coalitions_array^2 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -169,6 +183,7 @@ HV_liberalism_party_join_ruling_coalition = {
 			PARTY = liberalism
 		}
 		set_variable = { coalitions_array^3 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -183,6 +198,7 @@ HV_conservatism_party_join_ruling_coalition = {
 			PARTY = conservatism
 		}
 		set_variable = { coalitions_array^4 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -197,6 +213,7 @@ HV_authoritarianism_party_join_ruling_coalition = {
 			PARTY = authoritarianism
 		}
 		set_variable = { coalitions_array^5 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -211,6 +228,7 @@ HV_paternalism_party_join_ruling_coalition = {
 			PARTY = paternalism
 		}
 		set_variable = { coalitions_array^6 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -225,6 +243,7 @@ HV_suprematism_party_join_ruling_coalition = {
 			PARTY = suprematism
 		}
 		set_variable = { coalitions_array^7 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
@@ -239,46 +258,171 @@ HV_mysticism_party_join_ruling_coalition = {
 			PARTY = mysticism
 		}
 		set_variable = { coalitions_array^8 = 2 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_totalism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_totalism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = totalism
+		}
+		set_variable = { coalitions_array^0 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_socialism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_socialism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = socialism
+		}
+		set_variable = { coalitions_array^1 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_progressivism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_progressivism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = progressivism
+		}
+		set_variable = { coalitions_array^2 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_liberalism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_liberalism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = liberalism
+		}
+		set_variable = { coalitions_array^3 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_conservatism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_conservatism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = conservatism
+		}
+		set_variable = { coalitions_array^4 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_authoritarianism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_authoritarianism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = authoritarianism
+		}
+		set_variable = { coalitions_array^5 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_paternalism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_paternalism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = paternalism
+		}
+		set_variable = { coalitions_array^6 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_suprematism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_suprematism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = suprematism
+		}
+		set_variable = { coalitions_array^7 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
+	}
+}
+
+HV_mysticism_party_exit_ruling_coalition = {
+	if = {
+		limit = { HV_is_mysticism_government = yes }
+		custom_effect_tooltip = HV_warning_coalition_is_ruling_party_tt
+	}
+	else = {
+		custom_effect_tooltip = {
+			localization_key = HV_party_exit_ruling_coalition_tt
+			PARTY = mysticism
+		}
+		set_variable = { coalitions_array^8 = 1 }
+		HV_calc_ruling_coalition_popularity = yes
 	}
 }
 
 HV_init_party_leader = {
-	every_possible_country = {
-		limit = {
-			NOT = {
-				tag = PLS
-				tag = FRA
-				tag = UKM
-				tag = AUS
-				has_country_flag = ROOT_has_country_leader_role_flag
-			}
-		}
-		for_each_loop = {
-			array = global.ideology_groups
-			value = v
-			
-			if = {
-				limit = {
-					meta_trigger = {
-						text = {
-							NOT = {
-								has_country_flag = ROOT_has_[IDEOLOGY_GROUP]_leader_but_not_role_flag
-							}
-						}
-						IDEOLOGY_GROUP = "[?v.GetTokenKey]"
-					}
-				}
-				meta_effect = {
+	for_each_loop = {
+		array = global.ideology_groups
+		value = v
+		
+		if = {
+			limit = {
+				meta_trigger = {
 					text = {
-						create_country_leader = {
-							name = "Placeholder"
-							picture = GFX_Portrait_PLS_Heinrich_II
-							expire = "1965.1.1"
-							ideology = [IDEOLOGY_GROUP]_subtype
+						NOT = {
+							has_country_flag = ROOT_has_[IDEOLOGY_GROUP]_leader_but_not_role_flag
 						}
 					}
 					IDEOLOGY_GROUP = "[?v.GetTokenKey]"
 				}
+			}
+			meta_effect = {
+				text = {
+					create_country_leader = {
+						name = "Placeholder"
+						picture = GFX_Portrait_PLS_Heinrich_II
+						expire = "1965.1.1"
+						ideology = [IDEOLOGY_GROUP]_subtype
+					}
+				}
+				IDEOLOGY_GROUP = "[?v.GetTokenKey]"
 			}
 		}
 	}
@@ -310,6 +454,125 @@ HV_global_init_countries_ruling_coalition = {
 	FRA = {
 		#conservatism government at start.
 		HV_liberalism_party_join_ruling_coalition = yes
+	}
+}
+
+HV_calc_ruling_coalition_popularity = {
+	set_variable = { ROOT_ruling_coalition_popularity_value = 0 }
+	clear_array = ROOT_party_popularity_array
+	set_variable = { ROOT_ruling_coalition_other_party_num = 0 }
+	clear_array = ROOT_ruling_coalition_other_party_group_array
+	
+	add_to_variable = { ROOT_ruling_coalition_popularity_value = party_popularity@ruling_party }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@totalism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@socialism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@progressivism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@liberalism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@conservatism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@authoritarianism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@paternalism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@suprematism }
+	add_to_array = { ROOT_party_popularity_array = party_popularity@mysticism }
+	for_each_loop = {
+		array = ROOT_party_popularity_array
+		value = v
+		index = i
+		
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						i = HV_ruling_party_value
+					}
+				}
+			}
+			divide_variable = { ROOT_party_popularity_array^i = 2 }
+		}
+	}
+	for_each_loop = {
+		array = ROOT_party_popularity_array
+		value = v
+		index = i
+		
+		if = {
+			limit = {
+				check_variable = {
+					coalitions_array^i = 2 
+				}
+			}
+			add_to_variable = { ROOT_ruling_coalition_popularity_value = ROOT_party_popularity_array^i }
+			add_to_variable = { ROOT_ruling_coalition_other_party_num = 1 }
+			if = {
+				limit = { check_variable = { i = 0 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:totalism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 1 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:socialism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 2 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:progressivism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 3 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:liberalism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 4 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:conservatism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 5 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:authoritarianism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 6 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:paternalism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 7 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:suprematism_name_with_icon_tt }
+			}
+			else_if = {
+				limit = { check_variable = { i = 8 } }
+				add_to_array = { ROOT_ruling_coalition_other_party_group_array = token:mysticism_name_with_icon_tt }
+			}
+		}
+	}
+	multiply_variable = { ROOT_ruling_coalition_popularity_value = 100 }
+	round_variable = ROOT_ruling_coalition_popularity_value
+	divide_variable = { ROOT_ruling_coalition_popularity_value = 100 }
+	if = {
+		limit = {
+			is_in_array = { coalitions_array = 2 }
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = HV_ruling_coalition_popularity_y_dynamic_modifier
+					}
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = HV_ruling_coalition_popularity_y_dynamic_modifier
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = HV_ruling_coalition_popularity_n_dynamic_modifier
+					}
+				}
+			}
+			add_dynamic_modifier = {
+				modifier = HV_ruling_coalition_popularity_n_dynamic_modifier
+			}
+		}
 	}
 }
 
