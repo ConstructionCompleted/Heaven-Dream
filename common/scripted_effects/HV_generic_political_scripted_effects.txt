@@ -1,9 +1,8 @@
 hv_debug = {
-	set_power_balance = {
-		id = _test_balance
-		left_side = default_left_side
-		right_side = default_right_side
-	}
+set_autonomy = {
+	target = AUO
+	autonomy_state = autonomy_autonomous_region
+}
 }
 
 HV_set_ruling_party_totalism = {
@@ -549,6 +548,16 @@ HV_calc_ruling_coalition_popularity = {
 		}
 		if = {
 			limit = {
+				has_dynamic_modifier = {
+					modifier = HV_ruling_coalition_popularity_n_dynamic_modifier
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = HV_ruling_coalition_popularity_n_dynamic_modifier
+			}
+		}
+		if = {
+			limit = {
 				NOT = {
 					has_dynamic_modifier = {
 						modifier = HV_ruling_coalition_popularity_y_dynamic_modifier
@@ -561,6 +570,16 @@ HV_calc_ruling_coalition_popularity = {
 		}
 	}
 	else = {
+		if = {
+			limit = {
+				has_dynamic_modifier = {
+					modifier = HV_ruling_coalition_popularity_y_dynamic_modifier
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = HV_ruling_coalition_popularity_y_dynamic_modifier
+			}
+		}
 		if = {
 			limit = {
 				NOT = {

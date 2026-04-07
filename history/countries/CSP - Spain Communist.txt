@@ -1,11 +1,11 @@
-﻿capital = 41
+﻿capital = 167
 
 ########################################
 ######### - Section 01: Base - #########
 ########################################
 set_research_slots = 3
-set_stability = 0.5
-set_war_support = 0.5
+set_stability = 0.4
+set_war_support = 0.9
 set_convoys = 150
 
 #########################################
@@ -53,6 +53,8 @@ if = {
 		}
 	}
 }
+set_oob = CSP_1936
+load_oob = CAT_1936
 ### - Warship(MTG) - ###
 if = {
 	limit = { HV_has_dlc_mtg = yes }
@@ -72,7 +74,6 @@ if = {
 		basic_depth_charges = 1
 		mtg_transport = 1
 	}
-	set_naval_oob = SPR_1936_naval_mtg
 	### - Warship(non-MTG) - ###
 	else = {
 		set_technology = {
@@ -85,7 +86,6 @@ if = {
 			early_battleship = 1
 			transport = 1
 		}
-		set_naval_oob = SPR_1936_naval_legacy
 	}
 }
 ### - Plane(BBA) - ###
@@ -96,7 +96,6 @@ if = {
 		aa_lmg = 1
 		engines_1 = 1
 	}
-	set_air_oob = SPR_1936_air_bba
 	### - Plane(non-BBA) - ###
 	else = {
 		set_technology = {
@@ -104,61 +103,54 @@ if = {
 			early_bomber = 1
 			naval_bomber1 = 1
 		}
-		set_air_oob = SPR_1936_air_legacy
 	}
 }
+
 #########################################
-######## - Section 03: Politics - #######
+#### - Section 03: Foreign Affairs - ####
 #########################################
-set_politics = {
-	ruling_party = conservatism
-	last_election = "1933.2.16"
-	election_frequency = 36
-	elections_allowed = yes
-}
-set_popularities = {
-	totalism = 0
-	socialism = 0
-	progressivism = 3
-	liberalism = 12
-	conservatism = 34
-	authoritarianism = 16
-	paternalism = 15
-	suprematism = 13
-	mysticism = 7
-}
+### - Subject - ###
+### - Faction - ###
 
 #########################################
 ## - Section 04: Ideas and Characters - #
 #########################################
 ### - Idea - ###
 add_ideas = {
-
-	hog_SPR_Manuel_Portela_Valladares
+	CSP_sunhui_gongye
+	CSP_hongjun_wuzhuang
+	CSP_canpo_xingzheng
+	CSP_geming_dangzhongyang
+	
+	
 }
 ### - Character - ###
-recruit_character = SPR_Alfonso_de_Borbon
-recruit_character = SPR_Carlos_Pio_de_Habsburgo_Lorena
-recruit_character = SPR_Nova_Seacrest
-recruit_character = SPR_Manuel_Goded_Llopis
+recruit_character = SPR_Francisco_Largo_Caballero
+recruit_character = SPR_Jose_Buenaventura_Durruti_Dumange
 
 #########################################
-#### - Section 05: Foreign Affairs - ####
+######## - Section 05: Politics - #######
 #########################################
-### - Subject - ###
-set_autonomy = {
-	target = GLC
-	autonomy_state = autonomy_autonomous_region
+set_politics = {
+	ruling_party = socialism
+	last_election = "1933.2.16"
+	election_frequency = 36
+	elections_allowed = no
 }
-set_autonomy = {
-	target = AUO
-	autonomy_state = autonomy_autonomous_region
+set_popularities = {
+	totalism = 44
+	socialism = 45
+	progressivism = 11
+	liberalism = 0
+	conservatism = 0
+	authoritarianism = 0
+	paternalism = 0
+	suprematism = 0
+	mysticism = 0
 }
-set_autonomy = {
-	target = BAQ
-	autonomy_state = autonomy_autonomous_region
-}
-### - Faction - ###
+
+HV_totalism_party_join_ruling_coalition = yes
+HV_progressivism_party_join_ruling_coalition = yes
 
 #########################################
 ####### - Section 06: Equipments - ######
