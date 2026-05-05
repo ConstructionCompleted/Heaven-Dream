@@ -9,6 +9,7 @@ create_country_leader = {
 	traits = {
 	}
 }
+
 set_oob = XYL_1936
 set_naval_oob = XYL_naval_1936
 set_air_oob = XYL_1936_air_legacy
@@ -43,6 +44,7 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 }
+
 if = {
 	limit = {
 		not = {
@@ -64,6 +66,7 @@ if = {
 		transport = 1
 	}
 }
+
 if = {
 	limit = {
 		has_dlc = "Man the Guns"
@@ -95,38 +98,44 @@ if = {
 		basic_cruiser_armor_scheme = 1
 	}
 }
+
 set_autonomy = {
 	target = WAL
 	autonomous_state = autonomy_integrated_puppet
 }
+
 set_autonomy = {
 	target = MOL
 	autonomous_state = autonomy_integrated_puppet
 }
-MOL = {set_politics = {
-	ruling_party = paternalism
-	last_election = "1935.1.1"
-	election_frequency = 48
-	elections_allowed = no
+
+MOL = {
+	set_politics = {
+		ruling_party = paternalism
+		last_election = "1935.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		totalism = 30
+		socialism = 10
+		progressivism = 0
+		liberalism = 0
+		conservatism = 0
+		authoritarianism = 0
+		paternalism = 20
+		suprematism = 40
+		mysticism = 0
+	}
 }
-set_popularities = {
-	totalism = 30
-	socialism = 10
-	progressivism = 0
-	liberalism = 0
-	conservatism = 0
-	authoritarianism = 0
-	paternalism = 20
-	suprematism = 40
-	mysticism = 0
-}
-}
+
 set_politics = {
 	ruling_party = paternalism
 	last_election = "1932.10.30"
 	election_frequency = 72
 	elections_allowed = no
 }
+
 set_popularities = {
 	totalism = 0
 	socialism = 15
@@ -138,6 +147,7 @@ set_popularities = {
 	suprematism = 0
 	mysticism = 0
 }
+
 XYL = {
 	country_event = {
 		id = "holy_xiongyali.3"
@@ -152,6 +162,17 @@ XYL = {
 		days = 25
 	}
 }
-add_ideas = { XYL_minzu_chongtu XYL_gongye_luohou XYL_chauntong_nongye XYL_jiushi_jundui XYL_zhengzhi_kunjing limited_conscription  }
+
+add_ideas = {
+	limited_conscription
+
+	XYL_ethnic_conflict
+	XYL_backward_industry
+	XYL_agricultural_tradition
+	XYL_old_style_army
+	XYL_political_dilemma
+    XYL_special_relationship
+}
+
 set_country_flag = ROOT_has_paternalism_leader_but_not_role_flag
 set_country_flag = ROOT_has_socialism_leader_but_not_role_flag
