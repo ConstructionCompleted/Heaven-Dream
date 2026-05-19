@@ -1819,7 +1819,7 @@ focus_tree = {
 	focus = {
 		id = XYL_minzu_wenti
 		icon = GFX_focus_generic_provoke_border_clashes
-		x = 40
+		x = 35
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -2439,7 +2439,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = XYL_jinyi_chongzheng_rongguang
 		}
-		x = -9
+		x = -4
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -2655,7 +2655,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = XYL_jinyi_tuanjie_ruyi
 		}
-		x = 9
+		x = 4
 		y = 1
 		cost = 5
 		ai_will_do = {
@@ -2671,6 +2671,14 @@ focus_tree = {
 				add_idea = XYL_rongguang_fushen
 				remove_idea = XYL_political_dilemma
 			}
+			add_popularity = {
+				ideology = reconcilism
+				popularity = 0.2
+			}
+			set_politics = {
+				ruling_party = reconcilism
+			}
+			leave_faction = yes
 		}
 	}
 	#追忆往昔
@@ -2893,16 +2901,17 @@ focus_tree = {
 	focus = {
 		id = XYL_cike_jianyichuqiao
 		icon = GFX_focus_generic_air_defense
-		prerequisite = {
-			focus = XYL_jinyi_chongzheng_rongguang
-			focus = XYL_jinyi_tuanjie_ruyi
-		}
-		relative_position_id = XYL_big_hungry_wangguo
-		x = 0
-		y = 2
+		x = 35
+		y = 11
 		cost = 5
 		ai_will_do = {
 			factor = 100
+		}
+		available = {
+			OR = {
+				has_completed_focus = XYL_jinyi_chongzheng_rongguang
+				has_completed_focus = XYL_jinyi_tuanjie_ruyi
+			}
 		}
 		completion_reward = {
 			add_war_support = 0.15
@@ -3343,9 +3352,6 @@ focus_tree = {
 		prerequisite = {
 			focus = XYL_zhongjie_nanfang
 		}
-		prerequisite = {
-			focus = XYL_jinyi_chongzheng_rongguang
-		}
 		relative_position_id = XYL_zhongjie_nanfang
 		x = 4
 		y = 1
@@ -3357,6 +3363,7 @@ focus_tree = {
 			YUM = {
 				exists = no
 			}
+			has_completed_focus = XYL_jinyi_chongzheng_rongguang
 		}
 		completion_reward = {
 			add_war_support = 0.2
